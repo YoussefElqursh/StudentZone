@@ -80,6 +80,10 @@
         "source": "com.studentzone.app-main-31:/layout/activity_welcome.xml"
     },
     {
+        "merged": "com.studentzone.app-merged_res-29:/menu_menu_component.xml.flat",
+        "source": "com.studentzone.app-main-31:/menu/menu_component.xml"
+    },
+    {
         "merged": "com.studentzone.app-merged_res-29:/mipmap-xhdpi_ic_launcher.webp.flat",
         "source": "com.studentzone.app-main-31:/mipmap-xhdpi/ic_launcher.webp"
     },
