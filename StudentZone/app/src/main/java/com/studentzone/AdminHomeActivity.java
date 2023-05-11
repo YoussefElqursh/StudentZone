@@ -7,18 +7,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class SystemAdminstratorActivity extends AppCompatActivity {
+public class AdminHomeActivity extends AppCompatActivity {
     CardView add_department,add_subject,absent_files,add_doctor_account,add_student_account;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_system_adminstrator);
+        setContentView(R.layout.activity_admin_home);
 
         add_department = findViewById(R.id.activity_system_adminstrator_cv_add_department);
         add_department.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SystemAdminstratorActivity.this,Add_DepartmentActivity.class));
+                startActivity(new Intent(AdminHomeActivity.this, AdminDepartmentsActivity.class));
             }
         });
 
@@ -26,7 +26,7 @@ public class SystemAdminstratorActivity extends AppCompatActivity {
         add_subject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SystemAdminstratorActivity.this,Add_SubjectActivity.class));
+                startActivity(new Intent(AdminHomeActivity.this, AdminSubjectsActivity.class));
             }
         });
 
@@ -34,7 +34,7 @@ public class SystemAdminstratorActivity extends AppCompatActivity {
         absent_files.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SystemAdminstratorActivity.this,LoginActivity.class));
+                startActivity(new Intent(AdminHomeActivity.this,LoginActivity.class));
             }
         });
 
@@ -42,7 +42,7 @@ public class SystemAdminstratorActivity extends AppCompatActivity {
         add_doctor_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SystemAdminstratorActivity.this,LoginActivity.class));
+                startActivity(new Intent(AdminHomeActivity.this,LoginActivity.class));
             }
         });
 
@@ -50,7 +50,7 @@ public class SystemAdminstratorActivity extends AppCompatActivity {
         add_student_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SystemAdminstratorActivity.this,LoginActivity.class));
+                startActivity(new Intent(AdminHomeActivity.this,LoginActivity.class));
             }
         });
     }
