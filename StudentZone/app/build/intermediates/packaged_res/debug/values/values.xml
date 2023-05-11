@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="blue">#2196F3</color>
+    <color name="lightblue">#03A9F4</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="absent_files">Absent Files</string>
+    <string name="add_department">Add Department</string>
+    <string name="add_subject">Add Subject</string>
+    <string name="admin">Admin</string>
+    <string name="app_name">StudentZone</string>
+    <string name="doctor">Doctor</string>
+    <string name="doctor_s_accounts">Doctor\'s Accounts</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="login">Login</string>
+    <string name="login_logo">Login logo</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="student">Student</string>
+    <string name="student_s_accounts">Student\'s Accounts</string>
+    <string name="user_name">User Name</string>
+    <string name="welcome">Welcome</string>
+    <string name="welcome_page_logo">welcome page logo</string>
+    <style name="Theme.StudentZone" parent="Theme.Design.Light.NoActionBar">
+        
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryVariant">@color/lightblue</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/blue</item>
+        <item name="colorSecondaryVariant">@color/lightblue</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        
+    </style>
+</resources>

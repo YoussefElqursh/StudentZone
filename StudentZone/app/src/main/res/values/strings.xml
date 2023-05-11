@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">StudentZone</string>
+    <string name="welcome">Welcome</string>
+    <string name="welcome_page_logo">welcome page logo</string>
+    <string name="login_logo">Login logo</string>
+    <string name="admin">Admin</string>
+    <string name="doctor">Doctor</string>
+    <string name="student">Student</string>
+    <string name="password">Password</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="user_name">User Name</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="login">Login</string>
+    <string name="add_department">Add Department</string>
+    <string name="add_subject">Add Subject</string>
+    <string name="absent_files">Absent Files</string>
+    <string name="doctor_s_accounts">Doctor\'s Accounts</string>
+    <string name="student_s_accounts">Student\'s Accounts</string>
 </resources>
