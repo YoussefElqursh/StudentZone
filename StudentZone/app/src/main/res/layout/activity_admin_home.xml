@@ -5,7 +5,7 @@
     android:id="@+id/activity_system_adminstrator_rl_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SystemAdminstratorActivity">
+    tools:context=".AdminHomeActivity">
 
     <View
         android:id="@+id/top_view"
@@ -46,9 +46,9 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/facebook_circle"
-                    app:srcCompat="@drawable/facebook_circle"
-                    tools:srcCompat="@drawable/facebook_circle"
+                    android:src="@drawable/ic_facebook"
+                    app:srcCompat="@drawable/ic_facebook"
+                    tools:srcCompat="@drawable/ic_facebook"
                     android:contentDescription="TODO" />
 
                 <TextView
@@ -88,9 +88,9 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/facebook_circle"
-                    app:srcCompat="@drawable/facebook_circle"
-                    tools:srcCompat="@drawable/facebook_circle" />
+                    android:src="@drawable/ic_facebook"
+                    app:srcCompat="@drawable/ic_facebook"
+                    tools:srcCompat="@drawable/ic_facebook" />
 
                 <TextView
                     android:id="@+id/activity_system_adminstrator_tv_add_subject"
@@ -130,9 +130,9 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/facebook_circle"
-                    app:srcCompat="@drawable/facebook_circle"
-                    tools:srcCompat="@drawable/facebook_circle" />
+                    android:src="@drawable/ic_facebook"
+                    app:srcCompat="@drawable/ic_facebook"
+                    tools:srcCompat="@drawable/ic_facebook" />
 
                 <TextView
                     android:id="@+id/activity_system_adminstrator_tv_absent_files"
@@ -176,9 +176,9 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/facebook_circle"
-                    app:srcCompat="@drawable/facebook_circle"
-                    tools:srcCompat="@drawable/facebook_circle" />
+                    android:src="@drawable/ic_facebook"
+                    app:srcCompat="@drawable/ic_facebook"
+                    tools:srcCompat="@drawable/ic_facebook" />
 
                 <TextView
                     android:id="@+id/activity_system_adminstrator_tv_add_doctor_account"
@@ -222,9 +222,9 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/facebook_circle"
-                    app:srcCompat="@drawable/facebook_circle"
-                    tools:srcCompat="@drawable/facebook_circle" />
+                    android:src="@drawable/ic_facebook"
+                    app:srcCompat="@drawable/ic_facebook"
+                    tools:srcCompat="@drawable/ic_facebook" />
 
                 <TextView
                     android:id="@+id/activity_system_adminstrator_tv_add_student_account"

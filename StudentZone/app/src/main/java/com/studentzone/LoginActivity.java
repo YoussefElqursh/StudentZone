@@ -13,6 +13,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         button = findViewById(R.id.activity_login_btn_login);
-        button.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this,SystemAdminstratorActivity.class)));
+        button.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this,AdminHomeActivity.class)));
     }
 }

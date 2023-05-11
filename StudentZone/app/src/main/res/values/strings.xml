@@ -16,4 +16,6 @@
     <string name="absent_files">Absent Files</string>
     <string name="doctor_s_accounts">Doctor\'s Accounts</string>
     <string name="student_s_accounts">Student\'s Accounts</string>
+    <string name="search">Search</string>
+    <string name="back">Back</string>
 </resources>

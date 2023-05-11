@@ -9,6 +9,7 @@
     <string name="add_subject">Add Subject</string>
     <string name="admin">Admin</string>
     <string name="app_name">StudentZone</string>
+    <string name="back">Back</string>
     <string name="doctor">Doctor</string>
     <string name="doctor_s_accounts">Doctor\'s Accounts</string>
     <string name="forget_password">Forget Password</string>
@@ -16,6 +17,7 @@
     <string name="login_logo">Login logo</string>
     <string name="password">Password</string>
     <string name="remember_me">Remember Me</string>
+    <string name="search">Search</string>
     <string name="student">Student</string>
     <string name="student_s_accounts">Student\'s Accounts</string>
     <string name="user_name">User Name</string>

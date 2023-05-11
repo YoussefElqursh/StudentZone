@@ -13,21 +13,30 @@
         android:theme="@style/Theme.StudentZone"
         tools:targetApi="31">
         <activity
-            android:name=".Add_SubjectActivity"
+            android:name=".AdminStudentsAccountsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminDoctorsAccountsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminAbsenceFilesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminSubjectsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Add_DepartmentActivity"
+            android:name=".AdminDepartmentsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SystemAdminstratorActivity"
+            android:name=".AdminHomeActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
