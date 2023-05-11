@@ -1,10 +1,10 @@
-#Thu May 11 11:55:13 EET 2023
-base.0=D\:\\Work\\ThirdYear_CS\\Term 2\\Software Engineering-2\\Section\\Project\\GitHub\\StudentZone\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=D\:\\Work\\ThirdYear_CS\\Term 2\\Software Engineering-2\\Section\\Project\\GitHub\\StudentZone\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.2=D\:\\Work\\ThirdYear_CS\\Term 2\\Software Engineering-2\\Section\\Project\\GitHub\\StudentZone\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex
-path.0=classes.dex
-path.1=0/classes.dex
+#Thu May 11 18:35:25 EET 2023
+base.2=D\:\\FCI Study\\Level 3\\Term 2\\Software Engineering-2\\Section\\Project Repositry\\StudentZone\\StudentZone\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex
 path.2=12/classes.dex
-renamed.0=classes.dex
-renamed.1=classes2.dex
+base.1=D\:\\FCI Study\\Level 3\\Term 2\\Software Engineering-2\\Section\\Project Repositry\\StudentZone\\StudentZone\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+path.1=0/classes.dex
+base.0=D\:\\FCI Study\\Level 3\\Term 2\\Software Engineering-2\\Section\\Project Repositry\\StudentZone\\StudentZone\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 renamed.2=classes3.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+path.0=classes.dex

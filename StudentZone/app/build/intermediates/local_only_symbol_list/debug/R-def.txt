@@ -5,9 +5,9 @@ color blue
 color lightblue
 color white
 drawable _442648811661014280
-drawable _603847431548336153
 drawable bg_edittext
 drawable bg_view
+drawable blue_lock
 drawable facebook_circle
 drawable ic_launcher_background
 drawable ic_launcher_foreground
