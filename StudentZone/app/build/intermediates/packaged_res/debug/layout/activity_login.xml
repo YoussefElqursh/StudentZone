@@ -103,7 +103,7 @@
             android:layout_marginRight="50dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/bg_edittext"
-            android:drawableStart="@drawable/_603847431548336153"
+            android:drawableStart="@drawable/blue_lock"
             android:drawablePadding="20dp"
             android:ems="10"
             android:hint="@string/password"
