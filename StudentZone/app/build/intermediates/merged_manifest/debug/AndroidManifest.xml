@@ -28,21 +28,30 @@
         android:testOnly="true"
         android:theme="@style/Theme.StudentZone" >
         <activity
-            android:name="com.studentzone.Add_SubjectActivity"
+            android:name="com.studentzone.AdminStudentsAccountsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.studentzone.AdminDoctorsAccountsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.studentzone.AdminAbsenceFilesActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.studentzone.AdminSubjectsActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.studentzone.Add_DepartmentActivity"
+            android:name="com.studentzone.AdminDepartmentsActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.studentzone.SystemAdminstratorActivity"
+            android:name="com.studentzone.AdminHomeActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
