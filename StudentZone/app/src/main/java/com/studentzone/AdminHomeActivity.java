@@ -8,21 +8,21 @@ import android.os.Bundle;
 import android.view.View;
 
 public class AdminHomeActivity extends AppCompatActivity {
-    CardView add_department,add_subject,absent_files,add_doctor_account,add_student_account;
+    CardView departments,add_subject,absent_files,add_doctor_account,add_student_account;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_home);
 
-        add_department = findViewById(R.id.activity_system_adminstrator_cv_add_department);
-        add_department.setOnClickListener(new View.OnClickListener() {
+        departments = findViewById(R.id.activity_admin_home_cv_departments);
+        departments.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AdminHomeActivity.this, AdminDepartmentsActivity.class));
             }
         });
 
-        add_subject = findViewById(R.id.activity_system_adminstrator_cv_add_subject);
+        add_subject = findViewById(R.id.activity_admin_home_cv_subjects);
         add_subject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,27 +30,27 @@ public class AdminHomeActivity extends AppCompatActivity {
             }
         });
 
-        absent_files = findViewById(R.id.activity_system_adminstrator_cv_absent_files);
+        absent_files = findViewById(R.id.activity_admin_home_cv_doctors_accounts);
         absent_files.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AdminHomeActivity.this,LoginActivity.class));
+                startActivity(new Intent(AdminHomeActivity.this,AdminDoctorsAccountsActivity.class));
             }
         });
 
-        add_doctor_account = findViewById(R.id.activity_system_adminstrator_cv_add_doctor_account);
+        add_doctor_account = findViewById(R.id.activity_admin_home_cv_students_accounts);
         add_doctor_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AdminHomeActivity.this,LoginActivity.class));
+                startActivity(new Intent(AdminHomeActivity.this,AdminStudentsAccountsActivity.class));
             }
         });
 
-        add_student_account = findViewById(R.id.activity_system_adminstrator_cv_add_student_account);
+        add_student_account = findViewById(R.id.activity_admin_home_cv_absence_files);
         add_student_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AdminHomeActivity.this,LoginActivity.class));
+                startActivity(new Intent(AdminHomeActivity.this,AdminAbsenceFilesActivity.class));
             }
         });
     }

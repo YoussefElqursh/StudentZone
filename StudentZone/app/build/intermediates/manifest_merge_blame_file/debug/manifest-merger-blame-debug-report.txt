@@ -22,7 +22,7 @@
 15-->[androidx.core:core:1.9.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\36d2bebf921bf3e653b8992b98e79081\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
 16
 17    <application
-17-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:5:5-65:19
+17-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:5:5-69:19
 18        android:allowBackup="true"
 18-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:6:9-35
 19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -139,27 +139,34 @@
 78-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:29:17-33
 79        </activity>
 80
-81        <provider
-81-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\cb52533986600588c149468d62a185bb\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-82            android:name="androidx.startup.InitializationProvider"
-82-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\cb52533986600588c149468d62a185bb\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
-83            android:authorities="com.studentzone.androidx-startup"
-83-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\cb52533986600588c149468d62a185bb\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
-84            android:exported="false" >
-84-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\cb52533986600588c149468d62a185bb\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
-85            <meta-data
-85-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\cb52533986600588c149468d62a185bb\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-86                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-86-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\cb52533986600588c149468d62a185bb\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
-87                android:value="androidx.startup" />
-87-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\cb52533986600588c149468d62a185bb\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
-88            <meta-data
-88-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\1af2e57e16c187592bfddc013f59347b\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
-89                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-89-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\1af2e57e16c187592bfddc013f59347b\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
-90                android:value="androidx.startup" />
-90-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\1af2e57e16c187592bfddc013f59347b\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
-91        </provider>
-92    </application>
-93
-94</manifest>
+81        <meta-data
+81-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:66:9-68:57
+82            android:name="preloaded_fonts"
+82-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:67:13-43
+83            android:resource="@array/preloaded_fonts" />
+83-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:68:13-54
+84
+85        <provider
+85-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\cb52533986600588c149468d62a185bb\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+86            android:name="androidx.startup.InitializationProvider"
+86-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\cb52533986600588c149468d62a185bb\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+87            android:authorities="com.studentzone.androidx-startup"
+87-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\cb52533986600588c149468d62a185bb\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+88            android:exported="false" >
+88-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\cb52533986600588c149468d62a185bb\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+89            <meta-data
+89-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\cb52533986600588c149468d62a185bb\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+90                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+90-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\cb52533986600588c149468d62a185bb\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+91                android:value="androidx.startup" />
+91-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\cb52533986600588c149468d62a185bb\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+92            <meta-data
+92-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\1af2e57e16c187592bfddc013f59347b\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+93                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+93-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\1af2e57e16c187592bfddc013f59347b\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+94                android:value="androidx.startup" />
+94-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\1af2e57e16c187592bfddc013f59347b\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+95        </provider>
+96    </application>
+97
+98</manifest>

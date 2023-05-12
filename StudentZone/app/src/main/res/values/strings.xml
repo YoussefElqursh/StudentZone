@@ -11,11 +11,13 @@
     <string name="user_name">User Name</string>
     <string name="remember_me">Remember Me</string>
     <string name="login">Login</string>
-    <string name="add_department">Add Department</string>
-    <string name="add_subject">Add Subject</string>
-    <string name="absent_files">Absent Files</string>
-    <string name="doctor_s_accounts">Doctor\'s Accounts</string>
-    <string name="student_s_accounts">Student\'s Accounts</string>
+    <string name="departments">Departments</string>
+    <string name="subjects">Subjects</string>
+    <string name="absence_files">Absence Files</string>
+    <string name="doctors_accounts">Doctors Accounts</string>
+    <string name="students_accounts">Students Accounts</string>
     <string name="search">Search</string>
     <string name="back">Back</string>
+    <string name="scrolbar">Scrolbar</string>
+    <string name="btn_floating_action">btn_floating_action</string>
 </resources>

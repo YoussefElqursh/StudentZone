@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
     android:background="@color/blue"
+    android:elevation="50dp"
     android:orientation="vertical"
     tools:context=".WelcomeActivity">
 
@@ -24,23 +25,21 @@
         android:id="@+id/activity_welcome_ll_buttoncontainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
         android:gravity="center_horizontal"
-        >
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/activity_welcome_btn_welcome"
-            android:layout_width="250dp"
+            android:layout_width="178dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:gravity="center|center_horizontal|center_vertical"
-            android:background="@drawable/bg_edittext"
-            android:backgroundTint="@color/white"
-            android:text="@string/welcome"
-            android:textSize="18sp"
-            android:textColor="@color/blue"
             android:layout_marginTop="50dp"
-            />
+            android:background="@drawable/btn_welcom_style"
+            android:fontFamily="@font/carter_one"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:text="@string/welcome"
+            android:textColor="@color/blue"
+            android:textSize="24sp" />
     </LinearLayout>
 
 </LinearLayout>
