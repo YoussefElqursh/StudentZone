@@ -22,6 +22,7 @@
         android:id="@+id/activity_admin_subjects_ll_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/blue"
         android:orientation="vertical">
 
         <RelativeLayout

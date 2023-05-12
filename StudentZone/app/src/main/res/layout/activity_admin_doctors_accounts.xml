@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue"
     android:orientation="vertical"
     tools:context=".AdminAbsenceFilesActivity">
 
@@ -14,9 +15,9 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:menu="@menu/activity_admin_doctors_accounts_tbar_menu"
         app:title="Doctors Accounts"
-        app:titleTextColor="@color/white"
-        app:menu="@menu/activity_admin_doctors_accounts_tbar_menu" />
+        app:titleTextColor="@color/white" />
 
     <LinearLayout
         android:id="@+id/activity_admin_doctors_accounts_ll_main"
