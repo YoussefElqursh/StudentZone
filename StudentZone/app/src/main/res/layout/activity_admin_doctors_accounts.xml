@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue"
     android:orientation="vertical"
     tools:context=".AdminAbsenceFilesActivity">
 
@@ -14,8 +15,183 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:menu="@menu/activity_admin_doctors_accounts_tbar_menu"
         app:title="Doctors Accounts"
-        app:titleTextColor="@color/white"
-        app:menu="@menu/activity_admin_doctors_accounts_tbar_menu" />
+        app:titleTextColor="@color/white" />
 
+    <LinearLayout
+        android:id="@+id/activity_admin_doctors_accounts_ll_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/activity_admin_doctors_accounts_rl_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/cv_style"
+            android:elevation="50dp">
+
+            <Button
+                android:id="@+id/activity_admin_doctors_accounts_btn_add"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="280dp"
+                android:layout_marginTop="590dp"
+                android:background="@drawable/btn_plus_add_style"
+                android:contentDescription="@string/btn_floating_action"
+                android:drawableRight="@drawable/ic_plus"
+                android:fadeScrollbars="false"
+                android:paddingRight="15dp"
+                android:src="@drawable/ic_plus"
+                app:elevation="20dp"
+                app:fabSize="normal"
+                app:hoveredFocusedTranslationZ="20dp"
+                app:pressedTranslationZ="20dp" />
+
+            <ScrollView
+                android:id="@+id/activity_admin_doctors_accounts_scv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/cv_style"
+                android:contentDescription="@string/scrolbar">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/cv_style"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/activity_doctors_accounts_cv"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            app:cardBackgroundColor="@color/cardviews"
+                            app:cardCornerRadius="20dp">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:id="@+id/activity_admin_doctors_accounts_iv"
+                                    android:layout_width="60dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:gravity="center"
+                                    app:srcCompat="@drawable/ic_male_doctor">
+
+                                </ImageView>
+
+                                <TextView
+                                    android:id="@+id/activity_admin_doctors_accounts_tv_sub_name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="16dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_toRightOf="@id/activity_admin_doctors_accounts_iv"
+                                    android:fontFamily="@font/amaranth"
+                                    android:maxLines="1"
+                                    android:text="Mohmmed Malhat"
+                                    android:textColor="@color/white"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/activity_admin_doctors_accounts_tv_sub_code"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="42dp"
+                                    android:layout_toRightOf="@id/activity_admin_doctors_accounts_iv"
+                                    android:fontFamily="@font/amaranth"
+                                    android:text="asdfdfgb564894"
+                                    android:textColor="@color/white" />
+
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/activity_doctors_accounts_cv_f"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            app:cardBackgroundColor="@color/cardviews"
+                            app:cardCornerRadius="20dp">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:id="@+id/activity_admin_doctors_accounts_iv_f"
+                                    android:layout_width="60dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:gravity="center"
+                                    app:srcCompat="@drawable/ic_female_doctor">
+
+                                </ImageView>
+
+                                <TextView
+                                    android:id="@+id/activity_admin_doctors_accounts_tv_sub_name_f"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="16dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_toRightOf="@id/activity_admin_doctors_accounts_iv_f"
+                                    android:fontFamily="@font/amaranth"
+                                    android:maxLines="1"
+                                    android:text="Eman Mesalhy"
+                                    android:textColor="@color/white"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/activity_admin_doctors_accounts_tv_sub_code_f"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="42dp"
+                                    android:layout_toRightOf="@id/activity_admin_doctors_accounts_iv_f"
+                                    android:fontFamily="@font/amaranth"
+                                    android:text="1848956df4s"
+                                    android:textColor="@color/white" />
+
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </RelativeLayout>
+
+    </LinearLayout>
 </LinearLayout>

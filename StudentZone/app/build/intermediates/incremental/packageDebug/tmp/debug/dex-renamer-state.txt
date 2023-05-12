@@ -1,4 +1,4 @@
-#Thu May 11 23:58:34 EET 2023
+#Fri May 12 22:26:13 EET 2023
 base.2=D\:\\FCI Study\\Level 3\\Term 2\\Software Engineering-2\\Section\\Project Repositry\\StudentZone\\StudentZone\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex
 path.2=12/classes.dex
 base.1=D\:\\FCI Study\\Level 3\\Term 2\\Software Engineering-2\\Section\\Project Repositry\\StudentZone\\StudentZone\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex

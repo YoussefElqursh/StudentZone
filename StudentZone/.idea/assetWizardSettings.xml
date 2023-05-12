@@ -3,6 +3,11 @@
   <component name="WizardSettings">
     <option name="children">
       <map>
+        <entry key="imageWizard">
+          <value>
+            <PersistentState />
+          </value>
+        </entry>
         <entry key="vectorWizard">
           <value>
             <PersistentState>
@@ -14,8 +19,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="_9963374191582988857" />
-                            <entry key="sourceFile" value="D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Resources\SVG Icons\19963374191582988857.svg" />
+                            <entry key="outputName" value="_1416899661637669864" />
+                            <entry key="sourceFile" value="D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Resources\SVG Icons\11416899661637669864.svg" />
                           </map>
                         </option>
                       </PersistentState>

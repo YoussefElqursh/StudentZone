@@ -2,8 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_admin_absence_files._ll_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/blue"
     android:orientation="vertical"
     tools:context=".AdminAbsenceFilesActivity">
 
@@ -14,8 +16,108 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:title="Absent Files"
-        app:titleTextColor="@color/white"
-        app:menu="@menu/activity_admin_absence_files_tbar_menu" />
+        app:menu="@menu/activity_admin_absence_files_tbar_menu"
+        app:title="Absence Files"
+        app:titleTextColor="@color/white" />
+
+    <LinearLayout
+        android:id="@+id/activity_admin_absence_files_ll_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/activity_admin_absence_files_rl_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/cv_style"
+            android:backgroundTint="#FFFFFF"
+            android:elevation="50dp">
+
+            <ScrollView
+                android:id="@+id/activity_admin_absence_files_scv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/cv_style"
+                android:backgroundTint="#FFFFFF"
+                android:contentDescription="@string/scrolbar">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/cv_style"
+                    android:backgroundTint="#FFFFFF"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/activity_admin_absence_cv"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:elevation="20dp"
+                            app:cardBackgroundColor="@color/cardviews"
+                            app:cardCornerRadius="20dp">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+
+                                    android:id="@+id/activity_admin_absence_files_iv"
+                                    android:layout_width="60dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:gravity="center"
+                                    app:srcCompat="@drawable/ic_book">
+
+                                </ImageView>
+
+                                <TextView
+                                    android:id="@+id/activity_admin_absence_files_tv_sub_name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="16dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_toRightOf="@id/activity_admin_absence_files_iv"
+                                    android:fontFamily="@font/amaranth"
+                                    android:text="Computer Programming"
+                                    android:textColor="@color/white"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/activity_admin_absence_files_tv_sub_det"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="42dp"
+                                    android:layout_toRightOf="@id/activity_admin_absence_files_iv"
+                                    android:fontFamily="@font/amaranth"
+                                    android:text="200 Students"
+                                    android:textColor="@color/white" />
+
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -12,7 +12,7 @@
         android:id="@+id/top_view"
         android:layout_width="match_parent"
         android:layout_height="450dp"
-        android:background="@drawable/bg_view"/>
+        android:background="@drawable/view_style" />
 
     <ImageView
         android:id="@+id/activity_login_iv_loginlogo"
@@ -85,8 +85,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="50dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/bg_edittext"
-            android:drawableStart="@drawable/user_circle"
+            android:background="@drawable/et_background"
+            android:drawableStart="@drawable/ic_user"
             android:drawablePadding="20dp"
             android:ems="10"
             android:hint="@string/user_name"
@@ -102,8 +102,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="50dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/bg_edittext"
-            android:drawableStart="@drawable/blue_lock"
+            android:background="@drawable/et_background"
+            android:drawableStart="@drawable/ic_lock"
             android:drawablePadding="20dp"
             android:ems="10"
             android:hint="@string/password"
@@ -142,7 +142,7 @@
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/bg_edittext"
+            android:background="@drawable/et_background"
             android:backgroundTint="#2196F3"
             android:text="@string/login"
             android:textColor="@color/white"
