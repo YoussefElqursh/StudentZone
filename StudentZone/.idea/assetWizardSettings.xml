@@ -16,10 +16,25 @@
                   <entry key="vectorAssetStep">
                     <value>
                       <PersistentState>
+                        <option name="children">
+                          <map>
+                            <entry key="clipartAsset">
+                              <value>
+                                <PersistentState>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/upload/baseline_upload_24.xml" />
+                                    </map>
+                                  </option>
+                                </PersistentState>
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                         <option name="values">
                           <map>
-                            <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="_1416899661637669864" />
+                            <entry key="color" value="ffffff" />
+                            <entry key="outputName" value="ic_upload" />
                             <entry key="sourceFile" value="D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Resources\SVG Icons\11416899661637669864.svg" />
                           </map>
                         </option>
