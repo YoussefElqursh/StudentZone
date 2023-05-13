@@ -28,6 +28,18 @@
         android:testOnly="true"
         android:theme="@style/Theme.StudentZone" >
         <activity
+            android:name="com.studentzone.StudentSubjectActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.studentzone.StudentRegistrationActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.studentzone.StudentPerviousRequestActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.studentzone.StudentHomeActivity"
+            android:exported="false" />
+        <activity
             android:name="com.studentzone.AdminStudentsAccountsActivity"
             android:exported="false" />
         <activity

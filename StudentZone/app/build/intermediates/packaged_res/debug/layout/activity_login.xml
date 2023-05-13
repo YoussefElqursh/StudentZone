@@ -142,9 +142,9 @@
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/btn_plus_add_style"
-            android:backgroundTint="#2196F3"
+            android:background="@drawable/btn_login_style"
             android:text="@string/login"
+            android:fontFamily="@font/carter_one"
             android:textColor="@color/white"
             android:textSize="18sp"
             tools:ignore="TextContrastCheck" />

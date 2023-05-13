@@ -31,7 +31,9 @@
             android:layout_columnWeight="1"
             android:layout_margin="15dp"
             app:cardCornerRadius="15dp"
-            app:cardElevation="15dp">
+            app:cardElevation="15dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true">
 
             <LinearLayout
                 android:id="@+id/activity_admin_home_ll_departments"
@@ -73,7 +75,9 @@
             android:layout_columnWeight="1"
             android:layout_margin="15dp"
             app:cardCornerRadius="15dp"
-            app:cardElevation="15dp">
+            app:cardElevation="15dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true">
 
             <LinearLayout
                 android:id="@+id/activity_admin_home_ll__subjects"
@@ -113,7 +117,9 @@
             android:layout_columnWeight="1"
             android:layout_margin="15dp"
             app:cardCornerRadius="15dp"
-            app:cardElevation="15dp">
+            app:cardElevation="15dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true">
 
             <LinearLayout
                 android:id="@+id/activity_admin_home_ll_doctors_accounts"
@@ -155,15 +161,16 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
-            android:clickable="true"
             android:contextClickable="false"
             app:cardCornerRadius="15dp"
-            app:cardElevation="15dp">
+            app:cardElevation="15dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true">
 
             <LinearLayout
                 android:id="@+id/activity_admin_home_ll_students_accounts"
                 android:layout_width="match_parent"
-                android:layout_height="144dp"
+                android:layout_height="154dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="5dp"
@@ -179,7 +186,7 @@
                 <TextView
                     android:id="@+id/activity_admin_home_tv_students_accounts"
                     android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="49dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="-13dp"
@@ -189,7 +196,6 @@
                     android:text="@string/students_accounts"
                     android:textColor="@color/text"
                     android:textSize="16sp" />
-
 
 
             </LinearLayout>
@@ -204,11 +210,12 @@
             android:layout_columnWeight="1"
             android:layout_margin="15dp"
             android:layout_marginBottom="15dp"
-            android:clickable="true"
             android:contextClickable="true"
             android:longClickable="true"
             app:cardCornerRadius="15dp"
-            app:cardElevation="12dp">
+            app:cardElevation="12dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true">
 
             <LinearLayout
                 android:id="@+id/activity_admin_home_ll_absence_files"
@@ -240,6 +247,4 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </GridLayout>
-
-
 </RelativeLayout>
