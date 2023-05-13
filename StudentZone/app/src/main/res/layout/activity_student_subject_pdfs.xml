@@ -6,26 +6,26 @@
     android:layout_height="match_parent"
     android:background="@color/blue"
     android:orientation="vertical"
-    tools:context=".StudentSubjectActivity">
+    tools:context=".StudentSubjectPDFsActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/activity_student_subject_tbar"
+        android:id="@+id/activity_student_subject_PDFs_tbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
         app:menu="@menu/activity_admin_depatrments_tbar_menu"
-        app:title="Subjects"
+        app:title="PDFs"
         app:titleTextColor="@color/white" />
     <LinearLayout
-        android:id="@+id/activity_student_subject_ll_main"
+        android:id="@+id/activity_student_subject_PDFs_ll_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <RelativeLayout
-            android:id="@+id/activity_student_subject_rl_1"
+            android:id="@+id/activity_student_subject_PDFs_rl_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/cv_style"

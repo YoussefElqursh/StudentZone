@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.studentzone.app-mergeDebugResources-26:/values-v16/values-v16.xml",
+            "outputFile": "com.studentzone.app-mergeDebugResources-27:/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Youssef\\.gradle\\caches\\transforms-3\\2d36cdbeb90dfdfd402f076bef064238\\transformed\\core-1.9.0\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\Youssef\\.gradle\\caches\\transforms-3\\c4781ed071f4df465d69e7b9ecfecdd8\\transformed\\core-1.9.0\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Youssef\\.gradle\\caches\\transforms-3\\e823a5dda738fb7207ec40a9ecdd8129\\transformed\\appcompat-1.6.1\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\Youssef\\.gradle\\caches\\transforms-3\\60e8040bf921c9951befca8e9d939085\\transformed\\appcompat-1.6.1\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

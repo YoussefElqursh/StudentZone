@@ -11,22 +11,22 @@
 9-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml
 10
 11    <permission
-11-->[androidx.core:core:1.9.0] C:\Users\Youssef\.gradle\caches\transforms-3\2d36cdbeb90dfdfd402f076bef064238\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+11-->[androidx.core:core:1.9.0] C:\Users\Youssef\.gradle\caches\transforms-3\c4781ed071f4df465d69e7b9ecfecdd8\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
 12        android:name="com.studentzone.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-12-->[androidx.core:core:1.9.0] C:\Users\Youssef\.gradle\caches\transforms-3\2d36cdbeb90dfdfd402f076bef064238\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+12-->[androidx.core:core:1.9.0] C:\Users\Youssef\.gradle\caches\transforms-3\c4781ed071f4df465d69e7b9ecfecdd8\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
 13        android:protectionLevel="signature" />
-13-->[androidx.core:core:1.9.0] C:\Users\Youssef\.gradle\caches\transforms-3\2d36cdbeb90dfdfd402f076bef064238\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+13-->[androidx.core:core:1.9.0] C:\Users\Youssef\.gradle\caches\transforms-3\c4781ed071f4df465d69e7b9ecfecdd8\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
 14
 15    <uses-permission android:name="com.studentzone.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-15-->[androidx.core:core:1.9.0] C:\Users\Youssef\.gradle\caches\transforms-3\2d36cdbeb90dfdfd402f076bef064238\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
-15-->[androidx.core:core:1.9.0] C:\Users\Youssef\.gradle\caches\transforms-3\2d36cdbeb90dfdfd402f076bef064238\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+15-->[androidx.core:core:1.9.0] C:\Users\Youssef\.gradle\caches\transforms-3\c4781ed071f4df465d69e7b9ecfecdd8\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+15-->[androidx.core:core:1.9.0] C:\Users\Youssef\.gradle\caches\transforms-3\c4781ed071f4df465d69e7b9ecfecdd8\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
 16
 17    <application
-17-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:5:5-81:19
+17-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:5:5-84:19
 18        android:allowBackup="true"
 18-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:6:9-35
 19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-19-->[androidx.core:core:1.9.0] C:\Users\Youssef\.gradle\caches\transforms-3\2d36cdbeb90dfdfd402f076bef064238\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+19-->[androidx.core:core:1.9.0] C:\Users\Youssef\.gradle\caches\transforms-3\c4781ed071f4df465d69e7b9ecfecdd8\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
 20        android:dataExtractionRules="@xml/data_extraction_rules"
 20-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:7:9-65
 21        android:debuggable="true"
@@ -46,151 +46,157 @@
 29-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:13:9-49
 30        <activity
 30-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:15:9-17:40
-31            android:name="com.studentzone.StudentSubjectActivity"
-31-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:16:13-51
+31            android:name="com.studentzone.StudentSubjectPDFsActivity"
+31-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:16:13-55
 32            android:exported="false" />
 32-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:17:13-37
 33        <activity
 33-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:18:9-20:40
-34            android:name="com.studentzone.StudentRegistrationActivity"
-34-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:19:13-56
+34            android:name="com.studentzone.StudentSubjectActivity"
+34-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:19:13-51
 35            android:exported="false" />
 35-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:20:13-37
 36        <activity
 36-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:21:9-23:40
-37            android:name="com.studentzone.StudentPerviousRequestActivity"
-37-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:22:13-59
+37            android:name="com.studentzone.StudentRegistrationActivity"
+37-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:22:13-56
 38            android:exported="false" />
 38-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:23:13-37
 39        <activity
 39-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:24:9-26:40
-40            android:name="com.studentzone.StudentHomeActivity"
-40-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:25:13-48
+40            android:name="com.studentzone.StudentPerviousRequestActivity"
+40-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:25:13-59
 41            android:exported="false" />
 41-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:26:13-37
 42        <activity
 42-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:27:9-29:40
-43            android:name="com.studentzone.AdminStudentsAccountsActivity"
-43-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:28:13-58
+43            android:name="com.studentzone.StudentHomeActivity"
+43-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:28:13-48
 44            android:exported="false" />
 44-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:29:13-37
 45        <activity
 45-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:30:9-32:40
-46            android:name="com.studentzone.AdminDoctorsAccountsActivity"
-46-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:31:13-57
+46            android:name="com.studentzone.AdminStudentsAccountsActivity"
+46-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:31:13-58
 47            android:exported="false" />
 47-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:32:13-37
 48        <activity
 48-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:33:9-35:40
-49            android:name="com.studentzone.AdminAbsenceFilesActivity"
-49-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:34:13-54
+49            android:name="com.studentzone.AdminDoctorsAccountsActivity"
+49-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:34:13-57
 50            android:exported="false" />
 50-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:35:13-37
 51        <activity
-51-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:36:9-42:20
-52            android:name="com.studentzone.AdminSubjectsActivity"
-52-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:37:13-50
-53            android:exported="false" >
+51-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:36:9-38:40
+52            android:name="com.studentzone.AdminAbsenceFilesActivity"
+52-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:37:13-54
+53            android:exported="false" />
 53-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:38:13-37
-54            <meta-data
-54-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:39:13-41:36
-55                android:name="android.app.lib_name"
-55-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:40:17-52
-56                android:value="" />
-56-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:41:17-33
-57        </activity>
-58        <activity
-58-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:43:9-49:20
-59            android:name="com.studentzone.AdminDepartmentsActivity"
-59-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:44:13-53
-60            android:exported="false" >
-60-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:45:13-37
-61            <meta-data
-61-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:39:13-41:36
-62                android:name="android.app.lib_name"
-62-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:40:17-52
-63                android:value="" />
-63-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:41:17-33
-64        </activity>
-65        <activity
-65-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:50:9-56:20
-66            android:name="com.studentzone.AdminHomeActivity"
-66-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:51:13-46
-67            android:exported="false" >
-67-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:52:13-37
-68            <meta-data
-68-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:39:13-41:36
-69                android:name="android.app.lib_name"
-69-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:40:17-52
-70                android:value="" />
-70-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:41:17-33
-71        </activity>
-72        <activity
-72-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:57:9-63:20
-73            android:name="com.studentzone.LoginActivity"
-73-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:58:13-42
-74            android:exported="false" >
-74-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:59:13-37
-75            <meta-data
-75-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:39:13-41:36
-76                android:name="android.app.lib_name"
-76-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:40:17-52
-77                android:value="" />
-77-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:41:17-33
-78        </activity>
-79        <activity
-79-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:64:9-76:20
-80            android:name="com.studentzone.WelcomeActivity"
-80-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:65:13-44
-81            android:exported="true" >
-81-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:66:13-36
-82            <intent-filter>
-82-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:67:13-71:29
-83                <action android:name="android.intent.action.MAIN" />
-83-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:68:17-69
-83-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:68:25-66
-84
-85                <category android:name="android.intent.category.LAUNCHER" />
-85-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:70:17-77
-85-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:70:27-74
-86            </intent-filter>
+54        <activity
+54-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:39:9-45:20
+55            android:name="com.studentzone.AdminSubjectsActivity"
+55-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:40:13-50
+56            android:exported="false" >
+56-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:41:13-37
+57            <meta-data
+57-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:42:13-44:36
+58                android:name="android.app.lib_name"
+58-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:43:17-52
+59                android:value="" />
+59-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:44:17-33
+60        </activity>
+61        <activity
+61-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:46:9-52:20
+62            android:name="com.studentzone.AdminDepartmentsActivity"
+62-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:47:13-53
+63            android:exported="false" >
+63-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:48:13-37
+64            <meta-data
+64-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:42:13-44:36
+65                android:name="android.app.lib_name"
+65-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:43:17-52
+66                android:value="" />
+66-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:44:17-33
+67        </activity>
+68        <activity
+68-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:53:9-59:20
+69            android:name="com.studentzone.AdminHomeActivity"
+69-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:54:13-46
+70            android:exported="false" >
+70-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:55:13-37
+71            <meta-data
+71-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:42:13-44:36
+72                android:name="android.app.lib_name"
+72-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:43:17-52
+73                android:value="" />
+73-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:44:17-33
+74        </activity>
+75        <activity
+75-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:60:9-66:20
+76            android:name="com.studentzone.LoginActivity"
+76-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:61:13-42
+77            android:exported="false" >
+77-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:62:13-37
+78            <meta-data
+78-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:42:13-44:36
+79                android:name="android.app.lib_name"
+79-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:43:17-52
+80                android:value="" />
+80-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:44:17-33
+81        </activity>
+82        <activity
+82-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:67:9-79:20
+83            android:name="com.studentzone.WelcomeActivity"
+83-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:68:13-44
+84            android:exported="true" >
+84-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:69:13-36
+85            <intent-filter>
+85-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:70:13-74:29
+86                <action android:name="android.intent.action.MAIN" />
+86-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:71:17-69
+86-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:71:25-66
 87
-88            <meta-data
-88-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:39:13-41:36
-89                android:name="android.app.lib_name"
-89-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:40:17-52
-90                android:value="" />
-90-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:41:17-33
-91        </activity>
-92
-93        <meta-data
-93-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:78:9-80:57
-94            android:name="preloaded_fonts"
-94-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:79:13-43
-95            android:resource="@array/preloaded_fonts" />
-95-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:80:13-54
-96
-97        <provider
-97-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Youssef\.gradle\caches\transforms-3\1aadcf4e0f237724308e0370743d8486\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-98            android:name="androidx.startup.InitializationProvider"
-98-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Youssef\.gradle\caches\transforms-3\1aadcf4e0f237724308e0370743d8486\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
-99            android:authorities="com.studentzone.androidx-startup"
-99-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Youssef\.gradle\caches\transforms-3\1aadcf4e0f237724308e0370743d8486\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
-100            android:exported="false" >
-100-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Youssef\.gradle\caches\transforms-3\1aadcf4e0f237724308e0370743d8486\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
-101            <meta-data
-101-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Youssef\.gradle\caches\transforms-3\1aadcf4e0f237724308e0370743d8486\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-102                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-102-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Youssef\.gradle\caches\transforms-3\1aadcf4e0f237724308e0370743d8486\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
-103                android:value="androidx.startup" />
-103-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Youssef\.gradle\caches\transforms-3\1aadcf4e0f237724308e0370743d8486\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+88                <category android:name="android.intent.category.LAUNCHER" />
+88-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:73:17-77
+88-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:73:27-74
+89            </intent-filter>
+90
+91            <meta-data
+91-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:42:13-44:36
+92                android:name="android.app.lib_name"
+92-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:43:17-52
+93                android:value="" />
+93-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:44:17-33
+94        </activity>
+95
+96        <meta-data
+96-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:81:9-83:57
+97            android:name="preloaded_fonts"
+97-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:82:13-43
+98            android:resource="@array/preloaded_fonts" />
+98-->D:\Work\ThirdYear_CS\Term 2\Software Engineering-2\Section\Project\GitHub\StudentZone\app\src\main\AndroidManifest.xml:83:13-54
+99
+100        <provider
+100-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Youssef\.gradle\caches\transforms-3\979df2d65355c07838f37ddd6cec9d56\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+101            android:name="androidx.startup.InitializationProvider"
+101-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Youssef\.gradle\caches\transforms-3\979df2d65355c07838f37ddd6cec9d56\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+102            android:authorities="com.studentzone.androidx-startup"
+102-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Youssef\.gradle\caches\transforms-3\979df2d65355c07838f37ddd6cec9d56\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+103            android:exported="false" >
+103-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Youssef\.gradle\caches\transforms-3\979df2d65355c07838f37ddd6cec9d56\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
 104            <meta-data
-104-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Youssef\.gradle\caches\transforms-3\f7d8f15274dd8b4fe8a5f106a508708e\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
-105                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-105-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Youssef\.gradle\caches\transforms-3\f7d8f15274dd8b4fe8a5f106a508708e\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+104-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Youssef\.gradle\caches\transforms-3\979df2d65355c07838f37ddd6cec9d56\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+105                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+105-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Youssef\.gradle\caches\transforms-3\979df2d65355c07838f37ddd6cec9d56\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
 106                android:value="androidx.startup" />
-106-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Youssef\.gradle\caches\transforms-3\f7d8f15274dd8b4fe8a5f106a508708e\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
-107        </provider>
-108    </application>
-109
-110</manifest>
+106-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Youssef\.gradle\caches\transforms-3\979df2d65355c07838f37ddd6cec9d56\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+107            <meta-data
+107-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Youssef\.gradle\caches\transforms-3\0ed39ac97ff44e60652e6797b1fded6f\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+108                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+108-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Youssef\.gradle\caches\transforms-3\0ed39ac97ff44e60652e6797b1fded6f\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+109                android:value="androidx.startup" />
+109-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Youssef\.gradle\caches\transforms-3\0ed39ac97ff44e60652e6797b1fded6f\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+110        </provider>
+111    </application>
+112
+113</manifest>

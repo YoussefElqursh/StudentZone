@@ -144,6 +144,9 @@ id activity_student_home_ll_registration
 id activity_student_home_ll_subject
 id activity_student_home_tv_PerviousRequest
 id activity_student_home_tv_subject
+id activity_student_subject_PDFs_ll_main
+id activity_student_subject_PDFs_rl_1
+id activity_student_subject_PDFs_tbar
 id activity_student_subject_ll_main
 id activity_student_subject_rl_1
 id activity_student_subject_scv
@@ -168,6 +171,7 @@ layout activity_student_home
 layout activity_student_pervious_request
 layout activity_student_registration
 layout activity_student_subject
+layout activity_student_subject_pdfs
 layout activity_welcome
 menu activity_admin_absence_files_tbar_menu
 menu activity_admin_depatrments_tbar_menu
