@@ -9,7 +9,7 @@
     android:background="@color/blue"
     android:elevation="50dp"
     android:orientation="vertical"
-    tools:context=".WelcomeActivity">
+    tools:context=".Welcome_Classes.WelcomeActivity">
 
 
     <ImageView
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="50dp"
-            android:background="@drawable/btn_welcom_style"
+            android:background="@drawable/custom_btn_welcom"
             android:fontFamily="@font/carter_one"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="@string/welcome"

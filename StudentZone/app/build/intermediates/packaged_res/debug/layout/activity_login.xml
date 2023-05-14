@@ -6,13 +6,14 @@
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:gravity="center"
-    tools:context=".LoginActivity">
+    tools:context=".Login_Classes.LoginActivity">
 
     <View
         android:id="@+id/top_view"
         android:layout_width="match_parent"
         android:layout_height="450dp"
-        android:background="@drawable/view_style" />
+        android:layout_marginTop="-100dp"
+        android:background="@drawable/custom_view" />
 
     <ImageView
         android:id="@+id/activity_login_iv_loginlogo"
@@ -21,6 +22,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:layout_marginTop="-50dp"
         android:layout_marginEnd="0dp"
         android:contentDescription="@string/login_logo"
         app:srcCompat="@drawable/logo"
@@ -39,55 +41,77 @@
             android:id="@+id/activity_login_rg_userkind"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
             android:layout_marginBottom="10dp"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/activity_login_rb_admin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
                 android:layout_weight="1"
+                android:button="@android:color/transparent"
                 android:buttonTint="#2196F3"
+                android:drawableTop="@drawable/ic_admin"
+                android:drawablePadding="-20dp"
+                android:paddingLeft="10dp"
+                android:fontFamily="@font/amaranth"
                 android:minHeight="48dp"
-                android:text="@string/admin"
-                android:textSize="18sp" />
+                android:background="@drawable/custom_rb_selector"
+                android:textAlignment="center"
+                android:layout_marginRight="10dp"
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/activity_login_rb_student"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
+                android:drawableTop="@drawable/ic_doctor"
+                android:drawablePadding="-20dp"
+                android:paddingLeft="10dp"
+                android:background="@drawable/custom_rb_selector"
                 android:buttonTint="#2196F3"
+                android:textAlignment="center"
+                android:layout_marginRight="10dp"
+                android:button="@android:color/transparent"
+                android:fontFamily="@font/amaranth"
                 android:minHeight="48dp"
-                android:text="@string/student"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/activity_login_rb_doctor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
+                android:drawableTop="@drawable/ic_student"
+                android:drawablePadding="-20dp"
+                android:paddingLeft="10dp"
+                android:background="@drawable/custom_rb_selector"
+                android:button="@android:color/transparent"
+                android:textAlignment="center"
                 android:buttonTint="#2196F3"
+                android:fontFamily="@font/amaranth"
                 android:minHeight="48dp"
-                android:text="@string/doctor"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
         </RadioGroup>
 
         <EditText
             android:id="@+id/activity_login_tf_username"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginRight="30dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/et_background"
+            android:background="@drawable/custom_et_selector"
             android:drawableStart="@drawable/ic_user"
-            android:drawablePadding="20dp"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/amaranth"
             android:ems="10"
             android:hint="@string/user_name"
             android:inputType="textPersonName"
@@ -97,15 +121,15 @@
         <EditText
             android:id="@+id/activity_login_tf_password"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/et_background"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/custom_et_selector"
             android:drawableStart="@drawable/ic_lock"
-            android:drawablePadding="20dp"
+            android:drawablePadding="10dp"
             android:ems="10"
+            android:fontFamily="@font/amaranth"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:minHeight="48dp"
@@ -117,33 +141,35 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="#686868"
+            android:fontFamily="@font/amaranth"
             android:padding="5dp"
             android:text="@string/forget_password"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
-        <CheckBox
-            android:id="@+id/activity_login_cb_rememberme"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="10dp"
-            android:buttonTint="#2196F3"
-            android:minHeight="48dp"
-            android:text="@string/remember_me"
-            android:textSize="18sp" />
+<!--        <CheckBox-->
+<!--            android:id="@+id/activity_login_cb_rememberme"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="50dp"-->
+<!--            android:layout_marginRight="50dp"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:buttonTint="#2196F3"-->
+<!--            android:minHeight="48dp"-->
+<!--            android:text="@string/remember_me"-->
+<!--            android:textSize="18sp" />-->
 
         <Button
             android:id="@+id/activity_login_btn_login"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/btn_plus_add_style"
-            android:backgroundTint="#2196F3"
+            android:fontFamily="@font/aclonica"
+            android:background="@drawable/custom_btn_login"
             android:text="@string/login"
             android:textColor="@color/white"
             android:textSize="18sp"

@@ -28,44 +28,44 @@
         android:testOnly="true"
         android:theme="@style/Theme.StudentZone" >
         <activity
-            android:name="com.studentzone.AdminStudentsAccountsActivity"
+            android:name="com.studentzone.Admin_Classes.AdminStudentsAccountsActivity"
             android:exported="false" />
         <activity
-            android:name="com.studentzone.AdminDoctorsAccountsActivity"
+            android:name="com.studentzone.Admin_Classes.AdminDoctorsAccountsActivity"
             android:exported="false" />
         <activity
-            android:name="com.studentzone.AdminAbsenceFilesActivity"
+            android:name="com.studentzone.Admin_Classes.AdminAbsenceFilesActivity"
             android:exported="false" />
         <activity
-            android:name="com.studentzone.AdminSubjectsActivity"
+            android:name="com.studentzone.Admin_Classes.AdminSubjectsActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.studentzone.AdminDepartmentsActivity"
+            android:name="com.studentzone.Admin_Classes.AdminDepartmentsActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.studentzone.AdminHomeActivity"
+            android:name="com.studentzone.Admin_Classes.AdminHomeActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.studentzone.LoginActivity"
+            android:name="com.studentzone.Login_Classes.LoginActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.studentzone.WelcomeActivity"
+            android:name="com.studentzone.Welcome_Classes.WelcomeActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -5,12 +5,12 @@
     android:id="@+id/activity_system_adminstrator_rl_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminHomeActivity">
+    tools:context=".Admin_Classes.AdminHomeActivity">
 
     <View android:id="@+id/top_view"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@drawable/view_style" />
+        android:background="@drawable/custom_view" />
 
     <GridLayout
         android:id="@+id/activity_admin_home_gl_cardscontainer"
@@ -57,7 +57,7 @@
                     android:layout_marginRight="5dp"
                     android:gravity="center"
                     android:text="@string/departments"
-                    android:textColor="@color/text"
+                    android:textColor="@color/dark_blue"
                     android:fontFamily="@font/carter_one"
                     android:textSize="17sp"/>
 
@@ -100,7 +100,7 @@
                     android:gravity="center"
                     android:fontFamily="@font/carter_one"
                     android:text="@string/subjects"
-                    android:textColor="@color/text"
+                    android:textColor="@color/dark_blue"
                     android:textSize="17sp"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -140,7 +140,7 @@
                     android:fontFamily="@font/carter_one"
                     android:gravity="center"
                     android:text="@string/doctors_accounts"
-                    android:textColor="@color/text"
+                    android:textColor="@color/dark_blue"
                     android:textSize="17sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -187,7 +187,7 @@
                     android:fontFamily="@font/carter_one"
                     android:gravity="center"
                     android:text="@string/students_accounts"
-                    android:textColor="@color/text"
+                    android:textColor="@color/dark_blue"
                     android:textSize="16sp" />
 
 
@@ -214,13 +214,13 @@
                 android:id="@+id/activity_admin_home_ll_absence_files"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/activity_sadmin_home_iv_absence_files"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
+                    android:layout_marginTop="20dp"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/ic_absence_files" />
 
@@ -235,7 +235,7 @@
                     android:fontFamily="@font/carter_one"
                     android:gravity="center"
                     android:text="@string/absence_files"
-                    android:textColor="@color/text"
+                    android:textColor="@color/dark_blue"
                     android:textSize="17sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>

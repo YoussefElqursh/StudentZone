@@ -13,44 +13,44 @@
         android:theme="@style/Theme.StudentZone"
         tools:targetApi="31">
         <activity
-            android:name=".AdminStudentsAccountsActivity"
+            android:name=".Admin_Classes.AdminStudentsAccountsActivity"
             android:exported="false" />
         <activity
-            android:name=".AdminDoctorsAccountsActivity"
+            android:name=".Admin_Classes.AdminDoctorsAccountsActivity"
             android:exported="false" />
         <activity
-            android:name=".AdminAbsenceFilesActivity"
+            android:name=".Admin_Classes.AdminAbsenceFilesActivity"
             android:exported="false" />
         <activity
-            android:name=".AdminSubjectsActivity"
+            android:name=".Admin_Classes.AdminSubjectsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".AdminDepartmentsActivity"
+            android:name=".Admin_Classes.AdminDepartmentsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".AdminHomeActivity"
+            android:name=".Admin_Classes.AdminHomeActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".Login_Classes.LoginActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".WelcomeActivity"
+            android:name=".Welcome_Classes.WelcomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
