@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
-import com.studentzone.Admin_Classes.AdminDepartmentsActivity;
-import com.studentzone.Admin_Classes.AdminHomeActivity;
 import com.studentzone.Login_Classes.LoginActivity;
 import com.studentzone.R;
 

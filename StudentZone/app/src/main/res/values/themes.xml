@@ -3,15 +3,22 @@
     <style name="Theme.StudentZone" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/blue</item>
-        <item name="colorPrimaryVariant">@color/lightblue</item>
+        <item name="colorPrimaryVariant">@color/light_blue</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/blue</item>
-        <item name="colorSecondaryVariant">@color/lightblue</item>
+        <item name="colorSecondaryVariant">@color/light_blue</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="fragment_admin_new_department_theme" parent="Theme.Design.BottomSheetDialog">
+        <item name="customColorDrawableValue">@style/fragment_admin_new_department_style</item>
+    </style>
+
+    <style name="fragment_admin_new_department_style" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
 </resources>

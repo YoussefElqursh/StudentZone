@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Admin_Classes.AdminAbsenceFilesActivity">
+    tools:context=".Admin_Classes.Admin_Activities.AdminAbsenceFilesActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/activity_admin_subjects_tbar"
@@ -75,7 +75,7 @@
                             android:id="@+id/activity_subjects_cv"
                             android:layout_width="match_parent"
                             android:layout_height="80dp"
-                            app:cardBackgroundColor="@color/cardviews"
+                            app:cardBackgroundColor="@color/navy_blue"
                             app:cardCornerRadius="20dp">
 
                             <RelativeLayout

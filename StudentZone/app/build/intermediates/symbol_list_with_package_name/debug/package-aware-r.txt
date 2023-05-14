@@ -1354,8 +1354,8 @@ color cardview_dark_background
 color cardview_light_background
 color cardview_shadow_end_color
 color cardview_shadow_start_color
-color cardviews
 color dark_blue
+color dark_gray
 color design_bottom_navigation_shadow_color
 color design_box_stroke_color
 color design_dark_default_color_background
@@ -1405,7 +1405,7 @@ color foreground_material_light
 color gray
 color highlighted_text_material_dark
 color highlighted_text_material_light
-color lightblue
+color light_blue
 color m3_appbar_overlay_color
 color m3_assist_chip_icon_tint_color
 color m3_assist_chip_stroke_color
@@ -2029,6 +2029,7 @@ color mtrl_textinput_disabled_color
 color mtrl_textinput_filled_box_default_background_color
 color mtrl_textinput_focused_box_stroke_color
 color mtrl_textinput_hovered_box_stroke_color
+color navy_blue
 color notification_action_color_filter
 color notification_icon_bg_color
 color primary_dark_material_dark
@@ -2926,6 +2927,7 @@ drawable custom_cv
 drawable custom_et_normal
 drawable custom_et_selected
 drawable custom_et_selector
+drawable custom_fragment_admin_new_department
 drawable custom_rb_normal
 drawable custom_rb_selected
 drawable custom_rb_selector
@@ -2968,7 +2970,7 @@ drawable ic_student
 drawable ic_students
 drawable ic_subjects
 drawable ic_user
-drawable logo
+drawable img_students
 drawable m3_appbar_background
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
@@ -3046,7 +3048,9 @@ drawable tooltip_frame_light
 font aclonica
 font adamina
 font amaranth
+font berkshire_swash
 font carter_one
+font coiny
 font saira_stencil_one
 id ALT
 id BOTTOM_END
@@ -3337,6 +3341,10 @@ id fixed
 id flip
 id floating
 id forever
+id fragment_admin_new_department_ll_main
+id fragment_admin_new_doctor_ll_main
+id fragment_admin_new_student_ll_main
+id fragment_admin_new_subject_ll_main
 id fragment_container_view_tag
 id frost
 id fullscreen_header
@@ -3773,6 +3781,10 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout fragment_admin_new_department
+layout fragment_admin_new_doctor_account
+layout fragment_admin_new_student_account
+layout fragment_admin_new_subject
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3896,6 +3908,7 @@ string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string forget_password
+string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description
@@ -5124,6 +5137,8 @@ style Widget_MaterialComponents_Toolbar_PrimarySurface
 style Widget_MaterialComponents_Toolbar_Surface
 style Widget_MaterialComponents_Tooltip
 style Widget_Support_CoordinatorLayout
+style fragment_admin_new_department_style
+style fragment_admin_new_department_theme
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth

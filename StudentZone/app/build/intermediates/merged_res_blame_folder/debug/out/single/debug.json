@@ -20,16 +20,24 @@
         "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_login.xml"
     },
     {
-        "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "com.studentzone.app-merged_res-29:/layout_fragment_admin_new_doctor_account.xml.flat",
+        "source": "com.studentzone.app-main-31:/layout/fragment_admin_new_doctor_account.xml"
+    },
+    {
+        "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_custom_rb_selector.xml.flat",
+        "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\custom_rb_selector.xml"
     },
     {
         "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_absence_files.xml.flat",
         "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_absence_files.xml"
     },
     {
-        "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_custom_rb_selector.xml.flat",
-        "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\custom_rb_selector.xml"
+        "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-29:/layout_fragment_admin_new_student_account.xml.flat",
+        "source": "com.studentzone.app-main-31:/layout/fragment_admin_new_student_account.xml"
     },
     {
         "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\font_carter_one.xml.flat",
@@ -38,6 +46,10 @@
     {
         "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_user.xml.flat",
         "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_user.xml"
+    },
+    {
+        "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_fragment_admin_new_subject.xml.flat",
+        "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\fragment_admin_new_subject.xml"
     },
     {
         "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_plus.xml.flat",
@@ -64,6 +76,10 @@
         "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\menu\\activity_admin_depatrments_tbar_menu.xml"
     },
     {
+        "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\font_berkshire_swash.xml.flat",
+        "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\font\\berkshire_swash.xml"
+    },
+    {
         "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_back.xml.flat",
         "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_back.xml"
     },
@@ -76,12 +92,20 @@
         "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_admin_students_accounts.xml"
     },
     {
-        "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_admin_subjects.xml.flat",
-        "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_admin_subjects.xml"
+        "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\font_coiny.xml.flat",
+        "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\font\\coiny.xml"
+    },
+    {
+        "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_custom_fragment_admin_new_department.xml.flat",
+        "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\custom_fragment_admin_new_department.xml"
     },
     {
         "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\mipmap-mdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_admin_subjects.xml.flat",
+        "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_admin_subjects.xml"
     },
     {
         "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
@@ -94,6 +118,10 @@
     {
         "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_custom_cv.xml.flat",
         "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\custom_cv.xml"
+    },
+    {
+        "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_img_students.png.flat",
+        "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\img_students.png"
     },
     {
         "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\font_adamina.xml.flat",
@@ -110,6 +138,10 @@
     {
         "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_logout.xml.flat",
         "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_logout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\font_acme.xml.flat",
+        "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\font\\acme.xml"
     },
     {
         "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_female_student.xml.flat",
@@ -132,12 +164,20 @@
         "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\xml\\data_extraction_rules.xml"
     },
     {
+        "merged": "com.studentzone.app-merged_res-29:/layout_fragment_admin_new_subject.xml.flat",
+        "source": "com.studentzone.app-main-31:/layout/fragment_admin_new_subject.xml"
+    },
+    {
         "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\font_saira_stencil_one.xml.flat",
         "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\font\\saira_stencil_one.xml"
     },
     {
         "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\mipmap-xhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-29:/layout_activity_admin_departments.xml.flat",
+        "source": "com.studentzone.app-main-31:/layout/activity_admin_departments.xml"
     },
     {
         "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_female_doctor.xml.flat",
@@ -150,10 +190,6 @@
     {
         "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\xml_backup_rules.xml.flat",
         "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\xml\\backup_rules.xml"
-    },
-    {
-        "merged": "com.studentzone.app-merged_res-29:/layout_activity_login.xml.flat",
-        "source": "com.studentzone.app-main-31:/layout/activity_login.xml"
     },
     {
         "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_admin_home.xml.flat",
@@ -202,6 +238,10 @@
     {
         "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_launcher_background.xml.flat",
         "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_fragment_admin_new_student.xml.flat",
+        "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\fragment_admin_new_student.xml"
     },
     {
         "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_doctor.xml.flat",
@@ -264,8 +304,16 @@
         "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable-v24\\ic_launcher_foreground.xml"
     },
     {
+        "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_fragment_admin_new_department.xml.flat",
+        "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\fragment_admin_new_department.xml"
+    },
+    {
         "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\font_amaranth.xml.flat",
         "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\font\\amaranth.xml"
+    },
+    {
+        "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_fragment_admin_new_doctor.xml.flat",
+        "source": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\fragment_admin_new_doctor.xml"
     },
     {
         "merged": "C:\\Users\\Momen Ahmed\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\mipmap-xxhdpi_ic_launcher.webp.flat",

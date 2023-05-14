@@ -12,21 +12,20 @@
         android:id="@+id/top_view"
         android:layout_width="match_parent"
         android:layout_height="450dp"
-        android:layout_marginTop="-100dp"
+        android:layout_marginTop="-50dp"
         android:background="@drawable/custom_view" />
 
     <ImageView
         android:id="@+id/activity_login_iv_loginlogo"
-        android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="-50dp"
-        android:layout_marginEnd="0dp"
+        android:layout_marginTop="-10dp"
         android:contentDescription="@string/login_logo"
-        app:srcCompat="@drawable/logo"
-        tools:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/img_students"
+        tools:srcCompat="@drawable/img_students" />
 
     <LinearLayout
         android:id="@+id/activity_login_ll_logincontainer"
@@ -125,6 +124,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/custom_et_selector"
             android:drawableStart="@drawable/ic_lock"
             android:drawablePadding="10dp"
@@ -135,20 +135,7 @@
             android:minHeight="48dp"
             android:paddingLeft="10dp" />
 
-        <TextView
-            android:id="@+id/activity_login_tv_forgetpassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="20dp"
-            android:textColor="#686868"
-            android:fontFamily="@font/amaranth"
-            android:padding="5dp"
-            android:text="@string/forget_password"
-            android:textSize="16sp" />
-
-<!--        <CheckBox-->
+        <!--        <CheckBox-->
 <!--            android:id="@+id/activity_login_cb_rememberme"-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="wrap_content"-->
@@ -167,13 +154,24 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:layout_marginBottom="10dp"
             android:fontFamily="@font/aclonica"
             android:background="@drawable/custom_btn_login"
             android:text="@string/login"
             android:textColor="@color/white"
             android:textSize="18sp"
             tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/activity_login_tv_forgetpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="50dp"
+            android:fontFamily="@font/amaranth"
+            android:padding="5dp"
+            android:text="@string/forget_password"
+            android:textColor="@color/blue"
+            android:textSize="16sp" />
     </LinearLayout>
 
 </RelativeLayout>

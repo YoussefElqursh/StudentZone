@@ -1,10 +1,11 @@
-#Sun May 14 04:25:39 EET 2023
-path.4=6/classes.dex
+#Sun May 14 09:31:26 EET 2023
+path.4=11/classes.dex
 path.3=5/classes.dex
 path.2=12/classes.dex
 path.1=0/classes.dex
+path.5=14/classes.dex
 path.0=classes.dex
-base.4=D\:\\FCI Study\\Level 3\\Term 2\\Software Engineering-2\\Section\\Project Repositry\\StudentZone\\StudentZone\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\6\\classes.dex
+base.4=D\:\\FCI Study\\Level 3\\Term 2\\Software Engineering-2\\Section\\Project Repositry\\StudentZone\\StudentZone\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\11\\classes.dex
 base.3=D\:\\FCI Study\\Level 3\\Term 2\\Software Engineering-2\\Section\\Project Repositry\\StudentZone\\StudentZone\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
 base.2=D\:\\FCI Study\\Level 3\\Term 2\\Software Engineering-2\\Section\\Project Repositry\\StudentZone\\StudentZone\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex
 base.1=D\:\\FCI Study\\Level 3\\Term 2\\Software Engineering-2\\Section\\Project Repositry\\StudentZone\\StudentZone\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
@@ -13,4 +14,6 @@ renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
+renamed.5=classes6.dex
 renamed.4=classes5.dex
+base.5=D\:\\FCI Study\\Level 3\\Term 2\\Software Engineering-2\\Section\\Project Repositry\\StudentZone\\StudentZone\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\14\\classes.dex

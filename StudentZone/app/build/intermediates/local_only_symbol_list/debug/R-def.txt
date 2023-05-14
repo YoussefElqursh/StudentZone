@@ -6,10 +6,11 @@ array com_google_android_gms_fonts_certs_prod
 array preloaded_fonts
 color black
 color blue
-color cardviews
 color dark_blue
+color dark_gray
 color gray
-color lightblue
+color light_blue
+color navy_blue
 color white
 color white_gray
 drawable custom_btn_login
@@ -19,6 +20,7 @@ drawable custom_cv
 drawable custom_et_normal
 drawable custom_et_selected
 drawable custom_et_selector
+drawable custom_fragment_admin_new_department
 drawable custom_rb_normal
 drawable custom_rb_selected
 drawable custom_rb_selector
@@ -44,11 +46,13 @@ drawable ic_student
 drawable ic_students
 drawable ic_subjects
 drawable ic_user
-drawable logo
+drawable img_students
 font aclonica
 font adamina
 font amaranth
+font berkshire_swash
 font carter_one
+font coiny
 font saira_stencil_one
 id activity_admin_absence_cv
 id activity_admin_absence_files._ll_main
@@ -144,6 +148,10 @@ id activity_welcome_btn_welcome
 id activity_welcome_iv_logo
 id activity_welcome_ll_buttoncontainer
 id activity_welcome_ll_main
+id fragment_admin_new_department_ll_main
+id fragment_admin_new_doctor_ll_main
+id fragment_admin_new_student_ll_main
+id fragment_admin_new_subject_ll_main
 id top_view
 layout activity_admin_absence_files
 layout activity_admin_departments
@@ -153,6 +161,10 @@ layout activity_admin_students_accounts
 layout activity_admin_subjects
 layout activity_login
 layout activity_welcome
+layout fragment_admin_new_department
+layout fragment_admin_new_doctor_account
+layout fragment_admin_new_student_account
+layout fragment_admin_new_subject
 menu activity_admin_absence_files_tbar_menu
 menu activity_admin_depatrments_tbar_menu
 menu activity_admin_doctors_accounts_tbar_menu
@@ -170,6 +182,7 @@ string departments
 string doctor
 string doctors_accounts
 string forget_password
+string hello_blank_fragment
 string login
 string login_logo
 string password
@@ -183,5 +196,7 @@ string user_name
 string welcome
 string welcome_page_logo
 style Theme.StudentZone
+style fragment_admin_new_department_style
+style fragment_admin_new_department_theme
 xml backup_rules
 xml data_extraction_rules

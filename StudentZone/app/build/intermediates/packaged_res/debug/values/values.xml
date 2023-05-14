@@ -18,17 +18,20 @@
         <item>@font/aclonica</item>
         <item>@font/adamina</item>
         <item>@font/amaranth</item>
+        <item>@font/berkshire_swash</item>
         <item>@font/carter_one</item>
+        <item>@font/coiny</item>
         <item>@font/saira_stencil_one</item>
     </array>
     <color name="black">#FF000000</color>
     <color name="blue">#2196F3</color>
-    <color name="cardviews">#027fcc</color>
     <color name="dark_blue">#2c3e50</color>
+    <color name="dark_gray">#585858</color>
     <color name="gray">#A1A1A1</color>
-    <color name="lightblue">#03A9F4</color>
+    <color name="light_blue">#03A9F4</color>
+    <color name="navy_blue">#1F8BE0</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="white_gray">#F0F0F0</color>
+    <color name="white_gray">#EDF1F4</color>
     <string name="absence_files">Absence Files</string>
     <string name="admin">Admin</string>
     <string name="app_name">StudentZone</string>
@@ -37,7 +40,8 @@
     <string name="departments">Departments</string>
     <string name="doctor">Doctor</string>
     <string name="doctors_accounts">Doctors Accounts</string>
-    <string name="forget_password">Forget Password</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="login">Login</string>
     <string name="login_logo">Login logo</string>
     <string name="password">Password</string>
@@ -53,14 +57,20 @@
     <style name="Theme.StudentZone" parent="Theme.AppCompat.Light.NoActionBar">
         
         <item name="colorPrimary">@color/blue</item>
-        <item name="colorPrimaryVariant">@color/lightblue</item>
+        <item name="colorPrimaryVariant">@color/light_blue</item>
         <item name="colorOnPrimary">@color/white</item>
         
         <item name="colorSecondary">@color/blue</item>
-        <item name="colorSecondaryVariant">@color/lightblue</item>
+        <item name="colorSecondaryVariant">@color/light_blue</item>
         <item name="colorOnSecondary">@color/black</item>
         
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         
+    </style>
+    <style name="fragment_admin_new_department_style" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+    <style name="fragment_admin_new_department_theme" parent="Theme.Design.BottomSheetDialog">
+        <item name="customColorDrawableValue">@style/fragment_admin_new_department_style</item>
     </style>
 </resources>
