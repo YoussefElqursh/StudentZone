@@ -31,7 +31,7 @@
     <color name="light_blue">#03A9F4</color>
     <color name="navy_blue">#1F8BE0</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="white_gray">#EDF1F4</color>
+    <color name="white_gray">#EFF2F4</color>
     <string name="absence_files">Absence Files</string>
     <string name="admin">Admin</string>
     <string name="app_name">StudentZone</string>
