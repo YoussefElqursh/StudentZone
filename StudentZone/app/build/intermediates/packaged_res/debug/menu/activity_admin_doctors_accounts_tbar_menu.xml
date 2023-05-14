@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/activity_admin_doctors_accounts_tbar_menu_search"
+        android:icon="@drawable/ic_search"
+        app:showAsAction="ifRoom|collapseActionView"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        android:title="@string/search" />
+
+<!--    <item android:id="@+id/activity_admin_absence_files_tbar_menu_back"-->
+<!--        android:icon="@drawable/ic_back"-->
+<!--        app:showAsAction="ifRoom|collapseActionView"-->
+<!--        android:title="@string/back" />-->
+
+    <item android:title="------" />
+    <item android:title="------" />
+
+
+</menu>
