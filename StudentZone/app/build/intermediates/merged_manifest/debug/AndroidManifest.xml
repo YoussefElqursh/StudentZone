@@ -28,6 +28,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.StudentZone" >
         <activity
+            android:name="com.studentzone.DoctorSubjectPDFsActivity"
+            android:exported="false" />
+        <activity
             android:name="com.studentzone.StudentSubjectPDFsActivity"
             android:exported="false" />
         <activity

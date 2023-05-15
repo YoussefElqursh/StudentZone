@@ -116,6 +116,10 @@
         "source": "com.studentzone.app-main-31:/layout/activity_admin_departments.xml"
     },
     {
+        "merged": "com.studentzone.app-merged_res-29:/drawable_ic_download.xml.flat",
+        "source": "com.studentzone.app-main-31:/drawable/ic_download.xml"
+    },
+    {
         "merged": "com.studentzone.app-merged_res-29:/drawable_logo.png.flat",
         "source": "com.studentzone.app-main-31:/drawable/logo.png"
     },
@@ -150,6 +154,10 @@
     {
         "merged": "com.studentzone.app-merged_res-29:/font_carter_one.xml.flat",
         "source": "com.studentzone.app-main-31:/font/carter_one.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-29:/drawable_ic_upload.xml.flat",
+        "source": "com.studentzone.app-main-31:/drawable/ic_upload.xml"
     },
     {
         "merged": "com.studentzone.app-merged_res-29:/font_adamina.xml.flat",
@@ -198,6 +206,10 @@
     {
         "merged": "com.studentzone.app-merged_res-29:/font_amaranth.xml.flat",
         "source": "com.studentzone.app-main-31:/font/amaranth.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-29:/layout_activity_doctor_subject_pdfs.xml.flat",
+        "source": "com.studentzone.app-main-31:/layout/activity_doctor_subject_pdfs.xml"
     },
     {
         "merged": "com.studentzone.app-merged_res-29:/drawable_ic_absence_files.xml.flat",

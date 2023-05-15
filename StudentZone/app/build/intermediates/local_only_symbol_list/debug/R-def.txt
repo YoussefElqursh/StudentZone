@@ -20,6 +20,7 @@ drawable ic_back
 drawable ic_book
 drawable ic_department
 drawable ic_doctors
+drawable ic_download
 drawable ic_facebook
 drawable ic_female_doctor
 drawable ic_female_student
@@ -33,6 +34,7 @@ drawable ic_plus
 drawable ic_search
 drawable ic_students
 drawable ic_subjects
+drawable ic_upload
 drawable ic_user
 drawable logo
 drawable view_style
@@ -41,6 +43,11 @@ font adamina
 font amaranth
 font carter_one
 font saira_stencil_one
+id activity_Doctor_subject_PDFs_btn_add
+id activity_Doctor_subject_PDFs_ll_main
+id activity_Doctor_subject_PDFs_rl_1
+id activity_Doctor_subject_PDFs_tbar
+id activity_Doctor_subject_scv
 id activity_admin_absence_cv
 id activity_admin_absence_files._ll_main
 id activity_admin_absence_files_iv
@@ -166,6 +173,7 @@ layout activity_admin_doctors_accounts
 layout activity_admin_home
 layout activity_admin_students_accounts
 layout activity_admin_subjects
+layout activity_doctor_subject_pdfs
 layout activity_login
 layout activity_student_home
 layout activity_student_pervious_request
