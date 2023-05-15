@@ -1,4 +1,4 @@
-package com.studentzone.Doctor_Classes;
+package com.studentzone.Admin_Calsses.Admin_Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.studentzone.R;
 
-public class DoctorSubjectPDFsActivity extends AppCompatActivity {
+public class AdminStudentsAccountsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_doctor_subject_pdfs);
+        setContentView(R.layout.activity_admin_students_accounts);
     }
 }

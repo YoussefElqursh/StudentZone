@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/blue"
     android:orientation="vertical"
-    tools:context=".Student_Classes.StudentSubjectActivity">
+    tools:context=".Student_Classes.Student_Activities.StudentSubjectActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/activity_student_subject_tbar"

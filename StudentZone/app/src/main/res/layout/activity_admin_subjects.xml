@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Admin_Calsses.AdminAbsenceFilesActivity">
+    tools:context=".Admin_Calsses.Admin_Activities.AdminAbsenceFilesActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/activity_admin_subjects_tbar"

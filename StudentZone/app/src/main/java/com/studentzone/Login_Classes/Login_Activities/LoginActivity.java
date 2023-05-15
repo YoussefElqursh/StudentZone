@@ -1,4 +1,4 @@
-package com.studentzone.Login_Classes;
+package com.studentzone.Login_Classes.Login_Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
-import com.studentzone.Admin_Calsses.AdminHomeActivity;
+import com.studentzone.Admin_Calsses.Admin_Activities.AdminHomeActivity;
 import com.studentzone.R;
 
 public class LoginActivity extends AppCompatActivity {

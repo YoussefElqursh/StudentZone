@@ -1,4 +1,4 @@
-package com.studentzone.Student_Classes;
+package com.studentzone.Student_Classes.Student_Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
