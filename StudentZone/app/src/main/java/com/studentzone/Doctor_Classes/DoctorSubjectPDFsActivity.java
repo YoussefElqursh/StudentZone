@@ -1,14 +1,16 @@
-package com.studentzone;
+package com.studentzone.Doctor_Classes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class AdminDepartmentsActivity extends AppCompatActivity {
+import com.studentzone.R;
+
+public class DoctorSubjectPDFsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_departments);
+        setContentView(R.layout.activity_doctor_subject_pdfs);
     }
 }

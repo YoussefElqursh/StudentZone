@@ -1,10 +1,13 @@
-package com.studentzone;
+package com.studentzone.Welcome_Classes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+
+import com.studentzone.Login_Classes.LoginActivity;
+import com.studentzone.R;
 
 public class WelcomeActivity extends AppCompatActivity {
     Button button;

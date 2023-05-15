@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/blue"
     android:orientation="vertical"
-    tools:context=".DoctorSubjectPDFsActivity">
+    tools:context=".Doctor_Classes.DoctorSubjectPDFsActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/activity_Doctor_subject_PDFs_tbar"

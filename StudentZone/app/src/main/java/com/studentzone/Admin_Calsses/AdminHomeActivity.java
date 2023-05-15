@@ -1,4 +1,4 @@
-package com.studentzone;
+package com.studentzone.Admin_Calsses;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -6,6 +6,8 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.studentzone.R;
 
 public class AdminHomeActivity extends AppCompatActivity {
     CardView departments,add_subject,absent_files,add_doctor_account,add_student_account;
