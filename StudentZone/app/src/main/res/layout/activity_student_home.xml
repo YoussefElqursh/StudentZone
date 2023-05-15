@@ -5,7 +5,7 @@
     android:id="@+id/activity_system_adminstrator_rl_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StudentHomeActivity">
+    tools:context=".Student_Classes.StudentHomeActivity">
 
     <View android:id="@+id/top_view"
         android:layout_width="match_parent"

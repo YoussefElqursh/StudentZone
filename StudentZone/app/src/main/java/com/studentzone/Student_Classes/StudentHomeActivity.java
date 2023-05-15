@@ -1,4 +1,4 @@
-package com.studentzone;
+package com.studentzone.Student_Classes;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -6,6 +6,8 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.studentzone.R;
 
 public class StudentHomeActivity extends AppCompatActivity {
 

@@ -9,7 +9,7 @@
     android:background="@color/blue"
     android:elevation="50dp"
     android:orientation="vertical"
-    tools:context=".WelcomeActivity">
+    tools:context=".Welcome_Classes.WelcomeActivity">
 
 
     <ImageView

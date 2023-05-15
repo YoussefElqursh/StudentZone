@@ -1,14 +1,16 @@
-package com.studentzone;
+package com.studentzone.Admin_Calsses;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class AdminSubjectsActivity extends AppCompatActivity {
+import com.studentzone.R;
+
+public class AdminAbsenceFilesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_subjects);
+        setContentView(R.layout.activity_admin_absence_files);
     }
 }

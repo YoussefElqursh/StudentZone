@@ -13,62 +13,62 @@
         android:theme="@style/Theme.StudentZone"
         tools:targetApi="31">
         <activity
-            android:name=".DoctorSubjectPDFsActivity"
+            android:name=".Doctor_Classes.DoctorSubjectPDFsActivity"
             android:exported="false" />
         <activity
-            android:name=".StudentSubjectPDFsActivity"
+            android:name=".Student_Classes.StudentSubjectPDFsActivity"
             android:exported="false" />
         <activity
-            android:name=".StudentSubjectActivity"
+            android:name=".Student_Classes.StudentSubjectActivity"
             android:exported="false" />
         <activity
-            android:name=".StudentRegistrationActivity"
+            android:name=".Student_Classes.StudentRegistrationActivity"
             android:exported="false" />
         <activity
-            android:name=".StudentPerviousRequestActivity"
+            android:name=".Student_Classes.StudentPerviousRequestActivity"
             android:exported="false" />
         <activity
-            android:name=".StudentHomeActivity"
+            android:name=".Student_Classes.StudentHomeActivity"
             android:exported="false" />
         <activity
-            android:name=".AdminStudentsAccountsActivity"
+            android:name=".Admin_Calsses.AdminStudentsAccountsActivity"
             android:exported="false" />
         <activity
-            android:name=".AdminDoctorsAccountsActivity"
+            android:name=".Admin_Calsses.AdminDoctorsAccountsActivity"
             android:exported="false" />
         <activity
-            android:name=".AdminAbsenceFilesActivity"
+            android:name=".Admin_Calsses.AdminAbsenceFilesActivity"
             android:exported="false" />
         <activity
-            android:name=".AdminSubjectsActivity"
+            android:name=".Admin_Calsses.AdminSubjectsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".AdminDepartmentsActivity"
+            android:name=".Admin_Calsses.AdminDepartmentsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".AdminHomeActivity"
+            android:name=".Admin_Calsses.AdminHomeActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".Login_Classes.LoginActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".WelcomeActivity"
+            android:name=".Welcome_Classes.WelcomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
