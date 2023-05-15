@@ -1,4 +1,4 @@
-package com.studentzone.Admin_Calsses;
+package com.studentzone.Admin_Calsses.Admin_Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
