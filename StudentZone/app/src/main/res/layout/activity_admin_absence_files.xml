@@ -30,7 +30,7 @@
             android:id="@+id/activity_admin_absence_files_rl_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/cv_style"
+            android:background="@drawable/custom_cv"
             android:backgroundTint="#FFFFFF"
             android:elevation="50dp">
 
@@ -38,14 +38,14 @@
                 android:id="@+id/activity_admin_absence_files_scv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/cv_style"
+                android:background="@drawable/custom_cv"
                 android:backgroundTint="#FFFFFF"
                 android:contentDescription="@string/scrolbar">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/cv_style"
+                    android:background="@drawable/custom_cv"
                     android:backgroundTint="#FFFFFF"
                     android:orientation="vertical">
 
@@ -63,7 +63,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="80dp"
                             android:elevation="20dp"
-                            app:cardBackgroundColor="@color/cardviews"
+                            app:cardBackgroundColor="@color/navy_blue"
                             app:cardCornerRadius="20dp">
 
                             <RelativeLayout

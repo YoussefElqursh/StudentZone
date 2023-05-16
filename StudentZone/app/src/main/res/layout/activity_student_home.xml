@@ -10,7 +10,7 @@
     <View android:id="@+id/top_view"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@drawable/view_style" />
+        android:background="@drawable/custom_view" />
 
     <GridLayout
         android:id="@+id/activity_student_home_gl_cardscontainer"
@@ -60,7 +60,7 @@
                     android:fontFamily="@font/carter_one"
                     android:gravity="center"
                     android:text="Registration"
-                    android:textColor="@color/text"
+                    android:textColor="@color/dark_blue"
                     android:textSize="17sp" />
 
             </LinearLayout>
@@ -104,7 +104,7 @@
                     android:fontFamily="@font/carter_one"
                     android:gravity="center"
                     android:text="Previous Request"
-                    android:textColor="@color/text"
+                    android:textColor="@color/dark_blue"
                     android:textSize="17sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -148,7 +148,7 @@
                     android:fontFamily="@font/carter_one"
                     android:gravity="center"
                     android:text="Subject"
-                    android:textColor="@color/text"
+                    android:textColor="@color/dark_blue"
                     android:textSize="17sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>

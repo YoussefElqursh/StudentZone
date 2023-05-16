@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="lightblue">#03A9F4</color>
+    <color name="light_blue">#03A9F4</color>
     <color name="blue">#2196F3</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="cardviews">#027fcc</color>
-    <color name="text">#2c3e50</color>
-
-
+    <color name="navy_blue">#1F8BE0</color>
+    <color name="dark_blue">#2c3e50</color>
+    <color name="gray">#A1A1A1</color>
+    <color name="white_gray">#EFF2F4</color>
+    <color name="dark_gray">#585858</color>
 </resources>
