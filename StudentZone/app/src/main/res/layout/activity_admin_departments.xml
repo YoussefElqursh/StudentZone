@@ -40,10 +40,10 @@
                 android:layout_marginTop="590dp"
                 android:background="@drawable/custom_btn_plus_add"
                 android:contentDescription="@string/btn_floating_action"
-                android:drawableRight="@drawable/ic_plus"
+                android:drawableRight="@drawable/ic_add"
                 android:fadeScrollbars="false"
                 android:paddingRight="15dp"
-                android:src="@drawable/ic_plus"
+                android:src="@drawable/ic_add"
                 app:elevation="20dp"
                 app:fabSize="normal"
                 app:hoveredFocusedTranslationZ="20dp"
@@ -100,7 +100,6 @@
                                     android:layout_marginLeft="16dp"
                                     android:layout_marginTop="20dp"
                                     android:layout_toRightOf="@id/activity_admin_depatrments_iv"
-                                    android:fontFamily="@font/amaranth"
                                     android:text="Computer Science"
                                     android:textColor="@color/white"
                                     android:textSize="18sp"
@@ -113,7 +112,6 @@
                                     android:layout_marginLeft="30dp"
                                     android:layout_marginTop="42dp"
                                     android:layout_toRightOf="@id/activity_admin_depatrments_iv"
-                                    android:fontFamily="@font/amaranth"
                                     android:text="36985758"
                                     android:textColor="@color/white" />
 

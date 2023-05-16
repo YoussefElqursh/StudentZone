@@ -25,7 +25,7 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         activity_admin_doctors_accounts_btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(AdminDoctorsAccountsActivity.this);
+                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(AdminDoctorsAccountsActivity.this, R.style.BottomSheetStyle);
                 View bottomSheetDialogView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.fragment_admin_new_doctor_account, (LinearLayout)findViewById(R.id.fragment_admin_new_doctor_ll_main));
                 bottomSheetDialog.setContentView(bottomSheetDialogView);
                 bottomSheetDialog.show();

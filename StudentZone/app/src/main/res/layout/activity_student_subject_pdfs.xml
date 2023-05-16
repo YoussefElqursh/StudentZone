@@ -40,7 +40,6 @@
                 android:background="@drawable/custom_btn_plus_add"
                 android:contentDescription="@string/btn_floating_action"
                 android:drawableRight="@drawable/ic_download"
-                android:fadeScrollbars="false"
                 android:paddingRight="15dp"
                 android:src="@drawable/ic_download"
                 app:elevation="20dp"

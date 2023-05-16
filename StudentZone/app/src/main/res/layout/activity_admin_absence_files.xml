@@ -79,7 +79,7 @@
                                     android:layout_marginTop="10dp"
                                     android:layout_marginBottom="10dp"
                                     android:gravity="center"
-                                    app:srcCompat="@drawable/ic_book">
+                                    app:srcCompat="@drawable/ic_book_1">
 
                                 </ImageView>
 
@@ -90,7 +90,6 @@
                                     android:layout_marginLeft="16dp"
                                     android:layout_marginTop="20dp"
                                     android:layout_toRightOf="@id/activity_admin_absence_files_iv"
-                                    android:fontFamily="@font/amaranth"
                                     android:text="Computer Programming"
                                     android:textColor="@color/white"
                                     android:textSize="18sp"
@@ -103,7 +102,6 @@
                                     android:layout_marginLeft="30dp"
                                     android:layout_marginTop="42dp"
                                     android:layout_toRightOf="@id/activity_admin_absence_files_iv"
-                                    android:fontFamily="@font/amaranth"
                                     android:text="200 Students"
                                     android:textColor="@color/white" />
 

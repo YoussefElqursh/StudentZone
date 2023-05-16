@@ -25,7 +25,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
         activity_admin_students_accounts_btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(AdminStudentsAccountsActivity.this);
+                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(AdminStudentsAccountsActivity.this, R.style.BottomSheetStyle);
                 View bottomSheetDialogView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.fragment_admin_new_student_account, (LinearLayout)findViewById(R.id.fragment_admin_new_student_ll_main));
                 bottomSheetDialog.setContentView(bottomSheetDialogView);
                 bottomSheetDialog.show();
