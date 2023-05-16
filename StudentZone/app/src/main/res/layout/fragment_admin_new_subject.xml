@@ -7,4 +7,105 @@
     android:orientation="vertical"
     tools:context=".Admin_Calsses.Admin_Fragments.AdminNewSubjectFragment">
 
+
+    <EditText
+        android:id="@+id/fragment_add_subject_tf_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/et_background"
+        android:drawableStart="@drawable/ic_user"
+        android:drawablePadding="20dp"
+        android:ems="10"
+        android:hint="Subject Name"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:paddingLeft="10dp" />
+
+    <EditText
+        android:id="@+id/fragment_add_subject_tf_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/et_background"
+        android:drawableStart="@drawable/ic_lock"
+        android:drawablePadding="20dp"
+        android:ems="10"
+        android:hint="Subject Code"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:paddingLeft="10dp" />
+
+    <EditText
+        android:id="@+id/fragment_add_subject_tf_department"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/et_background"
+        android:drawableStart="@drawable/ic_lock"
+        android:drawablePadding="20dp"
+        android:ems="10"
+        android:hint="Subject Departname"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:paddingLeft="10dp" />
+
+    <EditText
+        android:id="@+id/fragment_add_subject_tf_pre_request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/et_background"
+        android:drawableStart="@drawable/ic_lock"
+        android:drawablePadding="20dp"
+        android:ems="10"
+        android:hint="Subject PreRequest"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:paddingLeft="10dp" />
+
+    <EditText
+        android:id="@+id/fragment_add_subject_tf_doctor_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/et_background"
+        android:drawableStart="@drawable/ic_male_doctor"
+        android:drawablePadding="20dp"
+        android:ems="10"
+        android:hint="Subject Doctor Name"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:paddingLeft="10dp" />
+
+    <Button
+        android:id="@+id/fragment_add_subject_btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/btn_login_style"
+        android:text="Save"
+        android:fontFamily="@font/carter_one"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        tools:ignore="TextContrastCheck" />
+
 </LinearLayout>
