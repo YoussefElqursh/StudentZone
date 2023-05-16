@@ -10,50 +10,67 @@ import android.view.View;
 import com.studentzone.R;
 
 public class AdminHomeActivity extends AppCompatActivity {
-    CardView departments,add_subject,absent_files,add_doctor_account,add_student_account;
+    CardView activity_admin_home_cv_department,activity_admin_home_cv_subjects,activity_admin_home_cv_absence_files,activity_admin_home_cv_doctors_account,activity_admin_home_cv_students_account;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_home);
+        departmentsCardViewAction();
+        subjectsCardViewAction();
+        doctorsCardViewAction();
+        studentsCardViewAction();
+        absenceFilesCardViewAction();
+    }
 
-        departments = findViewById(R.id.activity_admin_home_cv_departments);
-        departments.setOnClickListener(new View.OnClickListener() {
+    public void departmentsCardViewAction() {
+        activity_admin_home_cv_department = findViewById(R.id.activity_admin_home_cv_departments);
+        activity_admin_home_cv_department.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AdminHomeActivity.this, AdminDepartmentsActivity.class));
             }
         });
+        subjectsCardViewAction();
 
-        add_subject = findViewById(R.id.activity_admin_home_cv_subjects);
-        add_subject.setOnClickListener(new View.OnClickListener() {
+    }
+
+    public void subjectsCardViewAction() {
+        activity_admin_home_cv_subjects = findViewById(R.id.activity_admin_home_cv_subjects);
+        activity_admin_home_cv_subjects.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AdminHomeActivity.this, AdminSubjectsActivity.class));
             }
         });
+    }
 
-        absent_files = findViewById(R.id.activity_admin_home_cv_doctors_accounts);
-        absent_files.setOnClickListener(new View.OnClickListener() {
+    public void doctorsCardViewAction() {
+        activity_admin_home_cv_doctors_account = findViewById(R.id.activity_admin_home_cv_doctors_accounts);
+        activity_admin_home_cv_doctors_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AdminHomeActivity.this,AdminDoctorsAccountsActivity.class));
             }
         });
-
-        add_doctor_account = findViewById(R.id.activity_admin_home_cv_students_accounts);
-        add_doctor_account.setOnClickListener(new View.OnClickListener() {
+    }
+    public void studentsCardViewAction() {
+        activity_admin_home_cv_students_account = findViewById(R.id.activity_admin_home_cv_students_accounts);
+        activity_admin_home_cv_students_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AdminHomeActivity.this,AdminStudentsAccountsActivity.class));
             }
         });
-
-        add_student_account = findViewById(R.id.activity_admin_home_cv_absence_files);
-        add_student_account.setOnClickListener(new View.OnClickListener() {
+    }
+    public void absenceFilesCardViewAction() {
+        activity_admin_home_cv_absence_files = findViewById(R.id.activity_admin_home_cv_absence_files);
+        activity_admin_home_cv_absence_files.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AdminHomeActivity.this,AdminAbsenceFilesActivity.class));
             }
         });
     }
+
+
 }
