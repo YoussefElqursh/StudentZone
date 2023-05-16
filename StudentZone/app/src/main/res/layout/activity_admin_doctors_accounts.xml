@@ -54,10 +54,10 @@
                 android:layout_marginTop="590dp"
                 android:background="@drawable/custom_btn_plus_add"
                 android:contentDescription="@string/btn_floating_action"
-                android:drawableRight="@drawable/ic_plus"
+                android:drawableRight="@drawable/ic_add"
                 android:fadeScrollbars="false"
                 android:paddingRight="15dp"
-                android:src="@drawable/ic_plus"
+                android:src="@drawable/ic_add"
                 app:elevation="20dp"
                 app:fabSize="normal"
                 app:hoveredFocusedTranslationZ="20dp"
@@ -115,7 +115,6 @@
                                     android:layout_marginLeft="16dp"
                                     android:layout_marginTop="20dp"
                                     android:layout_toRightOf="@id/activity_admin_doctors_accounts_iv"
-                                    android:fontFamily="@font/amaranth"
                                     android:maxLines="1"
                                     android:text="Mohmmed Malhat"
                                     android:textColor="@color/white"
@@ -129,7 +128,6 @@
                                     android:layout_marginLeft="30dp"
                                     android:layout_marginTop="42dp"
                                     android:layout_toRightOf="@id/activity_admin_doctors_accounts_iv"
-                                    android:fontFamily="@font/amaranth"
                                     android:text="asdfdfgb564894"
                                     android:textColor="@color/white" />
 
@@ -177,7 +175,6 @@
                                     android:layout_marginLeft="16dp"
                                     android:layout_marginTop="20dp"
                                     android:layout_toRightOf="@id/activity_admin_doctors_accounts_iv_f"
-                                    android:fontFamily="@font/amaranth"
                                     android:maxLines="1"
                                     android:text="Eman Mesalhy"
                                     android:textColor="@color/white"
@@ -191,7 +188,6 @@
                                     android:layout_marginLeft="30dp"
                                     android:layout_marginTop="42dp"
                                     android:layout_toRightOf="@id/activity_admin_doctors_accounts_iv_f"
-                                    android:fontFamily="@font/amaranth"
                                     android:text="1848956df4s"
                                     android:textColor="@color/white" />
 

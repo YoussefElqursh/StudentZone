@@ -14,7 +14,7 @@
 
     <TextView
         android:id="@+id/activity_student_home_tv_home"
-        android:layout_width="94dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -22,7 +22,6 @@
         android:layout_marginStart="157dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="160dp"
-        android:fontFamily="@font/adamina"
         android:gravity="center|center_horizontal|center_vertical"
         android:text="Home"
         android:textColor="@color/white"
@@ -77,8 +76,8 @@
                     android:gravity="center"
                     android:text="@string/departments"
                     android:textColor="@color/dark_blue"
-                    android:fontFamily="@font/carter_one"
-                    android:textSize="17sp"/>
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
 
             </LinearLayout>
 
@@ -119,10 +118,10 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="5dp"
                     android:gravity="center"
-                    android:fontFamily="@font/carter_one"
                     android:text="@string/subjects"
                     android:textColor="@color/dark_blue"
-                    android:textSize="17sp"/>
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -158,13 +157,13 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginRight="5dp"
-                    android:fontFamily="@font/carter_one"
                     android:gravity="center"
                     android:text="@string/doctors_accounts"
                     android:textColor="@color/dark_blue"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -208,7 +207,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="-13dp"
                     android:layout_marginRight="5dp"
-                    android:fontFamily="@font/carter_one"
+                    android:textStyle="bold"
                     android:gravity="center"
                     android:text="@string/students_accounts"
                     android:textColor="@color/dark_blue"
@@ -256,7 +255,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="5dp"
-                    android:fontFamily="@font/carter_one"
+                    android:textStyle="bold"
                     android:gravity="center"
                     android:text="@string/absence_files"
                     android:textColor="@color/dark_blue"
