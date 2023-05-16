@@ -5,17 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Admin_Calsses.Admin_Fragments.AdminNewDepartmentFragment">
+    tools:context=".Admin_Calsses.Admin_Fragments.AdminNewDepartmentFragment"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/fragment_add_department_tf_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="50dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/et_background"
+        android:background="@drawable/custom_et_selector"
         android:drawableStart="@drawable/ic_user"
         android:drawablePadding="20dp"
         android:ems="10"
@@ -28,11 +32,9 @@
         android:id="@+id/fragment_add_department_tf_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/et_background"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/custom_et_selector"
         android:drawableStart="@drawable/ic_lock"
         android:drawablePadding="20dp"
         android:ems="10"
@@ -45,10 +47,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/btn_login_style"
+        android:background="@drawable/custom_btn_login"
         android:text="Save"
         android:fontFamily="@font/carter_one"
         android:textColor="@color/white"

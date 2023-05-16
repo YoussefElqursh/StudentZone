@@ -15,7 +15,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="50dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/et_background"
+        android:background="@drawable/custom_et_selector"
         android:drawableStart="@drawable/ic_user"
         android:drawablePadding="20dp"
         android:ems="10"
@@ -32,7 +32,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="50dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/et_background"
+        android:background="@drawable/custom_et_selector"
         android:drawableStart="@drawable/ic_lock"
         android:drawablePadding="20dp"
         android:ems="10"
@@ -52,25 +52,25 @@
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
-    <RadioButton
-        android:id="@+id/fragment_add_doctor_account_rb_admin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:buttonTint="#2196F3"
-        android:minHeight="48dp"
-        android:text="male"
-        android:textSize="18sp" />
+        <RadioButton
+            android:id="@+id/fragment_add_doctor_account_rb_admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:buttonTint="#2196F3"
+            android:minHeight="48dp"
+            android:text="male"
+            android:textSize="18sp" />
 
-    <RadioButton
-        android:id="@+id/fragment_add_doctor_account_rb_student"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:buttonTint="#2196F3"
-        android:minHeight="48dp"
-        android:text="Female"
-        android:textSize="18sp" />
+        <RadioButton
+            android:id="@+id/fragment_add_doctor_account_rb_student"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:buttonTint="#2196F3"
+            android:minHeight="48dp"
+            android:text="Female"
+            android:textSize="18sp" />
     </RadioGroup>
 
     <Button
@@ -81,7 +81,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/btn_login_style"
+        android:background="@drawable/custom_btn_login"
         android:text="Save"
         android:fontFamily="@font/carter_one"
         android:textColor="@color/white"
