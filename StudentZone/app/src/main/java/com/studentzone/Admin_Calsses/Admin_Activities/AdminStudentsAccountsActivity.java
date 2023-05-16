@@ -2,6 +2,7 @@ package com.studentzone.Admin_Calsses.Admin_Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,10 +14,14 @@ import com.studentzone.R;
 
 public class AdminStudentsAccountsActivity extends AppCompatActivity {
     Button activity_admin_students_accounts_btn_add;
+
+    Button buttonBack ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_students_accounts);
+        buttonBack = findViewById(R.id.activity_admin_students_accounts_btn_back);
+        buttonBack.setOnClickListener(v -> startActivity(new Intent(AdminStudentsAccountsActivity.this,AdminHomeActivity.class)));
         showBottomSheetDialog();
     }
 

@@ -15,9 +15,23 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:menu="@menu/activity_admin_doctors_accounts_tbar_menu"
-        app:title="Doctors Accounts"
-        app:titleTextColor="@color/white" />
+        app:menu="@menu/activity_admin_doctors_accounts_tbar_menu">
+        <Button
+            android:id="@+id/activity_doctors_accounts_file_btn_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/ic_back"
+            android:contentDescription="back arrow"
+            tools:ignore="TouchTargetSizeCheck" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Doctors Accounts"
+            android:textSize="20sp"
+            android:layout_marginLeft="30dp"
+            android:textColor="@color/white"
+            />
+    </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:id="@+id/activity_admin_doctors_accounts_ll_main"
