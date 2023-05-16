@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import com.studentzone.Admin_Calsses.Admin_Activities.AdminDepartmentsActivity;
+import com.studentzone.Admin_Calsses.Admin_Activities.AdminHomeActivity;
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
 
@@ -16,6 +18,6 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         button = findViewById(R.id.activity_welcome_btn_welcome);
-        button.setOnClickListener(v -> startActivity(new Intent(WelcomeActivity.this, LoginActivity.class)));
+        button.setOnClickListener(v -> startActivity(new Intent(WelcomeActivity.this, AdminHomeActivity.class)));
     }
 }
