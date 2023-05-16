@@ -41,6 +41,23 @@
         android:minHeight="48dp"
         android:paddingLeft="10dp" />
 
+    <EditText
+        android:id="@+id/fragment_add_student_account_tf_acadimic_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/et_background"
+        android:drawableStart="@drawable/ic_lock"
+        android:drawablePadding="20dp"
+        android:ems="10"
+        android:hint="Acadimic ID"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:paddingLeft="10dp" />
+
     <RadioGroup
         android:id="@+id/fragment_add_student_account_rg_userkind"
         android:layout_width="match_parent"
