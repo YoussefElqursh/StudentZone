@@ -28,7 +28,7 @@
             android:id="@+id/activity_Doctor_subject_PDFs_rl_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/cv_style"
+            android:background="@drawable/custom_cv"
             android:elevation="50dp">
 
             <Button
@@ -37,7 +37,7 @@
                 android:layout_height="60dp"
                 android:layout_marginLeft="280dp"
                 android:layout_marginTop="590dp"
-                android:background="@drawable/btn_plus_add_style"
+                android:background="@drawable/custom_btn_plus_add"
                 android:contentDescription="@string/btn_floating_action"
                 android:drawableRight="@drawable/ic_upload"
                 android:fadeScrollbars="false"
@@ -52,13 +52,13 @@
                 android:id="@+id/activity_Doctor_subject_scv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/cv_style"
+                android:background="@drawable/custom_cv"
                 android:contentDescription="@string/scrolbar">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/cv_style"
+                    android:background="@drawable/custom_cv"
                     android:orientation="vertical">
 
                     <LinearLayout

@@ -10,7 +10,8 @@
     <View android:id="@+id/top_view"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@drawable/view_style" />
+        android:background="@drawable/custom_view" />
+
     <TextView
         android:id="@+id/activity_student_home_tv_home"
         android:layout_width="94dp"
@@ -75,7 +76,7 @@
                     android:layout_marginRight="5dp"
                     android:gravity="center"
                     android:text="@string/departments"
-                    android:textColor="@color/text"
+                    android:textColor="@color/dark_blue"
                     android:fontFamily="@font/carter_one"
                     android:textSize="17sp"/>
 
@@ -120,7 +121,7 @@
                     android:gravity="center"
                     android:fontFamily="@font/carter_one"
                     android:text="@string/subjects"
-                    android:textColor="@color/text"
+                    android:textColor="@color/dark_blue"
                     android:textSize="17sp"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -162,7 +163,7 @@
                     android:fontFamily="@font/carter_one"
                     android:gravity="center"
                     android:text="@string/doctors_accounts"
-                    android:textColor="@color/text"
+                    android:textColor="@color/dark_blue"
                     android:textSize="17sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -210,7 +211,7 @@
                     android:fontFamily="@font/carter_one"
                     android:gravity="center"
                     android:text="@string/students_accounts"
-                    android:textColor="@color/text"
+                    android:textColor="@color/dark_blue"
                     android:textSize="16sp" />
 
 
@@ -258,7 +259,7 @@
                     android:fontFamily="@font/carter_one"
                     android:gravity="center"
                     android:text="@string/absence_files"
-                    android:textColor="@color/text"
+                    android:textColor="@color/dark_blue"
                     android:textSize="17sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
