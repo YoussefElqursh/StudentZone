@@ -13,16 +13,13 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.studentzone.R;
 
 public class AdminStudentsAccountsActivity extends AppCompatActivity {
-    Button activity_admin_students_accounts_btn_add;
-
-    Button buttonBack ;
+    Button activity_admin_students_accounts_btn_add, activity_admin_students_accounts_btn_back ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_students_accounts);
-        buttonBack = findViewById(R.id.activity_admin_students_accounts_btn_back);
-        buttonBack.setOnClickListener(v -> startActivity(new Intent(AdminStudentsAccountsActivity.this,AdminHomeActivity.class)));
         showBottomSheetDialog();
+        buttonBackAction();
     }
 
     public void showBottomSheetDialog() {
@@ -32,9 +29,26 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(AdminStudentsAccountsActivity.this, R.style.BottomSheetStyle);
                 View bottomSheetDialogView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.fragment_admin_new_student_account, (LinearLayout)findViewById(R.id.fragment_admin_new_student_ll_main));
+                bottomSheetDialogView.findViewById(R.id.fragment_admin_new_student_btn_close).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        bottomSheetDialog.dismiss();
+                    }
+                });
+                bottomSheetDialogView.findViewById(R.id.fragment_new_student_btn_save).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        bottomSheetDialog.dismiss();
+                    }
+                });
                 bottomSheetDialog.setContentView(bottomSheetDialogView);
                 bottomSheetDialog.show();
             }
         });
+    }
+
+    public void buttonBackAction(){
+        activity_admin_students_accounts_btn_back = findViewById(R.id.activity_admin_students_accounts_btn_back);
+        activity_admin_students_accounts_btn_back.setOnClickListener(v -> startActivity(new Intent(AdminStudentsAccountsActivity.this,AdminHomeActivity.class)));
     }
 }

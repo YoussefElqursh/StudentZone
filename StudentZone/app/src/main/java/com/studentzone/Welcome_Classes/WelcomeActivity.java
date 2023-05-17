@@ -10,6 +10,7 @@ import com.studentzone.Admin_Calsses.Admin_Activities.AdminDepartmentsActivity;
 import com.studentzone.Admin_Calsses.Admin_Activities.AdminHomeActivity;
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
+import com.studentzone.Student_Classes.Student_Activities.StudentHomeActivity;
 
 public class WelcomeActivity extends AppCompatActivity {
     Button button;
@@ -18,6 +19,6 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         button = findViewById(R.id.activity_welcome_btn_welcome);
-        button.setOnClickListener(v -> startActivity(new Intent(WelcomeActivity.this, AdminHomeActivity.class)));
+        button.setOnClickListener(v -> startActivity(new Intent(WelcomeActivity.this, StudentHomeActivity.class)));
     }
 }

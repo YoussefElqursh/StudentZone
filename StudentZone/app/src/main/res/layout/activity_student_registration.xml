@@ -16,6 +16,7 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
         app:menu="@menu/activity_admin_depatrments_tbar_menu">
+
         <Button
             android:id="@+id/activity_student_regestration_btn_back"
             android:layout_width="20dp"
@@ -23,14 +24,15 @@
             android:background="@drawable/ic_back"
             android:contentDescription="back arrow"
             tools:ignore="TouchTargetSizeCheck" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Registration"
+            android:text="Subjects Registration"
             android:textSize="20sp"
             android:layout_marginLeft="30dp"
-            android:textColor="@color/white"
-            />
+            android:textColor="@color/white" />
+
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout

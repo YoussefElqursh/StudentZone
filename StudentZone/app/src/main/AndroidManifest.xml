@@ -13,10 +13,10 @@
         android:theme="@style/Theme.StudentZone"
         tools:targetApi="31">
         <activity
-            android:name=".Doctor_Classes.Doctor_Activities.DoctorSubjectPDFsActivity"
+            android:name=".Doctor_Classes.Doctor_Activities.DoctorSubjectPdfsActivity"
             android:exported="false" />
         <activity
-            android:name=".Student_Classes.Student_Activities.StudentSubjectPDFsActivity"
+            android:name=".Student_Classes.Student_Activities.StudentSubjectPdfsActivity"
             android:exported="false" />
         <activity
             android:name=".Student_Classes.Student_Activities.StudentSubjectActivity"
@@ -25,7 +25,7 @@
             android:name=".Student_Classes.Student_Activities.StudentRegistrationActivity"
             android:exported="false" />
         <activity
-            android:name=".Student_Classes.Student_Activities.StudentPerviousRequestActivity"
+            android:name=".Student_Classes.Student_Activities.StudentPassedSubjectsActivity"
             android:exported="false" />
         <activity
             android:name=".Student_Classes.Student_Activities.StudentHomeActivity"

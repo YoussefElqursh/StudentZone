@@ -14,13 +14,16 @@ import com.studentzone.Admin_Calsses.Admin_Activities.AdminHomeActivity;
 import com.studentzone.R;
 
 public class LoginActivity extends AppCompatActivity {
-    Button button;
-    RadioButton radioButton;
+    Button activity_login_btn_login;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        button = findViewById(R.id.activity_login_btn_login);
-        button.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, AdminHomeActivity.class)));
+        loginButtonAction();
+    }
+
+    public void loginButtonAction(){
+        activity_login_btn_login = findViewById(R.id.activity_login_btn_login);
+        activity_login_btn_login.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, AdminHomeActivity.class)));
     }
 }
