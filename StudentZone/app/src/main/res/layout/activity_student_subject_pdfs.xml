@@ -6,26 +6,43 @@
     android:layout_height="match_parent"
     android:background="@color/blue"
     android:orientation="vertical"
-    tools:context=".Student_Classes.Student_Activities.StudentSubjectPDFsActivity">
+    tools:context=".Student_Classes.Student_Activities.StudentSubjectPdfsActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/activity_student_subject_PDFs_tbar"
+        android:id="@+id/activity_student_subject_Pdfs_tbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:menu="@menu/activity_admin_depatrments_tbar_menu"
-        app:title="PDFs"
-        app:titleTextColor="@color/white" />
+        app:menu="@menu/activity_admin_depatrments_tbar_menu">
+
+        <Button
+            android:id="@+id/activity_student_subject_Pdfs_btn_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/ic_back"
+            android:contentDescription="back arrow"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PDFs"
+            android:textSize="20sp"
+            android:layout_marginLeft="30dp"
+            android:textColor="@color/white"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
     <LinearLayout
-        android:id="@+id/activity_student_subject_PDFs_ll_main"
+        android:id="@+id/activity_student_subject_Pdfs_ll_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <RelativeLayout
-            android:id="@+id/activity_student_subject_PDFs_rl_1"
+            android:id="@+id/activity_student_subject_Pdfs_rl_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/custom_cv"
@@ -40,7 +57,6 @@
                 android:background="@drawable/custom_btn_plus_add"
                 android:contentDescription="@string/btn_floating_action"
                 android:drawableRight="@drawable/ic_download"
-                android:fadeScrollbars="false"
                 android:paddingRight="15dp"
                 android:src="@drawable/ic_download"
                 app:elevation="20dp"

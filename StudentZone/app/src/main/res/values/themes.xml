@@ -13,5 +13,12 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
-
+    
+    <style name="BottomSheetStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetDialogTheme</item>
+    </style>
+    
+    <style name="BottomSheetDialogTheme" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/custom_fragment_admin_new_department</item>
+    </style>
 </resources>

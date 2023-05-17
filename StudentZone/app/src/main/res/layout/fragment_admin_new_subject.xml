@@ -5,107 +5,126 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Admin_Calsses.Admin_Fragments.AdminNewSubjectFragment">
+    tools:context=".Admin_Calsses.Admin_Fragments.AdminNewSubjectFragment"
+    android:background="@drawable/custom_fragment_admin_new_department">
 
-
-    <EditText
-        android:id="@+id/fragment_add_subject_tf_username"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/fragment_admin_new_subject_btn_close"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"
+            android:paddingTop="3dp"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/ic_close"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="95dp"
+            android:layout_toRightOf="@+id/fragment_admin_new_subject_btn_close"
+            android:text="New Subject"
+            android:textSize="18dp"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/fragment_new_student_et_subject_name"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
         android:background="@drawable/custom_et_selector"
         android:drawableStart="@drawable/ic_user"
-        android:drawablePadding="20dp"
+        android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Subject Name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:paddingLeft="10dp" />
+
+        android:paddingLeft="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
 
     <EditText
-        android:id="@+id/fragment_add_subject_tf_password"
+        android:id="@+id/fragment_new_student_et_subject_password"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
+        android:layout_height="55dp"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="10dp"
         android:background="@drawable/custom_et_selector"
-        android:drawableStart="@drawable/ic_lock"
-        android:drawablePadding="20dp"
+        android:drawableStart="@drawable/ic_id"
+        android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Subject Code"
         android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:paddingLeft="10dp" />
+        android:paddingLeft="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
 
     <EditText
-        android:id="@+id/fragment_add_subject_tf_department"
+        android:id="@+id/fragment_new_subject_et_subject_id"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
+        android:layout_height="55dp"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="10dp"
         android:background="@drawable/custom_et_selector"
-        android:drawableStart="@drawable/ic_lock"
-        android:drawablePadding="20dp"
+        android:drawableStart="@drawable/ic_id"
+        android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Subject Departname"
+        android:hint="Subject Department"
         android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:paddingLeft="10dp" />
+        android:paddingLeft="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
 
     <EditText
-        android:id="@+id/fragment_add_subject_tf_pre_request"
+        android:id="@+id/fragment_new_subject_et_doctor_name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
+        android:layout_height="55dp"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="10dp"
         android:background="@drawable/custom_et_selector"
-        android:drawableStart="@drawable/ic_lock"
-        android:drawablePadding="20dp"
+        android:drawableStart="@drawable/ic_user"
+        android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Subject PreRequest"
+        android:hint="Doctor Name"
         android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:paddingLeft="10dp" />
+        android:paddingLeft="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
 
     <EditText
-        android:id="@+id/fragment_add_subject_tf_doctor_name"
+        android:id="@+id/fragment_new_subject_et_subject_department"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
+        android:layout_height="55dp"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="10dp"
         android:background="@drawable/custom_et_selector"
-        android:drawableStart="@drawable/ic_male_doctor"
-        android:drawablePadding="20dp"
+        android:drawableStart="@drawable/ic_book_2"
+        android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Subject Doctor Name"
+        android:hint="Subject Previous Request"
         android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:paddingLeft="10dp" />
+        android:paddingLeft="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
 
     <Button
-        android:id="@+id/fragment_add_subject_btn_login"
+        android:id="@+id/fragment_new_subject_btn_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/custom_btn_login"
         android:text="Save"
-        android:fontFamily="@font/carter_one"
         android:textColor="@color/white"
         android:textSize="18sp"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="25dp"/>
 
 </LinearLayout>

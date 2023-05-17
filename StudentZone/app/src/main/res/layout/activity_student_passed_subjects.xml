@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/blue"
     android:orientation="vertical"
-    tools:context=".Student_Classes.Student_Activities.StudentPerviousRequestActivity">
+    tools:context=".Student_Classes.Student_Activities.StudentPassedSubjectsActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/activity_student_PerviousRequest_tbar"
@@ -15,23 +15,41 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:menu="@menu/activity_admin_depatrments_tbar_menu"
-        app:title="Pre Subjects"
-        app:titleTextColor="@color/white" />
+        app:menu="@menu/activity_admin_depatrments_tbar_menu">
+
+        <Button
+            android:id="@+id/activity_admin_student_passed_subjects_btn_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/ic_back"
+            android:contentDescription="back arrow"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Passed Subjects"
+            android:textSize="20sp"
+            android:layout_marginLeft="30dp"
+            android:textColor="@color/white"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
     <LinearLayout
-        android:id="@+id/activity_student_PerviousRequest_ll_main"
+        android:id="@+id/activity_student_passed_subjects_ll_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <RelativeLayout
-            android:id="@+id/activity_student_PerviousRequest_rl_1"
+            android:id="@+id/activity_student_passed_subjects_rl_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/custom_cv"
             android:elevation="50dp">
+
             <ScrollView
-                android:id="@+id/activity_student_PerviousRequest_scv"
+                android:id="@+id/activity_student_passed_subjects_scv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/custom_cv"
@@ -52,6 +70,10 @@
                         android:layout_marginBottom="10dp"
                         android:orientation="vertical"/>
 
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/student_passed_subjects_recycleview"/>
                 </LinearLayout>
             </ScrollView>
         </RelativeLayout>

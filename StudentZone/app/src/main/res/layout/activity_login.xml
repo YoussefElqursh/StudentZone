@@ -56,7 +56,6 @@
                 android:button="@android:color/transparent"
                 android:buttonTint="#2196F3"
                 android:drawableTop="@drawable/ic_admin"
-                android:fontFamily="@font/amaranth"
                 android:minHeight="48dp"
                 android:background="@drawable/custom_rb_selector"
                 android:textAlignment="center"
@@ -76,7 +75,6 @@
                 android:button="@android:color/transparent"
                 android:buttonTint="#2196F3"
                 android:drawableTop="@drawable/ic_doctor"
-                android:fontFamily="@font/amaranth"
                 android:minHeight="48dp"
                 android:text="Doctor"
                 android:textAlignment="center"
@@ -94,7 +92,6 @@
                 android:button="@android:color/transparent"
                 android:textAlignment="center"
                 android:buttonTint="#2196F3"
-                android:fontFamily="@font/amaranth"
                 android:minHeight="48dp"
                 android:textSize="18sp"
                 android:text="Student"
@@ -113,7 +110,6 @@
             android:background="@drawable/custom_et_selector"
             android:drawableStart="@drawable/ic_user"
             android:drawablePadding="10dp"
-            android:fontFamily="@font/amaranth"
             android:ems="10"
             android:hint="@string/user_name"
             android:inputType="textPersonName"
@@ -127,28 +123,27 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="30dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/custom_et_selector"
             android:drawableStart="@drawable/ic_lock"
             android:drawablePadding="10dp"
             android:ems="10"
-            android:fontFamily="@font/amaranth"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:paddingLeft="10dp" />
 
-        <!--        <CheckBox-->
-        <!--            android:id="@+id/activity_login_cb_rememberme"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginLeft="50dp"-->
-        <!--            android:layout_marginRight="50dp"-->
-        <!--            android:layout_marginBottom="10dp"-->
-        <!--            android:buttonTint="#2196F3"-->
-        <!--            android:minHeight="48dp"-->
-        <!--            android:text="@string/remember_me"-->
-        <!--            android:textSize="18sp" />-->
+        <CheckBox
+            android:id="@+id/activity_login_cb_rememberme"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="25dp"
+            android:buttonTint="@color/gray"
+            android:text="@string/remember_me"
+            android:textSize="16sp"
+            android:textColor="@color/dark_gray"/>
 
         <Button
             android:id="@+id/activity_login_btn_login"
@@ -157,24 +152,12 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:fontFamily="@font/aclonica"
             android:background="@drawable/custom_btn_login"
             android:text="@string/login"
             android:textColor="@color/white"
             android:textSize="18sp"
             tools:ignore="TextContrastCheck" />
 
-        <TextView
-            android:id="@+id/activity_login_tv_forgetpassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"
-            android:layout_marginRight="50dp"
-            android:fontFamily="@font/amaranth"
-            android:padding="5dp"
-            android:text="@string/forget_password"
-            android:textColor="@color/blue"
-            android:textSize="16sp" />
     </LinearLayout>
 
 </RelativeLayout>
