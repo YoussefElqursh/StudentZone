@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -23,5 +24,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         button = findViewById(R.id.activity_login_btn_login);
         button.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, StudentHomeActivity.class)));
+
+
     }
 }

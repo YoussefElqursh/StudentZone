@@ -9,8 +9,8 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import com.studentzone.R;
-import com.studentzone.Student_Classes.Student_Model.StudentAdapter;
-import com.studentzone.Student_Classes.Student_Model.StudentModel;
+import com.studentzone.Student_Classes.Student_Models.StudentAdapter;
+import com.studentzone.Student_Classes.Student_Models.StudentModel;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.studentzone.Student_Classes.Student_Model;
+package com.studentzone.Student_Classes.Student_Models;
 
 import android.view.View;
 import android.widget.ImageView;

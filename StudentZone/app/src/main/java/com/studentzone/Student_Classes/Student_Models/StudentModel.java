@@ -1,4 +1,4 @@
-package com.studentzone.Student_Classes.Student_Model;
+package com.studentzone.Student_Classes.Student_Models;
 
 public class StudentModel {
 
