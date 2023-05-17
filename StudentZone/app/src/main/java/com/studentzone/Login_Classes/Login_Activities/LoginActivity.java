@@ -12,18 +12,16 @@ import android.widget.RadioGroup;
 
 import com.studentzone.Admin_Calsses.Admin_Activities.AdminHomeActivity;
 import com.studentzone.R;
+import com.studentzone.Student_Classes.Student_Activities.StudentHomeActivity;
 
 public class LoginActivity extends AppCompatActivity {
-    Button activity_login_btn_login;
+    Button button;
+    RadioButton radioButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        loginButtonAction();
-    }
-
-    public void loginButtonAction(){
-        activity_login_btn_login = findViewById(R.id.activity_login_btn_login);
-        activity_login_btn_login.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, AdminHomeActivity.class)));
+        button = findViewById(R.id.activity_login_btn_login);
+        button.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, StudentHomeActivity.class)));
     }
 }

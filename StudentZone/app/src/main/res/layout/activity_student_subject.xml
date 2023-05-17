@@ -67,6 +67,11 @@
                         android:layout_marginBottom="10dp"
                         android:orientation="vertical"/>
 
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/student_subject_recycleview"/>
+
                 </LinearLayout>
             </ScrollView>
         </RelativeLayout>
