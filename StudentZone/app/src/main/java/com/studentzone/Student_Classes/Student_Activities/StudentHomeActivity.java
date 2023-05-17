@@ -11,30 +11,39 @@ import com.studentzone.R;
 
 public class StudentHomeActivity extends AppCompatActivity {
 
-    CardView registration,PerviousRequest,subject;
+    CardView activity_student_home_cv_subjects_registration,activity_student_home_cv_subjects_passed_subjects,activity_student_home_cv_subjects;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_home);
+        subjectsRegistrationCardViewAction();
+        subjectsPerviousRequestCardViewAction();
+        subjectsCardViewAction();
+    }
 
-        registration = findViewById(R.id.activity_student_home_cv_registration);
-        registration.setOnClickListener(new View.OnClickListener() {
+    public void subjectsRegistrationCardViewAction(){
+        activity_student_home_cv_subjects_registration = findViewById(R.id.activity_student_home_cv_subjects_registration);
+        activity_student_home_cv_subjects_registration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(StudentHomeActivity.this, StudentRegistrationActivity.class));
             }
         });
+    }
 
-        PerviousRequest = findViewById(R.id.activity_student_home_cv_PerviousRequest);
-        PerviousRequest.setOnClickListener(new View.OnClickListener() {
+    public void subjectsPerviousRequestCardViewAction(){
+        activity_student_home_cv_subjects_passed_subjects = findViewById(R.id.activity_student_home_cv_subjects_passed_subjects);
+        activity_student_home_cv_subjects_passed_subjects.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(StudentHomeActivity.this, StudentPerviousRequestActivity.class));
+                startActivity(new Intent(StudentHomeActivity.this, StudentPassedSubjectsActivity.class));
             }
         });
+    }
 
-        subject = findViewById(R.id.activity_student_home_cv_subject);
-        subject.setOnClickListener(new View.OnClickListener() {
+    public void subjectsCardViewAction(){
+        activity_student_home_cv_subjects = findViewById(R.id.activity_student_home_cv_subjects);
+        activity_student_home_cv_subjects.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(StudentHomeActivity.this,StudentSubjectActivity.class));

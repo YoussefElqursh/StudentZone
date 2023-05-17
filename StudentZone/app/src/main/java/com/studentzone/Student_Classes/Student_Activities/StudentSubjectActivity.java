@@ -11,14 +11,17 @@ import com.studentzone.Admin_Calsses.Admin_Activities.AdminHomeActivity;
 import com.studentzone.R;
 
 public class StudentSubjectActivity extends AppCompatActivity {
-
-    Button buttonBack;
-
+    Button activity_student_subject_btn_back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_subject);
-        buttonBack = findViewById(R.id.activity_student_subject_btn_back);
-        buttonBack.setOnClickListener(v -> startActivity(new Intent(StudentSubjectActivity.this, StudentHomeActivity.class)));
+        backButtonAction();
+        }
+
+    public void backButtonAction(){
+        activity_student_subject_btn_back = findViewById(R.id.activity_student_subject_btn_back);
+        activity_student_subject_btn_back.setOnClickListener(v -> startActivity(new Intent(StudentSubjectActivity.this, StudentHomeActivity.class)));
+
     }
 }

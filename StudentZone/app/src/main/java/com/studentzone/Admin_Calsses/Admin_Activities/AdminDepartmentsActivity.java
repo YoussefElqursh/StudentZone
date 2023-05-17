@@ -13,19 +13,17 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.studentzone.R;
 
 public class AdminDepartmentsActivity extends AppCompatActivity {
-    Button activity_admin_departments_btn_add_new_department;
-
-    Button buttonBack ;
+    Button activity_admin_departments_btn_add_new_department, activity_admin_depatrments_btn_back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_departments);
-        buttonBack = findViewById(R.id.activity_admin_depatrments_btn_back);
-        buttonBack.setOnClickListener(v -> startActivity(new Intent(AdminDepartmentsActivity.this,AdminHomeActivity.class)));
-        showBottomSheetDialog();
+
+        showAndHideBottomSheetDialog();
+        backButtonAction();
     }
 
-    public void showBottomSheetDialog() {
+    public void showAndHideBottomSheetDialog() {
         activity_admin_departments_btn_add_new_department = findViewById(R.id.activity_admin_depatrments_btn_add);
         activity_admin_departments_btn_add_new_department.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,9 +36,20 @@ public class AdminDepartmentsActivity extends AppCompatActivity {
                         bottomSheetDialog.dismiss();
                     }
                 });
+                bottomSheetDialogView.findViewById(R.id.fragment_new_department_btn_save).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        bottomSheetDialog.dismiss();
+                    }
+                });
                 bottomSheetDialog.setContentView(bottomSheetDialogView);
                 bottomSheetDialog.show();
             }
         });
+    }
+
+    public void backButtonAction(){
+        activity_admin_depatrments_btn_back = findViewById(R.id.activity_admin_depatrments_btn_back);
+        activity_admin_depatrments_btn_back.setOnClickListener(v -> startActivity(new Intent(AdminDepartmentsActivity.this,AdminHomeActivity.class)));
     }
 }
