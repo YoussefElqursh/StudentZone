@@ -20,6 +20,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_home);
         AllCardViewActions();
+        buttonLogoutAction();
     }
 
     public void departmentsCardViewClickAction() {
@@ -76,8 +77,8 @@ public class AdminHomeActivity extends AppCompatActivity {
     public void AllCardViewActions(){
         departmentsCardViewClickAction();
         subjectsCardViewClickAction();
-        studentsCardViewClickAction();
         doctorsCardViewClickAction();
+        studentsCardViewClickAction();
         absenceFilesCardViewClickAction();
     }
 
