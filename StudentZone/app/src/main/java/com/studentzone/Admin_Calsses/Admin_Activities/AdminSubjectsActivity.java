@@ -13,18 +13,19 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.studentzone.R;
 
 public class AdminSubjectsActivity extends AppCompatActivity {
-    Button activity_admin_subjects_btn_add, activity_admin_subjects_btn_back ;
+    Button btn_add, btn_back ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_subjects);
-        showBottomSheetDialog();
-        backButtonAction();
+        buttonAddAction();
+        buttonBackAction();
     }
 
-    public void showBottomSheetDialog() {
-        activity_admin_subjects_btn_add = findViewById(R.id.activity_admin_subjects_btn_add);
-        activity_admin_subjects_btn_add.setOnClickListener(new View.OnClickListener() {
+    // This function to show and hide bottomSheetDialog //
+    public void buttonAddAction() {
+        btn_add = findViewById(R.id.activity_admin_subjects_btn_add);
+        btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(AdminSubjectsActivity.this, R.style.BottomSheetStyle);
@@ -46,8 +47,8 @@ public class AdminSubjectsActivity extends AppCompatActivity {
             }
         });
     }
-    public void backButtonAction(){
-        activity_admin_subjects_btn_back = findViewById(R.id.activity_admin_subjects_btn_back);
-        activity_admin_subjects_btn_back.setOnClickListener(v -> startActivity(new Intent(AdminSubjectsActivity.this,AdminHomeActivity.class)));
+    public void buttonBackAction(){
+        btn_back = findViewById(R.id.activity_admin_subjects_btn_back);
+        btn_back.setOnClickListener(v -> startActivity(new Intent(AdminSubjectsActivity.this,AdminHomeActivity.class)));
     }
 }
