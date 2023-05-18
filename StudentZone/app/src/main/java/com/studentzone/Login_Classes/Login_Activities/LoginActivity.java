@@ -12,6 +12,7 @@ import android.widget.RadioGroup;
 
 import com.studentzone.Admin_Calsses.Admin_Activities.AdminHomeActivity;
 import com.studentzone.R;
+import com.studentzone.Student_Classes.Student_Activities.StudentHomeActivity;
 
 public class LoginActivity extends AppCompatActivity {
     Button button;
@@ -21,6 +22,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         button = findViewById(R.id.activity_login_btn_login);
-        button.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, AdminHomeActivity.class)));
+        button.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, StudentHomeActivity.class)));
     }
 }
