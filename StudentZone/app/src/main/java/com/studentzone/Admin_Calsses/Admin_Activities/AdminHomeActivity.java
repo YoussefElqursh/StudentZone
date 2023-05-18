@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,11 +16,8 @@ public class AdminHomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_home);
-        departmentsCardViewAction();
-        subjectsCardViewAction();
-        doctorsCardViewAction();
-        studentsCardViewAction();
-        absenceFilesCardViewAction();
+        AllCardViewActions();
+
     }
 
     public void departmentsCardViewAction() {
@@ -72,5 +70,14 @@ public class AdminHomeActivity extends AppCompatActivity {
         });
     }
 
+    /**All Card Views Actions
+     **********************************************************************************************/
+    public void AllCardViewActions(){
+        departmentsCardViewAction();
+        subjectsCardViewAction();
+        doctorsCardViewAction();
+        studentsCardViewAction();
+        absenceFilesCardViewAction();
+    }
 
 }
