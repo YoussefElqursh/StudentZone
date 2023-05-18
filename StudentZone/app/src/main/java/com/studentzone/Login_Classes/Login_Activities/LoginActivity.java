@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.studentzone.Admin_Calsses.Admin_Activities.AdminHomeActivity;
 import com.studentzone.R;
+import com.studentzone.Student_Classes.Student_Activities.StudentHomeActivity;
 
 public class LoginActivity extends AppCompatActivity {
     Button btn_login;
@@ -17,7 +18,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         buttonLoginAction();
     }
-
     public void buttonLoginAction(){
         btn_login = findViewById(R.id.activity_login_btn_login);
         btn_login.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, AdminHomeActivity.class)));
