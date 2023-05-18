@@ -18,6 +18,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         buttonLoginAction();
     }
+
     public void buttonLoginAction(){
         btn_login = findViewById(R.id.activity_login_btn_login);
         btn_login.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, AdminHomeActivity.class)));
