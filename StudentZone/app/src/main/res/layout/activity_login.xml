@@ -114,7 +114,10 @@
             android:hint="@string/user_name"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:paddingLeft="10dp" />
+            android:paddingLeft="10dp"
+            android:textSize="18sp"
+            android:maxLines="1"
+            android:paddingRight="10dp"/>
 
         <EditText
             android:id="@+id/activity_login_tf_password"
@@ -128,10 +131,12 @@
             android:drawableStart="@drawable/ic_lock"
             android:drawablePadding="10dp"
             android:ems="10"
+            android:maxLines="1"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:minHeight="48dp"
-            android:paddingLeft="10dp" />
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"/>
 
         <CheckBox
             android:id="@+id/activity_login_cb_rememberme"

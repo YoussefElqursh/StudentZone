@@ -30,7 +30,7 @@
 
         <Button
             android:id="@+id/activity_welcome_btn_welcome"
-            android:layout_width="178dp"
+            android:layout_width="146dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="50dp"

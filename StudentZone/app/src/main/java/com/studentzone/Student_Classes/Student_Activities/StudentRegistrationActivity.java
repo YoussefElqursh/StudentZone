@@ -12,13 +12,17 @@ import com.studentzone.R;
 
 public class StudentRegistrationActivity extends AppCompatActivity {
 
-    Button buttonBack;
+    Button btn_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_registration);
-        buttonBack = findViewById(R.id.activity_student_regestration_btn_back);
-        buttonBack.setOnClickListener(v -> startActivity(new Intent(StudentRegistrationActivity.this, StudentHomeActivity.class)));
+        buttonBackAction();
+    }
+
+    public void buttonBackAction(){
+        btn_back = findViewById(R.id.activity_student_regestration_btn_back);
+        btn_back.setOnClickListener(v -> startActivity(new Intent(StudentRegistrationActivity.this, StudentHomeActivity.class)));
     }
 }

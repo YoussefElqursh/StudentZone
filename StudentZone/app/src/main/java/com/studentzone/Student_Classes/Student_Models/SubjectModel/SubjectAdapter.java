@@ -1,4 +1,4 @@
-package com.studentzone.Student_Classes.Student_Models;
+package com.studentzone.Student_Classes.Student_Models.SubjectModel;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,25 +11,25 @@ import com.studentzone.R;
 
 import java.util.List;
 
-public class StudentAdapter extends RecyclerView.Adapter<StudentViewHolder>{
+public class SubjectAdapter extends RecyclerView.Adapter<SubjectViewHolder>{
 
     Context context ;
 
-    public StudentAdapter(Context context, List<StudentModel> studentSubjectModel) {
+    public SubjectAdapter(Context context, List<SubjectModel> studentSubjectModel) {
         this.context = context;
         this.studentSubjectModel = studentSubjectModel;
     }
 
-    List<StudentModel>studentSubjectModel;
+    List<SubjectModel>studentSubjectModel;
 
     @NonNull
     @Override
-    public StudentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new StudentViewHolder(LayoutInflater.from(context).inflate(R.layout.activity_student_model_view,parent,false));
+    public SubjectViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new SubjectViewHolder(LayoutInflater.from(context).inflate(R.layout.activity_student_model_subject,parent,false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull StudentViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SubjectViewHolder holder, int position) {
         holder.subject_icon.setImageResource(studentSubjectModel.get(position).getSubject_icon());
         holder.subject_name.setText(studentSubjectModel.get(position).getSubject_name());
         holder.subject_description.setText(studentSubjectModel.get(position).getSubject_description());

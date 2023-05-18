@@ -10,18 +10,17 @@ import com.studentzone.R;
 
 public class StudentSubjectPdfsActivity extends AppCompatActivity {
 
-    Button activity_student_subject_Pdfs_btn_back;
+    Button btn_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_subject_pdfs);
-        backButtonAction();
-        }
+        buttonBackAction();
+    }
 
-    public void backButtonAction(){
-        activity_student_subject_Pdfs_btn_back = findViewById(R.id.activity_student_subject_Pdfs_btn_back);
-        activity_student_subject_Pdfs_btn_back.setOnClickListener(v -> startActivity(new Intent(StudentSubjectPdfsActivity.this, StudentHomeActivity.class)));
-
+    public void buttonBackAction(){
+        btn_back = findViewById(R.id.activity_student_subject_Pdfs_btn_back);
+        btn_back.setOnClickListener(v -> startActivity(new Intent(StudentSubjectPdfsActivity.this, StudentHomeActivity.class)));
     }
 }

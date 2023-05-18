@@ -47,7 +47,7 @@
         android:hint="Subject Name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-
+        android:paddingRight="10dp"
         android:paddingLeft="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"/>
@@ -65,7 +65,8 @@
         android:inputType="textPassword"
         android:paddingLeft="10dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="20dp"
+        android:paddingRight="10dp"/>
 
     <EditText
         android:id="@+id/fragment_new_subject_et_subject_id"
@@ -80,7 +81,8 @@
         android:inputType="textPassword"
         android:paddingLeft="10dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="20dp"
+        android:paddingRight="10dp"/>
 
     <EditText
         android:id="@+id/fragment_new_subject_et_doctor_name"
@@ -95,7 +97,8 @@
         android:inputType="textPassword"
         android:paddingLeft="10dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="20dp"
+        android:paddingRight="10dp"/>
 
     <EditText
         android:id="@+id/fragment_new_subject_et_subject_department"
@@ -110,7 +113,8 @@
         android:inputType="textPassword"
         android:paddingLeft="15dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="20dp"
+        android:paddingRight="10dp"/>
 
     <Button
         android:id="@+id/fragment_new_subject_btn_save"
