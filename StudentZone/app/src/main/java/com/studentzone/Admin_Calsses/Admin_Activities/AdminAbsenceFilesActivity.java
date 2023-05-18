@@ -14,6 +14,7 @@ public class AdminAbsenceFilesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_absence_files);
+        buttonBackAction();
         }
     public void buttonBackAction(){
         btn_back = findViewById(R.id.activity_admin_absentce_file_btn_back);

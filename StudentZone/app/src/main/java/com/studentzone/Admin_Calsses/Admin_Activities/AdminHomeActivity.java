@@ -74,11 +74,11 @@ public class AdminHomeActivity extends AppCompatActivity {
     /**All Card Views Actions
      **********************************************************************************************/
     public void AllCardViewActions(){
-        departmentsCardViewAction();
-        subjectsCardViewAction();
-        doctorsCardViewAction();
-        studentsCardViewAction();
-        absenceFilesCardViewAction();
+        departmentsCardViewClickAction();
+        subjectsCardViewClickAction();
+        studentsCardViewClickAction();
+        doctorsCardViewClickAction();
+        absenceFilesCardViewClickAction();
     }
 
     public void buttonLogoutAction(){
