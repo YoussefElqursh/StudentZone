@@ -41,41 +41,33 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <RelativeLayout
-            android:id="@+id/activity_student_passed_subjects_rl_1"
+
+        <ScrollView
+            android:id="@+id/activity_student_passed_subjects_scv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/custom_cv"
-            android:elevation="50dp">
+            android:contentDescription="@string/scrolbar">
 
-            <ScrollView
-                android:id="@+id/activity_student_passed_subjects_scv"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/custom_cv"
-                android:contentDescription="@string/scrolbar">
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/custom_cv"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="vertical"/>
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/student_passed_subjects_recycleview"/>
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/custom_cv">
                 </LinearLayout>
-            </ScrollView>
-        </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/student_passed_subjects_recycleview"/>
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 </LinearLayout>

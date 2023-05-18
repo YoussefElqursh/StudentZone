@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -14,12 +13,14 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+
 import com.studentzone.Data_Base.Admins;
 import com.studentzone.Doctor_Classes.Doctor_Activities.DoctorSubjectPdfsActivity;
 import com.studentzone.Admin_Calsses.Admin_Activities.AdminHomeActivity;
 import com.studentzone.Student_Classes.Student_Activities.StudentHomeActivity;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
+import com.studentzone.Student_Classes.Student_Activities.StudentHomeActivity;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -35,11 +36,11 @@ public class LoginActivity extends AppCompatActivity {
     int kindCheckedId = -1;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
 
         /** Inflate
          ******************************************************************************************/
@@ -133,6 +134,7 @@ public class LoginActivity extends AppCompatActivity {
 
         return intent;
     }
+
 
 
     /**rememberMe()

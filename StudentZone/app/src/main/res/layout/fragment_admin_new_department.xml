@@ -50,7 +50,9 @@
         android:minHeight="48dp"
         android:paddingLeft="10dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="20dp"
+        android:maxLines="1"
+        android:paddingRight="10dp"/>
 
     <EditText
         android:id="@+id/fragment_new_department_et_course_code"
@@ -66,7 +68,9 @@
         android:inputType="textPassword"
         android:paddingLeft="10dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="20dp"
+        android:maxLines="1"
+        android:paddingRight="10dp"/>
 
     <Button
             android:id="@+id/fragment_new_department_btn_save"

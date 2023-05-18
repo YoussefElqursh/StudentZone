@@ -14,22 +14,21 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.studentzone.R;
 
 public class AdminStudentsAccountsActivity extends AppCompatActivity {
-    Button activity_admin_students_accounts_btn_add, activity_admin_students_accounts_btn_back;
+    Button btn_add, btn_back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_students_accounts);
-        showAndHideBottomSheetDialog();
+        buttonAddAction();
         buttonBackAction();
     }
 
-    public void showAndHideBottomSheetDialog() {
-        activity_admin_students_accounts_btn_add = findViewById(R.id.activity_admin_students_accounts_btn_add);
-        activity_admin_students_accounts_btn_add.setOnClickListener(new View.OnClickListener() {
+    // This function to show and hide bottomSheetDialog //
+    public void buttonAddAction() {
+        btn_add = findViewById(R.id.activity_admin_students_accounts_btn_add);
+        btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(AdminStudentsAccountsActivity.this, R.style.BottomSheetStyle);
                 View bottomSheetDialogView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.fragment_admin_new_student_account, (LinearLayout)findViewById(R.id.fragment_admin_new_student_ll_main));
                 bottomSheetDialogView.findViewById(R.id.fragment_admin_new_student_btn_close).setOnClickListener(new View.OnClickListener() {
@@ -51,7 +50,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
     }
 
     public void buttonBackAction(){
-        activity_admin_students_accounts_btn_back = findViewById(R.id.activity_admin_students_accounts_btn_back);
-        activity_admin_students_accounts_btn_back.setOnClickListener(v -> startActivity(new Intent(AdminStudentsAccountsActivity.this,AdminHomeActivity.class)));
+        btn_back = findViewById(R.id.activity_admin_students_accounts_btn_back);
+        btn_back.setOnClickListener(v -> startActivity(new Intent(AdminStudentsAccountsActivity.this,AdminHomeActivity.class)));
     }
 }

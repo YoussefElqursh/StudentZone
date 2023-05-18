@@ -7,9 +7,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import com.studentzone.Admin_Calsses.Admin_Activities.AdminHomeActivity;
+import com.studentzone.Doctor_Classes.Doctor_Activities.DoctorHomeActivity;
+import com.studentzone.Doctor_Classes.Doctor_Activities.DoctorSubjectPdfsActivity;
 
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
+import com.studentzone.Student_Classes.Student_Activities.StudentHomeActivity;
 
 public class WelcomeActivity extends AppCompatActivity {
     Button btn_welcome;
@@ -31,6 +35,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 finish();
             }
         });
+
     }
 
         /** checkFirstOpen()
