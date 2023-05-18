@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,12 +19,7 @@ public class AdminHomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_home);
-        departmentsCardViewClickAction();
-        subjectsCardViewClickAction();
-        doctorsCardViewClickAction();
-        studentsCardViewClickAction();
-        absenceFilesCardViewClickAction();
-        buttonLogoutAction();
+        AllCardViewActions();
     }
 
     public void departmentsCardViewClickAction() {
@@ -74,6 +70,17 @@ public class AdminHomeActivity extends AppCompatActivity {
         });
     }
 
+
+    /**All Card Views Actions
+     **********************************************************************************************/
+    public void AllCardViewActions(){
+        departmentsCardViewAction();
+        subjectsCardViewAction();
+        doctorsCardViewAction();
+        studentsCardViewAction();
+        absenceFilesCardViewAction();
+    }
+
     public void buttonLogoutAction(){
         btn_logout = findViewById(R.id.activity_admin_home_btn_logout);
         btn_logout.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +90,7 @@ public class AdminHomeActivity extends AppCompatActivity {
             }
         });
     }
+
 
 
 }
