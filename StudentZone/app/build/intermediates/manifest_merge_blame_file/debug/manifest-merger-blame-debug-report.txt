@@ -6,202 +6,202 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="24"
-8-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml
+8-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="33" />
-9-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml
+9-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml
 10
 11    <permission
-11-->[androidx.core:core:1.9.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\c4781ed071f4df465d69e7b9ecfecdd8\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+11-->[androidx.core:core:1.9.0] C:\Users\Enter Store\.gradle\caches\transforms-3\8c25e88eb4ea76e8f3d0900731d8ae12\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
 12        android:name="com.studentzone.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-12-->[androidx.core:core:1.9.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\c4781ed071f4df465d69e7b9ecfecdd8\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+12-->[androidx.core:core:1.9.0] C:\Users\Enter Store\.gradle\caches\transforms-3\8c25e88eb4ea76e8f3d0900731d8ae12\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
 13        android:protectionLevel="signature" />
-13-->[androidx.core:core:1.9.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\c4781ed071f4df465d69e7b9ecfecdd8\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+13-->[androidx.core:core:1.9.0] C:\Users\Enter Store\.gradle\caches\transforms-3\8c25e88eb4ea76e8f3d0900731d8ae12\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
 14
 15    <uses-permission android:name="com.studentzone.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-15-->[androidx.core:core:1.9.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\c4781ed071f4df465d69e7b9ecfecdd8\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
-15-->[androidx.core:core:1.9.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\c4781ed071f4df465d69e7b9ecfecdd8\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+15-->[androidx.core:core:1.9.0] C:\Users\Enter Store\.gradle\caches\transforms-3\8c25e88eb4ea76e8f3d0900731d8ae12\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+15-->[androidx.core:core:1.9.0] C:\Users\Enter Store\.gradle\caches\transforms-3\8c25e88eb4ea76e8f3d0900731d8ae12\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
 16
 17    <application
-17-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:5:5-87:19
+17-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:5:5-87:19
 18        android:allowBackup="true"
-18-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:6:9-35
+18-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:6:9-35
 19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-19-->[androidx.core:core:1.9.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\c4781ed071f4df465d69e7b9ecfecdd8\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+19-->[androidx.core:core:1.9.0] C:\Users\Enter Store\.gradle\caches\transforms-3\8c25e88eb4ea76e8f3d0900731d8ae12\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
 20        android:dataExtractionRules="@xml/data_extraction_rules"
-20-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:7:9-65
+20-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:7:9-65
 21        android:debuggable="true"
 22        android:extractNativeLibs="false"
 23        android:fullBackupContent="@xml/backup_rules"
-23-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:8:9-54
+23-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:8:9-54
 24        android:icon="@mipmap/ic_launcher"
-24-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:9:9-43
+24-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:9:9-43
 25        android:label="@string/app_name"
-25-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:10:9-41
+25-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:10:9-41
 26        android:roundIcon="@mipmap/ic_launcher_round"
-26-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:11:9-54
+26-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:11:9-54
 27        android:supportsRtl="true"
-27-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:12:9-35
+27-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:12:9-35
 28        android:testOnly="true"
 29        android:theme="@style/Theme.StudentZone" >
-29-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:13:9-49
+29-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:13:9-49
 30        <activity
-30-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:15:9-17:40
-31            android:name="com.studentzone.DoctorSubjectPDFsActivity"
-31-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:16:13-54
+30-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:15:9-17:40
+31            android:name="com.studentzone.Doctor_Classes.Doctor_Activities.DoctorSubjectPdfsActivity"
+31-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:16:13-87
 32            android:exported="false" />
-32-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:17:13-37
+32-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:17:13-37
 33        <activity
-33-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:18:9-20:40
-34            android:name="com.studentzone.StudentSubjectPDFsActivity"
-34-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:19:13-55
+33-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:18:9-20:40
+34            android:name="com.studentzone.Student_Classes.Student_Activities.StudentSubjectPdfsActivity"
+34-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:19:13-90
 35            android:exported="false" />
-35-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:20:13-37
+35-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:20:13-37
 36        <activity
-36-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:21:9-23:40
-37            android:name="com.studentzone.StudentSubjectActivity"
-37-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:22:13-51
+36-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:21:9-23:40
+37            android:name="com.studentzone.Student_Classes.Student_Activities.StudentSubjectActivity"
+37-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:22:13-86
 38            android:exported="false" />
-38-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:23:13-37
+38-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:23:13-37
 39        <activity
-39-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:24:9-26:40
-40            android:name="com.studentzone.StudentRegistrationActivity"
-40-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:25:13-56
+39-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:24:9-26:40
+40            android:name="com.studentzone.Student_Classes.Student_Activities.StudentRegistrationActivity"
+40-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:25:13-91
 41            android:exported="false" />
-41-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:26:13-37
+41-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:26:13-37
 42        <activity
-42-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:27:9-29:40
-43            android:name="com.studentzone.StudentPerviousRequestActivity"
-43-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:28:13-59
+42-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:27:9-29:40
+43            android:name="com.studentzone.Student_Classes.Student_Activities.StudentPassedSubjectsActivity"
+43-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:28:13-93
 44            android:exported="false" />
-44-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:29:13-37
+44-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:29:13-37
 45        <activity
-45-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:30:9-32:40
-46            android:name="com.studentzone.StudentHomeActivity"
-46-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:31:13-48
+45-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:30:9-32:40
+46            android:name="com.studentzone.Student_Classes.Student_Activities.StudentHomeActivity"
+46-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:31:13-83
 47            android:exported="false" />
-47-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:32:13-37
+47-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:32:13-37
 48        <activity
-48-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:33:9-35:40
-49            android:name="com.studentzone.AdminStudentsAccountsActivity"
-49-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:34:13-58
+48-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:33:9-35:40
+49            android:name="com.studentzone.Admin_Calsses.Admin_Activities.AdminStudentsAccountsActivity"
+49-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:34:13-89
 50            android:exported="false" />
-50-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:35:13-37
+50-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:35:13-37
 51        <activity
-51-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:36:9-38:40
-52            android:name="com.studentzone.AdminDoctorsAccountsActivity"
-52-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:37:13-57
+51-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:36:9-38:40
+52            android:name="com.studentzone.Admin_Calsses.Admin_Activities.AdminDoctorsAccountsActivity"
+52-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:37:13-88
 53            android:exported="false" />
-53-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:38:13-37
+53-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:38:13-37
 54        <activity
-54-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:39:9-41:40
-55            android:name="com.studentzone.AdminAbsenceFilesActivity"
-55-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:40:13-54
+54-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:39:9-41:40
+55            android:name="com.studentzone.Admin_Calsses.Admin_Activities.AdminAbsenceFilesActivity"
+55-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:40:13-85
 56            android:exported="false" />
-56-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:41:13-37
+56-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:41:13-37
 57        <activity
-57-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:42:9-48:20
-58            android:name="com.studentzone.AdminSubjectsActivity"
-58-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:43:13-50
+57-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:42:9-48:20
+58            android:name="com.studentzone.Admin_Calsses.Admin_Activities.AdminSubjectsActivity"
+58-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:43:13-81
 59            android:exported="false" >
-59-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:44:13-37
+59-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:44:13-37
 60            <meta-data
-60-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:45:13-47:36
+60-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:45:13-47:36
 61                android:name="android.app.lib_name"
-61-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:46:17-52
+61-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:46:17-52
 62                android:value="" />
-62-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:47:17-33
+62-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:47:17-33
 63        </activity>
 64        <activity
-64-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:49:9-55:20
-65            android:name="com.studentzone.AdminDepartmentsActivity"
-65-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:50:13-53
+64-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:49:9-55:20
+65            android:name="com.studentzone.Admin_Calsses.Admin_Activities.AdminDepartmentsActivity"
+65-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:50:13-84
 66            android:exported="false" >
-66-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:51:13-37
+66-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:51:13-37
 67            <meta-data
-67-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:45:13-47:36
+67-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:45:13-47:36
 68                android:name="android.app.lib_name"
-68-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:46:17-52
+68-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:46:17-52
 69                android:value="" />
-69-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:47:17-33
+69-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:47:17-33
 70        </activity>
 71        <activity
-71-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:56:9-62:20
-72            android:name="com.studentzone.AdminHomeActivity"
-72-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:57:13-46
+71-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:56:9-62:20
+72            android:name="com.studentzone.Admin_Calsses.Admin_Activities.AdminHomeActivity"
+72-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:57:13-77
 73            android:exported="false" >
-73-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:58:13-37
+73-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:58:13-37
 74            <meta-data
-74-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:45:13-47:36
+74-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:45:13-47:36
 75                android:name="android.app.lib_name"
-75-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:46:17-52
+75-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:46:17-52
 76                android:value="" />
-76-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:47:17-33
+76-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:47:17-33
 77        </activity>
 78        <activity
-78-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:63:9-69:20
-79            android:name="com.studentzone.LoginActivity"
-79-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:64:13-42
+78-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:63:9-69:20
+79            android:name="com.studentzone.Login_Classes.Login_Activities.LoginActivity"
+79-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:64:13-73
 80            android:exported="false" >
-80-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:65:13-37
+80-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:65:13-37
 81            <meta-data
-81-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:45:13-47:36
+81-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:45:13-47:36
 82                android:name="android.app.lib_name"
-82-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:46:17-52
+82-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:46:17-52
 83                android:value="" />
-83-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:47:17-33
+83-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:47:17-33
 84        </activity>
 85        <activity
-85-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:70:9-82:20
-86            android:name="com.studentzone.WelcomeActivity"
-86-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:71:13-44
+85-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:70:9-82:20
+86            android:name="com.studentzone.Welcome_Classes.WelcomeActivity"
+86-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:71:13-60
 87            android:exported="true" >
-87-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:72:13-36
+87-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:72:13-36
 88            <intent-filter>
-88-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:73:13-77:29
+88-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:73:13-77:29
 89                <action android:name="android.intent.action.MAIN" />
-89-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:74:17-69
-89-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:74:25-66
+89-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:74:17-69
+89-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:74:25-66
 90
 91                <category android:name="android.intent.category.LAUNCHER" />
-91-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:76:17-77
-91-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:76:27-74
+91-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:76:17-77
+91-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:76:27-74
 92            </intent-filter>
 93
 94            <meta-data
-94-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:45:13-47:36
+94-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:45:13-47:36
 95                android:name="android.app.lib_name"
-95-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:46:17-52
+95-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:46:17-52
 96                android:value="" />
-96-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:47:17-33
+96-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:47:17-33
 97        </activity>
 98
 99        <meta-data
-99-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:84:9-86:57
+99-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:84:9-86:57
 100            android:name="preloaded_fonts"
-100-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:85:13-43
+100-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:85:13-43
 101            android:resource="@array/preloaded_fonts" />
-101-->D:\FCI Study\Level 3\Term 2\Software Engineering-2\Section\Project Repositry\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:86:13-54
+101-->D:\StudentZone\StudentZone\StudentZone\app\src\main\AndroidManifest.xml:86:13-54
 102
 103        <provider
-103-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\979df2d65355c07838f37ddd6cec9d56\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+103-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Enter Store\.gradle\caches\transforms-3\0fef484d2d7d3612c69865f977f8c08f\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
 104            android:name="androidx.startup.InitializationProvider"
-104-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\979df2d65355c07838f37ddd6cec9d56\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+104-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Enter Store\.gradle\caches\transforms-3\0fef484d2d7d3612c69865f977f8c08f\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
 105            android:authorities="com.studentzone.androidx-startup"
-105-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\979df2d65355c07838f37ddd6cec9d56\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+105-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Enter Store\.gradle\caches\transforms-3\0fef484d2d7d3612c69865f977f8c08f\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
 106            android:exported="false" >
-106-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\979df2d65355c07838f37ddd6cec9d56\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+106-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Enter Store\.gradle\caches\transforms-3\0fef484d2d7d3612c69865f977f8c08f\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
 107            <meta-data
-107-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\979df2d65355c07838f37ddd6cec9d56\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+107-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Enter Store\.gradle\caches\transforms-3\0fef484d2d7d3612c69865f977f8c08f\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
 108                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-108-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\979df2d65355c07838f37ddd6cec9d56\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+108-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Enter Store\.gradle\caches\transforms-3\0fef484d2d7d3612c69865f977f8c08f\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
 109                android:value="androidx.startup" />
-109-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\979df2d65355c07838f37ddd6cec9d56\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+109-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Enter Store\.gradle\caches\transforms-3\0fef484d2d7d3612c69865f977f8c08f\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
 110            <meta-data
-110-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\0ed39ac97ff44e60652e6797b1fded6f\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+110-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Enter Store\.gradle\caches\transforms-3\ae3e8265de2d7f874c642be745cd48da\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
 111                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-111-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\0ed39ac97ff44e60652e6797b1fded6f\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+111-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Enter Store\.gradle\caches\transforms-3\ae3e8265de2d7f874c642be745cd48da\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
 112                android:value="androidx.startup" />
-112-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Momen Ahmed\.gradle\caches\transforms-3\0ed39ac97ff44e60652e6797b1fded6f\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+112-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Enter Store\.gradle\caches\transforms-3\ae3e8265de2d7f874c642be745cd48da\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
 113        </provider>
 114    </application>
 115

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_admin_new_department_ll_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Admin_Calsses.Admin_Fragments.AdminNewDepartmentFragment"
+    android:background="@drawable/custom_fragment_admin_new_department">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/fragment_admin_new_department_btn_close"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"
+            android:paddingTop="3dp"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/ic_close"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_toRightOf="@+id/fragment_admin_new_department_btn_close"
+            android:text="New Department"
+            android:textSize="18dp"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/fragment_new_department_et_course_name"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/custom_et_selector"
+        android:drawableStart="@drawable/ic_user"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Course Name"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:paddingLeft="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <EditText
+        android:id="@+id/fragment_new_department_et_course_code"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/custom_et_selector"
+        android:drawableStart="@drawable/ic_id"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Course Code"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <Button
+            android:id="@+id/fragment_new_department_btn_save"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/custom_btn_login"
+        android:text="Save"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        tools:ignore="TextContrastCheck"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+</LinearLayout>

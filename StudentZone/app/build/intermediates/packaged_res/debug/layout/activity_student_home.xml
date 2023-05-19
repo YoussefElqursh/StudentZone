@@ -5,15 +5,15 @@
     android:id="@+id/activity_system_adminstrator_rl_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StudentHomeActivity">
+    tools:context=".Student_Classes.Student_Activities.StudentHomeActivity">
 
     <View android:id="@+id/top_view"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@drawable/view_style" />
+        android:background="@drawable/custom_view" />
 
     <GridLayout
-        android:id="@+id/activity_student_home_gl_cardscontainer"
+        android:id="@+id/activity_student_home_gl_cards_container"
         android:layout_width="387dp"
         android:layout_height="444dp"
         android:layout_below="@id/top_view"
@@ -24,7 +24,7 @@
         android:rowCount="3">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/activity_student_home_cv_registration"
+            android:id="@+id/activity_student_home_cv_subjects_registration"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_rowWeight="1"
@@ -39,7 +39,7 @@
                 android:id="@+id/activity_student_home_ll_registration"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
                 <ImageView
@@ -47,7 +47,6 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center_horizontal"
-                    android:contentDescription="TODO"
                     android:src="@drawable/ic_absence_files" />
 
                 <TextView
@@ -55,20 +54,20 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginRight="5dp"
-                    android:fontFamily="@font/carter_one"
                     android:gravity="center"
-                    android:text="Registration"
-                    android:textColor="@color/text"
-                    android:textSize="17sp" />
+                    android:text="Subjects Registration"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/activity_student_home_cv_PerviousRequest"
+            android:id="@+id/activity_student_home_cv_subjects_passed_subjects"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_rowWeight="1"
@@ -80,37 +79,37 @@
             android:clickable="true">
 
             <LinearLayout
-                android:id="@+id/activity_student_home_ll_PerviousRequest"
+                android:id="@+id/activity_student_home_ll_pervious_request"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/activity_student_home_iv_PerviousRequest"
+                    android:id="@+id/activity_student_home_iv_pervious_request"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/ic_subjects" />
 
                 <TextView
-                    android:id="@+id/activity_student_home_tv_PerviousRequest"
+                    android:id="@+id/activity_student_home_tv_pervious_request"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginRight="5dp"
-                    android:fontFamily="@font/carter_one"
                     android:gravity="center"
-                    android:text="Previous Request"
-                    android:textColor="@color/text"
-                    android:textSize="17sp" />
+                    android:text="Passed Subjects"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/activity_student_home_cv_subject"
+            android:id="@+id/activity_student_home_cv_subjects"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_rowWeight="1"
@@ -120,20 +119,19 @@
             app:cardCornerRadius="15dp"
             app:cardElevation="15dp"
             android:foreground="?attr/selectableItemBackground"
-            android:clickable="true"
-            >
+            android:clickable="true">
 
             <LinearLayout
                 android:id="@+id/activity_student_home_ll_subject"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="25dp"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/activity_student_home_iv_sbject"
-                    android:layout_width="106dp"
-                    android:layout_height="92dp"
+                    android:id="@+id/activity_student_home_iv_subject"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/ic_subjects" />
 
@@ -143,16 +141,14 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginRight="5dp"
-                    android:fontFamily="@font/carter_one"
                     android:gravity="center"
-                    android:text="Subject"
-                    android:textColor="@color/text"
-                    android:textSize="17sp" />
+                    android:text="Subjects"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </GridLayout>
-
-
 </RelativeLayout>
