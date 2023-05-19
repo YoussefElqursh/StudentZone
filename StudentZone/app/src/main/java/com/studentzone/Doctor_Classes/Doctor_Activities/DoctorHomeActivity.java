@@ -8,8 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.studentzone.Admin_Calsses.Admin_Activities.AdminHomeActivity;
-import com.studentzone.Admin_Calsses.Admin_Activities.AdminSubjectsActivity;
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
 
@@ -29,7 +27,7 @@ public class DoctorHomeActivity extends AppCompatActivity {
         cv_subjects.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DoctorHomeActivity.this, DoctorSubjectPdfsActivity.class));
+                startActivity(new Intent(DoctorHomeActivity.this, DoctorSubjectActivity.class));
             }
         });
     }
