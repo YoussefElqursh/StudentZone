@@ -17,7 +17,7 @@ public class AdminAbsenceFilesActivity extends AppCompatActivity {
         buttonBackAction();
         }
     public void buttonBackAction(){
-        btn_back = findViewById(R.id.activity_admin_absentce_file_btn_back);
+        btn_back = findViewById(R.id.activity_admin_absence_files_btn_back);
         btn_back.setOnClickListener(v -> startActivity(new Intent(AdminAbsenceFilesActivity.this,AdminHomeActivity.class)));
     }
 }

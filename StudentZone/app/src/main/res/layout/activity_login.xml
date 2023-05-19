@@ -30,7 +30,7 @@
     <LinearLayout
         android:id="@+id/activity_login_ll_logincontainer"
         android:layout_width="match_parent"
-        android:layout_height="443dp"
+        android:layout_height="match_parent"
         android:layout_below="@id/top_view"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="-2dp"
@@ -42,8 +42,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginRight="30dp"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
@@ -55,10 +55,8 @@
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/custom_rb_selector"
-                android:button="@android:color/transparent"
-                android:buttonTint="#2196F3"
-                android:drawableTop="@drawable/ic_admin"
-                android:drawablePadding="5dp"
+                android:buttonTint="@color/gray"
+                android:paddingLeft="-5dp"
                 android:minHeight="48dp"
                 android:text="Admin"
                 android:textAlignment="center"
@@ -72,10 +70,8 @@
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/custom_rb_selector"
-                android:button="@android:color/transparent"
-                android:buttonTint="#2196F3"
-                android:drawableTop="@drawable/ic_doctor"
-                android:drawablePadding="5dp"
+                android:buttonTint="@color/gray"
+                android:paddingLeft="-5dp"
                 android:minHeight="48dp"
                 android:text="Doctor"
                 android:textAlignment="center"
@@ -88,11 +84,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/custom_rb_selector"
-                android:button="@android:color/transparent"
-                android:buttonTint="#2196F3"
-                android:drawableTop="@drawable/ic_student"
-                android:drawablePadding="5dp"
+                android:buttonTint="@color/gray"
                 android:minHeight="48dp"
+                android:paddingLeft="-5dp"
                 android:text="Student"
                 android:textAlignment="center"
                 android:textColor="@color/gray"
@@ -102,9 +96,11 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColorHint="@color/gray"
+            app:boxBackgroundMode="none"
             app:hintTextColor="@color/blue"
-            app:passwordToggleTint="@color/gray"
-            android:textColorHint="@color/gray">
+            app:passwordToggleEnabled="false"
+            app:passwordToggleTint="@color/gray">
 
             <EditText
                 android:id="@+id/activity_login_tf_username"
@@ -129,11 +125,11 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/gray"
             app:hintTextColor="@color/blue"
             app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/gray"
-            android:textColorHint="@color/gray"
-            android:layout_marginTop="10dp">
+            app:passwordToggleTint="@color/gray">
 
             <EditText
                 android:id="@+id/activity_login_tf_password"
@@ -153,7 +149,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <CheckBox
+        <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/activity_login_cb_rememberme"
             android:layout_width="match_parent"
             android:layout_height="30dp"
@@ -162,7 +158,7 @@
             android:layout_marginBottom="25dp"
             android:buttonTint="@color/gray"
             android:text="@string/remember_me"
-            android:textColor="@color/dark_gray"
+            android:textColor="@color/gray"
             android:textSize="16sp"
             tools:ignore="TouchTargetSizeCheck" />
 
