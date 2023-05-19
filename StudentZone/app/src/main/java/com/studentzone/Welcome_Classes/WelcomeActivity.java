@@ -23,38 +23,44 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
         checkFirstOpen();
         btn_welcome = findViewById(R.id.activity_welcome_btn_welcome);
+        buttonWelcomeAction();
+
+    }
 
 
-        /** Welcome Button
-         ******************************************************************************************/
+    /** Welcome Button
+     ******************************************************************************************/
+    public void buttonWelcomeAction(){
+
         btn_welcome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WelcomeActivity.this,LoginActivity.class);
+                Intent intent = new Intent(getBaseContext(),LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
-
     }
 
-        /** checkFirstOpen()
-         *  This Methode To Open The Welcome  Only At The First Time When User Install The APP.
-         *  @var isFirstRun This Param Cary Value Of PREFERENCE File Which Is (True Or False).
-         *  if (!isFirstRun) >>>> To Check If it False , Open Login Activity Direct.
-         *  The Last Line In Method >>>  To save The Value Of IsFirstRun Into PREFERENCE File
-         ******************************************************************************************/
-        private void checkFirstOpen(){
-            Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
-                    .getBoolean("isFirstRun", true);
 
-            if (!isFirstRun) {
-                Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
 
-            getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().
-                    putBoolean("isFirstRun", false).apply();
+    /** checkFirstOpen()
+     *  This Methode To Open The Welcome  Only At The First Time When User Install The APP.
+     *  @var isFirstRun This Param Cary Value Of PREFERENCE File Which Is (True Or False).
+     *  if (!isFirstRun) >>>> To Check If it False , Open Login Activity Direct.
+     *  The Last Line In Method >>>  To save The Value Of IsFirstRun Into PREFERENCE File
+     ******************************************************************************************/
+    private void checkFirstOpen(){
+        Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getBoolean("isFirstRun", true);
+
+        if (!isFirstRun) {
+            Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         }
+
+        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().
+                putBoolean("isFirstRun", false).apply();
+    }
    }

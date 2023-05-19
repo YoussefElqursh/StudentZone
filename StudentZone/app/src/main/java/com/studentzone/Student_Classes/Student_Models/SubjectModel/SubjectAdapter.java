@@ -32,7 +32,6 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectViewHolder>{
         holder.subject_icon.setImageResource(studentSubjectModel.get(position).getSubject_icon());
         holder.subject_name.setText(studentSubjectModel.get(position).getSubject_name());
         holder.subject_description.setText(studentSubjectModel.get(position).getSubject_description());
-
     }
 
     @Override

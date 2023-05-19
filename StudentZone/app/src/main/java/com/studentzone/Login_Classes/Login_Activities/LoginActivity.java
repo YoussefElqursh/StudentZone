@@ -34,9 +34,15 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        inflate();
+        sharedPreferencesFileCreation();
+        radioButtonGroupAction();
+        buttonLoginAction();
+    }
 
-        /** Inflate
-         ******************************************************************************************/
+    /** Inflate
+     ******************************************************************************************/
+    public void inflate(){
         btn_login = findViewById(R.id.activity_login_btn_login);
         et_user_name = findViewById(R.id.activity_login_tf_username);
         et_password = findViewById(R.id.activity_login_tf_password);
@@ -45,12 +51,15 @@ public class LoginActivity extends AppCompatActivity {
         rb_student = findViewById(R.id.activity_login_rb_student);
         rb_doctor = findViewById(R.id.activity_login_rb_doctor);
         cb_Remember_me = findViewById(R.id.activity_login_cb_rememberme);
+    }
 
 
-        /** This is The File (Login_Prefs) Store The Values Of RememberMe(username,pass,kind) Which
-         * Located In Shred Preferences Folder.
-         * Variables In This File(username,password,kind) Have Default Values ("","",-1).
-        / ******************************************************************************************/
+
+    /** This is The File (Login_Prefs) Store The Values Of RememberMe(username,pass,kind) Which
+     * Located In Shred Preferences Folder.
+     * Variables In This File(username,password,kind) Have Default Values ("","",-1).
+     / ******************************************************************************************/
+    public void sharedPreferencesFileCreation(){
         preferences = getSharedPreferences("Login_Prefs", MODE_PRIVATE);
         String savedUsername = preferences.getString("username", "");
         String savedPassword = preferences.getString("password", "");
@@ -64,20 +73,11 @@ public class LoginActivity extends AppCompatActivity {
 
         }
 
-        /**RadioButtonGroup
-         *kindCheckedId, Get Index Of Checked User Kind in
-         ******************************************************************************************/
-        rg_user_kind.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                kindCheckedId = group.indexOfChild(findViewById(checkedId));
+    }
 
-            }
-        });
-
-        
-        /** ButtonLogin
-         ******************************************************************************************/
+    /** buttonLoginAction
+     ******************************************************************************************/
+    public void buttonLoginAction(){
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,8 +85,21 @@ public class LoginActivity extends AppCompatActivity {
                 rememberMe();
             }
         });
-
     }
+
+
+    /**radioButtonGroupAction
+     *kindCheckedId, Get Index Of Checked User Kind in
+     ******************************************************************************************/
+    public void radioButtonGroupAction(){
+        rg_user_kind.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                kindCheckedId = group.indexOfChild(findViewById(checkedId));
+            }
+        });
+    }
+
 
 
     /**isValid()
@@ -104,17 +117,17 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this, "Choose User Kind ,Please !", Toast.LENGTH_SHORT).show();
 
         else if (db.checkLogin(checkedKind, email, password) && checkedKind == 0) {
-            intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
+            intent = new Intent(getBaseContext(), AdminHomeActivity.class);
             startActivity(intent);
             finish();
         }
         else if (db.checkLogin(checkedKind, email, password) && checkedKind == 1) {
-            intent = new Intent(LoginActivity.this, DoctorHomeActivity.class);
+            intent = new Intent(getBaseContext(), DoctorHomeActivity.class);
             startActivity(intent);
             finish();
         }
         else if (db.checkLogin(checkedKind, email, password) && checkedKind == 2) {
-            intent = new Intent(LoginActivity.this, StudentHomeActivity.class);
+            intent = new Intent(getBaseContext(), StudentHomeActivity.class);
             startActivity(intent);
             finish();
         }
@@ -140,12 +153,12 @@ public class LoginActivity extends AppCompatActivity {
      **********************************************************************************************/
     public boolean rememberMe(){
         boolean remember_me = false;
+        editor = preferences.edit();
         if (cb_Remember_me.isChecked()) {
             String username = et_user_name.getText().toString();
             String password = et_password.getText().toString();
             int kind = kindCheckedId;
 
-            editor = preferences.edit();
             editor.putString("username", username);
             editor.putString("password", password);
             editor.putInt("kind",kind);
@@ -154,7 +167,6 @@ public class LoginActivity extends AppCompatActivity {
             remember_me = true;
         }
         else if(!cb_Remember_me.isChecked()) {
-            editor = preferences.edit();
             editor.putString("username", "");
             editor.putString("password", "");
             editor.putInt("kind",-1);
