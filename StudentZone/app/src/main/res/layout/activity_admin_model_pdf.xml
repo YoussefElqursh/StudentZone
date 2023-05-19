@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_admin_pdf_model_container"
+    android:layout_marginBottom="20dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/activity_admin_pdf_cv"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:cardBackgroundColor="@color/navy_blue"
+        app:cardCornerRadius="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/activity_admin_pdf_iv"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                app:srcCompat="@drawable/ic_pdf_file">
+            </ImageView>
+
+            <TextView
+                android:id="@+id/activity_admin_pdf_tv_sub_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@id/activity_admin_pdf_iv"
+                android:text="PDF Name"
+                android:maxLines="1"
+                android:textColor="@color/dark_blue"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/activity_admin_pdf_tv_sub_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="23dp"
+                android:layout_marginTop="45dp"
+                android:layout_toRightOf="@id/activity_admin_pdf_iv"
+                android:text="PDF Size"
+                android:maxLines="1"
+                android:textColor="@color/dark_blue" />
+
+            <Button
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="275dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@id/activity_admin_pdf_iv"
+                android:background="@drawable/custom_btn_more"
+                android:backgroundTint="@color/navy_blue"
+                android:drawableRight="@drawable/ic_more"
+                android:paddingRight="6.5dp"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+                style="@style/Widget.AppCompat.Button.Borderless"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

@@ -1,11 +1,11 @@
-package com.studentzone.Student_Classes.Student_Model;
+package com.studentzone.Student_Classes.Student_Models.SubjectModel;
 
-public class StudentModel {
+public class SubjectModel {
 
 String subject_name , subject_description ;
 int subject_icon ;
 
-    public StudentModel(String subject_name, String subject_description, int subject_icon) {
+    public SubjectModel(String subject_name, String subject_description, int subject_icon) {
         this.subject_name = subject_name;
         this.subject_description = subject_description;
         this.subject_icon = subject_icon;

@@ -12,7 +12,7 @@ import com.studentzone.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link AdminNewStudentAccountFragment#newInstance} factory method to
+ * Use the {@link AdminNewSubjectFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class AdminNewStudentAccountFragment extends Fragment {
@@ -36,11 +36,11 @@ public class AdminNewStudentAccountFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment AdminNewStudentAccountFragment.
+     * @return A new instance of fragment AdminNewSubjectFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AdminNewStudentAccountFragment newInstance(String param1, String param2) {
-        AdminNewStudentAccountFragment fragment = new AdminNewStudentAccountFragment();
+    public static AdminNewSubjectFragment newInstance(String param1, String param2) {
+        AdminNewSubjectFragment fragment = new AdminNewSubjectFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class AdminNewStudentAccountFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_admin_new_student_account, container, false);
+        return inflater.inflate(R.layout.fragment_admin_new_subject, container, false);
     }
 }

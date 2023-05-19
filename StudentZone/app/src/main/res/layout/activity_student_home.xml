@@ -12,6 +12,34 @@
         android:layout_height="200dp"
         android:background="@drawable/custom_view" />
 
+    <Button
+        android:id="@+id/activity_student_home_btn_logout"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/custom_btn_logout"
+        android:drawableRight="@drawable/ic_logout"
+        android:rotation="180"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/activity_student_home_tv_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="157dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="160dp"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="Home"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
     <GridLayout
         android:id="@+id/activity_student_home_gl_cards_container"
         android:layout_width="387dp"
@@ -39,7 +67,7 @@
                 android:id="@+id/activity_student_home_ll_registration"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="25dp"
                 android:orientation="vertical">
 
                 <ImageView
@@ -47,7 +75,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_absence_files" />
+                    android:src="@drawable/ic_register" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -82,7 +110,7 @@
                 android:id="@+id/activity_student_home_ll_pervious_request"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="25dp"
                 android:orientation="vertical">
 
                 <ImageView
@@ -90,15 +118,15 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_subjects" />
+                    android:src="@drawable/ic_passed_subject" />
 
                 <TextView
                     android:id="@+id/activity_student_home_tv_pervious_request"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginRight="5dp"
                     android:gravity="center"
                     android:text="Passed Subjects"

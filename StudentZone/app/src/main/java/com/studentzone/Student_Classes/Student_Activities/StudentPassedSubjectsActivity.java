@@ -9,51 +9,50 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import com.studentzone.R;
-import com.studentzone.Student_Classes.Student_Model.StudentAdapter;
-import com.studentzone.Student_Classes.Student_Model.StudentModel;
+import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectAdapter;
+import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class StudentPassedSubjectsActivity extends AppCompatActivity {
 
-    Button activity_admin_student_passed_subjects_btn_back;
+    Button btn_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_passed_subjects);
-        backButtonAction();
-        StudentPassedSubjectRecyclerView();
+        buttonBackAction();
+        studentPassedSubjectRecyclerView();
     }
 
-    public void backButtonAction(){
-        activity_admin_student_passed_subjects_btn_back = findViewById(R.id.activity_admin_student_passed_subjects_btn_back);
-        activity_admin_student_passed_subjects_btn_back.setOnClickListener(v -> startActivity(new Intent(StudentPassedSubjectsActivity.this, StudentHomeActivity.class)));
+    public void buttonBackAction(){
+        btn_back = findViewById(R.id.activity_student_passed_subjects_btn_back);
+        btn_back.setOnClickListener(v -> startActivity(new Intent(StudentPassedSubjectsActivity.this, StudentHomeActivity.class)));
     }
 
-    public RecyclerView StudentPassedSubjectRecyclerView()
-    {
+    public RecyclerView studentPassedSubjectRecyclerView() {
         RecyclerView recyclerView = findViewById(R.id.student_passed_subjects_recycleview);
 
-        List<StudentModel> studentPassedSubjectModel = new ArrayList<StudentModel>();
-        studentPassedSubjectModel.add(new StudentModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new StudentModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new StudentModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new StudentModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new StudentModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new StudentModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new StudentModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new StudentModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new StudentModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new StudentModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new StudentModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new StudentModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new StudentModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new StudentModel("os","bad",R.drawable.ic_students));
+        List<SubjectModel> studentPassedSubjectModel = new ArrayList<SubjectModel>();
+        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
+        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
+        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
+        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
+        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
+        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
+        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
+        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
+        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
+        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
+        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
+        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
+        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
+        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new StudentAdapter(getApplicationContext(),studentPassedSubjectModel));
+        recyclerView.setAdapter(new SubjectAdapter(getApplicationContext(),studentPassedSubjectModel));
         return recyclerView;
     }
 }

@@ -15,19 +15,27 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:menu="@menu/activity_admin_doctors_accounts_tbar_menu">
+        app:menu="@menu/activity_tbar_menu"
+        android:layout_marginRight="5dp">
+
         <Button
-            android:id="@+id/activity_doctors_accounts_file_btn_back"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="@drawable/ic_back"
+            android:id="@+id/activity_admin_doctors_accounts_btn_back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/custom_btn_back"
             android:contentDescription="back arrow"
-            tools:ignore="TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:drawableLeft="@drawable/ic_back"
+            android:paddingLeft="8dp"
+            android:layout_marginLeft="-10dp"
+            android:layout_marginRight="10dp"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Doctors Accounts"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:layout_marginLeft="30dp"
             android:textColor="@color/white"
             />
