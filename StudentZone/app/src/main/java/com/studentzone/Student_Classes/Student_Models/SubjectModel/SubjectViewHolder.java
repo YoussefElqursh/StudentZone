@@ -18,8 +18,8 @@ public class SubjectViewHolder extends RecyclerView.ViewHolder {
     public SubjectViewHolder(@NonNull View itemView) {
         super(itemView);
 
-        subject_icon = itemView.findViewById(R.id.activity_admin_depatrments_iv);
-        subject_name = itemView.findViewById(R.id.activity_admin_depatrments_tv_sub_name);
-        subject_description = itemView.findViewById(R.id.activity_admin_depatrments_tv_sub_code);
+        subject_icon = itemView.findViewById(R.id.activity_student_subject_iv);
+        subject_name = itemView.findViewById(R.id.activity_student_subject_tv_sub_name);
+        subject_description = itemView.findViewById(R.id.activity_student_subject_tv_sub_code);
     }
 }
