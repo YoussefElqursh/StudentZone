@@ -67,10 +67,7 @@ public class StudentRegistrationActivity extends AppCompatActivity {
         subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
         subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
         subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
-        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
-        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
-        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
-        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
+
 
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

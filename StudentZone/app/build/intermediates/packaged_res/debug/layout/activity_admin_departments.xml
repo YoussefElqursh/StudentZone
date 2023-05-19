@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/blue"
     android:orientation="vertical"
-    tools:context=".AdminAbsenceFilesActivity">
+    tools:context=".Admin_Calsses.Admin_Activities.AdminAbsenceFilesActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/activity_admin_departments_tbar"
@@ -15,9 +15,31 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:menu="@menu/activity_admin_depatrments_tbar_menu"
-        app:title="Departments"
-        app:titleTextColor="@color/white" />
+        app:menu="@menu/activity_tbar_menu"
+        android:layout_marginRight="5dp">
+
+        <Button
+            android:id="@+id/activity_admin_departments_btn_back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/custom_btn_back"
+            android:contentDescription="back arrow"
+            tools:ignore="TouchTargetSizeCheck"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:drawableLeft="@drawable/ic_back"
+            android:paddingLeft="8dp"
+            android:layout_marginLeft="-10dp"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Departments"
+            android:textSize="18sp"
+            android:layout_marginLeft="30dp"
+            android:textColor="@color/white" />
+
+    </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:id="@+id/activity_admin_departments_ll_main"
@@ -29,7 +51,7 @@
             android:id="@+id/activity_admin_depatrments_rl_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/cv_style"
+            android:background="@drawable/custom_cv"
             android:elevation="50dp">
 
             <Button
@@ -38,12 +60,12 @@
                 android:layout_height="60dp"
                 android:layout_marginLeft="280dp"
                 android:layout_marginTop="590dp"
-                android:background="@drawable/btn_plus_add_style"
+                android:background="@drawable/custom_btn_plus_add"
                 android:contentDescription="@string/btn_floating_action"
-                android:drawableRight="@drawable/ic_plus"
+                android:drawableRight="@drawable/ic_add"
                 android:fadeScrollbars="false"
                 android:paddingRight="15dp"
-                android:src="@drawable/ic_plus"
+                android:src="@drawable/ic_add"
                 app:elevation="20dp"
                 app:fabSize="normal"
                 app:hoveredFocusedTranslationZ="20dp"
@@ -53,13 +75,13 @@
                 android:id="@+id/activity_admin_depatrments_scv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/cv_style"
+                android:background="@drawable/custom_cv"
                 android:contentDescription="@string/scrolbar">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/cv_style"
+                    android:background="@drawable/custom_cv"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -75,7 +97,7 @@
                             android:id="@+id/activity_depatrments_cv"
                             android:layout_width="match_parent"
                             android:layout_height="80dp"
-                            app:cardBackgroundColor="@color/cardviews"
+                            app:cardBackgroundColor="@color/navy_blue"
                             app:cardCornerRadius="20dp">
 
                             <RelativeLayout
@@ -100,9 +122,8 @@
                                     android:layout_marginLeft="16dp"
                                     android:layout_marginTop="20dp"
                                     android:layout_toRightOf="@id/activity_admin_depatrments_iv"
-                                    android:fontFamily="@font/amaranth"
                                     android:text="Computer Science"
-                                    android:textColor="@color/white"
+                                    android:textColor="#11324D"
                                     android:textSize="18sp"
                                     android:textStyle="bold" />
 
@@ -113,9 +134,8 @@
                                     android:layout_marginLeft="30dp"
                                     android:layout_marginTop="42dp"
                                     android:layout_toRightOf="@id/activity_admin_depatrments_iv"
-                                    android:fontFamily="@font/amaranth"
                                     android:text="36985758"
-                                    android:textColor="@color/white" />
+                                    android:textColor="#11324D" />
 
                             </RelativeLayout>
 

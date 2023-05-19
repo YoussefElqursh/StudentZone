@@ -1,6 +1,6 @@
 package com.studentzone.Data_Base;
 
-public class Students {
+public class Students  {
 
 
     private int Id;
@@ -77,4 +77,7 @@ public class Students {
     public void setPassword(String password) {
         Password = password;
     }
+
 }
+
+

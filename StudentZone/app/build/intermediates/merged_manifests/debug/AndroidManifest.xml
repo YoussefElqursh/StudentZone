@@ -28,62 +28,71 @@
         android:testOnly="true"
         android:theme="@style/Theme.StudentZone" >
         <activity
-            android:name="com.studentzone.DoctorSubjectPDFsActivity"
+            android:name="com.studentzone.Doctor_Classes.Doctor_Activities.DoctorSubjectsActivity"
             android:exported="false" />
         <activity
-            android:name="com.studentzone.StudentSubjectPDFsActivity"
+            android:name="com.studentzone.Doctor_Classes.Doctor_Activities.DoctorSubjectActivity"
             android:exported="false" />
         <activity
-            android:name="com.studentzone.StudentSubjectActivity"
+            android:name="com.studentzone.Doctor_Classes.Doctor_Activities.DoctorHomeActivity"
             android:exported="false" />
         <activity
-            android:name="com.studentzone.StudentRegistrationActivity"
+            android:name="com.studentzone.Doctor_Classes.Doctor_Activities.DoctorSubjectPdfsActivity"
             android:exported="false" />
         <activity
-            android:name="com.studentzone.StudentPerviousRequestActivity"
+            android:name="com.studentzone.Student_Classes.Student_Activities.StudentSubjectPdfsActivity"
             android:exported="false" />
         <activity
-            android:name="com.studentzone.StudentHomeActivity"
+            android:name="com.studentzone.Student_Classes.Student_Activities.StudentSubjectActivity"
             android:exported="false" />
         <activity
-            android:name="com.studentzone.AdminStudentsAccountsActivity"
+            android:name="com.studentzone.Student_Classes.Student_Activities.StudentRegistrationActivity"
             android:exported="false" />
         <activity
-            android:name="com.studentzone.AdminDoctorsAccountsActivity"
+            android:name="com.studentzone.Student_Classes.Student_Activities.StudentPassedSubjectsActivity"
             android:exported="false" />
         <activity
-            android:name="com.studentzone.AdminAbsenceFilesActivity"
+            android:name="com.studentzone.Student_Classes.Student_Activities.StudentHomeActivity"
             android:exported="false" />
         <activity
-            android:name="com.studentzone.AdminSubjectsActivity"
+            android:name="com.studentzone.Admin_Calsses.Admin_Activities.AdminStudentsAccountsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.studentzone.Admin_Calsses.Admin_Activities.AdminDoctorsAccountsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.studentzone.Admin_Calsses.Admin_Activities.AdminAbsenceFilesActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.studentzone.Admin_Calsses.Admin_Activities.AdminSubjectsActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.studentzone.AdminDepartmentsActivity"
+            android:name="com.studentzone.Admin_Calsses.Admin_Activities.AdminDepartmentsActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.studentzone.AdminHomeActivity"
+            android:name="com.studentzone.Admin_Calsses.Admin_Activities.AdminHomeActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.studentzone.LoginActivity"
+            android:name="com.studentzone.Login_Classes.Login_Activities.LoginActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.studentzone.WelcomeActivity"
+            android:name="com.studentzone.Welcome_Classes.WelcomeActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -95,10 +104,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"

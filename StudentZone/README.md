@@ -1,2 +1,2 @@
 # StudentZone
- 
+ kill

@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AndroidLayouts">
-    <shared>
-      <config />
-    </shared>
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3306b287-cd62-4cc9-8946-030bdd760413" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/GitHub.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GitHub.iml" afterDir="false" />
+    <list default="true" id="979daec2-928d-4596-87d7-5c477ce7a1a5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/GitHub.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudentZone/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/StudentZone/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +21,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2PkRePobldht3aHr7xXeLJHiIQd" />
+  <component name="ProjectId" id="2Q1iGFgnkSYxszpXlipmXovpTOj" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -36,31 +32,19 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "cidr.known.project.marker": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "D:/Study/Exercise/Android/Drawable",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+    "last_opened_file_path": "D:/FCI/Android Project/StudentZone/StudentZone",
+    "settings.editor.selected.configurable": "AndroidSdkUpdater"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3306b287-cd62-4cc9-8946-030bdd760413" name="Changes" comment="" />
-      <created>1683999191552</created>
+      <changelist id="979daec2-928d-4596-87d7-5c477ce7a1a5" name="Changes" comment="" />
+      <created>1684527390294</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1683999191552</updated>
+      <updated>1684527390294</updated>
     </task>
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>

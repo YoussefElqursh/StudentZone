@@ -1,274 +1,390 @@
 [
     {
-        "merged": "com.studentzone.app-merged_res-29:/layout_activity_admin_doctors_accounts.xml.flat",
-        "source": "com.studentzone.app-main-31:/layout/activity_admin_doctors_accounts.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_doctor_model_subject.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_doctor_model_subject.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.studentzone.app-main-31:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_custom_rb_normal.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\custom_rb_normal.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_ic_back.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/ic_back.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_admin_doctors_accounts.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_admin_doctors_accounts.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.studentzone.app-main-31:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_ic_subjects.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/ic_subjects.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_fragment_admin_new_doctor_account.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\fragment_admin_new_doctor_account.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_ic_book.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/ic_book.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_doctor_subjects.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_doctor_subjects.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_btn_plus_add_style.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/btn_plus_add_style.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_register.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_register.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_ic_female_student.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/ic_female_student.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\xml\\data_extraction_rules.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_ic_plus.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/ic_plus.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_ic_lock.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/ic_lock.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_pdf_file.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_pdf_file.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/font_saira_stencil_one.xml.flat",
-        "source": "com.studentzone.app-main-31:/font/saira_stencil_one.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_book_2.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_book_2.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/layout_activity_student_registration.xml.flat",
-        "source": "com.studentzone.app-main-31:/layout/activity_student_registration.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_user.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_user.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/layout_activity_admin_subjects.xml.flat",
-        "source": "com.studentzone.app-main-31:/layout/activity_admin_subjects.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_img_students.png.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\img_students.png"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/layout_activity_student_home.xml.flat",
-        "source": "com.studentzone.app-main-31:/layout/activity_student_home.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/xml_data_extraction_rules.xml.flat",
-        "source": "com.studentzone.app-main-31:/xml/data_extraction_rules.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_student_subject.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_student_subject.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_ic_male_doctor.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/ic_male_doctor.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_lock.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_lock.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_et_background.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/et_background.xml"
+        "merged": "com.studentzone.app-merged_res-29:/layout_activity_doctor_subject.xml.flat",
+        "source": "com.studentzone.app-main-31:/layout/activity_doctor_subject.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/mipmap-anydpi-v33_ic_launcher.xml.flat",
-        "source": "com.studentzone.app-main-31:/mipmap-anydpi-v33/ic_launcher.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_admin_model_pdf.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_admin_model_pdf.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_btn_welcom_style.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/btn_welcom_style.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_upload.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_upload.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.studentzone.app-main-31:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_close.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_close.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/menu_activity_admin_doctors_accounts_tbar_menu.xml.flat",
-        "source": "com.studentzone.app-main-31:/menu/activity_admin_doctors_accounts_tbar_menu.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_student_model_regestration.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_student_model_regestration.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.studentzone.app-main-31:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_custom_et_normal.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\custom_et_normal.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/menu_menu_component.xml.flat",
-        "source": "com.studentzone.app-main-31:/menu/menu_component.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_student_subject_pdfs.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_student_subject_pdfs.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.studentzone.app-main-31:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_custom_btn_more.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\custom_btn_more.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.studentzone.app-main-31:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_ic_logout.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/ic_logout.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_custom_view_bottom_sheet.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\custom_view_bottom_sheet.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/ic_launcher_background.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_doctor_model_pdf.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_doctor_model_pdf.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_ic_user.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/ic_user.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_custom_fragment_admin_new_department.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\custom_fragment_admin_new_department.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/layout_activity_admin_departments.xml.flat",
-        "source": "com.studentzone.app-main-31:/layout/activity_admin_departments.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_ic_download.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/ic_download.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_student.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_student.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_logo.png.flat",
-        "source": "com.studentzone.app-main-31:/drawable/logo.png"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_admin_absence_files.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_admin_absence_files.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/menu_activity_admin_subjects_tbar_menu.xml.flat",
-        "source": "com.studentzone.app-main-31:/menu/activity_admin_subjects_tbar_menu.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_male_doctor.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_male_doctor.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_btn_login_style.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/btn_login_style.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_student_passed_subjects.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_student_passed_subjects.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/layout_activity_login.xml.flat",
-        "source": "com.studentzone.app-main-31:/layout/activity_login.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_custom_et_selected.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\custom_et_selected.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_ic_facebook.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/ic_facebook.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_custom_btn_login.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\custom_btn_login.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_ic_department.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/ic_department.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_ic_search.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/ic_search.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\mipmap-hdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/layout_activity_admin_home.xml.flat",
-        "source": "com.studentzone.app-main-31:/layout/activity_admin_home.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_welcome.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_welcome.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/font_carter_one.xml.flat",
-        "source": "com.studentzone.app-main-31:/font/carter_one.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_more.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_more.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_ic_upload.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/ic_upload.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_custom_et_selector.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\custom_et_selector.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/font_adamina.xml.flat",
-        "source": "com.studentzone.app-main-31:/font/adamina.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_custom_rb_selector.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\custom_rb_selector.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.studentzone.app-main-31:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_custom_cv.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\custom_cv.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.studentzone.app-main-31:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_book_1.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_book_1.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_ic_female_doctor.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/ic_female_doctor.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_custom_btn_back.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\custom_btn_back.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable-v24_ic_launcher_foreground.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable-v24/ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_student_model_subject.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_student_model_subject.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/font_aclonica.xml.flat",
-        "source": "com.studentzone.app-main-31:/font/aclonica.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\xml\\backup_rules.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_ic_male_student.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/ic_male_student.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_female_student.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_female_student.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/layout_activity_admin_absence_files.xml.flat",
-        "source": "com.studentzone.app-main-31:/layout/activity_admin_absence_files.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_fragment_admin_new_subject.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\fragment_admin_new_subject.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/menu_activity_admin_students_accounts_tbar_menu.xml.flat",
-        "source": "com.studentzone.app-main-31:/menu/activity_admin_students_accounts_tbar_menu.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_admin_departments.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_admin_departments.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/menu_activity_admin_absence_files_tbar_menu.xml.flat",
-        "source": "com.studentzone.app-main-31:/menu/activity_admin_absence_files_tbar_menu.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_download.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_download.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.studentzone.app-main-31:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_subjects.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_subjects.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/font_amaranth.xml.flat",
-        "source": "com.studentzone.app-main-31:/font/amaranth.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\menu_activity_tbar_menu.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\menu\\activity_tbar_menu.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/layout_activity_doctor_subject_pdfs.xml.flat",
-        "source": "com.studentzone.app-main-31:/layout/activity_doctor_subject_pdfs.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\mipmap-anydpi-v33_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\mipmap-anydpi-v33\\ic_launcher.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_ic_absence_files.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/ic_absence_files.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_admin_subjects.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_admin_subjects.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.studentzone.app-main-31:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_view_style.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/view_style.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_id.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_id.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_ic_doctors.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/ic_doctors.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_cv_style.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/cv_style.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_admin_model_doctor.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_admin_model_doctor.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.studentzone.app-main-31:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_back.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_back.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/xml_backup_rules.xml.flat",
-        "source": "com.studentzone.app-main-31:/xml/backup_rules.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_student_registration.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_student_registration.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/layout_activity_student_subject_pdfs.xml.flat",
-        "source": "com.studentzone.app-main-31:/layout/activity_student_subject_pdfs.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_fragment_admin_new_department.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\fragment_admin_new_department.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/layout_activity_student_subject.xml.flat",
-        "source": "com.studentzone.app-main-31:/layout/activity_student_subject.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_custom_btn_welcom.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\custom_btn_welcom.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/layout_activity_welcome.xml.flat",
-        "source": "com.studentzone.app-main-31:/layout/activity_welcome.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_custom_btn_logout.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\custom_btn_logout.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/menu_activity_admin_depatrments_tbar_menu.xml.flat",
-        "source": "com.studentzone.app-main-31:/menu/activity_admin_depatrments_tbar_menu.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_admin_model_subject.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_admin_model_subject.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/layout_activity_student_pervious_request.xml.flat",
-        "source": "com.studentzone.app-main-31:/layout/activity_student_pervious_request.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_admin_model_student.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_admin_model_student.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/layout_activity_admin_students_accounts.xml.flat",
-        "source": "com.studentzone.app-main-31:/layout/activity_admin_students_accounts.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_admin_students_accounts.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_admin_students_accounts.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.studentzone.app-main-31:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_custom_view.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\custom_view.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-29:/drawable_ic_students.xml.flat",
-        "source": "com.studentzone.app-main-31:/drawable/ic_students.xml"
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_doctor_home.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_doctor_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_admin_home.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_admin_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_admin.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_admin.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_students.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_students.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_logout.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_logout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_doctor_subject_pdfs.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_doctor_subject_pdfs.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_doctor.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_doctor.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_passed_subject.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_passed_subject.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_add.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_add.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_admin_model_department.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_admin_model_department.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_custom_cb_remmber_me.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\custom_cb_remmber_me.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_custom_rb_selected.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\custom_rb_selected.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_female_doctor.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_female_doctor.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_absence_files.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_absence_files.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_admin_model_absence_file_subject.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_admin_model_absence_file_subject.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_student_model_pdf.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_student_model_pdf.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_student_home.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_student_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_department.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_department.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_doctors.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_doctors.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_search.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_activity_doctor_subject.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\activity_doctor_subject.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\layout_fragment_admin_new_student_account.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\layout\\fragment_admin_new_student_account.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_ic_male_student.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\ic_male_student.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-merged_res-29:\\drawable_custom_btn_plus_add.xml.flat",
+        "source": "C:\\Users\\Mohamed Mossad\\.gradle\\daemon\\8.0\\com.studentzone.app-main-31:\\drawable\\custom_btn_plus_add.xml"
     }
 ]
