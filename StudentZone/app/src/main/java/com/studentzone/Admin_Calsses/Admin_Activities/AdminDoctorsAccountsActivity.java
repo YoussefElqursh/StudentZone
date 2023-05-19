@@ -50,7 +50,7 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         });
     }
     public void buttonBackAction(){
-        btn_back = findViewById(R.id.activity_doctors_accounts_file_btn_back);
+        btn_back = findViewById(R.id.activity_admin_doctors_accounts_btn_back);
         btn_back.setOnClickListener(v -> startActivity(new Intent(AdminDoctorsAccountsActivity.this,AdminHomeActivity.class)));
     }
 }

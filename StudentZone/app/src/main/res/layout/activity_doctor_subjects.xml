@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     android:background="@color/blue"
     android:orientation="vertical"
-    tools:context=".Student_Classes.Student_Activities.StudentPassedSubjectsActivity">
+    tools:context=".Doctor_Classes.Doctor_Activities.DoctorSubjectsActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/activity_student_PerviousRequest_tbar"
+        android:id="@+id/activity_doctor_subjects_tbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
@@ -19,7 +19,7 @@
         android:layout_marginRight="5dp">
 
         <Button
-            android:id="@+id/activity_student_passed_subjects_btn_back"
+            android:id="@+id/activity_doctor_subjects_btn_back"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:background="@drawable/custom_btn_back"
@@ -34,46 +34,52 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Passed Subjects"
+            android:text="Subjects"
             android:textSize="18sp"
             android:layout_marginLeft="30dp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white" />
 
     </androidx.appcompat.widget.Toolbar>
 
+
     <LinearLayout
-        android:id="@+id/activity_student_passed_subjects_ll_main"
+        android:id="@+id/activity_doctor_subjects_ll_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
-        <ScrollView
-            android:id="@+id/activity_student_passed_subjects_scv"
+        <RelativeLayout
+            android:id="@+id/activity_doctor_subjects_rl_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/custom_cv"
-            android:contentDescription="@string/scrolbar">
+            android:elevation="50dp">
 
-            <LinearLayout
+            <ScrollView
+                android:id="@+id/activity_doctor_subjects_scv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/custom_cv"
-                android:orientation="vertical">
+                android:contentDescription="@string/scrolbar">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical"
-                    android:background="@drawable/custom_cv">
-                </LinearLayout>
+                    android:background="@drawable/custom_cv"
+                    android:orientation="vertical">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/student_passed_subjects_recycleview"/>
-            </LinearLayout>
-        </ScrollView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical">
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+        </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

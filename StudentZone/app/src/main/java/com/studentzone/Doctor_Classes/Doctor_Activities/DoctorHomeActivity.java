@@ -43,7 +43,7 @@ public class DoctorHomeActivity extends AppCompatActivity {
         cv_subjects.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DoctorHomeActivity.this, DoctorSubjectPdfsActivity.class));
+                startActivity(new Intent(DoctorHomeActivity.this, DoctorSubjectsActivity.class));
             }
         });
     }

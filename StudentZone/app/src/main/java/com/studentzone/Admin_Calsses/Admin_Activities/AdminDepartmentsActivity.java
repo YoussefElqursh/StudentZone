@@ -49,7 +49,7 @@ public class AdminDepartmentsActivity extends AppCompatActivity {
     }
 
     public void buttonBackAction(){
-        btn_back = findViewById(R.id.activity_admin_depatrments_btn_back);
+        btn_back = findViewById(R.id.activity_admin_departments_btn_back);
         btn_back.setOnClickListener(v -> startActivity(new Intent(AdminDepartmentsActivity.this,AdminHomeActivity.class)));
     }
 }

@@ -28,7 +28,7 @@ public class StudentPassedSubjectsActivity extends AppCompatActivity {
     }
 
     public void buttonBackAction(){
-        btn_back = findViewById(R.id.activity_admin_student_passed_subjects_btn_back);
+        btn_back = findViewById(R.id.activity_student_passed_subjects_btn_back);
         btn_back.setOnClickListener(v -> startActivity(new Intent(StudentPassedSubjectsActivity.this, StudentHomeActivity.class)));
     }
 
