@@ -14,13 +14,12 @@ import java.util.List;
 public class SubjectAdapter extends RecyclerView.Adapter<SubjectViewHolder>{
 
     Context context ;
+    List<SubjectModel>studentSubjectModel;
 
     public SubjectAdapter(Context context, List<SubjectModel> SubjectAdapter) {
         this.context = context;
         this.studentSubjectModel = SubjectAdapter;
     }
-
-    List<SubjectModel>studentSubjectModel;
 
     @NonNull
     @Override
