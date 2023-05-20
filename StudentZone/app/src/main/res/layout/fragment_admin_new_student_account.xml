@@ -56,7 +56,7 @@
         android:textColorHint="@color/gray"/>
 
     <EditText
-        android:id="@+id/fragment_new_student_et_student_id"
+        android:id="@+id/fragment_new_student_et_student_aid"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginTop="10dp"
@@ -73,7 +73,7 @@
         android:textColorHint="@color/gray"/>
 
     <EditText
-        android:id="@+id/fragment_new_student_et_email_address"
+        android:id="@+id/fragment_new_student_et_student_email"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginTop="10dp"
@@ -107,7 +107,7 @@
         android:textColorHint="@color/gray"/>
 
     <RadioGroup
-        android:id="@+id/fragment_new_student_rg_doctor_kind"
+        android:id="@+id/fragment_new_student_rg_student_kind"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
