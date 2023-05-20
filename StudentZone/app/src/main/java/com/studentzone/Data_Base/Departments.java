@@ -1,16 +1,22 @@
 package com.studentzone.Data_Base;
 
 
-public class Departments {
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 
+public class Departments {
     private int id;
     private int code;
     private String name;
 
-    public Departments(int id, int code, String name) {
+    public Departments(int id, String name,int code) {
         this.id = id;
-        this.code = code;
         this.name = name;
+        this.code = code;
+    }
+    public Departments(String name,int code) {
+        this.name = name;
+        this.code = code;
     }
 
     public int getId() {
@@ -36,4 +42,5 @@ public class Departments {
     public void setName(String name) {
         this.name = name;
     }
+
 }
