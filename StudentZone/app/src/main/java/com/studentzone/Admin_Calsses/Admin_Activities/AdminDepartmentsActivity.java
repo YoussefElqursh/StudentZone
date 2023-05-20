@@ -1,27 +1,22 @@
 package com.studentzone.Admin_Calsses.Admin_Activities;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
-
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import android.widget.EditText;
-import android.widget.LinearLayout;
-
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.studentzone.Admin_Calsses.Admin_Models.Admin_Department_Model.AdminDepartmentAdaper;
 import com.studentzone.Admin_Calsses.Admin_Models.Admin_Department_Model.AdminDepartmentModel;
+import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class AdminDepartmentsActivity extends AppCompatActivity  {
+    My_DB db = new My_DB(this);
     Button btn_add, btn_back, btm_sheet_dia_btn_save, btm_sheet_dia_btn_close;
     EditText btm_sheet_dia_et_dept_name, btm_sheet_dia_et_dept_code;
     BottomSheetDialog bottomSheetDialog;
@@ -43,8 +38,6 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
                 bottomSheetDialog.show();
             }
         });
-
-
         buttonBackAction();
         DoctorDepartmentRecyclerView();
     }
@@ -55,14 +48,14 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
 
         Button btn_save = bottomSheetDialogView.findViewById(R.id.fragment_new_department_btn_save);
 
-        et_department_name = bottomSheetDialogView.findViewById(R.id.fragment_new_department_et_course_name);
-        et_department_code = bottomSheetDialogView.findViewById(R.id.fragment_new_department_et_course_code);
+        btm_sheet_dia_et_dept_name = bottomSheetDialogView.findViewById(R.id.fragment_new_department_et_course_name);
+        btm_sheet_dia_et_dept_code = bottomSheetDialogView.findViewById(R.id.fragment_new_department_et_course_code);
 
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = et_department_name.getText().toString();
-                int code = Integer.parseInt(et_department_code.getText().toString());
+                String name = btm_sheet_dia_et_dept_name.getText().toString();
+                int code = Integer.parseInt(btm_sheet_dia_et_dept_code.getText().toString());
 
                 db.insert_department(name, code);
 
@@ -70,7 +63,6 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
             }
         });
         bottomSheetDialog.setContentView(bottomSheetDialogView);
-
     }
 
     public void buttonBackAction(){
@@ -82,25 +74,23 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
         RecyclerView recyclerView = findViewById(R.id.activity_admin_departments_recycelerview);
 
 
-        List<DepartmentModel> departmentModel = new ArrayList<DepartmentModel>();
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
-
-
+        List<AdminDepartmentModel> admindepartmentModel = new ArrayList<AdminDepartmentModel>();
+        admindepartmentModel.add(new AdminDepartmentModel("os","bad",R.drawable.ic_department_1));
+        admindepartmentModel.add(new AdminDepartmentModel("os","bad",R.drawable.ic_department_1));
+        admindepartmentModel.add(new AdminDepartmentModel("os","bad",R.drawable.ic_department_1));
+        admindepartmentModel.add(new AdminDepartmentModel("os","bad",R.drawable.ic_department_1));
+        admindepartmentModel.add(new AdminDepartmentModel("os","bad",R.drawable.ic_department_1));
+        admindepartmentModel.add(new AdminDepartmentModel("os","bad",R.drawable.ic_department_1));
+        admindepartmentModel.add(new AdminDepartmentModel("os","bad",R.drawable.ic_department_1));
+        admindepartmentModel.add(new AdminDepartmentModel("os","bad",R.drawable.ic_department_1));
+        admindepartmentModel.add(new AdminDepartmentModel("os","bad",R.drawable.ic_department_1));
+        admindepartmentModel.add(new AdminDepartmentModel("os","bad",R.drawable.ic_department_1));
+        admindepartmentModel.add(new AdminDepartmentModel("os","bad",R.drawable.ic_department_1));
+        admindepartmentModel.add(new AdminDepartmentModel("os","bad",R.drawable.ic_department_1));
+        admindepartmentModel.add(new AdminDepartmentModel("os","bad",R.drawable.ic_department_1));
+        admindepartmentModel.add(new AdminDepartmentModel("os","bad",R.drawable.ic_department_1));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new AdminDepartmentAdaper(getApplicationContext(),departmentModel));
+        recyclerView.setAdapter(new AdminDepartmentAdaper(getApplicationContext(),admindepartmentModel));
         return recyclerView;
     }
 }
