@@ -70,20 +70,20 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
         RecyclerView recyclerView = findViewById(R.id.activity_admin_departments_recycelerview);
 
         List<DepartmentModel> departmentModel = new ArrayList<DepartmentModel>();
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department));
-        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department));
+        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
+        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
+        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
+        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
+        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
+        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
+        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
+        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
+        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
+        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
+        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
+        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
+        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
+        departmentModel.add(new DepartmentModel("os","bad",R.drawable.ic_department_1));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new DepartmentAdaper(getApplicationContext(),departmentModel));
