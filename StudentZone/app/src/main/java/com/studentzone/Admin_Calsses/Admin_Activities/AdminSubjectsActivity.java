@@ -12,10 +12,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.studentzone.Admin_Calsses.Admin_Models.Admin_Department_Model.AdminDepartmentAdaper;
-import com.studentzone.Admin_Calsses.Admin_Models.Admin_Department_Model.AdminDepartmentModel;
-import com.studentzone.Admin_Calsses.Admin_Models.Admin_Subject_Model.AdminSubjectAdapter;
-import com.studentzone.Admin_Calsses.Admin_Models.Admin_Subject_Model.AdminSubjectModel;
+import com.studentzone.Admin_Calsses.Admin_Models.Admin_Subject_and_AbcenceFile_Model.AdminSubjectAdapter;
+import com.studentzone.Admin_Calsses.Admin_Models.Admin_Subject_and_AbcenceFile_Model.AdminSubjectModel;
 import com.studentzone.R;
 
 import java.util.ArrayList;

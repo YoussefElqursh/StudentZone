@@ -1,6 +1,8 @@
 package com.studentzone.Admin_Calsses.Admin_Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,7 +16,14 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.studentzone.Admin_Calsses.Admin_Models.Admin_Doctors_Accounts_Model.AdminDoctorAccountAdapter;
+import com.studentzone.Admin_Calsses.Admin_Models.Admin_Doctors_Accounts_Model.AdminDoctorAccountModel;
+import com.studentzone.Admin_Calsses.Admin_Models.Admin_Students_Accounts_Model.AdminStudentAccountAdapter;
+import com.studentzone.Admin_Calsses.Admin_Models.Admin_Students_Accounts_Model.AdminStudentAccountModel;
 import com.studentzone.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AdminStudentsAccountsActivity extends AppCompatActivity {
     Button btn_add, btn_back, btm_sheet_dia_btn_save, btm_sheet_dia_btn_close;
@@ -30,6 +39,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
         inflate();
         buttonAddAction();
         buttonBackAction();
+        AdminStudentAccountRecyclerView();
     }
 
     public void inflate(){
@@ -79,6 +89,30 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
     public void buttonBackAction(){
         btn_back = findViewById(R.id.activity_admin_students_accounts_btn_back);
         btn_back.setOnClickListener(v -> startActivity(new Intent(AdminStudentsAccountsActivity.this,AdminHomeActivity.class)));
+    }
+
+    public RecyclerView AdminStudentAccountRecyclerView()
+    {
+        RecyclerView recyclerView = findViewById(R.id.activity_admin_students_accounts_recyclerview);
+
+        List<AdminStudentAccountModel> adminStudentAccountModel = new ArrayList<AdminStudentAccountModel>();
+        adminStudentAccountModel.add(new AdminStudentAccountModel("os","bad",R.drawable.ic_male_student));
+        adminStudentAccountModel.add(new AdminStudentAccountModel("os","bad",R.drawable.ic_male_student));
+        adminStudentAccountModel.add(new AdminStudentAccountModel("os","bad",R.drawable.ic_male_student));
+        adminStudentAccountModel.add(new AdminStudentAccountModel("os","bad",R.drawable.ic_male_student));
+        adminStudentAccountModel.add(new AdminStudentAccountModel("os","bad",R.drawable.ic_male_student));
+        adminStudentAccountModel.add(new AdminStudentAccountModel("os","bad",R.drawable.ic_male_student));
+        adminStudentAccountModel.add(new AdminStudentAccountModel("os","bad",R.drawable.ic_male_student));
+        adminStudentAccountModel.add(new AdminStudentAccountModel("os","bad",R.drawable.ic_male_student));
+        adminStudentAccountModel.add(new AdminStudentAccountModel("os","bad",R.drawable.ic_male_student));
+        adminStudentAccountModel.add(new AdminStudentAccountModel("os","bad",R.drawable.ic_male_student));
+        adminStudentAccountModel.add(new AdminStudentAccountModel("os","bad",R.drawable.ic_male_student));
+        adminStudentAccountModel.add(new AdminStudentAccountModel("os","bad",R.drawable.ic_male_student));
+        adminStudentAccountModel.add(new AdminStudentAccountModel("os","bad",R.drawable.ic_male_student));
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new AdminStudentAccountAdapter(getApplicationContext(),adminStudentAccountModel));
+        return recyclerView;
     }
 
 }

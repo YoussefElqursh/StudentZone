@@ -8,8 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
-import com.studentzone.Admin_Calsses.Admin_Models.Admin_Subject_Model.AdminSubjectAdapter;
-import com.studentzone.Admin_Calsses.Admin_Models.Admin_Subject_Model.AdminSubjectModel;
+import com.studentzone.Admin_Calsses.Admin_Models.Admin_Subject_and_AbcenceFile_Model.AdminSubjectAdapter;
+import com.studentzone.Admin_Calsses.Admin_Models.Admin_Subject_and_AbcenceFile_Model.AdminSubjectModel;
 import com.studentzone.R;
 
 import java.util.ArrayList;

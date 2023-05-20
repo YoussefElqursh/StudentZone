@@ -1,6 +1,8 @@
 package com.studentzone.Admin_Calsses.Admin_Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +12,14 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.studentzone.Admin_Calsses.Admin_Models.Admin_Doctors_Accounts_Model.AdminDoctorAccountAdapter;
+import com.studentzone.Admin_Calsses.Admin_Models.Admin_Doctors_Accounts_Model.AdminDoctorAccountModel;
+import com.studentzone.Admin_Calsses.Admin_Models.Admin_Subject_and_AbcenceFile_Model.AdminSubjectAdapter;
+import com.studentzone.Admin_Calsses.Admin_Models.Admin_Subject_and_AbcenceFile_Model.AdminSubjectModel;
 import com.studentzone.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AdminDoctorsAccountsActivity extends AppCompatActivity {
     Button btn_add, btn_back;
@@ -20,6 +29,7 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_doctors_accounts);
         buttonAddAction();
         buttonBackAction();
+        AdminDoctorAccountsRecyclerView();
     }
 
     // This function to show and hide bottomSheetDialog //
@@ -53,4 +63,29 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         btn_back = findViewById(R.id.activity_admin_doctors_accounts_btn_back);
         btn_back.setOnClickListener(v -> startActivity(new Intent(AdminDoctorsAccountsActivity.this,AdminHomeActivity.class)));
     }
+
+    public RecyclerView AdminDoctorAccountsRecyclerView()
+    {
+        RecyclerView recyclerView = findViewById(R.id.activity_admin_doctors_accounts_recyclerview);
+
+        List<AdminDoctorAccountModel> adminDoctorAccountModel = new ArrayList<AdminDoctorAccountModel>();
+        adminDoctorAccountModel.add(new AdminDoctorAccountModel("os","bad",R.drawable.ic_male_doctor));
+        adminDoctorAccountModel.add(new AdminDoctorAccountModel("os","bad",R.drawable.ic_male_doctor));
+        adminDoctorAccountModel.add(new AdminDoctorAccountModel("os","bad",R.drawable.ic_male_doctor));
+        adminDoctorAccountModel.add(new AdminDoctorAccountModel("os","bad",R.drawable.ic_male_doctor));
+        adminDoctorAccountModel.add(new AdminDoctorAccountModel("os","bad",R.drawable.ic_male_doctor));
+        adminDoctorAccountModel.add(new AdminDoctorAccountModel("os","bad",R.drawable.ic_male_doctor));
+        adminDoctorAccountModel.add(new AdminDoctorAccountModel("os","bad",R.drawable.ic_male_doctor));
+        adminDoctorAccountModel.add(new AdminDoctorAccountModel("os","bad",R.drawable.ic_male_doctor));
+        adminDoctorAccountModel.add(new AdminDoctorAccountModel("os","bad",R.drawable.ic_male_doctor));
+        adminDoctorAccountModel.add(new AdminDoctorAccountModel("os","bad",R.drawable.ic_male_doctor));
+        adminDoctorAccountModel.add(new AdminDoctorAccountModel("os","bad",R.drawable.ic_male_doctor));
+        adminDoctorAccountModel.add(new AdminDoctorAccountModel("os","bad",R.drawable.ic_male_doctor));
+        adminDoctorAccountModel.add(new AdminDoctorAccountModel("os","bad",R.drawable.ic_male_doctor));
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new AdminDoctorAccountAdapter(getApplicationContext(),adminDoctorAccountModel));
+        return recyclerView;
+    }
+
 }
