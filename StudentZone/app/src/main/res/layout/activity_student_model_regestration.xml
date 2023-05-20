@@ -36,14 +36,14 @@
                 android:id="@+id/activity_student_subject_tv_sub_state"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
                 android:layout_marginLeft="250dp"
                 android:layout_marginTop="10dp"
-                android:layout_toRightOf="@+id/activity_student_Regestration_tv_sub_name"
                 android:buttonTint="@color/dark_blue"
                 android:clickable="true"
+                android:gravity="center|center_horizontal|center_vertical"
                 android:minWidth="48dp"
                 android:minHeight="48dp"
-                android:gravity="center|center_horizontal|center_vertical"
                 tools:ignore="TouchTargetSizeCheck" />
 
         </RelativeLayout>
