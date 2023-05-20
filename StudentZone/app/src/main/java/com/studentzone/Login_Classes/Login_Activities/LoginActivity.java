@@ -70,9 +70,7 @@ public class LoginActivity extends AppCompatActivity {
             et_password.setText(savedPassword);
             kindCheckedId = kind;
             cb_Remember_me.setChecked(true);
-
         }
-
     }
 
     /** buttonLoginAction

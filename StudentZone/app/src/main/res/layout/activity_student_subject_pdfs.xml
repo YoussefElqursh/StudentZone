@@ -54,22 +54,6 @@
             android:background="@drawable/custom_cv"
             android:elevation="50dp">
 
-            <Button
-                android:id="@+id/activity_admin_doctors_accounts_btn_add"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="280dp"
-                android:layout_marginTop="590dp"
-                android:background="@drawable/custom_btn_plus_add"
-                android:contentDescription="@string/btn_floating_action"
-                android:drawableRight="@drawable/ic_download"
-                android:paddingRight="15dp"
-                android:src="@drawable/ic_download"
-                app:elevation="20dp"
-                app:fabSize="normal"
-                app:hoveredFocusedTranslationZ="20dp"
-                app:pressedTranslationZ="20dp" />
-
             <ScrollView
                 android:id="@+id/activity_student_subject_scv"
                 android:layout_width="match_parent"
