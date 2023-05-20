@@ -1,11 +1,11 @@
 package com.studentzone.Admin_Calsses.Admin_Models.Admin_Department_Model;
 
-public class DepartmentModel {
+public class AdminDepartmentModel {
 
     String DepartmentName , DepartmentCode ;
     int DepartmentIcon;
 
-    public DepartmentModel(String departmentName, String departmentCode, int departmentIcon) {
+    public AdminDepartmentModel(String departmentName, String departmentCode, int departmentIcon) {
         DepartmentName = departmentName;
         DepartmentCode = departmentCode;
         DepartmentIcon = departmentIcon;

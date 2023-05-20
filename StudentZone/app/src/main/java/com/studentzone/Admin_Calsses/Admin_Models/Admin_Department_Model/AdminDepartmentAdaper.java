@@ -11,12 +11,12 @@ import com.studentzone.R;
 
 import java.util.List;
 
-public class DepartmentAdaper extends RecyclerView.Adapter<DepartmentViewHoLder> {
+public class AdminDepartmentAdaper extends RecyclerView.Adapter<AdminDepartmentViewHoLder> {
 
     Context context ;
-    List<DepartmentModel>departmentModel;
+    List<AdminDepartmentModel>departmentModel;
 
-    public DepartmentAdaper(Context context, List<DepartmentModel> departmentModel) {
+    public AdminDepartmentAdaper(Context context, List<AdminDepartmentModel> departmentModel) {
         this.context = context;
         this.departmentModel = departmentModel;
     }
@@ -24,12 +24,12 @@ public class DepartmentAdaper extends RecyclerView.Adapter<DepartmentViewHoLder>
 
     @NonNull
     @Override
-    public DepartmentViewHoLder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new DepartmentViewHoLder(LayoutInflater.from(context).inflate(R.layout.activity_admin_model_department, parent,false));
+    public AdminDepartmentViewHoLder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new AdminDepartmentViewHoLder(LayoutInflater.from(context).inflate(R.layout.activity_admin_model_department, parent,false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DepartmentViewHoLder holder, int position) {
+    public void onBindViewHolder(@NonNull AdminDepartmentViewHoLder holder, int position) {
 
         holder.DepartmentName.setText(departmentModel.get(position).getDepartmentName());
         holder.DepartmentCode.setText(departmentModel.get(position).getDepartmentCode());
