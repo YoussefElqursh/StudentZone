@@ -16,9 +16,6 @@
             android:name=".Doctor_Classes.Doctor_Activities.DoctorSubjectsActivity"
             android:exported="false" />
         <activity
-            android:name=".Doctor_Classes.Doctor_Activities.DoctorSubjectActivity"
-            android:exported="false" />
-        <activity
             android:name=".Doctor_Classes.Doctor_Activities.DoctorHomeActivity"
             android:exported="false" />
         <activity
