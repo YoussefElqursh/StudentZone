@@ -94,114 +94,11 @@
                         android:layout_marginBottom="10dp"
                         android:orientation="vertical">
 
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/activity_students_accounts_cv_m"
+                        <androidx.recyclerview.widget.RecyclerView
                             android:layout_width="match_parent"
-                            android:layout_height="80dp"
-                            app:cardBackgroundColor="@color/navy_blue"
-                            app:cardCornerRadius="20dp">
+                            android:layout_height="wrap_content"
+                            android:id="@+id/activity_admin_students_accounts_recyclerview"/>
 
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <ImageView
-                                    android:id="@+id/activity_admin_students_accounts_iv_m"
-                                    android:layout_width="60dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginTop="10dp"
-                                    android:layout_marginBottom="10dp"
-                                    android:gravity="center"
-                                    app:srcCompat="@drawable/ic_male_student">
-
-                                </ImageView>
-
-                                <TextView
-                                    android:id="@+id/activity_admin_students_accounts_tv_stu_name_m"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="16dp"
-                                    android:layout_marginTop="20dp"
-                                    android:layout_toRightOf="@id/activity_admin_students_accounts_iv_m"
-                                    android:maxLines="1"
-                                    android:text="Abas Abdelsalam"
-                                    android:textColor="@color/white"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:id="@+id/activity_admin_students_accounts_tv_stu_code_m"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="30dp"
-                                    android:layout_marginTop="42dp"
-                                    android:layout_toRightOf="@id/activity_admin_students_accounts_iv_m"
-                                    android:text="1478596"
-                                    android:textColor="@color/white" />
-
-                            </RelativeLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="vertical">
-
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/activity_students_accounts_cv_f"
-                            android:layout_width="match_parent"
-                            android:layout_height="80dp"
-                            app:cardBackgroundColor="@color/navy_blue"
-                            app:cardCornerRadius="20dp">
-
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <ImageView
-                                    android:id="@+id/activity_admin_students_accounts_iv_f"
-                                    android:layout_width="60dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginTop="10dp"
-                                    android:layout_marginBottom="10dp"
-                                    android:gravity="center"
-                                    app:srcCompat="@drawable/ic_female_student">
-
-                                </ImageView>
-
-                                <TextView
-                                    android:id="@+id/activity_admin_students_accounts_tv_sub_name_f"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="16dp"
-                                    android:layout_marginTop="20dp"
-                                    android:layout_toRightOf="@id/activity_admin_students_accounts_iv_f"
-                                    android:maxLines="1"
-                                    android:text="Saly Abdelgafoor"
-                                    android:textColor="@color/white"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:id="@+id/activity_admin_students_accounts_tv_sub_code_f"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="30dp"
-                                    android:layout_marginTop="42dp"
-                                    android:layout_toRightOf="@id/activity_admin_students_accounts_iv_f"
-                                    android:text="5648598a4sd8"
-                                    android:textColor="@color/white" />
-
-                            </RelativeLayout>
-                        </androidx.cardview.widget.CardView>
                     </LinearLayout>
                 </LinearLayout>
             </ScrollView>
