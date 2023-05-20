@@ -11,9 +11,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.studentzone.R;
 
-public class AdminNewDepartmentFragment extends Fragment {
+public class AdminNewDepartmentFragment extends BottomSheetDialogFragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
