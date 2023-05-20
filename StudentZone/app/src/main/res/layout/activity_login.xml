@@ -40,64 +40,60 @@
             android:id="@+id/activity_login_rg_user_kind"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="20dp"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/activity_login_rb_admin"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginRight="10dp"
+                android:layout_height="55dp"
                 android:layout_weight="1"
-                android:background="@drawable/custom_rb_selector"
+                android:background="@drawable/custom_rb_selector_f2"
                 android:buttonTint="@color/gray"
-                android:paddingLeft="-5dp"
                 android:minHeight="48dp"
+                android:paddingLeft="5dp"
                 android:text="Admin"
-                android:textAlignment="center"
                 android:textColor="@color/gray"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:layout_marginRight="5dp" />
 
             <RadioButton
                 android:id="@+id/activity_login_rb_student"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
+                android:layout_height="55dp"
                 android:layout_weight="1"
-                android:background="@drawable/custom_rb_selector"
+                android:background="@drawable/custom_rb_selector_f2"
                 android:buttonTint="@color/gray"
-                android:paddingLeft="-5dp"
                 android:minHeight="48dp"
+                android:paddingLeft="5dp"
                 android:text="Doctor"
-                android:textAlignment="center"
                 android:textColor="@color/gray"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:layout_marginRight="5dp" />
 
             <RadioButton
                 android:id="@+id/activity_login_rb_doctor"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="55dp"
                 android:layout_weight="1"
-                android:background="@drawable/custom_rb_selector"
+                android:background="@drawable/custom_rb_selector_f2"
                 android:buttonTint="@color/gray"
                 android:minHeight="48dp"
-                android:paddingLeft="-5dp"
+                android:paddingLeft="5dp"
                 android:text="Student"
-                android:textAlignment="center"
                 android:textColor="@color/gray"
-                android:textSize="18sp" />
+                android:textSize="18sp"/>
         </RadioGroup>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/gray"
             app:boxBackgroundMode="none"
+            app:hintEnabled="false"
             app:hintTextColor="@color/blue"
             app:passwordToggleEnabled="false"
             app:passwordToggleTint="@color/gray">
@@ -105,9 +101,9 @@
             <EditText
                 android:id="@+id/activity_login_tf_username"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
+                android:layout_height="55dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:drawableStart="@drawable/ic_user"
                 android:drawablePadding="10dp"
                 android:ems="10"
@@ -119,14 +115,16 @@
                 android:paddingRight="10dp"
                 android:textColorHint="@color/gray"
                 android:textSize="18sp"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck"
+                android:background="@drawable/custom_et_selector"
+                android:layout_marginBottom="15dp"/>
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textColorHint="@color/gray"
+            app:hintEnabled="false"
             app:hintTextColor="@color/blue"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/gray">
@@ -134,42 +132,45 @@
             <EditText
                 android:id="@+id/activity_login_tf_password"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
+                android:layout_height="55dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:drawableStart="@drawable/ic_lock"
-                android:drawablePadding="10dp"
+                android:drawablePadding="12dp"
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:minHeight="48dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck"
+                android:textColorHint="@color/gray"
+                android:background="@drawable/custom_et_selector"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/activity_login_cb_rememberme"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginLeft="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:layout_marginRight="50dp"
-            android:layout_marginBottom="25dp"
+            android:layout_marginBottom="20dp"
             android:buttonTint="@color/gray"
             android:text="@string/remember_me"
             android:textColor="@color/gray"
             android:textSize="16sp"
-            tools:ignore="TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck"
+            android:layout_marginTop="5dp"/>
 
         <Button
             android:id="@+id/activity_login_btn_login"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:background="@drawable/custom_btn_login"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/custom_btn_login_save"
             android:text="@string/login"
             android:textColor="@color/white"
             android:textSize="18sp"
