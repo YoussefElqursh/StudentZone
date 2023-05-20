@@ -93,9 +93,9 @@
                         android:layout_marginBottom="10dp"
                         android:orientation="vertical">
 
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/activity_depatrments_cv"
+                        <androidx.recyclerview.widget.RecyclerView
                             android:layout_width="match_parent"
+
                             android:layout_height="80dp"
                             app:cardBackgroundColor="@color/navy_blue"
                             app:cardCornerRadius="20dp">
@@ -140,6 +140,10 @@
                             </RelativeLayout>
 
                         </androidx.cardview.widget.CardView>
+
+                            android:layout_height="wrap_content"
+                            android:id="@+id/activity_admin_departments_recycelerview"/>
+
 
                     </LinearLayout>
 
