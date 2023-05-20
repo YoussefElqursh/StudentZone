@@ -15,91 +15,104 @@ import java.util.ArrayList;
 
 public class My_DB extends SQLiteOpenHelper {
 
-    /** Declaration and initiation of My_DB
+    /**
+     * Declaration and initiation of My_DB
      ***********************************************************************************************/
-    public static final String DB_Name="Education";
-    public static final int DB_Version=6;
+    public static final String DB_Name = "Education";
+    public static final int DB_Version = 6;
 
     private Context context;
 
-    /** Declaration and initiation of Students table
+    /**
+     * Declaration and initiation of Students table
      ***********************************************************************************************/
-    public static final String Education_Table_Students="Students" ;
-    public static final String Student_col_id="id" ;
-    public static final String Student_col_academic_number="academic_number" ;
-    public static final String Student_col_first_name="first_name" ;
-    public static final String Student_col_last_name="last_name" ;
-    public static final String Student_col_gender="gender" ;
-    public static final String Student_col_email="email" ;
-    public static final String Student_col_password="password" ;
+    public static final String Education_Table_Students = "Students";
+    public static final String Student_col_id = "id";
+    public static final String Student_col_academic_number = "academic_number";
+    public static final String Student_col_first_name = "first_name";
+    public static final String Student_col_last_name = "last_name";
+    public static final String Student_col_gender = "gender";
+    public static final String Student_col_email = "email";
+    public static final String Student_col_password = "password";
 
 
-    /** Declaration and initiation of Doctors table
+    /**
+     * Declaration and initiation of Doctors table
      ***********************************************************************************************/
-    public static final String Education_Table_Doctors="Doctors" ;
-    public static final String Doctors_col_id="id" ;
-    public static final String Doctors_col_gender="gender" ;
-    public static final String Doctors_col_first_name="first_name" ;
-    public static final String Doctors_col_last_name="last_name" ;
-    public static final String Doctors_col_email="email" ;
-    public static final String Doctors_col_password="password" ;
-    public static final String Doctors_col_phone="phone" ;
+    public static final String Education_Table_Doctors = "Doctors";
+    public static final String Doctors_col_id = "id";
+    public static final String Doctors_col_gender = "gender";
+    public static final String Doctors_col_first_name = "first_name";
+    public static final String Doctors_col_last_name = "last_name";
+    public static final String Doctors_col_email = "email";
+    public static final String Doctors_col_password = "password";
+    public static final String Doctors_col_phone = "phone";
 
-    /** Declaration and initiation of Admins table
+    /**
+     * Declaration and initiation of Admins table
      ***********************************************************************************************/
-    public static final String Education_Table_Admins="Admins" ;
-    public static final String Admin_col_id="id" ;
-    public static final String Admin_col_name="name" ;
-    public static final String Admin_col_email="email" ;
-    public static final String Admin_col_password="password" ;
+    public static final String Education_Table_Admins = "Admins";
+    public static final String Admin_col_id = "id";
+    public static final String Admin_col_name = "name";
+    public static final String Admin_col_email = "email";
+    public static final String Admin_col_password = "password";
 
-    /**  Declaration and initiation of Departments table
+    /**
+     * Declaration and initiation of Departments table
      ***********************************************************************************************/
-    public static final String Education_Table_Departments="Departments" ;
-    public static final String Department_col_id="id" ;
-    public static final String Department_col_name="name" ;
-    public static final String Department_col_code="code" ;
+    public static final String Education_Table_Departments = "Departments";
+    public static final String Department_col_id = "id";
+    public static final String Department_col_name = "name";
+    public static final String Department_col_code = "code";
 
-    /**  Declaration and initiation of courses table
+    /**
+     * Declaration and initiation of courses table
      ***********************************************************************************************/
-    public static final String Education_Table_Courses="Courses" ;
-    public static final String Courses_col_id="id" ;
-    public static final String Courses_col_name="name" ;
-    public static final String Courses_col_code="code" ;
-    public static final String Courses_col_doctor_id="course_doctor_id" ;
-    public static final String Courses_col_department_id="course_department_id" ;
-    public static final String Courses_col_PreRequest_id="PreRequests_id" ;  // may be change to preRequests_name
+    public static final String Education_Table_Courses = "Courses";
+    public static final String Courses_col_id = "id";
+    public static final String Courses_col_name = "name";
+    public static final String Courses_col_code = "code";
+    public static final String Courses_col_doctor_id = "course_doctor_id";
+    public static final String Courses_col_department_id = "course_department_id";
+    public static final String Courses_col_PreRequest_id = "PreRequests_id";  // may be change to preRequests_name
 
-    /** Declaration and initiation of Enrollment table
+    /**
+     * Declaration and initiation of Enrollment table
      ***********************************************************************************************/
 
-    public static final String Education_Table_Enrollment="Enrollment" ;
-    public static final String Enrollment_col_id="id" ;
-    public static final String Enrollment_col_student_id="enrollment_student_id" ;
-    public static final String Enrollment_col_course_id="enrollment_course_id" ;
+    public static final String Education_Table_Enrollment = "Enrollment";
+    public static final String Enrollment_col_id = "id";
+    public static final String Enrollment_col_student_id = "enrollment_student_id";
+    public static final String Enrollment_col_course_id = "enrollment_course_id";
 
 
-    /**  Declaration and initiation of Absence table
+    /**
+     * Declaration and initiation of Absence table
      ***********************************************************************************************/
-    public static final String Education_Table_Absence="Absence" ;
-    public static final String Absence_col_id="id" ;
-    public static final String Absence_col_student_id="absence_student_id" ;
-    public static final String Absence_col_course_id="absence_course_id" ;
-    public static final String Absence_col_date="absence_date" ;
-    public static final String Absence_col_status="absence_status" ;
+    public static final String Education_Table_Absence = "Absence";
+    public static final String Absence_col_id = "id";
+    public static final String Absence_col_student_id = "absence_student_id";
+    public static final String Absence_col_course_id = "absence_course_id";
+    public static final String Absence_col_date = "absence_date";
+    public static final String Absence_col_status = "absence_status";
 
 
-    /** My_DB()
+    /**
+     * My_DB()
      * Constructor Takes Context(Activity, Fragment,..)
      ***********************************************************************************************/
-    public  My_DB(Context context)
-    {super(context,DB_Name,null, DB_Version);this.context = context;}
+    public My_DB(Context context) {
+        super(context, DB_Name, null, DB_Version);
+        this.context = context;
+    }
 
 
-    /**onCreate()
+    /**
+     * onCreate()
      * This Method Called when the database is created for the first time.
      * This is where the creation of tables and the initial population of the
      * tables should happen.
+     *
      * @param db The database.
      **********************************************************************************************/
     @Override
@@ -175,54 +188,58 @@ public class My_DB extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_name + ")" + " VALUES ('adam.edu')");
 
     }
-    /**onUpgrade()
+
+    /**
+     * onUpgrade()
      * This Method Called when the database needs to be upgraded.
+     *
      * @param db         The database.
      * @param oldVersion The old database version.
      * @param newVersion The new database version.
      **********************************************************************************************/
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS "+ Education_Table_Students);
-        db.execSQL("DROP TABLE IF EXISTS "+ Education_Table_Doctors);
-        db.execSQL("DROP TABLE IF EXISTS "+ Education_Table_Admins);
-        db.execSQL("DROP TABLE IF EXISTS "+ Education_Table_Departments);
-        db.execSQL("DROP TABLE IF EXISTS "+ Education_Table_Courses);
-        db.execSQL("DROP TABLE IF EXISTS "+ Education_Table_Enrollment);
-        db.execSQL("DROP TABLE IF EXISTS "+ Education_Table_Absence);
+        db.execSQL("DROP TABLE IF EXISTS " + Education_Table_Students);
+        db.execSQL("DROP TABLE IF EXISTS " + Education_Table_Doctors);
+        db.execSQL("DROP TABLE IF EXISTS " + Education_Table_Admins);
+        db.execSQL("DROP TABLE IF EXISTS " + Education_Table_Departments);
+        db.execSQL("DROP TABLE IF EXISTS " + Education_Table_Courses);
+        db.execSQL("DROP TABLE IF EXISTS " + Education_Table_Enrollment);
+        db.execSQL("DROP TABLE IF EXISTS " + Education_Table_Absence);
         onCreate(db);
     }
 
 
-
-    /**checkLogin()
-     *  This Method Return True = Account Found In My_DB or False = Not Found In My_DB.
-     *  It's Search On Admins Tale Or In  Doctors Table Or On Student Table , UpOn Value Of
-     *  @param kindCheckedId  (Admin, Doctor, Student)
+    /**
+     * checkLogin()
+     * This Method Return True = Account Found In My_DB or False = Not Found In My_DB.
+     * It's Search On Admins Tale Or In  Doctors Table Or On Student Table , UpOn Value Of
+     *
+     * @param kindCheckedId (Admin, Doctor, Student)
      ***********************************************************************************************/
     public boolean checkLogin(int kindCheckedId, String email, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
         boolean isValid = false;
         Cursor cursor = null;
 
-        switch(kindCheckedId){
+        switch (kindCheckedId) {
             case -1:
                 return isValid;
             case 0:
-                cursor = db.query(""+Education_Table_Admins+"", new String[] { Admin_col_id },
-                        ""+Admin_col_email+"=? AND "+Admin_col_password+"=?", new String[] { email, password },
+                cursor = db.query("" + Education_Table_Admins + "", new String[]{Admin_col_id},
+                        "" + Admin_col_email + "=? AND " + Admin_col_password + "=?", new String[]{email, password},
                         null, null, null, null);
                 isValid = cursor.moveToFirst();
                 break;
             case 1:
-                cursor = db.query(""+Education_Table_Doctors+"", new String[] { Doctors_col_id},
-                        ""+Doctors_col_email+"=? AND "+Doctors_col_password+"=?", new String[] { email, password },
+                cursor = db.query("" + Education_Table_Doctors + "", new String[]{Doctors_col_id},
+                        "" + Doctors_col_email + "=? AND " + Doctors_col_password + "=?", new String[]{email, password},
                         null, null, null, null);
                 isValid = cursor.moveToFirst();
                 break;
             case 2:
-                cursor = db.query(""+Education_Table_Students+"", new String[] { Student_col_id},
-                        ""+Student_col_email+"=? AND "+Student_col_password+"=?", new String[] { email, password },
+                cursor = db.query("" + Education_Table_Students + "", new String[]{Student_col_id},
+                        "" + Student_col_email + "=? AND " + Student_col_password + "=?", new String[]{email, password},
                         null, null, null, null);
                 isValid = cursor.moveToFirst();
                 break;
@@ -231,9 +248,9 @@ public class My_DB extends SQLiteOpenHelper {
 //        db.close();
         return isValid;
     }
-//__________________________________Departments Function_______________________________________________
-    public void insert_department(String name, int code)
-    {
+
+    //__________________________________Departments Function_______________________________________________
+    public void insert_department(String name, String code) {
 
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -244,9 +261,47 @@ public class My_DB extends SQLiteOpenHelper {
         db.insert(Education_Table_Departments, null, values);
     }
 
+    // To retrieve department names
+    public ArrayList<String> get_departments_name() {
+        ArrayList<String> deptartments_name = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
 
+        Cursor cursor = db.query("" + Education_Table_Departments + "", new String[]{Courses_col_name},
+                null, null, null, null, null);
 
+        if (cursor.moveToFirst()) {
+            do {
+                String dept_name = cursor.getString(0);
+                deptartments_name.add(dept_name);
+            }
+            while (cursor.moveToNext());
+            cursor.close();
+            db.close();
+        }
+        return deptartments_name;
+    }
 
+    // To retrieve department codes
+    public ArrayList<String> get_departments_code() {
+        ArrayList<String> deptartments_code = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query("" + Education_Table_Departments + "", new String[]{Courses_col_code},
+                null, null, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                String dept_code = cursor.getString(0);
+                deptartments_code.add(dept_code);
+            }
+            while (cursor.moveToNext());
+            cursor.close();
+            db.close();
+        }
+        return deptartments_code;
+    }
+
+//__________________________________Departments Function_______________________________________________
     /**get name course for student by deperentmant*/
     public ArrayList<String> Get_all_courses_for_student(){
         ArrayList<String> courses_name=new ArrayList<>();
@@ -259,7 +314,7 @@ public class My_DB extends SQLiteOpenHelper {
                 courses_name.add(name_course);
             } while (cursor.moveToNext());
             cursor.close();
-//            db.close();
+            db.close();
         }
         return courses_name;
 
