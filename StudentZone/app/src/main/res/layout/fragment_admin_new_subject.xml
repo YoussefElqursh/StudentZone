@@ -20,10 +20,11 @@
             android:layout_height="40dp"
             android:layout_marginLeft="5dp"
             android:layout_marginBottom="5dp"
-            android:paddingTop="3dp"
-            android:background="@android:color/transparent"
+            android:paddingTop="10dp"
             android:drawableTop="@drawable/ic_close"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+            style="@android:style/Widget.Material.Button.Borderless"
+            android:background="@drawable/custom_btn_close"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -32,7 +33,8 @@
             android:layout_toRightOf="@+id/fragment_admin_new_subject_btn_close"
             android:text="New Subject"
             android:textSize="18dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_marginTop="7dp"/>
 
     </RelativeLayout>
 
@@ -50,7 +52,8 @@
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="20dp"
+        android:textColorHint="@color/gray"/>
 
     <EditText
         android:id="@+id/fragment_new_student_et_subject_password"
@@ -62,11 +65,12 @@
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Subject Code"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:paddingLeft="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:paddingRight="10dp"/>
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray"/>
 
     <EditText
         android:id="@+id/fragment_new_subject_et_subject_id"
@@ -74,15 +78,16 @@
         android:layout_height="55dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/custom_et_selector"
-        android:drawableStart="@drawable/ic_id"
+        android:drawableStart="@drawable/ic_department_2"
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Subject Department"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:paddingLeft="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:paddingRight="10dp"/>
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray"/>
 
     <EditText
         android:id="@+id/fragment_new_subject_et_doctor_name"
@@ -94,11 +99,12 @@
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Doctor Name"
-        android:inputType="textPassword"
+        android:inputType="textPersonName"
         android:paddingLeft="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:paddingRight="10dp"/>
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray"/>
 
     <EditText
         android:id="@+id/fragment_new_subject_et_subject_department"
@@ -110,25 +116,27 @@
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Subject Previous Request"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:paddingLeft="15dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:paddingRight="10dp"/>
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray"/>
 
     <Button
         android:id="@+id/fragment_new_subject_btn_save"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="40dp"
-        android:background="@drawable/custom_btn_login"
+        android:background="@drawable/custom_btn_login_save"
         android:text="Save"
         android:textColor="@color/white"
         android:textSize="18sp"
         tools:ignore="TextContrastCheck"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="25dp"/>
+        android:layout_marginTop="25dp"
+        android:textAllCaps="false"/>
 
 </LinearLayout>

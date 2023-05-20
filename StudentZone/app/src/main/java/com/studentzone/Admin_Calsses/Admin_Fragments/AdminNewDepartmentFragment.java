@@ -1,9 +1,11 @@
 package com.studentzone.Admin_Calsses.Admin_Fragments;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.Button;
+import android.widget.EditText;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.studentzone.R;
 
@@ -34,7 +36,11 @@ public class AdminNewDepartmentFragment extends BottomSheetDialogFragment {
         }
     }
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_admin_new_department, container, false);
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+       return inflater.inflate(R.layout.fragment_admin_new_department, container, false);
+
     }
 }

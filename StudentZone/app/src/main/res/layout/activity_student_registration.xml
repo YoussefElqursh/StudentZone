@@ -146,7 +146,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="25dp"
-                android:background="@drawable/custom_btn_login"
+                android:background="@drawable/custom_btn_login_save"
                 android:text="Regist"
                 android:textColor="@color/white"
                 android:textSize="18sp"
