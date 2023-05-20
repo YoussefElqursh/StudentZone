@@ -9,7 +9,7 @@
     android:background="@color/blue"
     android:elevation="50dp"
     android:orientation="vertical"
-    tools:context=".WelcomeActivity">
+    tools:context=".Welcome_Classes.WelcomeActivity">
 
 
     <ImageView
@@ -17,9 +17,9 @@
         android:layout_width="match_parent"
         android:layout_height="579dp"
         android:contentDescription="@string/welcome_page_logo"
-        android:src="@drawable/logo"
-        app:srcCompat="@drawable/logo"
-        tools:srcCompat="@drawable/logo" />
+        android:src="@drawable/img_students"
+        app:srcCompat="@drawable/img_students"
+        tools:srcCompat="@drawable/img_students" />
 
     <LinearLayout
         android:id="@+id/activity_welcome_ll_buttoncontainer"
@@ -30,16 +30,18 @@
 
         <Button
             android:id="@+id/activity_welcome_btn_welcome"
-            android:layout_width="178dp"
-            android:layout_height="wrap_content"
+            android:layout_width="146dp"
+            android:layout_height="55dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="50dp"
-            android:background="@drawable/btn_welcom_style"
-            android:fontFamily="@font/carter_one"
+            android:background="@drawable/custom_btn_welcom"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="@string/welcome"
-            android:textColor="@color/blue"
-            android:textSize="24sp" />
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"/>
+
     </LinearLayout>
 
 </LinearLayout>
