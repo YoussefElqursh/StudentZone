@@ -95,8 +95,55 @@
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:layout_width="match_parent"
+
+                            android:layout_height="80dp"
+                            app:cardBackgroundColor="@color/navy_blue"
+                            app:cardCornerRadius="20dp">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:id="@+id/activity_admin_depatrments_iv"
+                                    android:layout_width="60dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:gravity="center"
+                                    app:srcCompat="@drawable/ic_department_1">
+
+                                </ImageView>
+
+                                <TextView
+                                    android:id="@+id/activity_admin_depatrments_tv_sub_name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="16dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_toRightOf="@id/activity_admin_depatrments_iv"
+                                    android:text="Computer Science"
+                                    android:textColor="#11324D"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/activity_admin_depatrments_tv_sub_code"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="42dp"
+                                    android:layout_toRightOf="@id/activity_admin_depatrments_iv"
+                                    android:text="36985758"
+                                    android:textColor="#11324D" />
+
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
                             android:layout_height="wrap_content"
                             android:id="@+id/activity_admin_departments_recycelerview"/>
+
 
                     </LinearLayout>
 
