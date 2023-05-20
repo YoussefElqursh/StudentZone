@@ -1,51 +1,62 @@
 package com.studentzone.Admin_Calsses.Admin_Activities;
-
+import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
-
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
 
 public class AdminDepartmentsActivity extends AppCompatActivity {
+    My_DB db = new My_DB(this);
+    EditText et_department_name,et_department_code;
     Button btn_add, btn_back;
+
+    BottomSheetDialog bottomSheetDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_departments);
+
+        btn_add = findViewById(R.id.activity_admin_depatrments_btn_add);
+        bottomSheetDialog = new BottomSheetDialog(AdminDepartmentsActivity.this, R.style.BottomSheetStyle);
         buttonAddAction();
+
+        btn_add.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View view)
+            {
+                bottomSheetDialog.show();
+            }
+        });
+
         buttonBackAction();
     }
 
     // This function to show and hide bottomSheetDialog //
     public void buttonAddAction() {
-        btn_add = findViewById(R.id.activity_admin_depatrments_btn_add);
-        btn_add.setOnClickListener(new View.OnClickListener() {
+        View bottomSheetDialogView = getLayoutInflater().inflate(R.layout.fragment_admin_new_department,null, false);
+
+        Button btn_save = bottomSheetDialogView.findViewById(R.id.fragment_new_department_btn_save);
+
+        et_department_name = bottomSheetDialogView.findViewById(R.id.fragment_new_department_et_course_name);
+        et_department_code = bottomSheetDialogView.findViewById(R.id.fragment_new_department_et_course_code);
+
+        btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(AdminDepartmentsActivity.this, R.style.BottomSheetStyle);
-                View bottomSheetDialogView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.fragment_admin_new_department, (LinearLayout)findViewById(R.id.fragment_admin_new_department_ll_main));
-                bottomSheetDialogView.findViewById(R.id.fragment_admin_new_department_btn_close).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        bottomSheetDialog.dismiss();
-                    }
-                });
-                bottomSheetDialogView.findViewById(R.id.fragment_new_department_btn_save).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        bottomSheetDialog.dismiss();
-                    }
-                });
-                bottomSheetDialog.setContentView(bottomSheetDialogView);
-                bottomSheetDialog.show();
+                String name = et_department_name.getText().toString();
+                int code = Integer.parseInt(et_department_code.getText().toString());
+
+                db.insert_department(name, code);
+
+                bottomSheetDialog.dismiss();
             }
         });
+        bottomSheetDialog.setContentView(bottomSheetDialogView);
     }
 
     public void buttonBackAction(){

@@ -226,11 +226,24 @@ public class My_DB extends SQLiteOpenHelper {
                 isValid = cursor.moveToFirst();
                 break;
         }
-
         cursor.close();
-        db.close();
+//        db.close();
         return isValid;
     }
+//__________________________________Departments Function_______________________________________________
+    public void insert_department(String name, int code)
+    {
+
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(Department_col_name, name);
+        values.put(Department_col_code, code);
+
+        db.insert(Education_Table_Departments, null, values);
+    }
+
+
 
 
 }
