@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.studentzone.R;
 
-public class DepartmentViewHoLder extends RecyclerView.ViewHolder {
+public class AdminDepartmentViewHoLder extends RecyclerView.ViewHolder {
 
     TextView DepartmentName ,DepartmentCode;
 
     ImageView DepartmentIcon;
 
-    public DepartmentViewHoLder(@NonNull View itemView) {
+    public AdminDepartmentViewHoLder(@NonNull View itemView) {
         super(itemView);
 
         DepartmentName = itemView.findViewById(R.id.activity_admin_dpartment_tv_sub_name);
