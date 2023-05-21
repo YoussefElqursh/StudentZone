@@ -6,6 +6,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -172,7 +174,7 @@ public class My_DB extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + "," + " " + Student_col_last_name + "," + " " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + ")" + " VALUES (1000,'Ahmed', 'Shosha','Male', 'ahmed.edu', '1000')");
 
         db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + ", " + "" + Student_col_last_name + ", " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + ")" + " VALUES (2000,'Adam', 'Mohamed','Male', 'adam.edu', '2000')");
-        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_name + ")" + " VALUES ('adam.edu')");
+
 
     }
     /**onUpgrade()
@@ -229,7 +231,7 @@ public class My_DB extends SQLiteOpenHelper {
         }
 
         cursor.close();
-//        db.close();
+    //  db.close();
         return isValid;
     }
 
@@ -246,7 +248,45 @@ public class My_DB extends SQLiteOpenHelper {
                 courses_name.add(name_course);
             } while (cursor.moveToNext());
             cursor.close();
-//            db.close();
+       //   db.close();
+        }
+        return courses_name;
+
+    }
+    /**************************************************************************************/
+    /** insert course in enrollment tabel*/
+    public void regestration_student(CheckBox v){
+        v.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+
+/**insret value*/
+
+
+                }
+            }
+        });
+
+
+
+
+    }
+
+
+
+    public ArrayList<String> Get_courses_regester_for_student(){
+        ArrayList<String> courses_name=new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(""+Education_Table_Enrollment+"", new String[] { Enrollment_col_course_id},
+                null, null, null, null, null);
+        if(cursor.moveToFirst()) {
+            do {
+                String name_course = cursor.getString(0 );
+                courses_name.add(name_course);
+            } while (cursor.moveToNext());
+            cursor.close();
+          // db.close();
         }
         return courses_name;
 

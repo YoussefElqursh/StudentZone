@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 
 import com.studentzone.Admin_Calsses.Admin_Activities.AdminDepartmentsActivity;
 import com.studentzone.Admin_Calsses.Admin_Activities.AdminHomeActivity;
@@ -23,6 +26,9 @@ import java.util.List;
 public class StudentRegistrationActivity extends AppCompatActivity {
 
     Button btn_back;
+
+   // CheckBox resg_checkbox=findViewById(R.id.activity_student_subject_tv_sub_state);
+   // Button register=findViewById(R.id.activity_student_regestration_btn_back);
     My_DB my_db=new My_DB( this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +39,9 @@ public class StudentRegistrationActivity extends AppCompatActivity {
         SubjectRegestedRecyclerView();
         ArrayList<String> name_course = my_db.Get_all_courses_for_student();
         SubjectRegestrationRecyclerView(name_course);
+      //  register.setOnClickListener(v ->  my_db.regestration_student(resg_checkbox) );
+
+
     }
 
     public void buttonBackAction(){

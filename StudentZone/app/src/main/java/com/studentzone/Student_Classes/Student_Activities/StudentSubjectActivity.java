@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
 import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectAdapter;
 import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectModel;
@@ -16,13 +17,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentSubjectActivity extends AppCompatActivity {
+    My_DB my_db=new My_DB(this);
     Button btn_back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_subject);
         buttonBackAction();
-        studentSubjectRecyclerView();
+        ArrayList<String> course_regester=my_db.Get_courses_regester_for_student();
+
+        studentSubjectRecyclerView(course_regester);
         }
 
     public void buttonBackAction(){
@@ -30,25 +34,15 @@ public class StudentSubjectActivity extends AppCompatActivity {
         btn_back.setOnClickListener(v -> startActivity(new Intent(StudentSubjectActivity.this, StudentHomeActivity.class)));
     }
 
-    public RecyclerView studentSubjectRecyclerView()
+    public RecyclerView studentSubjectRecyclerView(ArrayList v)
     {
         RecyclerView recyclerView = findViewById(R.id.student_subject_recycleview);
 
         List<SubjectModel>studentSubjectModel = new ArrayList<SubjectModel>();
-        studentSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
+        for (int i = 0; i < v.size(); i++) {
+            studentSubjectModel.add(new SubjectModel((String) v.get(i),"good",R.drawable.ic_students));
+
+        }
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new SubjectAdapter(getApplicationContext(),studentSubjectModel));

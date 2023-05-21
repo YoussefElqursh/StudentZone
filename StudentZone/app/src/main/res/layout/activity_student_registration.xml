@@ -50,29 +50,29 @@
 
         <RelativeLayout
             android:id="@+id/activity_student_regestration_rl_1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="642dp"
+            android:layout_height="982dp"
             android:background="@drawable/custom_cv"
-            android:elevation="50dp"
-            android:backgroundTint="@color/white_gray">
+            android:backgroundTint="@color/white_gray"
+            android:elevation="50dp">
 
             <TextView
                 android:id="@+id/activity_student_registration_tv_select_subject"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:text="Select Your Subjects :"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_margin="10dp"/>
+                android:textStyle="bold" />
 
             <ScrollView
                 android:id="@+id/activity_student_regestration_scv_select_subject"
                 android:layout_width="match_parent"
                 android:layout_height="285dp"
+                android:layout_below="@+id/activity_student_registration_tv_select_subject"
                 android:background="@drawable/custom_cv"
-                android:contentDescription="@string/scrolbar"
                 android:backgroundTint="@color/white_gray"
-                android:layout_below="@+id/activity_student_registration_tv_select_subject">
+                android:contentDescription="@string/scrolbar">
 
                 <LinearLayout
                     android:id="@+id/activity_student_regestration_ll_choose_subject"
@@ -108,14 +108,15 @@
                 android:text="Selected Subjects :"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+
             <ScrollView
                 android:id="@+id/activity_student_regestration_scv_selected_subject"
                 android:layout_width="match_parent"
                 android:layout_height="295dp"
+                android:layout_below="@+id/activity_student_registration_tv_selected_subject"
                 android:background="@drawable/custom_cv"
-                android:contentDescription="@string/scrolbar"
                 android:backgroundTint="@color/white_gray"
-                android:layout_below="@+id/activity_student_registration_tv_selected_subject">
+                android:contentDescription="@string/scrolbar">
 
                 <LinearLayout
                     android:id="@+id/activity_student_regestration_ll_choosed_subject"
@@ -141,18 +142,18 @@
 
             <Button
                 android:id="@+id/fragment_new_department_btn_save"
-                android:layout_below="@+id/activity_student_regestration_scv_selected_subject"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/activity_student_regestration_scv_selected_subject"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="25dp"
+                android:layout_marginRight="20dp"
                 android:background="@drawable/custom_btn_login_save"
                 android:text="Regist"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                tools:ignore="TextContrastCheck"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"/>
+                tools:ignore="TextContrastCheck" />
 
         </RelativeLayout>
     </LinearLayout>
