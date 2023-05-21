@@ -1,19 +1,20 @@
 package com.studentzone.Admin_Calsses.Admin_Activities;
+import android.annotation.SuppressLint;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.studentzone.Admin_Calsses.Admin_Models.Admin_Department_Model.AdminDepartmentAdaper;
-import com.studentzone.Admin_Calsses.Admin_Models.Admin_Department_Model.AdminDepartmentModel;
+import com.studentzone.Admin_Calsses.Admin_Models.Admin_Department_Model.departmentRecyclerViewAdapter;
+import com.studentzone.Data_Base.Departments;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class AdminDepartmentsActivity extends AppCompatActivity  {
     My_DB db = new My_DB(this);
@@ -21,6 +22,8 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
     EditText btm_sheet_dia_et_dept_name, btm_sheet_dia_et_dept_code;
     BottomSheetDialog bottomSheetDialog;
 
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,11 +42,8 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
             }
         });
         buttonBackAction();
+        showAllDepartments();
 
-        ArrayList<String> dept_name = db.get_departments_name();
-        ArrayList<String> dept_code = db.get_departments_code();
-
-        DoctorDepartmentRecyclerView(dept_name, dept_code);
     }
 
     // This function to show and hide bottomSheetDialog //
@@ -65,6 +65,10 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
 
                 db.insert_department(name, code);
 
+                btm_sheet_dia_et_dept_name.setText("");
+                btm_sheet_dia_et_dept_code.setText("");
+
+                showAllDepartments();
                 bottomSheetDialog.dismiss();
             }
         });
@@ -85,18 +89,19 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
         btn_back.setOnClickListener(v -> startActivity(new Intent(AdminDepartmentsActivity.this,AdminHomeActivity.class)));
     }
 
-    // the view data to show the departments to admin
-    public RecyclerView DoctorDepartmentRecyclerView(ArrayList<String> name, ArrayList<String> code) {
-        RecyclerView recyclerView = findViewById(R.id.activity_admin_departments_recycelerview);
+    public void showAllDepartments()
+    {
+        My_DB myDb = new My_DB(getBaseContext());
 
-        List<AdminDepartmentModel> admindepartmentModel = new ArrayList<AdminDepartmentModel>();
+        ArrayList<Departments> departmentsArrayList = db.showDepartments();
 
-        for (int i = 0; i <name.size() ; i++)
-        {
-            admindepartmentModel.add(new AdminDepartmentModel(name.get(i), code.get(i),R.drawable.ic_department_1));
-        }
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new AdminDepartmentAdaper(getApplicationContext(),admindepartmentModel));
-        return recyclerView;
+        departmentRecyclerViewAdapter adapter = new departmentRecyclerViewAdapter(departmentsArrayList);
+        RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
+
+        RecyclerView rv  = findViewById(R.id.activity_admin_departments_recycelerview);
+
+        rv.setHasFixedSize(true);
+        rv.setLayoutManager(lm);
+        rv.setAdapter(adapter);
     }
 }

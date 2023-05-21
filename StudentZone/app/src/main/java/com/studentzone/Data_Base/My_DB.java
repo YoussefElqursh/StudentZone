@@ -6,12 +6,16 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteQueryBuilder;
+import android.util.Log;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.studentzone.Admin_Calsses.Admin_Activities.AdminDepartmentsActivity;
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class My_DB extends SQLiteOpenHelper {
 
@@ -74,7 +78,7 @@ public class My_DB extends SQLiteOpenHelper {
     public static final String Courses_col_code = "code";
     public static final String Courses_col_doctor_id = "course_doctor_id";
     public static final String Courses_col_department_id = "course_department_id";
-    public static final String Courses_col_PreRequest_id = "PreRequests_id";  // may be change to preRequests_name
+    public static final String Courses_col_PreRequest_id = "PreRequests_id";  // may be changed to preRequests_name
 
     /**
      * Declaration and initiation of Enrollment table
@@ -261,48 +265,40 @@ public class My_DB extends SQLiteOpenHelper {
         db.insert(Education_Table_Departments, null, values);
     }
 
-    // To retrieve department names
-    public ArrayList<String> get_departments_name() {
-        ArrayList<String> deptartments_name = new ArrayList<>();
+    /**get all departments and show them */
+    @SuppressLint("Range")
+    public ArrayList<Departments> showDepartments()
+    {
+        ArrayList<Departments> departmentsArrayList = new ArrayList<>();
+
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.query("" + Education_Table_Departments + "", new String[]{Courses_col_name},
-                null, null, null, null, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM "+Education_Table_Departments,null);
 
-        if (cursor.moveToFirst()) {
-            do {
-                String dept_name = cursor.getString(0);
-                deptartments_name.add(dept_name);
-            }
-            while (cursor.moveToNext());
-            cursor.close();
-            db.close();
+        if(cursor != null && cursor.moveToFirst())
+        {
+            do
+            {
+                String name = cursor.getString(cursor.getColumnIndex(Department_col_name));
+                String code = cursor.getString(cursor.getColumnIndex(Department_col_code));
+
+                Departments departments = new Departments(name, code);
+
+                departmentsArrayList.add(departments);
+            }while (cursor.moveToNext());
         }
-        return deptartments_name;
+
+        cursor.close();
+        db.close();
+        db = this.getWritableDatabase();
+
+        return departmentsArrayList;
+
     }
 
-    // To retrieve department codes
-    public ArrayList<String> get_departments_code() {
-        ArrayList<String> deptartments_code = new ArrayList<>();
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor cursor = db.query("" + Education_Table_Departments + "", new String[]{Courses_col_code},
-                null, null, null, null, null);
-
-        if (cursor.moveToFirst()) {
-            do {
-                String dept_code = cursor.getString(0);
-                deptartments_code.add(dept_code);
-            }
-            while (cursor.moveToNext());
-            cursor.close();
-            db.close();
-        }
-        return deptartments_code;
-    }
 
 //__________________________________Departments Function_______________________________________________
-    /**get name course for student by deperentmant*/
+    /**get name course for student by department*/
     public ArrayList<String> Get_all_courses_for_student(){
         ArrayList<String> courses_name=new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
@@ -317,7 +313,5 @@ public class My_DB extends SQLiteOpenHelper {
             db.close();
         }
         return courses_name;
-
     }
-
 }
