@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Doctor_Classes.Doctor_Activities.DoctorSubjectActivity">
+    tools:context=".Doctor_Classes.Doctor_Activities.DoctorSubjectsActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/activity_Doctor_subjects_tbar"
