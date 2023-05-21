@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:background="@color/blue"
     android:orientation="vertical"
-    tools:context=".AdminAbsenceFilesActivity">
+    tools:context=".Admin_Calsses.Admin_Activities.AdminAbsenceFilesActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/activity_admin_absence_files_tbar"
@@ -16,9 +16,23 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:menu="@menu/activity_admin_absence_files_tbar_menu"
-        app:title="Absence Files"
-        app:titleTextColor="@color/white" />
+        app:menu="@menu/activity_admin_absence_files_tbar_menu">
+        <Button
+            android:id="@+id/activity_admin_absentce_file_btn_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/ic_back"
+            android:contentDescription="back arrow"
+            tools:ignore="TouchTargetSizeCheck" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Absence Files"
+            android:textSize="20sp"
+            android:layout_marginLeft="30dp"
+            android:textColor="@color/white"
+            />
+    </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:id="@+id/activity_admin_absence_files_ll_2"
@@ -30,7 +44,7 @@
             android:id="@+id/activity_admin_absence_files_rl_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/cv_style"
+            android:background="@drawable/custom_cv"
             android:backgroundTint="#FFFFFF"
             android:elevation="50dp">
 
@@ -38,14 +52,14 @@
                 android:id="@+id/activity_admin_absence_files_scv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/cv_style"
+                android:background="@drawable/custom_cv"
                 android:backgroundTint="#FFFFFF"
                 android:contentDescription="@string/scrolbar">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/cv_style"
+                    android:background="@drawable/custom_cv"
                     android:backgroundTint="#FFFFFF"
                     android:orientation="vertical">
 
@@ -63,7 +77,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="80dp"
                             android:elevation="20dp"
-                            app:cardBackgroundColor="@color/cardviews"
+                            app:cardBackgroundColor="@color/navy_blue"
                             app:cardCornerRadius="20dp">
 
                             <RelativeLayout
@@ -79,7 +93,7 @@
                                     android:layout_marginTop="10dp"
                                     android:layout_marginBottom="10dp"
                                     android:gravity="center"
-                                    app:srcCompat="@drawable/ic_book">
+                                    app:srcCompat="@drawable/ic_book_1">
 
                                 </ImageView>
 
@@ -90,7 +104,6 @@
                                     android:layout_marginLeft="16dp"
                                     android:layout_marginTop="20dp"
                                     android:layout_toRightOf="@id/activity_admin_absence_files_iv"
-                                    android:fontFamily="@font/amaranth"
                                     android:text="Computer Programming"
                                     android:textColor="@color/white"
                                     android:textSize="18sp"
@@ -103,7 +116,6 @@
                                     android:layout_marginLeft="30dp"
                                     android:layout_marginTop="42dp"
                                     android:layout_toRightOf="@id/activity_admin_absence_files_iv"
-                                    android:fontFamily="@font/amaranth"
                                     android:text="200 Students"
                                     android:textColor="@color/white" />
 

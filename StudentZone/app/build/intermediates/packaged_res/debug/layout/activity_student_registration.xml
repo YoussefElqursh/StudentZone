@@ -6,18 +6,35 @@
     android:layout_height="match_parent"
     android:background="@color/blue"
     android:orientation="vertical"
-    tools:context=".StudentRegistrationActivity">
+    tools:context=".Student_Classes.Student_Activities.StudentRegistrationActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/activity_admin_departments_tbar"
+        android:id="@+id/activity_student_regestration_tbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:menu="@menu/activity_admin_depatrments_tbar_menu"
-        app:title="Registration"
-        app:titleTextColor="@color/white" />
+        app:menu="@menu/activity_admin_depatrments_tbar_menu">
+
+        <Button
+            android:id="@+id/activity_student_regestration_btn_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/ic_back"
+            android:contentDescription="back arrow"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subjects Registration"
+            android:textSize="20sp"
+            android:layout_marginLeft="30dp"
+            android:textColor="@color/white" />
+
+    </androidx.appcompat.widget.Toolbar>
+
     <LinearLayout
         android:id="@+id/activity_admin_departments_ll_main"
         android:layout_width="match_parent"
@@ -28,19 +45,19 @@
             android:id="@+id/activity_admin_depatrments_rl_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/cv_style"
+            android:background="@drawable/custom_cv"
             android:elevation="50dp">
             <ScrollView
                 android:id="@+id/activity_admin_depatrments_scv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/cv_style"
+                android:background="@drawable/custom_cv"
                 android:contentDescription="@string/scrolbar">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/cv_style"
+                    android:background="@drawable/custom_cv"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -51,7 +68,10 @@
                         android:layout_marginRight="15dp"
                         android:layout_marginBottom="10dp"
                         android:orientation="vertical"/>
-
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/recycleview"/>
                 </LinearLayout>
             </ScrollView>
         </RelativeLayout>
