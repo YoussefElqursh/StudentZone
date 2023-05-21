@@ -73,6 +73,7 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
     public RecyclerView DoctorDepartmentRecyclerView() {
         RecyclerView recyclerView = findViewById(R.id.activity_admin_departments_recycelerview);
 
+
         List<AdminDepartmentModel> admindepartmentModel = new ArrayList<AdminDepartmentModel>();
         admindepartmentModel.add(new AdminDepartmentModel("os","bad",R.drawable.ic_department_1));
         admindepartmentModel.add(new AdminDepartmentModel("os","bad",R.drawable.ic_department_1));
