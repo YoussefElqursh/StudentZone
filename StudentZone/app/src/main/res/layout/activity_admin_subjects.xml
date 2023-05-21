@@ -40,12 +40,6 @@
             android:textColor="@color/white" />
 
     </androidx.appcompat.widget.Toolbar>
-    <LinearLayout
-        android:id="@+id/activity_admin_subjects_ll_main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/blue"
-        android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/activity_admin_subjects_rl_1"
@@ -87,11 +81,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:layout_marginTop="5dp">
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:layout_width="match_parent"
@@ -102,5 +93,4 @@
                 </LinearLayout>
             </ScrollView>
         </RelativeLayout>
-    </LinearLayout>
 </LinearLayout>

@@ -60,10 +60,13 @@
                 android:id="@+id/activity_student_registration_tv_select_subject"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Select Your Subjects :"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Select your subjects :"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_margin="10dp"/>
+                android:textStyle="bold" />
 
             <ScrollView
                 android:id="@+id/activity_student_regestration_scv_select_subject"
@@ -105,7 +108,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="Selected Subjects :"
+                android:text="Selected subjects :"
                 android:textSize="18sp"
                 android:textStyle="bold" />
             <ScrollView
@@ -152,7 +155,8 @@
                 android:textSize="18sp"
                 tools:ignore="TextContrastCheck"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"/>
+                android:layout_marginRight="20dp"
+                android:textAllCaps="false"/>
 
         </RelativeLayout>
     </LinearLayout>

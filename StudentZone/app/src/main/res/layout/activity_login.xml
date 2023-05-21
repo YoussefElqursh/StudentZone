@@ -174,7 +174,8 @@
             android:text="@string/login"
             android:textColor="@color/white"
             android:textSize="18sp"
-            tools:ignore="TextContrastCheck" />
+            tools:ignore="TextContrastCheck"
+            android:textAllCaps="false"/>
 
     </LinearLayout>
 

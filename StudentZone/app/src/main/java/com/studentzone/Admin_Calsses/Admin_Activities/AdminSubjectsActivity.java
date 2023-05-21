@@ -10,18 +10,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.studentzone.Admin_Calsses.Admin_Models.Admin_Department_Model.AdminDepartmentAdaper;
 import com.studentzone.Admin_Calsses.Admin_Models.Admin_Department_Model.AdminDepartmentModel;
 import com.studentzone.Admin_Calsses.Admin_Models.Admin_Subject_Model.AdminSubjectAdapter;
 import com.studentzone.Admin_Calsses.Admin_Models.Admin_Subject_Model.AdminSubjectModel;
+import com.studentzone.Admin_Calsses.Admin_Models.Admin_Subject_Model.SelectListener;
 import com.studentzone.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminSubjectsActivity extends AppCompatActivity {
+public class AdminSubjectsActivity extends AppCompatActivity implements SelectListener {
     Button btn_add, btn_back ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +85,12 @@ public class AdminSubjectsActivity extends AppCompatActivity {
         subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new AdminSubjectAdapter(getApplicationContext(),subjectModel));
+        recyclerView.setAdapter(new AdminSubjectAdapter(getApplicationContext(),subjectModel, this));
         return recyclerView;
+    }
+
+    @Override
+    public void onItemClicked(AdminSubjectModel adminSubjectModel) {
+        Toast.makeText(this, adminSubjectModel.getSubjectName(), Toast.LENGTH_SHORT).show();
     }
 }

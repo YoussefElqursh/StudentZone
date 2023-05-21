@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_student_pdf_model_container"
     android:layout_marginBottom="20dp"
-    android:background="@color/white_gray">
+    android:background="@color/white">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/activity_student_pdf_cv"
@@ -16,7 +16,9 @@
         app:cardCornerRadius="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        app:cardElevation="30dp">
+        app:cardElevation="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -54,19 +56,6 @@
                 android:text="PDF Size"
                 android:maxLines="1"
                 android:textColor="@color/dark_blue" />
-
-            <Button
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="295dp"
-                android:layout_marginTop="10dp"
-                android:layout_toRightOf="@id/activity_student_pdf_iv"
-                android:background="@drawable/custom_btn_download"
-                android:backgroundTint="@color/white"
-                android:drawableRight="@drawable/ic_download"
-                android:paddingRight="5dp"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
-                style="@style/Widget.AppCompat.Button.Borderless"/>
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
