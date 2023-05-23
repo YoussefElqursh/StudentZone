@@ -52,7 +52,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_students_accounts);
 
         inflate();
-        showAllStudents();
+        //showAllStudents();
         buttonAddAction();
         saveStudentData();
         closeBottomSheet();
@@ -108,7 +108,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 bottomSheetDialog.dismiss();
                 nullEditTexts();
-                showAllStudents();
+                //showAllStudents();
             }
         });
     }
@@ -148,7 +148,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
                     return;
                 }
 
-                addNewStudent();
+             //   addNewStudent();
                 nullEditTexts();
 
 
@@ -201,7 +201,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
 //            bottomSheetDialog.dismiss();
 //        }
 
-        showAllStudents();
+       // showAllStudents();
     }
 
 
@@ -225,20 +225,20 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
 
     /**Show All Students
      **********************************************************************************************/
-    public void showAllStudents() {
-
-        My_DB db = new My_DB(getBaseContext());
-
-
-//        ArrayList<Students> studentsArrayList = db.showStudents();
-
-//        studentRecyclerViewAdapter adapter = new studentRecyclerViewAdapter(studentsArrayList);
-        RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
-
-        rv.setHasFixedSize(true);
-        rv.setLayoutManager(lm);
-//        rv.setAdapter(adapter);
-    }
+//    public void showAllStudents() {
+//
+//        My_DB db = new My_DB(getBaseContext());
+//
+//
+////        ArrayList<Students> studentsArrayList = db.showStudents();
+//
+////        studentRecyclerViewAdapter adapter = new studentRecyclerViewAdapter(studentsArrayList);
+//        RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
+//
+//        rv.setHasFixedSize(true);
+//        rv.setLayoutManager(lm);
+////        rv.setAdapter(adapter);
+//    }
 
 
 //    /**Search For Students

@@ -29,7 +29,6 @@ public class AdminSubjectsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_subjects);
         buttonAddAction();
         buttonBackAction();
-//        DoctorSubjectRecyclerView();
     }
 
     // This function to show and hide bottomSheetDialog //
@@ -61,29 +60,4 @@ public class AdminSubjectsActivity extends AppCompatActivity {
         btn_back = findViewById(R.id.activity_admin_subjects_btn_back);
         btn_back.setOnClickListener(v -> startActivity(new Intent(AdminSubjectsActivity.this,AdminHomeActivity.class)));
     }
-
-//    public RecyclerView DoctorSubjectRecyclerView()
-//    {
-//        RecyclerView recyclerView = findViewById(R.id.activity_admin_subjects_recycleView);
-//
-//        List<AdminSubjectModel> subjectModel = new ArrayList<AdminSubjectModel>();
-//        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-//        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-//        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-//        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-//        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-//        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-//        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-//        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-//        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-//        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-//        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-//        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-//        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-//        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-//
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        recyclerView.setAdapter(new AdminSubjectAdapter(getApplicationContext(),subjectModel));
-//        return recyclerView;
-//    }
 }

@@ -47,7 +47,7 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_doctors_accounts);
 
         inflate();
-        showAllDoctors();
+       // showAllDoctors();
         buttonAddAction();
 //        radioButtonGroupAction();
         saveDoctorData();
