@@ -12,8 +12,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.studentzone.Admin_Calsses.Admin_Models.Admin_Subject_and_AbcenceFile_Model.AdminSubjectAdapter;
-import com.studentzone.Admin_Calsses.Admin_Models.Admin_Subject_and_AbcenceFile_Model.AdminSubjectModel;
 import com.studentzone.R;
 
 import java.util.ArrayList;
@@ -27,7 +25,6 @@ public class AdminSubjectsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_subjects);
         buttonAddAction();
         buttonBackAction();
-        DoctorSubjectRecyclerView();
     }
 
     // This function to show and hide bottomSheetDialog //
@@ -60,28 +57,5 @@ public class AdminSubjectsActivity extends AppCompatActivity {
         btn_back.setOnClickListener(v -> startActivity(new Intent(AdminSubjectsActivity.this,AdminHomeActivity.class)));
     }
 
-    public RecyclerView DoctorSubjectRecyclerView()
-    {
-        RecyclerView recyclerView = findViewById(R.id.activity_admin_subjects_recycleView);
 
-        List<AdminSubjectModel> subjectModel = new ArrayList<AdminSubjectModel>();
-        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-        subjectModel.add(new AdminSubjectModel("os","bad",R.drawable.ic_book_1));
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new AdminSubjectAdapter(getApplicationContext(),subjectModel));
-        return recyclerView;
-    }
 }
