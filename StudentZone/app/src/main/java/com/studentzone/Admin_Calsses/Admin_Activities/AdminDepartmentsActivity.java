@@ -10,12 +10,11 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.studentzone.Admin_Calsses.Admin_Models.Admin_Department_Model.departmentRecyclerViewAdapter;
+import com.studentzone.Admin_Calsses.Admin_Models.departmentRecyclerViewAdapter;
 import com.studentzone.Data_Base.Departments;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
 import java.util.ArrayList;
-import java.util.List;
 
 public class AdminDepartmentsActivity extends AppCompatActivity  {
     My_DB db = new My_DB(this);
