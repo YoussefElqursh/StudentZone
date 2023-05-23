@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/blue"
     android:orientation="vertical"
-    tools:context=".Admin_Calsses.Admin_Activities.AdminAbsenceFilesActivity">
+    tools:context=".Admin_Classes.Admin_Activities.AdminAbsenceFilesActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/activity_admin_doctors_accounts_tbar"

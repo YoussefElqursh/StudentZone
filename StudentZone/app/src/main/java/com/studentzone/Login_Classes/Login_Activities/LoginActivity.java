@@ -10,7 +10,7 @@ import android.widget.*;
 
 
 import com.studentzone.Doctor_Classes.Doctor_Activities.DoctorHomeActivity;
-import com.studentzone.Admin_Calsses.Admin_Activities.AdminHomeActivity;
+import com.studentzone.Admin_Classes.Admin_Activities.AdminHomeActivity;
 import com.studentzone.Student_Classes.Student_Activities.StudentHomeActivity;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;

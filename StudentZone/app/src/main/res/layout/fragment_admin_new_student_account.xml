@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Admin_Calsses.Admin_Fragments.AdminNewStudentAccountFragment"
+    tools:context=".Admin_Classes.Admin_Fragments.AdminNewStudentAccountFragment"
     android:background="@drawable/custom_fragment_admin_new_department">
 
     <RelativeLayout

@@ -1,4 +1,4 @@
-package com.studentzone.Admin_Calsses.Admin_Fragments;
+package com.studentzone.Admin_Classes.Admin_Fragments;
 
 import android.os.Bundle;
 

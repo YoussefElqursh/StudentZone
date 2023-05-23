@@ -1,4 +1,4 @@
-package com.studentzone.Admin_Calsses.Admin_Activities;
+package com.studentzone.Admin_Classes.Admin_Activities;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.studentzone.Admin_Calsses.Admin_Models.departmentRecyclerViewAdapter;
+import com.studentzone.Admin_Classes.Admin_Models.departmentRecyclerViewAdapter;
 import com.studentzone.Data_Base.Departments;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
