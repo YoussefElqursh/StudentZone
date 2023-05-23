@@ -37,30 +37,30 @@
             android:name=".Student_Classes.Student_Activities.StudentHomeActivity"
             android:exported="false" />
         <activity
-            android:name=".Admin_Calsses.Admin_Activities.AdminStudentsAccountsActivity"
+            android:name=".Admin_Classes.Admin_Activities.AdminStudentsAccountsActivity"
             android:exported="false" />
         <activity
-            android:name=".Admin_Calsses.Admin_Activities.AdminDoctorsAccountsActivity"
+            android:name=".Admin_Classes.Admin_Activities.AdminDoctorsAccountsActivity"
             android:exported="false" />
         <activity
-            android:name=".Admin_Calsses.Admin_Activities.AdminAbsenceFilesActivity"
+            android:name=".Admin_Classes.Admin_Activities.AdminAbsenceFilesActivity"
             android:exported="false" />
         <activity
-            android:name=".Admin_Calsses.Admin_Activities.AdminSubjectsActivity"
+            android:name=".Admin_Classes.Admin_Activities.AdminSubjectsActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Admin_Calsses.Admin_Activities.AdminDepartmentsActivity"
+            android:name=".Admin_Classes.Admin_Activities.AdminDepartmentsActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Admin_Calsses.Admin_Activities.AdminHomeActivity"
+            android:name=".Admin_Classes.Admin_Activities.AdminHomeActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"

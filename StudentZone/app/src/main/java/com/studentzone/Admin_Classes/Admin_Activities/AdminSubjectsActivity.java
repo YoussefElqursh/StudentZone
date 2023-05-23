@@ -1,8 +1,6 @@
-package com.studentzone.Admin_Calsses.Admin_Activities;
+package com.studentzone.Admin_Classes.Admin_Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,9 +15,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 //import com.studentzone.Admin_Calsses.Admin_Models.Admin_Subject_Model.AdminSubjectAdapter;
 //import com.studentzone.Admin_Calsses.Admin_Models.Admin_Subject_Model.AdminSubjectModel;
 import com.studentzone.R;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class AdminSubjectsActivity extends AppCompatActivity {
     Button btn_add, btn_back ;

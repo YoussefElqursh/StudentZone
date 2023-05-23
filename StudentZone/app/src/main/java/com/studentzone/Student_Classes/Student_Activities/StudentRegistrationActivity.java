@@ -8,14 +8,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
-import com.studentzone.Admin_Calsses.Admin_Activities.AdminDepartmentsActivity;
-import com.studentzone.Admin_Calsses.Admin_Activities.AdminHomeActivity;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
 import com.studentzone.Student_Classes.Student_Models.RegestrationModel.SubjectRegestrationAdapter;
 import com.studentzone.Student_Classes.Student_Models.RegestrationModel.SubjectRegestrationModel;
-import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectAdapter;
-import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectModel;
 
 import java.util.ArrayList;
 import java.util.List;

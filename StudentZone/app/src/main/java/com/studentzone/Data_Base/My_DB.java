@@ -6,16 +6,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.database.sqlite.SQLiteQueryBuilder;
-import android.util.Log;
-import android.widget.Switch;
-import android.widget.Toast;
-
-import com.studentzone.Admin_Calsses.Admin_Activities.AdminDepartmentsActivity;
-import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class My_DB extends SQLiteOpenHelper {
 

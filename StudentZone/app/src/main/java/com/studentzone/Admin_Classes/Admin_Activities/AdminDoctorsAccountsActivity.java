@@ -1,4 +1,4 @@
-package com.studentzone.Admin_Calsses.Admin_Activities;
+package com.studentzone.Admin_Classes.Admin_Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,23 +7,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 //import com.studentzone.Admin_Calsses.Admin_Models.Admin_Doctor_Model.doctorRecyclerViewAdapter;
 //import com.studentzone.Admin_Calsses.Admin_Models.Admin_Student_Model.studentRecyclerViewAdapter;
-import com.studentzone.Data_Base.Doctors;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
-
-import java.util.ArrayList;
 
 public class AdminDoctorsAccountsActivity extends AppCompatActivity {
 
