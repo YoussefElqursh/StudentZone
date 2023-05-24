@@ -28,12 +28,12 @@ public class Doctors {
         this.Email = email;
         this.Password = password;
     }
-    public Doctors(String FName, String password)
+    public Doctors(String FName, String password, String gender)
     {
         this.FName = FName;
         this.Password = password;
+        this.gender = gender;
     }
-
 
     public int getId() {
         return id;

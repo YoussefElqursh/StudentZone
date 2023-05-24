@@ -34,7 +34,11 @@ public class doctorRecyclerViewAdapter extends RecyclerView.Adapter<doctorRecycl
          Doctors doctor  = doctorsArrayList.get(position);
          holder.tv_doctor_name.setText(doctor.getFName());
          holder.tv_doctor_password.setText(doctor.getPassword());
-//       holder.iv.setImageResource(doctor.getImage);
+
+         if(doctor.getGender().equals("Male"))
+             holder.iv.setImageResource(R.drawable.ic_male_doctor);
+         else
+             holder.iv.setImageResource(R.drawable.ic_female_doctor);
 
     }
 

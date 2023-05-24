@@ -86,7 +86,6 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         });
     }
 
-
     /** close Bottom Sheet Dialog()
      **********************************************************************************************/
     public void closeBottomSheet() {

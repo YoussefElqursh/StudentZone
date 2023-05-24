@@ -357,8 +357,9 @@ public class My_DB extends SQLiteOpenHelper {
             do{
                 String fName = cursor.getString(cursor.getColumnIndex(Doctors_col_first_name));
                 String password = cursor.getString(cursor.getColumnIndex(Doctors_col_password));
+                String gender = cursor.getString(cursor.getColumnIndex(Doctors_col_gender));
 
-                Doctors doctors = new Doctors(fName,password);
+                Doctors doctors = new Doctors(fName,password,gender);
 
                 doctorsArrayList.add(doctors);
 
