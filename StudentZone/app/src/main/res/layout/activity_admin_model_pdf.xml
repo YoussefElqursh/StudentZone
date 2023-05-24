@@ -59,10 +59,10 @@
                 android:layout_marginLeft="275dp"
                 android:layout_marginTop="20dp"
                 android:layout_toRightOf="@id/activity_admin_pdf_iv"
-                android:background="@drawable/custom_btn_more"
+                android:background="@drawable/custom_btn_download"
                 android:backgroundTint="@color/navy_blue"
-                android:drawableRight="@drawable/ic_more"
-                android:paddingRight="6.5dp"
+                android:drawableRight="@drawable/ic_download"
+                android:paddingRight="7dp"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
                 style="@style/Widget.AppCompat.Button.Borderless"/>
 

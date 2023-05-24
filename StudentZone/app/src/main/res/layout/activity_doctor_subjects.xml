@@ -76,6 +76,12 @@
                         android:layout_marginRight="15dp"
                         android:layout_marginBottom="10dp"
                         android:orientation="vertical">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/doctor_subjects_recycleview"/>
+
                     </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView

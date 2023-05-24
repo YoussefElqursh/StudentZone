@@ -31,15 +31,17 @@
         <Button
             android:id="@+id/activity_welcome_btn_welcome"
             android:layout_width="146dp"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="50dp"
             android:background="@drawable/custom_btn_welcom"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="@string/welcome"
-            android:textColor="@color/blue"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"/>
+
     </LinearLayout>
 
 </LinearLayout>

@@ -8,13 +8,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
-import com.studentzone.Admin_Calsses.Admin_Activities.AdminDepartmentsActivity;
-import com.studentzone.Admin_Calsses.Admin_Activities.AdminHomeActivity;
+import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
 import com.studentzone.Student_Classes.Student_Models.RegestrationModel.SubjectRegestrationAdapter;
 import com.studentzone.Student_Classes.Student_Models.RegestrationModel.SubjectRegestrationModel;
-import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectAdapter;
-import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,14 +19,16 @@ import java.util.List;
 public class StudentRegistrationActivity extends AppCompatActivity {
 
     Button btn_back;
-
+    My_DB my_db=new My_DB( this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_registration);
         buttonBackAction();
-        SubjectRegestrationRecyclerView();
-        SubjectRegestedRecyclerView();
+
+//        SubjectRegestedRecyclerView();
+        ArrayList<String> name_course = my_db.Get_all_courses_for_student();
+        SubjectRegestrationRecyclerView(name_course);
     }
 
     public void buttonBackAction(){
@@ -37,45 +36,43 @@ public class StudentRegistrationActivity extends AppCompatActivity {
         btn_back.setOnClickListener(v -> startActivity(new Intent(StudentRegistrationActivity.this, StudentHomeActivity.class)));
     }
 
-    public RecyclerView SubjectRegestrationRecyclerView()
+    public RecyclerView SubjectRegestrationRecyclerView(ArrayList<String> v)
     {
+
+
         RecyclerView recyclerView = findViewById(R.id.recycleview_student_regestration_choose_subject);
 
         List<SubjectRegestrationModel>subjectRegestrationModel=new ArrayList<SubjectRegestrationModel>();
-        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
-        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
-        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
-        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
-        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
-        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
-        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
-        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
-        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
+
+        for (int i = 0; i <v.size() ; i++) {
+
+
+            subjectRegestrationModel.add(new SubjectRegestrationModel(v.get(i)));
+        }
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new SubjectRegestrationAdapter(getApplicationContext(),subjectRegestrationModel));
         return recyclerView;
     }
 
-    public RecyclerView SubjectRegestedRecyclerView()
-    {
-        RecyclerView recyclerView = findViewById(R.id.recycleview_student_regestration_choosed_subject);
+//    public RecyclerView SubjectRegestedRecyclerView()
+//    {
+//        RecyclerView recyclerView = findViewById(R.id.recycleview_student_regestration_choosed_subject);
+//
+//        List<SubjectRegestrationModel>subjectRegestrationModel=new ArrayList<SubjectRegestrationModel>();
+//        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
+//        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
+//        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
+//        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
+//        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
+//
+//
+//
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        recyclerView.setAdapter(new SubjectRegestrationAdapter(getApplicationContext(),subjectRegestrationModel));
+//        return recyclerView;
+//    }
 
-        List<SubjectRegestrationModel>subjectRegestrationModel=new ArrayList<SubjectRegestrationModel>();
-        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
-        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
-        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
-        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
-        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
-        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
-        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
-        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
-        subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
 
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new SubjectRegestrationAdapter(getApplicationContext(),subjectRegestrationModel));
-        return recyclerView;
-    }
 
 }

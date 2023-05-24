@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
 
@@ -17,6 +18,16 @@ public class DoctorSubjectsActivity extends AppCompatActivity { //main
     RecyclerView recyclerView;
     ArrayList<Model>arrayList;
     //store in the recycler
+
+import com.studentzone.Doctor_Classes.Doctor_Model.DoctorSubjectAdapter;
+import com.studentzone.Doctor_Classes.Doctor_Model.DoctorSubjectModel;
+import com.studentzone.R;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class DoctorSubjectsActivity extends AppCompatActivity {
+
     Button btn_back;
     My_DB db;
 
@@ -35,11 +46,13 @@ public class DoctorSubjectsActivity extends AppCompatActivity { //main
             ModelRecyclerView_adapter modelRecyclerView=new ModelRecyclerView_adapter(this,arrayList);
             recyclerView.setAdapter(modelRecyclerView); //add model to recycler view
 
+
     }
 
     public void buttonBackAction(){
         btn_back = findViewById(R.id.activity_doctor_subjects_btn_back);
         btn_back.setOnClickListener(v -> startActivity(new Intent(DoctorSubjectsActivity.this, DoctorHomeActivity.class)));
     }
+
 
 }

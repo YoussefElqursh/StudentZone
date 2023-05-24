@@ -15,14 +15,15 @@
     <Button
         android:id="@+id/activity_student_home_btn_logout"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="45dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/custom_btn_logout"
         android:drawableRight="@drawable/ic_logout"
         android:rotation="180"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+        android:paddingRight="2.5dp"/>
 
     <TextView
         android:id="@+id/activity_student_home_tv_home"

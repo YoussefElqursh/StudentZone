@@ -1,4 +1,4 @@
-package com.studentzone.Admin_Calsses.Admin_Activities;
+package com.studentzone.Admin_Classes.Admin_Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,9 +15,11 @@ public class AdminAbsenceFilesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_absence_files);
         buttonBackAction();
-        }
+
+    }
     public void buttonBackAction(){
         btn_back = findViewById(R.id.activity_admin_absence_files_btn_back);
         btn_back.setOnClickListener(v -> startActivity(new Intent(AdminAbsenceFilesActivity.this,AdminHomeActivity.class)));
     }
+
 }
