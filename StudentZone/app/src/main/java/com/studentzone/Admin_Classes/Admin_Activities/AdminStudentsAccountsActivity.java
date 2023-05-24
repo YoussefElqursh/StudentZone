@@ -1,6 +1,7 @@
 package com.studentzone.Admin_Classes.Admin_Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
@@ -13,11 +14,16 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.studentzone.Admin_Calsses.Admin_Models.studentRecyclerViewAdapter;
 import com.studentzone.Data_Base.My_DB;
 //import com.studentzone.Admin_Calsses.Admin_Models.Admin_Student_Model.studentRecyclerViewAdapter;
+import com.studentzone.Data_Base.Students;
 import com.studentzone.R;
+
+import java.util.ArrayList;
 
 public class AdminStudentsAccountsActivity extends AppCompatActivity {
     Button btn_add, btn_back, btm_sheet_dia_btn_save, btm_sheet_dia_btn_close;
@@ -41,7 +47,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_students_accounts);
 
         inflate();
-        //showAllStudents();
+        showAllStudents();
         buttonAddAction();
         saveStudentData();
         closeBottomSheet();
@@ -54,7 +60,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
     public void inflate() {
         btn_add = findViewById(R.id.activity_admin_students_accounts_btn_add);
         btn_back = findViewById(R.id.activity_admin_students_accounts_btn_back);
-//        tv_search_for_students = findViewById(R.id.activity_admin_students_accounts_et_search_for_students);
+        tv_search_for_students = findViewById(R.id.activity_admin_students_accounts_et_search_for_students);
 
         bottomSheetDialog = new BottomSheetDialog(AdminStudentsAccountsActivity.this, R.style.BottomSheetStyle);
         bottomSheetDialogView = getLayoutInflater().inflate(R.layout.fragment_admin_new_student_account, null, false);
@@ -71,9 +77,8 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
         btm_sheet_dia_rb_male = bottomSheetDialogView.findViewById(R.id.fragment_new_student_rb_male);
         btm_sheet_dia_rb_female = bottomSheetDialogView.findViewById(R.id.fragment_new_student_rb_female);
 
-//        rv = findViewById(R.id.activity_admin_students_accounts_rv);
+        rv = findViewById(R.id.activity_admin_students_accounts_recyclerview);
     }
-
 
     /**show Bottom Sheet Dialog()
      **********************************************************************************************/
@@ -88,7 +93,6 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
         });
     }
 
-
     /** close Bottom Sheet Dialog()
      **********************************************************************************************/
     public void closeBottomSheet() {
@@ -97,7 +101,6 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 bottomSheetDialog.dismiss();
                 nullEditTexts();
-                //showAllStudents();
             }
         });
     }
@@ -137,10 +140,9 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
                     return;
                 }
 
-             //   addNewStudent();
+                addNewStudent();
                 nullEditTexts();
-
-
+                showAllStudents();
             }
         });
     }
@@ -182,15 +184,15 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
         gender = "Male";
 
 
-//        Students student = new Students(aid, name, name, gender, email, password);
-//        Boolean added = db.addStudent(student);
+        Students student = new Students(aid, name, name, gender, email, password);
+        Boolean added = db.addNewStudent(student);
 
-//        if(added){
-//            Toast.makeText(this, name + "Is Successfully Saved ✔️", Toast.LENGTH_SHORT).show();
-//            bottomSheetDialog.dismiss();
-//        }
+        if(added){
+            Toast.makeText(this, name + "Is Successfully Saved ✔️", Toast.LENGTH_SHORT).show();
+            bottomSheetDialog.dismiss();
+        }
 
-       // showAllStudents();
+        showAllStudents();
     }
 
 
@@ -214,20 +216,20 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
 
     /**Show All Students
      **********************************************************************************************/
-//    public void showAllStudents() {
-//
-//        My_DB db = new My_DB(getBaseContext());
-//
-//
-////        ArrayList<Students> studentsArrayList = db.showStudents();
-//
-////        studentRecyclerViewAdapter adapter = new studentRecyclerViewAdapter(studentsArrayList);
-//        RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
-//
-//        rv.setHasFixedSize(true);
-//        rv.setLayoutManager(lm);
-////        rv.setAdapter(adapter);
-//    }
+    public void showAllStudents() {
+
+        My_DB db = new My_DB(getBaseContext());
+
+
+        ArrayList<Students> studentsArrayList = db.showAllStudents();
+
+        studentRecyclerViewAdapter adapter = new studentRecyclerViewAdapter(studentsArrayList);
+        RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
+
+        rv.setHasFixedSize(true);
+        rv.setLayoutManager(lm);
+        rv.setAdapter(adapter);
+    }
 
 
 //    /**Search For Students

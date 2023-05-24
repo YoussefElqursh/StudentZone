@@ -6,6 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -15,7 +16,7 @@ public class My_DB extends SQLiteOpenHelper {
      * Declaration and initiation of My_DB
      ***********************************************************************************************/
     public static final String DB_Name = "Education";
-    public static final int DB_Version = 6;
+    public static final int DB_Version = 13;
 
     private Context context;
 
@@ -116,7 +117,7 @@ public class My_DB extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE " + Education_Table_Students + " ("
                 + "" + Student_col_id + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + "" + Student_col_academic_number + " INTEGER UNIQUE,"
+                + "" + Student_col_academic_number + " TEXT UNIQUE,"
                 + "" + Student_col_first_name + " TEXT,"
                 + "" + Student_col_last_name + " TEXT,"    //Addition+++++++++++++++++++++++++++++++++
                 + "" + Student_col_gender + " TEXT,"
@@ -244,6 +245,72 @@ public class My_DB extends SQLiteOpenHelper {
 //        db.close();
         return isValid;
     }
+
+    /**Add New Student()
+     **********************************************************************************************/
+    public boolean addNewStudent(Students student){
+
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        Cursor cursor;
+
+        values.put(Student_col_academic_number,student.getAcademic_Number());
+        values.put(Student_col_first_name,student.getFName());
+        values.put(Student_col_last_name,student.getLastName());
+        values.put(Student_col_gender,student.getGender());
+        values.put(Student_col_email,student.getEmail());
+        values.put(Student_col_password,student.getPassword());
+
+        //To Check If This Academic Number Is Received
+        cursor = db.rawQuery("SELECT "+Student_col_academic_number+" FROM "+Education_Table_Students+" WHERE "+Student_col_academic_number+"=? ",new String []{student.getAcademic_Number()});
+        if(cursor.moveToFirst()){
+            Toast.makeText(context, "This Academic Number Is Received ❗ ", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        //To Check If This Email Is Received
+        cursor = db.rawQuery("SELECT "+Student_col_email+" FROM "+Education_Table_Students+" WHERE "+Student_col_email+"=? ",new String []{student.getEmail()});
+        if(cursor.moveToFirst()){
+            Toast.makeText(context, "This Email Is Received ❗", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        //Store Number Of Item Which Inserted Or Return -1 If Item Not Inserted
+        long result = db.insert(Education_Table_Students,null,values);
+//        db.close();
+
+        return result !=-1;
+    }
+
+    /**show All Students()
+     **********************************************************************************************/
+    @SuppressLint("Range")
+    public ArrayList<Students> showAllStudents(){
+
+        ArrayList<Students> studentsArrayList = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor =  db.rawQuery("SELECT * FROM "+Education_Table_Students,null);
+
+        if(cursor != null && cursor.moveToFirst()){
+
+            do{
+                String aid = cursor.getString(cursor.getColumnIndex(Student_col_academic_number));
+                String fName = cursor.getString(cursor.getColumnIndex(Student_col_first_name));
+
+                Students students = new Students(fName,aid);
+
+                studentsArrayList.add(students);
+
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+//        db.close();
+        db = this.getWritableDatabase();
+
+        return studentsArrayList;
+    }
+
 
     //__________________________________Departments Function_______________________________________________
     public void insert_department(String name, String code) {
