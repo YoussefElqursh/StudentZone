@@ -39,7 +39,7 @@
     </RelativeLayout>
 
     <EditText
-        android:id="@+id/fragment_new_student_et_subject_name"
+        android:id="@+id/fragment_new_subject_et_name"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@drawable/custom_et_selector"
@@ -56,7 +56,7 @@
         android:textColorHint="@color/gray"/>
 
     <EditText
-        android:id="@+id/fragment_new_student_et_subject_password"
+        android:id="@+id/fragment_new_subject_et_code"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginTop="10dp"
@@ -73,7 +73,7 @@
         android:textColorHint="@color/gray"/>
 
     <EditText
-        android:id="@+id/fragment_new_subject_et_subject_id"
+        android:id="@+id/fragment_new_subject_et_department"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginTop="10dp"
@@ -90,7 +90,7 @@
         android:textColorHint="@color/gray"/>
 
     <EditText
-        android:id="@+id/fragment_new_subject_et_doctor_name"
+        android:id="@+id/fragment_new_subject_et_doctor"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginTop="10dp"
@@ -107,7 +107,7 @@
         android:textColorHint="@color/gray"/>
 
     <EditText
-        android:id="@+id/fragment_new_subject_et_subject_department"
+        android:id="@+id/fragment_new_subject_et_previous"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginTop="10dp"

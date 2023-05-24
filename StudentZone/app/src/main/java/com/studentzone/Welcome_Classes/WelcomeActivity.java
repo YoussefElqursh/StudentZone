@@ -2,16 +2,25 @@ package com.studentzone.Welcome_Classes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
+
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.studentzone.Data_Base.My_DB;
+
 
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
 
 public class WelcomeActivity extends AppCompatActivity {
     Button btn_welcome;
+    My_DB  helper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +28,22 @@ public class WelcomeActivity extends AppCompatActivity {
         checkFirstOpen();
         btn_welcome = findViewById(R.id.activity_welcome_btn_welcome);
         buttonWelcomeAction();
+        helper=new My_DB(getApplicationContext());
+        SQLiteDatabase db= helper.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put("name","math1");
+        contentValues.put("code",111);
+
+        long numrow=db.insert("Courses",null,contentValues);
+        if(numrow>-1)
+        {
+            Toast.makeText(getApplicationContext(), "added succes", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "added failed", Toast.LENGTH_SHORT).show();
+
+        }
+
 
     }
 

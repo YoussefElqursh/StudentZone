@@ -46,46 +46,15 @@
         android:id="@+id/activity_doctor_subjects_ll_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/custom_cv">
 
-        <RelativeLayout
-            android:id="@+id/activity_doctor_subjects_rl_1"
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/custom_cv"
-            android:elevation="50dp">
 
-            <ScrollView
-                android:id="@+id/activity_doctor_subjects_scv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/custom_cv"
-                android:contentDescription="@string/scrolbar">
+            android:layout_height="wrap_content"
+            android:id="@+id/doctor_subjects_recycleview"
+            android:layout_marginTop="5dp"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/custom_cv"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="vertical">
-
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/doctor_subjects_recycleview"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-            </ScrollView>
-        </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Doctor_Classes.Doctor_Activities.DoctorSubjectsActivity">
+    tools:context=".Doctor_Classes.Doctor_Activities.DoctorSubjectsActivity"
+    android:background="@color/blue">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/activity_Doctor_subjects_tbar"
@@ -15,6 +16,7 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
         app:menu="@menu/activity_tbar_menu" >
+
         <Button
             android:id="@+id/activity_Doctor_subjects_btn_back"
             android:layout_width="20dp"
@@ -28,52 +30,22 @@
             android:text="Subjects"
             android:textSize="20sp"
             android:layout_marginLeft="30dp"
-            android:textColor="@color/white"
-            />
+            android:textColor="@color/white"/>
+
     </androidx.appcompat.widget.Toolbar>
+
     <LinearLayout
         android:id="@+id/activity_admin_subjects_ll_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/blue"
+        android:background="@drawable/custom_cv"
         android:orientation="vertical">
 
-        <RelativeLayout
-            android:id="@+id/activity_Doctor_subjects_rl_1"
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/custom_cv"
-            android:elevation="50dp">
-            <ScrollView
-                android:id="@+id/activity_admin_subjects_scv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/custom_cv"
-                android:contentDescription="@string/scrolbar">
+            android:layout_height="wrap_content"
+            android:id="@+id/doctor_subject_recycleview"
+            android:layout_marginTop="5dp"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/custom_cv"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="vertical">
-
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/doctor_subject_recycleview"/>
-
-                    </LinearLayout>
-                </LinearLayout>
-            </ScrollView>
-        </RelativeLayout>
-    </LinearLayout>
+   </LinearLayout>
 </LinearLayout>

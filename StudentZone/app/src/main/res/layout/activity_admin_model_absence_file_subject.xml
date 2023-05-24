@@ -9,11 +9,14 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/activity_admin_absence_file_subject_cv"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        app:cardBackgroundColor="@color/navy_blue"
+        android:layout_height="65dp"
+        app:cardBackgroundColor="#F8F8F7"
         app:cardCornerRadius="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        app:cardElevation="5dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -21,11 +24,12 @@
 
             <ImageView
                 android:id="@+id/activity_admin_absence_file_subject_iv"
-                android:layout_width="60dp"
-                android:layout_height="match_parent"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginLeft="10dp"
                 android:gravity="center"
-                app:srcCompat="@drawable/ic_book_1">
+                app:srcCompat="@drawable/ic_book_1"
+                android:layout_marginTop="10dp">
 
             </ImageView>
 
@@ -34,24 +38,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="11dp"
                 android:layout_toRightOf="@id/activity_admin_absence_file_subject_iv"
                 android:text="Subject Name"
+                android:maxLines="1"
                 android:textColor="@color/dark_blue"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:maxLines="1"/>
+                android:textSize="16sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/activity_admin_absence_file_subject_tv_sub_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="23dp"
-                android:layout_marginTop="45dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
                 android:layout_toRightOf="@id/activity_admin_absence_file_subject_iv"
-                android:text="Students Number"
-                android:textColor="@color/dark_blue"
-                android:maxLines="1"/>
+                android:maxLines="1"
+                android:text="Subject Code"
+                android:textColor="@color/dark_blue"/>
 
         </RelativeLayout>
 

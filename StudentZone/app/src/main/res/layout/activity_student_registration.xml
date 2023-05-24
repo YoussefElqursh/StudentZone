@@ -45,115 +45,39 @@
         android:id="@+id/activity_student_regestration_ll_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/custom_cv">
 
-
-        <RelativeLayout
-            android:id="@+id/activity_student_regestration_rl_1"
+        <TextView
+            android:id="@+id/activity_student_registration_tv_select_subject"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/custom_cv"
-            android:elevation="50dp"
-            android:backgroundTint="@color/white_gray">
+            android:layout_height="wrap_content"
+            android:text="Select your subjects:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"/>
 
-            <TextView
-                android:id="@+id/activity_student_registration_tv_select_subject"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Select Your Subjects :"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_margin="10dp"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleview_student_regestration_choose_subject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"/>
 
-            <ScrollView
-                android:id="@+id/activity_student_regestration_scv_select_subject"
-                android:layout_width="match_parent"
-                android:layout_height="595dp"
-                android:background="@drawable/custom_cv"
-                android:contentDescription="@string/scrolbar"
-                android:backgroundTint="@color/white_gray"
-                android:layout_below="@+id/activity_student_registration_tv_select_subject">
+        <Button
+            android:id="@+id/fragment_new_department_btn_save"
+            android:layout_width="130dp"
+            android:layout_height="48dp"
+            android:layout_below="@+id/activity_student_regestration_scv_select_subject"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/custom_btn_login_save"
+            android:text="Regist"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:ignore="TextContrastCheck" />
 
-                <LinearLayout
-                    android:id="@+id/activity_student_regestration_ll_choose_subject"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="15dp"
-                    android:background="@drawable/custom_cv"
-                    android:backgroundTint="@color/white_gray"
-                    android:orientation="vertical">
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recycleview_student_regestration_choose_subject"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
-            </ScrollView>
-
-<!--            <TextView-->
-<!--                android:id="@+id/activity_student_registration_tv_selected_subject"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_below="@+id/activity_student_regestration_scv_select_subject"-->
-<!--                android:layout_marginStart="10dp"-->
-<!--                android:layout_marginTop="15dp"-->
-<!--                android:layout_marginEnd="10dp"-->
-<!--                android:layout_marginBottom="10dp"-->
-<!--                android:text="Selected Subjects :"-->
-<!--                android:textSize="18sp"-->
-<!--                android:textStyle="bold" />-->
-<!--            <ScrollView-->
-<!--                android:id="@+id/activity_student_regestration_scv_selected_subject"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="295dp"-->
-<!--                android:background="@drawable/custom_cv"-->
-<!--                android:contentDescription="@string/scrolbar"-->
-<!--                android:backgroundTint="@color/white_gray"-->
-<!--                android:layout_below="@+id/activity_student_registration_tv_selected_subject">-->
-
-<!--                <LinearLayout-->
-<!--                    android:id="@+id/activity_student_regestration_ll_choosed_subject"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginStart="15dp"-->
-<!--                    android:layout_marginLeft="15dp"-->
-<!--                    android:layout_marginTop="25dp"-->
-<!--                    android:layout_marginEnd="15dp"-->
-<!--                    android:layout_marginRight="15dp"-->
-<!--                    android:layout_marginBottom="15dp"-->
-<!--                    android:background="@drawable/custom_cv"-->
-<!--                    android:backgroundTint="@color/white_gray"-->
-<!--                    android:orientation="vertical">-->
-
-<!--                    <androidx.recyclerview.widget.RecyclerView-->
-<!--                        android:id="@+id/recycleview_student_regestration_choosed_subject"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content" />-->
-
-<!--                </LinearLayout>-->
-<!--            </ScrollView>-->
-
-            <Button
-                android:id="@+id/fragment_new_department_btn_save"
-                android:layout_below="@+id/activity_student_regestration_scv_select_subject"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="25dp"
-                android:background="@drawable/custom_btn_login_save"
-                android:text="Regist"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                tools:ignore="TextContrastCheck"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"/>
-
-        </RelativeLayout>
     </LinearLayout>
+
 </LinearLayout>
