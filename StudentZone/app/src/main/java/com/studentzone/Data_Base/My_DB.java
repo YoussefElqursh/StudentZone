@@ -15,7 +15,7 @@ public class My_DB extends SQLiteOpenHelper {
      * Declaration and initiation of My_DB
      ***********************************************************************************************/
     public static final String DB_Name = "Education";
-    public static final int DB_Version = 6;
+    public static final int DB_Version = 14;
 
     private Context context;
 

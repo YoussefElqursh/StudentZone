@@ -56,55 +56,36 @@
 
             <Button
                 android:id="@+id/activity_admin_depatrments_btn_add"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:layout_marginLeft="280dp"
                 android:layout_marginTop="590dp"
                 android:background="@drawable/custom_btn_plus_add"
                 android:contentDescription="@string/btn_floating_action"
                 android:drawableRight="@drawable/ic_add"
                 android:fadeScrollbars="false"
-                android:paddingRight="15dp"
+                android:paddingRight="12dp"
                 android:src="@drawable/ic_add"
                 app:elevation="20dp"
                 app:fabSize="normal"
                 app:hoveredFocusedTranslationZ="20dp"
                 app:pressedTranslationZ="20dp" />
 
-            <ScrollView
-                android:id="@+id/activity_admin_depatrments_scv"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/custom_cv"
-                android:contentDescription="@string/scrolbar">
+                android:orientation="vertical">
 
-                <LinearLayout
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/activity_admin_departments_recycelerview"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/custom_cv"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="vertical">
-
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/activity_admin_departments_recycelerview"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </ScrollView>
+            </LinearLayout>
 
         </RelativeLayout>
 
     </LinearLayout>
+
 </LinearLayout>
