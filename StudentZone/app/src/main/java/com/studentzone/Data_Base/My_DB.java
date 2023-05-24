@@ -1,12 +1,15 @@
 package com.studentzone.Data_Base;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
+
+
+import com.studentzone.Doctor_Classes.Doctor_Activities.Model;
+import com.studentzone.R;
 
 import java.util.ArrayList;
 
@@ -71,7 +74,9 @@ public class My_DB extends SQLiteOpenHelper {
     public static final String Courses_col_code = "code";
     public static final String Courses_col_doctor_id = "course_doctor_id";
     public static final String Courses_col_department_id = "course_department_id";
+
     public static final String Courses_col_PreRequest_id = "PreRequests_id";  // may be changed to preRequests_name
+
 
     /**
      * Declaration and initiation of Enrollment table
@@ -117,7 +122,9 @@ public class My_DB extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE " + Education_Table_Students + " ("
                 + "" + Student_col_id + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + "" + Student_col_academic_number + " TEXT UNIQUE,"
+
+                + "" + Student_col_academic_number + " INTEGER UNIQUE,"
+
                 + "" + Student_col_first_name + " TEXT,"
                 + "" + Student_col_last_name + " TEXT,"    //Addition+++++++++++++++++++++++++++++++++
                 + "" + Student_col_gender + " TEXT,"
@@ -181,6 +188,11 @@ public class My_DB extends SQLiteOpenHelper {
 
         db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + "," + " " + Student_col_last_name + "," + " " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + ")" + " VALUES (1000,'Ahmed', 'Shosha','Male', 'ahmed.edu', '1000')");
 
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + ")" + " VALUES ('CS106','Math0')");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + ")" + " VALUES ('CS1h05','Math40')");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + ")" + " VALUES ('CS1h00','Math30')");
+
+
         db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + ", " + "" + Student_col_last_name + ", " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + ")" + " VALUES (2000,'Adam', 'Mohamed','Male', 'adam.edu', '2000')");
         db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_name + ")" + " VALUES ('adam.edu')");
 
@@ -242,6 +254,30 @@ public class My_DB extends SQLiteOpenHelper {
                 break;
         }
         cursor.close();
+
+
+        return isValid;
+    }
+
+    public ArrayList<Model> getCourses() {
+        SQLiteDatabase db = getReadableDatabase();
+        ArrayList<Model> arrayList = new ArrayList<>();
+
+        Cursor cursor = db.query("Courses", null, null, null, null, null, null);
+
+        while (cursor.moveToNext()) {
+
+            String column_code = cursor.getString(2);
+            String column_name = cursor.getString(1);
+            Model model = new Model(R.drawable.ic_subjects, cursor.getString(2), cursor.getString(1));
+            arrayList.add(model);
+        }
+        cursor.close();
+        return arrayList;
+    }
+
+
+
 //        db.close();
         return isValid;
     }
@@ -334,6 +370,7 @@ public class My_DB extends SQLiteOpenHelper {
 
         Cursor cursor = db.rawQuery("SELECT * FROM "+Education_Table_Departments,null);
 
+
         if(cursor != null && cursor.moveToFirst())
         {
             do
@@ -373,3 +410,6 @@ public class My_DB extends SQLiteOpenHelper {
         return courses_name;
     }
 }
+
+
+

@@ -20,6 +20,7 @@ public class Courses {
         this.department_id = department_id;
     }
 
+
     public int getId() {
         return id;
     }
