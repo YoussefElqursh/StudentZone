@@ -12,8 +12,10 @@
         android:layout_height="80dp"
         app:cardBackgroundColor="@color/navy_blue"
         app:cardCornerRadius="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -30,7 +32,7 @@
             </ImageView>
 
             <TextView
-                android:id="@+id/activity_admin_doctor_tv_sub_name"
+                android:id="@+id/activity_admin_doctor_tv_doctor_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
@@ -43,7 +45,7 @@
                 android:maxLines="1"/>
 
             <TextView
-                android:id="@+id/activity_admin_doctor_tv_sub_code"
+                android:id="@+id/activity_admin_doctor_tv_doctor_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="23dp"

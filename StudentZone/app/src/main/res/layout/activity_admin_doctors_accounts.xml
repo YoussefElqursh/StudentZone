@@ -71,38 +71,10 @@
                 app:hoveredFocusedTranslationZ="20dp"
                 app:pressedTranslationZ="20dp" />
 
-            <ScrollView
-                android:id="@+id/activity_admin_doctors_accounts_scv"
+            <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/custom_cv"
-                android:contentDescription="@string/scrolbar">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/custom_cv"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="vertical">
-
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/activity_admin_doctors_accounts_recyclerview"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </ScrollView>
+                android:id="@+id/activity_admin_doctors_accounts_recyclerview"/>
 
         </RelativeLayout>
 

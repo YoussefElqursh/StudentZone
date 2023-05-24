@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -101,6 +102,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 bottomSheetDialog.dismiss();
                 nullEditTexts();
+                radioButtonGroupAction();
             }
         });
     }
@@ -160,15 +162,15 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
      * radioButtonGroupAction
      * kindCheckedId, Get Index Of Checked Student kind
      ******************************************************************************************/
-//    public void radioButtonGroupAction(){
-//        btm_sheet_dia_rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(RadioGroup group, int checkedId) {
-//                genderId = group.indexOfChild(findViewById(checkedId));
-//                Toast.makeText(getBaseContext(),""+ genderId, Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
+    public void radioButtonGroupAction(){
+        btm_sheet_dia_rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                genderId = group.indexOfChild(findViewById(checkedId));
+                Toast.makeText(getBaseContext(),""+ genderId, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
 
     /**add New Student
@@ -191,7 +193,6 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
             Toast.makeText(this, name + "Is Successfully Saved ✔️", Toast.LENGTH_SHORT).show();
             bottomSheetDialog.dismiss();
         }
-
         showAllStudents();
     }
 
@@ -219,7 +220,6 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
     public void showAllStudents() {
 
         My_DB db = new My_DB(getBaseContext());
-
 
         ArrayList<Students> studentsArrayList = db.showAllStudents();
 
