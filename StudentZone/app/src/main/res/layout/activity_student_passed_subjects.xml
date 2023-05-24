@@ -45,35 +45,14 @@
         android:id="@+id/activity_student_passed_subjects_ll_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/custom_cv">
 
-
-        <ScrollView
-            android:id="@+id/activity_student_passed_subjects_scv"
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/custom_cv"
-            android:contentDescription="@string/scrolbar">
+            android:layout_height="wrap_content"
+            android:id="@+id/student_passed_subjects_recycleview"
+            android:layout_marginTop="5dp"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/custom_cv"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical"
-                    android:background="@drawable/custom_cv">
-                </LinearLayout>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/student_passed_subjects_recycleview"/>
-            </LinearLayout>
-        </ScrollView>
     </LinearLayout>
 </LinearLayout>

@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:background="@color/blue"
     android:orientation="vertical"
+
     tools:context=".Doctor_Classes.Doctor_Activities.DoctorSubjectPdfsActivity">
+
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/activity_doctor_subject_pdfs_tbar"
@@ -94,7 +96,10 @@
                         android:layout_marginBottom="10dp"
                         android:orientation="vertical">
                     </LinearLayout>
-
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerview2"
+                        android:layout_width="match_parent"
+                        android:layout_height="650dp" />
                 </LinearLayout>
             </ScrollView>
         </RelativeLayout>

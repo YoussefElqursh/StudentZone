@@ -10,11 +10,14 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/activity_student_pdf_cv"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        app:cardBackgroundColor="@color/navy_blue"
+        android:layout_height="65dp"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        app:cardElevation="5dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -22,11 +25,12 @@
 
             <ImageView
                 android:id="@+id/activity_student_pdf_iv"
-                android:layout_width="60dp"
-                android:layout_height="match_parent"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginLeft="10dp"
                 android:gravity="center"
-                app:srcCompat="@drawable/ic_pdf_file">
+                app:srcCompat="@drawable/ic_pdf_file"
+                android:layout_marginTop="10dp">
 
             </ImageView>
 
@@ -35,35 +39,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="12dp"
                 android:layout_toRightOf="@id/activity_student_pdf_iv"
-                android:text="PDF Name"
+                android:text="Subject Name"
                 android:maxLines="1"
                 android:textColor="@color/dark_blue"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/activity_student_pdf_tv_sub_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="23dp"
-                android:layout_marginTop="45dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="31dp"
                 android:layout_toRightOf="@id/activity_student_pdf_iv"
-                android:text="PDF Size"
                 android:maxLines="1"
+                android:text="Subject Code"
                 android:textColor="@color/dark_blue" />
 
             <Button
+                android:id="@+id/activity_studen_pdf_btn_download"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="275dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="290dp"
+                android:layout_marginTop="13dp"
                 android:layout_toRightOf="@id/activity_student_pdf_iv"
                 android:background="@drawable/custom_btn_download"
-                android:backgroundTint="@color/navy_blue"
                 android:drawableRight="@drawable/ic_download"
-                android:paddingRight="7dp"
+                android:paddingRight="5dp"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
                 style="@style/Widget.AppCompat.Button.Borderless"/>
 
