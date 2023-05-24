@@ -22,6 +22,19 @@ public class Doctors {
         this.gender = gender;
     }
 
+    public Doctors(String FName, String gender, String email, String password) {
+        this.FName = FName;
+        this.gender = gender;
+        this.Email = email;
+        this.Password = password;
+    }
+    public Doctors(String FName, String password, String gender)
+    {
+        this.FName = FName;
+        this.Password = password;
+        this.gender = gender;
+    }
+
     public int getId() {
         return id;
     }

@@ -347,6 +347,69 @@ public class My_DB extends SQLiteOpenHelper {
 
 
 
+
+    /**Add New Doctor()
+     **********************************************************************************************/
+    public boolean addNewDoctor(Doctors doctor){
+
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(Doctors_col_first_name,doctor.getFName());
+        values.put(Doctors_col_last_name,doctor.getLName());
+        values.put(Doctors_col_gender,doctor.getGender());
+        values.put(Doctors_col_email,doctor.getEmail());
+        values.put(Doctors_col_password,doctor.getPassword());
+
+
+        //To Check If This Email Is Received
+        Cursor cursor = db.rawQuery("SELECT "+Doctors_col_email+" FROM "+Education_Table_Doctors+" WHERE "+Doctors_col_email+"=? ",new String []{doctor.getEmail()});
+        if(cursor.moveToFirst()){
+            Toast.makeText(context, "This Email Is Received ❗", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        //Store Number Of Item Which Inserted Or Return -1 If Item Not Inserted
+        long result = db.insert(Education_Table_Doctors,null,values);
+//        db.close();
+
+        return result !=-1;
+    }
+
+
+    /**show All Doctors()
+     **********************************************************************************************/
+    @SuppressLint("Range")
+    public ArrayList<Doctors> showAllDoctors(){
+
+        ArrayList<Doctors> doctorsArrayList = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor =  db.rawQuery("SELECT * FROM "+Education_Table_Doctors,null);
+
+        if(cursor != null && cursor.moveToFirst()){
+
+            do{
+                String fName = cursor.getString(cursor.getColumnIndex(Doctors_col_first_name));
+                String password = cursor.getString(cursor.getColumnIndex(Doctors_col_password));
+                String gender = cursor.getString(cursor.getColumnIndex(Doctors_col_gender));
+
+                Doctors doctors = new Doctors(fName,password,gender);
+
+                doctorsArrayList.add(doctors);
+
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+//        db.close();
+        db = this.getWritableDatabase();
+
+        return doctorsArrayList;
+    }
+
+
+
+
     //__________________________________Departments Function_______________________________________________
     public void insert_department(String name, String code) {
 

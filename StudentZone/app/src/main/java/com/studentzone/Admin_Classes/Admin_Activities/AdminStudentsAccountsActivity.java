@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -35,8 +36,6 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
     String aid, name, email, password, gender;
     RecyclerView rv;
 
-    int genderId;
-
     BottomSheetDialog bottomSheetDialog;
     View bottomSheetDialogView;
 
@@ -49,6 +48,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
         inflate();
         showAllStudents();
         buttonAddAction();
+        radioButtonGroupAction();
         saveStudentData();
         closeBottomSheet();
         buttonBackAction();
@@ -73,7 +73,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
         btm_sheet_dia_et_student_password = bottomSheetDialogView.findViewById(R.id.fragment_new_student_et_student_password);
         btm_sheet_dia_et_student_email = bottomSheetDialogView.findViewById(R.id.fragment_new_student_et_student_email);
 
-        RadioGroup btm_sheet_dia_rg = bottomSheetDialogView.findViewById(R.id.fragment_new_student_rg_student_kind);
+        btm_sheet_dia_rg = bottomSheetDialogView.findViewById(R.id.fragment_new_student_rg_student_kind);
         btm_sheet_dia_rb_male = bottomSheetDialogView.findViewById(R.id.fragment_new_student_rb_male);
         btm_sheet_dia_rb_female = bottomSheetDialogView.findViewById(R.id.fragment_new_student_rb_female);
 
@@ -156,19 +156,22 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
     }
 
 
-    /**
-     * radioButtonGroupAction
-     * kindCheckedId, Get Index Of Checked Student kind
+    /**radioButtonGroupAction
+     *kindCheckedId, Get Index Of Checked User Kind in
      ******************************************************************************************/
-//    public void radioButtonGroupAction(){
-//        btm_sheet_dia_rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(RadioGroup group, int checkedId) {
-//                genderId = group.indexOfChild(findViewById(checkedId));
-//                Toast.makeText(getBaseContext(),""+ genderId, Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
+    public void radioButtonGroupAction(){
+
+        btm_sheet_dia_rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                if (checkedId == R.id.fragment_new_student_rb_male)
+                    gender = "Male";
+                else if (checkedId == R.id.fragment_new_student_rb_female)
+                    gender = "Female";
+            }
+        });
+    }
 
 
     /**add New Student
@@ -181,7 +184,6 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
         name = btm_sheet_dia_et_student_name.getText().toString().trim();
         email = btm_sheet_dia_et_student_email.getText().toString().trim();
         password = btm_sheet_dia_et_student_password.getText().toString().trim();
-        gender = "Male";
 
 
         Students student = new Students(aid, name, name, gender, email, password);
@@ -191,10 +193,8 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
             Toast.makeText(this, name + "Is Successfully Saved ✔️", Toast.LENGTH_SHORT).show();
             bottomSheetDialog.dismiss();
         }
-
         showAllStudents();
     }
-
 
     /**
      * Special Validation For Email To End With .edu
@@ -219,7 +219,6 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
     public void showAllStudents() {
 
         My_DB db = new My_DB(getBaseContext());
-
 
         ArrayList<Students> studentsArrayList = db.showAllStudents();
 

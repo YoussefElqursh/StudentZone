@@ -71,11 +71,12 @@
                 app:hoveredFocusedTranslationZ="20dp"
                 app:pressedTranslationZ="20dp" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/activity_admin_doctors_accounts_recyclerview"
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/activity_admin_doctors_accounts_recyclerview"
                     android:layout_marginTop="5dp"/>
+
 
         </RelativeLayout>
 
