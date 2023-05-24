@@ -1,4 +1,4 @@
-package com.studentzone.Admin_Calsses.Admin_Models;
+package com.studentzone.Admin_Classes.Admin_Models;
 
 import android.view.LayoutInflater;
 import android.view.View;

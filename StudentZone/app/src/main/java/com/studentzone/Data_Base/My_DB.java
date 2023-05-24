@@ -355,7 +355,6 @@ public class My_DB extends SQLiteOpenHelper {
 
     }
 
-
 //__________________________________Departments Function_______________________________________________
     /**get name course for student by department*/
     public ArrayList<String> Get_all_courses_for_student(){

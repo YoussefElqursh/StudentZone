@@ -17,7 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.studentzone.Admin_Calsses.Admin_Models.studentRecyclerViewAdapter;
+import com.studentzone.Admin_Classes.Admin_Models.studentRecyclerViewAdapter;
 import com.studentzone.Data_Base.My_DB;
 //import com.studentzone.Admin_Calsses.Admin_Models.Admin_Student_Model.studentRecyclerViewAdapter;
 import com.studentzone.Data_Base.Students;
