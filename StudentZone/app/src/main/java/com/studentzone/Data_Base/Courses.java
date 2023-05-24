@@ -4,20 +4,35 @@ public class Courses {
 
 
     private int id;
-    private int code;
+    private String code;
     private String name;
     private String preRequest_name;
-    private int department_id;
-    private int doctor_id;
+    private String department;
+    private String doctor;
 
 
-    public Courses(int id, int code, String name, String preRequest_name, int department_id, int doctor_id) {
+    public Courses(int id, String code, String name, String preRequest_name, String department, String doctor) {
         this.id = id;
         this.code = code;
         this.name = name;
         this.preRequest_name = preRequest_name;
-        this.doctor_id = doctor_id;
-        this.department_id = department_id;
+        this.doctor = doctor;
+        this.department = department;
+    }
+
+    public Courses(String name, String code, String department, String doctor, String previousSubject)
+    {
+        this.name = name;
+        this.code = code;
+        this.department = department;
+        this.doctor = doctor;
+        this.preRequest_name = previousSubject;
+
+    }
+
+    public Courses(String name, String code) {
+        this.name = name;
+        this.code = code;
     }
 
 
@@ -29,11 +44,11 @@ public class Courses {
         this.id = id;
     }
 
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 
@@ -53,19 +68,17 @@ public class Courses {
         this.preRequest_name = preRequest_name;
     }
 
-    public int getDepartment_id() {
-        return department_id;
+    public String getDepartment() {return department;}
+
+    public void setDepartment(String department) {
+        this.department = department;
     }
 
-    public void setDepartment_id(int department_id) {
-        this.department_id = department_id;
+    public String getDoctor() {
+        return doctor;
     }
 
-    public int getDoctor_id() {
-        return doctor_id;
-    }
-
-    public void setDoctor_id(int doctor_id) {
-        this.doctor_id = doctor_id;
+    public void setDoctor(String doctor) {
+        this.doctor = doctor;
     }
 }

@@ -346,6 +346,7 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
 
+
     //__________________________________Departments Function_______________________________________________
     public void insert_department(String name, String code) {
 
@@ -391,6 +392,105 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
 //__________________________________Departments Function_______________________________________________
+
+//__________________________________Subject Function_______________________________________________
+
+//    public boolean addNewSubject(Courses courses)
+//    {
+//        SQLiteDatabase db = getWritableDatabase();
+//        ContentValues values = new ContentValues();
+//
+//        values.put(Courses_col_name, courses.getName());
+//        values.put(Courses_col_code, courses.getCode());
+//        values.put(Courses_col_department_id, courses.getDepartment());
+//        values.put(Courses_col_PreRequest_id, courses.getPreRequest_name());
+//        values.put(Courses_col_doctor_id, courses.getDoctor());
+//
+//        long result = db.insert(Education_Table_Courses,null, values);
+//        return result!= -1;
+//    }
+//
+//
+//
+//
+//@SuppressLint("Range")
+//    public ArrayList<Courses> showSubjects(){
+//
+//        ArrayList<Courses> coursesArrayList = new ArrayList<>();
+//
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor cursor =  db.rawQuery("SELECT * FROM "+Education_Table_Courses,null);
+//
+//        if(cursor != null && cursor.moveToFirst()){
+//
+//            do{
+//                String code = cursor.getString(cursor.getColumnIndex(Courses_col_code));
+//                String Name = cursor.getString(cursor.getColumnIndex(Courses_col_name));
+////                String department = cursor.getString(cursor.getColumnIndex(Courses_col_department_id));
+////                String doctor = cursor.getString(cursor.getColumnIndex(Courses_col_doctor_id));
+////                String previous_subject = cursor.getString(cursor.getColumnIndex(Courses_col_PreRequest_id));
+//
+//
+//                Courses course = new Courses(Name, code);
+//
+//                coursesArrayList.add(course);
+//
+//            }while (cursor.moveToNext());
+//        }
+//        cursor.close();
+////        db.close();
+//        db = this.getWritableDatabase();
+//
+//        return coursesArrayList;
+//    }
+
+    public void insert_subject(String name, String code, String doctor, String prev_subject, String department) {
+
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(Courses_col_name, name);
+        values.put(Courses_col_code, code);
+        values.put(Courses_col_department_id, doctor);
+        values.put(Courses_col_PreRequest_id, prev_subject);
+        values.put(Courses_col_doctor_id, department);
+
+        db.insert(Education_Table_Courses, null, values);
+    }
+
+    /**get all departments and show them */
+    @SuppressLint("Range")
+    public ArrayList<Courses> showCourses()
+    {
+        ArrayList<Courses> departmentsArrayList = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM "+Education_Table_Courses,null);
+
+        if(cursor != null && cursor.moveToFirst())
+        {
+            do
+            {
+                String name = cursor.getString(cursor.getColumnIndex(Courses_col_name));
+                String code = cursor.getString(cursor.getColumnIndex(Courses_col_code));
+
+                Courses courses = new Courses(name, code);
+
+                departmentsArrayList.add(courses);
+            }while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        db = this.getWritableDatabase();
+
+        return departmentsArrayList;
+
+    }
+
+//__________________________________Subject Function_______________________________________________
+
     /**get name course for student by department*/
     public ArrayList<String> Get_all_courses_for_student(){
         ArrayList<String> courses_name=new ArrayList<>();
