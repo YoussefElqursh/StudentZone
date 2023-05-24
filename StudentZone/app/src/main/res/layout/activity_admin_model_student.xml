@@ -12,8 +12,7 @@
         android:layout_height="80dp"
         app:cardBackgroundColor="@color/navy_blue"
         app:cardCornerRadius="15dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:layout_margin="10dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -36,7 +35,6 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="20dp"
                 android:layout_toRightOf="@id/activity_admin_student_iv"
-                android:text="Student Name"
                 android:textColor="@color/dark_blue"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -49,7 +47,6 @@
                 android:layout_marginLeft="23dp"
                 android:layout_marginTop="45dp"
                 android:layout_toRightOf="@id/activity_admin_student_iv"
-                android:text="Student Password"
                 android:textColor="@color/dark_blue"
                 android:maxLines="1"/>
 

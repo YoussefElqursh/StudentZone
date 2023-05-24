@@ -7,10 +7,13 @@ public class  SubjectRegestrationModel {
     String subject_name, subject_code;
     boolean checkBox;
 
+
     public SubjectRegestrationModel(String subject_name) {
         this.subject_name = subject_name;
 
     }
+
+
 
 
     public String getSubject_name() {

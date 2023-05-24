@@ -74,6 +74,7 @@ public class StudentRegistrationActivity extends AppCompatActivity {
 
         List<SubjectRegestrationModel>subjectRegestrationModel=new ArrayList<SubjectRegestrationModel>();
         subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
+
         subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
         subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));
         subjectRegestrationModel.add(new SubjectRegestrationModel("joo"));

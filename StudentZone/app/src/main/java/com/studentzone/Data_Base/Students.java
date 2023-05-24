@@ -4,19 +4,34 @@ public class Students {
 
 
     private int Id;
-    private int Academic_Number ;
+    private String Academic_Number ;
     private String FName ;
     private String LastName ;
     private String gender ;
     private String Email;
     private String Password ;
 
-    public Students(int id, int academic_Number, String FName, String LName,  String gender, String Email, String Password) {
+    public Students(int id, String academic_Number, String FName, String LName,  String gender, String Email, String Password) {
 
         this.Id = id;
         this.Academic_Number = academic_Number;
         this.FName = FName;
         this.LastName = LName;
+        this.Email = Email;
+        this.Password = Password;
+        this.gender = gender;
+    }
+
+    public Students( String fName,String aid) {
+        this.Academic_Number = aid;
+        this.FName = FName;
+    }
+
+    public Students(String aid, String name, String name1, String gender, String email, String password)
+    {
+        this.Academic_Number = aid;
+        this.FName = FName;
+        this.LastName = name1;
         this.Email = Email;
         this.Password = Password;
         this.gender = gender;
@@ -30,11 +45,11 @@ public class Students {
         Id = id;
     }
 
-    public int getAcademic_Number() {
+    public String getAcademic_Number() {
         return Academic_Number;
     }
 
-    public void setAcademic_Number(int academic_Number) {
+    public void setAcademic_Number(String academic_Number) {
         Academic_Number = academic_Number;
     }
 

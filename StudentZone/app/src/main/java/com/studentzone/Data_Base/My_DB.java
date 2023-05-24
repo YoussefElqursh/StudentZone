@@ -20,7 +20,7 @@ public class My_DB extends SQLiteOpenHelper {
     /** Declaration and initiation of My_DB
      ***********************************************************************************************/
     public static final String DB_Name="Education";
-    public static final int DB_Version=6;
+    public static final int DB_Version=12;
 
     private Context context;
 
@@ -109,12 +109,12 @@ public class My_DB extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE " + Education_Table_Students + " ("
                 + "" + Student_col_id + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + "" + Student_col_academic_number + " INTEGER UNIQUE,"
-                + "" + Student_col_first_name + " TEXT,"
+                + "" + Student_col_academic_number + " TEXT UNIQUE,"
+                + "" + Student_col_first_name + " TEXT NOT NULL ,"
                 + "" + Student_col_last_name + " TEXT,"    //Addition+++++++++++++++++++++++++++++++++
                 + "" + Student_col_gender + " TEXT,"
                 + "" + Student_col_email + " TEXT UNIQUE NOT NULL CHECK(email LIKE '%.edu%'),"
-                + "" + Student_col_password + " TEXT)");    // Should Be Not Null
+                + "" + Student_col_password + " TEXT NOT NULL)");    // Should Be Not Null
 
         db.execSQL("CREATE TABLE " + Education_Table_Doctors + " ("
                 + "" + Doctors_col_id + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -174,7 +174,7 @@ public class My_DB extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + "," + " " + Student_col_last_name + "," + " " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + ")" + " VALUES (1000,'Ahmed', 'Shosha','Male', 'ahmed.edu', '1000')");
 
         db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + ", " + "" + Student_col_last_name + ", " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + ")" + " VALUES (2000,'Adam', 'Mohamed','Male', 'adam.edu', '2000')");
-
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_name + ")" + " VALUES ('adam.edu')");
 
     }
     /**onUpgrade()
@@ -194,7 +194,6 @@ public class My_DB extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+ Education_Table_Absence);
         onCreate(db);
     }
-
 
 
     /**checkLogin()
@@ -229,12 +228,137 @@ public class My_DB extends SQLiteOpenHelper {
                 isValid = cursor.moveToFirst();
                 break;
         }
-
         cursor.close();
-    //  db.close();
+//        db.close();
         return isValid;
     }
+    /**Method Add Student()
+     **********************************************************************************************/
+    public boolean addStudent(Students student){
 
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(Student_col_academic_number,student.getAcademic_Number());
+        values.put(Student_col_first_name,student.getFName());
+        values.put(Student_col_last_name,student.getLastName());
+        values.put(Student_col_gender,student.getGender());
+        values.put(Student_col_email,student.getEmail());
+        values.put(Student_col_password,student.getPassword());
+
+        //Store Number Of Item Which Inserted Or Return -1 If Item Not Inserted
+        long result = db.insert(Education_Table_Students,null,values);
+//        db.close();
+
+        return result !=-1;
+
+    }
+
+    /**Method showStudents()
+     **********************************************************************************************/
+    @SuppressLint("Range")
+    public ArrayList<Students> showStudents(){
+
+        ArrayList<Students> studentsArrayList = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor =  db.rawQuery("SELECT * FROM "+Education_Table_Students,null);
+
+        if(cursor != null && cursor.moveToFirst()){
+
+            do{
+                String aid = cursor.getString(cursor.getColumnIndex(Student_col_academic_number));
+                String fName = cursor.getString(cursor.getColumnIndex(Student_col_first_name));
+
+                Students students = new Students(aid,fName);
+
+                studentsArrayList.add(students);
+
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+//        db.close();
+        db = this.getWritableDatabase();
+
+        return studentsArrayList;
+    }
+
+    /**Method Search For Students()
+     **********************************************************************************************/
+    @SuppressLint("Range")
+
+    public ArrayList<Students> searchForStudents(String academicNumberOrName){
+
+        ArrayList<Students> studentsArrayList = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM "+Education_Table_Students+" WHERE "+Student_col_academic_number+"=? OR "+Student_col_first_name+"=?  ",new String []{academicNumberOrName,academicNumberOrName});
+
+        if(cursor != null && cursor.moveToFirst()){
+
+            do{
+
+                String aid = cursor.getString(cursor.getColumnIndex(Student_col_academic_number));
+                String fName = cursor.getString(cursor.getColumnIndex(Student_col_first_name));
+
+                Students students = new Students(aid,fName);
+                studentsArrayList.add(students);
+
+            }while (cursor.moveToNext());
+            cursor.close();
+        }
+        return studentsArrayList;
+    }
+
+    //__________________________________Departments Function_______________________________________________
+    public void insert_department(String name, String code) {
+
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(Department_col_name, name);
+        values.put(Department_col_code, code);
+
+        db.insert(Education_Table_Departments, null, values);
+    }
+
+    /**get all departments and show them */
+    @SuppressLint("Range")
+    public ArrayList<Departments> showDepartments()
+    {
+        ArrayList<Departments> departmentsArrayList = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM "+Education_Table_Departments,null);
+
+        if(cursor != null && cursor.moveToFirst())
+        {
+            do
+            {
+                String name = cursor.getString(cursor.getColumnIndex(Department_col_name));
+                String code = cursor.getString(cursor.getColumnIndex(Department_col_code));
+
+                Departments departments = new Departments(name, code);
+
+                departmentsArrayList.add(departments);
+            }while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        db = this.getWritableDatabase();
+
+        return departmentsArrayList;
+
+    }
+
+
+//__________________________________Departments Function_______________________________________________
+
+
+//__________________________________Departments Function_______________________________________________
 
     /**get name course for student by deperentmant*/
     public ArrayList<String> Get_all_courses_for_student(){
@@ -245,10 +369,12 @@ public class My_DB extends SQLiteOpenHelper {
         if(cursor.moveToFirst()) {
             do {
                 String name_course = cursor.getString(0 );
+
                 courses_name.add(name_course);
+
             } while (cursor.moveToNext());
             cursor.close();
-       //   db.close();
+            //   db.close();
         }
         return courses_name;
 
@@ -261,15 +387,10 @@ public class My_DB extends SQLiteOpenHelper {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b){
 
-/**insret value*/
-
 
                 }
             }
         });
-
-
-
 
     }
 
@@ -286,10 +407,59 @@ public class My_DB extends SQLiteOpenHelper {
                 courses_name.add(name_course);
             } while (cursor.moveToNext());
             cursor.close();
-          // db.close();
+            // db.close();
         }
         return courses_name;
 
     }
+
+
+
+    /**************************************************isert_course*****************************/
+    @SuppressLint("Range")
+    public void insertEnrollment(String courseName) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        int studentId;
+        long result = -1;
+        Cursor  c = db.query(""+Education_Table_Students+"", new String[] { Student_col_id},
+                ""+Student_col_email+"=? AND "+Student_col_password+"=?", new String[] {  },
+                null, null, null, null);
+
+        if(c.moveToFirst()) {
+            do {
+                 studentId = c.getInt(0 );
+
+            } while (c.moveToNext());
+
+
+
+        // Query the Courses table to get the courseId for the given course name
+        Cursor cursor = db.rawQuery("SELECT " + Courses_col_id + " FROM " + Education_Table_Courses + " WHERE " + Courses_col_name + "=?", new String[]{courseName});
+
+        int courseId = -1;
+        if (cursor.moveToFirst()) {
+            courseId = cursor.getInt(cursor.getColumnIndex(Courses_col_id));
+        }
+
+        if (courseId != -1) {
+            // If courseId is found, insert the enrollment into the Enrollment table
+            ContentValues values = new ContentValues();
+            values.put(Enrollment_col_student_id, studentId);
+            values.put(Enrollment_col_course_id, courseId);
+
+             result = db.insert(Education_Table_Enrollment, null, values);
+
+            if (result == -1) {
+                Toast.makeText(context, "Failed to enroll in course", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, "Enrolled in course: " + courseName, Toast.LENGTH_SHORT).show();
+            }
+        }
+        }
+
+}
+
+
 
 }

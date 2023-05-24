@@ -39,10 +39,12 @@ public class StudentSubjectActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.student_subject_recycleview);
 
         List<SubjectModel>studentSubjectModel = new ArrayList<SubjectModel>();
-        for (int i = 0; i < v.size(); i++) {
-            studentSubjectModel.add(new SubjectModel((String) v.get(i),"good",R.drawable.ic_students));
+//        for (int i = 0; i < v.size(); i++) {
+//            studentSubjectModel.add(new SubjectModel((String) v.get(i),"good",R.drawable.ic_students));
+//
+//        }
+        studentSubjectModel.add(new SubjectModel((String) "l'n ;kcs;","good",R.drawable.ic_students));
 
-        }
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new SubjectAdapter(getApplicationContext(),studentSubjectModel));
