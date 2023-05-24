@@ -67,7 +67,7 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         btm_sheet_dia_et_doctor_password = bottomSheetDialogView.findViewById(R.id.fragment_new_doctor_et_doctor_password);
         btm_sheet_dia_et_doctor_email = bottomSheetDialogView.findViewById(R.id.fragment_new_doctor_et_doctor_email);
 
-        RadioGroup btm_sheet_dia_rg = bottomSheetDialogView.findViewById(R.id.fragment_new_doctor_rg_doctor_kind);
+        btm_sheet_dia_rg = bottomSheetDialogView.findViewById(R.id.fragment_new_doctor_rg_doctor_kind);
         btm_sheet_dia_rb_male = bottomSheetDialogView.findViewById(R.id.fragment_new_doctor_rb_male);
         btm_sheet_dia_rb_female = bottomSheetDialogView.findViewById(R.id.fragment_new_doctor_rb_female);
 

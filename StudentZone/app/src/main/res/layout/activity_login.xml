@@ -89,37 +89,26 @@
                 android:textSize="18sp"/>
         </RadioGroup>
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/activity_login_tf_username"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxBackgroundMode="none"
-            app:hintEnabled="false"
-            app:hintTextColor="@color/blue"
-            app:passwordToggleEnabled="false"
-            app:passwordToggleTint="@color/gray">
-
-            <EditText
-                android:id="@+id/activity_login_tf_username"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:drawableStart="@drawable/ic_user"
-                android:drawablePadding="10dp"
-                android:ems="10"
-                android:hint="@string/user_name"
-                android:inputType="textPersonName"
-                android:maxLines="1"
-                android:minHeight="48dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:textColorHint="@color/gray"
-                android:textSize="18sp"
-                tools:ignore="SpeakableTextPresentCheck"
-                android:background="@drawable/custom_et_selector"
-                android:layout_marginBottom="15dp"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="55dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:drawableStart="@drawable/ic_user"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="@string/user_name"
+            android:inputType="textPersonName"
+            android:maxLines="1"
+            android:minHeight="48dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColorHint="@color/gray"
+            android:textSize="18sp"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:background="@drawable/custom_et_selector"
+            android:layout_marginBottom="15dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -149,7 +138,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.checkbox.MaterialCheckBox
+        <CheckBox
             android:id="@+id/activity_login_cb_rememberme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
