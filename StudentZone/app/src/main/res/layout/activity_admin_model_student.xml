@@ -9,6 +9,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/activity_admin_student_cv"
         android:layout_width="match_parent"
+
         android:layout_height="65dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="10dp"

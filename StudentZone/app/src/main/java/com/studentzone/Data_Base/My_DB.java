@@ -6,6 +6,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
+
+
+import com.studentzone.Doctor_Classes.Doctor_Activities.Model;
+import com.studentzone.R;
 
 import java.util.ArrayList;
 
@@ -15,7 +20,9 @@ public class My_DB extends SQLiteOpenHelper {
      * Declaration and initiation of My_DB
      ***********************************************************************************************/
     public static final String DB_Name = "Education";
+
     public static final int DB_Version = 14;
+
 
     private Context context;
 
@@ -70,7 +77,9 @@ public class My_DB extends SQLiteOpenHelper {
     public static final String Courses_col_code = "code";
     public static final String Courses_col_doctor_id = "course_doctor_id";
     public static final String Courses_col_department_id = "course_department_id";
+
     public static final String Courses_col_PreRequest_id = "PreRequests_id";  // may be changed to preRequests_name
+
 
     /**
      * Declaration and initiation of Enrollment table
@@ -116,7 +125,9 @@ public class My_DB extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE " + Education_Table_Students + " ("
                 + "" + Student_col_id + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+
                 + "" + Student_col_academic_number + " INTEGER UNIQUE,"
+
                 + "" + Student_col_first_name + " TEXT,"
                 + "" + Student_col_last_name + " TEXT,"    //Addition+++++++++++++++++++++++++++++++++
                 + "" + Student_col_gender + " TEXT,"
@@ -180,6 +191,11 @@ public class My_DB extends SQLiteOpenHelper {
 
         db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + "," + " " + Student_col_last_name + "," + " " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + ")" + " VALUES (1000,'Ahmed', 'Shosha','Male', 'ahmed.edu', '1000')");
 
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + ")" + " VALUES ('CS106','Math0')");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + ")" + " VALUES ('CS1h05','Math40')");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + ")" + " VALUES ('CS1h00','Math30')");
+
+
         db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + ", " + "" + Student_col_last_name + ", " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + ")" + " VALUES (2000,'Adam', 'Mohamed','Male', 'adam.edu', '2000')");
         db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_name + ")" + " VALUES ('adam.edu')");
 
@@ -241,9 +257,94 @@ public class My_DB extends SQLiteOpenHelper {
                 break;
         }
         cursor.close();
-//        db.close();
+
+
         return isValid;
     }
+
+    public ArrayList<Model> getCourses() {
+        SQLiteDatabase db = getReadableDatabase();
+        ArrayList<Model> arrayList = new ArrayList();
+
+        Cursor cursor = db.query("Courses", null, null, null, null, null, null);
+
+        while (cursor.moveToNext()) {
+
+            String column_code = cursor.getString(2);
+            String column_name = cursor.getString(1);
+            Model model = new Model(R.drawable.ic_subjects, cursor.getString(2), cursor.getString(1));
+            arrayList.add(model);
+        }
+        cursor.close();
+        return arrayList;
+    }
+
+
+    /**Add New Student()
+     **********************************************************************************************/
+    public boolean addNewStudent(Students student){
+
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        Cursor cursor;
+
+        values.put(Student_col_academic_number,student.getAcademic_Number());
+        values.put(Student_col_first_name,student.getFName());
+        values.put(Student_col_last_name,student.getLastName());
+        values.put(Student_col_gender,student.getGender());
+        values.put(Student_col_email,student.getEmail());
+        values.put(Student_col_password,student.getPassword());
+
+        //To Check If This Academic Number Is Received
+        cursor = db.rawQuery("SELECT "+Student_col_academic_number+" FROM "+Education_Table_Students+" WHERE "+Student_col_academic_number+"=? ",new String []{student.getAcademic_Number()});
+        if(cursor.moveToFirst()){
+            Toast.makeText(context, "This Academic Number Is Received ❗ ", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        //To Check If This Email Is Received
+        cursor = db.rawQuery("SELECT "+Student_col_email+" FROM "+Education_Table_Students+" WHERE "+Student_col_email+"=? ",new String []{student.getEmail()});
+        if(cursor.moveToFirst()){
+            Toast.makeText(context, "This Email Is Received ❗", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        //Store Number Of Item Which Inserted Or Return -1 If Item Not Inserted
+        long result = db.insert(Education_Table_Students,null,values);
+//        db.close();
+
+        return result !=-1;
+    }
+
+    /**show All Students()
+     **********************************************************************************************/
+    @SuppressLint("Range")
+    public ArrayList<Students> showAllStudents(){
+
+        ArrayList<Students> studentsArrayList = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor =  db.rawQuery("SELECT * FROM "+Education_Table_Students,null);
+
+        if(cursor != null && cursor.moveToFirst()){
+
+            do{
+                String aid = cursor.getString(cursor.getColumnIndex(Student_col_academic_number));
+                String fName = cursor.getString(cursor.getColumnIndex(Student_col_first_name));
+
+                Students students = new Students(fName,aid);
+
+                studentsArrayList.add(students);
+
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+//        db.close();
+        db = this.getWritableDatabase();
+
+        return studentsArrayList;
+    }
+
 
     //__________________________________Departments Function_______________________________________________
     public void insert_department(String name, String code) {
@@ -267,6 +368,7 @@ public class My_DB extends SQLiteOpenHelper {
 
         Cursor cursor = db.rawQuery("SELECT * FROM "+Education_Table_Departments,null);
 
+
         if(cursor != null && cursor.moveToFirst())
         {
             do
@@ -288,7 +390,6 @@ public class My_DB extends SQLiteOpenHelper {
 
     }
 
-
 //__________________________________Departments Function_______________________________________________
     /**get name course for student by department*/
     public ArrayList<String> Get_all_courses_for_student(){
@@ -307,3 +408,6 @@ public class My_DB extends SQLiteOpenHelper {
         return courses_name;
     }
 }
+
+
+

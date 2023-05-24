@@ -1,17 +1,17 @@
 package com.studentzone.Data_Base;
 
-public class Students {
+import androidx.recyclerview.widget.RecyclerView;
 
-
+public class Students  {
     private int Id;
-    private int Academic_Number ;
+    private String Academic_Number ;
     private String FName ;
     private String LastName ;
     private String gender ;
     private String Email;
     private String Password ;
 
-    public Students(int id, int academic_Number, String FName, String LName,  String gender, String Email, String Password) {
+    public Students(int id, String academic_Number, String FName, String LName,  String gender, String Email, String Password) {
 
         this.Id = id;
         this.Academic_Number = academic_Number;
@@ -22,6 +22,22 @@ public class Students {
         this.gender = gender;
     }
 
+    public Students(String academic_Number, String FName, String LName,  String gender, String Email, String Password) {
+
+        this.Academic_Number = academic_Number;
+        this.FName = FName;
+        this.LastName = LName;
+        this.Email = Email;
+        this.Password = Password;
+        this.gender = gender;
+    }
+
+    public Students(String FName, String academic_Number) {
+
+        this.Academic_Number = academic_Number;
+        this.FName = FName;
+    }
+
     public int getId() {
         return Id;
     }
@@ -30,11 +46,11 @@ public class Students {
         Id = id;
     }
 
-    public int getAcademic_Number() {
+    public String getAcademic_Number() {
         return Academic_Number;
     }
 
-    public void setAcademic_Number(int academic_Number) {
+    public void setAcademic_Number(String academic_Number) {
         Academic_Number = academic_Number;
     }
 
