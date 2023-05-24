@@ -31,7 +31,7 @@ public class DoctorSubjectsActivity extends AppCompatActivity { //main
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_subjects);
         buttonBackAction();
-       recyclerView=findViewById(R.id.recyclerview);//add item in recycler
+       recyclerView=findViewById(R.id.doctor_subjects_recycleview );//add item in recycler
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         My_DB my_db=new My_DB(getApplicationContext());
            arrayList=my_db.getCourses();//Method to get all courses name and courses code
