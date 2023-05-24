@@ -14,19 +14,12 @@ import com.studentzone.R;
 
 import java.util.ArrayList;
 
+
 public class DoctorSubjectsActivity extends AppCompatActivity { //main
     RecyclerView recyclerView;
     ArrayList<Model>arrayList;
     //store in the recycler
 
-import com.studentzone.Doctor_Classes.Doctor_Model.DoctorSubjectAdapter;
-import com.studentzone.Doctor_Classes.Doctor_Model.DoctorSubjectModel;
-import com.studentzone.R;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class DoctorSubjectsActivity extends AppCompatActivity {
 
     Button btn_back;
     My_DB db;

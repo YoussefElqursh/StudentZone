@@ -1,5 +1,6 @@
 package com.studentzone.Data_Base;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -261,7 +262,7 @@ public class My_DB extends SQLiteOpenHelper {
 
     public ArrayList<Model> getCourses() {
         SQLiteDatabase db = getReadableDatabase();
-        ArrayList<Model> arrayList = new ArrayList<>();
+        ArrayList<Model> arrayList = new ArrayList();
 
         Cursor cursor = db.query("Courses", null, null, null, null, null, null);
 
@@ -276,11 +277,6 @@ public class My_DB extends SQLiteOpenHelper {
         return arrayList;
     }
 
-
-
-//        db.close();
-        return isValid;
-    }
 
     /**Add New Student()
      **********************************************************************************************/

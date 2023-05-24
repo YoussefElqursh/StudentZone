@@ -12,10 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.studentzone.Admin_Calsses.Admin_Activities.AdminHomeActivity;
 import com.studentzone.Data_Base.My_DB;
-import com.studentzone.Doctor_Classes.Doctor_Activities.DoctorHomeActivity;
-import com.studentzone.Doctor_Classes.Doctor_Activities.DoctorSubjectPdfsActivity;
 
 
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
