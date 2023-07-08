@@ -6,20 +6,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
+    android:gravity="center"
     android:background="@color/blue"
     android:elevation="50dp"
     android:orientation="vertical"
     tools:context=".Welcome_Classes.WelcomeActivity">
 
 
-    <ImageView
-        android:id="@+id/activity_welcome_iv_logo"
+    <com.airbnb.lottie.LottieAnimationView
         android:layout_width="match_parent"
-        android:layout_height="579dp"
-        android:contentDescription="@string/welcome_page_logo"
-        android:src="@drawable/img_students"
-        app:srcCompat="@drawable/img_students"
-        tools:srcCompat="@drawable/img_students" />
+        android:layout_height="300dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="100dp"
+        android:background="@color/blue"
+        app:lottie_autoPlay="true"
+        app:lottie_cacheComposition="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/books"
+        app:lottie_speed="1" />
 
     <LinearLayout
         android:id="@+id/activity_welcome_ll_buttoncontainer"
@@ -40,7 +46,7 @@
             android:textColor="@color/white"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:textAllCaps="false"/>
+            android:textAllCaps="false" />
 
     </LinearLayout>
 

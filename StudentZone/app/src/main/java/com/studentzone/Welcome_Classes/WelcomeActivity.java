@@ -26,25 +26,7 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         checkFirstOpen();
-        btn_welcome = findViewById(R.id.activity_welcome_btn_welcome);
-        buttonWelcomeAction();
-        helper=new My_DB(getApplicationContext());
-        SQLiteDatabase db= helper.getWritableDatabase();
-        ContentValues contentValues=new ContentValues();
-        contentValues.put("name","math1");
-        contentValues.put("code",111);
-
-        long numrow=db.insert("Courses",null,contentValues);
-        if(numrow>-1)
-        {
-            Toast.makeText(getApplicationContext(), "added succes", Toast.LENGTH_SHORT).show();
-        }
-        else {
-            Toast.makeText(getApplicationContext(), "added failed", Toast.LENGTH_SHORT).show();
-
-        }
-
-
+        ShowAnimation();
     }
 
 
@@ -83,4 +65,43 @@ public class WelcomeActivity extends AppCompatActivity {
         getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().
                 putBoolean("isFirstRun", false).apply();
     }
+
+
+
+    /** Animation Logo
+     ******************************************************************************************/
+    public  void ShowAnimation()
+    {
+        Thread thread =new Thread()
+        {
+            @Override
+            public void run() {
+                try {
+                    sleep(2500);
+                    btn_welcome = findViewById(R.id.activity_welcome_btn_welcome);
+                    buttonWelcomeAction();
+                    helper=new My_DB(getApplicationContext());
+                    SQLiteDatabase db= helper.getWritableDatabase();
+                    ContentValues contentValues=new ContentValues();
+                    contentValues.put("name","math1");
+                    contentValues.put("code",111);
+
+                    long numrow=db.insert("Courses",null,contentValues);
+                    if(numrow>-1)
+                    {
+                        Toast.makeText(getApplicationContext(), "added succes", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), "added failed", Toast.LENGTH_SHORT).show();
+
+                    }
+                    finish();
+                }catch (Exception e){
+                    System.out.println("animation error");
+                }
+            }
+        };
+        thread.start();
+    }
    }
+

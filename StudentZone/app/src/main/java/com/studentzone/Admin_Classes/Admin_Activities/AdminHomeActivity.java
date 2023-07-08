@@ -8,15 +8,18 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
 
 public class AdminHomeActivity extends AppCompatActivity {
     CardView cv_department, cv_subjects, cv_doctors_account, cv_students_account, cv_absence_files;
-    Button btn_logout;
+    Button btn_logout, btn_profile;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,19 +28,20 @@ public class AdminHomeActivity extends AppCompatActivity {
         inflate();
         AllCardViewActions();
         buttonLogoutAction();
+        buttonProfileAction();
 
     }
 
-    /** Inflate
+    /**
+     * Inflate
      **********************************************************************************************/
-    public void inflate(){
+    public void inflate() {
         cv_department = findViewById(R.id.activity_admin_home_cv_departments);
         cv_subjects = findViewById(R.id.activity_admin_home_cv_subjects);
         cv_doctors_account = findViewById(R.id.activity_admin_home_cv_doctors_accounts);
         cv_students_account = findViewById(R.id.activity_admin_home_cv_students_accounts);
         cv_absence_files = findViewById(R.id.activity_admin_home_cv_absence_files);
     }
-
 
 
     public void departmentsCardViewClickAction() {
@@ -62,7 +66,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         cv_doctors_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),AdminDoctorsAccountsActivity.class));
+                startActivity(new Intent(getBaseContext(), AdminDoctorsAccountsActivity.class));
             }
         });
     }
@@ -71,7 +75,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         cv_students_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),AdminStudentsAccountsActivity.class));
+                startActivity(new Intent(getBaseContext(), AdminStudentsAccountsActivity.class));
             }
         });
     }
@@ -80,15 +84,16 @@ public class AdminHomeActivity extends AppCompatActivity {
         cv_absence_files.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),AdminAbsenceFilesActivity.class));
+                startActivity(new Intent(getBaseContext(), AdminAbsenceFilesActivity.class));
             }
         });
     }
 
 
-    /**All Card Views Actions
+    /**
+     * All Card Views Actions
      **********************************************************************************************/
-    public void AllCardViewActions(){
+    public void AllCardViewActions() {
         departmentsCardViewClickAction();
         subjectsCardViewClickAction();
         studentsCardViewClickAction();
@@ -96,9 +101,10 @@ public class AdminHomeActivity extends AppCompatActivity {
         absenceFilesCardViewClickAction();
     }
 
-    /**buttonLogoutAction
+    /**
+     * buttonLogoutAction
      **********************************************************************************************/
-    public void buttonLogoutAction(){
+    public void buttonLogoutAction() {
         btn_logout = findViewById(R.id.activity_admin_home_btn_logout);
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,12 +113,14 @@ public class AdminHomeActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
 
-    /**logOut()
+    /**
+     * logOut()
      **********************************************************************************************/
-    private void logOut(){
+    private void logOut() {
         preferences = getSharedPreferences("Login_Prefs", MODE_PRIVATE);
         editor = preferences.edit();
         editor.clear();
@@ -122,4 +130,15 @@ public class AdminHomeActivity extends AppCompatActivity {
 
     }
 
+    public void buttonProfileAction() {
+        btn_profile = findViewById(R.id.activity_admin_home_btn_profile);
+        btn_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Toast.makeText(getApplicationContext(), "Hi,joo", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
 }
