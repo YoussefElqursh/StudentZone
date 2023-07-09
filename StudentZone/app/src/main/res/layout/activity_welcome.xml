@@ -12,20 +12,20 @@
     android:orientation="vertical"
     tools:context=".Welcome_Classes.WelcomeActivity">
 
-<!--TODO The line from 16 to 28 have a problem give me an error-->
-<!--    <com.airbnb.lottie.LottieAnimationView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="300dp"-->
-<!--        android:layout_marginLeft="10dp"-->
-<!--        android:layout_marginTop="200dp"-->
-<!--        android:layout_marginRight="10dp"-->
-<!--        android:layout_marginBottom="100dp"-->
-<!--        android:background="@color/blue"-->
-<!--        app:lottie_autoPlay="true"-->
-<!--        app:lottie_cacheComposition="true"-->
-<!--        app:lottie_loop="true"-->
-<!--        app:lottie_rawRes="@raw/books"-->
-<!--        app:lottie_speed="1"-->
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="100dp"
+        android:background="@color/blue"
+        app:lottie_autoPlay="true"
+        app:lottie_cacheComposition="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/books"
+        app:lottie_speed="1"/>
 
 
     <LinearLayout
