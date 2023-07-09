@@ -44,9 +44,7 @@
         <activity
             android:name=".Admin_Classes.Admin_Activities.AdminDoctorsAccountsActivity"
             android:exported="false" />
-        <activity
-            android:name=".Admin_Classes.Admin_Activities.AdminAbsenceFilesActivity"
-            android:exported="false" />
+
         <activity
 
             android:name=".Admin_Classes.Admin_Activities.AdminSubjectsActivity"

@@ -40,7 +40,6 @@ public class AdminHomeActivity extends AppCompatActivity {
         cv_subjects = findViewById(R.id.activity_admin_home_cv_subjects);
         cv_doctors_account = findViewById(R.id.activity_admin_home_cv_doctors_accounts);
         cv_students_account = findViewById(R.id.activity_admin_home_cv_students_accounts);
-        cv_absence_files = findViewById(R.id.activity_admin_home_cv_absence_files);
     }
 
 
@@ -80,16 +79,6 @@ public class AdminHomeActivity extends AppCompatActivity {
         });
     }
 
-    public void absenceFilesCardViewClickAction() {
-        cv_absence_files.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), AdminAbsenceFilesActivity.class));
-            }
-        });
-    }
-
-
     /**
      * All Card Views Actions
      **********************************************************************************************/
@@ -98,7 +87,6 @@ public class AdminHomeActivity extends AppCompatActivity {
         subjectsCardViewClickAction();
         studentsCardViewClickAction();
         doctorsCardViewClickAction();
-        absenceFilesCardViewClickAction();
     }
 
     /**
