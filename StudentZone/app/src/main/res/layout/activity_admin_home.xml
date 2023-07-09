@@ -158,6 +158,7 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_margin="15dp"
+            android:layout_marginBottom="200dp"
             app:cardCornerRadius="15dp"
             app:cardElevation="15dp"
             android:foreground="?attr/selectableItemBackground"
@@ -202,7 +203,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="200dp"
             android:contextClickable="false"
             app:cardCornerRadius="15dp"
             app:cardElevation="15dp"
@@ -239,53 +240,6 @@
                     android:textColor="@color/dark_blue"
                     android:textSize="16sp" />
 
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/activity_admin_home_cv_absence_files"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="15dp"
-            android:layout_marginBottom="15dp"
-            android:contextClickable="true"
-            android:longClickable="true"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="12dp"
-            android:foreground="?attr/selectableItemBackground"
-            android:clickable="true">
-
-            <LinearLayout
-                android:id="@+id/activity_admin_home_ll_absence_files"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/activity_sadmin_home_iv_absence_files"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_absence_files" />
-
-                <TextView
-                    android:id="@+id/activity_admin_home_tv_absence_files"
-                    android:layout_width="84dp"
-                    android:layout_height="57dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:text="@string/absence_files"
-                    android:textColor="@color/dark_blue"
-                    android:textSize="17sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </GridLayout>

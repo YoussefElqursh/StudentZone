@@ -47,7 +47,7 @@
         android:layout_height="444dp"
         android:layout_below="@id/top_view"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="-100dp"
+        android:layout_marginTop="-102dp"
         android:layout_marginEnd="25dp"
         android:columnCount="2"
         android:rowCount="3">
@@ -59,10 +59,10 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_margin="15dp"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="15dp"
+            android:clickable="true"
             android:foreground="?attr/selectableItemBackground"
-            android:clickable="true">
+            app:cardCornerRadius="15dp"
+            app:cardElevation="15dp">
 
             <LinearLayout
                 android:id="@+id/activity_student_home_ll_registration"
@@ -89,7 +89,7 @@
                     android:text="Subjects Registration"
                     android:textColor="@color/dark_blue"
                     android:textSize="17sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -102,10 +102,10 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_margin="15dp"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="15dp"
+            android:clickable="true"
             android:foreground="?attr/selectableItemBackground"
-            android:clickable="true">
+            app:cardCornerRadius="15dp"
+            app:cardElevation="15dp">
 
             <LinearLayout
                 android:id="@+id/activity_student_home_ll_pervious_request"
@@ -133,7 +133,7 @@
                     android:text="Passed Subjects"
                     android:textColor="@color/dark_blue"
                     android:textSize="17sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -145,10 +145,10 @@
             android:layout_columnWeight="1"
             android:layout_margin="15dp"
             android:layout_marginBottom="30dp"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="15dp"
+            android:clickable="true"
             android:foreground="?attr/selectableItemBackground"
-            android:clickable="true">
+            app:cardCornerRadius="15dp"
+            app:cardElevation="15dp">
 
             <LinearLayout
                 android:id="@+id/activity_student_home_ll_subject"
@@ -176,7 +176,7 @@
                     android:text="Subjects"
                     android:textColor="@color/dark_blue"
                     android:textSize="17sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </GridLayout>
