@@ -8,6 +8,14 @@
     tools:context=".Admin_Classes.Admin_Fragments.AdminNewDoctorAccountFragment"
     android:background="@drawable/custom_fragment_admin_new_department">
 
+    <LinearLayout
+        android:layout_width="30dp"
+        android:layout_height="3dp"
+        android:layout_gravity="center"
+        android:background="@drawable/custom_splitter"
+        android:gravity="center"
+        android:layout_marginTop="10dp"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,14 +35,13 @@
             android:background="@drawable/custom_btn_close"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:layout_toRightOf="@+id/fragment_admin_new_doctor_btn_close"
             android:text="New Doctor"
             android:textSize="18dp"
             android:textStyle="bold"
-            android:layout_marginTop="7dp"/>
+            android:layout_marginTop="7dp"
+            android:gravity="center"/>
 
     </RelativeLayout>
 
@@ -72,6 +79,7 @@
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"/>
 
+
     <EditText
         android:id="@+id/fragment_new_doctor_et_doctor_password"
         android:layout_width="match_parent"
@@ -82,7 +90,7 @@
         android:drawablePadding="12dp"
         android:ems="10"
         android:hint="Doctor Password"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:paddingLeft="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -110,7 +118,6 @@
             android:minHeight="48dp"
             android:paddingLeft="5dp"
             android:text="Male"
-            android:checked="true"
             android:textColor="@color/gray"
             android:textSize="18sp"
             android:layout_marginRight="10dp"/>
