@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -12,37 +13,50 @@
         android:layout_height="65dp"
         app:cardBackgroundColor="#F8F8F7"
         app:cardCornerRadius="10dp"
- 
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         app:cardElevation="5dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/activity_admin_doctor_iv"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/activity_admin_doctor_iv_cv"
+                app:cardCornerRadius="10dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
-                android:gravity="center"
-                app:srcCompat="@drawable/ic_male_doctor"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="8dp"
+                app:cardBackgroundColor="#fcf0d2">
 
-            </ImageView>
+                <RelativeLayout
+                    android:layout_width="52dp"
+                    android:layout_height="52dp">
+
+                    <ImageView
+                        android:id="@+id/activity_admin_doctor_iv"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        app:srcCompat="@drawable/ic_male_doctor"/>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/activity_admin_doctor_tv_doctor_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
-                android:layout_marginTop="11dp"
-                android:layout_toRightOf="@id/activity_admin_doctor_iv"
-                android:text="Subject Name"
+                android:layout_marginTop="13dp"
+                android:layout_toRightOf="@id/activity_admin_doctor_iv_cv"
+                android:text="Doctor Name"
                 android:maxLines="1"
                 android:textColor="@color/dark_blue"
                 android:textSize="16sp"
@@ -53,11 +67,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="30dp"
-                android:layout_toRightOf="@id/activity_admin_doctor_iv"
+                android:layout_marginTop="32dp"
+                android:layout_toRightOf="@id/activity_admin_doctor_iv_cv"
                 android:maxLines="1"
-                android:text="Subject Code"
+                android:text="Doctor Code"
                 android:textColor="@color/dark_blue"/>
+
+            <ImageButton
+                android:id="@+id/activity_admin_doctor_ibtn_more"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="3dp"
+                android:background="@drawable/custom_ibtn_more"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/ic_more"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         </RelativeLayout>
 
