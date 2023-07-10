@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_admin_new_subject_ll_main"
+    android:id="@+id/fragment_edit_department_ll_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Admin_Classes.Admin_Fragments.AdminNewSubjectFragment"
+    tools:context=".Admin_Classes.Admin_Fragments.AdminNewDepartmentFragment"
     android:background="@drawable/custom_fragment_admin_new_department">
 
     <LinearLayout
@@ -23,7 +23,7 @@
         android:layout_marginTop="20dp">
 
         <Button
-            android:id="@+id/fragment_admin_new_subject_btn_close"
+            android:id="@+id/fragment_edit_department_btn_close"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginLeft="5dp"
@@ -37,7 +37,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="New Subject"
+            android:text="Edit Department"
             android:textSize="18dp"
             android:textStyle="bold"
             android:layout_marginTop="7dp"
@@ -46,92 +46,44 @@
     </RelativeLayout>
 
     <EditText
-        android:id="@+id/fragment_new_subject_et_name"
+        android:id="@+id/fragment_edit_department_et_department_name"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@drawable/custom_et_selector"
-        android:drawableStart="@drawable/ic_user"
-        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/ic_department_2"
+        android:drawablePadding="12dp"
         android:ems="10"
-        android:hint="Subject Name"
-        android:inputType="textPersonName"
+        android:hint="Department Name"
+        android:inputType="text"
         android:minHeight="48dp"
-        android:paddingRight="10dp"
         android:paddingLeft="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:textColorHint="@color/gray"/>
+        android:maxLines="1"
+        android:paddingRight="1dp"
+        android:textColorHint="@color/gray" />
 
     <EditText
-        android:id="@+id/fragment_new_subject_et_code"
+        android:id="@+id/fragment_edit_department_et_department_code"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="25dp"
         android:background="@drawable/custom_et_selector"
         android:drawableStart="@drawable/ic_id"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Subject Code"
+        android:hint="Department Code"
         android:inputType="text"
         android:paddingLeft="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:paddingRight="10dp"
-        android:textColorHint="@color/gray"/>
-
-    <EditText
-        android:id="@+id/fragment_new_subject_et_department"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/custom_et_selector"
-        android:drawableStart="@drawable/ic_department_2"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Subject Department"
-        android:inputType="text"
-        android:paddingLeft="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:paddingRight="10dp"
-        android:textColorHint="@color/gray"/>
-
-    <EditText
-        android:id="@+id/fragment_new_subject_et_doctor"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/custom_et_selector"
-        android:drawableStart="@drawable/ic_user"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Doctor Name"
-        android:inputType="textPersonName"
-        android:paddingLeft="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:paddingRight="10dp"
-        android:textColorHint="@color/gray"/>
-
-    <EditText
-        android:id="@+id/fragment_new_subject_et_previous"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/custom_et_selector"
-        android:drawableStart="@drawable/ic_book_2"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Subject Previous Request"
-        android:inputType="text"
-        android:paddingLeft="15dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:maxLines="1"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"/>
 
     <Button
-        android:id="@+id/fragment_new_subject_btn_save"
+        android:id="@+id/fragment_edit_department_btn_save"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_gravity="center_horizontal"
@@ -143,7 +95,6 @@
         tools:ignore="TextContrastCheck"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="25dp"
         android:textAllCaps="false"/>
 
 </LinearLayout>

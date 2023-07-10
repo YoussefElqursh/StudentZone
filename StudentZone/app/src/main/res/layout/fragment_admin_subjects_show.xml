@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_admin_new_student_ll_main"
+    android:id="@+id/fragment_show_subject_ll_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Admin_Classes.Admin_Fragments.AdminNewStudentAccountFragment"
+    tools:context=".Admin_Classes.Admin_Fragments.AdminNewSubjectFragment"
     android:background="@drawable/custom_fragment_admin_new_department">
 
     <LinearLayout
@@ -20,10 +20,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="20dp">
 
         <Button
-            android:id="@+id/fragment_admin_new_student_btn_close"
+            android:id="@+id/fragment_show_subject_btn_close"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginLeft="5dp"
@@ -37,7 +37,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="New Student"
+            android:text="Show Subject"
             android:textSize="18dp"
             android:textStyle="bold"
             android:layout_marginTop="7dp"
@@ -46,24 +46,25 @@
     </RelativeLayout>
 
     <EditText
-        android:id="@+id/fragment_new_student_et_studet_name"
+        android:id="@+id/fragment_show_subject_et_name"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@drawable/custom_et_selector"
         android:drawableStart="@drawable/ic_user"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Student Name"
+        android:hint="Subject Name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:textColorHint="@color/gray"/>
+        android:textColorHint="@color/gray"
+        android:enabled="false"/>
 
     <EditText
-        android:id="@+id/fragment_new_student_et_student_aid"
+        android:id="@+id/fragment_show_subject_et_code"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginTop="10dp"
@@ -71,104 +72,67 @@
         android:drawableStart="@drawable/ic_id"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Student AID"
-        android:inputType="numberDecimal"
-        android:paddingLeft="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:paddingRight="10dp"
-        android:textColorHint="@color/gray"/>
-
-    <EditText
-        android:id="@+id/fragment_new_student_et_student_email"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/custom_et_selector"
-        android:drawableStart="@drawable/ic_email_address"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Student Email"
-        android:inputType="textEmailAddress"
-        android:paddingLeft="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:paddingRight="10dp"
-        android:textColorHint="@color/gray"/>
-
-    <EditText
-        android:id="@+id/fragment_new_student_et_student_password"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/custom_et_selector"
-        android:drawableStart="@drawable/ic_lock"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Student Password"
+        android:hint="Subject Code"
         android:inputType="text"
         android:paddingLeft="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray"/>
+        android:textColorHint="@color/gray"
+        android:enabled="false"/>
 
-
-    <RadioGroup
-        android:id="@+id/fragment_new_student_rg_student_kind"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="25dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/fragment_new_student_rb_male"
-            android:layout_width="100dp"
-            android:layout_height="55dp"
-            android:layout_weight="1"
-            android:background="@drawable/custom_rb_selector_f2"
-            android:buttonTint="@color/gray"
-            android:minHeight="48dp"
-            android:paddingLeft="5dp"
-            android:text="Male"
-            android:textColor="@color/gray"
-            android:textSize="18sp"
-            android:layout_marginRight="10dp"/>
-
-
-
-        <RadioButton
-            android:id="@+id/fragment_new_student_rb_female"
-            android:layout_width="100dp"
-            android:layout_height="55dp"
-            android:layout_weight="1"
-            android:background="@drawable/custom_rb_selector_f2"
-            android:buttonTint="@color/gray"
-            android:minHeight="48dp"
-            android:paddingLeft="5dp"
-            android:text="Female"
-            android:textColor="@color/gray"
-            android:textSize="18sp"/>
-
-    </RadioGroup>
-
-    <Button
-        android:id="@+id/fragment_new_student_btn_save"
+    <EditText
+        android:id="@+id/fragment_show_subject_et_department"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/custom_btn_login_save"
-        android:text="Save"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        tools:ignore="TextContrastCheck"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_et_selector"
+        android:drawableStart="@drawable/ic_department_2"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Subject Department"
+        android:inputType="text"
+        android:paddingLeft="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:textAllCaps="false"/>
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray"
+        android:enabled="false"/>
+
+    <EditText
+        android:id="@+id/fragment_show_subject_et_doctor"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_et_selector"
+        android:drawableStart="@drawable/ic_user"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Doctor Name"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray"
+        android:enabled="false"/>
+
+    <EditText
+        android:id="@+id/fragment_show_subject_et_previous"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_et_selector"
+        android:drawableStart="@drawable/ic_book_2"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Subject Previous Request"
+        android:inputType="text"
+        android:paddingLeft="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray"
+        android:enabled="false"/>
 
 </LinearLayout>
