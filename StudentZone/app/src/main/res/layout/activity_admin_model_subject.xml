@@ -65,7 +65,7 @@
                 android:id="@+id/activity_admin_subject_tv_sub_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="12dp"
                 android:layout_marginTop="32dp"
                 android:layout_toRightOf="@id/activity_admin_subject_iv_cv"
                 android:maxLines="1"
