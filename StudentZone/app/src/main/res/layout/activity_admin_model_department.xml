@@ -42,7 +42,7 @@
                         android:layout_height="50dp"
                         android:layout_marginTop="7dp"
                         android:gravity="center"
-                        app:srcCompat="@drawable/ic_department_1"/>
+                        app:srcCompat="@drawable/ic_department_3"/>
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -64,7 +64,7 @@
                 android:id="@+id/activity_admin_dpartment_tv_sub_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="12dp"
                 android:layout_marginTop="32dp"
                 android:layout_toRightOf="@id/activity_admin_dpartment_iv_cv"
                 android:maxLines="1"
