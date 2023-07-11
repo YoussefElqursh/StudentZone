@@ -72,7 +72,7 @@
         android:drawableStart="@drawable/ic_email_address"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Student Email"
+        android:hint="Doctor Email"
         android:inputType="textEmailAddress"
         android:paddingLeft="10dp"
         android:layout_marginLeft="20dp"
@@ -88,58 +88,35 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/custom_et_selector"
         android:drawableStart="@drawable/ic_lock"
-        android:drawablePadding="12dp"
+        android:drawablePadding="11dp"
         android:ems="10"
         android:hint="Doctor Password"
         android:inputType="text"
-        android:paddingLeft="10dp"
+        android:paddingLeft="12dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
         android:enabled="false"/>
 
-    <RadioGroup
-        android:id="@+id/fragment_show_doctor_rg_doctor_kind"
+    <EditText
+        android:id="@+id/fragment_show_doctor_et_doctor_gender"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_height="55dp"
         android:layout_marginTop="10dp"
+        android:background="@drawable/custom_et_selector"
+        android:drawableStart="@drawable/ic_gender"
+        android:drawablePadding="7dp"
+        android:ems="10"
+        android:hint="Doctor Gender"
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="25dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/fragment_show_doctor_show_rb_male"
-            android:layout_width="100dp"
-            android:layout_height="55dp"
-            android:layout_weight="1"
-            android:background="@drawable/custom_rb_selector_f2"
-            android:buttonTint="@color/gray"
-            android:minHeight="48dp"
-            android:paddingLeft="5dp"
-            android:text="Male"
-            android:textColor="@color/gray"
-            android:textSize="18sp"
-            android:layout_marginRight="10dp"
-            android:enabled="false"/>
-
-        <RadioButton
-            android:id="@+id/fragment_show_doctor_rb_female"
-            android:layout_width="100dp"
-            android:layout_height="55dp"
-            android:layout_weight="1"
-            android:background="@drawable/custom_rb_selector_f2"
-            android:buttonTint="@color/gray"
-            android:minHeight="48dp"
-            android:paddingLeft="5dp"
-            android:text="Female"
-            android:textColor="@color/gray"
-            android:textSize="18sp"
-            android:enabled="false"/>
-
-    </RadioGroup>
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray"
+        android:enabled="false"
+        android:textSize="18dp" />
 
 
 </LinearLayout>
