@@ -30,13 +30,14 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="43dp"
         android:layout_height="43dp"
-        android:layout_marginLeft="360dp"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="5dp"
         android:background="@drawable/custom_btn_logout"
         android:drawableRight="@drawable/ic_logout"
         android:paddingRight="2.5dp"
         android:rotation="180"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+        android:layout_marginRight="3dp"/>
 
     <TextView
         android:id="@+id/activity_admin_home_tv_home"
