@@ -63,24 +63,6 @@
         android:textColorHint="@color/gray"/>
 
     <EditText
-        android:id="@+id/fragment_edit_student_et_student_aid"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/custom_et_selector"
-        android:drawableStart="@drawable/ic_id"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Student AID"
-        android:inputType="numberDecimal"
-        android:paddingLeft="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:paddingRight="10dp"
-        android:textColorHint="@color/gray"
-        android:enabled="false"/>
-
-    <EditText
         android:id="@+id/fragment_edit_student_et_student_email"
         android:layout_width="match_parent"
         android:layout_height="55dp"

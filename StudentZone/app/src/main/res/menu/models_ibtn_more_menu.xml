@@ -3,8 +3,7 @@
 
     <item
         android:title="Edit"
-        android:id="@+id/models_ibtn_menu_edit"
-        android:icon="@drawable/ic_back"/>
+        android:id="@+id/models_ibtn_menu_edit"/>
 
     <item
         android:title="Delete"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Admin_Classes.Admin_Activities.AdminAbsenceFilesActivity"
+    tools:context=".Admin_Classes.Admin_Activities.AdminDepartmentsActivity"
     android:background="@color/blue">
 
     <androidx.appcompat.widget.Toolbar
@@ -15,7 +15,7 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:menu="@menu/activity_tbar_menu"
+        app:menu="@menu/activity_admin_subjects_sv_menu"
         android:layout_marginRight="5dp">
 
         <Button

@@ -15,7 +15,7 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:menu="@menu/activity_tbar_menu"
+        app:menu="@menu/activity_admin_doctors_accounts_sv_menu"
         android:layout_marginRight="5dp">
 
         <Button
