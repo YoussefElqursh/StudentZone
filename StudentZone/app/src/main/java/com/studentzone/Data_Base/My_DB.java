@@ -329,10 +329,13 @@ public class My_DB extends SQLiteOpenHelper {
         if(cursor != null && cursor.moveToFirst()){
 
             do{
-                String aid = cursor.getString(cursor.getColumnIndex(Student_col_academic_number));
                 String fName = cursor.getString(cursor.getColumnIndex(Student_col_first_name));
+                String aid = cursor.getString(cursor.getColumnIndex(Student_col_academic_number));
+                String email = cursor.getString(cursor.getColumnIndex(Student_col_email));
+                String password = cursor.getString(cursor.getColumnIndex(Student_col_password));
+                String gender = cursor.getString(cursor.getColumnIndex(Student_col_gender));
 
-                Students students = new Students(fName,aid);
+                Students students = new Students(fName,aid,email,password,gender);
 
                 studentsArrayList.add(students);
 
@@ -344,9 +347,6 @@ public class My_DB extends SQLiteOpenHelper {
 
         return studentsArrayList;
     }
-
-
-
 
     /**Add New Doctor()
      **********************************************************************************************/
@@ -391,10 +391,11 @@ public class My_DB extends SQLiteOpenHelper {
 
             do{
                 String fName = cursor.getString(cursor.getColumnIndex(Doctors_col_first_name));
+                String email = cursor.getString(cursor.getColumnIndex(Doctors_col_email));
                 String password = cursor.getString(cursor.getColumnIndex(Doctors_col_password));
                 String gender = cursor.getString(cursor.getColumnIndex(Doctors_col_gender));
 
-                Doctors doctors = new Doctors(fName,password,gender);
+                Doctors doctors = new Doctors(fName,email,password,gender);
 
                 doctorsArrayList.add(doctors);
 

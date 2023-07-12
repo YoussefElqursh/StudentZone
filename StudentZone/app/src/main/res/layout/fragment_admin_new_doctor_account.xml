@@ -71,7 +71,7 @@
         android:drawableStart="@drawable/ic_email_address"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Student Email"
+        android:hint="Doctor Email"
         android:inputType="textEmailAddress"
         android:paddingLeft="10dp"
         android:layout_marginLeft="20dp"

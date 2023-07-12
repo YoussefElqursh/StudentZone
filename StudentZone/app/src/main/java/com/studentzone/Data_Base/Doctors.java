@@ -22,11 +22,11 @@ public class Doctors {
         this.gender = gender;
     }
 
-    public Doctors(String FName, String gender, String email, String password) {
+    public Doctors(String FName, String email, String password, String gender)   {
         this.FName = FName;
-        this.gender = gender;
         this.Email = email;
         this.Password = password;
+        this.gender = gender;
     }
     public Doctors(String FName, String password, String gender)
     {
