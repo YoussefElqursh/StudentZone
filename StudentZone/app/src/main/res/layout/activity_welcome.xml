@@ -12,7 +12,6 @@
     android:orientation="vertical"
     tools:context=".Welcome_Classes.WelcomeActivity">
 
-
     <com.airbnb.lottie.LottieAnimationView
         android:layout_width="match_parent"
         android:layout_height="300dp"
