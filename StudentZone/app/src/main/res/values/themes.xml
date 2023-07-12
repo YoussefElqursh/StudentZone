@@ -19,7 +19,7 @@
         <item name="bottomSheetStyle">@style/BottomSheetDialogTheme</item>
     </style>
     <style name="BottomSheetDialogTheme" parent="Widget.Design.BottomSheet.Modal">
-        <item name="android:background">@drawable/custom_fragment_admin_new_department</item>
+        <item name="android:background">@drawable/custom_fragment_add_new</item>
     </style>
 
 </resources>

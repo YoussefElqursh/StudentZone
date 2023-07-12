@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_admin_new_doctor_ll_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Admin_Classes.Admin_Fragments.AdminNewDoctorAccountFragment"
-    android:background="@drawable/custom_fragment_admin_new_department">
+    android:background="@drawable/custom_fragment_add_new">
 
     <LinearLayout
         android:layout_width="30dp"
@@ -49,53 +50,53 @@
         android:id="@+id/fragment_new_doctor_et_doctor_name"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="@drawable/custom_et_selector"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_rb_et"
         android:drawableStart="@drawable/ic_user"
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Doctor Name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:paddingRight="10dp"
         android:paddingLeft="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textColorHint="@color/gray"/>
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray" />
 
     <EditText
         android:id="@+id/fragment_new_doctor_et_doctor_email"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/custom_et_selector"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_rb_et"
         android:drawableStart="@drawable/ic_email_address"
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Student Email"
         android:inputType="textEmailAddress"
         android:paddingLeft="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray"/>
+        android:textColorHint="@color/gray" />
 
 
     <EditText
         android:id="@+id/fragment_new_doctor_et_doctor_password"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/custom_et_selector"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_rb_et"
         android:drawableStart="@drawable/ic_lock"
         android:drawablePadding="12dp"
         android:ems="10"
         android:hint="Doctor Password"
         android:inputType="text"
         android:paddingLeft="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray"/>
+        android:textColorHint="@color/gray" />
 
     <RadioGroup
         android:id="@+id/fragment_new_doctor_rg_doctor_kind"
@@ -110,30 +111,29 @@
 
         <RadioButton
             android:id="@+id/fragment_new_doctor_rb_male"
-            android:layout_width="100dp"
+            android:layout_width="95dp"
             android:layout_height="55dp"
+            android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:background="@drawable/custom_rb_selector_f2"
+            android:background="@drawable/custom_rb_et"
             android:buttonTint="@color/gray"
             android:minHeight="48dp"
-            android:paddingLeft="5dp"
             android:text="Male"
             android:textColor="@color/gray"
-            android:textSize="18sp"
-            android:layout_marginRight="10dp"/>
+            android:textSize="18sp" />
 
         <RadioButton
             android:id="@+id/fragment_new_doctor_rb_female"
             android:layout_width="100dp"
             android:layout_height="55dp"
             android:layout_weight="1"
-            android:background="@drawable/custom_rb_selector_f2"
+            android:background="@drawable/custom_rb_et"
             android:buttonTint="@color/gray"
             android:minHeight="48dp"
-            android:paddingLeft="5dp"
             android:text="Female"
             android:textColor="@color/gray"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:layout_marginLeft="5dp"/>
 
     </RadioGroup>
 

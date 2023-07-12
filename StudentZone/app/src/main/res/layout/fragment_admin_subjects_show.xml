@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Admin_Classes.Admin_Fragments.AdminNewSubjectFragment"
-    android:background="@drawable/custom_fragment_admin_new_department">
+    android:background="@drawable/custom_fragment_add_new">
 
     <LinearLayout
         android:layout_width="30dp"
@@ -49,90 +49,90 @@
         android:id="@+id/fragment_show_subject_et_name"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="@drawable/custom_et_selector"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_rb_et"
         android:drawableStart="@drawable/ic_book_2"
         android:drawablePadding="10dp"
         android:ems="10"
+        android:enabled="false"
         android:hint="Subject Name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:paddingRight="10dp"
         android:paddingLeft="13dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textColorHint="@color/gray"
-        android:enabled="false"/>
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray" />
 
     <EditText
         android:id="@+id/fragment_show_subject_et_code"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/custom_et_selector"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_rb_et"
         android:drawableStart="@drawable/ic_id"
         android:drawablePadding="10dp"
         android:ems="10"
+        android:enabled="false"
         android:hint="Subject Code"
         android:inputType="text"
         android:paddingLeft="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray"
-        android:enabled="false"/>
+        android:textColorHint="@color/gray" />
 
     <EditText
         android:id="@+id/fragment_show_subject_et_department"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/custom_et_selector"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_rb_et"
         android:drawableStart="@drawable/ic_department_2"
         android:drawablePadding="10dp"
         android:ems="10"
+        android:enabled="false"
         android:hint="Subject Department"
         android:inputType="text"
         android:paddingLeft="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray"
-        android:enabled="false"/>
+        android:textColorHint="@color/gray" />
 
     <EditText
         android:id="@+id/fragment_show_subject_et_doctor"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/custom_et_selector"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_rb_et"
         android:drawableStart="@drawable/ic_user"
         android:drawablePadding="10dp"
         android:ems="10"
+        android:enabled="false"
         android:hint="Doctor Name"
         android:inputType="textPersonName"
         android:paddingLeft="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray"
-        android:enabled="false"/>
+        android:textColorHint="@color/gray" />
 
     <EditText
         android:id="@+id/fragment_show_subject_et_previous"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/custom_et_selector"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_rb_et"
         android:drawableStart="@drawable/ic_book_2"
         android:drawablePadding="10dp"
         android:ems="10"
+        android:enabled="false"
         android:hint="Subject Previous Request"
         android:inputType="text"
         android:paddingLeft="15dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray"
-        android:enabled="false"/>
+        android:textColorHint="@color/gray" />
 
 </LinearLayout>
