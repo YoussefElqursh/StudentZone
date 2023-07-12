@@ -111,7 +111,6 @@ public class My_DB extends SQLiteOpenHelper {
         this.context = context;
     }
 
-
     /**
      * onCreate()
      * This Method Called when the database is created for the first time.
@@ -348,6 +347,20 @@ public class My_DB extends SQLiteOpenHelper {
         return studentsArrayList;
     }
 
+    /**Delete Student()
+     **********************************************************************************************/
+    public boolean deleteStudent(String email){
+
+        SQLiteDatabase db =getWritableDatabase();
+        String args[] ={email};
+
+        int numDeletedDoctor =db.delete(Education_Table_Students,""+Student_col_email+"=?",args);
+
+        db.close();
+
+        return numDeletedDoctor>0;
+    }
+
     /**Add New Doctor()
      **********************************************************************************************/
     public boolean addNewDoctor(Doctors doctor){
@@ -408,6 +421,20 @@ public class My_DB extends SQLiteOpenHelper {
         return doctorsArrayList;
     }
 
+    /**Delete Doctor()
+     **********************************************************************************************/
+    public boolean deleteDoctor(String email){
+
+        SQLiteDatabase db =getWritableDatabase();
+        String args[] ={email};
+
+        int numDeletedDoctor =db.delete(Education_Table_Doctors,""+Doctors_col_email+"=?",args);
+
+//        db.close();
+
+        return numDeletedDoctor>0;
+    }
+
 
 
 
@@ -454,6 +481,8 @@ public class My_DB extends SQLiteOpenHelper {
         return departmentsArrayList;
 
     }
+
+
 
 //__________________________________Departments Function_______________________________________________
 
