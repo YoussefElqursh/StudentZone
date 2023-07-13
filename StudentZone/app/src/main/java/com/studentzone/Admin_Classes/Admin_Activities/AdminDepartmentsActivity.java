@@ -1,4 +1,8 @@
 package com.studentzone.Admin_Classes.Admin_Activities;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,8 +11,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.utils.LogcatLogger;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.studentzone.Admin_Classes.Admin_Models.departmentRecyclerViewAdapter;
 import com.studentzone.Data_Base.Departments;
@@ -18,6 +24,9 @@ import java.util.ArrayList;
 
 public class AdminDepartmentsActivity extends AppCompatActivity  {
     My_DB db = new My_DB(this);
+
+
+
     Button btn_add, btn_back, btm_sheet_dia_btn_save, btm_sheet_dia_btn_close;
     EditText btm_sheet_dia_et_dept_name, btm_sheet_dia_et_dept_code;
     BottomSheetDialog bottomSheetDialog;
@@ -92,6 +101,32 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
         rv.setHasFixedSize(true);
         rv.setLayoutManager(lm);
         rv.setAdapter(adapter);
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.activity_admin_departments_sv_menu,menu);
+        MenuItem searchFilter=menu.findItem(R.id.activity_admin_departments_sv);
+        SearchView searchView=(SearchView) searchFilter.getActionView();
+        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                ArrayList<Departments> dataset=db.showDepartments();
+                departmentRecyclerViewAdapter Adapter=new departmentRecyclerViewAdapter(dataset);
+
+                Adapter.getFilter().filter(s);
+                return false;
+            }
+        });
+        return super.onCreateOptionsMenu(menu);
 
     }
 }

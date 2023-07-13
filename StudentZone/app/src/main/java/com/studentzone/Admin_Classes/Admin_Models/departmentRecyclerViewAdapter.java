@@ -3,6 +3,8 @@ package com.studentzone.Admin_Classes.Admin_Models;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,14 +14,17 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departmentRecyclerViewAdapter.departmentViewHolder>
+public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departmentRecyclerViewAdapter.departmentViewHolder> implements Filterable
 {
 
     ArrayList<Departments> departmentsArrayList;
+    ArrayList<Departments> FullList;
+
 
     public departmentRecyclerViewAdapter(ArrayList<Departments> departmentsArrayList)
     {
         this.departmentsArrayList = departmentsArrayList;
+        FullList =new ArrayList<>(departmentsArrayList);
     }
 
     @NonNull
@@ -52,6 +57,40 @@ public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departme
     {
         departmentsArrayList.add(department);
     }
+
+    @Override
+    public Filter getFilter() {
+        return search_Filter;
+    }
+    Filter search_Filter=new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+            ArrayList<Departments> filteredList =new ArrayList<>();
+            if (charSequence==null ||charSequence.length() ==0){
+                filteredList.addAll(FullList);
+            }else {
+                String filterPattern =charSequence.toString().toLowerCase().trim();
+                for(Departments item :FullList){
+                    if (item.getName().toUpperCase().contains(filterPattern))
+                    {
+                        filteredList.add(item);
+                    }
+                }
+            }
+            FilterResults Results =new FilterResults();
+            Results.values=filteredList;
+            return Results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+
+            departmentsArrayList.clear();
+            departmentsArrayList.addAll((ArrayList) filterResults.values);
+            notifyDataSetChanged();
+
+        }
+    };
 
     class departmentViewHolder extends RecyclerView.ViewHolder{
         TextView tv_department_name, tv_department_code;
