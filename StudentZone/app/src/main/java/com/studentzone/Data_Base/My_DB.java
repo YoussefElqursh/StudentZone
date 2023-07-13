@@ -111,7 +111,6 @@ public class My_DB extends SQLiteOpenHelper {
         this.context = context;
     }
 
-
     /**
      * onCreate()
      * This Method Called when the database is created for the first time.
@@ -329,10 +328,13 @@ public class My_DB extends SQLiteOpenHelper {
         if(cursor != null && cursor.moveToFirst()){
 
             do{
-                String aid = cursor.getString(cursor.getColumnIndex(Student_col_academic_number));
                 String fName = cursor.getString(cursor.getColumnIndex(Student_col_first_name));
+                String aid = cursor.getString(cursor.getColumnIndex(Student_col_academic_number));
+                String email = cursor.getString(cursor.getColumnIndex(Student_col_email));
+                String password = cursor.getString(cursor.getColumnIndex(Student_col_password));
+                String gender = cursor.getString(cursor.getColumnIndex(Student_col_gender));
 
-                Students students = new Students(fName,aid);
+                Students students = new Students(fName,aid,email,password,gender);
 
                 studentsArrayList.add(students);
 
@@ -345,8 +347,19 @@ public class My_DB extends SQLiteOpenHelper {
         return studentsArrayList;
     }
 
+    /**Delete Student()
+     **********************************************************************************************/
+    public boolean deleteStudent(String email){
 
+        SQLiteDatabase db =getWritableDatabase();
+        String args[] ={email};
 
+        int numDeletedDoctor =db.delete(Education_Table_Students,""+Student_col_email+"=?",args);
+
+        db.close();
+
+        return numDeletedDoctor>0;
+    }
 
     /**Add New Doctor()
      **********************************************************************************************/
@@ -391,10 +404,11 @@ public class My_DB extends SQLiteOpenHelper {
 
             do{
                 String fName = cursor.getString(cursor.getColumnIndex(Doctors_col_first_name));
+                String email = cursor.getString(cursor.getColumnIndex(Doctors_col_email));
                 String password = cursor.getString(cursor.getColumnIndex(Doctors_col_password));
                 String gender = cursor.getString(cursor.getColumnIndex(Doctors_col_gender));
 
-                Doctors doctors = new Doctors(fName,password,gender);
+                Doctors doctors = new Doctors(fName,email,password,gender);
 
                 doctorsArrayList.add(doctors);
 
@@ -405,6 +419,20 @@ public class My_DB extends SQLiteOpenHelper {
         db = this.getWritableDatabase();
 
         return doctorsArrayList;
+    }
+
+    /**Delete Doctor()
+     **********************************************************************************************/
+    public boolean deleteDoctor(String email){
+
+        SQLiteDatabase db =getWritableDatabase();
+        String args[] ={email};
+
+        int numDeletedDoctor =db.delete(Education_Table_Doctors,""+Doctors_col_email+"=?",args);
+
+//        db.close();
+
+        return numDeletedDoctor>0;
     }
 
 
@@ -453,6 +481,8 @@ public class My_DB extends SQLiteOpenHelper {
         return departmentsArrayList;
 
     }
+
+
 
 //__________________________________Departments Function_______________________________________________
 

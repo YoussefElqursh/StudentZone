@@ -33,7 +33,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
     RadioGroup btm_sheet_dia_rg;
     RadioButton btm_sheet_dia_rb_male, btm_sheet_dia_rb_female;
 
-    String aid, name, email, password, gender;
+    String aid, name, email, password, gender = "Male";
     RecyclerView rv;
 
     BottomSheetDialog bottomSheetDialog;
@@ -169,6 +169,8 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
                     gender = "Male";
                 else if (checkedId == R.id.fragment_new_student_rb_female)
                     gender = "Female";
+
+
             }
         });
     }

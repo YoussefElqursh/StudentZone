@@ -46,7 +46,7 @@
     </RelativeLayout>
 
     <EditText
-        android:id="@+id/fragment_show_student_et_studet_name"
+        android:id="@+id/fragment_show_student_et_student_name"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginLeft="20dp"

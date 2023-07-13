@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,10 +28,10 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
     BottomSheetDialog bottomSheetDialog;
     View bottomSheetDialogView;
     Button btn_add, btn_back, btm_sheet_dia_btn_save, btm_sheet_dia_btn_close;
-    EditText btm_sheet_dia_et_doctor_name, btm_sheet_dia_et_doctor_password, btm_sheet_dia_et_doctor_email;
+    EditText btm_sheet_dia_add_new_et_doctor_name, btm_sheet_dia_add_new_et_doctor_password, btm_sheet_dia_add_new_et_doctor_email;
     RadioGroup btm_sheet_dia_rg;
     RadioButton btm_sheet_dia_rb_male, btm_sheet_dia_rb_female;
-    String name, email, password, gender;
+    String name, email, password, gender = "Male";
     RecyclerView rv;
 
     @Override
@@ -61,9 +60,9 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         btm_sheet_dia_btn_save = bottomSheetDialogView.findViewById(R.id.fragment_new_doctor_btn_save);
         btm_sheet_dia_btn_close = bottomSheetDialogView.findViewById(R.id.fragment_admin_new_doctor_btn_close);
 
-        btm_sheet_dia_et_doctor_name = bottomSheetDialogView.findViewById(R.id.fragment_new_doctor_et_doctor_name);
-        btm_sheet_dia_et_doctor_password = bottomSheetDialogView.findViewById(R.id.fragment_new_doctor_et_doctor_password);
-        btm_sheet_dia_et_doctor_email = bottomSheetDialogView.findViewById(R.id.fragment_new_doctor_et_doctor_email);
+        btm_sheet_dia_add_new_et_doctor_name = bottomSheetDialogView.findViewById(R.id.fragment_new_doctor_et_doctor_name);
+        btm_sheet_dia_add_new_et_doctor_password = bottomSheetDialogView.findViewById(R.id.fragment_new_doctor_et_doctor_password);
+        btm_sheet_dia_add_new_et_doctor_email = bottomSheetDialogView.findViewById(R.id.fragment_new_doctor_et_doctor_email);
 
         btm_sheet_dia_rg = bottomSheetDialogView.findViewById(R.id.fragment_new_doctor_rg_doctor_kind);
         btm_sheet_dia_rb_male = bottomSheetDialogView.findViewById(R.id.fragment_new_doctor_rb_male);
@@ -106,25 +105,25 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                name = btm_sheet_dia_et_doctor_name.getText().toString().trim();
-                email = btm_sheet_dia_et_doctor_email.getText().toString().trim();
-                password = btm_sheet_dia_et_doctor_password.getText().toString().trim();
+                name = btm_sheet_dia_add_new_et_doctor_name.getText().toString().trim();
+                email = btm_sheet_dia_add_new_et_doctor_email.getText().toString().trim();
+                password = btm_sheet_dia_add_new_et_doctor_password.getText().toString().trim();
 
 
                 if (TextUtils.isEmpty(name)) {
-                    btm_sheet_dia_et_doctor_name.setError("Is Required !");
+                    btm_sheet_dia_add_new_et_doctor_name.setError("Is Required !");
                     return;
                 }
                 if (TextUtils.isEmpty(email)) {
-                    btm_sheet_dia_et_doctor_email.setError("Is Required !");
+                    btm_sheet_dia_add_new_et_doctor_email.setError("Is Required !");
                     return;
                 }
                 if (!emailShouldEndsWithEdu(email)) {
-                    btm_sheet_dia_et_doctor_email.setError("Should End With .edu");
+                    btm_sheet_dia_add_new_et_doctor_email.setError("Should End With .edu");
                     return;
                 }
                 if (TextUtils.isEmpty(password)) {
-                    btm_sheet_dia_et_doctor_password.setError("Is Required !");
+                    btm_sheet_dia_add_new_et_doctor_password.setError("Is Required !");
                     return;
                 }
                 addNewDoctor();
@@ -165,11 +164,11 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
 
         My_DB db = new My_DB(getBaseContext());
 
-        name = btm_sheet_dia_et_doctor_name.getText().toString().trim();
-        email = btm_sheet_dia_et_doctor_email.getText().toString().trim();
-        password = btm_sheet_dia_et_doctor_password.getText().toString().trim();
+        name = btm_sheet_dia_add_new_et_doctor_name.getText().toString().trim();
+        email = btm_sheet_dia_add_new_et_doctor_email.getText().toString().trim();
+        password = btm_sheet_dia_add_new_et_doctor_password.getText().toString().trim();
 
-        Doctors doctor = new Doctors(name,gender,email,password);
+        Doctors doctor = new Doctors(name,email,password,gender);
         boolean added = db.addNewDoctor(doctor);
 
         if(added){
@@ -192,9 +191,9 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
      **********************************************************************************************/
     public void nullEditTexts() {
 
-        btm_sheet_dia_et_doctor_name.setText("");
-        btm_sheet_dia_et_doctor_email.setText("");
-        btm_sheet_dia_et_doctor_password.setText("");
+        btm_sheet_dia_add_new_et_doctor_name.setText("");
+        btm_sheet_dia_add_new_et_doctor_email.setText("");
+        btm_sheet_dia_add_new_et_doctor_password.setText("");
     }
 
     /**Show All Doctors
