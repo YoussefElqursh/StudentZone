@@ -347,6 +347,25 @@ public class My_DB extends SQLiteOpenHelper {
         return studentsArrayList;
     }
 
+    /**updateStudent()
+     **********************************************************************************************/
+    public boolean updateStudent(Students student){
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(Student_col_first_name,student.getFName());
+        values.put(Student_col_password,student.getPassword());
+        values.put(Student_col_gender,student.getGender());
+
+        String args [] = {student.getEmail()};
+
+        int result =  db.update(Education_Table_Students,values,""+Student_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
+
+        return result > 0;
+    }
+
     /**Delete Student()
      **********************************************************************************************/
     public boolean deleteStudent(String email){
@@ -356,7 +375,7 @@ public class My_DB extends SQLiteOpenHelper {
 
         int numDeletedDoctor =db.delete(Education_Table_Students,""+Student_col_email+"=?",args);
 
-        db.close();
+//        db.close();
 
         return numDeletedDoctor>0;
     }
@@ -419,6 +438,26 @@ public class My_DB extends SQLiteOpenHelper {
         db = this.getWritableDatabase();
 
         return doctorsArrayList;
+    }
+
+
+    /**updateDoctor()
+     **********************************************************************************************/
+    public boolean updateDoctor(Doctors doctor){
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(Doctors_col_first_name,doctor.getFName());
+        values.put(Doctors_col_password,doctor.getPassword());
+        values.put(Doctors_col_gender,doctor.getGender());
+
+        String args [] = {doctor.getEmail()};
+
+        int result =  db.update(Education_Table_Doctors,values,""+Doctors_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
+
+        return result > 0;
     }
 
     /**Delete Doctor()

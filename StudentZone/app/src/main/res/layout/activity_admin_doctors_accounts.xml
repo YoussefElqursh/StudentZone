@@ -75,7 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/activity_admin_doctors_accounts_recyclerview"
-                    android:layout_marginTop="5dp"/>
+                android:layout_marginTop="5dp"/>
 
 
         </RelativeLayout>
