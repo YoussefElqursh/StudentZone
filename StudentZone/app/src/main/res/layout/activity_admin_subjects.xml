@@ -56,10 +56,12 @@
 
             <Button
                 android:id="@+id/activity_admin_subjects_btn_add"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:layout_marginLeft="280dp"
-                android:layout_marginTop="590dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
                 android:background="@drawable/custom_btn_plus_add"
                 android:contentDescription="@string/btn_floating_action"
                 android:drawableRight="@drawable/ic_add"

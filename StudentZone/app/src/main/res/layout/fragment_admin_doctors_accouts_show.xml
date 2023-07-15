@@ -19,29 +19,29 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp">
 
         <Button
             android:id="@+id/fragment_show_doctor_btn_close"
+            style="@android:style/Widget.Material.Button.Borderless"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginLeft="5dp"
             android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_btn_close"
             android:drawableTop="@drawable/ic_close"
             android:paddingTop="10dp"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
-            style="@android:style/Widget.Material.Button.Borderless"
-            android:background="@drawable/custom_btn_close"/>
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:gravity="center"
             android:text="Show Doctor"
             android:textSize="18dp"
-            android:textStyle="bold"
-            android:layout_marginTop="7dp"
-            android:gravity="center"/>
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
@@ -51,7 +51,7 @@
         android:layout_height="55dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@drawable/custom_rb_et"
+        android:background="@drawable/custom_et_selector"
         android:drawableStart="@drawable/ic_user"
         android:drawablePadding="10dp"
         android:ems="10"
@@ -70,7 +70,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:background="@drawable/custom_rb_et"
+        android:background="@drawable/custom_et_selector"
         android:drawableStart="@drawable/ic_email_address"
         android:drawablePadding="10dp"
         android:ems="10"
@@ -88,7 +88,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:background="@drawable/custom_rb_et"
+        android:background="@drawable/custom_et_selector"
         android:drawableStart="@drawable/ic_lock"
         android:drawablePadding="11dp"
         android:ems="10"
@@ -104,9 +104,10 @@
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:background="@drawable/custom_rb_et"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/custom_et_selector"
         android:drawableStart="@drawable/ic_gender"
         android:drawablePadding="7dp"
         android:ems="10"
@@ -116,7 +117,8 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
-        android:textSize="18dp" />
+        android:textSize="18dp"
+        />
 
 
 </LinearLayout>

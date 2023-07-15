@@ -12,32 +12,32 @@
         android:id="@+id/activity_admin_departments_tbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:menu="@menu/activity_admin_departments_sv_menu"
-        android:layout_marginRight="5dp">
+        app:menu="@menu/activity_admin_departments_sv_menu">
 
         <Button
             android:id="@+id/activity_admin_departments_btn_back"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="35dp"
             android:layout_height="35dp"
+            android:layout_marginLeft="-10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/custom_btn_back"
             android:contentDescription="back arrow"
-            tools:ignore="TouchTargetSizeCheck"
-            style="@style/Widget.AppCompat.Button.Borderless"
             android:drawableLeft="@drawable/ic_back"
             android:paddingLeft="8dp"
-            android:layout_marginLeft="-10dp"
-            android:layout_marginRight="10dp"/>
+            tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Departments"
-            android:textSize="18sp"
             android:layout_marginLeft="30dp"
-            android:textColor="@color/white" />
+            android:text="Departments"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -56,10 +56,8 @@
 
             <Button
                 android:id="@+id/activity_admin_depatrments_btn_add"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:layout_marginLeft="280dp"
-                android:layout_marginTop="590dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:background="@drawable/custom_btn_plus_add"
                 android:contentDescription="@string/btn_floating_action"
                 android:drawableRight="@drawable/ic_add"
@@ -67,9 +65,10 @@
                 android:paddingRight="12dp"
                 android:src="@drawable/ic_add"
                 app:elevation="20dp"
-                app:fabSize="normal"
-                app:hoveredFocusedTranslationZ="20dp"
-                app:pressedTranslationZ="20dp" />
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
