@@ -294,7 +294,7 @@ public class doctorRecyclerViewAdapter extends RecyclerView.Adapter<doctorRecycl
                     notifyItemChanged(getAdapterPosition());
 
                     bottomSheetDialog.dismiss();
-                    Toast.makeText(bottomSheetDialog.getContext(), "Done ✔️" , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(bottomSheetDialog.getContext(), "Changes saved ✔️" , Toast.LENGTH_SHORT).show();
 
                 }
             });
