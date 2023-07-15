@@ -17,10 +17,11 @@ import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
 
 public class AdminHomeActivity extends AppCompatActivity {
-    CardView cv_department, cv_subjects, cv_doctors_account, cv_students_account, cv_absence_files;
+    CardView cv_department, cv_subjects, cv_doctors_account, cv_students_account;
     Button btn_logout, btn_profile;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
+    TextView profileName ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +32,6 @@ public class AdminHomeActivity extends AppCompatActivity {
         AllCardViewActions();
         buttonLogoutAction();
         buttonProfileAction();
-
     }
 
     /**
@@ -130,13 +130,22 @@ public class AdminHomeActivity extends AppCompatActivity {
 
     }
 
+
+
+    /**
+     * buttonProfileAction()
+     **********************************************************************************************/
     public void buttonProfileAction() {
         btn_profile = findViewById(R.id.activity_admin_home_btn_profile);
+        profileName = findViewById(R.id.activity_admin_home_tv_profileName);
         btn_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
-                Toast.makeText(getApplicationContext(), "Hi,joo", Toast.LENGTH_SHORT).show();
+                if(profileName.getVisibility() == View.VISIBLE)
+                profileName.setVisibility(View.INVISIBLE);
+                else
+                    profileName.setVisibility(View.VISIBLE);
             }
         });
 
