@@ -203,6 +203,7 @@ public class studentRecyclerViewAdapter extends RecyclerView.Adapter<studentRecy
             bottomSheetDialogView = LayoutInflater.from(itemView.getContext()).inflate(R.layout.fragment_admin_students_accouts_edit, null, false);
 
             name = bottomSheetDialogView.findViewById(R.id.fragment_edit_student_et_student_name);
+            aid = bottomSheetDialogView.findViewById(R.id.fragment_edit_student_et_student_aid);
             email = bottomSheetDialogView.findViewById(R.id.fragment_edit_student_et_student_email);
             password = bottomSheetDialogView.findViewById(R.id.fragment_edit_student_et_student_password);
             btn_save = bottomSheetDialogView.findViewById(R.id.fragment_edit_student_btn_save);
@@ -213,6 +214,7 @@ public class studentRecyclerViewAdapter extends RecyclerView.Adapter<studentRecy
             rb_female = bottomSheetDialogView.findViewById(R.id.fragment_edit_student_rb_female);
 
             name.setText(student.getFName());
+            aid.setText(student.getAcademic_Number());
             email.setText(student.getEmail());
             password.setText(student.getPassword());
 

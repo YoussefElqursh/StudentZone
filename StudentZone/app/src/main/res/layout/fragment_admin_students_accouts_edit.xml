@@ -63,7 +63,7 @@
         android:textColorHint="@color/gray" />
 
     <EditText
-        android:id="@+id/fragment_show_student_et_student_aid"
+        android:id="@+id/fragment_edit_student_et_student_aid"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginLeft="20dp"
