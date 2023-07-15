@@ -52,7 +52,7 @@
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/activity_admin_student_tv_sub_name"
+                android:id="@+id/activity_admin_student_tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
@@ -65,7 +65,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/activity_admin_student_tv_sub_code"
+                android:id="@+id/activity_admin_student_tv_aid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"

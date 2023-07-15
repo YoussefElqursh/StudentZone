@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.*;
 
@@ -56,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     /** This is The File (Login_Prefs) Store The Values Of RememberMe(username,pass,kind) Which
-     * Located In Shred Preferences Folder.
+     * Located In Shared Preferences Folder.
      * Variables In This File(username,password,kind) Have Default Values ("","",-1).
      / ******************************************************************************************/
     public void sharedPreferencesFileCreation(){
@@ -70,6 +71,11 @@ public class LoginActivity extends AppCompatActivity {
             et_password.setText(savedPassword);
             kindCheckedId = kind;
             cb_Remember_me.setChecked(true);
+
+            if (kind != -1) {
+                RadioButton radioButton = (RadioButton) rg_user_kind.getChildAt(kind);
+                radioButton.setChecked(true);
+            }
         }
     }
 
@@ -162,6 +168,7 @@ public class LoginActivity extends AppCompatActivity {
             editor.putInt("kind",kind);
             editor.apply();
 
+
             remember_me = true;
         }
         else if(!cb_Remember_me.isChecked()) {
@@ -174,6 +181,5 @@ public class LoginActivity extends AppCompatActivity {
         }
         return remember_me;
     }
-
 }
 

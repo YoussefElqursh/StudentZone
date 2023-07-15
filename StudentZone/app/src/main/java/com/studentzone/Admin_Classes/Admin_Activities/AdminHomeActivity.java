@@ -1,8 +1,10 @@
 package com.studentzone.Admin_Classes.Admin_Activities;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -97,13 +99,23 @@ public class AdminHomeActivity extends AppCompatActivity {
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                logOut();
 
+                // Show a confirmation dialog
+                new AlertDialog.Builder(AdminHomeActivity.this)
+                        .setTitle("Logout")
+                        .setMessage("Are you sure you want to logout?")
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // User clicked Yes, so log out and go to login activity
+                                logOut();
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, null)
+                        .show();
             }
         });
-
-    }
-
+            }
 
     /**
      * logOut()

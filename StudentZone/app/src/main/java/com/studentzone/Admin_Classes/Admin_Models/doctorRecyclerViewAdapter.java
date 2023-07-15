@@ -2,6 +2,8 @@ package com.studentzone.Admin_Classes.Admin_Models;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,6 +16,7 @@ import android.widget.PopupMenu;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -136,7 +139,7 @@ public class doctorRecyclerViewAdapter extends RecyclerView.Adapter<doctorRecycl
 
             switch (item.getItemId()) {
                 case R.id.models_ibtn_menu_edit:
-                    showEditConfirmationDialog(doctor);
+                    showEditDoctorDialog(doctor);
                     return true;
                 case R.id.models_ibtn_menu_delete:
                     showDeleteConfirmationDialog(doctor);
@@ -177,29 +180,6 @@ public class doctorRecyclerViewAdapter extends RecyclerView.Adapter<doctorRecycl
             bottomSheetDialog.show();
         }
 
-
-        /**showEditConfirmationDialog ()
-         * method shows a confirmation dialog for editing a doctor's information when the user clicks on the edit option in the popup menu.
-         * It sets the message of the dialog and sets click listeners on the positive and negative buttons.
-         * If the user clicks the positive button, the showEditDoctorDialog method is called.
-         **********************************************************************************************/
-        private void showEditConfirmationDialog(Doctors doctor) {
-            builder.setMessage("Are you sure you want to edit this doctor's information?")
-                    .setCancelable(false)
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            showEditDoctorDialog(doctor);
-                        }
-                    })
-                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-                        }
-                    });
-            AlertDialog alert = builder.create();
-            alert.show();
-        }
-
         /**showEditDoctorDialog ()
          * method shows a bottom sheet dialog for editing a doctor's information.
          * It inflates a layout for editing a doctor's information and sets the text of the views in the layout to the corresponding data of the doctor.
@@ -217,13 +197,59 @@ public class doctorRecyclerViewAdapter extends RecyclerView.Adapter<doctorRecycl
             btn_save = bottomSheetDialogView.findViewById(R.id.fragment_edit_doctor_btn_save);
             btn_close = bottomSheetDialogView.findViewById(R.id.fragment_edit_doctor_btn_close);
 
-             rg = bottomSheetDialogView.findViewById(R.id.fragment_edit_doctor_rg_doctor_kind);
-             rb_male = bottomSheetDialogView.findViewById(R.id.fragment_edit_doctor_rb_male);
-             rb_female = bottomSheetDialogView.findViewById(R.id.fragment_edit_doctor_rb_female);
+            rg = bottomSheetDialogView.findViewById(R.id.fragment_edit_doctor_rg_doctor_kind);
+            rb_male = bottomSheetDialogView.findViewById(R.id.fragment_edit_doctor_rb_male);
+            rb_female = bottomSheetDialogView.findViewById(R.id.fragment_edit_doctor_rb_female);
+
+            btn_save.setEnabled(false);
 
             name.setText(doctor.getFName());
             email.setText(doctor.getEmail());
             password.setText(doctor.getPassword());
+
+
+            /*
+             *  textWatcher monitor changes in the name, email,and password fields of a form.
+             *  Whenever any of these fields are modified, the afterTextChanged method of textWatcher is called,
+             * which enables the btn_save button.
+             * */
+            TextWatcher textWatcher = new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                }
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                }
+                @Override
+                public void afterTextChanged(Editable s) {
+                    btn_save.setEnabled(true);
+                }
+            };
+              /*
+               * The addTextChangedListener method is then called on each of the relevant EditText fields with textWatcher as the argument.
+               * This sets up the TextWatcher instance to monitor changes to each field.
+               **/
+               name.addTextChangedListener(textWatcher);
+               email.addTextChangedListener(textWatcher);
+               password.addTextChangedListener(textWatcher);
+
+
+            // Add listener to the radio group to enable the save button when the user changes the gender
+            rg.setOnCheckedChangeListener((group, checkedId) -> {
+                if (checkedId == rb_male.getId()) {
+                    if (!doctor.getGender().equals("Male")) {
+                        btn_save.setEnabled(true);
+                    }
+                } else if (checkedId == rb_female.getId()) {
+                    if (!doctor.getGender().equals("Female")) {
+                        btn_save.setEnabled(true);
+                    }
+                }
+            });
+
+
+
+
 
             if (doctor.getGender().equals("Male") && doctor.getGender() != null) {
                 rb_male.setChecked(true);
@@ -262,10 +288,14 @@ public class doctorRecyclerViewAdapter extends RecyclerView.Adapter<doctorRecycl
 
                     db.updateDoctor(doctor);
 
+
+
                     doctorsArrayList.set(getAdapterPosition(), doctor);
                     notifyItemChanged(getAdapterPosition());
 
                     bottomSheetDialog.dismiss();
+                    Toast.makeText(bottomSheetDialog.getContext(), "Done ✔️" , Toast.LENGTH_SHORT).show();
+
                 }
             });
 
@@ -280,6 +310,7 @@ public class doctorRecyclerViewAdapter extends RecyclerView.Adapter<doctorRecycl
                         public void onClick(DialogInterface dialog, int id) {
                             db.deleteDoctor(doctor.getEmail());
                             doctorsArrayList.remove(getAdapterPosition());
+                            Toast.makeText(bottomSheetDialog.getContext(), "Dr: "+doctor.getFName()+" Successfully Deleted ✔️" , Toast.LENGTH_SHORT).show();
                             notifyItemRemoved(getAdapterPosition());
                             dialog.dismiss();
                         }
@@ -292,7 +323,5 @@ public class doctorRecyclerViewAdapter extends RecyclerView.Adapter<doctorRecycl
             AlertDialog alert = builder.create();
             alert.show();
         }
-
-
     }
 }
