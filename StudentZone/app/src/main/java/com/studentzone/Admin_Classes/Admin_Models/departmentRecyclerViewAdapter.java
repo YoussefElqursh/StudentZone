@@ -14,17 +14,19 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departmentRecyclerViewAdapter.departmentViewHolder> implements Filterable
+public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departmentRecyclerViewAdapter.departmentViewHolder>implements Filterable
 {
 
     ArrayList<Departments> departmentsArrayList;
-    ArrayList<Departments> FullList;
+
+     ArrayList<Departments> filteredDepartmentNames;
+
 
 
     public departmentRecyclerViewAdapter(ArrayList<Departments> departmentsArrayList)
     {
         this.departmentsArrayList = departmentsArrayList;
-        FullList =new ArrayList<>(departmentsArrayList);
+        this.filteredDepartmentNames = departmentsArrayList;
     }
 
     @NonNull
@@ -43,6 +45,7 @@ public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departme
 
         Departments departments = departmentsArrayList.get(position);
 
+
         holder.tv_department_name.setText(departments.getName());
         holder.tv_department_code.setText(departments.getCode());
 
@@ -60,37 +63,35 @@ public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departme
 
     @Override
     public Filter getFilter() {
-        return search_Filter;
-    }
-    Filter search_Filter=new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence charSequence) {
-            ArrayList<Departments> filteredList =new ArrayList<>();
-            if (charSequence==null ||charSequence.length() ==0){
-                filteredList.addAll(FullList);
-            }else {
-                String filterPattern =charSequence.toString().toLowerCase().trim();
-                for(Departments item :FullList){
-                    if (item.getName().toUpperCase().contains(filterPattern))
-                    {
-                        filteredList.add(item);
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String query = charSequence.toString().toLowerCase();
+                ArrayList<Departments> filteredList = new ArrayList<>();
+                if (query.isEmpty()) {
+                    filteredList = departmentsArrayList;
+                } else {
+                    for (Departments name : departmentsArrayList) {
+                        if (name.getName().toLowerCase().contains(query)) {
+                            filteredList.add(name);
+                        }
                     }
                 }
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = filteredList;
+                return filterResults;
             }
-            FilterResults Results =new FilterResults();
-            Results.values=filteredList;
-            return Results;
-        }
 
-        @Override
-        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                filteredDepartmentNames = (ArrayList<Departments>) filterResults.values;
+                notifyDataSetChanged();
 
-            departmentsArrayList.clear();
-            departmentsArrayList.addAll((ArrayList) filterResults.values);
-            notifyDataSetChanged();
+            }
+        };
+    }
 
-        }
-    };
+
 
     class departmentViewHolder extends RecyclerView.ViewHolder{
         TextView tv_department_name, tv_department_code;
@@ -100,5 +101,6 @@ public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departme
             tv_department_code = itemView.findViewById(R.id.activity_admin_dpartment_tv_sub_code);
         }
     }
+
 
 }

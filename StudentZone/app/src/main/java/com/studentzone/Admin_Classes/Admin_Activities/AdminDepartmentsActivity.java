@@ -1,8 +1,7 @@
 package com.studentzone.Admin_Classes.Admin_Activities;
+import android.annotation.SuppressLint;
+
 import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,7 +13,7 @@ import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.Toast;
 
-import com.airbnb.lottie.utils.LogcatLogger;
+
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.studentzone.Admin_Classes.Admin_Models.departmentRecyclerViewAdapter;
 import com.studentzone.Data_Base.Departments;
@@ -27,10 +26,16 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
 
 
 
+
+     RecyclerView recyclerView;
+     departmentRecyclerViewAdapter adapter;
+     ArrayList<Departments> DepartmentNames;
+
     Button btn_add, btn_back, btm_sheet_dia_btn_save, btm_sheet_dia_btn_close;
     EditText btm_sheet_dia_et_dept_name, btm_sheet_dia_et_dept_code;
     BottomSheetDialog bottomSheetDialog;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +55,13 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
         });
         buttonBackAction();
         showAllDepartments();
+        DepartmentNames = new ArrayList<>();
+        adapter = new departmentRecyclerViewAdapter(DepartmentNames);
+
+
+
+
+
     }
 
     // This function to show and hide bottomSheetDialog //
@@ -102,31 +114,32 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
         rv.setLayoutManager(lm);
         rv.setAdapter(adapter);
 
+
+
     }
+
+    // Set up the search view
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.activity_admin_departments_sv_menu,menu);
-        MenuItem searchFilter=menu.findItem(R.id.activity_admin_departments_sv);
-        SearchView searchView=(SearchView) searchFilter.getActionView();
-        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        getMenuInflater().inflate(R.menu.activity_admin_departments_sv_menu, menu);
+
+        SearchView searchView = (SearchView) menu.findItem(R.id.activity_admin_departments_sv).getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public boolean onQueryTextSubmit(String s) {
+            public boolean onQueryTextSubmit(String query) {
                 return false;
             }
 
             @Override
-            public boolean onQueryTextChange(String s) {
-                ArrayList<Departments> dataset=db.showDepartments();
-                departmentRecyclerViewAdapter Adapter=new departmentRecyclerViewAdapter(dataset);
-
-                Adapter.getFilter().filter(s);
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
                 return false;
             }
         });
-        return super.onCreateOptionsMenu(menu);
 
+        return true;
     }
+
 }
