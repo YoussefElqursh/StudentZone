@@ -11,34 +11,62 @@
         android:layout_height="200dp"
         android:background="@drawable/custom_view" />
 
+    <TextView
+        android:id="@+id/activity_doctor_home_tv_profileName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-31dp"
+        android:layout_marginTop="8dp"
+        android:layout_toEndOf="@+id/activity_doctor_home_btn_profile"
+        android:background="@drawable/custom_tv_name_profile"
+        android:paddingLeft="35dp"
+        android:paddingTop="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="5dp"
+        android:text="youssef ramadan"
+        android:textAlignment="center"
+        android:textColor="@color/dark_blue"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="invisible" />
+
     <Button
-        android:id="@+id/activity_doctor_home_btn_logout"
+        android:id="@+id/activity_doctor_home_btn_profile"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="43dp"
         android:layout_height="43dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
+        android:background="@drawable/custom_btn_profile"
+        android:drawableRight="@drawable/ic_male_doctor"
+        android:paddingRight="10dp"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/activity_doctor_home_btn_logout"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
         android:background="@drawable/custom_btn_logout"
         android:drawableRight="@drawable/ic_logout"
+        android:paddingRight="2.5dp"
         android:rotation="180"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
-        android:paddingRight="2.5dp"/>
+        android:layout_marginRight="3dp"/>
 
     <TextView
         android:id="@+id/activity_doctor_home_tv_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="157dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="160dp"
-        android:gravity="center|center_horizontal|center_vertical"
+        android:layout_marginTop="40dp"
         android:text="Home"
         android:textColor="@color/white"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"/>
 
     <GridLayout
         android:id="@+id/activity_doctor_home_gl_cards_container"

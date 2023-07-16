@@ -61,7 +61,8 @@
         android:minHeight="48dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray" />
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/fragment_show_student_et_student_aid"
@@ -79,7 +80,8 @@
         android:inputType="numberDecimal"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray" />
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/fragment_show_student_et_student_email"
@@ -97,7 +99,8 @@
         android:inputType="textEmailAddress"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray" />
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/fragment_show_student_et_student_password"
@@ -115,7 +118,8 @@
         android:inputType="text"
         android:paddingLeft="12dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray" />
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/fragment_show_student_et_student_gender"
@@ -135,6 +139,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
-        android:textSize="18dp" />
+        android:textSize="18dp"
+        android:textColor="@color/black"/>
 
 </LinearLayout>
