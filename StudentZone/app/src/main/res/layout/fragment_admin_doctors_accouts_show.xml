@@ -61,7 +61,8 @@
         android:minHeight="48dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray" />
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/fragment_show_doctor_et_doctor_email"
@@ -79,7 +80,8 @@
         android:inputType="textEmailAddress"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray" />
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/fragment_show_doctor_et_doctor_password"
@@ -97,7 +99,8 @@
         android:inputType="text"
         android:paddingLeft="12dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray" />
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/fragment_show_doctor_et_doctor_gender"
@@ -118,7 +121,7 @@
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
         android:textSize="18dp"
-        />
+        android:textColor="@color/black"/>
 
 
 </LinearLayout>
