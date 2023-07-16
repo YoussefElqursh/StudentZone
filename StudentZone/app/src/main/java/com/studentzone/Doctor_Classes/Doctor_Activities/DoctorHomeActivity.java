@@ -8,16 +8,18 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
 
 public class DoctorHomeActivity extends AppCompatActivity {
     CardView cv_subjects;
-    Button btn_logout;
+    Button btn_logout, btn_profile;
 
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
+    TextView profileName ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +28,7 @@ public class DoctorHomeActivity extends AppCompatActivity {
         inflate();
         subjectsCardViewClickAction();
         buttonLogoutAction();
+        buttonProfileAction();
     }
 
     /** Inflate
@@ -68,5 +71,24 @@ public class DoctorHomeActivity extends AppCompatActivity {
         editor.apply();
         startActivity(new Intent(getBaseContext(), LoginActivity.class));
         finish();
+    }
+
+    /**
+     * buttonProfileAction()
+     **********************************************************************************************/
+    public void buttonProfileAction() {
+        btn_profile = findViewById(R.id.activity_doctor_home_btn_profile);
+        profileName = findViewById(R.id.activity_doctor_home_tv_profileName);
+        btn_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                if(profileName.getVisibility() == View.VISIBLE)
+                    profileName.setVisibility(View.INVISIBLE);
+                else
+                    profileName.setVisibility(View.VISIBLE);
+            }
+        });
+
     }
 }
