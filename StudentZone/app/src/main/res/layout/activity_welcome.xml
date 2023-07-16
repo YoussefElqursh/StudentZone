@@ -12,20 +12,27 @@
     android:orientation="vertical"
     tools:context=".Welcome_Classes.WelcomeActivity">
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="100dp"
-        android:background="@color/blue"
-        app:lottie_autoPlay="true"
-        app:lottie_cacheComposition="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/books"
-        app:lottie_speed="1"/>
 
+
+<!--    <com.airbnb.lottie.LottieAnimationView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="300dp"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginTop="200dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:layout_marginBottom="100dp"-->
+<!--        android:background="@color/blue"-->
+<!--        app:lottie_autoPlay="true"-->
+<!--        app:lottie_cacheComposition="true"-->
+<!--        app:lottie_loop="true"-->
+<!--        app:lottie_rawRes="@raw/books"-->
+<!--        app:lottie_speed="1"/>-->
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="600dp"
+        android:id="@+id/welcome_iv"
+        android:src="@drawable/img_welcome"
+        />
 
     <LinearLayout
         android:id="@+id/activity_welcome_ll_buttoncontainer"
@@ -33,6 +40,8 @@
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
+
+
 
         <Button
             android:id="@+id/activity_welcome_btn_welcome"
@@ -42,7 +51,7 @@
             android:layout_marginTop="50dp"
             android:background="@drawable/custom_btn_welcom"
             android:gravity="center|center_horizontal|center_vertical"
-            android:text="@string/welcome"
+            android:text="@string/login"
             android:textColor="@color/white"
             android:textSize="22sp"
             android:textStyle="bold"

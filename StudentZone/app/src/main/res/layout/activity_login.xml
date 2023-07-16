@@ -78,7 +78,7 @@
                 android:text="Admin"
                 android:textColor="@color/gray"
                 android:textSize="18sp"
-                android:background="@drawable/custom_rb_et"
+                android:background="@drawable/custom_rb_selector"
                 android:layout_marginRight="5dp"/>
 
             <RadioButton
@@ -91,7 +91,7 @@
                 android:text="Doctor"
                 android:textColor="@color/gray"
                 android:textSize="18sp"
-                android:background="@drawable/custom_rb_et"
+                android:background="@drawable/custom_rb_selector"
                 android:layout_marginRight="5dp"/>
 
             <RadioButton
@@ -104,7 +104,7 @@
                 android:text="Student"
                 android:textColor="@color/gray"
                 android:textSize="18sp"
-                android:background="@drawable/custom_rb_et" />
+                android:background="@drawable/custom_rb_selector" />
 
         </RadioGroup>
 
@@ -115,7 +115,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginBottom="15dp"
-            android:background="@drawable/custom_rb_et"
+            android:background="@drawable/custom_et_selector"
             android:drawableStart="@drawable/ic_user"
             android:drawablePadding="10dp"
             android:ems="10"
@@ -143,7 +143,7 @@
                 android:id="@+id/activity_login_tf_password"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:background="@drawable/custom_rb_et"
+                android:background="@drawable/custom_et_selector"
                 android:drawableStart="@drawable/ic_lock"
                 android:drawablePadding="10dp"
                 android:hint="Password"
@@ -164,9 +164,9 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginBottom="20dp"
-            android:buttonTint="@color/gray"
+            android:buttonTint="#B6B6B6"
             android:text="@string/remember_me"
-            android:textColor="@color/gray"
+            android:textColor="#B6B6B6"
             android:textSize="16sp"
             tools:ignore="TouchTargetSizeCheck"
             android:layout_marginTop="5dp"

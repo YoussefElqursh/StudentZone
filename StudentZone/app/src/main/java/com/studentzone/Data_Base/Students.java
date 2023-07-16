@@ -27,9 +27,9 @@ public class Students  {
         this.Academic_Number = academic_Number;
         this.FName = FName;
         this.LastName = LName;
+        this.gender = gender;
         this.Email = Email;
         this.Password = Password;
-        this.gender = gender;
     }
 
     public Students(String FName, String academic_Number, String Email, String Password, String gender) {

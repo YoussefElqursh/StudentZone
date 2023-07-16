@@ -30,11 +30,13 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="8dp"
-                app:cardBackgroundColor="#fcf0d2">
+                app:cardBackgroundColor="@color/dark_blue">
 
                 <RelativeLayout
                     android:layout_width="52dp"
-                    android:layout_height="52dp">
+                    android:layout_height="52dp"
+                    android:layout_gravity="center"
+                    android:gravity="center">
 
                     <ImageView
                         android:id="@+id/activity_admin_doctor_iv"
@@ -45,6 +47,15 @@
                         android:gravity="center"
                         app:srcCompat="@drawable/ic_male_doctor"/>
 
+<!--                    <TextView-->
+<!--                        android:id="@+id/activity_admin_doctor_tv_dn"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:text="DN"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:textColor="@color/white"/>-->
+
                 </RelativeLayout>
 
             </androidx.cardview.widget.CardView>
@@ -54,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
-                android:layout_marginTop="13dp"
+                android:layout_marginTop="12dp"
                 android:layout_toRightOf="@id/activity_admin_doctor_iv_cv"
                 android:text="Doctor Name"
                 android:maxLines="1"
@@ -67,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="33dp"
                 android:layout_toRightOf="@id/activity_admin_doctor_iv_cv"
                 android:maxLines="1"
                 android:text="Doctor Code"

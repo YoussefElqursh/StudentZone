@@ -12,6 +12,7 @@ import com.studentzone.R;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class subjectRecyclerViewAdapter extends RecyclerView.Adapter<subjectRecyclerViewAdapter.subjectViewHolder>
 {
@@ -39,8 +40,16 @@ public class subjectRecyclerViewAdapter extends RecyclerView.Adapter<subjectRecy
     {
         Courses course = subjectsArrayList.get(position);
 
+        String  abbreviation = "",courseName = course.getName();
+        String[] words = courseName.split(" ");
+        for (String word : words) {
+            char firstLetter = word.charAt(0);
+            abbreviation += firstLetter;
+        }
+
         holder.tv_course_name.setText(course.getName());
         holder.tv_course_code.setText(course.getCode());
+        holder.tv_first_letter_of_course.setText(abbreviation.toUpperCase(Locale.ROOT));
 //      holder.iv.setImageResource(student.getImage);
 
     }
@@ -52,11 +61,12 @@ public class subjectRecyclerViewAdapter extends RecyclerView.Adapter<subjectRecy
     }
 
     class subjectViewHolder extends RecyclerView.ViewHolder{
-        TextView tv_course_name, tv_course_code;
+        TextView tv_course_name, tv_course_code, tv_first_letter_of_course;
         public subjectViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_course_name = itemView.findViewById(R.id.activity_admin_subject_tv_sub_name);
             tv_course_code  = itemView.findViewById(R.id.activity_admin_subject_tv_sub_code);
+            tv_first_letter_of_course  = itemView.findViewById(R.id.activity_admin_subject_tv_sn);
         }
     }
 }

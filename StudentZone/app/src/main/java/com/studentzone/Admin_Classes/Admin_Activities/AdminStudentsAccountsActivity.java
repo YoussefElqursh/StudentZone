@@ -224,7 +224,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
 
         ArrayList<Students> studentsArrayList = db.showAllStudents();
 
-        studentRecyclerViewAdapter adapter = new studentRecyclerViewAdapter(studentsArrayList);
+        studentRecyclerViewAdapter adapter = new studentRecyclerViewAdapter(this, studentsArrayList);
         RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
 
         rv.setHasFixedSize(true);
