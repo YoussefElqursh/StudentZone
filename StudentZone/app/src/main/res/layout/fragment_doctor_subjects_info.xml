@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_edit_subject_ll_main"
+    android:id="@+id/fragment_doctor_subjects_info_ll_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -23,7 +23,7 @@
         android:layout_marginTop="20dp">
 
         <Button
-            android:id="@+id/fragment_edit_subject_btn_close"
+            android:id="@+id/fragment_doctor_subjects_info_btn_close"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginLeft="5dp"
@@ -37,7 +37,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Edit Subject"
+            android:text="Subject Info"
             android:textSize="18dp"
             android:textStyle="bold"
             android:layout_marginTop="7dp"
@@ -46,7 +46,7 @@
     </RelativeLayout>
 
     <EditText
-        android:id="@+id/fragment_edit_subject_et_name"
+        android:id="@+id/fragment_doctor_subjects_info_et_name"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginLeft="20dp"
@@ -55,15 +55,17 @@
         android:drawableStart="@drawable/ic_book_2"
         android:drawablePadding="10dp"
         android:ems="10"
+        android:enabled="false"
         android:hint="Subject Name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:paddingLeft="13dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray" />
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black"/>
 
     <EditText
-        android:id="@+id/fragment_edit_subject_et_code"
+        android:id="@+id/fragment_doctor_subjects_info_et_code"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginLeft="20dp"
@@ -73,14 +75,16 @@
         android:drawableStart="@drawable/ic_id"
         android:drawablePadding="10dp"
         android:ems="10"
+        android:enabled="false"
         android:hint="Subject Code"
         android:inputType="text"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray" />
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black"/>
 
     <EditText
-        android:id="@+id/fragment_edit_subject_et_department"
+        android:id="@+id/fragment_doctor_subjects_info_et_department"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginLeft="20dp"
@@ -90,31 +94,35 @@
         android:drawableStart="@drawable/ic_department_2"
         android:drawablePadding="10dp"
         android:ems="10"
+        android:enabled="false"
         android:hint="Subject Department"
         android:inputType="text"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray" />
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black"/>
+
+<!--    <EditText-->
+<!--        android:id="@+id/fragment_doctor_subjects_info_et_doctor"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="55dp"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginRight="20dp"-->
+<!--        android:background="@drawable/custom_et_selector"-->
+<!--        android:drawableStart="@drawable/ic_user"-->
+<!--        android:drawablePadding="10dp"-->
+<!--        android:ems="10"-->
+<!--        android:enabled="false"-->
+<!--        android:hint="Doctor Name"-->
+<!--        android:inputType="textPersonName"-->
+<!--        android:paddingLeft="10dp"-->
+<!--        android:paddingRight="10dp"-->
+<!--        android:textColorHint="@color/gray"-->
+<!--        android:textColor="@color/black"/>-->
 
     <EditText
-        android:id="@+id/fragment_edit_subject_et_doctor"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/custom_et_selector"
-        android:drawableStart="@drawable/ic_user"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Doctor Name"
-        android:inputType="textPersonName"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:textColorHint="@color/gray" />
-
-    <EditText
-        android:id="@+id/fragment_edit_subject_et_previous"
+        android:id="@+id/fragment_doctor_subjects_info_et_previous"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginLeft="20dp"
@@ -124,26 +132,31 @@
         android:drawableStart="@drawable/ic_book_2"
         android:drawablePadding="10dp"
         android:ems="10"
+        android:enabled="false"
         android:hint="Subject Previous Request"
         android:inputType="text"
-        android:paddingLeft="13dp"
+        android:paddingLeft="15dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray" />
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black"/>
 
-    <Button
-        android:id="@+id/fragment_edit_subject_btn_save"
+    <EditText
+        android:id="@+id/fragment_doctor_subjects_info_et_num_of_students"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/custom_btn_edit_state"
-        android:text="Save"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        tools:ignore="TextContrastCheck"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="25dp"
-        android:textAllCaps="false"/>
+        android:background="@drawable/custom_et_selector"
+        android:drawableStart="@drawable/ic_number_of_students"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="Number of Students"
+        android:inputType="numberDecimal"
+        android:paddingLeft="15dp"
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black"/>
 
 </LinearLayout>

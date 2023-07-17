@@ -37,7 +37,8 @@
             android:text="Subjects"
             android:textSize="18sp"
             android:layout_marginLeft="30dp"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
 
     </androidx.appcompat.widget.Toolbar>
 
