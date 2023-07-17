@@ -19,33 +19,31 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginStart="-31dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="11dp"
         android:layout_toEndOf="@+id/activity_admin_home_btn_profile"
         android:background="@drawable/custom_tv_name_profile"
-        android:paddingLeft="35dp"
+        android:paddingLeft="32dp"
         android:paddingTop="5dp"
         android:paddingRight="5dp"
         android:paddingBottom="5dp"
-        android:text="youssef ramadan"
+        android:text="Youssef Ramadan"
         android:textAlignment="center"
         android:textColor="@color/dark_blue"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:visibility="invisible" />
 
     <Button
         android:id="@+id/activity_admin_home_btn_profile"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="43dp"
-        android:layout_height="43dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/custom_btn_profile"
         android:drawableRight="@drawable/ic_male_doctor"
         android:paddingRight="10dp"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-
 
     <Button
         android:id="@+id/activity_admin_home_btn_logout"
@@ -65,7 +63,7 @@
         android:id="@+id/activity_admin_home_tv_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:text="Home"
         android:textColor="@color/white"
         android:textSize="24sp"

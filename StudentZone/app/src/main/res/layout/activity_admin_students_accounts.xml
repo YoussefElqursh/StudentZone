@@ -38,7 +38,8 @@
             android:textSize="18sp"
             android:id="@+id/activity_admin_students_accounts_et_search_for_students"
             android:layout_marginLeft="30dp"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
 
     </androidx.appcompat.widget.Toolbar>
 

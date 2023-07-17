@@ -37,10 +37,10 @@
             android:text="Subjects"
             android:textSize="18sp"
             android:layout_marginLeft="30dp"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
 
     </androidx.appcompat.widget.Toolbar>
-
 
     <LinearLayout
         android:id="@+id/activity_doctor_subjects_ll_main"
@@ -51,8 +51,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/doctor_subjects_recycleview"
             android:layout_marginTop="5dp"/>
 

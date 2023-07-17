@@ -38,14 +38,6 @@
                     android:layout_gravity="center"
                     android:gravity="center">
 
-<!--                    <ImageView-->
-<!--                        android:id="@+id/activity_admin_dpartment_iv"-->
-<!--                        android:layout_width="50dp"-->
-<!--                        android:layout_height="50dp"-->
-<!--                        android:layout_marginTop="7dp"-->
-<!--                        android:gravity="center"-->
-<!--                        app:srcCompat="@drawable/ic_department_3"/>-->
-
                     <TextView
                         android:id="@+id/activity_admin_dpartment_tv_dn"
                         android:layout_width="wrap_content"
