@@ -11,8 +11,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.studentzone.Doctor_Classes.Doctor_Activities.DoctorHomeActivity;
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
 
@@ -30,7 +30,7 @@ public class AdminHomeActivity extends AppCompatActivity {
 
         inflate();
         AllCardViewActions();
-        buttonLogoutAction();
+        logOutConfirmationDialog();
         buttonProfileAction();
     }
 
@@ -42,6 +42,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         cv_subjects = findViewById(R.id.activity_admin_home_cv_subjects);
         cv_doctors_account = findViewById(R.id.activity_admin_home_cv_doctors_accounts);
         cv_students_account = findViewById(R.id.activity_admin_home_cv_students_accounts);
+        btn_logout = findViewById(R.id.activity_admin_home_btn_logout);
     }
 
 
@@ -91,31 +92,30 @@ public class AdminHomeActivity extends AppCompatActivity {
         doctorsCardViewClickAction();
     }
 
-    /**
-     * buttonLogoutAction
-     **********************************************************************************************/
-    public void buttonLogoutAction() {
-        btn_logout = findViewById(R.id.activity_admin_home_btn_logout);
+    /**logOutConfirmationDialog()
+     * Shows a confirmation dialog when the user clicks on the log out button.
+     * If the user confirms the log out action, call the logOut() method.
+     * **********************************************************************************************/
+    public void logOutConfirmationDialog() {
+
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                // Show a confirmation dialog
-                new AlertDialog.Builder(AdminHomeActivity.this)
-                        .setTitle("Logout")
-                        .setMessage("Are you sure you want to logout?")
-                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                // User clicked Yes, so log out and go to login activity
-                                logOut();
-                            }
-                        })
-                        .setNegativeButton(android.R.string.no, null)
-                        .show();
+                // Create an alert dialog to confirm the log out action
+                AlertDialog.Builder builder = new AlertDialog.Builder(AdminHomeActivity.this);
+                builder.setTitle("Log Out");
+                builder.setMessage("Are you sure you want to log out?");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        logOut();
+                    }
+                });
+                builder.setNegativeButton("No", null);
+                builder.show();
             }
         });
-            }
+    }
 
     /**
      * logOut()

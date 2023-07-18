@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     CheckBox cb_Remember_me;
     My_DB db = new My_DB(this);
     int kindCheckedId = -1;
-    SharedPreferences preferences;
+    SharedPreferences preferences, pref;
     SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +86,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 isValid(kindCheckedId, et_user_name.getText().toString(), et_password.getText().toString());
+
+                pref = getSharedPreferences("userAccount",MODE_PRIVATE);
+                editor = pref.edit();
+                editor.putString("email",et_user_name.getText().toString());
+                editor.apply();
+
                 rememberMe();
             }
         });

@@ -4,12 +4,15 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
@@ -23,14 +26,18 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.studentzone.Data_Base.Departments;
 import com.studentzone.Data_Base.Doctors;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class doctorRecyclerViewAdapter extends RecyclerView.Adapter<doctorRecyclerViewAdapter.doctorViewHolder> {
     private ArrayList<Doctors> doctorsArrayList;
+
     private My_DB db;
     private BottomSheetDialog bottomSheetDialog;
     private View bottomSheetDialogView;

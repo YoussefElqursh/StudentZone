@@ -233,8 +233,8 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
     }
 
 
-//    /**Search For Students
-//     **********************************************************************************************/
+    /**Search For Students
+     **********************************************************************************************/
 //    public void searchForStudents() {
 //
 //
@@ -243,7 +243,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
 //
 //        ArrayList<Students> studentsArrayList = db.searchForStudents(tv_search_for_students.getText().toString());
 //
-//        studentRecyclerViewAdapter adapter = new studentRecyclerViewAdapter(studentsArrayList);
+//        studentRecyclerViewAdapter adapter = new studentRecyclerViewAdapter(this,studentsArrayList);
 //        RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
 //
 //        rv.setHasFixedSize(true);

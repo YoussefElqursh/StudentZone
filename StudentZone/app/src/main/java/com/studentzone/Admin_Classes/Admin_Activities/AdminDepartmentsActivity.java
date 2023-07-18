@@ -1,6 +1,7 @@
 package com.studentzone.Admin_Classes.Admin_Activities;
 import android.annotation.SuppressLint;
 
+import android.util.Log;
 import android.view.Menu;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
@@ -101,9 +102,10 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
 
 
     public void showAllDepartments() {
-        My_DB myDb = new My_DB(getBaseContext());
 
         ArrayList<Departments> departmentsArrayList = db.showDepartments();
+
+        adapter = new departmentRecyclerViewAdapter(departmentsArrayList); // assign to adapter variable
 
         departmentRecyclerViewAdapter adapter = new departmentRecyclerViewAdapter(departmentsArrayList);
         RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
@@ -123,6 +125,10 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
+        Log.d("TAG", "onCreateOptionsMenu called");
+
+
         getMenuInflater().inflate(R.menu.activity_admin_departments_sv_menu, menu);
 
         SearchView searchView = (SearchView) menu.findItem(R.id.activity_admin_departments_sv).getActionView();
@@ -134,6 +140,8 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                Log.d("Search", "Query text changed to: " + newText);
+
                 adapter.getFilter().filter(newText);
                 return false;
             }

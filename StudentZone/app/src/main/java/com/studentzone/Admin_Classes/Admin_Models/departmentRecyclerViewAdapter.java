@@ -1,5 +1,6 @@
 package com.studentzone.Admin_Classes.Admin_Models;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,8 @@ public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departme
     {
         this.departmentsArrayList = departmentsArrayList;
         this.filteredDepartmentNames = departmentsArrayList;
+
+
     }
 
     @NonNull
@@ -43,7 +46,7 @@ public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departme
     @Override
     public void onBindViewHolder(@NonNull @NotNull departmentRecyclerViewAdapter.departmentViewHolder holder, int position) {
 
-        Departments departments = departmentsArrayList.get(position);
+        Departments departments = filteredDepartmentNames.get(position);
 
 
         holder.tv_department_name.setText(departments.getName());
@@ -85,6 +88,9 @@ public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departme
             @Override
             protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
                 filteredDepartmentNames = (ArrayList<Departments>) filterResults.values;
+
+                Log.d("TAG", "Filtered list size: " + filteredDepartmentNames.size());
+                departmentsArrayList = filteredDepartmentNames;
                 notifyDataSetChanged();
 
             }
