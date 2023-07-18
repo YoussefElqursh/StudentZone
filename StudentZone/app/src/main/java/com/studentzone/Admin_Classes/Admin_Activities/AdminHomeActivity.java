@@ -138,6 +138,10 @@ public class AdminHomeActivity extends AppCompatActivity {
     public void buttonProfileAction() {
         btn_profile = findViewById(R.id.activity_admin_home_btn_profile);
         profileName = findViewById(R.id.activity_admin_home_tv_profileName);
+
+        preferences = getSharedPreferences("userAccount",MODE_PRIVATE);
+        String savedUsername = preferences.getString("email", "");
+        profileName.setText(savedUsername);
         btn_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
