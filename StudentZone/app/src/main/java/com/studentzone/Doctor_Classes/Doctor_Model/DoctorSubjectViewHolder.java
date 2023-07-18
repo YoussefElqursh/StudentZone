@@ -22,7 +22,7 @@ public class DoctorSubjectViewHolder extends RecyclerView.ViewHolder {
 
         StudentCode = itemView.findViewById(R.id.activity_doctor_subject_tv_sub_code);
 
-        StudentIcon = itemView.findViewById(R.id.activity_doctor_subject_iv);
+        StudentIcon = itemView.findViewById(R.id.activity_doctor_subject_tv_sn);
 
     }
 }

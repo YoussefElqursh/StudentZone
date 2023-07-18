@@ -48,7 +48,6 @@ public ModelRecyclerView_adapter(Context context, ArrayList<Model>arrayList){
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {//Bindeer
-holder.imgSub.setImageResource(arrayList.get(position).getImage());//get every item of model position
 holder.tv1_n.setText(arrayList.get(position).getSubjectName());
 holder.tv2_c.setText(arrayList.get(position).getCodeName());
 
@@ -78,7 +77,6 @@ holder.tv2_c.setText(arrayList.get(position).getCodeName());
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgSub=itemView.findViewById(R.id.activity_doctor_subject_iv);
             tv1_n=itemView.findViewById(R.id.activity_doctor_subject_tv_sub_name);//store inflate in object
             tv2_c=itemView.findViewById(R.id.activity_doctor_subject_tv_sub_code);
             crv=itemView.findViewById(R.id.activity_doctor_subject_cv);
