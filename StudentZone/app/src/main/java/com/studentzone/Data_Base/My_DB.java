@@ -3,6 +3,7 @@ package com.studentzone.Data_Base;
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -221,6 +222,7 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
 
+
     /**
      * checkLogin()
      * This Method Return True = Account Found In My_DB or False = Not Found In My_DB.
@@ -231,32 +233,73 @@ public class My_DB extends SQLiteOpenHelper {
     public boolean checkLogin(int kindCheckedId, String email, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
         boolean isValid = false;
-        Cursor cursor = null;
+
+        SharedPreferences pref = context.getSharedPreferences("userName",Context.MODE_PRIVATE);
+        String firstName = null;
+        String lastName = null;
 
         switch (kindCheckedId) {
             case -1:
                 return isValid;
             case 0:
-                cursor = db.query("" + Education_Table_Admins + "", new String[]{Admin_col_id},
+                Cursor adminCursor = db.query("" + Education_Table_Admins + "", new String[]{Admin_col_name},
                         "" + Admin_col_email + "=? AND " + Admin_col_password + "=?", new String[]{email, password},
                         null, null, null, null);
-                isValid = cursor.moveToFirst();
+
+                if (adminCursor.moveToFirst()) {
+                    isValid = adminCursor.moveToFirst();
+                    int firstNameColumnIndex = adminCursor.getColumnIndex(Admin_col_name);
+                    if (firstNameColumnIndex >= 0) {
+                        firstName = adminCursor.getString(firstNameColumnIndex);
+
+                        pref.edit().putString("fName",firstName).apply();
+
+                    }
+                }
+                adminCursor.close();
                 break;
             case 1:
-                cursor = db.query("" + Education_Table_Doctors + "", new String[]{Doctors_col_id},
+                Cursor doctorCursor = db.query("" + Education_Table_Doctors + "", new String[]{Doctors_col_first_name,Doctors_col_last_name},
                         "" + Doctors_col_email + "=? AND " + Doctors_col_password + "=?", new String[]{email, password},
                         null, null, null, null);
-                isValid = cursor.moveToFirst();
+
+                if (doctorCursor.moveToFirst()) {
+                    isValid = doctorCursor.moveToFirst();
+
+                    int firstNameColumnIndex = doctorCursor.getColumnIndex(Doctors_col_first_name);
+                    int lastNameColumnIndex = doctorCursor.getColumnIndex(Doctors_col_last_name);
+                    if (firstNameColumnIndex >= 0 && lastNameColumnIndex >= 0) {
+                        firstName = doctorCursor.getString(firstNameColumnIndex);
+                        lastName  = doctorCursor.getString(lastNameColumnIndex);
+
+                        pref.edit().putString("fName",firstName).apply();
+                        pref.edit().putString("lName",lastName).apply();
+
+                    }
+                }
+                doctorCursor.close();
                 break;
             case 2:
-                cursor = db.query("" + Education_Table_Students + "", new String[]{Student_col_id},
+                Cursor studentCursor = db.query("" + Education_Table_Students + "", new String[]{Student_col_first_name,Student_col_last_name},
                         "" + Student_col_email + "=? AND " + Student_col_password + "=?", new String[]{email, password},
                         null, null, null, null);
-                isValid = cursor.moveToFirst();
+
+                if (studentCursor.moveToFirst()) {
+                    isValid = studentCursor.moveToFirst();
+                    int firstNameColumnIndex = studentCursor.getColumnIndex(Student_col_first_name);
+                    int lastNameColumnIndex = studentCursor.getColumnIndex(Student_col_last_name);
+                    if (firstNameColumnIndex >= 0 && lastNameColumnIndex >= 0) {
+                        firstName = studentCursor.getString(firstNameColumnIndex);
+                        lastName  = studentCursor.getString(lastNameColumnIndex);
+
+                        pref.edit().putString("fName",firstName).apply();
+                        pref.edit().putString("lName",lastName).apply();
+
+                    }
+                }
+                studentCursor.close();
                 break;
         }
-        cursor.close();
-
 
         return isValid;
     }
@@ -347,6 +390,7 @@ public class My_DB extends SQLiteOpenHelper {
         return studentsArrayList;
     }
 
+
     /**updateStudent()
      **********************************************************************************************/
     public boolean updateStudent(Students student){
@@ -409,8 +453,12 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
 
-    /**show All Doctors()
-     **********************************************************************************************/
+    /**
+     * show All Doctors()
+     * ********************************************************************************************
+     *
+     * @return
+     */
     @SuppressLint("Range")
     public ArrayList<Doctors> showAllDoctors(){
 

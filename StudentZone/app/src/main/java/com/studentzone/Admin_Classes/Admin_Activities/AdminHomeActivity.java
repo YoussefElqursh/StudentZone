@@ -139,9 +139,12 @@ public class AdminHomeActivity extends AppCompatActivity {
         btn_profile = findViewById(R.id.activity_admin_home_btn_profile);
         profileName = findViewById(R.id.activity_admin_home_tv_profileName);
 
-        preferences = getSharedPreferences("userAccount",MODE_PRIVATE);
-        String savedUsername = preferences.getString("email", "");
-        profileName.setText(savedUsername);
+        preferences = getSharedPreferences("userName",MODE_PRIVATE);
+        String name = preferences.getString("fName", "");
+
+        String capitalizedStr = name.substring(0, 1).toUpperCase() + name.substring(1);
+        profileName.setText(capitalizedStr);
+
         btn_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)

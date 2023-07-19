@@ -1,12 +1,17 @@
 package com.studentzone.Admin_Classes.Admin_Activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,21 +21,25 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.studentzone.Admin_Classes.Admin_Models.doctorRecyclerViewAdapter;
+import com.studentzone.Admin_Classes.Admin_Models.studentRecyclerViewAdapter;
 import com.studentzone.Data_Base.Doctors;
 import com.studentzone.Data_Base.My_DB;
+import com.studentzone.Data_Base.Students;
 import com.studentzone.R;
 
 import java.util.ArrayList;
 
 public class AdminDoctorsAccountsActivity extends AppCompatActivity {
-    BottomSheetDialog bottomSheetDialog;
-    View bottomSheetDialogView;
-    Button btn_add, btn_back, btm_sheet_dia_btn_save, btm_sheet_dia_btn_close;
-    EditText btm_sheet_dia_add_new_et_doctor_name, btm_sheet_dia_add_new_et_doctor_password, btm_sheet_dia_add_new_et_doctor_email;
-    RadioGroup btm_sheet_dia_rg;
-    RadioButton btm_sheet_dia_rb_male, btm_sheet_dia_rb_female;
-    String name, email, password, gender = "Male";
-    RecyclerView rv;
+    private BottomSheetDialog bottomSheetDialog;
+    private View bottomSheetDialogView;
+    private Button btn_add, btn_back, btm_sheet_dia_btn_save, btm_sheet_dia_btn_close;
+    private EditText btm_sheet_dia_add_new_et_doctor_name, btm_sheet_dia_add_new_et_doctor_password, btm_sheet_dia_add_new_et_doctor_email;
+    private RadioGroup btm_sheet_dia_rg;
+    private RadioButton btm_sheet_dia_rb_male, btm_sheet_dia_rb_female;
+    private String name, email, password, gender = "Male";
+    private RecyclerView rv;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +48,13 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
 
         inflate();
         showAllDoctors();
+
         buttonAddAction();
         radioButtonGroupAction();
         saveDoctorData();
         closeBottomSheet();
         buttonBackAction();
+
     }
 
     /**inflate
@@ -67,6 +78,8 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         btm_sheet_dia_rb_female = bottomSheetDialogView.findViewById(R.id.fragment_new_doctor_rb_female);
 
         rv = findViewById(R.id.activity_admin_doctors_accounts_recyclerview);
+
+
     }
 
 
@@ -197,19 +210,16 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
     /**Show All Doctors
      **********************************************************************************************/
     public void showAllDoctors() {
-
         My_DB db = new My_DB(getBaseContext());
 
+        ArrayList<Doctors> doctorsArrayList1 = db.showAllDoctors();
 
-        ArrayList<Doctors> doctorsArrayList = db.showAllDoctors();
-
-        doctorRecyclerViewAdapter adapter = new doctorRecyclerViewAdapter(this,doctorsArrayList);
+        doctorRecyclerViewAdapter adapter = new doctorRecyclerViewAdapter(this, doctorsArrayList1);
         RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
 
         rv.setHasFixedSize(true);
         rv.setLayoutManager(lm);
         rv.setAdapter(adapter);
     }
-
 
 }
