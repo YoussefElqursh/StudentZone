@@ -61,7 +61,8 @@
         android:layout_marginRight="20dp"
         android:maxLines="1"
         android:paddingRight="1dp"
-        android:textColorHint="@color/gray" />
+        android:textColorHint="@color/gray"
+        android:drawableTint="@drawable/custom_et_selector"/>
 
     <EditText
         android:id="@+id/fragment_new_department_et_course_code"
@@ -80,7 +81,8 @@
         android:layout_marginRight="20dp"
         android:maxLines="1"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray"/>
+        android:textColorHint="@color/gray"
+        android:drawableTint="@drawable/custom_et_selector"/>
 
     <Button
         android:id="@+id/fragment_new_department_btn_save"

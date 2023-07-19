@@ -61,7 +61,8 @@
         android:minHeight="48dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray" />
+        android:textColorHint="@color/gray"
+        android:drawableTint="@drawable/custom_et_selector"/>
 
     <EditText
         android:id="@+id/fragment_new_doctor_et_doctor_email"
@@ -78,7 +79,8 @@
         android:inputType="textEmailAddress"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray" />
+        android:textColorHint="@color/gray"
+        android:drawableTint="@drawable/custom_et_selector"/>
 
 
     <EditText
@@ -96,7 +98,8 @@
         android:inputType="text"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray" />
+        android:textColorHint="@color/gray"
+        android:drawableTint="@drawable/custom_et_selector"/>
 
     <RadioGroup
         android:id="@+id/fragment_new_doctor_rg_doctor_kind"
@@ -115,25 +118,35 @@
             android:layout_height="55dp"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:background="@drawable/custom_rb_selector"
+            android:background="@drawable/custom_rb_et_icon_selector"
             android:buttonTint="@color/gray"
             android:minHeight="48dp"
             android:text="Male"
-            android:textColor="@color/gray"
-            android:textSize="18sp" />
+            android:textColor="@drawable/custom_rb_et_icon_selector"
+            android:textSize="18sp"
+            android:drawableLeft="@drawable/ic_male"
+            android:drawablePadding="5dp"
+            android:button="@android:color/transparent"
+            android:paddingLeft="5dp"
+            android:drawableTint="@drawable/custom_rb_et_icon_selector"/>
 
         <RadioButton
             android:id="@+id/fragment_new_doctor_rb_female"
             android:layout_width="100dp"
             android:layout_height="55dp"
             android:layout_weight="1"
-            android:background="@drawable/custom_rb_selector"
-            android:buttonTint="@color/gray"
+            android:background="@drawable/custom_rb_et_icon_selector"
+            android:buttonTint="@drawable/custom_rb_et_icon_selector"
             android:minHeight="48dp"
             android:text="Female"
-            android:textColor="@color/gray"
+            android:textColor="@drawable/custom_rb_et_icon_selector"
             android:textSize="18sp"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:drawableLeft="@drawable/ic_female"
+            android:drawablePadding="5dp"
+            android:button="@android:color/transparent"
+            android:paddingLeft="5dp"
+            android:drawableTint="@drawable/custom_rb_et_icon_selector"/>
 
     </RadioGroup>
 
