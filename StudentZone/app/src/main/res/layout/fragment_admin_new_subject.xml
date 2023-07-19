@@ -60,7 +60,8 @@
         android:minHeight="48dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray" />
+        android:textColorHint="@color/gray"
+        android:drawableTint="@drawable/custom_et_selector"/>
 
     <EditText
         android:id="@+id/fragment_new_subject_et_code"
@@ -77,7 +78,8 @@
         android:inputType="text"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray" />
+        android:textColorHint="@color/gray"
+        android:drawableTint="@drawable/custom_et_selector"/>
 
     <EditText
         android:id="@+id/fragment_new_subject_et_department"
@@ -94,7 +96,8 @@
         android:inputType="text"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray" />
+        android:textColorHint="@color/gray"
+        android:drawableTint="@drawable/custom_et_selector"/>
 
     <EditText
         android:id="@+id/fragment_new_subject_et_doctor"
@@ -111,7 +114,8 @@
         android:inputType="textPersonName"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray" />
+        android:textColorHint="@color/gray"
+        android:drawableTint="@drawable/custom_et_selector"/>
 
     <EditText
         android:id="@+id/fragment_new_subject_et_previous"
@@ -128,7 +132,8 @@
         android:inputType="text"
         android:paddingLeft="13dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray" />
+        android:textColorHint="@color/gray"
+        android:drawableTint="@drawable/custom_et_selector"/>
 
     <Button
         android:id="@+id/fragment_new_subject_btn_save"
