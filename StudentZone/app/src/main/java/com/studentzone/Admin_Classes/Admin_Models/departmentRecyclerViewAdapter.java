@@ -29,6 +29,7 @@ import com.studentzone.R;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departmentRecyclerViewAdapter.departmentViewHolder>implements Filterable
 {
@@ -36,18 +37,13 @@ public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departme
     private ArrayList<Departments> departmentsArrayList;
     private My_DB db;
     private BottomSheetDialog bottomSheetDialog;
-
     private EditText et_deptName_show, et_deptCode_show, et_deptName_edit, et_deptCode_edit;
     private Button btn_close_show_dept,btn_save_edit_dept,btn_close_edit_dept;
-
-
+    private TextView tv_first_letter_of_course;
     private View bottomSheetDialogView;
     private AlertDialog.Builder builder;
     private  Departments department;
-
-     ArrayList<Departments> filteredDepartmentNames;
-
-
+     private ArrayList<Departments> filteredDepartmentNames;
 
     public departmentRecyclerViewAdapter(Context context, ArrayList<Departments> departmentsArrayList)
     {
@@ -131,8 +127,6 @@ public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departme
         };
     }
 
-
-
     class departmentViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, PopupMenu.OnMenuItemClickListener {
         TextView tv_department_name, tv_department_code;
         private ImageButton ib_more;
@@ -141,6 +135,7 @@ public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departme
             super(itemView);
             tv_department_name = itemView.findViewById(R.id.activity_admin_department_tv_name);
             tv_department_code = itemView.findViewById(R.id.activity_admin_department_tv_code);
+            tv_first_letter_of_course = itemView.findViewById(R.id.activity_admin_department_tv_dn);
 
             ib_more = itemView.findViewById(R.id.activity_admin_department_ib_more);
 
@@ -149,8 +144,18 @@ public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departme
 
         public void bind(Departments department) {
 
+            String  abbreviation = "",courseName = department.getName();
+            String[] words = courseName.split(" ");
+            for (String word : words) {
+                char firstLetter = word.charAt(0);
+                abbreviation += firstLetter;
+            }
+
             tv_department_name.setText(department.getName());
             tv_department_code.setText(department.getCode());
+            tv_first_letter_of_course.setText(abbreviation.toUpperCase(Locale.ROOT));
+
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
