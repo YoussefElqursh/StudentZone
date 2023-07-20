@@ -51,7 +51,7 @@
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/activity_admin_dpartment_tv_sub_name"
+                android:id="@+id/activity_admin_department_tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
@@ -64,7 +64,7 @@
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/activity_admin_dpartment_tv_sub_code"
+                android:id="@+id/activity_admin_department_tv_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
@@ -75,7 +75,7 @@
                 android:textColor="@color/dark_blue"/>
 
             <ImageButton
-                android:id="@+id/activity_admin_dpartment_ib_more"
+                android:id="@+id/activity_admin_department_ib_more"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_alignParentEnd="true"

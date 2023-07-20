@@ -46,7 +46,7 @@
     </RelativeLayout>
 
     <EditText
-        android:id="@+id/fragment_new_department_et_course_name"
+        android:id="@+id/fragment_new_department_et_name"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@drawable/custom_et_selector"
@@ -64,7 +64,7 @@
         android:textColorHint="@color/gray" />
 
     <EditText
-        android:id="@+id/fragment_new_department_et_course_code"
+        android:id="@+id/fragment_new_department_et_code"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginTop="10dp"

@@ -48,14 +48,14 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:id="@+id/activity_admin_depatrments_rl_1"
+            android:id="@+id/activity_admin_departments_rl_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/custom_cv"
             android:elevation="50dp">
 
             <Button
-                android:id="@+id/activity_admin_depatrments_btn_add"
+                android:id="@+id/activity_admin_departments_btn_add"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/custom_btn_plus_add"

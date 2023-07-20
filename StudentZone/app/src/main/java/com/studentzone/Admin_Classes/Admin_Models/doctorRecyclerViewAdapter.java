@@ -46,7 +46,7 @@ public class doctorRecyclerViewAdapter extends RecyclerView.Adapter<doctorRecycl
     private RadioGroup rg;
     private RadioButton rb_male , rb_female;
     private AlertDialog.Builder builder;
-    Doctors doctor;
+    private Doctors doctor;
 
     public doctorRecyclerViewAdapter(Context context,ArrayList<Doctors> doctorsArrayList) {
         this.doctorsArrayList = doctorsArrayList;
@@ -255,9 +255,6 @@ public class doctorRecyclerViewAdapter extends RecyclerView.Adapter<doctorRecycl
             });
 
 
-
-
-
             if (doctor.getGender().equals("Male") && doctor.getGender() != null) {
                 rb_male.setChecked(true);
             } else if (doctor.getGender().equals("Female") && doctor.getGender() != null) {
@@ -294,8 +291,6 @@ public class doctorRecyclerViewAdapter extends RecyclerView.Adapter<doctorRecycl
                     }
 
                     db.updateDoctor(doctor);
-
-
 
                     doctorsArrayList.set(getAdapterPosition(), doctor);
                     notifyItemChanged(getAdapterPosition());

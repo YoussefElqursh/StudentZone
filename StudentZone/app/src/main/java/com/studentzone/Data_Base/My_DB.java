@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 import android.widget.Toast;
 
 
@@ -505,6 +506,9 @@ public class My_DB extends SQLiteOpenHelper {
 
         int result =  db.update(Education_Table_Doctors,values,""+Doctors_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
 
+        if(result>0)
+          Toast.makeText(context, "Changes saved ✔️" , Toast.LENGTH_SHORT).show();
+
         return result > 0;
     }
 
@@ -526,15 +530,29 @@ public class My_DB extends SQLiteOpenHelper {
 
 
     //__________________________________Departments Function_______________________________________________
-    public void insert_department(String name, String code) {
+
+
+    /**Add New Department()
+     **********************************************************************************************/
+    public boolean addNewDepartment(Departments department) {
 
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put(Department_col_name, name);
-        values.put(Department_col_code, code);
+        values.put(Department_col_name, department.getName());
+        values.put(Department_col_code, department.getCode());
 
-        db.insert(Education_Table_Departments, null, values);
+        //To Check If This Department Is Exist
+        Cursor cursor = db.rawQuery("SELECT  "+Department_col_name+", "+Department_col_code+" FROM "+Education_Table_Departments+" WHERE "+Department_col_name+"=? OR "+Department_col_code+"=?  ",new String []{department.getName(),department.getCode()});
+        if(cursor.moveToFirst()){
+            Toast.makeText(context, "This Department's Name or Code Is Exist ❗", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        //Store Number Of Item Which Inserted Or Return -1 If Item Not Inserted
+        long result = db.insert(Education_Table_Departments,null,values);
+
+        return  result !=-1;
     }
 
     /**get all departments and show them */
@@ -567,6 +585,48 @@ public class My_DB extends SQLiteOpenHelper {
 
         return departmentsArrayList;
 
+    }
+
+    /**updateDepartment()
+     **********************************************************************************************/
+    public boolean updateDepartment(Departments department){
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        int result = 0;
+
+        values.put(Department_col_name,department.getName());
+        values.put(Department_col_code,department.getCode());
+
+        String args [] = {department.getCode()};
+
+        //To Check If This Department Is Exist
+        Cursor cursor = db.rawQuery("SELECT  "+Department_col_name+" FROM "+Education_Table_Departments+" WHERE  "+Department_col_name+"=?  ",new String[]{department.getName()});
+        if(cursor.moveToFirst()){
+            Toast.makeText(context, "Sorry Can't Edit ❌ , This Department Name  Is Already Exist❗" , Toast.LENGTH_LONG).show();
+        }
+        else {
+            result =  db.update(Education_Table_Departments,values,""+Department_col_code+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
+            Toast.makeText(context, "Changes saved ✔️" , Toast.LENGTH_SHORT).show();
+
+        }
+        return result > 0;
+    }
+
+
+    /**Delete Department()
+     **********************************************************************************************/
+    public boolean deleteDepartment(String code){
+
+        SQLiteDatabase db =getWritableDatabase();
+        String args[] ={code};
+
+        int numDeletedDoctor =db.delete(Education_Table_Departments,""+Department_col_code+"=?",args);
+
+//        db.close();
+        return numDeletedDoctor>0;
     }
 
 
