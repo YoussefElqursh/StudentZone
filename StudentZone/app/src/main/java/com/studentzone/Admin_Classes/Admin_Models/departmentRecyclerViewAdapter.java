@@ -2,6 +2,7 @@ package com.studentzone.Admin_Classes.Admin_Models;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -43,7 +44,9 @@ public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departme
     private View bottomSheetDialogView;
     private AlertDialog.Builder builder;
     private  Departments department;
-     private ArrayList<Departments> filteredDepartmentNames;
+    private ArrayList<Departments> filteredDepartmentNames;
+    private String code_before_update,name_before_update;
+
 
     public departmentRecyclerViewAdapter(Context context, ArrayList<Departments> departmentsArrayList)
     {
@@ -202,6 +205,13 @@ public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departme
             }
         }
 
+        /**showEditDepartmentDialog ()
+         * method shows a bottom sheet dialog for editing a doctor's information.
+         * It inflates a layout for editing a Department's information and sets the text of the views in the layout to the corresponding data of the Department.
+         * It also sets click listeners on the save and close buttons.
+         * If the user clicks the save button, the data of the doctor is updated, and the updateDepartment method is called on the My_DB object to update the Department's information in the database.
+         * The Department's data in the DepartmentsArrayList is also updated, and the RecyclerView is notified of the change.
+         **********************************************************************************************/
         private void showEditDepartmentDialog(Departments department) {
             bottomSheetDialog = new BottomSheetDialog(itemView.getContext(), R.style.BottomSheetStyle);
             bottomSheetDialogView = LayoutInflater.from(itemView.getContext()).inflate(R.layout.fragment_admin_departments_edit, null, false);
@@ -219,10 +229,17 @@ public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departme
             et_deptCode_edit.setText(department.getCode());
 
 
+
+            /*
+             *  textWatcher monitor changes in the name, email,and password fields of a form.
+             *  Whenever any of these fields are modified, the afterTextChanged method of textWatcher is called,
+             * which enables the btn_save button.
+             * */
             TextWatcher textWatcher = new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+                    code_before_update = department.getCode();
+                    name_before_update = department.getName();
                 }
 
                 @Override
@@ -232,11 +249,14 @@ public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departme
 
                 @Override
                 public void afterTextChanged(Editable s) {
-
                     btn_save_edit_dept.setEnabled(true);
                 }
             };
 
+            /*
+             * The addTextChangedListener method is then called on each of the relevant EditText fields with textWatcher as the argument.
+             * This sets up the TextWatcher instance to monitor changes to each field.
+             **/
             et_deptName_edit.addTextChangedListener(textWatcher);
             et_deptCode_edit.addTextChangedListener(textWatcher);
 
@@ -250,7 +270,8 @@ public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departme
                     department.setCode(et_deptCode_edit.getText().toString());
 
 
-                    boolean result = db.updateDepartment(department);
+                    boolean result = db.updateDepartment(department,code_before_update,name_before_update);
+                    Log.d("======================================================",code_before_update);
 
                     if(result == true){
                         departmentsArrayList.set(getAdapterPosition(), department);

@@ -589,7 +589,7 @@ public class My_DB extends SQLiteOpenHelper {
 
     /**updateDepartment()
      **********************************************************************************************/
-    public boolean updateDepartment(Departments department){
+    public boolean updateDepartment(Departments department, String codeBeforeUpdate,String nameBeforeUpdate){
 
         SQLiteDatabase db = getWritableDatabase();
 
@@ -600,12 +600,13 @@ public class My_DB extends SQLiteOpenHelper {
         values.put(Department_col_name,department.getName());
         values.put(Department_col_code,department.getCode());
 
-        String args [] = {department.getCode()};
+        String args [] = {codeBeforeUpdate};
+
 
         //To Check If This Department Is Exist
-        Cursor cursor = db.rawQuery("SELECT  "+Department_col_name+" FROM "+Education_Table_Departments+" WHERE  "+Department_col_name+"=?  ",new String[]{department.getName()});
+        Cursor cursor = db.rawQuery("SELECT  "+Department_col_name+", "+Department_col_code+" FROM "+Education_Table_Departments+" WHERE "+Department_col_name+"=? OR "+Department_col_code+"=? AND (" + Department_col_code + "!=?  AND " + Department_col_name + "!=?)", new String[]{ department.getName(), department.getCode(), codeBeforeUpdate,nameBeforeUpdate });
         if(cursor.moveToFirst()){
-            Toast.makeText(context, "Sorry Can't Edit ❌ , This Department Name  Is Already Exist❗" , Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "Sorry Can't Edit ❌ , This Department's Name or Code Is Exist ❗", Toast.LENGTH_LONG).show();
         }
         else {
             result =  db.update(Education_Table_Departments,values,""+Department_col_code+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
