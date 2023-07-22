@@ -341,14 +341,14 @@ public class My_DB extends SQLiteOpenHelper {
         //To Check If This Academic Number Is Received
         cursor = db.rawQuery("SELECT "+Student_col_academic_number+" FROM "+Education_Table_Students+" WHERE "+Student_col_academic_number+"=? ",new String []{student.getAcademic_Number()});
         if(cursor.moveToFirst()){
-            Toast.makeText(context, "This Academic Number Is Received ❗ ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "This Academic Number Is Received.", Toast.LENGTH_SHORT).show();
             return false;
         }
 
         //To Check If This Email Is Received
         cursor = db.rawQuery("SELECT "+Student_col_email+" FROM "+Education_Table_Students+" WHERE "+Student_col_email+"=? ",new String []{student.getEmail()});
         if(cursor.moveToFirst()){
-            Toast.makeText(context, "This Email Is Received ❗", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "This Email Is Received.", Toast.LENGTH_SHORT).show();
             return false;
         }
 
@@ -442,7 +442,7 @@ public class My_DB extends SQLiteOpenHelper {
         //To Check If This Email Is Received
         Cursor cursor = db.rawQuery("SELECT "+Doctors_col_email+" FROM "+Education_Table_Doctors+" WHERE "+Doctors_col_email+"=? ",new String []{doctor.getEmail()});
         if(cursor.moveToFirst()){
-            Toast.makeText(context, "This Email Is Received ❗", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "This Email Is Received.", Toast.LENGTH_SHORT).show();
             return false;
         }
 
@@ -507,7 +507,7 @@ public class My_DB extends SQLiteOpenHelper {
         int result =  db.update(Education_Table_Doctors,values,""+Doctors_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
 
         if(result>0)
-          Toast.makeText(context, "Changes saved ✔️" , Toast.LENGTH_SHORT).show();
+          Toast.makeText(context, "Changes saved." , Toast.LENGTH_SHORT).show();
 
         return result > 0;
     }
@@ -545,7 +545,7 @@ public class My_DB extends SQLiteOpenHelper {
         //To Check If This Department Is Exist
         Cursor cursor = db.rawQuery("SELECT  "+Department_col_name+", "+Department_col_code+" FROM "+Education_Table_Departments+" WHERE "+Department_col_name+"=? OR "+Department_col_code+"=?  ",new String []{department.getName(),department.getCode()});
         if(cursor.moveToFirst()){
-            Toast.makeText(context, "This Department's Name or Code Is Exist ❗", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "This Department's Name or Code Is Exist.", Toast.LENGTH_LONG).show();
             return false;
         }
 
@@ -606,11 +606,11 @@ public class My_DB extends SQLiteOpenHelper {
         //To Check If This Department Is Exist
         // Check if the department name or code already exist, excluding the current record being updated
         Cursor cursor = db.rawQuery("SELECT " + Department_col_name + ", " + Department_col_code + " FROM " + Education_Table_Departments + " WHERE (" + Department_col_name + "=? OR " + Department_col_code + "=?) AND (" + Department_col_code + "!=? OR " + Department_col_name + "!=?)", new String[]{ department.getName(), department.getCode(), codeBeforeUpdate, nameBeforeUpdate });        if(cursor.moveToFirst()){
-            Toast.makeText(context, "Sorry Can't Edit ❌ , This Department's Name or Code Is Exist ❗", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "Sorry Can't Edit , This Department's Name or Code Is Exist.", Toast.LENGTH_LONG).show();
         }
         else {
             result =  db.update(Education_Table_Departments,values,""+Department_col_code+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
-            Toast.makeText(context, "Changes saved ✔️" , Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Changes saved." , Toast.LENGTH_SHORT).show();
 
         }
         return result > 0;

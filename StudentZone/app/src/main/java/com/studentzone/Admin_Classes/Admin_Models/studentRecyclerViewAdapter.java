@@ -3,6 +3,7 @@ package com.studentzone.Admin_Classes.Admin_Models;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -220,6 +221,12 @@ public class studentRecyclerViewAdapter extends RecyclerView.Adapter<studentRecy
 
             btn_save.setEnabled(false);
 
+            // Keep track of the original department name and code
+            String originalName = student.getFName();
+            String originalEmail = student.getEmail();
+            String originalAcademicNumber = student.getAcademic_Number();
+            String originalPassword = student.getPassword();
+
             /*
              *  textWatcher monitor changes in the name, email,and password fields of a form.
              *  Whenever any of these fields are modified, the afterTextChanged method of textWatcher is called,
@@ -234,7 +241,15 @@ public class studentRecyclerViewAdapter extends RecyclerView.Adapter<studentRecy
                 }
                 @Override
                 public void afterTextChanged(Editable s) {
-                    btn_save.setEnabled(true);
+                    // Enable the save button if the text has changed from the original values
+                    if (!(name.getText().toString().equals(originalName) &&
+                            email.getText().toString().equals(originalEmail) &&
+                            aid.getText().toString().equals(originalAcademicNumber) &&
+                            password.getText().toString().equals(originalPassword) )) {
+                        btn_save.setEnabled(true);
+                    } else {
+                        btn_save.setEnabled(false);
+                    };
                 }
             };
             /*
@@ -283,6 +298,15 @@ public class studentRecyclerViewAdapter extends RecyclerView.Adapter<studentRecy
                         gender = "Female";
                     }
 
+                    if (TextUtils.isEmpty(name.getText().toString().trim())) {
+                        name.setError("Is Required !");
+                        return;
+                    }
+                    if (TextUtils.isEmpty(password.getText().toString().trim())) {
+                        password.setError("Is Required !");
+                        return;
+                    }
+
                     student.setFName(name.getText().toString());
                     student.setEmail(email.getText().toString());
                     student.setPassword(password.getText().toString());
@@ -301,7 +325,7 @@ public class studentRecyclerViewAdapter extends RecyclerView.Adapter<studentRecy
 
                     bottomSheetDialog.dismiss();
 
-                    Toast.makeText(bottomSheetDialog.getContext(), "Changes saved ✔️" , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(bottomSheetDialog.getContext(), "Changes saved." , Toast.LENGTH_SHORT).show();
 
                 }
             });
@@ -318,7 +342,7 @@ public class studentRecyclerViewAdapter extends RecyclerView.Adapter<studentRecy
                         public void onClick(DialogInterface dialog, int id) {
                             db.deleteStudent(student.getEmail());
                             studentsArrayList.remove(getAdapterPosition());
-                            Toast.makeText(bottomSheetDialog.getContext(), ""+student.getFName()+" Successfully Deleted ✔️" , Toast.LENGTH_SHORT).show();
+                            Toast.makeText(bottomSheetDialog.getContext(), ""+student.getFName()+" Successfully Deleted." , Toast.LENGTH_SHORT).show();
 
                             notifyItemRemoved(getAdapterPosition());
                             dialog.dismiss();

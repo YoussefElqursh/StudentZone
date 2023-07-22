@@ -3,6 +3,7 @@ package com.studentzone.Admin_Classes.Admin_Models;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -214,6 +215,11 @@ public class doctorRecyclerViewAdapter extends RecyclerView.Adapter<doctorRecycl
             email.setText(doctor.getEmail());
             password.setText(doctor.getPassword());
 
+            // Keep track of the original department name and code
+            String originalName = doctor.getFName();
+            String originalEmail = doctor.getEmail();
+            String originalPassword = doctor.getPassword();
+
 
             /*
              *  textWatcher monitor changes in the name, email,and password fields of a form.
@@ -229,7 +235,13 @@ public class doctorRecyclerViewAdapter extends RecyclerView.Adapter<doctorRecycl
                 }
                 @Override
                 public void afterTextChanged(Editable s) {
-                    btn_save.setEnabled(true);
+                    // Enable the save button if the text has changed from the original values
+                    if (!(name.getText().toString().equals(originalName) &&
+                            email.getText().toString().equals(originalEmail) && password.getText().toString().equals(originalPassword) )) {
+                        btn_save.setEnabled(true);
+                    } else {
+                        btn_save.setEnabled(false);
+                    };
                 }
             };
               /*
@@ -239,6 +251,7 @@ public class doctorRecyclerViewAdapter extends RecyclerView.Adapter<doctorRecycl
                name.addTextChangedListener(textWatcher);
                email.addTextChangedListener(textWatcher);
                password.addTextChangedListener(textWatcher);
+
 
 
             // Add listener to the radio group to enable the save button when the user changes the gender
@@ -284,6 +297,15 @@ public class doctorRecyclerViewAdapter extends RecyclerView.Adapter<doctorRecycl
                     doctor.setPassword(password.getText().toString());
                     doctor.setGender(gender);
 
+                    if (TextUtils.isEmpty(name.getText().toString().trim())) {
+                        name.setError("Is Required !");
+                        return;
+                    }
+                    if (TextUtils.isEmpty(password.getText().toString().trim())) {
+                        password.setError("Is Required !");
+                        return;
+                    }
+
                     if (doctor.getGender() != null && doctor.getGender().equals("Male")) {
                         iv.setImageResource(R.drawable.ic_male_doctor);
                     } else {
@@ -296,7 +318,7 @@ public class doctorRecyclerViewAdapter extends RecyclerView.Adapter<doctorRecycl
                     notifyItemChanged(getAdapterPosition());
 
                     bottomSheetDialog.dismiss();
-                    Toast.makeText(bottomSheetDialog.getContext(), "Changes saved ✔️" , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(bottomSheetDialog.getContext(), "Changes saved." , Toast.LENGTH_SHORT).show();
 
                 }
             });
@@ -312,7 +334,7 @@ public class doctorRecyclerViewAdapter extends RecyclerView.Adapter<doctorRecycl
                         public void onClick(DialogInterface dialog, int id) {
                             db.deleteDoctor(doctor.getEmail());
                             doctorsArrayList.remove(getAdapterPosition());
-                            Toast.makeText(bottomSheetDialog.getContext(), "Dr: "+doctor.getFName()+" Successfully Deleted ✔️" , Toast.LENGTH_SHORT).show();
+                            Toast.makeText(bottomSheetDialog.getContext(), "Dr: "+doctor.getFName()+" Successfully Deleted." , Toast.LENGTH_SHORT).show();
                             notifyItemRemoved(getAdapterPosition());
                             dialog.dismiss();
                         }

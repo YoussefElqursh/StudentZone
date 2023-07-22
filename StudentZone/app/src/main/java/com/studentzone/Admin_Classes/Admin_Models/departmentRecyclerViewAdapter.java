@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -228,6 +229,9 @@ public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departme
             et_deptName_edit.setText(department.getName());
             et_deptCode_edit.setText(department.getCode());
 
+            // Keep track of the original department name and code
+            String originalName = department.getName();
+            String originalCode = department.getCode();
 
 
             /*
@@ -249,7 +253,13 @@ public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departme
 
                 @Override
                 public void afterTextChanged(Editable s) {
-                    btn_save_edit_dept.setEnabled(true);
+                    // Enable the save button if the text has changed from the original values
+                    if (!(et_deptName_edit.getText().toString().equals(originalName) &&
+                            et_deptCode_edit.getText().toString().equals(originalCode))) {
+                        btn_save_edit_dept.setEnabled(true);
+                    } else {
+                        btn_save_edit_dept.setEnabled(false);
+                    };
                 }
             };
 
@@ -266,6 +276,14 @@ public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departme
                 public void onClick(View v) {
 
 
+                    if (TextUtils.isEmpty(et_deptName_edit.getText().toString().trim())) {
+                        et_deptName_edit.setError("Is Required !");
+                        return;
+                    }
+                    if (TextUtils.isEmpty(et_deptCode_edit.getText().toString().trim())) {
+                        et_deptCode_edit.setError("Is Required !");
+                        return;
+                    }
                     department.setName(et_deptName_edit.getText().toString());
                     department.setCode(et_deptCode_edit.getText().toString());
 
@@ -330,7 +348,7 @@ public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departme
                         public void onClick(DialogInterface dialog, int id) {
                             db.deleteDepartment(department.getCode());
                             departmentsArrayList.remove(getAdapterPosition());
-                            Toast.makeText(bottomSheetDialog.getContext(), ""+department.getName()+" Department Successfully Deleted ✔️" , Toast.LENGTH_SHORT).show();
+                            Toast.makeText(bottomSheetDialog.getContext(), ""+department.getName()+" Department Successfully Deleted" , Toast.LENGTH_SHORT).show();
                             notifyItemRemoved(getAdapterPosition());
                             dialog.dismiss();
                         }
