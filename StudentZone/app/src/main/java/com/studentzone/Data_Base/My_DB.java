@@ -604,8 +604,8 @@ public class My_DB extends SQLiteOpenHelper {
 
 
         //To Check If This Department Is Exist
-        Cursor cursor = db.rawQuery("SELECT  "+Department_col_name+", "+Department_col_code+" FROM "+Education_Table_Departments+" WHERE "+Department_col_name+"=? OR "+Department_col_code+"=? AND (" + Department_col_code + "!=?  AND " + Department_col_name + "!=?)", new String[]{ department.getName(), department.getCode(), codeBeforeUpdate,nameBeforeUpdate });
-        if(cursor.moveToFirst()){
+        // Check if the department name or code already exist, excluding the current record being updated
+        Cursor cursor = db.rawQuery("SELECT " + Department_col_name + ", " + Department_col_code + " FROM " + Education_Table_Departments + " WHERE (" + Department_col_name + "=? OR " + Department_col_code + "=?) AND (" + Department_col_code + "!=? OR " + Department_col_name + "!=?)", new String[]{ department.getName(), department.getCode(), codeBeforeUpdate, nameBeforeUpdate });        if(cursor.moveToFirst()){
             Toast.makeText(context, "Sorry Can't Edit ❌ , This Department's Name or Code Is Exist ❗", Toast.LENGTH_LONG).show();
         }
         else {

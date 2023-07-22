@@ -271,7 +271,6 @@ public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departme
 
 
                     boolean result = db.updateDepartment(department,code_before_update,name_before_update);
-                    Log.d("======================================================",code_before_update);
 
                     if(result == true){
                         departmentsArrayList.set(getAdapterPosition(), department);

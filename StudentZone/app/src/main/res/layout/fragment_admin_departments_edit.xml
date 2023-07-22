@@ -80,7 +80,6 @@
         android:layout_marginRight="20dp"
         android:maxLines="1"
         android:paddingRight="10dp"
-        android:enabled="false"
         android:textColorHint="@color/gray"/>
 
     <Button
