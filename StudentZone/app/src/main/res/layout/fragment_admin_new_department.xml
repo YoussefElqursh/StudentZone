@@ -56,11 +56,11 @@
         android:hint="Department Name"
         android:inputType="text"
         android:minHeight="48dp"
-        android:paddingLeft="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:maxLines="1"
-        android:paddingRight="1dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:textColorHint="@color/gray"
         android:drawableTint="@drawable/custom_et_selector"/>
 
@@ -76,10 +76,10 @@
         android:ems="10"
         android:hint="Department Code"
         android:inputType="text"
-        android:paddingLeft="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:maxLines="1"
+        android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
         android:drawableTint="@drawable/custom_et_selector"/>
