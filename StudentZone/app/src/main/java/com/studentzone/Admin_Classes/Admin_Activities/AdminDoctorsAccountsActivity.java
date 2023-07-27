@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,10 +29,9 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
     private Button btn_add_doctor, back_btn, btn_save_doctor, btn_close_add_doctor_dialog;
     private EditText et_add_new_doctor_name, et_add_new_doctor_password, et_add_new_doctor_email;
     private RadioGroup rg_gender;
-    private RadioButton rb_male_doctor, rb_female_doctor;
+    public RadioButton rb_male_doctor, rb_female_doctor;
     private String doctorName, doctorEmail, doctorPassword, doctorGender = "Male";
     private RecyclerView doctorRecyclerView;
-
 
 
     @Override
@@ -54,7 +54,7 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         setBackButtonAction(); // Go back to previous activity
         setDoctorGenderRadioGroupAction(); // Set gender of new doctor
         setSaveDoctorButtonAction(); // Save new doctor data to database
-        setCloseAddDoctorDialogButtonAction(); // Close the "add doctor" dialog
+        setCloseAddDoctorDialogButtonAction();// Close the "add doctor" dialog
     }
 
     /**inflate
@@ -86,61 +86,52 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
     /**show Bottom Sheet Dialog()
      **********************************************************************************************/
     public void setAddDoctorButtonAction() {
-        btn_add_doctor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btn_add_doctor.setOnClickListener(v -> {
 
-                addDoctorBottomSheetDialog.setContentView(addDoctorBottomSheetDialogView);
-                addDoctorBottomSheetDialog.show();
-            }
+            addDoctorBottomSheetDialog.setContentView(addDoctorBottomSheetDialogView);
+            addDoctorBottomSheetDialog.show();
         });
     }
 
     /** close Bottom Sheet Dialog()
      **********************************************************************************************/
     public void setCloseAddDoctorDialogButtonAction() {
-        btn_close_add_doctor_dialog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addDoctorBottomSheetDialog.dismiss();
-                clearAddDoctorDialogEditTextFields();
-                displayAllDoctors();
-            }
+        btn_close_add_doctor_dialog.setOnClickListener(v -> {
+            addDoctorBottomSheetDialog.dismiss();
+            clearAddDoctorDialogEditTextFields();
+            displayAllDoctors();
         });
     }
 
     /** check Validation Of Entered Data And save It()
      **********************************************************************************************/
     public void setSaveDoctorButtonAction() {
-        btn_save_doctor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btn_save_doctor.setOnClickListener(v -> {
 
-                doctorName = et_add_new_doctor_name.getText().toString().trim();
-                doctorEmail = et_add_new_doctor_email.getText().toString().trim();
-                doctorPassword = et_add_new_doctor_password.getText().toString().trim();
+            doctorName = et_add_new_doctor_name.getText().toString().trim();
+            doctorEmail = et_add_new_doctor_email.getText().toString().trim();
+            doctorPassword = et_add_new_doctor_password.getText().toString().trim();
 
 
-                if (TextUtils.isEmpty(doctorName)) {
-                    et_add_new_doctor_name.setError("Is Required !");
-                    return;
-                }
-                if (TextUtils.isEmpty(doctorEmail)) {
-                    et_add_new_doctor_email.setError("Is Required !");
-                    return;
-                }
-                if (!emailShouldEndsWithEdu(doctorEmail)) {
-                    et_add_new_doctor_email.setError("Should End With .edu");
-                    return;
-                }
-                if (TextUtils.isEmpty(doctorPassword)) {
-                    et_add_new_doctor_password.setError("Is Required !");
-                    return;
-                }
-                saveNewDoctorToDatabase();
-                clearAddDoctorDialogEditTextFields();
-                displayAllDoctors();
+            if (TextUtils.isEmpty(doctorName)) {
+                et_add_new_doctor_name.setError("Is Required !");
+                return;
             }
+            if (TextUtils.isEmpty(doctorEmail)) {
+                et_add_new_doctor_email.setError("Is Required !");
+                return;
+            }
+            if (!emailShouldEndsWithEdu(doctorEmail)) {
+                et_add_new_doctor_email.setError("Should End With .edu");
+                return;
+            }
+            if (TextUtils.isEmpty(doctorPassword)) {
+                et_add_new_doctor_password.setError("Is Required !");
+                return;
+            }
+            saveNewDoctorToDatabase();
+            clearAddDoctorDialogEditTextFields();
+            displayAllDoctors();
         });
     }
 
@@ -149,15 +140,12 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
      ******************************************************************************************/
     public void setDoctorGenderRadioGroupAction(){
 
-        rg_gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
+        rg_gender.setOnCheckedChangeListener((group, checkedId) -> {
 
-                if (checkedId == R.id.fragment_new_doctor_rb_male)
-                    doctorGender = "Male";
-                else if (checkedId == R.id.fragment_new_doctor_rb_female)
-                    doctorGender = "Female";
-            }
+            if (checkedId == R.id.fragment_new_doctor_rb_male)
+                doctorGender = "Male";
+            else if (checkedId == R.id.fragment_new_doctor_rb_female)
+                doctorGender = "Female";
         });
 
     }
@@ -184,7 +172,7 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         boolean added = db.addNewDoctor(doctor);
 
         if(added){
-            Toast.makeText(getBaseContext(), "Dr : "+doctor.getFName().toString()+" Is Successfully Saved ✔️", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getBaseContext(), "Dr : "+ doctor.getFName() +" Is Successfully Saved ✔️", Toast.LENGTH_SHORT).show();
             addDoctorBottomSheetDialog.dismiss();
         }
 
@@ -194,7 +182,7 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
     /** Special Validation For Email To End With .edu
      **********************************************************************************************/
     public static boolean emailShouldEndsWithEdu(String input) {
-        return TextUtils.isEmpty(input) ? false : input.endsWith(".edu");
+        return !TextUtils.isEmpty(input) && input.endsWith(".edu");
     }
 
 
@@ -221,5 +209,6 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         doctorRecyclerView.setLayoutManager(lm);
         doctorRecyclerView.setAdapter(adapter);
     }
+
 
 }

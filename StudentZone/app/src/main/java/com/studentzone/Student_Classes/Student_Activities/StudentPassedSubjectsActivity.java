@@ -36,20 +36,20 @@ public class StudentPassedSubjectsActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.student_passed_subjects_recycleview);
 
         List<SubjectModel> studentPassedSubjectModel = new ArrayList<SubjectModel>();
-        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
-        studentPassedSubjectModel.add(new SubjectModel("os","bad",R.drawable.ic_students));
+        studentPassedSubjectModel.add(new SubjectModel("Opearing System-1","15asda"));
+        studentPassedSubjectModel.add(new SubjectModel("Machine Learning","25dsf3"));
+        studentPassedSubjectModel.add(new SubjectModel("Computer Programming-1","4576as"));
+        studentPassedSubjectModel.add(new SubjectModel("Software Engineering","sdf257"));
+        studentPassedSubjectModel.add(new SubjectModel("Mathimatics-3","595sdf"));
+        studentPassedSubjectModel.add(new SubjectModel("Multimedia","d5e8r2"));
+        studentPassedSubjectModel.add(new SubjectModel("Information System","c5d9sd"));
+        studentPassedSubjectModel.add(new SubjectModel("Introduction","9sd64s"));
+        studentPassedSubjectModel.add(new SubjectModel("Opearing System-2","sdaf86"));
+        studentPassedSubjectModel.add(new SubjectModel("Computer Programming-2","74aswe"));
+        studentPassedSubjectModel.add(new SubjectModel("Mathimatics-2","123sdf"));
+        studentPassedSubjectModel.add(new SubjectModel("Computer Programming-3","69sder"));
+        studentPassedSubjectModel.add(new SubjectModel("Mobile Application","r6s95f"));
+        studentPassedSubjectModel.add(new SubjectModel("Mathimatics-1","123dfg"));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new SubjectAdapter(getApplicationContext(),studentPassedSubjectModel));

@@ -7,9 +7,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.studentzone.Data_Base.Courses;
 import com.studentzone.R;
 
 import java.util.List;
+import java.util.Locale;
 
 public class SubjectAdapter extends RecyclerView.Adapter<SubjectViewHolder>{
 
@@ -29,9 +31,19 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull SubjectViewHolder holder, int position) {
-        holder.subject_icon.setImageResource(studentSubjectModel.get(position).getSubject_icon());
+
+        SubjectModel course = studentSubjectModel.get(position);
+
+        String  abbreviation = "",courseName = course.subject_name;
+        String[] words = courseName.split(" ");
+        for (String word : words) {
+            char firstLetter = word.charAt(0);
+            abbreviation += firstLetter;
+        }
+
         holder.subject_name.setText(studentSubjectModel.get(position).getSubject_name());
         holder.subject_description.setText(studentSubjectModel.get(position).getSubject_description());
+        holder.tv_first_letter_of_course.setText(abbreviation.toUpperCase(Locale.ROOT));
     }
 
     @Override

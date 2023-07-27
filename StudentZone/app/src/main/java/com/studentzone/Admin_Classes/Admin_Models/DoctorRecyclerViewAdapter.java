@@ -5,12 +5,15 @@ import android.content.DialogInterface;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
@@ -24,27 +27,29 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.studentzone.Data_Base.Departments;
 import com.studentzone.Data_Base.Doctors;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecyclerViewAdapter.doctorViewHolder> {
     private ArrayList<Doctors> doctorsArrayList;
+
     private My_DB db;
     private BottomSheetDialog bottomSheetDialog;
     private View bottomSheetDialogView;
-    private EditText doctorName, doctorEmail, doctorPassword, doctorGender;
+    private EditText name, email, password, gender;
     private Button btn_save, btn_close;
     private RadioGroup rg;
     private RadioButton rb_male , rb_female;
     private AlertDialog.Builder builder;
     private Doctors doctor;
-    int flag = 0;
 
-
-    public DoctorRecyclerViewAdapter(Context context, ArrayList<Doctors> doctorsArrayList) {
+    public DoctorRecyclerViewAdapter(Context context,ArrayList<Doctors> doctorsArrayList) {
         this.doctorsArrayList = doctorsArrayList;
         this.db = new My_DB(context);
         this.bottomSheetDialog = new BottomSheetDialog(context);
@@ -98,10 +103,6 @@ public class DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecycl
             ib_more.setOnClickListener(this);
         }
 
-        /** setDoctorData()
-         * Sets the data for a doctor by populating the appropriate views with the doctor's information.
-         * Additionally, it assigns an onClickListener to the itemView to display detailed doctor information when clicked.
-         **********************************************************************************************/
         public void bind(Doctors doctor) {
 
             tv_doctor_name.setText(doctor.getFName());
@@ -115,21 +116,21 @@ public class DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecycl
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    displayDoctorDetailsDialog(doctor);
+                    showDoctorDetailsDialog(doctor);
                 }
             });
         }
 
         @Override
         public void onClick(View v) {
-            displayPopupMenu(v);
+            showPopupMenu(v);
         }
 
-        /** displayPopupMenu ()
+        /** showPopupMenu ()
          *  This method that shows a popup menu with the options to edit or delete a doctor ,
          *  when the user clicks on the more button in the doctor's card view.
          *  **********************************************************************************************/
-        private void displayPopupMenu(View view){
+        private void showPopupMenu(View view){
             PopupMenu popupMenu = new PopupMenu(view.getContext(), view);
             popupMenu.inflate(R.menu.models_ibtn_more_menu);
             popupMenu.setOnMenuItemClickListener(this);
@@ -146,35 +147,35 @@ public class DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecycl
 
             switch (item.getItemId()) {
                 case R.id.models_ibtn_menu_edit:
-                    displayEditDoctorDialog(doctor);
+                    showEditDoctorDialog(doctor);
                     return true;
                 case R.id.models_ibtn_menu_delete:
-                    displayDeleteConfirmationDialog(doctor);
+                    showDeleteConfirmationDialog(doctor);
                     return true;
                 default:
                     return false;
             }
         }
 
-        /** displayDoctorDetailsDialog ()
+        /** showDoctorDetailsDialog ()
          *  This method shows a bottom sheet dialog with the details of a doctor when the user clicks on the doctor's card view.
          *  It inflates a layout for displaying the details of a doctor and sets the text of the views in the layout to the corresponding data of the doctor.
          *  It also sets a click listener on the close button to dismiss the dialog.
          **********************************************************************************************/
-        private void displayDoctorDetailsDialog(Doctors doctor) {
+        private void showDoctorDetailsDialog(Doctors doctor) {
             bottomSheetDialog = new BottomSheetDialog(itemView.getContext(), R.style.BottomSheetStyle);
             bottomSheetDialogView = LayoutInflater.from(itemView.getContext()).inflate(R.layout.fragment_admin_doctors_accouts_show, null, false);
 
-            doctorName = bottomSheetDialogView.findViewById(R.id.fragment_show_doctor_et_doctor_name);
-            doctorEmail = bottomSheetDialogView.findViewById(R.id.fragment_show_doctor_et_doctor_email);
-            doctorPassword = bottomSheetDialogView.findViewById(R.id.fragment_show_doctor_et_doctor_password);
-            doctorGender = bottomSheetDialogView.findViewById(R.id.fragment_show_doctor_et_doctor_gender);
+            name = bottomSheetDialogView.findViewById(R.id.fragment_show_doctor_et_doctor_name);
+            email = bottomSheetDialogView.findViewById(R.id.fragment_show_doctor_et_doctor_email);
+            password = bottomSheetDialogView.findViewById(R.id.fragment_show_doctor_et_doctor_password);
+            gender = bottomSheetDialogView.findViewById(R.id.fragment_show_doctor_et_doctor_gender);
             btn_close = bottomSheetDialogView.findViewById(R.id.fragment_show_doctor_btn_close);
 
-            doctorName.setText(doctor.getFName());
-            doctorEmail.setText(doctor.getEmail());
-            doctorPassword.setText(doctor.getPassword());
-            doctorGender.setText(doctor.getGender());
+            name.setText(doctor.getFName());
+            email.setText(doctor.getEmail());
+            password.setText(doctor.getPassword());
+            gender.setText(doctor.getGender());
 
             btn_close.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -187,20 +188,20 @@ public class DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecycl
             bottomSheetDialog.show();
         }
 
-        /**displayEditDoctorDialog ()
+        /**showEditDoctorDialog ()
          * method shows a bottom sheet dialog for editing a doctor's information.
          * It inflates a layout for editing a doctor's information and sets the text of the views in the layout to the corresponding data of the doctor.
          * It also sets click listeners on the save and close buttons.
          * If the user clicks the save button, the data of the doctor is updated, and the updateDoctor method is called on the My_DB object to update the doctor's information in the database.
          * The doctor's data in the doctorsArrayList is also updated, and the RecyclerView is notified of the change.
          **********************************************************************************************/
-        private void displayEditDoctorDialog(Doctors doctor) {
+        private void showEditDoctorDialog(Doctors doctor) {
             bottomSheetDialog = new BottomSheetDialog(itemView.getContext(), R.style.BottomSheetStyle);
             bottomSheetDialogView = LayoutInflater.from(itemView.getContext()).inflate(R.layout.fragment_admin_doctors_accouts_edit, null, false);
 
-            doctorName = bottomSheetDialogView.findViewById(R.id.fragment_edit_doctor_et_doctor_name);
-            doctorEmail = bottomSheetDialogView.findViewById(R.id.fragment_edit_doctor_et_doctor_email);
-            doctorPassword = bottomSheetDialogView.findViewById(R.id.fragment_edit_doctor_et_doctor_password);
+            name = bottomSheetDialogView.findViewById(R.id.fragment_edit_doctor_et_doctor_name);
+            email = bottomSheetDialogView.findViewById(R.id.fragment_edit_doctor_et_doctor_email);
+            password = bottomSheetDialogView.findViewById(R.id.fragment_edit_doctor_et_doctor_password);
             btn_save = bottomSheetDialogView.findViewById(R.id.fragment_edit_doctor_btn_save);
             btn_close = bottomSheetDialogView.findViewById(R.id.fragment_edit_doctor_btn_close);
 
@@ -208,51 +209,17 @@ public class DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecycl
             rb_male = bottomSheetDialogView.findViewById(R.id.fragment_edit_doctor_rb_male);
             rb_female = bottomSheetDialogView.findViewById(R.id.fragment_edit_doctor_rb_female);
 
-
-            //This Lines To FillOut Text Fields With doctor Data
-            doctorName.setText(doctor.getFName());
-            doctorEmail.setText(doctor.getEmail());
-            doctorPassword.setText(doctor.getPassword());
-
-            //This Lines To Check Radio Button Which Detect The Gender Of Student
-            if (doctor.getGender().equals("Male") && doctor.getGender() != null) {
-                rb_male.setChecked(true);
-            } else if (doctor.getGender().equals("Female") && doctor.getGender() != null) {
-                rb_female.setChecked(true);
-            }
-
-            //We Will Put it disabled until user edit any data of this doctor
             btn_save.setEnabled(false);
 
+            name.setText(doctor.getFName());
+            email.setText(doctor.getEmail());
+            password.setText(doctor.getPassword());
 
-            // Keep track of the original doctor name , pass
+            // Keep track of the original department name and code
             String originalName = doctor.getFName();
+            String originalEmail = doctor.getEmail();
             String originalPassword = doctor.getPassword();
-            String originalGender = doctor.getGender();
 
-
-            // Add listener to the radio group to enable the save button when the user changes the gender
-            rg.setOnCheckedChangeListener((group, checkedId) -> {
-                if (checkedId == rb_male.getId()) {
-                    if (!doctor.getGender().equals("Male") || !(doctorName.getText().toString().equals(originalName)  && doctorPassword.getText().toString().equals(originalPassword) )) {
-                        btn_save.setEnabled(true);
-                        flag = 1;
-                    }
-                    else {
-                        btn_save.setEnabled(false);
-                        flag = 0;
-                    }
-                } else if (checkedId == rb_female.getId()) {
-                    if (!doctor.getGender().equals("Female") || !(doctorName.getText().toString().equals(originalName) && doctorPassword.getText().toString().equals(originalPassword) )) {
-                        btn_save.setEnabled(true);
-                        flag = 1;
-                    }
-                    else {
-                        btn_save.setEnabled(false);
-                        flag = 0;
-                    }
-                }
-            });
 
             /*
              *  textWatcher monitor changes in the name, email,and password fields of a form.
@@ -269,29 +236,44 @@ public class DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecycl
                 @Override
                 public void afterTextChanged(Editable s) {
                     // Enable the save button if the text has changed from the original values
-                    if (!(doctorName.getText().toString().equals(originalName) &&  doctorPassword.getText().toString().equals(originalPassword)) || flag == 1) {
+                    if (!(name.getText().toString().equals(originalName) &&
+                            email.getText().toString().equals(originalEmail) && password.getText().toString().equals(originalPassword) )) {
                         btn_save.setEnabled(true);
                     } else {
                         btn_save.setEnabled(false);
-                    }
-                    if(doctorName.getText().toString().equals(originalName) &&  doctorPassword.getText().toString().equals(originalPassword) && doctor.getGender().equals(originalGender) )
-                        btn_save.setEnabled(false);
-                    else
-                        btn_save.setEnabled(true);
-
+                    };
                 }
             };
-
               /*
                * The addTextChangedListener method is then called on each of the relevant EditText fields with textWatcher as the argument.
                * This sets up the TextWatcher instance to monitor changes to each field.
                **/
-               doctorName.addTextChangedListener(textWatcher);
-               doctorPassword.addTextChangedListener(textWatcher);
+               name.addTextChangedListener(textWatcher);
+               email.addTextChangedListener(textWatcher);
+               password.addTextChangedListener(textWatcher);
 
 
 
-            //This is the action of close the bottomSheetDialogView of edit doctor
+            // Add listener to the radio group to enable the save button when the user changes the gender
+            rg.setOnCheckedChangeListener((group, checkedId) -> {
+                if (checkedId == rb_male.getId()) {
+                    if (!doctor.getGender().equals("Male")) {
+                        btn_save.setEnabled(true);
+                    }
+                } else if (checkedId == rb_female.getId()) {
+                    if (!doctor.getGender().equals("Female")) {
+                        btn_save.setEnabled(true);
+                    }
+                }
+            });
+
+
+            if (doctor.getGender().equals("Male") && doctor.getGender() != null) {
+                rb_male.setChecked(true);
+            } else if (doctor.getGender().equals("Female") && doctor.getGender() != null) {
+                rb_female.setChecked(true);
+            }
+
             btn_close.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -299,23 +281,10 @@ public class DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecycl
                 }
             });
 
-            //This is the action of save the changed data or edited data  of doctor
             btn_save.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-
-                    //This lines to remember the user to enter data in student name and pass
-                    if (TextUtils.isEmpty(doctorName.getText().toString().trim())) {
-                        doctorName.setError("Is Required !");
-                        return;
-                    }
-                    if (TextUtils.isEmpty(doctorPassword.getText().toString().trim())) {
-                        doctorPassword.setError("Is Required !");
-                        return;
-                    }
-
-                    //This lines to send edited doctor to data base across pass new instance of doctor to db.updateDoctor
                     String gender = "";
                     if (rb_male.isChecked()) {
                         gender = "Male";
@@ -323,15 +292,20 @@ public class DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecycl
                         gender = "Female";
                     }
 
-                    doctor.setFName(doctorName.getText().toString());
-                    doctor.setEmail(doctorEmail.getText().toString());
-                    doctor.setPassword(doctorPassword.getText().toString());
+                    doctor.setFName(name.getText().toString());
+                    doctor.setEmail(email.getText().toString());
+                    doctor.setPassword(password.getText().toString());
                     doctor.setGender(gender);
 
+                    if (TextUtils.isEmpty(name.getText().toString().trim())) {
+                        name.setError("Is Required !");
+                        return;
+                    }
+                    if (TextUtils.isEmpty(password.getText().toString().trim())) {
+                        password.setError("Is Required !");
+                        return;
+                    }
 
-
-
-                    //this lines to change the doctor icon if user changed it
                     if (doctor.getGender() != null && doctor.getGender().equals("Male")) {
                         iv.setImageResource(R.drawable.ic_male_doctor);
                     } else {
@@ -353,11 +327,7 @@ public class DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecycl
             bottomSheetDialog.show();
         }
 
-
-        /** displayDeleteConfirmationDialog()
-         *  to show a confirmation dialog to the user before deleting a student.
-         **********************************************************************************************/
-        private void displayDeleteConfirmationDialog(Doctors doctor) {
+        private void showDeleteConfirmationDialog(Doctors doctor) {
             builder.setMessage("Are you sure you want to delete this doctor's information?")
                     .setCancelable(false)
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {

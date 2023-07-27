@@ -35,20 +35,20 @@ public class StudentSubjectActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.student_subject_recycleview);
 
         List<SubjectModel>studentSubjectModel = new ArrayList<SubjectModel>();
-        studentSubjectModel.add(new SubjectModel("Opearing System-1","15asda",R.drawable.ic_book_1));
-        studentSubjectModel.add(new SubjectModel("Machine Learning","25dsf3",R.drawable.ic_book_1));
-        studentSubjectModel.add(new SubjectModel("Computer Programming-1","4576as",R.drawable.ic_book_1));
-        studentSubjectModel.add(new SubjectModel("Software Engineering","sdf257",R.drawable.ic_book_1));
-        studentSubjectModel.add(new SubjectModel("Mathimatics-3","595sdf",R.drawable.ic_book_1));
-        studentSubjectModel.add(new SubjectModel("Multimedia","d5e8r2",R.drawable.ic_book_1));
-        studentSubjectModel.add(new SubjectModel("Information System","c5d9sd",R.drawable.ic_book_1));
-        studentSubjectModel.add(new SubjectModel("Introduction","9sd64s",R.drawable.ic_book_1));
-        studentSubjectModel.add(new SubjectModel("Opearing System-2","sdaf86",R.drawable.ic_book_1));
-        studentSubjectModel.add(new SubjectModel("Computer Programming-2","74aswe",R.drawable.ic_book_1));
-        studentSubjectModel.add(new SubjectModel("Mathimatics-2","123sdf",R.drawable.ic_book_1));
-        studentSubjectModel.add(new SubjectModel("Computer Programming-3","69sder",R.drawable.ic_book_1));
-        studentSubjectModel.add(new SubjectModel("Mobile Application","r6s95f",R.drawable.ic_book_1));
-        studentSubjectModel.add(new SubjectModel("Mathimatics-1","123dfg",R.drawable.ic_book_1));
+        studentSubjectModel.add(new SubjectModel("Opearing System-1","15asda"));
+        studentSubjectModel.add(new SubjectModel("Machine Learning","25dsf3"));
+        studentSubjectModel.add(new SubjectModel("Computer Programming-1","4576as"));
+        studentSubjectModel.add(new SubjectModel("Software Engineering","sdf257"));
+        studentSubjectModel.add(new SubjectModel("Mathimatics-3","595sdf"));
+        studentSubjectModel.add(new SubjectModel("Multimedia","d5e8r2"));
+        studentSubjectModel.add(new SubjectModel("Information System","c5d9sd"));
+        studentSubjectModel.add(new SubjectModel("Introduction","9sd64s"));
+        studentSubjectModel.add(new SubjectModel("Opearing System-2","sdaf86"));
+        studentSubjectModel.add(new SubjectModel("Computer Programming-2","74aswe"));
+        studentSubjectModel.add(new SubjectModel("Mathimatics-2","123sdf"));
+        studentSubjectModel.add(new SubjectModel("Computer Programming-3","69sder"));
+        studentSubjectModel.add(new SubjectModel("Mobile Application","r6s95f"));
+        studentSubjectModel.add(new SubjectModel("Mathimatics-1","123dfg"));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new SubjectAdapter(getApplicationContext(),studentSubjectModel));

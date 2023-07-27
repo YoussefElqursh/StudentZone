@@ -49,7 +49,6 @@ public class SubjectRecyclerViewAdapter extends RecyclerView.Adapter<SubjectRecy
         holder.tv_course_name.setText(course.getName());
         holder.tv_course_code.setText(course.getCode());
         holder.tv_first_letter_of_course.setText(abbreviation.toUpperCase(Locale.ROOT));
-//      holder.iv.setImageResource(student.getImage);
 
     }
 
