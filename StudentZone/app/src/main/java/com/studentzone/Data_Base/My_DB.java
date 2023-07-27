@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 import android.widget.Toast;
 
 
@@ -359,10 +358,10 @@ public class My_DB extends SQLiteOpenHelper {
         return result !=-1;
     }
 
-    /**show All Students()
+    /**displayAllStudents()
      **********************************************************************************************/
     @SuppressLint("Range")
-    public ArrayList<Students> showAllStudents(){
+    public ArrayList<Students> displayAllStudents(){
 
         ArrayList<Students> studentsArrayList = new ArrayList<>();
 
@@ -411,7 +410,7 @@ public class My_DB extends SQLiteOpenHelper {
         return result > 0;
     }
 
-    /**Delete Student()
+    /**deleteStudent()
      **********************************************************************************************/
     public boolean deleteStudent(String email){
 

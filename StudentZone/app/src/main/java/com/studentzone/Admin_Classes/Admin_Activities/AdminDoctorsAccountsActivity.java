@@ -15,7 +15,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.studentzone.Admin_Classes.Admin_Models.doctorRecyclerViewAdapter;
+import com.studentzone.Admin_Classes.Admin_Models.DoctorRecyclerViewAdapter;
 import com.studentzone.Data_Base.Doctors;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
@@ -214,7 +214,7 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
 
         ArrayList<Doctors> doctorsArrayList1 = db.showAllDoctors();
 
-        doctorRecyclerViewAdapter adapter = new doctorRecyclerViewAdapter(this, doctorsArrayList1);
+        DoctorRecyclerViewAdapter adapter = new DoctorRecyclerViewAdapter(this, doctorsArrayList1);
         RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
 
         doctorRecyclerView.setHasFixedSize(true);

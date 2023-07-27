@@ -2,7 +2,6 @@ package com.studentzone.Admin_Classes.Admin_Models;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -33,7 +32,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departmentRecyclerViewAdapter.departmentViewHolder>implements Filterable
+public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<DepartmentRecyclerViewAdapter.departmentViewHolder>implements Filterable
 {
 
     private ArrayList<Departments> departmentsArrayList;
@@ -49,7 +48,7 @@ public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departme
     private String code_before_update,name_before_update;
 
 
-    public departmentRecyclerViewAdapter(Context context, ArrayList<Departments> departmentsArrayList)
+    public DepartmentRecyclerViewAdapter(Context context, ArrayList<Departments> departmentsArrayList)
     {
         this.departmentsArrayList = departmentsArrayList;
         this.db = new My_DB(context);
@@ -74,7 +73,7 @@ public class departmentRecyclerViewAdapter extends RecyclerView.Adapter<departme
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull departmentRecyclerViewAdapter.departmentViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull DepartmentRecyclerViewAdapter.departmentViewHolder holder, int position) {
 
         department = departmentsArrayList.get(position);
 

@@ -1,12 +1,10 @@
 package com.studentzone.Admin_Classes.Admin_Activities;
 
-import android.text.TextUtils;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,7 +14,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 //import com.studentzone.Admin_Calsses.Admin_Models.Admin_Department_Model.AdminDepartmentModel;
 //import com.studentzone.Admin_Calsses.Admin_Models.Admin_Subject_Model.AdminSubjectAdapter;
 //import com.studentzone.Admin_Calsses.Admin_Models.Admin_Subject_Model.AdminSubjectModel;
-import com.studentzone.Admin_Classes.Admin_Models.subjectRecyclerViewAdapter;
+import com.studentzone.Admin_Classes.Admin_Models.SubjectRecyclerViewAdapter;
 import com.studentzone.Data_Base.Courses;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
@@ -128,7 +126,7 @@ public class AdminSubjectsActivity extends AppCompatActivity {
 
         ArrayList<Courses> coursesArrayList = db.showCourses();
 
-        subjectRecyclerViewAdapter adapter = new subjectRecyclerViewAdapter(coursesArrayList);
+        SubjectRecyclerViewAdapter adapter = new SubjectRecyclerViewAdapter(coursesArrayList);
         RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
 
         rv.setHasFixedSize(true);

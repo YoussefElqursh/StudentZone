@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -18,7 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.studentzone.Admin_Classes.Admin_Models.studentRecyclerViewAdapter;
+import com.studentzone.Admin_Classes.Admin_Models.StudentRecyclerViewAdapter;
 import com.studentzone.Data_Base.My_DB;
 //import com.studentzone.Admin_Calsses.Admin_Models.Admin_Student_Model.studentRecyclerViewAdapter;
 import com.studentzone.Data_Base.Students;
@@ -222,9 +221,9 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
 
         My_DB db = new My_DB(getBaseContext());
 
-        ArrayList<Students> studentsArrayList = db.showAllStudents();
+        ArrayList<Students> studentsArrayList = db.displayAllStudents();
 
-        studentRecyclerViewAdapter adapter = new studentRecyclerViewAdapter(this, studentsArrayList);
+        StudentRecyclerViewAdapter adapter = new StudentRecyclerViewAdapter(this, studentsArrayList);
         RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
 
         rv.setHasFixedSize(true);

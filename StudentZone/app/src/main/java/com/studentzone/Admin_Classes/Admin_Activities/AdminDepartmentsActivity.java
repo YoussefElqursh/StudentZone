@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.studentzone.Admin_Classes.Admin_Models.departmentRecyclerViewAdapter;
+import com.studentzone.Admin_Classes.Admin_Models.DepartmentRecyclerViewAdapter;
 import com.studentzone.Data_Base.Departments;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
@@ -30,7 +30,7 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
     private RecyclerView departmentRecyclerView;
     private EditText et_add_new_department_name, et_add_new_department_code;
     private Button btn_add_department, btn_back, btn_save_department, btn_close_add_department_dialog;
-    private departmentRecyclerViewAdapter adapter;
+    private DepartmentRecyclerViewAdapter adapter;
     private String departmentName, departmentCode;
 
 
@@ -175,9 +175,9 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
 
         ArrayList<Departments> departmentsArrayList = db.showDepartments();
 
-        adapter = new departmentRecyclerViewAdapter(AdminDepartmentsActivity.this,departmentsArrayList); // assign to adapter variable
+        adapter = new DepartmentRecyclerViewAdapter(AdminDepartmentsActivity.this,departmentsArrayList); // assign to adapter variable
 
-        departmentRecyclerViewAdapter adapter = new departmentRecyclerViewAdapter(AdminDepartmentsActivity.this,departmentsArrayList);
+        DepartmentRecyclerViewAdapter adapter = new DepartmentRecyclerViewAdapter(AdminDepartmentsActivity.this,departmentsArrayList);
         RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
 
         departmentRecyclerView.setHasFixedSize(true);
