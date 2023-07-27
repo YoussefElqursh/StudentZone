@@ -62,9 +62,9 @@ public class AdminSubjectsActivity extends AppCompatActivity {
 
         btm_sheet_dia_et_sub_name = bottomSheetDialogView.findViewById(R.id.fragment_new_subject_et_name);
         btm_sheet_dia_et_sub_code = bottomSheetDialogView.findViewById(R.id.fragment_new_subject_et_code);
-        btm_sheet_dia_et_subject_department = bottomSheetDialogView.findViewById(R.id.fragment_new_subject_et_department);
-        btm_sheet_dia_et_subject_doctor = bottomSheetDialogView.findViewById(R.id.fragment_new_subject_et_doctor);
-        btm_sheet_dia_et_subject_previous = bottomSheetDialogView.findViewById(R.id.fragment_new_subject_et_previous);
+//        btm_sheet_dia_et_subject_department = bottomSheetDialogView.findViewById(R.id.fragment_new_subject_et_department);
+//        btm_sheet_dia_et_subject_doctor = bottomSheetDialogView.findViewById(R.id.fragment_new_subject_et_doctor);
+//        btm_sheet_dia_et_subject_previous = bottomSheetDialogView.findViewById(R.id.fragment_new_subject_et_previous);
 
         rv = findViewById(R.id.activity_admin_subjects_recycleView);
     }
