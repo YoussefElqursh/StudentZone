@@ -1,26 +1,38 @@
 package com.studentzone.Doctor_Classes.Doctor_Activities;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.material.navigation.NavigationView;
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
 
-public class DoctorHomeActivity extends AppCompatActivity {
+public class DoctorHomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     CardView cv_subjects;
     Button btn_logout, btn_profile;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
     TextView profileName ;
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    ActionBarDrawerToggle toggle;
+    Toolbar toolbar;
+    Menu menu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,16 +40,19 @@ public class DoctorHomeActivity extends AppCompatActivity {
 
         inflate();
         subjectsCardViewClickAction();
-        logOutConfirmationDialog();
-        buttonProfileAction();
+//        logOutConfirmationDialog();
+//        buttonProfileAction();
+        drawerToggleButtonAction();
     }
 
     /** Inflate
      ******************************************************************************************/
     public void inflate(){
         cv_subjects = findViewById(R.id.activity_doctor_home_cv_subjects);
-        btn_logout = findViewById(R.id.activity_doctor_home_btn_logout);
-
+//        btn_logout = findViewById(R.id.activity_doctor_home_btn_logout);
+        drawerLayout = findViewById(R.id.activity_doctor_home_drl);
+        navigationView = findViewById(R.id.activity_doctor_home_nav_drawer);
+        toolbar = findViewById(R.id.activity_doctor_home_tb);
     }
 
 
@@ -90,8 +105,8 @@ public class DoctorHomeActivity extends AppCompatActivity {
      * buttonProfileAction()
      **********************************************************************************************/
     public void buttonProfileAction() {
-        btn_profile = findViewById(R.id.activity_doctor_home_btn_profile);
-        profileName = findViewById(R.id.activity_doctor_home_tv_profileName);
+//        btn_profile = findViewById(R.id.activity_doctor_home_btn_profile);
+//        profileName = findViewById(R.id.activity_doctor_home_tv_profileName);
 
         preferences = getSharedPreferences("userName",MODE_PRIVATE);
         String name = preferences.getString("fName", "")+preferences.getString("lName", "");
@@ -108,6 +123,24 @@ public class DoctorHomeActivity extends AppCompatActivity {
                     profileName.setVisibility(View.VISIBLE);
             }
         });
+    }
 
+    /**
+     * drawerToggleButtonAction()
+     **********************************************************************************************/
+    public void drawerToggleButtonAction(){
+        setSupportActionBar(toolbar);
+        menu = navigationView.getMenu();
+        navigationView.getHeaderView(0);
+        navigationView.bringToFront();
+        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav, R.string.close_nav);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+        getSupportActionBar().setHomeButtonEnabled(true);
+        navigationView.setNavigationItemSelectedListener(this);
+    }
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        return false;
     }
 }
