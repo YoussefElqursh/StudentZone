@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.studentzone.R;
 
 import java.util.List;
+import java.util.Locale;
 
 public class SubjectRegestrationAdapter extends RecyclerView.Adapter<SubjectRegestrationViewHolder> {
 
@@ -30,7 +31,18 @@ public class SubjectRegestrationAdapter extends RecyclerView.Adapter<SubjectRege
     @Override
     public void onBindViewHolder(@NonNull SubjectRegestrationViewHolder holder, int position) {
 
-        holder.subject_name.setText(subjectRegestrationModel.get(position).getSubject_name());
+        SubjectRegestrationModel course = subjectRegestrationModel.get(position);
+
+        String  abbreviation = "",courseName = course.subject_name;
+        String[] words = courseName.split(" ");
+        for (String word : words) {
+            char firstLetter = word.charAt(0);
+            abbreviation += firstLetter;
+        }
+
+        holder.subject_name.setText(subjectRegestrationModel.get(position).subject_name);
+        holder.subject_code.setText(subjectRegestrationModel.get(position).subject_code);
+        holder.tv_first_letter_of_course.setText(abbreviation.toUpperCase(Locale.ROOT));
     }
 
     @Override
