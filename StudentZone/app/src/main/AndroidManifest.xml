@@ -15,6 +15,9 @@
         android:theme="@style/Theme.StudentZone"
         tools:targetApi="31">
         <activity
+            android:name=".Doctor_Classes.Doctor_Activities.DoctorStudentDegree"
+            android:exported="false" />
+        <activity
             android:name=".Doctor_Classes.Doctor_Activities.DoctorAssessStudentActivity"
             android:exported="false" />
         <activity
