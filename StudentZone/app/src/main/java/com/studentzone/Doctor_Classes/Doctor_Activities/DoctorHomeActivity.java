@@ -23,7 +23,7 @@ import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
 
 public class DoctorHomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-    CardView cv_subjects;
+    CardView cv_subjects,cv_assessStudent;
     Button btn_logout, btn_profile;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
@@ -40,8 +40,7 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
 
         inflate();
         subjectsCardViewClickAction();
-//        logOutConfirmationDialog();
-//        buttonProfileAction();
+        assessStudentCardViewClickAction();
         drawerToggleButtonAction();
     }
 
@@ -49,7 +48,7 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
      ******************************************************************************************/
     public void inflate(){
         cv_subjects = findViewById(R.id.activity_doctor_home_cv_subjects);
-//        btn_logout = findViewById(R.id.activity_doctor_home_btn_logout);
+        cv_assessStudent = findViewById(R.id.activity_doctor_home_cv_assessStudent);
         drawerLayout = findViewById(R.id.activity_doctor_home_drl);
         navigationView = findViewById(R.id.activity_doctor_home_nav_drawer);
         toolbar = findViewById(R.id.activity_doctor_home_tb);
@@ -61,6 +60,16 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(DoctorHomeActivity.this, DoctorSubjectsActivity.class));
+
+            }
+        });
+    }
+
+    public void assessStudentCardViewClickAction() {
+        cv_assessStudent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DoctorHomeActivity.this, DoctorAssessStudentActivity.class));
 
             }
         });

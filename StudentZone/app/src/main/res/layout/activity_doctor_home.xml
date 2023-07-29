@@ -95,7 +95,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/activity_doctor_home_cv_soon"
+                android:id="@+id/activity_doctor_home_cv_assessStudent"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_rowWeight="1"
@@ -108,21 +108,21 @@
                 android:clickable="true">
 
                 <LinearLayout
-                    android:id="@+id/activity_doctor_home_ll_soon"
+                    android:id="@+id/activity_doctor_home_ll_assessStudent"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="30dp"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/activity_doctor_home_iv_soon"
+                        android:id="@+id/activity_doctor_home_iv_assessStudent"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/ic_subjects" />
 
                     <TextView
-                        android:id="@+id/activity_doctor_home_tv_soon"
+                        android:id="@+id/activity_doctor_home_tv_assessStudent"
                         android:layout_width="104dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -130,7 +130,7 @@
                         android:layout_marginTop="15dp"
                         android:layout_marginRight="5dp"
                         android:gravity="center"
-                        android:text="Soon"
+                        android:text="Assess Student"
                         android:textColor="@color/dark_blue"
                         android:textSize="17sp"
                         android:textStyle="bold"/>
