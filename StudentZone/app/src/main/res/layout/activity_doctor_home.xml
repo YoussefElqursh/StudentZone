@@ -119,7 +119,7 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/ic_subjects" />
+                        android:src="@drawable/ic_passed_subject" />
 
                     <TextView
                         android:id="@+id/activity_doctor_home_tv_assessStudent"
