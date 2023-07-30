@@ -4,11 +4,10 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_admin_doctor_model_container"
-    android:layout_marginBottom="20dp">
+    android:id="@+id/activity_doctor_subject_grades_model_container">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/activity_admin_doctor_cv"
+        android:id="@+id/activity_doctor_subject_grades_cv"
         android:layout_width="match_parent"
         android:layout_height="65dp"
         app:cardBackgroundColor="#F8F8F7"
@@ -24,7 +23,7 @@
             android:layout_height="match_parent">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/activity_admin_doctor_iv_cv"
+                android:id="@+id/activity_doctor_subject_grades_iv_cv"
                 app:cardCornerRadius="10dp"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
@@ -38,54 +37,43 @@
                     android:layout_gravity="center"
                     android:gravity="center">
 
-                    <ImageView
-                        android:id="@+id/activity_admin_doctor_iv"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="5dp"
-                        android:gravity="center"
-                        app:srcCompat="@drawable/ic_male_doctor"/>
+                    <TextView
+                        android:id="@+id/activity_doctor_subject_grades_tv_sn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:text="SN"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:maxLength="2"/>
 
                 </RelativeLayout>
 
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/activity_admin_doctor_tv_doctor_name"
+                android:id="@+id/activity_doctor_subject_grades_tv_sub_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="12dp"
-                android:layout_toRightOf="@id/activity_admin_doctor_iv_cv"
-                android:text="Doctor Name"
+                android:layout_toRightOf="@id/activity_doctor_subject_grades_iv_cv"
+                android:text="Subject Name"
                 android:maxLines="1"
                 android:textColor="@color/dark_blue"
                 android:textSize="16sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/activity_admin_doctor_tv_doctor_code"
+                android:id="@+id/activity_doctor_subject_grades_tv_sub_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
-                android:layout_marginTop="33dp"
-                android:layout_toRightOf="@id/activity_admin_doctor_iv_cv"
+                android:layout_marginTop="32dp"
+                android:layout_toRightOf="@id/activity_doctor_subject_grades_iv_cv"
                 android:maxLines="1"
-                android:text="Doctor Code"
-                android:textColor="@color/dark_blue"/>
-
-            <ImageButton
-                android:id="@+id/activity_admin_doctor_ibtn_more"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="3dp"
-                android:background="@drawable/custom_ibtn_more"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:src="@drawable/ic_more"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                android:text="Subject Code"
+                android:textColor="@color/dark_blue" />
 
         </RelativeLayout>
 

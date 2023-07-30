@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Doctor_Classes.Doctor_Activities.DoctorStudentDegree">
-
+    tools:context=".Doctor_Classes.Doctor_Activities.DoctorAssessStudentActivity"
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/activity_doctor_student_degree_tbar"
+        android:id="@+id/activity_doctor_assessStudent_tbar"
         android:layout_width="415dp"
         android:layout_height="wrap_content"
         android:layout_marginRight="5dp"
@@ -19,7 +18,7 @@
         app:menu="@menu/activity_admin_departments_sv_menu">
 
         <Button
-            android:id="@+id/activity_doctor_student_degree_btn_back"
+            android:id="@+id/activity_doctor_assessStudent_btn_back"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="35dp"
             android:layout_height="35dp"
@@ -35,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:text="Student Degrees"
+            android:text="Student Assessment"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -43,14 +42,14 @@
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
-        android:id="@+id/activity_doctor_student_degree_ll_main"
+        android:id="@+id/activity_doctor_assessStudent_ll_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/blue"
         android:orientation="vertical">
 
         <RelativeLayout
-            android:id="@+id/activity_doctor_student_degree_rl_1"
+            android:id="@+id/activity_doctor_assessStudent_rl_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/custom_cv"
@@ -59,9 +58,11 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/activity_doctor_student_degree_recycleView"
+                android:id="@+id/activity_doctor_assessStudent_recycleView"
                 android:layout_marginTop="5dp"/>
 
         </RelativeLayout>
+
     </LinearLayout>
+
 </LinearLayout>
