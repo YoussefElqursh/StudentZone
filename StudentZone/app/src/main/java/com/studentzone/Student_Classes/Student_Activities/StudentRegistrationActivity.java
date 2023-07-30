@@ -19,16 +19,24 @@ import java.util.List;
 public class StudentRegistrationActivity extends AppCompatActivity {
 
     Button btn_back;
+    Button btn_After_Registration;
     My_DB my_db=new My_DB( this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_registration);
         buttonBackAction();
+        buttonAfterRegistration();
 
 //        SubjectRegestedRecyclerView();
         ArrayList<String> name_course = my_db.Get_all_courses_for_student();
         SubjectRegestrationRecyclerView(name_course);
+    }
+    public void buttonAfterRegistration(){
+        btn_After_Registration=findViewById(R.id.fragment_new_department_btn_save);
+        btn_After_Registration.setOnClickListener(view -> startActivity(new Intent(StudentRegistrationActivity.this,StudentSubjectActivity.class)));
+
+
     }
 
     public void buttonBackAction(){
