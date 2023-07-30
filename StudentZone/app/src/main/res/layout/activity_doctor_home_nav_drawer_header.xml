@@ -1,62 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_marginBottom="20dp">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sd"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="140dp"
         android:background="@drawable/custom_drawer_header_bg"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:gravity="center">
 
         <TextView
             android:id="@+id/activity_doctor_home_nav_drawer_doctor_dn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_gravity="center"
             android:background="@drawable/custom_btn_profile"
             android:elevation="5dp"
             android:gravity="center"
+            android:maxLength="2"
             android:text="DN"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:maxLength="2"/>
+            app:layout_constraintBottom_toTopOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            android:layout_marginBottom="-50dp"/>
 
-        <TextView
-            android:id="@+id/activity_doctor_home_nav_drawer_doctor_name"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:elevation="5dp"
-            android:gravity="center"
-            android:text="Doctor Name"
-            android:textAlignment="center"
-            android:textColor="@color/dark_blue"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:maxLines="1"
-            android:maxWidth="250dp"/>
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="-25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:srcCompat="@drawable/img_arc1"
+            tools:layout_editor_absoluteX="0dp"
+            tools:srcCompat="@drawable/img_arc1" />
 
-        <TextView
-            android:id="@+id/activity_doctor_home_nav_drawer_doctor_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:elevation="5dp"
-            android:gravity="center"
-            android:text="doctor.email@menofia.edu"
-            android:textAlignment="center"
-            android:textColor="@color/dark_blue"
-            android:textSize="14dp"
-            tools:ignore="TextSizeCheck"
-            android:maxLines="1"
-            android:maxWidth="250dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </LinearLayout>
+    <TextView
+        android:id="@+id/activity_doctor_home_nav_drawer_doctor_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:maxWidth="250dp"
+        android:maxLines="1"
+        android:text="Doctor Name"
+        android:textAlignment="center"
+        android:textColor="@color/dark_blue"
+        android:textSize="16dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/activity_doctor_home_nav_drawer_doctor_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:text="doctor.email@menofia.edu"
+        android:textAlignment="center"
+        android:textColor="@color/dark_blue"
+        android:textSize="14dp"
+        tools:ignore="TextSizeCheck"
+        android:maxLines="1"
+        android:maxWidth="250dp"/>
+
 </LinearLayout>

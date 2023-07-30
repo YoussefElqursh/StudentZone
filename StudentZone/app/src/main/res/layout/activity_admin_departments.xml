@@ -26,10 +26,10 @@
             android:layout_marginLeft="-10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/custom_btn_back"
-            android:contentDescription="back arrow"
             android:drawableLeft="@drawable/ic_back"
             android:paddingLeft="8dp"
-            tools:ignore="TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck"
+            android:contentDescription="@string/back"/>
 
         <TextView
             android:layout_width="wrap_content"
