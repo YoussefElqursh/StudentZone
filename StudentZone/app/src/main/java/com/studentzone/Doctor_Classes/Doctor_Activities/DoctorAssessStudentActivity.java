@@ -1,21 +1,12 @@
 package com.studentzone.Doctor_Classes.Doctor_Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
-import com.studentzone.Admin_Classes.Admin_Activities.AdminHomeActivity;
-import com.studentzone.Admin_Classes.Admin_Activities.AdminSubjectsActivity;
-import com.studentzone.Admin_Classes.Admin_Models.SubjectRecyclerViewAdapter;
-import com.studentzone.Data_Base.Courses;
-import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
-
-import java.util.ArrayList;
 
 public class DoctorAssessStudentActivity extends AppCompatActivity {
 
@@ -23,7 +14,7 @@ public class DoctorAssessStudentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_doctor_assess_student);
+        setContentView(R.layout.activity_doctor_student_assessment);
 
         buttonBackAction();
     }

@@ -27,12 +27,6 @@
             android:name=".Doctor_Classes.Doctor_Activities.DoctorHomeActivity"
             android:exported="false" />
         <activity
-            android:name=".Doctor_Classes.Doctor_Activities.DoctorSubjectPdfsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Student_Classes.Student_Activities.StudentSubjectPdfsActivity"
-            android:exported="false" />
-        <activity
             android:name=".Student_Classes.Student_Activities.StudentSubjectActivity"
             android:exported="false" />
         <activity

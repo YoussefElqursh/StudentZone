@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_admin_new_doctor_ll_main"
+    android:id="@+id/fragment_doctor_add_student_grade_ll_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Admin_Classes.Admin_Fragments.AdminNewDoctorAccountFragment"
+    tools:context=".Admin_Classes.Admin_Fragments.AdminNewStudentAccountFragment"
     android:background="@drawable/custom_fragment_add_new">
 
     <LinearLayout
@@ -21,16 +20,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="10dp">
 
         <Button
-            android:id="@+id/fragment_admin_new_doctor_btn_close"
+            android:id="@+id/fragment_doctor_add_student_grade_btn_close"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginLeft="5dp"
-            android:layout_marginBottom="10dp"
-            android:drawableTop="@drawable/ic_close"
+            android:layout_marginBottom="5dp"
             android:paddingTop="10dp"
+            android:drawableTop="@drawable/ic_close"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
             style="@android:style/Widget.Material.Button.Borderless"
             android:background="@drawable/custom_btn_close"/>
@@ -38,7 +37,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="New Doctor"
+            android:text="Student Grade"
             android:textSize="18dp"
             android:textStyle="bold"
             android:layout_marginTop="7dp"
@@ -47,7 +46,7 @@
     </RelativeLayout>
 
     <EditText
-        android:id="@+id/fragment_new_doctor_et_doctor_name"
+        android:id="@+id/fragment_doctor_add_student_grade_et_student_name"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginLeft="20dp"
@@ -56,102 +55,83 @@
         android:drawableStart="@drawable/ic_user"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Doctor Name"
+        android:hint="Student Name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
-        android:drawableTint="@drawable/custom_et_selector"/>
+        android:drawableTint="@drawable/custom_et_selector"
+        android:enabled="false"
+        android:textColor="@color/black"/>
 
     <EditText
-        android:id="@+id/fragment_new_doctor_et_doctor_email"
+        android:id="@+id/fragment_doctor_add_student_grade_et_student_aid"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/custom_et_selector"
-        android:drawableStart="@drawable/ic_email_address"
+        android:drawableStart="@drawable/ic_id"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Doctor Email"
-        android:inputType="textEmailAddress"
+        android:hint="Student AID"
+        android:inputType="numberDecimal"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
-        android:drawableTint="@drawable/custom_et_selector"/>
+        android:drawableTint="@drawable/custom_et_selector"
+        android:enabled="false"
+        android:textColor="@color/black"/>
 
-
-    <EditText
-        android:id="@+id/fragment_new_doctor_et_doctor_password"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/custom_et_selector"
-        android:drawableStart="@drawable/ic_lock"
-        android:drawablePadding="12dp"
-        android:ems="10"
-        android:hint="Doctor Password"
-        android:inputType="text"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:textColorHint="@color/gray"
-        android:drawableTint="@drawable/custom_et_selector"/>
-
-    <RadioGroup
-        android:id="@+id/fragment_new_doctor_rg_doctor_kind"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginBottom="25dp"
-        android:gravity="center_horizontal"
+        android:layout_marginRight="20dp"
         android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/fragment_new_doctor_rb_male"
-            android:layout_width="95dp"
+        <EditText
+            android:id="@+id/fragment_doctor_add_student_grade_et_student_score"
+            android:layout_width="250dp"
             android:layout_height="55dp"
-            android:layout_marginRight="5dp"
-            android:layout_weight="1"
-            android:background="@drawable/custom_rb_et_icon_selector"
-            android:buttonTint="@color/gray"
-            android:minHeight="48dp"
-            android:text="Male"
-            android:textColor="@drawable/custom_rb_et_icon_selector"
-            android:textSize="18sp"
-            android:drawableLeft="@drawable/ic_male"
+            android:background="@drawable/custom_et_selector"
+            android:drawableStart="@drawable/ic_score"
             android:drawablePadding="10dp"
-            android:button="@android:color/transparent"
+            android:ems="10"
+            android:hint="Total Score /100"
+            android:inputType="number"
             android:paddingLeft="10dp"
-            android:drawableTint="@drawable/custom_rb_et_icon_selector"/>
+            android:paddingRight="10dp"
+            android:textColorHint="@color/gray"
+            android:drawableTint="@drawable/custom_et_selector"
+            android:layout_marginRight="5dp"/>
 
-        <RadioButton
-            android:id="@+id/fragment_new_doctor_rb_female"
-            android:layout_width="100dp"
+        <EditText
+            android:id="@+id/fragment_doctor_add_student_grade_et_student_grade"
+            android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:layout_weight="1"
-            android:background="@drawable/custom_rb_et_icon_selector"
-            android:buttonTint="@drawable/custom_rb_et_icon_selector"
-            android:minHeight="48dp"
-            android:text="Female"
-            android:textColor="@drawable/custom_rb_et_icon_selector"
-            android:textSize="18sp"
-            android:layout_marginLeft="10dp"
-            android:drawableLeft="@drawable/ic_female"
+            android:background="@drawable/custom_et_selector"
+            android:drawableStart="@drawable/ic_grade"
             android:drawablePadding="10dp"
-            android:button="@android:color/transparent"
-            android:paddingLeft="5dp"
-            android:drawableTint="@drawable/custom_rb_et_icon_selector"/>
+            android:ems="10"
+            android:hint="Grade"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColorHint="@color/gray"
+            android:drawableTint="@drawable/custom_et_selector"
+            android:maxLength="2"
+            android:enabled="false"
+            android:textColor="@color/black"/>
 
-    </RadioGroup>
+    </LinearLayout>
 
     <Button
-        android:id="@+id/fragment_new_doctor_btn_save"
+        android:id="@+id/fragment_doctor_add_student_grade_btn_save"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_gravity="center_horizontal"
