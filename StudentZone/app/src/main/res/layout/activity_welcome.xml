@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_welcome_ll_main"
@@ -12,51 +12,51 @@
     android:orientation="vertical"
     tools:context=".Welcome_Classes.WelcomeActivity">
 
-
-
-<!--    <com.airbnb.lottie.LottieAnimationView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="300dp"-->
-<!--        android:layout_marginLeft="10dp"-->
-<!--        android:layout_marginTop="200dp"-->
-<!--        android:layout_marginRight="10dp"-->
-<!--        android:layout_marginBottom="100dp"-->
-<!--        android:background="@color/blue"-->
-<!--        app:lottie_autoPlay="true"-->
-<!--        app:lottie_cacheComposition="true"-->
-<!--        app:lottie_loop="true"-->
-<!--        app:lottie_rawRes="@raw/books"-->
-<!--        app:lottie_speed="1"/>-->
-    <ImageView
-        android:layout_width="400dp"
-        android:layout_height="600dp"
-        android:id="@+id/welcome_iv"
-        android:src="@drawable/img_welcome"
-        />
-
     <LinearLayout
-        android:id="@+id/activity_welcome_ll_buttoncontainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp"
+        android:gravity="center">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome to"
+            android:textColor="#e9eef7"
+            android:textSize="36dp"/>
 
-
-        <Button
-            android:id="@+id/activity_welcome_btn_welcome"
-            android:layout_width="146dp"
-            android:layout_height="55dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/custom_btn_welcom"
-            android:gravity="center|center_horizontal|center_vertical"
-            android:text="@string/login"
-            android:textColor="@color/white"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textAllCaps="false" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Student Zone."
+            android:textColor="#e9eef7"
+            android:textSize="28dp"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
-</LinearLayout>
+    <ImageView
+        android:layout_width="600dp"
+        android:layout_height="500dp"
+        android:id="@+id/welcome_iv"
+        android:src="@drawable/img_welcome"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="-20dp"
+        android:layout_marginRight="-20dp"/>
+
+    <Button
+        android:id="@+id/activity_welcome_btn_welcome"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/custom_btn_welcome"
+        android:text="@string/login"
+        android:textAllCaps="false"
+        android:textColor="@color/blue"
+        android:textSize="22dp" />
+
+</RelativeLayout>

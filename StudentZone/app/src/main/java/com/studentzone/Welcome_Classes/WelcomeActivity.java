@@ -23,9 +23,7 @@ import com.studentzone.R;
 
 public class WelcomeActivity extends AppCompatActivity {
     Button btn_welcome;
-
     ImageView imageView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,8 +51,6 @@ public class WelcomeActivity extends AppCompatActivity {
         });
     }
 
-
-
     /** checkFirstOpen()
      *  This Methode To Open The Welcome  Only At The First Time When User Install The APP.
      *  @var isFirstRun This Param Cary Value Of PREFERENCE File Which Is (True Or False).
@@ -74,5 +70,5 @@ public class WelcomeActivity extends AppCompatActivity {
         getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().
                 putBoolean("isFirstRun", false).apply();
     }
-    }
+}
 
