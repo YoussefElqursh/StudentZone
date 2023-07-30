@@ -28,7 +28,7 @@ public class AdminSubjectsActivity extends AppCompatActivity {
     BottomSheetDialog bottomSheetDialog;
     RecyclerView rv;
     View bottomSheetDialogView;
-    String name, code, department, doctor, previous_subject;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +39,7 @@ public class AdminSubjectsActivity extends AppCompatActivity {
         btn_add = findViewById(R.id.activity_admin_subjects_btn_add);
         bottomSheetDialog = new BottomSheetDialog(AdminSubjectsActivity.this, R.style.BottomSheetStyle);
 
-        btn_add.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                buttonAddAction();
-
-            }
-        });
+        btn_add.setOnClickListener(view -> buttonAddAction());
         inflate();
         buttonBackAction();
         showAllSubjects();
@@ -77,35 +72,26 @@ public class AdminSubjectsActivity extends AppCompatActivity {
 
         btm_sheet_dia_et_sub_name = bottomSheetDialogView.findViewById(R.id.fragment_new_subject_et_name);
         btm_sheet_dia_et_sub_code = bottomSheetDialogView.findViewById(R.id.fragment_new_subject_et_code);
-        btn_save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String name = btm_sheet_dia_et_sub_name.getText().toString();
-                String code = btm_sheet_dia_et_sub_code.getText().toString();
-                String department = btm_sheet_dia_et_subject_department.getText().toString();
-                String doctor = btm_sheet_dia_et_subject_doctor.getText().toString();
-                String prev_subject = btm_sheet_dia_et_subject_previous.getText().toString();
+        btn_save.setOnClickListener(v -> {
+            String name = btm_sheet_dia_et_sub_name.getText().toString();
+            String code = btm_sheet_dia_et_sub_code.getText().toString();
+            String department = btm_sheet_dia_et_subject_department.getText().toString();
+            String doctor = btm_sheet_dia_et_subject_doctor.getText().toString();
+            String prev_subject = btm_sheet_dia_et_subject_previous.getText().toString();
 
-                db.insert_subject(name, code, department, doctor, prev_subject);
+            db.insert_subject(name, code, department, doctor, prev_subject);
 
-                showAllSubjects();
+            showAllSubjects();
 
-                btm_sheet_dia_et_sub_name.setText("");
-                btm_sheet_dia_et_sub_code.setText("");
-                btm_sheet_dia_et_subject_department.setText("");
-                btm_sheet_dia_et_subject_doctor.setText("");
-                btm_sheet_dia_et_subject_previous.setText("");
-                bottomSheetDialog.dismiss();
-            }
+            btm_sheet_dia_et_sub_name.setText("");
+            btm_sheet_dia_et_sub_code.setText("");
+            btm_sheet_dia_et_subject_department.setText("");
+            btm_sheet_dia_et_subject_doctor.setText("");
+            btm_sheet_dia_et_subject_previous.setText("");
+            bottomSheetDialog.dismiss();
         });
 
-        btm_sheet_dia_btn_close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bottomSheetDialog.dismiss();
-
-            }
-        });
+        btm_sheet_dia_btn_close.setOnClickListener(v -> bottomSheetDialog.dismiss());
 
         bottomSheetDialog.setContentView(bottomSheetDialogView);
         bottomSheetDialog.show();
