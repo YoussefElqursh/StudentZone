@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import com.studentzone.Doctor_Classes.Doctor_Activities.Model;
 import com.studentzone.R;
+import com.studentzone.Student_Classes.Student_Models.RegestrationModel.SubjectRegestrationModel;
+import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectModel;
 
 import java.util.ArrayList;
 
@@ -315,6 +317,22 @@ public class My_DB extends SQLiteOpenHelper {
             String column_code = cursor.getString(2);
             String column_name = cursor.getString(1);
             Model model = new Model(R.drawable.ic_subjects, cursor.getString(2), cursor.getString(1));
+            arrayList.add(model);
+        }
+        cursor.close();
+        return arrayList;
+    }
+    public ArrayList<SubjectRegestrationModel> getCourses_for_students() {
+        SQLiteDatabase db = getReadableDatabase();
+        ArrayList<SubjectRegestrationModel> arrayList = new ArrayList();
+
+        Cursor cursor = db.query("Courses", null, null, null, null, null, null);
+
+        while (cursor.moveToNext()) {
+
+            String column_code = cursor.getString(2);
+            String column_name = cursor.getString(1);
+            SubjectRegestrationModel model = new SubjectRegestrationModel( cursor.getString(2), cursor.getString(1),false);
             arrayList.add(model);
         }
         cursor.close();
@@ -746,6 +764,39 @@ public class My_DB extends SQLiteOpenHelper {
             db.close();
         }
         return courses_name;
+    }
+    public ArrayList<String> Get_all_courses_have_pre_for_student(){
+        ArrayList<String> courses_name=new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selection="PreRequests_id is not null";
+
+        Cursor cursor = db.query(""+Education_Table_Courses+"", new String[] { Courses_col_name },
+                selection, null, null, null, null);
+        if(cursor.moveToFirst()) {
+            do {
+                String name_course = cursor.getString(0 );
+                courses_name.add(name_course);
+            } while (cursor.moveToNext());
+            cursor.close();
+            db.close();
+        }
+        return courses_name;
+    }
+    public ArrayList<SubjectModel> Get_all_courses_for_student_afterRegist(){
+        SQLiteDatabase db = getReadableDatabase();
+        ArrayList<SubjectModel> arrayList = new ArrayList();
+
+        Cursor cursor = db.query("Courses", null, null, null, null, null, null);
+
+        while (cursor.moveToNext()) {
+
+            String column_code = cursor.getString(2);
+            String column_name = cursor.getString(1);
+            SubjectModel model = new SubjectModel( cursor.getString(2), cursor.getString(1));
+            arrayList.add(model);
+        }
+        cursor.close();
+        return arrayList;
     }
 }
 

@@ -2,28 +2,28 @@ package com.studentzone.Student_Classes.Student_Models.SubjectModel;
 
 public class SubjectModel {
 
-String subject_name , subject_description ;
-int subject_icon ;
+    String SubjectName,CodeName;
 
-    public SubjectModel(String subject_name, String subject_description) {
-        this.subject_name = subject_name;
-        this.subject_description = subject_description;
+
+    public SubjectModel(String SubjectName, String CodeName) {
+        this.SubjectName = SubjectName;
+        this.CodeName = CodeName;
 
     }
 
-    public String getSubject_name() {
-        return subject_name;
+    public String getSubjectName() {
+        return SubjectName;
     }
 
-    public void setSubject_name(String subject_name) {
-        this.subject_name = subject_name;
+    public void setSubjectName(String subjectName) {
+        SubjectName = subjectName;
     }
 
-    public String getSubject_description() {
-        return subject_description;
+    public String getCodeName() {
+        return CodeName;
     }
 
-    public void setSubject_description(String subject_description) {
-        this.subject_description = subject_description;
+    public void setCodeName(String codeName) {
+        CodeName = codeName;
     }
 }

@@ -48,8 +48,8 @@ public ModelRecyclerView_adapter(Context context, ArrayList<Model>arrayList){
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {//Bindeer
-holder.tv1_n.setText(arrayList.get(position).getSubjectName());
-holder.tv2_c.setText(arrayList.get(position).getCodeName());
+    holder.tv1_n.setText(arrayList.get(position).getSubjectName());
+    holder.tv2_c.setText(arrayList.get(position).getCodeName());
 
 
     holder.crv.setOnClickListener(new View.OnClickListener() {
