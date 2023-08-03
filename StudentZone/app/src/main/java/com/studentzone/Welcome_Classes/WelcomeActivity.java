@@ -23,9 +23,7 @@ import com.studentzone.R;
 
 public class WelcomeActivity extends AppCompatActivity {
     Button btn_welcome;
-    My_DB  helper;
     ImageView imageView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,21 +32,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         btn_welcome = findViewById(R.id.activity_welcome_btn_welcome);
         buttonWelcomeAction();
-        helper=new My_DB(getApplicationContext());
-        SQLiteDatabase db= helper.getWritableDatabase();
-        ContentValues contentValues=new ContentValues();
-        contentValues.put("name","math1");
-        contentValues.put("code",111);
 
-        long numrow=db.insert("Courses",null,contentValues);
-        if(numrow>-1)
-        {
-            Toast.makeText(getApplicationContext(), "added succes", Toast.LENGTH_SHORT).show();
-        }
-        else {
-            Toast.makeText(getApplicationContext(), "added failed", Toast.LENGTH_SHORT).show();
-
-        }
     }
 
 
@@ -66,8 +50,6 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
     }
-
-
 
     /** checkFirstOpen()
      *  This Methode To Open The Welcome  Only At The First Time When User Install The APP.
@@ -88,5 +70,5 @@ public class WelcomeActivity extends AppCompatActivity {
         getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().
                 putBoolean("isFirstRun", false).apply();
     }
-    }
+}
 
