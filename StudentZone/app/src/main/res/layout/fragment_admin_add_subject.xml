@@ -82,60 +82,6 @@
         android:textColorHint="@color/gray"
         android:drawableTint="@drawable/custom_et_selector"/>
 
-<!--    <EditText-->
-<!--        android:id="@+id/fragment_new_subject_et_department"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="55dp"-->
-<!--        android:layout_marginLeft="20dp"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:layout_marginRight="20dp"-->
-<!--        android:background="@drawable/custom_et_selector"-->
-<!--        android:drawableStart="@drawable/ic_department_2"-->
-<!--        android:drawablePadding="10dp"-->
-<!--        android:ems="10"-->
-<!--        android:hint="Subject Department"-->
-<!--        android:inputType="text"-->
-<!--        android:paddingLeft="10dp"-->
-<!--        android:paddingRight="10dp"-->
-<!--        android:textColorHint="@color/gray"-->
-<!--        android:drawableTint="@drawable/custom_et_selector"/>-->
-
-<!--    <EditText-->
-<!--        android:id="@+id/fragment_new_subject_et_doctor"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="55dp"-->
-<!--        android:layout_marginLeft="20dp"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:layout_marginRight="20dp"-->
-<!--        android:background="@drawable/custom_et_selector"-->
-<!--        android:drawableStart="@drawable/ic_user"-->
-<!--        android:drawablePadding="8dp"-->
-<!--        android:ems="10"-->
-<!--        android:hint="Doctor Name"-->
-<!--        android:inputType="textPersonName"-->
-<!--        android:paddingLeft="10dp"-->
-<!--        android:paddingRight="10dp"-->
-<!--        android:textColorHint="@color/gray"-->
-<!--        android:drawableTint="@drawable/custom_et_selector"/>-->
-
-<!--    <EditText-->
-<!--        android:id="@+id/fragment_new_subject_et_previous"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="55dp"-->
-<!--        android:layout_marginLeft="20dp"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:layout_marginRight="20dp"-->
-<!--        android:background="@drawable/custom_et_selector"-->
-<!--        android:drawableStart="@drawable/ic_book_2"-->
-<!--        android:drawablePadding="10dp"-->
-<!--        android:ems="10"-->
-<!--        android:hint="Subject Previous Request"-->
-<!--        android:inputType="text"-->
-<!--        android:paddingLeft="13dp"-->
-<!--        android:paddingRight="10dp"-->
-<!--        android:textColorHint="@color/gray"-->
-<!--        android:drawableTint="@drawable/custom_et_selector"/>-->
-
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
         android:id="@+id/fragment_new_subject_sp_department"
         android:layout_width="match_parent"

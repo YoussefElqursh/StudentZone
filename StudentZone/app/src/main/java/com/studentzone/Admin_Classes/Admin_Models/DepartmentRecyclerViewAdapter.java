@@ -225,7 +225,7 @@ public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<Departme
          **********************************************************************************************/
         private void displayDepartmentDetailsDialog(Departments department) {
             bottomSheetDialog = new BottomSheetDialog(itemView.getContext(), R.style.BottomSheetStyle);
-            bottomSheetDialogView = LayoutInflater.from(itemView.getContext()).inflate(R.layout.fragment_admin_departments_show, null, false);
+            bottomSheetDialogView = LayoutInflater.from(itemView.getContext()).inflate(R.layout.fragment_admin_show_department, null, false);
 
             et_deptName_show = bottomSheetDialogView.findViewById(R.id.fragment_show_department_et_department_name);
             et_deptCode_show = bottomSheetDialogView.findViewById(R.id.fragment_show_department_et_department_code);
@@ -257,7 +257,7 @@ public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<Departme
          **********************************************************************************************/
         private void displayEditDepartmentDialog(Departments department) {
             bottomSheetDialog = new BottomSheetDialog(itemView.getContext(), R.style.BottomSheetStyle);
-            bottomSheetDialogView = LayoutInflater.from(itemView.getContext()).inflate(R.layout.fragment_admin_departments_edit, null, false);
+            bottomSheetDialogView = LayoutInflater.from(itemView.getContext()).inflate(R.layout.fragment_admin_edit_department, null, false);
 
             et_deptName_edit = bottomSheetDialogView.findViewById(R.id.fragment_edit_department_et_department_name);
             et_deptCode_edit = bottomSheetDialogView.findViewById(R.id.fragment_edit_department_et_department_code);

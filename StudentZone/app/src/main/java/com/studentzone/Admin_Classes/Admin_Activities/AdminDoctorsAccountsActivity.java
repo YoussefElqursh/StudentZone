@@ -71,7 +71,7 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         back_btn = findViewById(R.id.activity_admin_doctors_accounts_btn_back);
 
         addDoctorBottomSheetDialog = new BottomSheetDialog(AdminDoctorsAccountsActivity.this, R.style.BottomSheetStyle);
-        addDoctorBottomSheetDialogView = getLayoutInflater().inflate(R.layout.fragment_admin_new_doctor_account, null, false);
+        addDoctorBottomSheetDialogView = getLayoutInflater().inflate(R.layout.fragment_admin_add_doctor_account, null, false);
 
         btn_save_doctor = addDoctorBottomSheetDialogView.findViewById(R.id.fragment_new_doctor_btn_save);
         btn_close_add_doctor_dialog = addDoctorBottomSheetDialogView.findViewById(R.id.fragment_admin_new_doctor_btn_close);

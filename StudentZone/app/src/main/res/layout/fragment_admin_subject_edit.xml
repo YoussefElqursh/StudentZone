@@ -90,10 +90,10 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:prompt="@android:color/black"
         android:background="@drawable/custom_sp_department"
-        android:paddingLeft="30dp" >
-    </com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+        android:paddingLeft="40dp"
+        android:prompt="@android:color/black"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
         android:id="@+id/fragment_edit_subject_sp_doctor_name"
@@ -103,8 +103,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/custom_sp_doctor"
-        android:paddingLeft="30dp">
-    </com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+        android:paddingLeft="40dp"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
         android:id="@+id/fragment_edit_subject_sp_subject_pre_request"
@@ -114,10 +114,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/custom_sp_subject"
-        android:paddingLeft="30dp">
-    </com.toptoche.searchablespinnerlibrary.SearchableSpinner>
-
-
+        android:paddingLeft="40dp"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/fragment_edit_subject_btn_save"

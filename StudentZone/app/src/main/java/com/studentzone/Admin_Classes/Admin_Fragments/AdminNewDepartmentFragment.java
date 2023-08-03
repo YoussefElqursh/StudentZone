@@ -38,7 +38,7 @@ public class AdminNewDepartmentFragment extends BottomSheetDialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-       return inflater.inflate(R.layout.fragment_admin_new_department, container, false);
+       return inflater.inflate(R.layout.fragment_admin_add_department, container, false);
 
     }
 }
