@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fragment_edit_subject_ll_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -81,59 +82,96 @@
         android:textColorHint="@color/gray"
         android:drawableTint="@drawable/custom_et_selector"/>
 
-    <EditText
-        android:id="@+id/fragment_edit_subject_et_department"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/custom_et_selector"
-        android:drawableStart="@drawable/ic_department_2"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Subject Department"
-        android:inputType="text"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:textColorHint="@color/gray"
-        android:drawableTint="@drawable/custom_et_selector"/>
+<!--    <EditText-->
+<!--        android:id="@+id/fragment_edit_subject_et_department"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="55dp"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginRight="20dp"-->
+<!--        android:background="@drawable/custom_et_selector"-->
+<!--        android:drawableStart="@drawable/ic_department_2"-->
+<!--        android:drawablePadding="10dp"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Subject Department"-->
+<!--        android:inputType="text"-->
+<!--        android:paddingLeft="10dp"-->
+<!--        android:paddingRight="10dp"-->
+<!--        android:textColorHint="@color/gray"-->
+<!--        android:drawableTint="@drawable/custom_et_selector"/>-->
 
-    <EditText
-        android:id="@+id/fragment_edit_subject_et_doctor"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/custom_et_selector"
-        android:drawableStart="@drawable/ic_user"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Doctor Name"
-        android:inputType="textPersonName"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:textColorHint="@color/gray"
-        android:drawableTint="@drawable/custom_et_selector"/>
+<!--    <EditText-->
+<!--        android:id="@+id/fragment_edit_subject_et_doctor"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="55dp"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginRight="20dp"-->
+<!--        android:background="@drawable/custom_et_selector"-->
+<!--        android:drawableStart="@drawable/ic_user"-->
+<!--        android:drawablePadding="10dp"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Doctor Name"-->
+<!--        android:inputType="textPersonName"-->
+<!--        android:paddingLeft="10dp"-->
+<!--        android:paddingRight="10dp"-->
+<!--        android:textColorHint="@color/gray"-->
+<!--        android:drawableTint="@drawable/custom_et_selector"/>-->
 
-    <EditText
-        android:id="@+id/fragment_edit_subject_et_previous"
+<!--    <EditText-->
+<!--        android:id="@+id/fragment_edit_subject_et_previous"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="55dp"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginRight="20dp"-->
+<!--        android:background="@drawable/custom_et_selector"-->
+<!--        android:drawableStart="@drawable/ic_book_2"-->
+<!--        android:drawablePadding="10dp"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Subject Previous Request"-->
+<!--        android:inputType="text"-->
+<!--        android:paddingLeft="13dp"-->
+<!--        android:paddingRight="10dp"-->
+<!--        android:textColorHint="@color/gray"-->
+<!--        android:drawableTint="@drawable/custom_et_selector"/>-->
+
+
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:id="@+id/fragment_edit_subject_sp_department"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:background="@drawable/custom_et_selector"
-        android:drawableStart="@drawable/ic_book_2"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Subject Previous Request"
-        android:inputType="text"
-        android:paddingLeft="13dp"
-        android:paddingRight="10dp"
-        android:textColorHint="@color/gray"
-        android:drawableTint="@drawable/custom_et_selector"/>
+        android:prompt="@android:color/black"
+        android:background="@drawable/custom_sp_department"
+        android:paddingLeft="30dp" >
+    </com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:id="@+id/fragment_edit_subject_sp_doctor_name"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_sp_doctor"
+        android:paddingLeft="30dp">
+    </com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:id="@+id/fragment_edit_subject_sp_subject_pre_request"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_sp_subject"
+        android:paddingLeft="30dp">
+    </com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+
+
 
     <Button
         android:id="@+id/fragment_edit_subject_btn_save"

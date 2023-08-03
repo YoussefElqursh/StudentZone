@@ -11,32 +11,34 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.studentzone.Admin_Classes.Admin_Models.StudentRecyclerViewAdapter;
 import com.studentzone.Data_Base.My_DB;
-//import com.studentzone.Admin_Calsses.Admin_Models.Admin_Student_Model.studentRecyclerViewAdapter;
 import com.studentzone.Data_Base.Students;
 import com.studentzone.R;
 
 import java.util.ArrayList;
 
+/**
+ * Activity for managing students in the admin panel.
+ */
+
 public class AdminStudentsAccountsActivity extends AppCompatActivity {
-    Button btn_add, btn_back, btm_sheet_dia_btn_save, btm_sheet_dia_btn_close;
-    EditText btm_sheet_dia_et_student_name, btm_sheet_dia_et_student_password, btm_sheet_dia_et_student_email, btm_sheet_dia_et_student_aid;
-    TextView tv_search_for_students;
-    RadioGroup btm_sheet_dia_rg;
-    RadioButton btm_sheet_dia_rb_male, btm_sheet_dia_rb_female;
 
-    String aid, name, email, password, gender = "Male";
-    RecyclerView rv;
+    // Views
+    private Button btn_add_student, btn_back, btn_save_student, btn_close_add_student_dialog;
+   private EditText et_add_new_student_name, et_add_new_student_password, et_add_new_student_email, et_add_new_student_aid;
+   private RadioGroup rg_gender;
+   private BottomSheetDialog addStudentBottomSheetDialog;
+   private View addStudentBottomSheetDialogView;
 
-    BottomSheetDialog bottomSheetDialog;
-    View bottomSheetDialogView;
+   // Variables for storing students data
+   private String studentAID, studentName, studentEmail, studentPassword, studentGender = "Male";
+   private RecyclerView studentRecyclerView;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -44,180 +46,178 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_students_accounts);
 
-        inflate();
-        showAllStudents();
-        buttonAddAction();
-        radioButtonGroupAction();
-        saveStudentData();
-        closeBottomSheet();
-        buttonBackAction();
+
+        // Set the layout for the activity
+        setContentView(R.layout.activity_admin_students_accounts);
+
+        // Initialize views
+        initializeViews();
+
+        // Display all students in the RecyclerView
+        displayAllStudents();
+
+        // Set button actions
+        setAddStudentButtonAction(); // Add new student
+        setBackButtonAction(); // Go back to previous activity
+        setStudentGenderRadioGroupAction(); // Set gender of new student
+        setSaveStudentButtonAction(); // Save new student data to database
+        setCloseAddStudentDialogButtonAction(); // Close the "add student" dialog
     }
 
 
-    /**inflate
+    /** initializeViews()
+     *  inflate
      **********************************************************************************************/
-    public void inflate() {
-        btn_add = findViewById(R.id.activity_admin_students_accounts_btn_add);
+    public void initializeViews() {
+        btn_add_student = findViewById(R.id.activity_admin_students_accounts_btn_add);
         btn_back = findViewById(R.id.activity_admin_students_accounts_btn_back);
-        tv_search_for_students = findViewById(R.id.activity_admin_students_accounts_et_search_for_students);
 
-        bottomSheetDialog = new BottomSheetDialog(AdminStudentsAccountsActivity.this, R.style.BottomSheetStyle);
-        bottomSheetDialogView = getLayoutInflater().inflate(R.layout.fragment_admin_new_student_account, null, false);
+        addStudentBottomSheetDialog = new BottomSheetDialog(AdminStudentsAccountsActivity.this, R.style.BottomSheetStyle);
+        addStudentBottomSheetDialogView = getLayoutInflater().inflate(R.layout.fragment_admin_new_student_account, null, false);
 
-        btm_sheet_dia_btn_save = bottomSheetDialogView.findViewById(R.id.fragment_new_student_btn_save);
-        btm_sheet_dia_btn_close = bottomSheetDialogView.findViewById(R.id.fragment_admin_new_student_btn_close);
+        btn_save_student = addStudentBottomSheetDialogView.findViewById(R.id.fragment_new_student_btn_save);
+        btn_close_add_student_dialog = addStudentBottomSheetDialogView.findViewById(R.id.fragment_admin_new_student_btn_close);
 
-        btm_sheet_dia_et_student_name = bottomSheetDialogView.findViewById(R.id.fragment_new_student_et_studet_name);
-        btm_sheet_dia_et_student_aid = bottomSheetDialogView.findViewById(R.id.fragment_new_student_et_student_aid);
-        btm_sheet_dia_et_student_password = bottomSheetDialogView.findViewById(R.id.fragment_new_student_et_student_password);
-        btm_sheet_dia_et_student_email = bottomSheetDialogView.findViewById(R.id.fragment_new_student_et_student_email);
+        et_add_new_student_name = addStudentBottomSheetDialogView.findViewById(R.id.fragment_new_student_et_studet_name);
+        et_add_new_student_aid = addStudentBottomSheetDialogView.findViewById(R.id.fragment_new_student_et_student_aid);
+        et_add_new_student_password = addStudentBottomSheetDialogView.findViewById(R.id.fragment_new_student_et_student_password);
+        et_add_new_student_email = addStudentBottomSheetDialogView.findViewById(R.id.fragment_new_student_et_student_email);
 
-        btm_sheet_dia_rg = bottomSheetDialogView.findViewById(R.id.fragment_new_student_rg_student_kind);
-        btm_sheet_dia_rb_male = bottomSheetDialogView.findViewById(R.id.fragment_new_student_rb_male);
-        btm_sheet_dia_rb_female = bottomSheetDialogView.findViewById(R.id.fragment_new_student_rb_female);
+        rg_gender = addStudentBottomSheetDialogView.findViewById(R.id.fragment_new_student_rg_student_kind);
 
-        rv = findViewById(R.id.activity_admin_students_accounts_recyclerview);
+        studentRecyclerView = findViewById(R.id.activity_admin_students_accounts_recyclerview);
     }
 
-    /**show Bottom Sheet Dialog()
+    /** setAddStudentButtonAction()
+     *  show Bottom Sheet Dialog
      **********************************************************************************************/
-    public void buttonAddAction() {
-        btn_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    public void setAddStudentButtonAction() {
+        btn_add_student.setOnClickListener(v -> {
 
-                bottomSheetDialog.setContentView(bottomSheetDialogView);
-                bottomSheetDialog.show();
-            }
+            addStudentBottomSheetDialog.setContentView(addStudentBottomSheetDialogView);
+            addStudentBottomSheetDialog.show();
         });
     }
 
-    /** close Bottom Sheet Dialog()
+    /** setCloseAddStudentDialogButtonAction()
+     *  close Bottom Sheet Dialog
      **********************************************************************************************/
-    public void closeBottomSheet() {
-        btm_sheet_dia_btn_close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bottomSheetDialog.dismiss();
-                nullEditTexts();
-            }
+    public void setCloseAddStudentDialogButtonAction() {
+        btn_close_add_student_dialog.setOnClickListener(v -> {
+            addStudentBottomSheetDialog.dismiss();
+            clearAddStudentDialogEditTextFields();
         });
     }
 
-    /**check Validation Of Entered Data And save It()
+    /** setSaveStudentButtonAction()
+     *  check Validation Of Entered Data And save It
      **********************************************************************************************/
-    public void saveStudentData() {
-        btm_sheet_dia_btn_save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    public void setSaveStudentButtonAction() {
+        btn_save_student.setOnClickListener(v -> {
 
-                name = btm_sheet_dia_et_student_name.getText().toString();
-                email = btm_sheet_dia_et_student_email.getText().toString();
-                password = btm_sheet_dia_et_student_password.getText().toString();
-                aid = btm_sheet_dia_et_student_aid.getText().toString().trim();
+            studentName = et_add_new_student_name.getText().toString();
+            studentEmail = et_add_new_student_email.getText().toString();
+            studentPassword = et_add_new_student_password.getText().toString();
+            studentAID = et_add_new_student_aid.getText().toString().trim();
 
 
-                if (TextUtils.isEmpty(name)) {
-                    btm_sheet_dia_et_student_name.setError("Is Required !");
-                    return;
-                }
-                if (TextUtils.isEmpty(aid)) {
-                    btm_sheet_dia_et_student_aid.setError("Is Required !");
-                    return;
-                }
-
-                if (TextUtils.isEmpty(email)) {
-                    btm_sheet_dia_et_student_email.setError("Is Required !");
-                    return;
-                }
-                if (!emailShouldEndsWithEdu(email)) {
-                    btm_sheet_dia_et_student_email.setError("Should End With .edu");
-                    return;
-                }
-                if (TextUtils.isEmpty(password)) {
-                    btm_sheet_dia_et_student_password.setError("Is Required !");
-                    return;
-                }
-
-                addNewStudent();
-                nullEditTexts();
-                showAllStudents();
+            if (TextUtils.isEmpty(studentName)) {
+                et_add_new_student_name.setError("Is Required !");
+                return;
             }
+            if (TextUtils.isEmpty(studentAID)) {
+                et_add_new_student_aid.setError("Is Required !");
+                return;
+            }
+
+            if (TextUtils.isEmpty(studentEmail)) {
+                et_add_new_student_email.setError("Is Required !");
+                return;
+            }
+            if (!emailShouldEndsWithEdu(studentEmail)) {
+                et_add_new_student_email.setError("Should End With .edu");
+                return;
+            }
+            if (TextUtils.isEmpty(studentPassword)) {
+                et_add_new_student_password.setError("Is Required !");
+                return;
+            }
+
+            saveNewStudentToDatabase();
+            clearAddStudentDialogEditTextFields();
+            displayAllStudents();
         });
     }
 
+    /** setStudentGenderRadioGroupAction()
+     *  to get gender of student
+     ******************************************************************************************/
+    public void setStudentGenderRadioGroupAction(){
 
-    /**Back To The Previous Activity()
+        rg_gender.setOnCheckedChangeListener((group, checkedId) -> {
+
+            if (checkedId == R.id.fragment_new_student_rb_male)
+                studentGender = "Male";
+            else if (checkedId == R.id.fragment_new_student_rb_female)
+                studentGender = "Female";
+
+
+        });
+    }
+
+    /** setBackButtonAction()
+     *  Back To The Previous Activity
      **********************************************************************************************/
-    public void buttonBackAction() {
+    public void setBackButtonAction() {
         btn_back = findViewById(R.id.activity_admin_students_accounts_btn_back);
         btn_back.setOnClickListener(v -> startActivity(new Intent(getBaseContext(), AdminHomeActivity.class)));
     }
 
-
-    /**radioButtonGroupAction
-     *kindCheckedId, Get Index Of Checked User Kind in
+    /** saveNewStudentToDatabase()
+     * add New Student
      ******************************************************************************************/
-    public void radioButtonGroupAction(){
-
-        btm_sheet_dia_rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-
-                if (checkedId == R.id.fragment_new_student_rb_male)
-                    gender = "Male";
-                else if (checkedId == R.id.fragment_new_student_rb_female)
-                    gender = "Female";
-
-
-            }
-        });
-    }
-
-
-    /**add New Student
-     ******************************************************************************************/
-    public void addNewStudent() {
+    public void saveNewStudentToDatabase() {
 
         My_DB db = new My_DB(getBaseContext());
 
-        aid = btm_sheet_dia_et_student_aid.getText().toString().trim();
-        name = btm_sheet_dia_et_student_name.getText().toString().trim();
-        email = btm_sheet_dia_et_student_email.getText().toString().trim();
-        password = btm_sheet_dia_et_student_password.getText().toString().trim();
+        studentAID = et_add_new_student_aid.getText().toString().trim();
+        studentName = et_add_new_student_name.getText().toString().trim();
+        studentEmail = et_add_new_student_email.getText().toString().trim();
+        studentPassword = et_add_new_student_password.getText().toString().trim();
 
 
-        Students student = new Students(aid, name, name, gender, email, password);
-        Boolean added = db.addNewStudent(student);
+        Students student = new Students(studentAID, studentName, studentName, studentGender, studentEmail, studentPassword);
+        boolean added = db.addNewStudent(student);
 
         if(added){
-            Toast.makeText(this, name + "Is Successfully Saved ✔️", Toast.LENGTH_SHORT).show();
-            bottomSheetDialog.dismiss();
+            Toast.makeText(this, studentName + "Is Successfully Saved ✔️", Toast.LENGTH_SHORT).show();
+            addStudentBottomSheetDialog.dismiss();
         }
-        showAllStudents();
+        displayAllStudents();
     }
 
-    /**
+    /** emailShouldEndsWithEdu()
      * Special Validation For Email To End With .edu
      **********************************************************************************************/
     public static boolean emailShouldEndsWithEdu(String input) {
-        return TextUtils.isEmpty(input) ? false : input.endsWith(".edu");
+        return !TextUtils.isEmpty(input) && input.endsWith(".edu");
     }
 
-    /**FillOut  EditTexts After Add New Student Or After Close Bottom Sheet Dialog()
+    /** clearAddStudentDialogEditTextFields()
+     *  FillOut  EditTexts After Add New Student Or After Close Bottom Sheet Dialog()
      **********************************************************************************************/
-    public void nullEditTexts() {
+    public void clearAddStudentDialogEditTextFields() {
 
-        btm_sheet_dia_et_student_name.setText("");
-        btm_sheet_dia_et_student_email.setText("");
-        btm_sheet_dia_et_student_password.setText("");
-        btm_sheet_dia_et_student_aid.setText("");
+        et_add_new_student_name.setText("");
+        et_add_new_student_email.setText("");
+        et_add_new_student_password.setText("");
+        et_add_new_student_aid.setText("");
 
     }
 
-    /**Show All Students
+    /**displayAllStudents()
      **********************************************************************************************/
-    public void showAllStudents() {
+    public void displayAllStudents() {
 
         My_DB db = new My_DB(getBaseContext());
 
@@ -226,9 +226,9 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
         StudentRecyclerViewAdapter adapter = new StudentRecyclerViewAdapter(this, studentsArrayList);
         RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
 
-        rv.setHasFixedSize(true);
-        rv.setLayoutManager(lm);
-        rv.setAdapter(adapter);
+        studentRecyclerView.setHasFixedSize(true);
+        studentRecyclerView.setLayoutManager(lm);
+        studentRecyclerView.setAdapter(adapter);
     }
 
 

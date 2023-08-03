@@ -47,7 +47,7 @@
 
         <activity
 
-            android:name=".Admin_Classes.Admin_Activities.AdminSubjectsActivity"
+            android:name=".Admin_Classes.Admin_Activities.AdminCoursesActivity"
             android:exported="false" >
 
             <meta-data

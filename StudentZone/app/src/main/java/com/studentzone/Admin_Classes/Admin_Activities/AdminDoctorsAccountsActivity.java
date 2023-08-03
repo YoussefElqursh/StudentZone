@@ -7,11 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -23,15 +21,23 @@ import com.studentzone.R;
 
 import java.util.ArrayList;
 
+/**
+ * Activity for managing doctors in the admin panel.
+ */
 public class AdminDoctorsAccountsActivity extends AppCompatActivity {
-    private BottomSheetDialog addDoctorBottomSheetDialog;
-    private View addDoctorBottomSheetDialogView;
+
+    // Views
     private Button btn_add_doctor, back_btn, btn_save_doctor, btn_close_add_doctor_dialog;
     private EditText et_add_new_doctor_name, et_add_new_doctor_password, et_add_new_doctor_email;
+    private BottomSheetDialog addDoctorBottomSheetDialog;
+    private View addDoctorBottomSheetDialogView;
     private RadioGroup rg_gender;
-    public RadioButton rb_male_doctor, rb_female_doctor;
+
+    // Variables for storing doctor data
     private String doctorName, doctorEmail, doctorPassword, doctorGender = "Male";
+
     private RecyclerView doctorRecyclerView;
+
 
 
     @Override
@@ -54,10 +60,11 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         setBackButtonAction(); // Go back to previous activity
         setDoctorGenderRadioGroupAction(); // Set gender of new doctor
         setSaveDoctorButtonAction(); // Save new doctor data to database
-        setCloseAddDoctorDialogButtonAction();// Close the "add doctor" dialog
+        setCloseAddDoctorDialogButtonAction(); // Close the "add doctor" dialog
     }
 
-    /**inflate
+    /** initializeViews()
+     *  inflate
      **********************************************************************************************/
     public void initializeViews() {
         btn_add_doctor = findViewById(R.id.activity_admin_doctors_accounts_btn_add);
@@ -74,8 +81,7 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         et_add_new_doctor_email = addDoctorBottomSheetDialogView.findViewById(R.id.fragment_new_doctor_et_doctor_email);
 
         rg_gender = addDoctorBottomSheetDialogView.findViewById(R.id.fragment_new_doctor_rg_doctor_kind);
-        rb_male_doctor = addDoctorBottomSheetDialogView.findViewById(R.id.fragment_new_doctor_rb_male);
-        rb_female_doctor = addDoctorBottomSheetDialogView.findViewById(R.id.fragment_new_doctor_rb_female);
+
 
         doctorRecyclerView = findViewById(R.id.activity_admin_doctors_accounts_recyclerview);
 
@@ -83,7 +89,8 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
     }
 
 
-    /**show Bottom Sheet Dialog()
+    /** setAddDoctorButtonAction()
+     *  show Bottom Sheet Dialog
      **********************************************************************************************/
     public void setAddDoctorButtonAction() {
         btn_add_doctor.setOnClickListener(v -> {
@@ -93,7 +100,8 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         });
     }
 
-    /** close Bottom Sheet Dialog()
+    /** setCloseAddDoctorDialogButtonAction()
+     *  close Bottom Sheet Dialog
      **********************************************************************************************/
     public void setCloseAddDoctorDialogButtonAction() {
         btn_close_add_doctor_dialog.setOnClickListener(v -> {
@@ -103,7 +111,8 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         });
     }
 
-    /** check Validation Of Entered Data And save It()
+    /** setSaveDoctorButtonAction()
+     *  check Validation Of Entered Data And save It
      **********************************************************************************************/
     public void setSaveDoctorButtonAction() {
         btn_save_doctor.setOnClickListener(v -> {
@@ -135,11 +144,10 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         });
     }
 
-    /** radioButtonGroupAction
-     *  kindCheckedId, Get Index Of Checked User Kind
+    /** setDoctorGenderRadioGroupAction()
+     *  to get gender of doctor
      ******************************************************************************************/
     public void setDoctorGenderRadioGroupAction(){
-
         rg_gender.setOnCheckedChangeListener((group, checkedId) -> {
 
             if (checkedId == R.id.fragment_new_doctor_rb_male)
@@ -149,17 +157,18 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         });
 
     }
-    /** Back To The Previous Activity()
+    /** setBackButtonAction()
+     *  Back To The Previous Activity()
      **********************************************************************************************/
     public void setBackButtonAction(){
         back_btn = findViewById(R.id.activity_admin_doctors_accounts_btn_back);
         back_btn.setOnClickListener(v -> startActivity(new Intent(getBaseContext(),AdminHomeActivity.class)));
     }
 
-    /** add New Doctor
+    /** saveNewDoctorToDatabase ()
+     *  add New Doctor
      **********************************************************************************************/
     public void saveNewDoctorToDatabase() {
-
 
         My_DB db = new My_DB(getBaseContext());
 
@@ -172,21 +181,23 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         boolean added = db.addNewDoctor(doctor);
 
         if(added){
-            Toast.makeText(getBaseContext(), "Dr : "+ doctor.getFName() +" Is Successfully Saved ✔️", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getBaseContext(), "Dr : "+doctor.getFName()+" Is Successfully Saved.", Toast.LENGTH_SHORT).show();
             addDoctorBottomSheetDialog.dismiss();
         }
 
         displayAllDoctors();
     }
 
-    /** Special Validation For Email To End With .edu
+    /** emailShouldEndsWithEdu()
+     *  Special Validation For Email To End With .edu
      **********************************************************************************************/
     public static boolean emailShouldEndsWithEdu(String input) {
         return !TextUtils.isEmpty(input) && input.endsWith(".edu");
     }
 
 
-    /**FillOut  EditTexts After Add New Doctor Or After Close Bottom Sheet Dialog()
+    /** clearAddDoctorDialogEditTextFields()
+     *  FillOut  EditTexts After Add New Doctor Or After Close Bottom Sheet Dialog()
      **********************************************************************************************/
     public void clearAddDoctorDialogEditTextFields() {
 
@@ -195,12 +206,12 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         et_add_new_doctor_password.setText("");
     }
 
-    /** Show All Doctors
+    /** Display All Doctors()
      **********************************************************************************************/
     public void displayAllDoctors() {
         My_DB db = new My_DB(getBaseContext());
 
-        ArrayList<Doctors> doctorsArrayList1 = db.showAllDoctors();
+        ArrayList<Doctors> doctorsArrayList1 = db.displayAllDoctors();
 
         DoctorRecyclerViewAdapter adapter = new DoctorRecyclerViewAdapter(this, doctorsArrayList1);
         RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
@@ -209,6 +220,5 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         doctorRecyclerView.setLayoutManager(lm);
         doctorRecyclerView.setAdapter(adapter);
     }
-
 
 }

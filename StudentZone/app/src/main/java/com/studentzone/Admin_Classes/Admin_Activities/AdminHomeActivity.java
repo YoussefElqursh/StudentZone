@@ -4,7 +4,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.studentzone.Doctor_Classes.Doctor_Activities.DoctorHomeActivity;
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
 
@@ -47,39 +45,19 @@ public class AdminHomeActivity extends AppCompatActivity {
 
 
     public void departmentsCardViewClickAction() {
-        cv_department.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), AdminDepartmentsActivity.class));
-            }
-        });
+        cv_department.setOnClickListener(v -> startActivity(new Intent(getBaseContext(), AdminDepartmentsActivity.class)));
     }
 
     public void subjectsCardViewClickAction() {
-        cv_subjects.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), AdminSubjectsActivity.class));
-            }
-        });
+        cv_subjects.setOnClickListener(v -> startActivity(new Intent(getBaseContext(), AdminCoursesActivity.class)));
     }
 
     public void doctorsCardViewClickAction() {
-        cv_doctors_account.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), AdminDoctorsAccountsActivity.class));
-            }
-        });
+        cv_doctors_account.setOnClickListener(v -> startActivity(new Intent(getBaseContext(), AdminDoctorsAccountsActivity.class)));
     }
 
     public void studentsCardViewClickAction() {
-        cv_students_account.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), AdminStudentsAccountsActivity.class));
-            }
-        });
+        cv_students_account.setOnClickListener(v -> startActivity(new Intent(getBaseContext(), AdminStudentsAccountsActivity.class)));
     }
 
     /**
@@ -98,22 +76,14 @@ public class AdminHomeActivity extends AppCompatActivity {
      * **********************************************************************************************/
     public void logOutConfirmationDialog() {
 
-        btn_logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Create an alert dialog to confirm the log out action
-                AlertDialog.Builder builder = new AlertDialog.Builder(AdminHomeActivity.this);
-                builder.setTitle("Log Out");
-                builder.setMessage("Are you sure you want to log out?");
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        logOut();
-                    }
-                });
-                builder.setNegativeButton("No", null);
-                builder.show();
-            }
+        btn_logout.setOnClickListener(v -> {
+            // Create an alert dialog to confirm the log out action
+            AlertDialog.Builder builder = new AlertDialog.Builder(AdminHomeActivity.this);
+            builder.setTitle("Log Out");
+            builder.setMessage("Are you sure you want to log out?");
+            builder.setPositiveButton("Yes", (dialog, which) -> logOut());
+            builder.setNegativeButton("No", null);
+            builder.show();
         });
     }
 
@@ -145,15 +115,11 @@ public class AdminHomeActivity extends AppCompatActivity {
         String capitalizedStr = name.substring(0, 1).toUpperCase() + name.substring(1);
         profileName.setText(capitalizedStr);
 
-        btn_profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                if(profileName.getVisibility() == View.VISIBLE)
-                profileName.setVisibility(View.INVISIBLE);
-                else
-                    profileName.setVisibility(View.VISIBLE);
-            }
+        btn_profile.setOnClickListener(v -> {
+            if(profileName.getVisibility() == View.VISIBLE)
+            profileName.setVisibility(View.INVISIBLE);
+            else
+                profileName.setVisibility(View.VISIBLE);
         });
 
     }

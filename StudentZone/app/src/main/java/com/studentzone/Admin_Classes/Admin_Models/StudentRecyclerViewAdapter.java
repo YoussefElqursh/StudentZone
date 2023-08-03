@@ -35,7 +35,7 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
     private BottomSheetDialog bottomSheetDialog;
     private View bottomSheetDialogView;
     private EditText studentName, studentAID, studentEmail, studentPassword, studentGender;
-    Students student;
+    private Students student;
     private My_DB db;
     private Button btn_save, btn_close;
     private RadioGroup rg;
@@ -236,8 +236,6 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
 
             // Keep track of the original student name , email , aid , pass
             String originalName = student.getFName();
-            String originalEmail = student.getEmail();
-            String originalAcademicNumber = student.getAcademic_Number();
             String originalPassword = student.getPassword();
 
             /*
@@ -254,12 +252,16 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
                 }
                 @Override
                 public void afterTextChanged(Editable s) {
-                    // Enable the save button if the text has changed from the original values
-                    if (!(studentName.getText().toString().equals(originalName) && studentPassword.getText().toString().equals(originalPassword) )) {
-                        btn_save.setEnabled(true);
-                    } else {
-                        btn_save.setEnabled(false);
-                    };
+                    // Enable the save button if the text has changed from the original values || the gender is changed
+                    boolean genderChanged = false;
+                    if (rb_male.isChecked() && !student.getGender().equals("Male")) {
+                        genderChanged = true;
+                    } else if (rb_female.isChecked() && !student.getGender().equals("Female")) {
+                        genderChanged = true;
+                    }
+                    boolean dataChanged = !(studentName.getText().toString().equals(originalName) && studentPassword.getText().toString().equals(originalPassword));
+                    btn_save.setEnabled(genderChanged || dataChanged);
+
                 }
             };
 
@@ -273,21 +275,14 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
 
             // This lines Add listener to the radio group to enable the save button when the user changes the gender
             rg.setOnCheckedChangeListener((group, checkedId) -> {
-                if (checkedId == rb_male.getId()) {
-                    if (!student.getGender().equals("Male") || !(studentName.getText().toString().equals(originalName) && studentPassword.getText().toString().equals(originalPassword) )) {
-                        btn_save.setEnabled(true);
-                    }
-                    else {
-                        btn_save.setEnabled(false);
-                    }
-                } else if (checkedId == rb_female.getId()) {
-                    if (!student.getGender().equals("Female") || !(studentName.getText().toString().equals(originalName) && studentPassword.getText().toString().equals(originalPassword) )) {
-                        btn_save.setEnabled(true);
-                    }
-                    else {
-                        btn_save.setEnabled(false);
-                    }
+                boolean genderChanged = false;
+                if (checkedId == rb_male.getId() && !student.getGender().equals("Male")) {
+                    genderChanged = true;
+                } else if (checkedId == rb_female.getId() && !student.getGender().equals("Female")) {
+                    genderChanged = true;
                 }
+                boolean dataChanged = !(studentName.getText().toString().equals(originalName) && studentPassword.getText().toString().equals(originalPassword));
+                btn_save.setEnabled(genderChanged || dataChanged);
             });
 
 
@@ -306,7 +301,7 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
                 @Override
                 public void onClick(View v) {
 
-                    //This lines to remember the user to enter data in student name and pass
+                    //This lines to remember the user to enter data in student name and password
                     if (TextUtils.isEmpty(studentName.getText().toString().trim())) {
                         studentName.setError("Is Required !");
                         return;
@@ -316,7 +311,7 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
                         return;
                     }
 
-                    //This lines to send edited student to data base across pass new instance of student to db.updateStudent
+                    //This lines to send edited student to data base across passing new instance of student to db.updateStudent
                     String gender = "";
                     if (rb_male.isChecked()) {
                         gender = "Male";

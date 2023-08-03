@@ -1,6 +1,6 @@
 package com.studentzone.Admin_Classes.Admin_Activities;
-import android.annotation.SuppressLint;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -23,15 +23,27 @@ import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
 import java.util.ArrayList;
 
+/**
+ * Activity for managing departments in the admin panel.
+ */
 public class AdminDepartmentsActivity extends AppCompatActivity  {
-    private My_DB db = new My_DB(this);
+
+    // Database object
+    private final My_DB db = new My_DB(this);
+
+    // Views
+    private Button btn_add_department, btn_back, btn_save_department, btn_close_add_department_dialog;
+    private EditText et_add_new_department_name, et_add_new_department_code;
     private BottomSheetDialog addDepartmentBottomSheetDialog;
     private View addDepartmentBottomSheetDialogView;
-    private RecyclerView departmentRecyclerView;
-    private EditText et_add_new_department_name, et_add_new_department_code;
-    private Button btn_add_department, btn_back, btn_save_department, btn_close_add_department_dialog;
-    private DepartmentRecyclerViewAdapter adapter;
+
+    // Variables for storing department data
     private String departmentName, departmentCode;
+
+    private RecyclerView departmentRecyclerView;
+    private DepartmentRecyclerViewAdapter adapter;
+
+
 
 
     @SuppressLint("MissingInflatedId")
@@ -39,7 +51,6 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_departments);
-
 
         // Initialize views
         initializeViews();
@@ -54,7 +65,8 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
         setBackButtonAction();  // Go back to previous activity
     }
 
-    /**inflate
+    /** initializeViews()
+     *  inflate
      **********************************************************************************************/
     public void initializeViews() {
         btn_add_department = findViewById(R.id.activity_admin_departments_btn_add);
@@ -74,61 +86,56 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
 
     }
 
-    /**show Bottom Sheet Dialog()
+    /** setAddDepartmentButtonAction()
+     *  show Bottom Sheet Dialog
      **********************************************************************************************/
     public void setAddDepartmentButtonAction() {
-        btn_add_department.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btn_add_department.setOnClickListener(v -> {
 
-                addDepartmentBottomSheetDialog.setContentView(addDepartmentBottomSheetDialogView);
-                addDepartmentBottomSheetDialog.show();
-            }
+            addDepartmentBottomSheetDialog.setContentView(addDepartmentBottomSheetDialogView);
+            addDepartmentBottomSheetDialog.show();
         });
     }
 
-    /** close Bottom Sheet Dialog()
+    /** setCloseAddDepartmentDialogButtonAction()
+     *  close Bottom Sheet Dialog
      **********************************************************************************************/
     public void setCloseAddDepartmentDialogButtonAction() {
-        btn_close_add_department_dialog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addDepartmentBottomSheetDialog.dismiss();
-                clearAddDepartmentsDialogEditTextFields();
-                displayAllDepartments();
-            }
+        btn_close_add_department_dialog.setOnClickListener(v -> {
+            addDepartmentBottomSheetDialog.dismiss();
+            clearAddDepartmentsDialogEditTextFields();
+            displayAllDepartments();
         });
     }
 
 
-    /**check Validation Of Entered Data And save It()
+    /** setSaveDepartmentButtonAction()
+     *  check Validation Of Entered Data And save It
      **********************************************************************************************/
     public void setSaveDepartmentButtonAction() {
-        btn_save_department.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btn_save_department.setOnClickListener(v -> {
 
-                departmentName = et_add_new_department_name.getText().toString().trim();
-                departmentCode = et_add_new_department_code.getText().toString().trim();
+            departmentName = et_add_new_department_name.getText().toString().trim();
+            departmentCode = et_add_new_department_code.getText().toString().trim();
 
 
-                if (TextUtils.isEmpty(departmentName)) {
-                    et_add_new_department_name.setError("Is Required !");
-                    return;
-                }
-                if (TextUtils.isEmpty(departmentCode)) {
-                    et_add_new_department_code.setError("Is Required !");
-                    return;
-                }
-
-                saveNewDepartmentToDatabase();
-                clearAddDepartmentsDialogEditTextFields();
-                displayAllDepartments();
+            if (TextUtils.isEmpty(departmentName)) {
+                et_add_new_department_name.setError("Is Required !");
+                return;
             }
+            if (TextUtils.isEmpty(departmentCode)) {
+                et_add_new_department_code.setError("Is Required !");
+                return;
+            }
+
+            saveNewDepartmentToDatabase();
+            clearAddDepartmentsDialogEditTextFields();
+            displayAllDepartments();
         });
     }
 
-    /**Back To The Previous Activity()
+    /** setBackButtonAction()
+     *  Back To The Previous Activity
      **********************************************************************************************/
     public void setBackButtonAction(){
         btn_back = findViewById(R.id.activity_admin_departments_btn_back);
@@ -136,7 +143,8 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
     }
 
 
-    /**add New Department
+    /** saveNewDepartmentToDatabase()
+     *  add New Department
      **********************************************************************************************/
     public void saveNewDepartmentToDatabase() {
 
@@ -151,14 +159,15 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
         boolean added = db.addNewDepartment(department);
 
         if(added){
-            Toast.makeText(getBaseContext(), ""+department.getName().toString()+" Department Successfully Added  ✔️", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getBaseContext(), ""+department.getName()+" Department Successfully Added.", Toast.LENGTH_SHORT).show();
             addDepartmentBottomSheetDialog.dismiss();
         }
 
         displayAllDepartments();
     }
 
-    /**FillOut  EditTexts After Add New Department Or After Close Bottom Sheet Dialog()
+    /** clearAddDepartmentsDialogEditTextFields()
+     *  FillOut  EditTexts After Add New Department Or After Close Bottom Sheet Dialog
      **********************************************************************************************/
     public void clearAddDepartmentsDialogEditTextFields() {
 
@@ -168,12 +177,12 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
 
 
 
-    /**Show All Departments
+    /**displayAllDepartments()
      **********************************************************************************************/
 
     public void displayAllDepartments() {
 
-        ArrayList<Departments> departmentsArrayList = db.showDepartments();
+        ArrayList<Departments> departmentsArrayList = db.displayAllDepartments();
 
         adapter = new DepartmentRecyclerViewAdapter(AdminDepartmentsActivity.this,departmentsArrayList); // assign to adapter variable
 

@@ -6,27 +6,27 @@ public class Courses {
     private int id;
     private String code;
     private String name;
-    private String preRequest_name;
-    private String department;
-    private String doctor;
+    private int preRequest;
+    private int department;
+    private int doctor;
 
 
-    public Courses(int id, String code, String name, String preRequest_name, String department, String doctor) {
+    public Courses(int id, String code, String name, int preRequest, int department, int doctor) {
         this.id = id;
         this.code = code;
         this.name = name;
-        this.preRequest_name = preRequest_name;
+        this.preRequest = preRequest;
         this.doctor = doctor;
         this.department = department;
     }
 
-    public Courses(String name, String code, String department, String doctor, String previousSubject)
+    public Courses(String name, String code, int department, int doctor, int preRequest)
     {
         this.name = name;
         this.code = code;
         this.department = department;
         this.doctor = doctor;
-        this.preRequest_name = previousSubject;
+        this.preRequest = preRequest;
 
     }
 
@@ -60,25 +60,25 @@ public class Courses {
         this.name = name;
     }
 
-    public String getPreRequest_name() {
-        return preRequest_name;
+    public int getPreRequest() {
+        return preRequest;
     }
 
-    public void setPreRequest_name(String preRequest_name) {
-        this.preRequest_name = preRequest_name;
+    public void setPreRequest(int preRequest) {
+        this.preRequest = preRequest;
     }
 
-    public String getDepartment() {return department;}
+    public int getDepartment() {return department;}
 
-    public void setDepartment(String department) {
+    public void setDepartment(int department) {
         this.department = department;
     }
 
-    public String getDoctor() {
+    public int getDoctor() {
         return doctor;
     }
 
-    public void setDoctor(String doctor) {
+    public void setDoctor(int doctor) {
         this.doctor = doctor;
     }
 }

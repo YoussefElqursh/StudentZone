@@ -16,7 +16,6 @@ import com.studentzone.Student_Classes.Student_Activities.StudentHomeActivity;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
 
-
 public class LoginActivity extends AppCompatActivity {
     Button btn_login;
     EditText et_user_name;
