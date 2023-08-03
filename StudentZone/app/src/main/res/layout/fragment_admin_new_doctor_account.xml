@@ -125,9 +125,9 @@
             android:textColor="@drawable/custom_rb_et_icon_selector"
             android:textSize="18sp"
             android:drawableLeft="@drawable/ic_male"
-            android:drawablePadding="5dp"
+            android:drawablePadding="10dp"
             android:button="@android:color/transparent"
-            android:paddingLeft="5dp"
+            android:paddingLeft="10dp"
             android:drawableTint="@drawable/custom_rb_et_icon_selector"/>
 
         <RadioButton
@@ -141,9 +141,9 @@
             android:text="Female"
             android:textColor="@drawable/custom_rb_et_icon_selector"
             android:textSize="18sp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="10dp"
             android:drawableLeft="@drawable/ic_female"
-            android:drawablePadding="5dp"
+            android:drawablePadding="10dp"
             android:button="@android:color/transparent"
             android:paddingLeft="5dp"
             android:drawableTint="@drawable/custom_rb_et_icon_selector"/>

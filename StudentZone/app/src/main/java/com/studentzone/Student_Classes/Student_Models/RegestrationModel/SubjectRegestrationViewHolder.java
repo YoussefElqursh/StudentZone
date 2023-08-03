@@ -11,15 +11,17 @@ import com.studentzone.R;
 
 public class SubjectRegestrationViewHolder extends RecyclerView.ViewHolder {
 
-    TextView subject_name;
+    TextView subject_name,tv_first_letter_of_course,subject_code;
     CheckBox checkBox ;
 
     public SubjectRegestrationViewHolder(@NonNull View itemView) {
 
         super(itemView);
 
-        subject_name =itemView.findViewById(R.id.activity_student_Regestration_tv_sub_name);
         checkBox =itemView.findViewById(R.id.activity_student_subject_tv_sub_state);
+        subject_name =itemView.findViewById(R.id.activity_student_Regestration_tv_sub_name);
+        subject_code =itemView.findViewById(R.id.activity_student_Regestration_tv_sub_code);
+        tv_first_letter_of_course = itemView.findViewById(R.id.activity_student_Regestration_tv_sn);
 
     }
 }

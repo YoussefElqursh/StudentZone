@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_doctor_subjects_info_ll_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Admin_Classes.Admin_Fragments.AdminNewSubjectFragment"
+    android:background="@drawable/custom_fragment_add_new">
+
+    <LinearLayout
+        android:layout_width="30dp"
+        android:layout_height="3dp"
+        android:layout_gravity="center"
+        android:background="@drawable/custom_splitter"
+        android:gravity="center"
+        android:layout_marginTop="10dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/fragment_student_regestration_subjects_info_btn_close"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"
+            android:paddingTop="10dp"
+            android:drawableTop="@drawable/ic_close"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+            style="@android:style/Widget.Material.Button.Borderless"
+            android:background="@drawable/custom_btn_close"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Subject Info"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_marginTop="7dp"
+            android:gravity="center"/>
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/fragment_student_regestration_subjects_info_et_name"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_et_selector"
+        android:drawableStart="@drawable/ic_book_2"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="Subject Name"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:paddingLeft="13dp"
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/fragment_student_regestration_subjects_info_et_code"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_et_selector"
+        android:drawableStart="@drawable/ic_id"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="Subject Code"
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/fragment_student_regestration_subjects_info_et_department"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_et_selector"
+        android:drawableStart="@drawable/ic_department_2"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="Subject Department"
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black"/>
+
+<!--        <EditText-->
+<!--            android:id="@+id/fragment_student_regestration_subjects_info_et_doctor"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="55dp"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginRight="20dp"-->
+<!--            android:background="@drawable/custom_et_selector"-->
+<!--            android:drawableStart="@drawable/ic_user"-->
+<!--            android:drawablePadding="10dp"-->
+<!--            android:ems="10"-->
+<!--            android:enabled="false"-->
+<!--            android:hint="Doctor Name"-->
+<!--            android:inputType="textPersonName"-->
+<!--            android:paddingLeft="10dp"-->
+<!--            android:paddingRight="10dp"-->
+<!--            android:textColorHint="@color/gray"-->
+<!--            android:textColor="@color/black"/>-->
+
+    <EditText
+        android:id="@+id/fragment_student_regestration_subjects_info_et_previous"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_et_selector"
+        android:drawableStart="@drawable/ic_book_2"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="Subject Previous Request"
+        android:inputType="text"
+        android:paddingLeft="15dp"
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black"/>
+
+</LinearLayout>
