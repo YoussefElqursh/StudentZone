@@ -182,27 +182,27 @@ public class StudentHomeActivity extends AppCompatActivity implements Navigation
 
 
     }
-void logoutconfirmation2(){
-    AlertDialog.Builder builder = new AlertDialog.Builder(StudentHomeActivity.this);
-    builder.setTitle("Log Out");
-    builder.setMessage("Are you sure you want to log out?");
-    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-        @Override
-        public void onClick(DialogInterface dialog, int which) {
-            logOut();
-        }
-    });
-    builder.setNegativeButton("No", null);
-    builder.show();
+    void logoutconfirmation2(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(StudentHomeActivity.this);
+        builder.setTitle("Log Out");
+        builder.setMessage("Are you sure you want to log out?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                logOut();
+            }
+        });
+        builder.setNegativeButton("No", null);
+        builder.show();
 
-}
+    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-      switch (item.getItemId()){
-          case R.id.activity_student_home_item_logout :
-              logoutconfirmation2();
-      }
+        switch (item.getItemId()){
+            case R.id.activity_student_home_item_logout :
+                logoutconfirmation2();
+        }
         return true;
     }
 

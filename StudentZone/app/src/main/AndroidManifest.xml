@@ -47,15 +47,6 @@
 
         <activity
 
-            android:name=".Admin_Classes.Admin_Activities.AdminSubjectsActivity"
-            android:exported="false" >
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-
             android:name=".Admin_Classes.Admin_Activities.AdminDepartmentsActivity"
             android:exported="false" >
           

@@ -57,7 +57,6 @@ public class AdminHomeActivity extends AppCompatActivity implements NavigationVi
         cv_subjects = findViewById(R.id.activity_admin_home_cv_subjects);
         cv_doctors_account = findViewById(R.id.activity_admin_home_cv_doctors_accounts);
         cv_students_account = findViewById(R.id.activity_admin_home_cv_students_accounts);
-//        btn_logout = findViewById(R.id.activity_admin_home_btn_logout);
         drawerLayout = findViewById(R.id.activity_admin_home_drl);
         navigationView = findViewById(R.id.activity_admin_home_nav_drawer);
         toolbar = findViewById(R.id.activity_admin_home_tb);
@@ -77,7 +76,7 @@ public class AdminHomeActivity extends AppCompatActivity implements NavigationVi
         cv_subjects.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), AdminSubjectsActivity.class));
+                startActivity(new Intent(getBaseContext(), AdminCoursesActivity.class));
             }
         });
     }
@@ -165,7 +164,7 @@ public class AdminHomeActivity extends AppCompatActivity implements NavigationVi
             public void onClick(View v)
             {
                 if(profileName.getVisibility() == View.VISIBLE)
-                profileName.setVisibility(View.INVISIBLE);
+                    profileName.setVisibility(View.INVISIBLE);
                 else
                     profileName.setVisibility(View.VISIBLE);
             }
@@ -210,4 +209,9 @@ public class AdminHomeActivity extends AppCompatActivity implements NavigationVi
         }
         return true;
     }
+
+
+
+
+
 }
