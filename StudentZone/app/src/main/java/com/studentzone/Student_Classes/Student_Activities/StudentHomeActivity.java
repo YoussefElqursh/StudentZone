@@ -203,7 +203,7 @@ public class StudentHomeActivity extends AppCompatActivity implements Navigation
             case R.id.activity_student_home_item_logout :
                 logoutconfirmation2();
         }
-        return true;
+        return false;
     }
 
 

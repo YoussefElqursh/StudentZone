@@ -170,7 +170,7 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
             case R.id.activity_doctor_home_item_logout :
                 logoutconfirmation2();
         }
-        return true;
+        return false;
     }
 
 

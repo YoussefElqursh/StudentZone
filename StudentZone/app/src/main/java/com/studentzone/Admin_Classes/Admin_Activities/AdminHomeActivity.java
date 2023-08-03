@@ -207,7 +207,7 @@ public class AdminHomeActivity extends AppCompatActivity implements NavigationVi
             case R.id.activity_admin_home_item_logout :
                 logoutconfirmation2();
         }
-        return true;
+        return false;
     }
 
 
