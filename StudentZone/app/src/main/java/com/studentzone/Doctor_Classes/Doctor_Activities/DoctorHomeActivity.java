@@ -172,4 +172,9 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
         }
         return true;
     }
+
+
+
+
+
 }
