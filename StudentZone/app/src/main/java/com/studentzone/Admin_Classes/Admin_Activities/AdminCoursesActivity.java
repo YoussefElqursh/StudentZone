@@ -79,7 +79,7 @@ public class AdminCoursesActivity extends AppCompatActivity {
         btn_back = findViewById(R.id.activity_admin_subjects_btn_back);
 
         addCourseBottomSheetDialog = new BottomSheetDialog(AdminCoursesActivity.this, R.style.BottomSheetStyle);
-        addCourseBottomSheetDialogView = getLayoutInflater().inflate(R.layout.fragment_admin_new_subject, null, false);
+        addCourseBottomSheetDialogView = getLayoutInflater().inflate(R.layout.fragment_admin_add_subject, null, false);
 
         btn_save_course = addCourseBottomSheetDialogView.findViewById(R.id.fragment_new_subject_btn_save);
         btn_close_add_course_dialog = addCourseBottomSheetDialogView.findViewById(R.id.fragment_admin_new_subject_btn_close);

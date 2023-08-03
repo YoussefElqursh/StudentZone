@@ -73,7 +73,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
         btn_back = findViewById(R.id.activity_admin_students_accounts_btn_back);
 
         addStudentBottomSheetDialog = new BottomSheetDialog(AdminStudentsAccountsActivity.this, R.style.BottomSheetStyle);
-        addStudentBottomSheetDialogView = getLayoutInflater().inflate(R.layout.fragment_admin_new_student_account, null, false);
+        addStudentBottomSheetDialogView = getLayoutInflater().inflate(R.layout.fragment_admin_add_student_account, null, false);
 
         btn_save_student = addStudentBottomSheetDialogView.findViewById(R.id.fragment_new_student_btn_save);
         btn_close_add_student_dialog = addStudentBottomSheetDialogView.findViewById(R.id.fragment_admin_new_student_btn_close);

@@ -73,7 +73,7 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
         btn_back = findViewById(R.id.activity_admin_departments_btn_back);
 
         addDepartmentBottomSheetDialog = new BottomSheetDialog(AdminDepartmentsActivity.this, R.style.BottomSheetStyle);
-        addDepartmentBottomSheetDialogView = getLayoutInflater().inflate(R.layout.fragment_admin_new_department, null, false);
+        addDepartmentBottomSheetDialogView = getLayoutInflater().inflate(R.layout.fragment_admin_add_department, null, false);
 
         btn_save_department = addDepartmentBottomSheetDialogView.findViewById(R.id.fragment_new_department_btn_save);
         btn_close_add_department_dialog = addDepartmentBottomSheetDialogView.findViewById(R.id.fragment_admin_new_department_btn_close);

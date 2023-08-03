@@ -169,7 +169,7 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
          **********************************************************************************************/
         private void displayStudentDetailsDialog(Students student) {
             bottomSheetDialog = new BottomSheetDialog(itemView.getContext(), R.style.BottomSheetStyle);
-            bottomSheetDialogView = LayoutInflater.from(itemView.getContext()).inflate(R.layout.fragment_admin_students_accouts_show, null, false);
+            bottomSheetDialogView = LayoutInflater.from(itemView.getContext()).inflate(R.layout.fragment_admin_show_student_accout, null, false);
 
             studentName = bottomSheetDialogView.findViewById(R.id.fragment_show_student_et_student_name);
             studentAID = bottomSheetDialogView.findViewById(R.id.fragment_show_student_et_student_aid);
@@ -204,7 +204,7 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
          **********************************************************************************************/
         private void displayEditStudentDialog(Students student) {
             bottomSheetDialog = new BottomSheetDialog(itemView.getContext(), R.style.BottomSheetStyle);
-            bottomSheetDialogView = LayoutInflater.from(itemView.getContext()).inflate(R.layout.fragment_admin_students_accouts_edit, null, false);
+            bottomSheetDialogView = LayoutInflater.from(itemView.getContext()).inflate(R.layout.fragment_admin_edit_student_account, null, false);
 
             studentName = bottomSheetDialogView.findViewById(R.id.fragment_edit_student_et_student_name);
             studentAID = bottomSheetDialogView.findViewById(R.id.fragment_edit_student_et_student_aid);

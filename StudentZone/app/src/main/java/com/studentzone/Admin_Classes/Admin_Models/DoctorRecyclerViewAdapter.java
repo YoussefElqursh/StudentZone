@@ -161,7 +161,7 @@ public class DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecycl
          **********************************************************************************************/
         private void displayDoctorDetailsDialog(Doctors doctor) {
             bottomSheetDialog = new BottomSheetDialog(itemView.getContext(), R.style.BottomSheetStyle);
-            bottomSheetDialogView = LayoutInflater.from(itemView.getContext()).inflate(R.layout.fragment_admin_doctors_accouts_show, null, false);
+            bottomSheetDialogView = LayoutInflater.from(itemView.getContext()).inflate(R.layout.fragment_admin_show_doctor_accout, null, false);
 
             doctorName = bottomSheetDialogView.findViewById(R.id.fragment_show_doctor_et_doctor_name);
             doctorEmail = bottomSheetDialogView.findViewById(R.id.fragment_show_doctor_et_doctor_email);
@@ -194,7 +194,7 @@ public class DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecycl
          **********************************************************************************************/
         private void displayEditDoctorDialog(Doctors doctor) {
             bottomSheetDialog = new BottomSheetDialog(itemView.getContext(), R.style.BottomSheetStyle);
-            bottomSheetDialogView = LayoutInflater.from(itemView.getContext()).inflate(R.layout.fragment_admin_doctors_accouts_edit, null, false);
+            bottomSheetDialogView = LayoutInflater.from(itemView.getContext()).inflate(R.layout.fragment_admin_edit_doctor_accout, null, false);
 
             doctorName = bottomSheetDialogView.findViewById(R.id.fragment_edit_doctor_et_doctor_name);
             doctorEmail = bottomSheetDialogView.findViewById(R.id.fragment_edit_doctor_et_doctor_email);
