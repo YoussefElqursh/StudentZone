@@ -199,19 +199,12 @@ void logoutconfirmation2(){
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
       switch (item.getItemId()){
           case R.id.activity_student_home_item_logout :
               logoutconfirmation2();
-
       }
-
-
-
         return true;
     }
-
-
 }
 
 

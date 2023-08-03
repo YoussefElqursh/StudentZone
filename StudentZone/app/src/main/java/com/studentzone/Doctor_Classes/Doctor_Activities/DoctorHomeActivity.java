@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.google.android.material.navigation.NavigationView;
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
+import com.studentzone.Student_Classes.Student_Activities.StudentHomeActivity;
 
 public class DoctorHomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     CardView cv_subjects,cv_assessStudent;
@@ -148,8 +149,27 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
         getSupportActionBar().setHomeButtonEnabled(true);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
+    void logoutconfirmation2(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(DoctorHomeActivity.this);
+        builder.setTitle("Log Out");
+        builder.setMessage("Are you sure you want to log out?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                logOut();
+            }
+        });
+        builder.setNegativeButton("No", null);
+        builder.show();
+
+    }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        return false;
+        switch (item.getItemId()){
+            case R.id.activity_doctor_home_item_logout :
+                logoutconfirmation2();
+        }
+        return true;
     }
 }

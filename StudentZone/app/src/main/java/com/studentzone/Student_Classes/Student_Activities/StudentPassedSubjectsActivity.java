@@ -52,7 +52,7 @@ public class StudentPassedSubjectsActivity extends AppCompatActivity {
         studentPassedSubjectModel.add(new SubjectModel("Mathimatics-1","123dfg"));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new SubjectAdapter(getApplicationContext(),studentPassedSubjectModel));
+        recyclerView.setAdapter(new SubjectAdapter(getApplicationContext(), (ArrayList<SubjectModel>) studentPassedSubjectModel));
         return recyclerView;
     }
 }
