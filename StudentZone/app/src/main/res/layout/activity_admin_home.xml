@@ -26,7 +26,7 @@
             android:background="@color/blue"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:titleTextColor="@color/blue"/>
+            app:titleTextColor="@color/blue" />
 
         <TextView
             android:id="@+id/activity_admin_home_tv_home"

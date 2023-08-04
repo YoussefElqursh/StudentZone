@@ -243,6 +243,7 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
             arrayAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             departmentSpinner.setAdapter(arrayAdapter1);
 
+            docNames.add(0,"None");
             ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<>(itemView.getContext(), android.R.layout.simple_spinner_item, docNames);
             arrayAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             doctorSpinner.setAdapter(arrayAdapter2);
@@ -391,7 +392,7 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
          *  to show a confirmation dialog to the user before deleting a department.
          **********************************************************************************************/
         private void displayDeleteConfirmationDialog(Courses course) {
-            builder.setMessage("Are you sure you want to delete this Course?")
+            builder.setMessage("Are you sure you want to delete \""+course.getName()+"\" Course?")
                     .setCancelable(false)
                     .setPositiveButton("Yes", (dialog, id) -> {
 

@@ -343,7 +343,7 @@ public class DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecycl
          *  to show a confirmation dialog to the user before deleting a student.
          **********************************************************************************************/
         private void displayDeleteConfirmationDialog(Doctors doctor) {
-            builder.setMessage("Are you sure you want to delete this doctor's information?")
+            builder.setMessage("Are you sure you want to delete  Dr: "+doctor.getFName()+"?")
                     .setCancelable(false)
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {

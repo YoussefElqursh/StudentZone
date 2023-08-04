@@ -259,29 +259,33 @@ public class My_DB extends SQLiteOpenHelper {
         SharedPreferences pref = context.getSharedPreferences("userName",Context.MODE_PRIVATE);
         String firstName = null;
         String lastName = null;
+        String Email = null;
 
         switch (kindCheckedId) {
             case -1:
                 return isValid;
             case 0:
-                Cursor adminCursor = db.query("" + Education_Table_Admins + "", new String[]{Admin_col_name},
+                Cursor adminCursor = db.query("" + Education_Table_Admins + "", new String[]{Admin_col_name,Admin_col_email},
                         "" + Admin_col_email + "=? AND " + Admin_col_password + "=?", new String[]{email, password},
                         null, null, null, null);
 
                 if (adminCursor.moveToFirst()) {
                     isValid = adminCursor.moveToFirst();
                     int firstNameColumnIndex = adminCursor.getColumnIndex(Admin_col_name);
+                    int emailColumnIndex = adminCursor.getColumnIndex(Admin_col_email);
                     if (firstNameColumnIndex >= 0) {
                         firstName = adminCursor.getString(firstNameColumnIndex);
+                        Email = adminCursor.getString(emailColumnIndex);
 
                         pref.edit().putString("fName",firstName).apply();
+                        pref.edit().putString("email",Email).apply();
 
                     }
                 }
                 adminCursor.close();
                 break;
             case 1:
-                Cursor doctorCursor = db.query("" + Education_Table_Doctors + "", new String[]{Doctors_col_first_name,Doctors_col_last_name},
+                Cursor doctorCursor = db.query("" + Education_Table_Doctors + "", new String[]{Doctors_col_first_name,Doctors_col_last_name,Doctors_col_email},
                         "" + Doctors_col_email + "=? AND " + Doctors_col_password + "=?", new String[]{email, password},
                         null, null, null, null);
 
@@ -290,19 +294,23 @@ public class My_DB extends SQLiteOpenHelper {
 
                     int firstNameColumnIndex = doctorCursor.getColumnIndex(Doctors_col_first_name);
                     int lastNameColumnIndex = doctorCursor.getColumnIndex(Doctors_col_last_name);
+                    int emailColumnIndex = doctorCursor.getColumnIndex(Doctors_col_email);
                     if (firstNameColumnIndex >= 0 && lastNameColumnIndex >= 0) {
                         firstName = doctorCursor.getString(firstNameColumnIndex);
                         lastName  = doctorCursor.getString(lastNameColumnIndex);
+                        Email  = doctorCursor.getString(emailColumnIndex);
 
                         pref.edit().putString("fName",firstName).apply();
                         pref.edit().putString("lName",lastName).apply();
+                        pref.edit().putString("email",Email).apply();
+
 
                     }
                 }
                 doctorCursor.close();
                 break;
             case 2:
-                Cursor studentCursor = db.query("" + Education_Table_Students + "", new String[]{Student_col_first_name,Student_col_last_name},
+                Cursor studentCursor = db.query("" + Education_Table_Students + "", new String[]{Student_col_first_name,Student_col_last_name,Student_col_email},
                         "" + Student_col_email + "=? AND " + Student_col_password + "=?", new String[]{email, password},
                         null, null, null, null);
 
@@ -310,12 +318,15 @@ public class My_DB extends SQLiteOpenHelper {
                     isValid = studentCursor.moveToFirst();
                     int firstNameColumnIndex = studentCursor.getColumnIndex(Student_col_first_name);
                     int lastNameColumnIndex = studentCursor.getColumnIndex(Student_col_last_name);
+                    int emailColumnIndex = studentCursor.getColumnIndex(Student_col_email);
                     if (firstNameColumnIndex >= 0 && lastNameColumnIndex >= 0) {
                         firstName = studentCursor.getString(firstNameColumnIndex);
                         lastName  = studentCursor.getString(lastNameColumnIndex);
+                        Email  = studentCursor.getString(emailColumnIndex);
 
                         pref.edit().putString("fName",firstName).apply();
                         pref.edit().putString("lName",lastName).apply();
+                        pref.edit().putString("email",Email).apply();
 
                     }
                 }
@@ -919,7 +930,7 @@ public class My_DB extends SQLiteOpenHelper {
     @SuppressLint("Range")
     public String getDoctorNameById(int doctorId){
         SQLiteDatabase db = getReadableDatabase();
-        String doctorName = "hhh"; // Default value if doctor name is not found
+        String doctorName = "None"; // Default value if doctor name is not found
 
         String query = "SELECT " + Doctors_col_first_name + " FROM " + Education_Table_Doctors +
                 " WHERE " + Doctors_col_id + " = ?";

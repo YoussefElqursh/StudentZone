@@ -361,7 +361,7 @@ public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<Departme
          *  to show a confirmation dialog to the user before deleting a department.
          **********************************************************************************************/
         private void displayDeleteConfirmationDialog(Departments department) {
-            builder.setMessage("Are you sure you want to delete this Department and the Courses Inside IT?")
+            builder.setMessage("Are you sure you want to delete \""+department.getName()+"\" Department? Note you will delete Courses Inside IT Too?")
                     .setCancelable(false)
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {

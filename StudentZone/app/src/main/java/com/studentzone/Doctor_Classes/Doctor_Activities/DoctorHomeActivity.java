@@ -1,5 +1,13 @@
 package com.studentzone.Doctor_Classes.Doctor_Activities;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
@@ -8,27 +16,15 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-
 import com.google.android.material.navigation.NavigationView;
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
-import com.studentzone.Student_Classes.Student_Activities.StudentHomeActivity;
 
 public class DoctorHomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     CardView cv_subjects,cv_assessStudent;
-    Button btn_logout, btn_profile;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
-    TextView profileName ;
+    TextView profileImage, profileName, profileEmail;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
@@ -40,6 +36,7 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
         setContentView(R.layout.activity_doctor_home);
 
         inflate();
+        fillOutDoctorInfo();
         subjectsCardViewClickAction();
         assessStudentCardViewClickAction();
         drawerToggleButtonAction();
@@ -53,52 +50,39 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
         drawerLayout = findViewById(R.id.activity_doctor_home_drl);
         navigationView = findViewById(R.id.activity_doctor_home_nav_drawer);
         toolbar = findViewById(R.id.activity_doctor_home_tb);
+
+        View headerView = navigationView.getHeaderView(0);
+
+        profileName = headerView.findViewById(R.id.activity_doctor_home_nav_drawer_doctor_name);
+        profileEmail = headerView.findViewById(R.id.activity_doctor_home_nav_drawer_doctor_email);
+        profileImage = headerView.findViewById(R.id.activity_doctor_home_nav_drawer_doctor_dn);
+
     }
 
+    /**
+     * fillOutDoctorInfo()
+     **********************************************************************************************/
+    public void fillOutDoctorInfo() {
 
-    public void subjectsCardViewClickAction() {
-        cv_subjects.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DoctorHomeActivity.this, DoctorSubjectsActivity.class));
+        preferences = getSharedPreferences("userName",MODE_PRIVATE);
+        String name = preferences.getString("fName", "");
+        String email = preferences.getString("email", "");
 
-            }
-        });
-    }
+        String capitalizedName = name.substring(0, 1).toUpperCase() + name.substring(1);
 
-    public void assessStudentCardViewClickAction() {
-        cv_assessStudent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DoctorHomeActivity.this, DoctorAssessStudentActivity.class));
+        String  abbreviation = "";
+        String[] words = name.split(" ");
+        for (String word : words) {
+            char firstLetter = word.charAt(0);
+            abbreviation += firstLetter;
 
-            }
-        });
-    }
+            if(abbreviation.length() == 2)
+                break;
+        }
 
-    /**logOutConfirmationDialog()
-     * Shows a confirmation dialog when the user clicks on the log out button.
-     * If the user confirms the log out action, call the logOut() method.
-     * **********************************************************************************************/
-    public void logOutConfirmationDialog() {
-
-        btn_logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Create an alert dialog to confirm the log out action
-                AlertDialog.Builder builder = new AlertDialog.Builder(DoctorHomeActivity.this);
-                builder.setTitle("Log Out");
-                builder.setMessage("Are you sure you want to log out?");
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        logOut();
-                    }
-                });
-                builder.setNegativeButton("No", null);
-                builder.show();
-            }
-        });
+        profileName.setText(capitalizedName);
+        profileEmail.setText(email);
+        profileImage.setText(abbreviation);
     }
 
     /**logOut()
@@ -111,28 +95,14 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
         startActivity(new Intent(getBaseContext(), LoginActivity.class));
         finish();
     }
-    /**
-     * buttonProfileAction()
-     **********************************************************************************************/
-    public void buttonProfileAction() {
-//        btn_profile = findViewById(R.id.activity_doctor_home_btn_profile);
-//        profileName = findViewById(R.id.activity_doctor_home_tv_profileName);
 
-        preferences = getSharedPreferences("userName",MODE_PRIVATE);
-        String name = preferences.getString("fName", "")+preferences.getString("lName", "");
 
-        String capitalizedStr = name.substring(0, 1).toUpperCase() + name.substring(1);
-        profileName.setText(capitalizedStr);
-        btn_profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                if(profileName.getVisibility() == View.VISIBLE)
-                    profileName.setVisibility(View.INVISIBLE);
-                else
-                    profileName.setVisibility(View.VISIBLE);
-            }
-        });
+    public void subjectsCardViewClickAction() {
+        cv_subjects.setOnClickListener(v -> startActivity(new Intent(DoctorHomeActivity.this, DoctorSubjectsActivity.class)));
+    }
+
+    public void assessStudentCardViewClickAction() {
+        cv_assessStudent.setOnClickListener(v -> startActivity(new Intent(DoctorHomeActivity.this, DoctorAssessStudentActivity.class)));
     }
 
     /**
@@ -150,16 +120,11 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    void logoutconfirmation2(){
+    void logOutConfirmationDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(DoctorHomeActivity.this);
         builder.setTitle("Log Out");
         builder.setMessage("Are you sure you want to log out?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                logOut();
-            }
-        });
+        builder.setPositiveButton("Yes", (dialog, which) -> logOut());
         builder.setNegativeButton("No", null);
         builder.show();
 
@@ -168,13 +133,9 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.activity_doctor_home_item_logout :
-                logoutconfirmation2();
+                logOutConfirmationDialog();
         }
         return false;
     }
-
-
-
-
 
 }
