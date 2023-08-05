@@ -64,7 +64,7 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
      **********************************************************************************************/
     public void fillOutDoctorInfo() {
 
-        preferences = getSharedPreferences("userName",MODE_PRIVATE);
+        preferences = getSharedPreferences("userInfo",MODE_PRIVATE);
         String name = preferences.getString("fName", "");
         String email = preferences.getString("email", "");
 
@@ -98,7 +98,7 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
 
 
     public void subjectsCardViewClickAction() {
-        cv_subjects.setOnClickListener(v -> startActivity(new Intent(DoctorHomeActivity.this, DoctorSubjectsActivity.class)));
+        cv_subjects.setOnClickListener(v -> startActivity(new Intent(DoctorHomeActivity.this, DoctorCoursesActivity.class)));
     }
 
     public void assessStudentCardViewClickAction() {
