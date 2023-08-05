@@ -320,14 +320,20 @@ public class My_DB extends SQLiteOpenHelper {
                     int firstNameColumnIndex = studentCursor.getColumnIndex(Student_col_first_name);
                     int lastNameColumnIndex = studentCursor.getColumnIndex(Student_col_last_name);
                     int emailColumnIndex = studentCursor.getColumnIndex(Student_col_email);
+                    int idColumnIndex = studentCursor.getColumnIndex(Student_col_id);
+
                     if (firstNameColumnIndex >= 0 && lastNameColumnIndex >= 0) {
                         firstName = studentCursor.getString(firstNameColumnIndex);
                         lastName  = studentCursor.getString(lastNameColumnIndex);
                         Email  = studentCursor.getString(emailColumnIndex);
+                        id  = studentCursor.getString(idColumnIndex);
+
 
                         pref.edit().putString("fName",firstName).apply();
                         pref.edit().putString("lName",lastName).apply();
                         pref.edit().putString("email",Email).apply();
+                        pref.edit().putString("id",id).apply();
+
 
                     }
                 }
