@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/blue"
     android:orientation="vertical"
-    tools:context=".Doctor_Classes.Doctor_Activities.DoctorSubjectsActivity">
+    tools:context=".Doctor_Classes.Doctor_Activities.DoctorCoursesActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/activity_doctor_subjects_tbar"
@@ -51,9 +51,11 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/doctor_subjects_recycleview"
             android:layout_marginTop="5dp"/>
 
+
     </LinearLayout>
+
 </LinearLayout>

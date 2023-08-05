@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import com.studentzone.Doctor_Classes.Doctor_Activities.Model;
 import com.studentzone.R;
 import com.studentzone.Student_Classes.Student_Models.RegestrationModel.SubjectRegestrationModel;
 import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectModel;
@@ -26,7 +25,7 @@ public class My_DB extends SQLiteOpenHelper {
      ***********************************************************************************************/
     public static final String DB_Name = "Education";
 
-    public static final int DB_Version = 24;
+    public static final int DB_Version = 26;
 
 
     private final Context context;
@@ -209,14 +208,25 @@ public class My_DB extends SQLiteOpenHelper {
 
 
 
-        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id +")" + " VALUES ('CS105','Android',1,4)");
-        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id +"," + Courses_col_doctor_id +")" + " VALUES ('CS103','Operating System1',1,2)");
-        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id + ")" + " VALUES ('IS111','Data Base1',3,4)");
-        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id + "," + Courses_col_PreRequest_id + ")" + " VALUES ('CS106','Flutter',1,4,1)");
-        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id + ")" + " VALUES ('IT080','Computer Netowrk1',2,1)");
-        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id +")" + " VALUES ('IT100','Image Processing',2,3)");
-        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id + "," + Courses_col_PreRequest_id + ")" + " VALUES ('IT081','Computer Netowrk2',2,1,5)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id +")" + " VALUES ('CS438','Android',1,4)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id +"," + Courses_col_doctor_id +")" + " VALUES ('CS261','Operating System1',1,2)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id + ")" + " VALUES ('IS221','Data Base1',3,4)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id + "," + Courses_col_PreRequest_id + ")" + " VALUES ('CS439','Flutter',1,4,1)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id + ")" + " VALUES ('IT221','Computer Netowrk1',2,1)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id +")" + " VALUES ('IT218','Image Processing',2,3)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id + "," + Courses_col_PreRequest_id + ")" + " VALUES ('IT222','Computer Netowrk2',2,1,5)");
 
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_course_id + "," + Enrollment_col_student_id + ")" + " VALUES (1,1)");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_course_id + "," + Enrollment_col_student_id + ")" + " VALUES (1,2)");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_course_id + "," + Enrollment_col_student_id + ")" + " VALUES (1,3)");
+
+//        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_course_id + "," + Enrollment_col_student_id + ")" + " VALUES (5,4)");
+//        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_course_id + "," + Enrollment_col_student_id + ")" + " VALUES (5,5)");
+//        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_course_id + "," + Enrollment_col_student_id + ")" + " VALUES (5,6)");
+//        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_course_id + "," + Enrollment_col_student_id + ")" + " VALUES (5,7)");
+//
+//        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_course_id + "," + Enrollment_col_student_id + ")" + " VALUES (7,6)");
+//        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_course_id + "," + Enrollment_col_student_id + ")" + " VALUES (7,7)");
 
 
 
@@ -256,10 +266,11 @@ public class My_DB extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         boolean isValid = false;
 
-        SharedPreferences pref = context.getSharedPreferences("userName",Context.MODE_PRIVATE);
+        SharedPreferences pref = context.getSharedPreferences("userInfo",Context.MODE_PRIVATE);
         String firstName = null;
         String lastName = null;
         String Email = null;
+        String id = null;
 
         switch (kindCheckedId) {
             case -1:
@@ -285,7 +296,7 @@ public class My_DB extends SQLiteOpenHelper {
                 adminCursor.close();
                 break;
             case 1:
-                Cursor doctorCursor = db.query("" + Education_Table_Doctors + "", new String[]{Doctors_col_first_name,Doctors_col_last_name,Doctors_col_email},
+                Cursor doctorCursor = db.query("" + Education_Table_Doctors + "", new String[]{Doctors_col_first_name,Doctors_col_last_name,Doctors_col_email,Doctors_col_id},
                         "" + Doctors_col_email + "=? AND " + Doctors_col_password + "=?", new String[]{email, password},
                         null, null, null, null);
 
@@ -295,14 +306,20 @@ public class My_DB extends SQLiteOpenHelper {
                     int firstNameColumnIndex = doctorCursor.getColumnIndex(Doctors_col_first_name);
                     int lastNameColumnIndex = doctorCursor.getColumnIndex(Doctors_col_last_name);
                     int emailColumnIndex = doctorCursor.getColumnIndex(Doctors_col_email);
+                    int idColumnIndex = doctorCursor.getColumnIndex(Doctors_col_id);
+
                     if (firstNameColumnIndex >= 0 && lastNameColumnIndex >= 0) {
                         firstName = doctorCursor.getString(firstNameColumnIndex);
                         lastName  = doctorCursor.getString(lastNameColumnIndex);
                         Email  = doctorCursor.getString(emailColumnIndex);
+                        id  = doctorCursor.getString(idColumnIndex);
+
 
                         pref.edit().putString("fName",firstName).apply();
                         pref.edit().putString("lName",lastName).apply();
                         pref.edit().putString("email",Email).apply();
+                        pref.edit().putString("id",id).apply();
+
 
 
                     }
@@ -337,22 +354,6 @@ public class My_DB extends SQLiteOpenHelper {
         return isValid;
     }
 
-    public ArrayList<Model> getCourses() {
-        SQLiteDatabase db = getReadableDatabase();
-        ArrayList<Model> arrayList = new ArrayList();
-
-        Cursor cursor = db.query("Courses", null, null, null, null, null, null);
-
-        while (cursor.moveToNext()) {
-
-            String column_code = cursor.getString(2);
-            String column_name = cursor.getString(1);
-            Model model = new Model(R.drawable.ic_subjects, cursor.getString(2), cursor.getString(1));
-            arrayList.add(model);
-        }
-        cursor.close();
-        return arrayList;
-    }
     public ArrayList<SubjectRegestrationModel> getCourses_for_students() {
         SQLiteDatabase db = getReadableDatabase();
         ArrayList<SubjectRegestrationModel> arrayList = new ArrayList();
@@ -425,6 +426,7 @@ public class My_DB extends SQLiteOpenHelper {
                 String email = cursor.getString(cursor.getColumnIndex(Student_col_email));
                 String password = cursor.getString(cursor.getColumnIndex(Student_col_password));
                 String gender = cursor.getString(cursor.getColumnIndex(Student_col_gender));
+
 
                 Students students = new Students(fName,aid,email,password,gender);
 
@@ -802,6 +804,61 @@ public class My_DB extends SQLiteOpenHelper {
 
     }
 
+
+    /**display Doctor's Courses()
+     * This method return only courses which this doctor teach it , not all courses
+     * ********************************************************************************************/
+    @SuppressLint("Range")
+    public ArrayList<Courses> displayDoctorCourses()
+    {
+        ArrayList<Courses> coursesList = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        SharedPreferences preferences = context.getSharedPreferences("userInfo",context.MODE_PRIVATE);
+        String doctorId = preferences.getString("id", "");
+
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + Education_Table_Courses + " WHERE " + Courses_col_doctor_id + " =?", new String[]{doctorId});
+
+        if(cursor != null && cursor.moveToFirst())
+        {
+            do
+            {
+                String name = cursor.getString(cursor.getColumnIndex(Courses_col_name));
+                String code = cursor.getString(cursor.getColumnIndex(Courses_col_code));
+                int dept = cursor.getInt(cursor.getColumnIndex(Courses_col_department_id));
+                int doctor = cursor.getInt(cursor.getColumnIndex(Courses_col_doctor_id));
+                int preRequest = cursor.getInt(cursor.getColumnIndex(Courses_col_PreRequest_id));
+                int id = cursor.getInt(cursor.getColumnIndex(Courses_col_id));
+
+                Courses course = new Courses(id,code,name,preRequest,dept,doctor);
+
+                coursesList.add(course);
+            }while (cursor.moveToNext());
+        }
+
+        cursor.close();
+//        db.close();
+        db = this.getWritableDatabase();
+
+        return coursesList;
+
+    }
+
+    /**getEnrolledStudentCountByCourseId()
+     * ********************************************************************************************/
+    public int getEnrolledStudentCountByCourseId(int courseId){
+        int count = 0;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + Education_Table_Enrollment + " WHERE " + Enrollment_col_course_id + " =?", new String[]{courseId+""});
+
+        count = cursor.getCount();
+
+        return count;
+    }
+
     /**updateCourse()
      **********************************************************************************************/
     public boolean updateCourse(Courses course, String codeBeforeUpdate,String nameBeforeUpdate){
@@ -815,11 +872,17 @@ public class My_DB extends SQLiteOpenHelper {
         values.put(Courses_col_name,course.getName());
         values.put(Courses_col_code,course.getCode());
         values.put(Courses_col_department_id,course.getDepartment());
-        values.put(Courses_col_doctor_id,course.getDoctor());
+
+        if(course.getDoctor() != -1)
+            values.put(Courses_col_doctor_id,course.getDoctor());
+        else
+            values.put(Courses_col_PreRequest_id, (Integer) null);
+
         if(course.getPreRequest() != -1)
             values.put(Courses_col_PreRequest_id, course.getPreRequest());
         else
             values.put(Courses_col_PreRequest_id, (Integer) null);
+
         String args [] = {codeBeforeUpdate};
 
 

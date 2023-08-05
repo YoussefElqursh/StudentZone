@@ -426,4 +426,6 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
         }
 
     }
+
+
 }

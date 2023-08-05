@@ -11,12 +11,11 @@ public class Students  {
     private String Email;
     private String Password ;
 
-    public Students(int id, String academic_Number, String FName, String LName,  String gender, String Email, String Password) {
+    public Students(int id, String academic_Number, String FName, String gender, String Email, String Password) {
 
         this.Id = id;
         this.Academic_Number = academic_Number;
         this.FName = FName;
-        this.LastName = LName;
         this.Email = Email;
         this.Password = Password;
         this.gender = gender;

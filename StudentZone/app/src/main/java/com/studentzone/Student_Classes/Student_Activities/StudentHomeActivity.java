@@ -71,7 +71,7 @@ public class StudentHomeActivity extends AppCompatActivity implements Navigation
     public void fillOutStudentInfo() {
 
 
-        preferences = getSharedPreferences("userName",MODE_PRIVATE);
+        preferences = getSharedPreferences("userInfo",MODE_PRIVATE);
         String name = preferences.getString("fName", "");
         String email = preferences.getString("email", "");
 

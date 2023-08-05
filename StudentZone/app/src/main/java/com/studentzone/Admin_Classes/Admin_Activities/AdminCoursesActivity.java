@@ -241,7 +241,7 @@ public class AdminCoursesActivity extends AppCompatActivity {
         preRequestSpinner.setSelection(0);
     }
 
-    /** clearAddSubjectsDialogEditTextFields()
+    /** clearAddCoursesDialogEditTextFields()
      *  FillOut  EditTexts After Add New Subject Or After Close Bottom Sheet Dialog
      **********************************************************************************************/
     public void clearAddCoursesDialogEditTextFieldsAndSpinners() {
