@@ -253,10 +253,11 @@ public class My_DB extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         boolean isValid = false;
 
-        SharedPreferences pref = context.getSharedPreferences("userName",Context.MODE_PRIVATE);
+        SharedPreferences pref = context.getSharedPreferences("userInfo",Context.MODE_PRIVATE);
         String firstName = null;
         String lastName = null;
         String Email = null;
+        String id = null;
 
         switch (kindCheckedId) {
             case -1:
@@ -282,7 +283,7 @@ public class My_DB extends SQLiteOpenHelper {
                 adminCursor.close();
                 break;
             case 1:
-                Cursor doctorCursor = db.query("" + Education_Table_Doctors + "", new String[]{Doctors_col_first_name,Doctors_col_last_name,Doctors_col_email},
+                Cursor doctorCursor = db.query("" + Education_Table_Doctors + "", new String[]{Doctors_col_first_name,Doctors_col_last_name,Doctors_col_email,Doctors_col_id},
                         "" + Doctors_col_email + "=? AND " + Doctors_col_password + "=?", new String[]{email, password},
                         null, null, null, null);
 
@@ -292,14 +293,17 @@ public class My_DB extends SQLiteOpenHelper {
                     int firstNameColumnIndex = doctorCursor.getColumnIndex(Doctors_col_first_name);
                     int lastNameColumnIndex = doctorCursor.getColumnIndex(Doctors_col_last_name);
                     int emailColumnIndex = doctorCursor.getColumnIndex(Doctors_col_email);
+                    int idColumnIndex = doctorCursor.getColumnIndex(Doctors_col_id);
                     if (firstNameColumnIndex >= 0 && lastNameColumnIndex >= 0) {
                         firstName = doctorCursor.getString(firstNameColumnIndex);
                         lastName  = doctorCursor.getString(lastNameColumnIndex);
                         Email  = doctorCursor.getString(emailColumnIndex);
+                        id  = doctorCursor.getString(idColumnIndex);
 
                         pref.edit().putString("fName",firstName).apply();
                         pref.edit().putString("lName",lastName).apply();
                         pref.edit().putString("email",Email).apply();
+                        pref.edit().putString("id",id).apply();
 
 
                     }
