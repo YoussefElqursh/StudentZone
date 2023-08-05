@@ -147,6 +147,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/custom_et_selector"
         android:drawableStart="@drawable/ic_number_of_students"
         android:drawablePadding="10dp"
