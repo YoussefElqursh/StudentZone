@@ -311,7 +311,7 @@ public class My_DB extends SQLiteOpenHelper {
                 doctorCursor.close();
                 break;
             case 2:
-                Cursor studentCursor = db.query("" + Education_Table_Students + "", new String[]{Student_col_first_name,Student_col_last_name,Student_col_email},
+                Cursor studentCursor = db.query("" + Education_Table_Students + "", new String[]{Student_col_first_name,Student_col_last_name,Student_col_email,Student_col_id},
                         "" + Student_col_email + "=? AND " + Student_col_password + "=?", new String[]{email, password},
                         null, null, null, null);
 
