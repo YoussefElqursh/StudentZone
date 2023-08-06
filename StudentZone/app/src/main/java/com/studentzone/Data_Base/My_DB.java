@@ -162,7 +162,9 @@ public class My_DB extends SQLiteOpenHelper {
                 + "" + Courses_col_PreRequest_id + " INTEGER ,"    // May Be Change To Name
                 + "" + Courses_col_department_id + " INTEGER NOT NULL ,"
                 + "" + Courses_col_doctor_id + " INTEGER,"
+                + "FOREIGN KEY(" + Courses_col_name + ") REFERENCES Departmen(" + Student_col_id + "),"
                 + "FOREIGN KEY(" + Courses_col_department_id + ") REFERENCES Departmen(" + Department_col_id + "),"
+
                 + "FOREIGN KEY(" + Courses_col_doctor_id + ") REFERENCES Doctors(" + Doctors_col_id + "))");
 
         db.execSQL("CREATE TABLE " + Education_Table_Enrollment + " ("
@@ -1094,19 +1096,60 @@ public class My_DB extends SQLiteOpenHelper {
     public ArrayList<SubjectModel> Get_all_courses_for_student_afterRegist(){
         SQLiteDatabase db = getReadableDatabase();
         ArrayList<SubjectModel> arrayList = new ArrayList();
+        SharedPreferences preferences = context.getSharedPreferences("userInfo",context.MODE_PRIVATE);
+        String StudentId =  preferences.getString("id", "");
+        int S_id= Integer.parseInt(StudentId);
+        String selection = "Courses.id = Enrollment.enrollment_course_id AND Enrollment.enrollment_student_id = " + S_id;
 
-        Cursor cursor = db.query("Courses", null, null, null, null, null, null);
+        String query = "SELECT Courses.name, Courses.code FROM Courses JOIN Enrollment ON Courses.id = Enrollment.enrollment_course_id WHERE " + selection;
 
+        Cursor cursor = db.rawQuery(query, null);
         while (cursor.moveToNext()) {
-
-            String column_code = cursor.getString(2);
-            String column_name = cursor.getString(1);
-            SubjectModel model = new SubjectModel( cursor.getString(2), cursor.getString(1));
+            @SuppressLint("Range") String column_code = cursor.getString(cursor.getColumnIndex("code"));
+            @SuppressLint("Range") String column_name = cursor.getString(cursor.getColumnIndex("name"));
+            SubjectModel model = new SubjectModel(column_code, column_name);
             arrayList.add(model);
         }
         cursor.close();
         return arrayList;
     }
+
+    public boolean insertEnrollmentTable(int id_Course){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        SharedPreferences preferences = context.getSharedPreferences("userInfo",context.MODE_PRIVATE);
+        String StudentId =  preferences.getString("id", "");
+        int S_id= Integer.parseInt(StudentId);
+
+        values.put(Enrollment_col_course_id,id_Course);
+        values.put(Enrollment_col_student_id,S_id);
+
+        long result = db.insert(Education_Table_Enrollment,null,values);
+
+        return result !=-1;
+    }
+   public int get_Id_course_by_CourseName(String Course_Name) {
+       SQLiteDatabase db = getReadableDatabase();
+       String selection = "name = '" + Course_Name + "'";
+
+       Cursor cursor = db.query("Courses", new String[]{Courses_col_id}, selection, null, null, null, null);
+       int Course_id = 0;
+       if (cursor.moveToFirst()) {
+           do {
+               Course_id = cursor.getInt(0);
+
+           } while (cursor.moveToNext());
+           cursor.close();
+           db.close();
+       }
+
+
+       return Course_id;
+   }
+
+
+
+
 }
 
 

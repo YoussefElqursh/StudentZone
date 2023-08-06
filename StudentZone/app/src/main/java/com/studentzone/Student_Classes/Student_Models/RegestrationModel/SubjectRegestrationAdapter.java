@@ -31,7 +31,9 @@ public class SubjectRegestrationAdapter extends RecyclerView.Adapter<SubjectRege
     private SharedPreferences sharedPreferences;
 
 
+
     Context context;
+
     CardView cv_subjects;
     public SubjectRegestrationAdapter(Context context, ArrayList<SubjectRegestrationModel>arrayList){
 
@@ -67,25 +69,17 @@ public class SubjectRegestrationAdapter extends RecyclerView.Adapter<SubjectRege
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 int checkboxPosition = holder.getAdapterPosition();
-               SubjectRegestrationModel model = arrayList.get(checkboxPosition);
+                My_DB my_db=new My_DB(context);
+                int ID_Course=my_db.get_Id_course_by_CourseName(model.getSubjectName());
+
+
                 System.out.println("position"+checkboxPosition);
-                model.setCheckBox(isChecked);
+               if(isChecked){
 
-                // Create a new ArrayList to store the checked subjects
-                 ArrayList<SubjectRegestrationModel> checkedSubjects = new ArrayList<>();
+                 boolean x=  my_db.insertEnrollmentTable(ID_Course);
+                   System.out.println(model.getSubjectName()+ID_Course);
 
-                // Iterate over the items in the arrayList_Enrollment and add the checked items to the checkedSubjects list
-                for (int i = 0; i < arrayList.size(); i++) {
-                    SubjectRegestrationModel item = arrayList.get(i);
-                    if (item.isCheckBox()) {
-                        checkedSubjects.add(item);
-                    }
-                }
-//                Intent intent = new Intent(context, StudentSubjectActivity.class);
-//                intent.putExtra("checkedSubjects", checkedSubjects);
-//                context.startActivity(intent);
-              
-
+               }
 
 
 
