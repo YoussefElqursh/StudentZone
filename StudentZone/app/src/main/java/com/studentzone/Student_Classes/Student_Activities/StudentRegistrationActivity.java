@@ -13,6 +13,7 @@ import com.studentzone.R;
 import com.studentzone.Student_Classes.Student_Models.RegestrationModel.SubjectRegestrationAdapter;
 import com.studentzone.Student_Classes.Student_Models.RegestrationModel.SubjectRegestrationModel;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class StudentRegistrationActivity extends AppCompatActivity  {
@@ -23,6 +24,9 @@ public class StudentRegistrationActivity extends AppCompatActivity  {
     //store in the recycler
     Button btn_After_Registration;
     My_DB my_db=new My_DB( this);
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1107,28 +1107,60 @@ public class My_DB extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             @SuppressLint("Range") String column_code = cursor.getString(cursor.getColumnIndex("code"));
             @SuppressLint("Range") String column_name = cursor.getString(cursor.getColumnIndex("name"));
-            SubjectModel model = new SubjectModel(column_code, column_name);
+            SubjectModel model = new SubjectModel(column_name, column_code);
             arrayList.add(model);
         }
         cursor.close();
         return arrayList;
     }
 
-    public boolean insertEnrollmentTable(int id_Course){
+    public boolean insertEnrollmentTable(int id_Course) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
-        SharedPreferences preferences = context.getSharedPreferences("userInfo",context.MODE_PRIVATE);
-        String StudentId =  preferences.getString("id", "");
-        int S_id= Integer.parseInt(StudentId);
+        SharedPreferences preferences = context.getSharedPreferences("userInfo", context.MODE_PRIVATE);
+        String StudentId = preferences.getString("id", "");
+        int S_id = Integer.parseInt(StudentId);
 
-        values.put(Enrollment_col_course_id,id_Course);
-        values.put(Enrollment_col_student_id,S_id);
+        values.put(Enrollment_col_course_id, id_Course);
+        values.put(Enrollment_col_student_id, S_id);
+        long result = 0;
+        if (thereExist(S_id,id_Course)) {
+            System.out.println("exist");
+        } else {
+            result = db.insert(Education_Table_Enrollment, null, values);
 
-        long result = db.insert(Education_Table_Enrollment,null,values);
+        }
 
-        return result !=-1;
+
+
+
+        return result != -1;
     }
-   public int get_Id_course_by_CourseName(String Course_Name) {
+
+    public boolean thereExist(int enrollment_student_id, int enrollment_course_id) {
+        boolean result = false;
+
+        SQLiteDatabase db = getReadableDatabase();
+
+        // Prepare the query to check if the record exists
+        String query = "SELECT COUNT(*) FROM Enrollment WHERE enrollment_student_id = ? AND enrollment_course_id = ?";
+        String[] selectionArgs = {String.valueOf(enrollment_student_id), String.valueOf(enrollment_course_id)};
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+
+        // Check if the cursor has any rows
+        if (cursor.moveToFirst()) {
+            int count = cursor.getInt(0);
+            result = count > 0; // If count is greater than 0, the record exists
+        }
+
+        // Close the cursor and the database
+
+
+
+        return result;
+    }
+
+    public int get_Id_course_by_CourseName(String Course_Name) {
        SQLiteDatabase db = getReadableDatabase();
        String selection = "name = '" + Course_Name + "'";
 
