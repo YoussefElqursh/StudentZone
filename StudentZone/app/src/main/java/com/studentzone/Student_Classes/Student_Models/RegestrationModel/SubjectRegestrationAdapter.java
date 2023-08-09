@@ -8,6 +8,8 @@ import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
@@ -55,6 +57,13 @@ public class SubjectRegestrationAdapter extends RecyclerView.Adapter<SubjectRege
     public void onBindViewHolder(@NonNull ViewHolder holder,  int position) {
         holder.tv1_n.setText(arrayList.get(position).getSubjectName());
         holder.tv2_c.setText(arrayList.get(position).getCodeName());
+
+
+        Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), android.R.anim.slide_in_left);
+
+        holder.itemView.startAnimation(animation);
+
+
         SubjectRegestrationModel model = arrayList.get(position);
 
         String  abbreviation = "",courseName = model.getSubjectName();

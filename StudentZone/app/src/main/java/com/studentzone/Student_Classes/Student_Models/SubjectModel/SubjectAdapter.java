@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -38,6 +40,12 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tv1_n.setText(arrayList2.get(position).getSubjectName());
         holder.tv2_c.setText(arrayList2.get(position).getCodeName());
+
+
+        Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), android.R.anim.slide_in_left);
+
+        holder.itemView.startAnimation(animation);
+
         SubjectModel model = arrayList2.get(position);
 
         String  abbreviation = "",courseName = model.getSubjectName();

@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -68,7 +70,12 @@ public class DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecycl
     @Override
     public void onBindViewHolder(@NonNull doctorViewHolder holder, int position) {
         doctor = doctorsArrayList.get(position);
+
         holder.setDoctorData(doctor);
+
+        Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), android.R.anim.slide_in_left);
+
+        holder.itemView.startAnimation(animation);
     }
 
     @Override

@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -93,6 +95,10 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
         Courses course = coursesList.get(position);
 
          holder.bindCourseData(course);
+
+        Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), android.R.anim.slide_in_left);
+
+        holder.itemView.startAnimation(animation);
     }
 
     /**getItemCount()

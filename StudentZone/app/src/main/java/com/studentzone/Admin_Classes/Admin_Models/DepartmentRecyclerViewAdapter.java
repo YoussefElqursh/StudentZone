@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Filter;
@@ -86,7 +88,9 @@ public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<Departme
 
         holder.setDepartmentData(department);
 
+        Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), android.R.anim.slide_in_left);
 
+        holder.itemView.startAnimation(animation);
     }
 
     @Override

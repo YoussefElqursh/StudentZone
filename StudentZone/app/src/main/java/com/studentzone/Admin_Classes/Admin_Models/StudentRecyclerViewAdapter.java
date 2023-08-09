@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -72,7 +74,12 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
     public void onBindViewHolder(@NonNull studentViewHolder holder, int position) {
 
         student = studentList.get(position);
+
         holder.setStudentData(student);
+
+        Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), android.R.anim.slide_in_left);
+
+        holder.itemView.startAnimation(animation);
     }
 
     @Override

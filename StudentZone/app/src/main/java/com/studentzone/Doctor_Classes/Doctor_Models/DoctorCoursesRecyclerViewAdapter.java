@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -73,7 +75,12 @@ public class DoctorCoursesRecyclerViewAdapter extends RecyclerView.Adapter<Docto
     public void onBindViewHolder(@NonNull @NotNull DoctorCoursesRecyclerViewAdapter.doctorCoursesViewHolder holder, int position) {
 
         Courses course = coursesList.get(position);
+
         holder.bindCourseData(course);
+
+        Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), android.R.anim.slide_in_left);
+
+        holder.itemView.startAnimation(animation);
     }
 
 
