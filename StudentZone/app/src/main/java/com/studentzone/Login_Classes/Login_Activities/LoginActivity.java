@@ -11,6 +11,7 @@ import android.widget.*;
 
 import com.studentzone.Admin_Classes.Admin_Activities.AdminHomeActivity;
 import com.studentzone.Doctor_Classes.Doctor_Activities.DoctorHomeActivity;
+import com.studentzone.ForgetPasswrod_Classes.SendOTPActivity;
 import com.studentzone.Student_Classes.Student_Activities.StudentHomeActivity;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
@@ -19,6 +20,7 @@ public class LoginActivity extends AppCompatActivity {
     Button btn_login;
     EditText et_user_name;
     EditText et_password;
+    TextView forget_password;
     RadioGroup rg_user_kind;
     RadioButton rb_admin;
     RadioButton rb_doctor;
@@ -37,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         sharedPreferencesFileCreation();
         radioButtonGroupAction();
         buttonLoginAction();
+        forget_password();
     }
 
     /** Inflate
@@ -49,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         rb_admin = findViewById(R.id.activity_login_rb_admin);
         rb_student = findViewById(R.id.activity_login_rb_student);
         rb_doctor = findViewById(R.id.activity_login_rb_doctor);
+        forget_password = findViewById(R.id.activity_login_tx_forget_password);
         cb_Remember_me = findViewById(R.id.activity_login_cb_rememberme);
     }
 
@@ -185,5 +189,14 @@ public class LoginActivity extends AppCompatActivity {
         }
         return remember_me;
     }
+    public void forget_password()
+    {
+        forget_password.setOnClickListener(v -> {
+          Intent  intent = new Intent(getBaseContext(), SendOTPActivity.class);
+            startActivity(intent);
+            finish();
+        });
+    }
+
 }
 
