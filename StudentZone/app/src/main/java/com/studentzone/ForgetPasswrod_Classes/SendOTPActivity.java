@@ -38,15 +38,22 @@ public class SendOTPActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(inputMobile.getText().toString().trim().isEmpty())
+                String phoneNumber = inputMobile.getText().toString().trim();
+                String phonePattern = "^01[0-2]{1}[0-9]{8}$";
+
+                if(phoneNumber.matches(phonePattern)){
+                    Intent intent = new Intent(getBaseContext(), VerifyOTPActivity.class);
+                    intent.putExtra("mobile",inputMobile.getText().toString());
+                    startActivity(intent);
+                }
+               else if(inputMobile.getText().toString().trim().isEmpty())
                 {
                     Toast.makeText(SendOTPActivity.this, "Enter Mobile Number", Toast.LENGTH_SHORT).show();
-                    return;
                 }
-
-                Intent intent = new Intent(getBaseContext(), VerifyOTPActivity.class);
-                intent.putExtra("mobile",inputMobile.getText().toString());
-                startActivity(intent);
+               else
+                {
+                    Toast.makeText(SendOTPActivity.this, "Enter correct Mobile Number", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
