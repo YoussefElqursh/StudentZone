@@ -30,7 +30,7 @@ public class VerifyOTPActivity extends AppCompatActivity {
         setContentView(R.layout.activity_verify_o_t_p);
 
         mobileNumber = findViewById(R.id.mobileNumber);
-        mobileNumber.setText(String.format("+20-%s",getIntent().getStringExtra("mobile")));
+        mobileNumber.setText(String.format("+20- %s",getIntent().getStringExtra("mobile")));
 
         inputCode1 = findViewById(R.id.inputCode1);
         inputCode2 = findViewById(R.id.inputCode2);
