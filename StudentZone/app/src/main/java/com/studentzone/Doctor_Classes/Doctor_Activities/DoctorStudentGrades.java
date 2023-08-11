@@ -21,7 +21,7 @@ public class DoctorStudentGrades extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_doctor_student_assessment);
+        setContentView(R.layout.activity_doctor_students_assessment);
 
         setBackButtonAction();
         displayAllStudents();
