@@ -51,12 +51,23 @@
 
         <TextView
             android:id="@+id/activity_student_registration_tv_select_subject"
-            android:layout_width="match_parent"
+            android:layout_width="190dp"
             android:layout_height="wrap_content"
-            android:text="Select your subjects:"
-            android:textSize="18sp"
+            android:text="Select Your Subjects"
+            android:textSize="16sp"
             android:textStyle="bold"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/dark_gray"/>
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="2dp"
+            android:background="@drawable/custom_splitter"
+            android:backgroundTint="@color/dark_gray"
+            android:layout_marginTop="-5dp"
+            android:layout_gravity="center"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleview_student_regestration_choose_subject"
@@ -66,18 +77,19 @@
 
         <Button
             android:id="@+id/fragment_new_department_btn_save"
-            android:layout_width="130dp"
-            android:layout_height="48dp"
-            android:layout_below="@+id/activity_student_regestration_scv_select_subject"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/custom_btn_login_save"
-            android:text="Regist"
+            android:text="Enroll"
             android:textColor="@color/white"
             android:textSize="18sp"
-            tools:ignore="TextContrastCheck" />
+            tools:ignore="TextContrastCheck"
+            android:textAllCaps="false"
+            android:elevation="3dp"/>
 
     </LinearLayout>
 

@@ -23,6 +23,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:rotation="-50"
+                app:srcCompat="@drawable/custom_arc_1"
+                tools:srcCompat="@drawable/custom_arc_1"
+                android:layout_marginRight="-45dp"
+                android:layout_marginTop="20dp"/>
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/activity_admin_dpartment_iv_cv"
                 app:cardCornerRadius="10dp"
@@ -77,16 +87,16 @@
 
             <ImageButton
                 android:id="@+id/activity_admin_department_ib_more"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginRight="8dp"
                 android:paddingTop="10dp"
                 android:src="@drawable/ic_more"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
                 android:background="@drawable/custom_ibtn_more"
-                android:paddingBottom="10dp"/>
+                android:paddingBottom="10dp"
+                android:layout_centerVertical="true"/>
 
         </RelativeLayout>
 

@@ -50,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@drawable/custom_et_selector"
-        android:drawableStart="@drawable/ic_department_2"
+        android:drawableStart="@drawable/ic_department"
         android:drawablePadding="12dp"
         android:ems="10"
         android:hint="Department Name"
@@ -61,7 +61,8 @@
         android:layout_marginRight="20dp"
         android:maxLines="1"
         android:paddingRight="1dp"
-        android:textColorHint="@color/gray" />
+        android:textColorHint="@color/gray"
+        android:drawableTint="@drawable/custom_et_selector"/>
 
     <EditText
         android:id="@+id/fragment_edit_department_et_department_code"
@@ -80,7 +81,8 @@
         android:layout_marginRight="20dp"
         android:maxLines="1"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray"/>
+        android:textColorHint="@color/gray"
+        android:drawableTint="@drawable/custom_et_selector"/>
 
     <Button
         android:id="@+id/fragment_edit_department_btn_save"

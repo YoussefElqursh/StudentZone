@@ -19,9 +19,9 @@ public class SubjectRegestrationViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
 
         checkBox =itemView.findViewById(R.id.activity_student_subject_tv_sub_state);
-        subject_name =itemView.findViewById(R.id.activity_student_Regestration_tv_sub_name);
-        subject_code =itemView.findViewById(R.id.activity_student_Regestration_tv_sub_code);
-        tv_first_letter_of_course = itemView.findViewById(R.id.activity_student_Regestration_tv_sn);
+        subject_name =itemView.findViewById(R.id.activity_student_registration_tv_sub_name);
+        subject_code =itemView.findViewById(R.id.activity_student_registration_tv_sub_code);
+        tv_first_letter_of_course = itemView.findViewById(R.id.activity_student_registration_tv_sn);
 
     }
 }
