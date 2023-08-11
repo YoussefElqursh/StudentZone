@@ -1,7 +1,4 @@
 package com.studentzone.Data_Base;
-
-import androidx.recyclerview.widget.RecyclerView;
-
 public class Students  {
     private int Id;
     private String Academic_Number ;
