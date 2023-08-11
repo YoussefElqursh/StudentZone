@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -33,7 +34,7 @@ public class StudentRegistrationActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_registration);
-        btn_After_Registration=  findViewById(R.id.fragment_new_Subject_btn_save);
+        btn_After_Registration=  findViewById(R.id.fragment_new_department_btn_save);
         buttonBackAction();
 
         recyclerView=findViewById(R.id.recycleview_student_regestration_choose_subject );//add item in recycler
@@ -53,22 +54,10 @@ public class StudentRegistrationActivity extends AppCompatActivity  {
                     my_db.insertEnrollmentTable(id);
                 }
 
+
                 startActivity(new Intent(StudentRegistrationActivity.this,StudentSubjectActivity.class));
-
-
-                new Thread(new Runnable() { // create a new thread
-                    @Override
-                    public void run() {
-                        try {
-                            Thread.sleep(1000000000); // sleep for one second
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }).start();
-
-
                 recreate();
+
 
             }
         });
