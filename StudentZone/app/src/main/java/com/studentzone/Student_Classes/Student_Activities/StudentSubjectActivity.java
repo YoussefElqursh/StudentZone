@@ -28,9 +28,6 @@ public class StudentSubjectActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_subject);
-        Intent intent = getIntent();
-        ArrayList<SubjectModel> checkedSubjects =intent.getParcelableExtra("checkedSubjects") ;
-// Now you can use the checkedSubjects ArrayList as needed
         buttonBackAction();
         recyclerView=findViewById(R.id.student_subject_recycleview );//add item in recycler
          arrayList=my_db.Get_all_courses_for_student_afterRegist();//Method to get all courses name and courses code
@@ -42,7 +39,8 @@ public class StudentSubjectActivity extends AppCompatActivity {
 
 
 
-        }
+
+    }
 
     public void buttonBackAction(){
         btn_back = findViewById(R.id.activity_student_subject_btn_back);

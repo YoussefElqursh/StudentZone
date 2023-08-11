@@ -207,17 +207,13 @@ public class My_DB extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO " + Education_Table_Departments + " (" + Department_col_code + "," + Department_col_name + ")" + " VALUES ('IS2','Information System')");
 
 
-
-        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id +")" + " VALUES ('CS105','Android',1,4)");
-        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id +"," + Courses_col_doctor_id +")" + " VALUES ('CS103','Operating System1',1,2)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id + ")" + " VALUES ('CS105','Android',1,4)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id + ")" + " VALUES ('CS103','Operating System1',1,2)");
         db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id + ")" + " VALUES ('IS111','Data Base1',3,4)");
         db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id + "," + Courses_col_PreRequest_id + ")" + " VALUES ('CS106','Flutter',1,4,1)");
         db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id + ")" + " VALUES ('IT080','Computer Netowrk1',2,1)");
-        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id +")" + " VALUES ('IT100','Image Processing',2,3)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id + ")" + " VALUES ('IT100','Image Processing',2,3)");
         db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id + "," + Courses_col_PreRequest_id + ")" + " VALUES ('IT081','Computer Netowrk2',2,1,5)");
-
-
-
 
 
     }
@@ -243,7 +239,6 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
 
-
     /**
      * checkLogin()
      * This Method Return True = Account Found In My_DB or False = Not Found In My_DB.
@@ -255,7 +250,7 @@ public class My_DB extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         boolean isValid = false;
 
-        SharedPreferences pref = context.getSharedPreferences("userInfo",Context.MODE_PRIVATE);
+        SharedPreferences pref = context.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         String firstName = null;
         String lastName = null;
         String Email = null;
@@ -265,7 +260,7 @@ public class My_DB extends SQLiteOpenHelper {
             case -1:
                 return isValid;
             case 0:
-                Cursor adminCursor = db.query("" + Education_Table_Admins + "", new String[]{Admin_col_name,Admin_col_email},
+                Cursor adminCursor = db.query("" + Education_Table_Admins + "", new String[]{Admin_col_name, Admin_col_email},
                         "" + Admin_col_email + "=? AND " + Admin_col_password + "=?", new String[]{email, password},
                         null, null, null, null);
 
@@ -277,15 +272,15 @@ public class My_DB extends SQLiteOpenHelper {
                         firstName = adminCursor.getString(firstNameColumnIndex);
                         Email = adminCursor.getString(emailColumnIndex);
 
-                        pref.edit().putString("fName",firstName).apply();
-                        pref.edit().putString("email",Email).apply();
+                        pref.edit().putString("fName", firstName).apply();
+                        pref.edit().putString("email", Email).apply();
 
                     }
                 }
                 adminCursor.close();
                 break;
             case 1:
-                Cursor doctorCursor = db.query("" + Education_Table_Doctors + "", new String[]{Doctors_col_first_name,Doctors_col_last_name,Doctors_col_email,Doctors_col_id},
+                Cursor doctorCursor = db.query("" + Education_Table_Doctors + "", new String[]{Doctors_col_first_name, Doctors_col_last_name, Doctors_col_email, Doctors_col_id},
                         "" + Doctors_col_email + "=? AND " + Doctors_col_password + "=?", new String[]{email, password},
                         null, null, null, null);
 
@@ -298,14 +293,14 @@ public class My_DB extends SQLiteOpenHelper {
                     int idColumnIndex = doctorCursor.getColumnIndex(Doctors_col_id);
                     if (firstNameColumnIndex >= 0 && lastNameColumnIndex >= 0) {
                         firstName = doctorCursor.getString(firstNameColumnIndex);
-                        lastName  = doctorCursor.getString(lastNameColumnIndex);
-                        Email  = doctorCursor.getString(emailColumnIndex);
-                        id  = doctorCursor.getString(idColumnIndex);
+                        lastName = doctorCursor.getString(lastNameColumnIndex);
+                        Email = doctorCursor.getString(emailColumnIndex);
+                        id = doctorCursor.getString(idColumnIndex);
 
-                        pref.edit().putString("fName",firstName).apply();
-                        pref.edit().putString("lName",lastName).apply();
-                        pref.edit().putString("email",Email).apply();
-                        pref.edit().putString("id",id).apply();
+                        pref.edit().putString("fName", firstName).apply();
+                        pref.edit().putString("lName", lastName).apply();
+                        pref.edit().putString("email", Email).apply();
+                        pref.edit().putString("id", id).apply();
 
 
                     }
@@ -313,7 +308,7 @@ public class My_DB extends SQLiteOpenHelper {
                 doctorCursor.close();
                 break;
             case 2:
-                Cursor studentCursor = db.query("" + Education_Table_Students + "", new String[]{Student_col_first_name,Student_col_last_name,Student_col_email,Student_col_id},
+                Cursor studentCursor = db.query("" + Education_Table_Students + "", new String[]{Student_col_first_name, Student_col_last_name, Student_col_email, Student_col_id},
                         "" + Student_col_email + "=? AND " + Student_col_password + "=?", new String[]{email, password},
                         null, null, null, null);
 
@@ -326,15 +321,15 @@ public class My_DB extends SQLiteOpenHelper {
 
                     if (firstNameColumnIndex >= 0 && lastNameColumnIndex >= 0) {
                         firstName = studentCursor.getString(firstNameColumnIndex);
-                        lastName  = studentCursor.getString(lastNameColumnIndex);
-                        Email  = studentCursor.getString(emailColumnIndex);
-                        id  = studentCursor.getString(idColumnIndex);
+                        lastName = studentCursor.getString(lastNameColumnIndex);
+                        Email = studentCursor.getString(emailColumnIndex);
+                        id = studentCursor.getString(idColumnIndex);
 
 
-                        pref.edit().putString("fName",firstName).apply();
-                        pref.edit().putString("lName",lastName).apply();
-                        pref.edit().putString("email",Email).apply();
-                        pref.edit().putString("id",id).apply();
+                        pref.edit().putString("fName", firstName).apply();
+                        pref.edit().putString("lName", lastName).apply();
+                        pref.edit().putString("email", Email).apply();
+                        pref.edit().putString("id", id).apply();
 
 
                     }
@@ -350,14 +345,15 @@ public class My_DB extends SQLiteOpenHelper {
     public ArrayList<SubjectRegestrationModel> getCourses_for_students() {
         SQLiteDatabase db = getReadableDatabase();
         ArrayList<SubjectRegestrationModel> arrayList = new ArrayList();
+        String selection=" NOT EXISTS (SELECT enrollment_course_id FROM Enrollment WHERE enrollment_course_id = Courses.id)";
 
-        Cursor cursor = db.query("Courses", null, null, null, null, null, null);
+        Cursor cursor = db.query("Courses", new String[]{Courses_col_name,Courses_col_code}, selection, null, null, null, null);
 
         while (cursor.moveToNext()) {
 
-            String column_code = cursor.getString(2);
-            String column_name = cursor.getString(1);
-            SubjectRegestrationModel model = new SubjectRegestrationModel( cursor.getString(2), cursor.getString(1),false);
+            @SuppressLint("Range") String column_code = cursor.getString(cursor.getColumnIndex(Courses_col_code));
+            @SuppressLint("Range") String column_name = cursor.getString(cursor.getColumnIndex(Courses_col_name));
+            SubjectRegestrationModel model = new SubjectRegestrationModel(column_name,column_code );
             arrayList.add(model);
         }
         cursor.close();
@@ -365,66 +361,68 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
 
-    /**Add New Student()
+    /**
+     * Add New Student()
      **********************************************************************************************/
-    public boolean addNewStudent(Students student){
+    public boolean addNewStudent(Students student) {
 
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
         Cursor cursor;
 
-        values.put(Student_col_academic_number,student.getAcademic_Number());
-        values.put(Student_col_first_name,student.getFName());
-        values.put(Student_col_last_name,student.getLastName());
-        values.put(Student_col_gender,student.getGender());
-        values.put(Student_col_email,student.getEmail());
-        values.put(Student_col_password,student.getPassword());
+        values.put(Student_col_academic_number, student.getAcademic_Number());
+        values.put(Student_col_first_name, student.getFName());
+        values.put(Student_col_last_name, student.getLastName());
+        values.put(Student_col_gender, student.getGender());
+        values.put(Student_col_email, student.getEmail());
+        values.put(Student_col_password, student.getPassword());
 
         //To Check If This Academic Number Is Received
-        cursor = db.rawQuery("SELECT "+Student_col_academic_number+" FROM "+Education_Table_Students+" WHERE "+Student_col_academic_number+"=? ",new String []{student.getAcademic_Number()});
-        if(cursor.moveToFirst()){
+        cursor = db.rawQuery("SELECT " + Student_col_academic_number + " FROM " + Education_Table_Students + " WHERE " + Student_col_academic_number + "=? ", new String[]{student.getAcademic_Number()});
+        if (cursor.moveToFirst()) {
             Toast.makeText(context, "This Academic Number Is Received.", Toast.LENGTH_SHORT).show();
             return false;
         }
 
         //To Check If This Email Is Received
-        cursor = db.rawQuery("SELECT "+Student_col_email+" FROM "+Education_Table_Students+" WHERE "+Student_col_email+"=? ",new String []{student.getEmail()});
-        if(cursor.moveToFirst()){
+        cursor = db.rawQuery("SELECT " + Student_col_email + " FROM " + Education_Table_Students + " WHERE " + Student_col_email + "=? ", new String[]{student.getEmail()});
+        if (cursor.moveToFirst()) {
             Toast.makeText(context, "This Email Is Received.", Toast.LENGTH_SHORT).show();
             return false;
         }
 
         //Store Number Of Item Which Inserted Or Return -1 If Item Not Inserted
-        long result = db.insert(Education_Table_Students,null,values);
+        long result = db.insert(Education_Table_Students, null, values);
 //        db.close();
 
-        return result !=-1;
+        return result != -1;
     }
 
-    /**displayAllStudents()
+    /**
+     * displayAllStudents()
      **********************************************************************************************/
     @SuppressLint("Range")
-    public ArrayList<Students> displayAllStudents(){
+    public ArrayList<Students> displayAllStudents() {
 
         ArrayList<Students> studentsArrayList = new ArrayList<>();
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor =  db.rawQuery("SELECT * FROM "+Education_Table_Students,null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + Education_Table_Students, null);
 
-        if(cursor != null && cursor.moveToFirst()){
+        if (cursor != null && cursor.moveToFirst()) {
 
-            do{
+            do {
                 String fName = cursor.getString(cursor.getColumnIndex(Student_col_first_name));
                 String aid = cursor.getString(cursor.getColumnIndex(Student_col_academic_number));
                 String email = cursor.getString(cursor.getColumnIndex(Student_col_email));
                 String password = cursor.getString(cursor.getColumnIndex(Student_col_password));
                 String gender = cursor.getString(cursor.getColumnIndex(Student_col_gender));
 
-                Students students = new Students(fName,aid,email,password,gender);
+                Students students = new Students(fName, aid, email, password, gender);
 
                 studentsArrayList.add(students);
 
-            }while (cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
         cursor.close();
 //        db.close();
@@ -434,91 +432,95 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
 
-    /**updateStudent()
+    /**
+     * updateStudent()
      **********************************************************************************************/
-    public boolean updateStudent(Students student){
+    public boolean updateStudent(Students student) {
 
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues values = new ContentValues();
 
-        values.put(Student_col_first_name,student.getFName());
-        values.put(Student_col_password,student.getPassword());
-        values.put(Student_col_gender,student.getGender());
+        values.put(Student_col_first_name, student.getFName());
+        values.put(Student_col_password, student.getPassword());
+        values.put(Student_col_gender, student.getGender());
 
-        String args [] = {student.getEmail()};
+        String args[] = {student.getEmail()};
 
-        int result =  db.update(Education_Table_Students,values,""+Student_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
+        int result = db.update(Education_Table_Students, values, "" + Student_col_email + "=?", args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
 
         return result > 0;
     }
 
-    /**deleteStudent()
+    /**
+     * deleteStudent()
      **********************************************************************************************/
-    public boolean deleteStudent(String email){
+    public boolean deleteStudent(String email) {
 
-        SQLiteDatabase db =getWritableDatabase();
-        String args[] ={email};
+        SQLiteDatabase db = getWritableDatabase();
+        String args[] = {email};
 
-        int numDeletedDoctor =db.delete(Education_Table_Students,""+Student_col_email+"=?",args);
+        int numDeletedDoctor = db.delete(Education_Table_Students, "" + Student_col_email + "=?", args);
 
 //        db.close();
 
-        return numDeletedDoctor>0;
+        return numDeletedDoctor > 0;
     }
 
-    /**Add New Doctor()
+    /**
+     * Add New Doctor()
      **********************************************************************************************/
-    public boolean addNewDoctor(Doctors doctor){
+    public boolean addNewDoctor(Doctors doctor) {
 
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put(Doctors_col_first_name,doctor.getFName());
-        values.put(Doctors_col_last_name,doctor.getLName());
-        values.put(Doctors_col_gender,doctor.getGender());
-        values.put(Doctors_col_email,doctor.getEmail());
-        values.put(Doctors_col_password,doctor.getPassword());
+        values.put(Doctors_col_first_name, doctor.getFName());
+        values.put(Doctors_col_last_name, doctor.getLName());
+        values.put(Doctors_col_gender, doctor.getGender());
+        values.put(Doctors_col_email, doctor.getEmail());
+        values.put(Doctors_col_password, doctor.getPassword());
 
 
         //To Check If This Email Is Received
-        Cursor cursor = db.rawQuery("SELECT "+Doctors_col_email+" FROM "+Education_Table_Doctors+" WHERE "+Doctors_col_email+"=? ",new String []{doctor.getEmail()});
-        if(cursor.moveToFirst()){
+        Cursor cursor = db.rawQuery("SELECT " + Doctors_col_email + " FROM " + Education_Table_Doctors + " WHERE " + Doctors_col_email + "=? ", new String[]{doctor.getEmail()});
+        if (cursor.moveToFirst()) {
             Toast.makeText(context, "This Email Is Received.", Toast.LENGTH_SHORT).show();
             return false;
         }
 
         //Store Number Of Item Which Inserted Or Return -1 If Item Not Inserted
-        long result = db.insert(Education_Table_Doctors,null,values);
+        long result = db.insert(Education_Table_Doctors, null, values);
 //        db.close();
 
-        return result !=-1;
+        return result != -1;
     }
 
 
-    /**display All Doctors()
-     * ********************************************************************************************/
+    /**
+     * display All Doctors()
+     ********************************************************************************************/
     @SuppressLint("Range")
-    public ArrayList<Doctors> displayAllDoctors(){
+    public ArrayList<Doctors> displayAllDoctors() {
 
         ArrayList<Doctors> doctorsArrayList = new ArrayList<>();
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor =  db.rawQuery("SELECT * FROM "+Education_Table_Doctors,null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + Education_Table_Doctors, null);
 
-        if(cursor != null && cursor.moveToFirst()){
+        if (cursor != null && cursor.moveToFirst()) {
 
-            do{
+            do {
                 String fName = cursor.getString(cursor.getColumnIndex(Doctors_col_first_name));
                 String email = cursor.getString(cursor.getColumnIndex(Doctors_col_email));
                 String password = cursor.getString(cursor.getColumnIndex(Doctors_col_password));
                 String gender = cursor.getString(cursor.getColumnIndex(Doctors_col_gender));
 
-                Doctors doctors = new Doctors(fName,email,password,gender);
+                Doctors doctors = new Doctors(fName, email, password, gender);
 
                 doctorsArrayList.add(doctors);
 
-            }while (cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
         cursor.close();
 //        db.close();
@@ -528,62 +530,65 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
 
-    /**updateDoctor()
+    /**
+     * updateDoctor()
      **********************************************************************************************/
-    public boolean updateDoctor(Doctors doctor){
+    public boolean updateDoctor(Doctors doctor) {
 
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues values = new ContentValues();
 
-        values.put(Doctors_col_first_name,doctor.getFName());
-        values.put(Doctors_col_password,doctor.getPassword());
-        values.put(Doctors_col_gender,doctor.getGender());
+        values.put(Doctors_col_first_name, doctor.getFName());
+        values.put(Doctors_col_password, doctor.getPassword());
+        values.put(Doctors_col_gender, doctor.getGender());
 
-        String args [] = {doctor.getEmail()};
+        String args[] = {doctor.getEmail()};
 
-        int result =  db.update(Education_Table_Doctors,values,""+Doctors_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
+        int result = db.update(Education_Table_Doctors, values, "" + Doctors_col_email + "=?", args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
 
-        if(result>0)
-            Toast.makeText(context, "Changes saved." , Toast.LENGTH_SHORT).show();
+        if (result > 0)
+            Toast.makeText(context, "Changes saved.", Toast.LENGTH_SHORT).show();
 
         return result > 0;
     }
 
-    /**Delete Doctor()
+    /**
+     * Delete Doctor()
      **********************************************************************************************/
-    public boolean deleteDoctor(String email){
+    public boolean deleteDoctor(String email) {
 
-        SQLiteDatabase db =getWritableDatabase();
-        String args[] ={email};
+        SQLiteDatabase db = getWritableDatabase();
+        String args[] = {email};
 
-        int numDeletedDoctor =db.delete(Education_Table_Doctors,""+Doctors_col_email+"=?",args);
+        int numDeletedDoctor = db.delete(Education_Table_Doctors, "" + Doctors_col_email + "=?", args);
 
 //        db.close();
 
-        return numDeletedDoctor>0;
+        return numDeletedDoctor > 0;
     }
 
-    /**getAllDoctorsNames()
-     * ********************************************************************************************/
+    /**
+     * getAllDoctorsNames()
+     ********************************************************************************************/
     @SuppressLint("Range")
-    public ArrayList<String> getAllDoctorsNames(){
+    public ArrayList<String> getAllDoctorsNames() {
 
         ArrayList<String> docNames = new ArrayList<>();
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor =  db.rawQuery("SELECT * FROM "+Education_Table_Doctors,null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + Education_Table_Doctors, null);
 
-        if(cursor != null && cursor.moveToFirst()){
+        if (cursor != null && cursor.moveToFirst()) {
 
-            do{
+            do {
                 String docName = cursor.getString(cursor.getColumnIndex(Doctors_col_first_name));
 
-                String name =docName;
+                String name = docName;
 
                 docNames.add(name);
 
-            }while (cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
         cursor.close();
 //        db.close();
@@ -593,8 +598,8 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
 
-
-    /**Add New Department()
+    /**
+     * Add New Department()
      **********************************************************************************************/
     public boolean addNewDepartment(Departments department) {
 
@@ -605,42 +610,40 @@ public class My_DB extends SQLiteOpenHelper {
         values.put(Department_col_code, department.getCode());
 
         //To Check If This Department Is Exist
-        Cursor cursor = db.rawQuery("SELECT  "+Department_col_name+", "+Department_col_code+" FROM "+Education_Table_Departments+" WHERE "+Department_col_name+"=? OR "+Department_col_code+"=?  ",new String []{department.getName(),department.getCode()});
-        if(cursor.moveToFirst()){
+        Cursor cursor = db.rawQuery("SELECT  " + Department_col_name + ", " + Department_col_code + " FROM " + Education_Table_Departments + " WHERE " + Department_col_name + "=? OR " + Department_col_code + "=?  ", new String[]{department.getName(), department.getCode()});
+        if (cursor.moveToFirst()) {
             Toast.makeText(context, "This Department's Name or Code Is Exist.", Toast.LENGTH_LONG).show();
             return false;
         }
 
         //Store Number Of Item Which Inserted Or Return -1 If Item Not Inserted
-        long result = db.insert(Education_Table_Departments,null,values);
+        long result = db.insert(Education_Table_Departments, null, values);
 
-        return  result !=-1;
+        return result != -1;
     }
 
-    /**display All Departments()
-     * ********************************************************************************************/
+    /**
+     * display All Departments()
+     ********************************************************************************************/
     @SuppressLint("Range")
-    public ArrayList<Departments> displayAllDepartments()
-    {
+    public ArrayList<Departments> displayAllDepartments() {
         ArrayList<Departments> departmentsArrayList = new ArrayList<>();
 
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM "+Education_Table_Departments,null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + Education_Table_Departments, null);
 
 
-        if(cursor != null && cursor.moveToFirst())
-        {
-            do
-            {
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
                 String name = cursor.getString(cursor.getColumnIndex(Department_col_name));
                 String code = cursor.getString(cursor.getColumnIndex(Department_col_code));
                 int id = cursor.getInt(cursor.getColumnIndex(Department_col_id));
 
-                Departments departments = new Departments(id,name, code);
+                Departments departments = new Departments(id, name, code);
 
                 departmentsArrayList.add(departments);
-            }while (cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
 
         cursor.close();
@@ -651,9 +654,10 @@ public class My_DB extends SQLiteOpenHelper {
 
     }
 
-    /**updateDepartment()
+    /**
+     * updateDepartment()
      **********************************************************************************************/
-    public boolean updateDepartment(Departments department, String codeBeforeUpdate,String nameBeforeUpdate){
+    public boolean updateDepartment(Departments department, String codeBeforeUpdate, String nameBeforeUpdate) {
 
         SQLiteDatabase db = getWritableDatabase();
 
@@ -661,62 +665,63 @@ public class My_DB extends SQLiteOpenHelper {
 
         int result = 0;
 
-        values.put(Department_col_name,department.getName());
-        values.put(Department_col_code,department.getCode());
+        values.put(Department_col_name, department.getName());
+        values.put(Department_col_code, department.getCode());
 
-        String args [] = {codeBeforeUpdate};
+        String args[] = {codeBeforeUpdate};
 
 
         //To Check If This Department Is Exist
         // Check if the department name or code already exist, excluding the current record being updated
-        Cursor cursor = db.rawQuery("SELECT " + Department_col_name + ", " + Department_col_code + " FROM " + Education_Table_Departments + " WHERE (" + Department_col_name + "=? OR " + Department_col_code + "=?) AND (" + Department_col_code + "!=? OR " + Department_col_name + "!=?)", new String[]{ department.getName(), department.getCode(), codeBeforeUpdate, nameBeforeUpdate });
-        if(cursor.moveToFirst()){
+        Cursor cursor = db.rawQuery("SELECT " + Department_col_name + ", " + Department_col_code + " FROM " + Education_Table_Departments + " WHERE (" + Department_col_name + "=? OR " + Department_col_code + "=?) AND (" + Department_col_code + "!=? OR " + Department_col_name + "!=?)", new String[]{department.getName(), department.getCode(), codeBeforeUpdate, nameBeforeUpdate});
+        if (cursor.moveToFirst()) {
             Toast.makeText(context, "Sorry Can't Edit , This Department's Name or Code Is Exist.", Toast.LENGTH_LONG).show();
-        }
-        else {
-            result =  db.update(Education_Table_Departments,values,""+Department_col_code+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
-            Toast.makeText(context, "Changes saved." , Toast.LENGTH_SHORT).show();
+        } else {
+            result = db.update(Education_Table_Departments, values, "" + Department_col_code + "=?", args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
+            Toast.makeText(context, "Changes saved.", Toast.LENGTH_SHORT).show();
 
         }
         return result > 0;
     }
 
 
-    /**Delete Department()
+    /**
+     * Delete Department()
      **********************************************************************************************/
-    public boolean deleteDepartment(String code,String id){
+    public boolean deleteDepartment(String code, String id) {
 
-        SQLiteDatabase db =getWritableDatabase();
-        String args[] ={code};
+        SQLiteDatabase db = getWritableDatabase();
+        String args[] = {code};
 
-        int numDeletedDepartments =db.delete(Education_Table_Departments,""+Department_col_code+"=?",args);
-        db.delete(Education_Table_Courses,""+Courses_col_department_id+"=?",new  String[]{id});
+        int numDeletedDepartments = db.delete(Education_Table_Departments, "" + Department_col_code + "=?", args);
+        db.delete(Education_Table_Courses, "" + Courses_col_department_id + "=?", new String[]{id});
 
 //        db.close();
-        return numDeletedDepartments>0;
+        return numDeletedDepartments > 0;
     }
 
 
-    /**getAllDepartmentsNames()
-     * ********************************************************************************************/
+    /**
+     * getAllDepartmentsNames()
+     ********************************************************************************************/
     @SuppressLint("Range")
-    public ArrayList<String> getAllDepartmentsNames(){
+    public ArrayList<String> getAllDepartmentsNames() {
 
         ArrayList<String> deptName = new ArrayList<>();
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor =  db.rawQuery("SELECT * FROM "+Education_Table_Departments,null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + Education_Table_Departments, null);
 
-        if(cursor != null && cursor.moveToFirst()){
+        if (cursor != null && cursor.moveToFirst()) {
 
-            do{
+            do {
                 String name = cursor.getString(cursor.getColumnIndex(Department_col_name));
 
                 String n = name;
 
                 deptName.add(n);
 
-            }while (cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
         cursor.close();
 //        db.close();
@@ -726,8 +731,8 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
 
-
-    /**Add New Course()
+    /**
+     * Add New Course()
      **********************************************************************************************/
 
     public boolean addNewCourse(@NonNull Courses course) {
@@ -739,7 +744,7 @@ public class My_DB extends SQLiteOpenHelper {
         values.put(Courses_col_code, course.getCode());
         values.put(Courses_col_department_id, course.getDepartment());
         values.put(Courses_col_doctor_id, course.getDoctor());
-        if(course.getPreRequest() != -1)
+        if (course.getPreRequest() != -1)
             values.put(Courses_col_PreRequest_id, course.getPreRequest());
         else
             values.put(Courses_col_PreRequest_id, (Integer) null);
@@ -752,29 +757,27 @@ public class My_DB extends SQLiteOpenHelper {
             return false;
         }
         //Store Number Of Item Which Inserted Or Return -1 If Item Not Inserted
-        long result = db.insert(Education_Table_Courses,null,values);
+        long result = db.insert(Education_Table_Courses, null, values);
 
-        return  result !=-1;
+        return result != -1;
 
     }
 
 
-    /**display All Courses()
-     * ********************************************************************************************/
+    /**
+     * display All Courses()
+     ********************************************************************************************/
     @SuppressLint("Range")
-    public ArrayList<Courses> displayAllCourses()
-    {
+    public ArrayList<Courses> displayAllCourses() {
         ArrayList<Courses> coursesList = new ArrayList<>();
 
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM "+Education_Table_Courses,null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + Education_Table_Courses, null);
 
 
-        if(cursor != null && cursor.moveToFirst())
-        {
-            do
-            {
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
                 String name = cursor.getString(cursor.getColumnIndex(Courses_col_name));
                 String code = cursor.getString(cursor.getColumnIndex(Courses_col_code));
                 int dept = cursor.getInt(cursor.getColumnIndex(Courses_col_department_id));
@@ -782,10 +785,10 @@ public class My_DB extends SQLiteOpenHelper {
                 int preRequest = cursor.getInt(cursor.getColumnIndex(Courses_col_PreRequest_id));
                 int id = cursor.getInt(cursor.getColumnIndex(Courses_col_id));
 
-                Courses course = new Courses(id,code,name,preRequest,dept,doctor);
+                Courses course = new Courses(id, code, name, preRequest, dept, doctor);
 
                 coursesList.add(course);
-            }while (cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
 
         cursor.close();
@@ -797,26 +800,24 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
 
-    /**display Doctor's Courses()
+    /**
+     * display Doctor's Courses()
      * This method return only courses which this doctor teach it , not all courses
-     * ********************************************************************************************/
+     ********************************************************************************************/
     @SuppressLint("Range")
-    public ArrayList<Courses> displayDoctorCourses()
-    {
+    public ArrayList<Courses> displayDoctorCourses() {
         ArrayList<Courses> coursesList = new ArrayList<>();
 
         SQLiteDatabase db = this.getReadableDatabase();
 
-        SharedPreferences preferences = context.getSharedPreferences("userInfo",context.MODE_PRIVATE);
+        SharedPreferences preferences = context.getSharedPreferences("userInfo", context.MODE_PRIVATE);
         String doctorId = preferences.getString("id", "");
 
 
         Cursor cursor = db.rawQuery("SELECT * FROM " + Education_Table_Courses + " WHERE " + Courses_col_doctor_id + " =?", new String[]{doctorId});
 
-        if(cursor != null && cursor.moveToFirst())
-        {
-            do
-            {
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
                 String name = cursor.getString(cursor.getColumnIndex(Courses_col_name));
                 String code = cursor.getString(cursor.getColumnIndex(Courses_col_code));
                 int dept = cursor.getInt(cursor.getColumnIndex(Courses_col_department_id));
@@ -824,10 +825,10 @@ public class My_DB extends SQLiteOpenHelper {
                 int preRequest = cursor.getInt(cursor.getColumnIndex(Courses_col_PreRequest_id));
                 int id = cursor.getInt(cursor.getColumnIndex(Courses_col_id));
 
-                Courses course = new Courses(id,code,name,preRequest,dept,doctor);
+                Courses course = new Courses(id, code, name, preRequest, dept, doctor);
 
                 coursesList.add(course);
-            }while (cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
 
         cursor.close();
@@ -838,22 +839,24 @@ public class My_DB extends SQLiteOpenHelper {
 
     }
 
-    /**getEnrolledStudentCountByCourseId()
-     * ********************************************************************************************/
-    public int getEnrolledStudentCountByCourseId(int courseId){
+    /**
+     * getEnrolledStudentCountByCourseId()
+     ********************************************************************************************/
+    public int getEnrolledStudentCountByCourseId(int courseId) {
         int count = 0;
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM " + Education_Table_Enrollment + " WHERE " + Enrollment_col_course_id + " =?", new String[]{courseId+""});
+        Cursor cursor = db.rawQuery("SELECT * FROM " + Education_Table_Enrollment + " WHERE " + Enrollment_col_course_id + " =?", new String[]{courseId + ""});
 
         count = cursor.getCount();
 
         return count;
     }
 
-    /**updateCourse()
+    /**
+     * updateCourse()
      **********************************************************************************************/
-    public boolean updateCourse(Courses course, String codeBeforeUpdate,String nameBeforeUpdate){
+    public boolean updateCourse(Courses course, String codeBeforeUpdate, String nameBeforeUpdate) {
 
         SQLiteDatabase db = getWritableDatabase();
 
@@ -861,71 +864,72 @@ public class My_DB extends SQLiteOpenHelper {
 
         int result = 0;
 
-        values.put(Courses_col_name,course.getName());
-        values.put(Courses_col_code,course.getCode());
-        values.put(Courses_col_department_id,course.getDepartment());
-        values.put(Courses_col_doctor_id,course.getDoctor());
-        if(course.getPreRequest() != -1)
+        values.put(Courses_col_name, course.getName());
+        values.put(Courses_col_code, course.getCode());
+        values.put(Courses_col_department_id, course.getDepartment());
+        values.put(Courses_col_doctor_id, course.getDoctor());
+        if (course.getPreRequest() != -1)
             values.put(Courses_col_PreRequest_id, course.getPreRequest());
         else
             values.put(Courses_col_PreRequest_id, (Integer) null);
-        String args [] = {codeBeforeUpdate};
+        String args[] = {codeBeforeUpdate};
 
 
         //To Check If This Course Is Exist
         // Check if the Course name or code already exist, excluding the current record being updated
-        Cursor cursor = db.rawQuery("SELECT " + Courses_col_name + ", " + Courses_col_code + " FROM " + Education_Table_Courses + " WHERE (" + Courses_col_name + "=? OR " + Courses_col_code + "=?) AND (" + Courses_col_code + "!=? OR " + Courses_col_name + "!=?)", new String[]{ course.getName(), course.getCode(), codeBeforeUpdate, nameBeforeUpdate });
-        if(cursor.moveToFirst()){
+        Cursor cursor = db.rawQuery("SELECT " + Courses_col_name + ", " + Courses_col_code + " FROM " + Education_Table_Courses + " WHERE (" + Courses_col_name + "=? OR " + Courses_col_code + "=?) AND (" + Courses_col_code + "!=? OR " + Courses_col_name + "!=?)", new String[]{course.getName(), course.getCode(), codeBeforeUpdate, nameBeforeUpdate});
+        if (cursor.moveToFirst()) {
             Toast.makeText(context, "Sorry Can't Edit , This Course's Name or Code Is Exist.", Toast.LENGTH_LONG).show();
-        }
-        else {
-            result =  db.update(Education_Table_Courses,values,""+Courses_col_code+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
-            Toast.makeText(context, "Changes saved." , Toast.LENGTH_SHORT).show();
+        } else {
+            result = db.update(Education_Table_Courses, values, "" + Courses_col_code + "=?", args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
+            Toast.makeText(context, "Changes saved.", Toast.LENGTH_SHORT).show();
 
         }
         return result > 0;
     }
 
-    /**Delete Course()
+    /**
+     * Delete Course()
      **********************************************************************************************/
-    public boolean deleteCourse(String code,String id){
+    public boolean deleteCourse(String code, String id) {
 
-        SQLiteDatabase db =getWritableDatabase();
-        String args[] ={code};
+        SQLiteDatabase db = getWritableDatabase();
+        String args[] = {code};
 
-        int numDeletedCourses = db.delete(Education_Table_Courses,""+Courses_col_code+"=?",args);
+        int numDeletedCourses = db.delete(Education_Table_Courses, "" + Courses_col_code + "=?", args);
 
         ContentValues values = new ContentValues();
 
-        values.put(Courses_col_PreRequest_id,(Integer) null);
+        values.put(Courses_col_PreRequest_id, (Integer) null);
 
-        db.update(Education_Table_Courses,values,""+Courses_col_PreRequest_id+"=?",new String[]{id}); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
+        db.update(Education_Table_Courses, values, "" + Courses_col_PreRequest_id + "=?", new String[]{id}); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
 
 
 //        db.close();
-        return numDeletedCourses>0;
+        return numDeletedCourses > 0;
     }
 
-    /**getAllCoursesNames()
-     * ********************************************************************************************/
+    /**
+     * getAllCoursesNames()
+     ********************************************************************************************/
     @SuppressLint("Range")
-    public ArrayList<String> getAllCoursesNames(){
+    public ArrayList<String> getAllCoursesNames() {
 
         ArrayList<String> coursesNames = new ArrayList<>();
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor =  db.rawQuery("SELECT * FROM "+Education_Table_Courses,null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + Education_Table_Courses, null);
 
-        if(cursor != null && cursor.moveToFirst()){
+        if (cursor != null && cursor.moveToFirst()) {
 
-            do{
+            do {
                 String courseName = cursor.getString(cursor.getColumnIndex(Courses_col_name));
 
                 String name = courseName;
 
                 coursesNames.add(name);
 
-            }while (cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
         cursor.close();
 //        db.close();
@@ -934,10 +938,11 @@ public class My_DB extends SQLiteOpenHelper {
         return coursesNames;
     }
 
-    /**getDepartmentIdByName()
-     * ********************************************************************************************/
+    /**
+     * getDepartmentIdByName()
+     ********************************************************************************************/
     @SuppressLint("Range")
-    public int getDepartmentIdByName(String departmentName){
+    public int getDepartmentIdByName(String departmentName) {
         SQLiteDatabase db = getReadableDatabase();
         int departmentId = -1; // Default value if department ID is not found
 
@@ -954,16 +959,17 @@ public class My_DB extends SQLiteOpenHelper {
 
     }
 
-    /**getDepartmentNameById()
+    /**
+     * getDepartmentNameById()
      *********************************************************************************************/
     @SuppressLint("Range")
-    public String getDepartmentNameById(int departmentId){
+    public String getDepartmentNameById(int departmentId) {
         SQLiteDatabase db = getReadableDatabase();
         String departmentName = "hhh"; // Default value if department name is not found
 
         String query = "SELECT " + Department_col_name + " FROM " + Education_Table_Departments +
                 " WHERE " + Department_col_id + " = ?";
-        Cursor cursor = db.rawQuery(query, new String[]{departmentId+""});
+        Cursor cursor = db.rawQuery(query, new String[]{departmentId + ""});
 
         if (cursor.moveToFirst()) {
             departmentName = cursor.getString(cursor.getColumnIndex(Department_col_name));
@@ -974,16 +980,17 @@ public class My_DB extends SQLiteOpenHelper {
 
     }
 
-    /**getDoctorNameById()
+    /**
+     * getDoctorNameById()
      *********************************************************************************************/
     @SuppressLint("Range")
-    public String getDoctorNameById(int doctorId){
+    public String getDoctorNameById(int doctorId) {
         SQLiteDatabase db = getReadableDatabase();
         String doctorName = "None"; // Default value if doctor name is not found
 
         String query = "SELECT " + Doctors_col_first_name + " FROM " + Education_Table_Doctors +
                 " WHERE " + Doctors_col_id + " = ?";
-        Cursor cursor = db.rawQuery(query, new String[]{doctorId+""});
+        Cursor cursor = db.rawQuery(query, new String[]{doctorId + ""});
 
         if (cursor.moveToFirst()) {
             doctorName = cursor.getString(cursor.getColumnIndex(Doctors_col_first_name));
@@ -995,16 +1002,17 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
 
-    /**getPreRequestNameById()
+    /**
+     * getPreRequestNameById()
      *********************************************************************************************/
     @SuppressLint("Range")
-    public String getPreRequestNameById(int preRequestId){
+    public String getPreRequestNameById(int preRequestId) {
         SQLiteDatabase db = getReadableDatabase();
         String preRequestName = "None"; // Default value if getPreRequest name is not found
 
         String query = "SELECT " + Courses_col_name + " FROM " + Education_Table_Courses +
                 " WHERE " + Courses_col_id + " = ?";
-        Cursor cursor = db.rawQuery(query, new String[]{preRequestId+""});
+        Cursor cursor = db.rawQuery(query, new String[]{preRequestId + ""});
 
         if (cursor.moveToFirst()) {
             preRequestName = cursor.getString(cursor.getColumnIndex(Courses_col_name));
@@ -1016,10 +1024,11 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
 
-    /**getDoctorIdByName()
+    /**
+     * getDoctorIdByName()
      **********************************************************************************************/
     @SuppressLint("Range")
-    public int getDoctorIdByName(String doctorName){
+    public int getDoctorIdByName(String doctorName) {
         SQLiteDatabase db = getReadableDatabase();
         int doctorId = -1; // Default value if department ID is not found
 
@@ -1037,10 +1046,11 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
 
-    /**getPreRequestIdByName()
+    /**
+     * getPreRequestIdByName()
      **********************************************************************************************/
     @SuppressLint("Range")
-    public int getPreRequestIdByName(String courseName){
+    public int getPreRequestIdByName(String courseName) {
         SQLiteDatabase db = getReadableDatabase();
         int preRequestId = -1; // Default value if department ID is not found
 
@@ -1060,15 +1070,17 @@ public class My_DB extends SQLiteOpenHelper {
 
 //__________________________________Subject Function_______________________________________________
 
-    /**get name course for student by department*/
-    public ArrayList<String> Get_all_courses_for_student(){
-        ArrayList<String> courses_name=new ArrayList<>();
+    /**
+     * get name course for student by department
+     */
+    public ArrayList<String> Get_all_courses_for_student() {
+        ArrayList<String> courses_name = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(""+Education_Table_Courses+"", new String[] { Courses_col_name },
+        Cursor cursor = db.query("" + Education_Table_Courses + "", new String[]{Courses_col_name},
                 null, null, null, null, null);
-        if(cursor.moveToFirst()) {
+        if (cursor.moveToFirst()) {
             do {
-                String name_course = cursor.getString(0 );
+                String name_course = cursor.getString(0);
                 courses_name.add(name_course);
             } while (cursor.moveToNext());
             cursor.close();
@@ -1076,16 +1088,17 @@ public class My_DB extends SQLiteOpenHelper {
         }
         return courses_name;
     }
-    public ArrayList<String> Get_all_courses_have_pre_for_student(){
-        ArrayList<String> courses_name=new ArrayList<>();
-        SQLiteDatabase db = this.getReadableDatabase();
-        String selection="PreRequests_id is not null";
 
-        Cursor cursor = db.query(""+Education_Table_Courses+"", new String[] { Courses_col_name },
+    public ArrayList<String> Get_all_courses_have_pre_for_student() {
+        ArrayList<String> courses_name = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selection = "PreRequests_id is not null";
+
+        Cursor cursor = db.query("" + Education_Table_Courses + "", new String[]{Courses_col_name},
                 selection, null, null, null, null);
-        if(cursor.moveToFirst()) {
+        if (cursor.moveToFirst()) {
             do {
-                String name_course = cursor.getString(0 );
+                String name_course = cursor.getString(0);
                 courses_name.add(name_course);
             } while (cursor.moveToNext());
             cursor.close();
@@ -1093,12 +1106,15 @@ public class My_DB extends SQLiteOpenHelper {
         }
         return courses_name;
     }
-    public ArrayList<SubjectModel> Get_all_courses_for_student_afterRegist(){
+
+    /*********************************************************/
+
+    public ArrayList<SubjectModel> Get_all_courses_for_student_afterRegist() {
         SQLiteDatabase db = getReadableDatabase();
         ArrayList<SubjectModel> arrayList = new ArrayList();
-        SharedPreferences preferences = context.getSharedPreferences("userInfo",context.MODE_PRIVATE);
-        String StudentId =  preferences.getString("id", "");
-        int S_id= Integer.parseInt(StudentId);
+        SharedPreferences preferences = context.getSharedPreferences("userInfo", context.MODE_PRIVATE);
+        String StudentId = preferences.getString("id", "");
+        int S_id = Integer.parseInt(StudentId);
         String selection = "Courses.id = Enrollment.enrollment_course_id AND Enrollment.enrollment_student_id = " + S_id;
 
         String query = "SELECT Courses.name, Courses.code FROM Courses JOIN Enrollment ON Courses.id = Enrollment.enrollment_course_id WHERE " + selection;
@@ -1114,6 +1130,9 @@ public class My_DB extends SQLiteOpenHelper {
         return arrayList;
     }
 
+    /*********************************************************/
+
+
     public boolean insertEnrollmentTable(int id_Course) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -1124,12 +1143,10 @@ public class My_DB extends SQLiteOpenHelper {
         values.put(Enrollment_col_course_id, id_Course);
         values.put(Enrollment_col_student_id, S_id);
         long result = 0;
-        if (thereExist(S_id,id_Course)) {
-            System.out.println("exist");
-        } else {
-            result = db.insert(Education_Table_Enrollment, null, values);
+        if(SubjectDuplicated(S_id,id_Course)==false)
 
-        }
+            result = db.insert(Education_Table_Enrollment, null, values);
+        else Toast.makeText(context, "Subject have Pre request", Toast.LENGTH_SHORT).show();
 
 
 
@@ -1137,7 +1154,8 @@ public class My_DB extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    public boolean thereExist(int enrollment_student_id, int enrollment_course_id) {
+    /*********************************************************/
+    public boolean SubjectDuplicated(int enrollment_student_id, int enrollment_course_id) {
         boolean result = false;
 
         SQLiteDatabase db = getReadableDatabase();
@@ -1150,39 +1168,141 @@ public class My_DB extends SQLiteOpenHelper {
         // Check if the cursor has any rows
         if (cursor.moveToFirst()) {
             int count = cursor.getInt(0);
-            result = count > 0; // If count is greater than 0, the record exists
+            result = count > 0;
         }
-
-        // Close the cursor and the database
-
-
-
         return result;
     }
 
+    /*********************************************************/
+
+
     public int get_Id_course_by_CourseName(String Course_Name) {
-       SQLiteDatabase db = getReadableDatabase();
-       String selection = "name = '" + Course_Name + "'";
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = "name = '" + Course_Name + "'";
 
-       Cursor cursor = db.query("Courses", new String[]{Courses_col_id}, selection, null, null, null, null);
-       int Course_id = 0;
-       if (cursor.moveToFirst()) {
-           do {
-               Course_id = cursor.getInt(0);
+        Cursor cursor = db.query("Courses", new String[]{Courses_col_id}, selection, null, null, null, null);
+        int Course_id = 0;
+        if (cursor.moveToFirst()) {
+            do {
+                Course_id = cursor.getInt(0);
 
-           } while (cursor.moveToNext());
-           cursor.close();
-           db.close();
-       }
+            } while (cursor.moveToNext());
+            cursor.close();
+            db.close();
+        }
+        return Course_id;
+    }
+
+    /*********************************************************/
+
+    public boolean subject_have_Prerequest(String subjectName) {
+        System.out.println("subject_have_Prerequest");
+
+        SQLiteDatabase db = getReadableDatabase();
+        String[] columns = {"PreRequests_id"};
+        String selection = "name = ?";
+        String[] selectionArgs = {subjectName};
+        Cursor cursor = db.query("Courses", columns, selection, selectionArgs, null, null, null);
+
+        boolean hasPrerequisite = false;
+        if (cursor.moveToFirst()) {
+            int columnIndex = cursor.getColumnIndex("PreRequests_id");
+            String prerequisiteId = cursor.getString(columnIndex);
+            hasPrerequisite = (prerequisiteId != null);
+        }
+
+        cursor.close();
+        return hasPrerequisite;
+    }
 
 
-       return Course_id;
-   }
+
+    public boolean AskForRegistedPre(String subjectName) {
+        int pre_id = getPreRequestIdBy_Name(subjectName);
+        System.out.println("registed pre AskForRegistedPre");
+        if(pre_thereExist_inEnrollment_course_id(pre_id)){
+            return true;
+        }else{ return false;}
+
+    }
+
+    private boolean
+    pre_thereExist_inEnrollment_course_id(int pre_id) {
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = "enrollment_course_id = ?";
+        String[] selectionArgs = {String.valueOf(pre_id)};
+        System.out.println("in the pre_thereExist_inEnrollment_course_id");
+
+        Cursor cursor = db.query("Enrollment", new String[]{Enrollment_col_course_id}, selection, selectionArgs, null, null, null);
+        int coursePreId = 0;
+
+        if (cursor.moveToFirst()) {
+            coursePreId = cursor.getInt(0);
+        }
+
+        cursor.close();
+        db.close();
+
+        if (coursePreId > 0) {
+            System.out.println("He registered the prerequisite.");
+            return true;
+        } else {
+            return false;
+        }
 
 
+    }
 
+    private int getPreRequestIdBy_Name(String subjectName) {
 
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = "name = ?";
+        String[] selectionArgs = {subjectName};
+
+        Cursor cursor = db.query("Courses", new String[]{"PreRequests_id"}, selection, selectionArgs, null, null, null);
+        int coursePreId = 0;
+
+        if (cursor.moveToFirst()) {
+            coursePreId = cursor.getInt(0);
+        }
+
+        cursor.close();
+        db.close();
+
+        return coursePreId;
+    }
+    public boolean deleteSubject(int course_id) {
+        SQLiteDatabase db = getWritableDatabase();
+        SharedPreferences preferences = context.getSharedPreferences("userInfo", context.MODE_PRIVATE);
+        String studentId = preferences.getString("id", "");
+        int student_id = Integer.parseInt(studentId);
+
+        String selection = Enrollment_col_course_id + " = ? AND " + Enrollment_col_student_id + " = ?";
+        String[] selectionArgs = {String.valueOf(course_id), String.valueOf(student_id)};
+        int result = db.delete(Education_Table_Enrollment, selection, selectionArgs);
+        db.close();
+
+        return result != 0;
+    }
+
+    //*****************************************************************
+    public ArrayList<Integer> getAllcoursesMatchNotEnrolled (){
+
+        SQLiteDatabase db = getReadableDatabase();
+        ArrayList<Integer> courseIds = new ArrayList<>();
+
+        Cursor cursor = db.rawQuery("SELECT Courses._id FROM Courses LEFT JOIN Enrollment ON Courses._id = Enrollment.enrollment_course_id WHERE Enrollment.enrollment_course_id IS NULL", null);
+
+        while (cursor.moveToNext()) {
+            @SuppressLint("Range") int courseId = cursor.getInt(cursor.getColumnIndex("_id"));
+            courseIds.add(courseId);
+        }
+
+        cursor.close();
+return null;
+    }
 }
+
 
 
 

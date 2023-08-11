@@ -1,10 +1,8 @@
 package com.studentzone.Student_Classes.Student_Models.RegestrationModel;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +12,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -21,22 +20,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
-import com.studentzone.Student_Classes.Student_Activities.StudentSubjectActivity;
-import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectModel;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
 public class SubjectRegestrationAdapter extends RecyclerView.Adapter<SubjectRegestrationAdapter.ViewHolder> {
     ArrayList<SubjectRegestrationModel>arrayList=new ArrayList<>(); //array list
-    ArrayList<SubjectRegestrationModel>arrayList_Enrollment=new ArrayList<>(); //array list
-    private SharedPreferences sharedPreferences;
-
-
-
+   public   ArrayList<Integer> Course_id =new ArrayList<>();
     Context context;
 
-    CardView cv_subjects;
     public SubjectRegestrationAdapter(Context context, ArrayList<SubjectRegestrationModel>arrayList){
 
         this.context=context;
@@ -50,11 +42,13 @@ public class SubjectRegestrationAdapter extends RecyclerView.Adapter<SubjectRege
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(context).inflate(R.layout.activity_student_model_regestration,parent,false);//holder have model
         ViewHolder viewHolder=new ViewHolder(view);
+
+
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder,  int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.tv1_n.setText(arrayList.get(position).getSubjectName());
         holder.tv2_c.setText(arrayList.get(position).getCodeName());
 
@@ -73,34 +67,55 @@ public class SubjectRegestrationAdapter extends RecyclerView.Adapter<SubjectRege
             abbreviation += firstLetter;
         }
         holder.tv_3.setText(abbreviation.toUpperCase(Locale.ROOT));
+//        holder.CB.setOnCheckedChangeListener((compoundButton, b) -> compoundButton.setChecked(false)); // Clear existing listener to prevent unwanted triggering
+
 
         holder.CB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                int checkboxPosition = holder.getAdapterPosition();
+
                 My_DB my_db=new My_DB(context);
                 int ID_Course=my_db.get_Id_course_by_CourseName(model.getSubjectName());
+                SharedPreferences preferences = context.getSharedPreferences("userInfo", context.MODE_PRIVATE);
+                String StudentId = preferences.getString("id", "");
+                int S_id = Integer.parseInt(StudentId);
 
 
-                System.out.println("position"+checkboxPosition);
-               if(isChecked){
+                if(isChecked==true){
+                   if(my_db.SubjectDuplicated(S_id,ID_Course)){
+                       Toast.makeText(context, "Subject already registered!", Toast.LENGTH_SHORT).show();
+                       buttonView.setChecked(false);
+                       System.out.println("SubjectDuplicated");
 
-                 boolean x=  my_db.insertEnrollmentTable(ID_Course);
-                   System.out.println(model.getSubjectName()+ID_Course);
+                   } else if (my_db.subject_have_Prerequest(model.getSubjectName())) {
+                       if(my_db.AskForRegistedPre(model.getSubjectName())){
 
-               }
+                           Course_id.add(ID_Course);
+                       }else{
+                           Toast.makeText(context, "Subject have Pre request", Toast.LENGTH_SHORT).show();
+                           buttonView.setChecked(false);
+                       }
 
+                   }else
+                       Course_id.add(ID_Course);
+                }else{
+                    Course_id.remove(Integer.valueOf(ID_Course));
 
-
-
+                }
 
             }
         });
+
+
+
     }
 
 
 
+public ArrayList<Integer> getCourse_id(){
+        return Course_id;
 
+    }
 
 
 
@@ -113,6 +128,7 @@ public class SubjectRegestrationAdapter extends RecyclerView.Adapter<SubjectRege
     }//Adapter
     public class ViewHolder extends RecyclerView.ViewHolder {//holder
         ImageButton IM;
+
         TextView tv1_n,tv2_c,tv_3;
         CheckBox CB;
         CardView crv;
@@ -125,6 +141,7 @@ public class SubjectRegestrationAdapter extends RecyclerView.Adapter<SubjectRege
             CB=itemView.findViewById(R.id.activity_student_subject_tv_sub_state);
             tv_3=itemView.findViewById(R.id.activity_student_Regestration_tv_sn);
             IM=itemView.findViewById(R.id.activity_student_Regestration_ibtn_info);
+
 
 
         }
