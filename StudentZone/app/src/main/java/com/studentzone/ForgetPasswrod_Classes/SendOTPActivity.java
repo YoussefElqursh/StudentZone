@@ -44,6 +44,7 @@ public class SendOTPActivity extends AppCompatActivity {
         get_code();
         setBackButtonAction();
     }
+
     public void get_code()
     {
         buttonGetOTP.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +59,7 @@ public class SendOTPActivity extends AppCompatActivity {
     public void vaidateNumber()
     {
         phoneNumber = inputMobile.getText().toString().trim();
-        String phonePattern = "^01[0-2][0-9]{8}$";
+        String phonePattern = "^01[0125][0-9]{8}$";
 
         if(phoneNumber.matches(phonePattern)){
             Intent intent = new Intent(getBaseContext(), VerifyOTPActivity.class);
