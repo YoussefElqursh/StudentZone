@@ -41,7 +41,7 @@
 
         <GridLayout
             android:id="@+id/activity_admin_home_gl_cardscontainer"
-            android:layout_width="363dp"
+            android:layout_width="387dp"
             android:layout_height="600dp"
             android:layout_below="@id/top_view"
             android:layout_marginStart="24dp"
@@ -66,15 +66,15 @@
                     android:id="@+id/activity_admin_home_ll_departments"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="20dp"
                     android:orientation="vertical">
 
                     <ImageView
                         android:id="@+id/activity_admin_home_iv_departments"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="120dp"
+                        android:layout_height="100dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/ic_department_1"
+                        android:src="@drawable/illust_department"
                         android:contentDescription="TODO" />
 
                     <TextView
@@ -86,9 +86,9 @@
                         android:layout_marginRight="5dp"
                         android:gravity="center"
                         android:text="@string/departments"
-                        android:textColor="@color/dark_blue"
-                        android:textSize="17sp"
-                        android:textStyle="bold"/>
+                        android:textColor="@color/home_cv_text_color"
+                        android:textSize="14sp"
+                        android:textStyle="bold|italic"/>
 
                 </LinearLayout>
 
@@ -110,15 +110,15 @@
                     android:id="@+id/activity_admin_home_ll__subjects"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="20dp"
                     android:orientation="vertical">
 
                     <ImageView
                         android:id="@+id/activity_admin_home_iv_subjects"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/ic_subjects"/>
+                        android:src="@drawable/illust_subject"/>
 
                     <TextView
                         android:id="@+id/activity_admin_home_tv_subjects"
@@ -126,13 +126,13 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="5dp"
                         android:layout_marginRight="5dp"
                         android:gravity="center"
                         android:text="@string/subjects"
-                        android:textColor="@color/dark_blue"
-                        android:textSize="17sp"
-                        android:textStyle="bold"/>
+                        android:textColor="@color/home_cv_text_color"
+                        android:textSize="14sp"
+                        android:textStyle="bold|italic"/>
 
                 </LinearLayout>
 
@@ -155,15 +155,15 @@
                     android:id="@+id/activity_admin_home_ll_doctors_accounts"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="15dp"
                     android:orientation="vertical">
 
                     <ImageView
                         android:id="@+id/activity_admin_home_iv_doctors_accounts"
-                        android:layout_width="106dp"
+                        android:layout_width="110dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/ic_doctors" />
+                        android:src="@drawable/illust_doctor" />
 
                     <TextView
                         android:id="@+id/activity_admin_home_tv_doctors_accounts"
@@ -172,12 +172,12 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:text="@string/doctors_accounts"
-                        android:textColor="@color/dark_blue"
-                        android:textSize="17sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="-10dp"/>
+                        android:textColor="@color/home_cv_text_color"
+                        android:textSize="14sp"
+                        android:textStyle="bold|italic" />
 
                 </LinearLayout>
 
@@ -202,32 +202,33 @@
                 <LinearLayout
                     android:id="@+id/activity_admin_home_ll_students_accounts"
                     android:layout_width="match_parent"
-                    android:layout_height="154dp"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginTop="22dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginRight="5dp"
                     android:orientation="vertical">
 
                     <ImageView
                         android:id="@+id/activity_sadmin_home_iv_students_accounts"
-                        android:layout_width="150dp"
+                        android:layout_width="120dp"
                         android:layout_height="110dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/ic_students" />
+                        android:src="@drawable/illust_students"
+                        android:layout_marginTop="-5dp"/>
 
                     <TextView
                         android:id="@+id/activity_admin_home_tv_students_accounts"
                         android:layout_width="100dp"
-                        android:layout_height="49dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
-                        android:textStyle="bold"
+                        android:layout_marginTop="5dp"
+                        android:textStyle="bold|italic"
                         android:gravity="center"
                         android:text="@string/students_accounts"
-                        android:textColor="@color/dark_blue"
-                        android:textSize="16sp"
-                        android:layout_marginTop="-20dp"/>
+                        android:textColor="@color/home_cv_text_color"
+                        android:textSize="14sp"/>
 
                 </LinearLayout>
 

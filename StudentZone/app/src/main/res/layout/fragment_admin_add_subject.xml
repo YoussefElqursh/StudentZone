@@ -53,7 +53,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/custom_et_selector"
-        android:drawableStart="@drawable/ic_book_2"
+        android:drawableStart="@drawable/ic_book"
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Subject Name"

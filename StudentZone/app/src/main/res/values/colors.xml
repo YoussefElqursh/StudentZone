@@ -10,4 +10,5 @@
     <color name="white_gray">#EFF2F4</color>
     <color name="dark_gray">#585858</color>
     <color name="light_orange">#fcf0d2</color>
+    <color name="home_cv_text_color">#2f2e41</color>
 </resources>
