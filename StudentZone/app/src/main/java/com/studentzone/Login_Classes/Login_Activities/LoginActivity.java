@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         rb_admin = findViewById(R.id.activity_login_rb_admin);
         rb_student = findViewById(R.id.activity_login_rb_student);
         rb_doctor = findViewById(R.id.activity_login_rb_doctor);
-        forget_password = findViewById(R.id.activity_login_tx_forget_password);
+        forget_password = findViewById(R.id.activity_login_tv_forgot_password);
         cb_Remember_me = findViewById(R.id.activity_login_cb_rememberme);
     }
 

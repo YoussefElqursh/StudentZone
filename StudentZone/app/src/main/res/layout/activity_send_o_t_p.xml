@@ -9,34 +9,35 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+        android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical">
 
         <Button
             android:id="@+id/activity_send_otp_btn_back"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginTop="15dp"
-            android:layout_marginLeft="-160dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_gravity="left"
             android:background="@drawable/custom_btn_back"
+            android:backgroundTint="#fafafa"
             android:drawableLeft="@drawable/ic_back"
-            android:paddingLeft="8dp"
+            android:drawableTint="@color/blue"
+            android:paddingLeft="10dp"
             tools:ignore="TouchTargetSizeCheck"
             android:contentDescription="@string/back"/>
 
         <ImageView
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_marginTop="80dp"
-            android:src="@drawable/send"/>
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/illust_send_message"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:text="OTP Verification"
             android:textColor="#212121"
             android:textSize="20sp"
@@ -109,13 +110,14 @@
         <Button
             android:id="@+id/btn_getOTP"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:layout_margin="30dp"
-            android:background="@drawable/custom_btn_send_recive"
+            android:background="@drawable/custom_btn_send_receive"
             android:text="Get OTP"
             android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"/>
 
     </LinearLayout>
 

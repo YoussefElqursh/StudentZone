@@ -96,7 +96,7 @@
 
         <EditText
             android:id="@+id/fragment_doctor_add_student_grade_et_student_score"
-            android:layout_width="250dp"
+            android:layout_width="230dp"
             android:layout_height="55dp"
             android:background="@drawable/custom_et_selector"
             android:drawableStart="@drawable/ic_score"
@@ -136,7 +136,7 @@
         android:layout_height="55dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="40dp"
-        android:background="@drawable/custom_btn_login_save"
+        android:background="@drawable/custom_btn_edit_state"
         android:text="Save"
         android:textColor="@color/white"
         android:textSize="18sp"
