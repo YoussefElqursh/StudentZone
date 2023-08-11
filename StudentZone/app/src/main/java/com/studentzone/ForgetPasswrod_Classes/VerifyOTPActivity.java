@@ -6,13 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.studentzone.Admin_Classes.Admin_Activities.AdminHomeActivity;
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
 
@@ -22,7 +20,7 @@ public class VerifyOTPActivity extends AppCompatActivity {
 
     private TextView mobileNumber ;
 
-    private Button btn_back;
+    private Button btn_back, buttonVerifyOTP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +36,9 @@ public class VerifyOTPActivity extends AppCompatActivity {
         inputCode4 = findViewById(R.id.inputCode4);
         inputCode5 = findViewById(R.id.inputCode5);
         inputCode6 = findViewById(R.id.inputCode6);
+
+        buttonVerifyOTP = findViewById(R.id.btn_verifyOTP);
+
 
         setOPTInputs();
         Verify();
@@ -72,6 +73,9 @@ public class VerifyOTPActivity extends AppCompatActivity {
                 {
                     inputCode3.requestFocus();
                 }
+                else {
+                    inputCode1.requestFocus();
+                }
             }
 
             @Override
@@ -87,6 +91,9 @@ public class VerifyOTPActivity extends AppCompatActivity {
                 if (!s.toString().trim().isEmpty())
                 {
                     inputCode4.requestFocus();
+                }
+                else {
+                    inputCode2.requestFocus();
                 }
             }
 
@@ -104,6 +111,9 @@ public class VerifyOTPActivity extends AppCompatActivity {
                 {
                     inputCode5.requestFocus();
                 }
+                else {
+                    inputCode3.requestFocus();
+                }
             }
 
             @Override
@@ -120,6 +130,25 @@ public class VerifyOTPActivity extends AppCompatActivity {
                 {
                     inputCode6.requestFocus();
                 }
+                else {
+                    inputCode4.requestFocus();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+
+        inputCode6.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.toString().trim().isEmpty())
+                {
+                    inputCode5.requestFocus();
+                }
             }
 
             @Override
@@ -130,11 +159,22 @@ public class VerifyOTPActivity extends AppCompatActivity {
 
     public void Verify()
     {
-        Button buttonVerifyOTP = findViewById(R.id.btn_verifyOTP);
 
         buttonVerifyOTP.setOnClickListener(v -> {
-            Intent intent = new Intent(getBaseContext(), LoginActivity.class);
-            startActivity(intent);
+
+            String num = inputCode1.getText().toString() + inputCode2.getText().toString() + inputCode3.getText().toString() + inputCode4.getText().toString() + inputCode5.getText().toString() + inputCode6.getText().toString();
+
+            String otp = getIntent().getStringExtra("OTP");
+
+            if(otp.equals(num)) {
+
+                Intent intent = new Intent(getBaseContext(), LoginActivity.class);
+
+                startActivity(intent);
+            }
+            else {
+                Toast.makeText(this, "OTP is wrong", Toast.LENGTH_SHORT).show();
+            }
         });
 
     }

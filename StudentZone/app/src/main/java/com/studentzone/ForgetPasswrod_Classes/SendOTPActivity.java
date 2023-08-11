@@ -64,6 +64,7 @@ public class SendOTPActivity extends AppCompatActivity {
         if(phoneNumber.matches(phonePattern)){
             Intent intent = new Intent(getBaseContext(), VerifyOTPActivity.class);
             intent.putExtra("mobile",inputMobile.getText().toString());
+            intent.putExtra("OTP",otp);
             startActivity(intent);
 
             permissionIsGranted();
