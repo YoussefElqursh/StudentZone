@@ -21,6 +21,15 @@ public class Students  {
         this.gender = gender;
     }
 
+    public Students(int id, String academic_Number, String FName,String Email, String gender) {
+
+        this.Id = id;
+        this.Academic_Number = academic_Number;
+        this.FName = FName;
+        this.Email = Email;
+        this.gender = gender;
+    }
+
     public Students(String academic_Number, String FName, String LName,  String gender, String Email, String Password) {
 
         this.Academic_Number = academic_Number;

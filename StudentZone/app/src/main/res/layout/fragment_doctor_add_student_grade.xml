@@ -115,7 +115,6 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:background="@drawable/custom_et_selector"
-            android:drawableStart="@drawable/ic_grade"
             android:drawablePadding="10dp"
             android:ems="10"
             android:hint="Grade"

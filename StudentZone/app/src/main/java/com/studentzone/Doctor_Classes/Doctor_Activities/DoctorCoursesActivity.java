@@ -20,11 +20,8 @@ public class DoctorCoursesActivity extends AppCompatActivity {
 
 
     // Database object
+
     private final My_DB db = new My_DB(this);
-    private Button btn_back;
-    private RecyclerView doctorCourseRecyclerView;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -41,22 +38,23 @@ public class DoctorCoursesActivity extends AppCompatActivity {
      *  Back To The Previous Activity
      **********************************************************************************************/
     public void setBackButtonAction(){
-        btn_back = findViewById(R.id.activity_doctor_subjects_btn_back);
+        Button btn_back = findViewById(R.id.activity_doctor_subjects_btn_back);
         btn_back.setOnClickListener(v -> startActivity(new Intent(DoctorCoursesActivity.this, DoctorHomeActivity.class)));
     }
 
     /**displayAllCourses()
-     * Retrieve all courses from the database and display them in the RecyclerView
+     * Retrieve all courses which this doctor teach it from the database and display them in the RecyclerView
      **********************************************************************************************/
     public void displayAllCourses() {
 
         ArrayList<Courses> coursesList = db.displayDoctorCourses();
 
-        doctorCourseRecyclerView = findViewById(R.id.doctor_subjects_recycleview);
+        RecyclerView doctorCourseRecyclerView = findViewById(R.id.doctor_subjects_recycleview);
 
 
         // Adapter for the course RecyclerView
         DoctorCoursesRecyclerViewAdapter adapter = new DoctorCoursesRecyclerViewAdapter(this,coursesList); // assign to adapter variable
+
         RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
 
         doctorCourseRecyclerView.setHasFixedSize(true);

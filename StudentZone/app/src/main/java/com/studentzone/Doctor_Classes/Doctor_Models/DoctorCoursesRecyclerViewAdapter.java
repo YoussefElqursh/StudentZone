@@ -29,10 +29,8 @@ public class DoctorCoursesRecyclerViewAdapter extends RecyclerView.Adapter<Docto
 
     private final ArrayList<Courses> coursesList;
     private final My_DB db;
-
     private BottomSheetDialog bottomSheetDialog;
     private View bottomSheetDialogView;
-//    private final AlertDialog.Builder builder;
 
 
     /**
@@ -44,7 +42,6 @@ public class DoctorCoursesRecyclerViewAdapter extends RecyclerView.Adapter<Docto
     public DoctorCoursesRecyclerViewAdapter(Context context, ArrayList<Courses> coursesList) {
         this.coursesList = coursesList;
         this.db = new My_DB(context);
-//        this.builder = new AlertDialog.Builder(context);
     }
 
     /** onCreateViewHolder ()
@@ -59,9 +56,8 @@ public class DoctorCoursesRecyclerViewAdapter extends RecyclerView.Adapter<Docto
     public doctorCoursesViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_doctor_model_subject,null,false);
-        doctorCoursesViewHolder doctorCoursesViewHolder = new doctorCoursesViewHolder(view);
 
-        return doctorCoursesViewHolder;
+        return new doctorCoursesViewHolder(view);
     }
 
     /** onBindViewHolder ()

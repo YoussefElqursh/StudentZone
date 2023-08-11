@@ -44,8 +44,7 @@
                         android:layout_height="50dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:gravity="center"
-                        app:srcCompat="@drawable/ic_male_student"/>
+                        android:gravity="center" />
 
                 </RelativeLayout>
 
@@ -72,7 +71,7 @@
                 android:layout_marginTop="33dp"
                 android:layout_toRightOf="@id/activity_admin_student_iv_cv"
                 android:maxLines="1"
-                android:text="Score"
+                android:text="Score/"
                 android:textColor="@color/dark_blue"/>
 
             <TextView
@@ -82,7 +81,7 @@
                 android:layout_marginTop="33dp"
                 android:layout_toRightOf="@id/activity_admin_student_tv_score"
                 android:maxLines="1"
-                android:text=" /100"
+                android:text=" "
                 android:textColor="@color/dark_blue"/>
 
             <TextView

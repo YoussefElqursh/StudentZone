@@ -21,6 +21,9 @@
             android:name=".Doctor_Classes.Doctor_Activities.DoctorHomeActivity"
             android:exported="false" />
         <activity
+            android:name=".Doctor_Classes.Doctor_Activities.DoctorStudentGrades"
+            android:exported="false" />
+        <activity
             android:name=".Doctor_Classes.Doctor_Activities.DoctorAssessStudentActivity"
             android:exported="false" />
         <activity
