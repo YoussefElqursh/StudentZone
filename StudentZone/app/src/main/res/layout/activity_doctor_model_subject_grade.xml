@@ -22,6 +22,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:rotation="-50"
+                app:srcCompat="@drawable/custom_arc_1"
+                tools:srcCompat="@drawable/custom_arc_1"
+                android:layout_marginRight="-45dp"
+                android:layout_marginTop="20dp"/>
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/activity_doctor_subject_grades_iv_cv"
                 app:cardCornerRadius="10dp"

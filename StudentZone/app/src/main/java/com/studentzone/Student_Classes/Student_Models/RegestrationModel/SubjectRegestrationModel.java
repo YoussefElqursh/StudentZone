@@ -8,10 +8,9 @@ public class SubjectRegestrationModel {
 
     boolean checkBox;
 
-    public SubjectRegestrationModel(String subjectName, String codeName,boolean checkBox) {
+    public SubjectRegestrationModel(String subjectName, String codeName) {
         SubjectName = subjectName;
         CodeName = codeName;
-        this.checkBox=checkBox;
 
     }
 

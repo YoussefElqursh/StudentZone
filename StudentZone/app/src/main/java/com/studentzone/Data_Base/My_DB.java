@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.text.TextUtils;
 import android.widget.Toast;
 
 
@@ -16,7 +15,6 @@ import com.studentzone.Student_Classes.Student_Models.RegestrationModel.SubjectR
 import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectModel;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class My_DB extends SQLiteOpenHelper {
 
@@ -25,7 +23,7 @@ public class My_DB extends SQLiteOpenHelper {
      ***********************************************************************************************/
     public static final String DB_Name = "Education";
 
-    public static final int DB_Version = 34;
+    public static final int DB_Version = 27;
 
 
     private final Context context;
@@ -93,8 +91,6 @@ public class My_DB extends SQLiteOpenHelper {
     public static final String Enrollment_col_id = "id";
     public static final String Enrollment_col_student_id = "enrollment_student_id";
     public static final String Enrollment_col_course_id = "enrollment_course_id";
-    public static final String Enrollment_col_student_grade = "enrollment_student_grade";
-    public static final String Enrollment_col_student_degree = "enrollment_student_degree";
 
 
     /**
@@ -166,15 +162,15 @@ public class My_DB extends SQLiteOpenHelper {
                 + "" + Courses_col_PreRequest_id + " INTEGER ,"    // May Be Change To Name
                 + "" + Courses_col_department_id + " INTEGER NOT NULL ,"
                 + "" + Courses_col_doctor_id + " INTEGER,"
+                + "FOREIGN KEY(" + Courses_col_name + ") REFERENCES Departmen(" + Student_col_id + "),"
                 + "FOREIGN KEY(" + Courses_col_department_id + ") REFERENCES Departmen(" + Department_col_id + "),"
+
                 + "FOREIGN KEY(" + Courses_col_doctor_id + ") REFERENCES Doctors(" + Doctors_col_id + "))");
 
         db.execSQL("CREATE TABLE " + Education_Table_Enrollment + " ("
                 + "" + Enrollment_col_id + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "" + Enrollment_col_student_id + " INTEGER,"
                 + "" + Enrollment_col_course_id + " INTEGER,"
-                + "" + Enrollment_col_student_grade + " Text,"
-                + "" + Enrollment_col_student_degree + " INTEGER,"
                 + "FOREIGN KEY(" + Enrollment_col_student_id + ") REFERENCES Students(" + Student_col_id + "),"
                 + "FOREIGN KEY(" + Enrollment_col_course_id + ") REFERENCES Courses(" + Courses_col_id
                 + "))");
@@ -210,29 +206,6 @@ public class My_DB extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO " + Education_Table_Departments + " (" + Department_col_code + "," + Department_col_name + ")" + " VALUES ('IT1','Information Technology')");
         db.execSQL("INSERT INTO " + Education_Table_Departments + " (" + Department_col_code + "," + Department_col_name + ")" + " VALUES ('IS2','Information System')");
 
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (4,5,80,'B+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (5,5,90,'A+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,5,70,'C+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (7,7,70,'C+')");
-
-
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (4,7,80,'B+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (5,7,90,'A+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,7,70,'C+')");
-
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (1,1,80,'B+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (2,1,90,'A+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (3,1,70,'C+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (4,1,80,'B+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (5,1,70,'C+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,1,80,'B+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (7,1,90,'A+')");
-
-
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (1,4,85,'A')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (2,4,80,'B+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (3,4,70,'C+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (4,4,85,'A')");
 
 
         db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id +")" + " VALUES ('CS105','Android',1,4)");
@@ -340,7 +313,7 @@ public class My_DB extends SQLiteOpenHelper {
                 doctorCursor.close();
                 break;
             case 2:
-                Cursor studentCursor = db.query("" + Education_Table_Students + "", new String[]{Student_col_first_name,Student_col_last_name,Student_col_email},
+                Cursor studentCursor = db.query("" + Education_Table_Students + "", new String[]{Student_col_first_name,Student_col_last_name,Student_col_email,Student_col_id},
                         "" + Student_col_email + "=? AND " + Student_col_password + "=?", new String[]{email, password},
                         null, null, null, null);
 
@@ -913,33 +886,6 @@ public class My_DB extends SQLiteOpenHelper {
         return result > 0;
     }
 
-
-    /**addOrUpdateGrade()
-     **********************************************************************************************/
-    @SuppressLint("SuspiciousIndentation")
-    public boolean addOrUpdateGrade(Enrollments enrollment){
-
-        int result = 0;
-
-        SQLiteDatabase db = getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        if(enrollment.getStudent_degree() == -1)
-            values.put(Enrollment_col_student_degree,(Integer) null);
-        else
-        values.put(Enrollment_col_student_degree,enrollment.getStudent_degree());
-        values.put(Enrollment_col_student_grade,enrollment.getStudent_grade());
-
-
-        String args [] = {String.valueOf(enrollment.getStudent_id()),String.valueOf(enrollment.getCourse_id())};
-
-
-        result =  db.update(Education_Table_Enrollment,values," "+Enrollment_col_student_id+"=? AND "+Enrollment_col_course_id+"=? ",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
-        Toast.makeText(context, "Changes saved." , Toast.LENGTH_SHORT).show();
-
-        return result > 0;
-    }
-
     /**Delete Course()
      **********************************************************************************************/
     public boolean deleteCourse(String code,String id){
@@ -1111,80 +1057,6 @@ public class My_DB extends SQLiteOpenHelper {
 
     }
 
-    /**getEnrolledStudentsByCourseId()
-     **********************************************************************************************/
-    /**
-     * Retrieves a list of enrolled students for a given course ID.
-     *
-     * @param courseId The ID of the course.
-     * @return An ArrayList of Students representing the enrolled students.
-     */
-    @SuppressLint("Range")
-    public ArrayList<Students> getEnrolledStudentsByCourseId(int courseId) {
-
-        SQLiteDatabase db = this.getReadableDatabase();
-        ArrayList<String> studentsIdList = new ArrayList<>();
-
-        // Retrieve the enrollment records for the given course ID
-        Cursor cursor1 = db.rawQuery("SELECT * FROM " + Education_Table_Enrollment + " WHERE " + Enrollment_col_course_id + " =?", new String[]{String.valueOf(courseId)});
-
-        if (cursor1 != null && cursor1.moveToFirst()) {
-            do {
-                int studentId = cursor1.getInt(cursor1.getColumnIndex(Enrollment_col_student_id));
-
-                studentsIdList.add(String.valueOf(studentId));
-            } while (cursor1.moveToNext());
-        }
-        String[] studentIdsArray = studentsIdList.toArray(new String[studentsIdList.size()]);
-
-        // Construct the query to retrieve the students based on their IDs
-        String studentIds = TextUtils.join(",", Collections.nCopies(studentIdsArray.length, "?"));
-        String query = "SELECT * FROM " + Education_Table_Students + " WHERE " + Student_col_id + " IN (" + studentIds + ")";
-
-        // Execute the query with the student IDs as parameters
-        Cursor cursor2 = db.rawQuery(query, studentIdsArray);
-
-        ArrayList<Students> studentsList = new ArrayList<>();
-
-        if (cursor2 != null && cursor2.moveToFirst()) {
-            do {
-                int studentId = cursor2.getInt(cursor2.getColumnIndex(Student_col_id));
-                String studentFName = cursor2.getString(cursor2.getColumnIndex(Student_col_first_name));
-                String studentAID = cursor2.getString(cursor2.getColumnIndex(Student_col_academic_number));
-                String studentEmail = cursor2.getString(cursor2.getColumnIndex(Student_col_email));
-                String studentGender = cursor2.getString(cursor2.getColumnIndex(Student_col_gender));
-
-                // Create a Students object for each student and add it to the list
-                Students students = new Students(studentId, studentAID, studentFName, studentEmail, studentGender);
-                studentsList.add(students);
-            } while (cursor2.moveToNext());
-        }
-
-        return studentsList;
-    }
-
-    /**getDegreeByCourseAndStudentId()
-     *********************************************************************************************/
-    @SuppressLint("Range")
-    public Enrollments getDegreeByCourseAndStudentId(int courseId, int studentId){
-
-        SQLiteDatabase db = getReadableDatabase();
-        int degree = 0;
-        String grade = null;
-
-        String query = "SELECT " + Enrollment_col_student_degree + ", " + Enrollment_col_student_grade +" FROM " + Education_Table_Enrollment +
-                " WHERE " + Enrollment_col_course_id + " = ? AND " + Enrollment_col_student_id + " = ?";
-        Cursor cursor = db.rawQuery(query, new String[]{courseId+"",studentId+""});
-
-        if (cursor.moveToFirst()) {
-            degree = cursor.getInt(cursor.getColumnIndex(Enrollment_col_student_degree));
-            grade = cursor.getString(cursor.getColumnIndex(Enrollment_col_student_grade));
-        }
-
-        cursor.close();
-        return new Enrollments(degree,grade);
-    }
-
 
 //__________________________________Subject Function_______________________________________________
 
@@ -1224,21 +1096,23 @@ public class My_DB extends SQLiteOpenHelper {
     public ArrayList<SubjectModel> Get_all_courses_for_student_afterRegist(){
         SQLiteDatabase db = getReadableDatabase();
         ArrayList<SubjectModel> arrayList = new ArrayList();
+        SharedPreferences preferences = context.getSharedPreferences("userInfo",context.MODE_PRIVATE);
+        String StudentId =  preferences.getString("id", "");
+        int S_id= Integer.parseInt(StudentId);
+        String selection = "Courses.id = Enrollment.enrollment_course_id AND Enrollment.enrollment_student_id = " + S_id;
 
-        Cursor cursor = db.query("Courses", null, null, null, null, null, null);
+        String query = "SELECT Courses.name, Courses.code FROM Courses JOIN Enrollment ON Courses.id = Enrollment.enrollment_course_id WHERE " + selection;
 
+        Cursor cursor = db.rawQuery(query, null);
         while (cursor.moveToNext()) {
-
-            String column_code = cursor.getString(2);
-            String column_name = cursor.getString(1);
-            SubjectModel model = new SubjectModel( cursor.getString(2), cursor.getString(1));
+            @SuppressLint("Range") String column_code = cursor.getString(cursor.getColumnIndex("code"));
+            @SuppressLint("Range") String column_name = cursor.getString(cursor.getColumnIndex("name"));
+            SubjectModel model = new SubjectModel(column_name, column_code);
             arrayList.add(model);
         }
         cursor.close();
         return arrayList;
     }
-
-
 
     public boolean insertEnrollmentTable(int id_Course) {
         SQLiteDatabase db = getWritableDatabase();
@@ -1287,28 +1161,28 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
     public int get_Id_course_by_CourseName(String Course_Name) {
-        SQLiteDatabase db = getReadableDatabase();
-        String selection = "name = '" + Course_Name + "'";
+       SQLiteDatabase db = getReadableDatabase();
+       String selection = "name = '" + Course_Name + "'";
 
-        Cursor cursor = db.query("Courses", new String[]{Courses_col_id}, selection, null, null, null, null);
-        int Course_id = 0;
-        if (cursor.moveToFirst()) {
-            do {
-                Course_id = cursor.getInt(0);
+       Cursor cursor = db.query("Courses", new String[]{Courses_col_id}, selection, null, null, null, null);
+       int Course_id = 0;
+       if (cursor.moveToFirst()) {
+           do {
+               Course_id = cursor.getInt(0);
 
-            } while (cursor.moveToNext());
-            cursor.close();
-            db.close();
-        }
+           } while (cursor.moveToNext());
+           cursor.close();
+           db.close();
+       }
 
 
-        return Course_id;
-    }
+       return Course_id;
+   }
+
 
 
 
 }
-
 
 
 

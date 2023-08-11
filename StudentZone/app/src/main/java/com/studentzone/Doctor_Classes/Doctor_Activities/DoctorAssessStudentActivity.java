@@ -25,7 +25,7 @@ public class DoctorAssessStudentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_doctor_student_assessment);
+        setContentView(R.layout.activity_doctor_students_assessment);
 
         buttonBackAction();
         displayAllCourses();

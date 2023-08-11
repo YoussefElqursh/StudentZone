@@ -23,6 +23,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:rotation="-50"
+                app:srcCompat="@drawable/custom_arc_1"
+                tools:srcCompat="@drawable/custom_arc_1"
+                android:layout_marginRight="-45dp"
+                android:layout_marginTop="20dp"/>
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/activity_admin_student_iv_cv"
                 app:cardCornerRadius="10dp"
@@ -89,7 +99,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="15dp"
+                android:layout_marginRight="40dp"
                 android:paddingBottom="5dp"
                 android:elevation="10dp"
                 android:gravity="center"
