@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:text="Student Assessment"
+            android:text="Students Assessment"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />

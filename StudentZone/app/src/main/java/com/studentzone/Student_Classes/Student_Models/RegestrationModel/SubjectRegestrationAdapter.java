@@ -135,12 +135,12 @@ public ArrayList<Integer> getCourse_id(){
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tv1_n=itemView.findViewById(R.id.activity_student_Regestration_tv_sub_name);//store inflate in object
-            tv2_c=itemView.findViewById(R.id.activity_student_Regestration_tv_sub_code);
+            tv1_n=itemView.findViewById(R.id.activity_student_registration_tv_sub_name);//store inflate in object
+            tv2_c=itemView.findViewById(R.id.activity_student_registration_tv_sub_code);
             crv=itemView.findViewById(R.id.activity_student_Regestration_cv);
             CB=itemView.findViewById(R.id.activity_student_subject_tv_sub_state);
-            tv_3=itemView.findViewById(R.id.activity_student_Regestration_tv_sn);
-            IM=itemView.findViewById(R.id.activity_student_Regestration_ibtn_info);
+            tv_3=itemView.findViewById(R.id.activity_student_registration_tv_sn);
+            IM=itemView.findViewById(R.id.activity_student_registration_ibtn_info);
 
 
 

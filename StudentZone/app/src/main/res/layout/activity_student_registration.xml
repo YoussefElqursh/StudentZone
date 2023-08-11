@@ -65,7 +65,7 @@
             android:layout_marginTop="5dp"/>
 
         <Button
-            android:id="@+id/fragment_new_Subject_btn_save"
+            android:id="@+id/fragment_new_department_btn_save"
             android:layout_width="130dp"
             android:layout_height="48dp"
             android:layout_below="@+id/activity_student_regestration_scv_select_subject"
