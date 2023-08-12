@@ -378,19 +378,21 @@ public class My_DB extends SQLiteOpenHelper {
     public ArrayList<SubjectRegestrationModel> getCourses_for_students() {
         SQLiteDatabase db = getReadableDatabase();
         ArrayList<SubjectRegestrationModel> arrayList = new ArrayList();
+        String selection=" NOT EXISTS (SELECT enrollment_course_id FROM Enrollment WHERE enrollment_course_id = Courses.id)";
 
-        Cursor cursor = db.query("Courses", null, null, null, null, null, null);
+        Cursor cursor = db.query("Courses", new String[]{Courses_col_name,Courses_col_code}, selection, null, null, null, null);
 
         while (cursor.moveToNext()) {
 
-            String column_code = cursor.getString(2);
-            String column_name = cursor.getString(1);
-            SubjectRegestrationModel model = new SubjectRegestrationModel( cursor.getString(2), cursor.getString(1));
+            @SuppressLint("Range") String column_code = cursor.getString(cursor.getColumnIndex(Courses_col_code));
+            @SuppressLint("Range") String column_name = cursor.getString(cursor.getColumnIndex(Courses_col_name));
+            SubjectRegestrationModel model = new SubjectRegestrationModel(column_name,column_code );
             arrayList.add(model);
         }
         cursor.close();
         return arrayList;
     }
+
 
 
     /**Add New Student()
@@ -1162,6 +1164,8 @@ public class My_DB extends SQLiteOpenHelper {
         }
 
         return studentsList;
+
+
     }
 
 
@@ -1402,7 +1406,6 @@ public class My_DB extends SQLiteOpenHelper {
         db.close();
 
         return result != 0;
-
     }
 
     //*****************************************************************
