@@ -15,65 +15,70 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:menu="@menu/activity_admin_depatrments_tbar_menu">
+        app:menu="@menu/activity_admin_departments_sv_menu"
+        android:layout_marginRight="5dp">
 
         <Button
             android:id="@+id/activity_student_regestration_btn_back"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="@drawable/ic_back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/custom_btn_back"
             android:contentDescription="back arrow"
-            tools:ignore="TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:drawableLeft="@drawable/ic_back"
+            android:paddingLeft="8dp"
+            android:layout_marginLeft="-10dp"
+            android:layout_marginRight="10dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Subjects Registration"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:layout_marginLeft="30dp"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
 
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
-        android:id="@+id/activity_admin_departments_ll_main"
+        android:id="@+id/activity_student_regestration_ll_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/custom_cv">
 
-        <RelativeLayout
-            android:id="@+id/activity_admin_depatrments_rl_1"
+        <TextView
+            android:id="@+id/activity_student_registration_tv_select_subject"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/custom_cv"
-            android:elevation="50dp">
-            <ScrollView
-                android:id="@+id/activity_admin_depatrments_scv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/custom_cv"
-                android:contentDescription="@string/scrolbar">
+            android:layout_height="wrap_content"
+            android:text="Select your subjects:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/custom_cv"
-                    android:orientation="vertical">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleview_student_regestration_choose_subject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"/>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="vertical"/>
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/recycleview"/>
-                </LinearLayout>
-            </ScrollView>
-        </RelativeLayout>
+        <Button
+            android:id="@+id/fragment_new_department_btn_save"
+            android:layout_width="130dp"
+            android:layout_height="48dp"
+            android:layout_below="@+id/activity_student_regestration_scv_select_subject"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/custom_btn_login_save"
+            android:text="Regist"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:ignore="TextContrastCheck" />
+
     </LinearLayout>
+
 </LinearLayout>

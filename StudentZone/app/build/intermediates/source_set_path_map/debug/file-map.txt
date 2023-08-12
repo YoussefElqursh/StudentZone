@@ -1,31 +1,33 @@
-com.studentzone.app-emoji2-1.2.0-0 C:\Users\Enter Store\.gradle\caches\transforms-3\0fef484d2d7d3612c69865f977f8c08f\transformed\emoji2-1.2.0\res
-com.studentzone.app-savedstate-1.2.0-1 C:\Users\Enter Store\.gradle\caches\transforms-3\133132b7aa11abb90dffc4aeb4ffee71\transformed\savedstate-1.2.0\res
-com.studentzone.app-drawerlayout-1.1.1-2 C:\Users\Enter Store\.gradle\caches\transforms-3\169fbc0cc288bcafd707ff1de5b5d1ef\transformed\drawerlayout-1.1.1\res
-com.studentzone.app-emoji2-views-helper-1.2.0-3 C:\Users\Enter Store\.gradle\caches\transforms-3\181c671d8ed9f4ee83ef37b69e89373c\transformed\emoji2-views-helper-1.2.0\res
-com.studentzone.app-constraintlayout-2.1.4-4 C:\Users\Enter Store\.gradle\caches\transforms-3\1b1fc35cfff048765e7b5057facd7433\transformed\constraintlayout-2.1.4\res
-com.studentzone.app-lifecycle-livedata-core-2.5.1-5 C:\Users\Enter Store\.gradle\caches\transforms-3\39a903a6a5736151d5c8c6b114f3352a\transformed\lifecycle-livedata-core-2.5.1\res
-com.studentzone.app-startup-runtime-1.1.1-6 C:\Users\Enter Store\.gradle\caches\transforms-3\477190d2df3a2de3c97d15da98c0d16e\transformed\startup-runtime-1.1.1\res
-com.studentzone.app-lifecycle-viewmodel-2.5.1-7 C:\Users\Enter Store\.gradle\caches\transforms-3\53cbd816d1f0ce2619bbae9b8dcd2d8b\transformed\lifecycle-viewmodel-2.5.1\res
-com.studentzone.app-core-ktx-1.9.0-8 C:\Users\Enter Store\.gradle\caches\transforms-3\559d9211b8a4d26fbbdc8406e973d69c\transformed\core-ktx-1.9.0\res
-com.studentzone.app-annotation-experimental-1.3.0-9 C:\Users\Enter Store\.gradle\caches\transforms-3\5db8ee51bbecc36e07eba7a77a7ae7c4\transformed\annotation-experimental-1.3.0\res
-com.studentzone.app-coordinatorlayout-1.1.0-10 C:\Users\Enter Store\.gradle\caches\transforms-3\602e0f40a2e4890a6c140b4e0e9297aa\transformed\coordinatorlayout-1.1.0\res
-com.studentzone.app-viewpager2-1.0.0-11 C:\Users\Enter Store\.gradle\caches\transforms-3\71a4b2e3b83f674b0802282a6bb1640f\transformed\viewpager2-1.0.0\res
-com.studentzone.app-material-1.9.0-12 C:\Users\Enter Store\.gradle\caches\transforms-3\731866f4f07c37e8f6d282fe1dd76996\transformed\material-1.9.0\res
-com.studentzone.app-cardview-1.0.0-13 C:\Users\Enter Store\.gradle\caches\transforms-3\7653a5192b1a36a00121994a24b4bb76\transformed\cardview-1.0.0\res
-com.studentzone.app-appcompat-1.6.1-14 C:\Users\Enter Store\.gradle\caches\transforms-3\7ba610368285ef737a15a687544ee720\transformed\appcompat-1.6.1\res
-com.studentzone.app-core-1.9.0-15 C:\Users\Enter Store\.gradle\caches\transforms-3\8c25e88eb4ea76e8f3d0900731d8ae12\transformed\core-1.9.0\res
-com.studentzone.app-lifecycle-viewmodel-savedstate-2.5.1-16 C:\Users\Enter Store\.gradle\caches\transforms-3\8f16d121777a75a4f1908d2da158f029\transformed\lifecycle-viewmodel-savedstate-2.5.1\res
-com.studentzone.app-recyclerview-1.1.0-17 C:\Users\Enter Store\.gradle\caches\transforms-3\9a156e10bc2cc6926719f38d9612f7be\transformed\recyclerview-1.1.0\res
-com.studentzone.app-appcompat-resources-1.6.1-18 C:\Users\Enter Store\.gradle\caches\transforms-3\a3b3964855112576846b464329822fa9\transformed\appcompat-resources-1.6.1\res
-com.studentzone.app-lifecycle-process-2.4.1-19 C:\Users\Enter Store\.gradle\caches\transforms-3\ae3e8265de2d7f874c642be745cd48da\transformed\lifecycle-process-2.4.1\res
-com.studentzone.app-fragment-1.3.6-20 C:\Users\Enter Store\.gradle\caches\transforms-3\c7fdf132750f580e9799a5455b4a5c84\transformed\fragment-1.3.6\res
-com.studentzone.app-activity-1.6.0-21 C:\Users\Enter Store\.gradle\caches\transforms-3\ea9480b242a8da7b5cc4e7169919a500\transformed\activity-1.6.0\res
-com.studentzone.app-lifecycle-runtime-2.5.1-22 C:\Users\Enter Store\.gradle\caches\transforms-3\f1cbfa66c793c84195ed08fdc711e3af\transformed\lifecycle-runtime-2.5.1\res
-com.studentzone.app-transition-1.2.0-23 C:\Users\Enter Store\.gradle\caches\transforms-3\f550c9bc53f117cb9e3852beae837a10\transformed\transition-1.2.0\res
-com.studentzone.app-pngs-24 D:\StudentZone\StudentZone\StudentZone\app\build\generated\res\pngs\debug
-com.studentzone.app-resValues-25 D:\StudentZone\StudentZone\StudentZone\app\build\generated\res\resValues\debug
-com.studentzone.app-packageDebugResources-26 D:\StudentZone\StudentZone\StudentZone\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.studentzone.app-packageDebugResources-27 D:\StudentZone\StudentZone\StudentZone\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.studentzone.app-merged_res-28 D:\StudentZone\StudentZone\StudentZone\app\build\intermediates\merged_res\debug
-com.studentzone.app-debug-29 D:\StudentZone\StudentZone\StudentZone\app\src\debug\res
-com.studentzone.app-main-30 D:\StudentZone\StudentZone\StudentZone\app\src\main\res
+com.studentzone.app-material-1.9.0-0 C:\Users\km677\.gradle\caches\transforms-3\090f337ed676e5ed26d304bf1a78644b\transformed\material-1.9.0\res
+com.studentzone.app-lifecycle-viewmodel-savedstate-2.5.1-1 C:\Users\km677\.gradle\caches\transforms-3\0d19382919f88a9b4061aed5d8f79df2\transformed\lifecycle-viewmodel-savedstate-2.5.1\res
+com.studentzone.app-drawerlayout-1.1.1-2 C:\Users\km677\.gradle\caches\transforms-3\0f3876d718237e4aa54a5f967de1cea1\transformed\drawerlayout-1.1.1\res
+com.studentzone.app-lottie-4.2.2-3 C:\Users\km677\.gradle\caches\transforms-3\15d6560f353984f38f41d6c88d26f0da\transformed\lottie-4.2.2\res
+com.studentzone.app-savedstate-1.2.0-4 C:\Users\km677\.gradle\caches\transforms-3\1b47c9a0713b132f9379bc1bd71eb8b7\transformed\savedstate-1.2.0\res
+com.studentzone.app-constraintlayout-2.1.4-5 C:\Users\km677\.gradle\caches\transforms-3\30f4c334bb9586b8299d31214a27cc88\transformed\constraintlayout-2.1.4\res
+com.studentzone.app-searchablespinnerlibrary-1.3.1-6 C:\Users\km677\.gradle\caches\transforms-3\3bd8430015a7d1a77f0cde9972b8dbc7\transformed\searchablespinnerlibrary-1.3.1\res
+com.studentzone.app-core-ktx-1.9.0-7 C:\Users\km677\.gradle\caches\transforms-3\414f4817c253d6f91d9bef1026444a20\transformed\core-ktx-1.9.0\res
+com.studentzone.app-viewpager2-1.0.0-8 C:\Users\km677\.gradle\caches\transforms-3\453a69a9d6f52c4c104a2eaab1c33f1f\transformed\viewpager2-1.0.0\res
+com.studentzone.app-annotation-experimental-1.3.0-9 C:\Users\km677\.gradle\caches\transforms-3\4f735b77350aefc156737b8f9bd0fa95\transformed\annotation-experimental-1.3.0\res
+com.studentzone.app-core-1.9.0-10 C:\Users\km677\.gradle\caches\transforms-3\55dedc70b95a473650eda30d4efd0f99\transformed\core-1.9.0\res
+com.studentzone.app-emoji2-1.2.0-11 C:\Users\km677\.gradle\caches\transforms-3\58734ab3db9d01442ffac75a0ea2bc68\transformed\emoji2-1.2.0\res
+com.studentzone.app-lifecycle-viewmodel-2.5.1-12 C:\Users\km677\.gradle\caches\transforms-3\635ca0926e7ae12920cc06583e7e643f\transformed\lifecycle-viewmodel-2.5.1\res
+com.studentzone.app-cardview-1.0.0-13 C:\Users\km677\.gradle\caches\transforms-3\64a2d392994452577a480e11197fabd6\transformed\cardview-1.0.0\res
+com.studentzone.app-coordinatorlayout-1.1.0-14 C:\Users\km677\.gradle\caches\transforms-3\671a06b1893081f2c8ad60f3958f34d7\transformed\coordinatorlayout-1.1.0\res
+com.studentzone.app-lifecycle-process-2.4.1-15 C:\Users\km677\.gradle\caches\transforms-3\75d35fda4271de3dc184847093d1a2b0\transformed\lifecycle-process-2.4.1\res
+com.studentzone.app-appcompat-resources-1.6.1-16 C:\Users\km677\.gradle\caches\transforms-3\802b9a5c342fc698ed20453692f600f7\transformed\appcompat-resources-1.6.1\res
+com.studentzone.app-emoji2-views-helper-1.2.0-17 C:\Users\km677\.gradle\caches\transforms-3\81028e0bfde4e42324f9598bd0a1540c\transformed\emoji2-views-helper-1.2.0\res
+com.studentzone.app-startup-runtime-1.1.1-18 C:\Users\km677\.gradle\caches\transforms-3\93f5cf0a528f6c584155b8d377574b65\transformed\startup-runtime-1.1.1\res
+com.studentzone.app-transition-1.2.0-19 C:\Users\km677\.gradle\caches\transforms-3\98523101c9963e531757127a1e8b685c\transformed\transition-1.2.0\res
+com.studentzone.app-lifecycle-livedata-core-2.5.1-20 C:\Users\km677\.gradle\caches\transforms-3\99ff0d1b0b58f543535c2844bca76b18\transformed\lifecycle-livedata-core-2.5.1\res
+com.studentzone.app-recyclerview-1.1.0-21 C:\Users\km677\.gradle\caches\transforms-3\9e1d4f8f0375e8e046d4b4131d85e943\transformed\recyclerview-1.1.0\res
+com.studentzone.app-lifecycle-runtime-2.5.1-22 C:\Users\km677\.gradle\caches\transforms-3\a1711c7657d9e0fdc630daf2a0e3e72b\transformed\lifecycle-runtime-2.5.1\res
+com.studentzone.app-fragment-1.3.6-23 C:\Users\km677\.gradle\caches\transforms-3\e1467e7620ed65b0f9ec090c601e5f8d\transformed\fragment-1.3.6\res
+com.studentzone.app-appcompat-1.6.1-24 C:\Users\km677\.gradle\caches\transforms-3\f519227ce83c25a4daf72bc8b7b65062\transformed\appcompat-1.6.1\res
+com.studentzone.app-activity-1.6.0-25 C:\Users\km677\.gradle\caches\transforms-3\f90ea4a9753d88de4b0a42a7435534cc\transformed\activity-1.6.0\res
+com.studentzone.app-pngs-26 D:\Study\Thired  Year\SecondTerm\StudentZone_FirstUpdate\StudentZone\app\build\generated\res\pngs\debug
+com.studentzone.app-resValues-27 D:\Study\Thired  Year\SecondTerm\StudentZone_FirstUpdate\StudentZone\app\build\generated\res\resValues\debug
+com.studentzone.app-packageDebugResources-28 D:\Study\Thired  Year\SecondTerm\StudentZone_FirstUpdate\StudentZone\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.studentzone.app-packageDebugResources-29 D:\Study\Thired  Year\SecondTerm\StudentZone_FirstUpdate\StudentZone\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.studentzone.app-merged_res-30 D:\Study\Thired  Year\SecondTerm\StudentZone_FirstUpdate\StudentZone\app\build\intermediates\merged_res\debug
+com.studentzone.app-debug-31 D:\Study\Thired  Year\SecondTerm\StudentZone_FirstUpdate\StudentZone\app\src\debug\res
+com.studentzone.app-main-32 D:\Study\Thired  Year\SecondTerm\StudentZone_FirstUpdate\StudentZone\app\src\main\res
