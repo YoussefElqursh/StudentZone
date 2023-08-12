@@ -229,6 +229,7 @@ public class My_DB extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (7,1,90,'A+')");
 
 
+
         db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (1,4,85,'A')");
         db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (2,4,80,'B+')");
         db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (3,4,70,'C+')");

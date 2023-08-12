@@ -65,7 +65,6 @@ public class DoctorStudentsGradesRecyclerViewAdapter extends RecyclerView.Adapte
         Students students = studentsList.get(position);
         holder.bindStudentData(students);
 
-
     }
 
     /**getItemCount()
