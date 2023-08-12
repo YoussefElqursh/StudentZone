@@ -103,15 +103,16 @@ public class DoctorStudentsGradesRecyclerViewAdapter extends RecyclerView.Adapte
             int courseID = Integer.parseInt(courseId);
             Enrollments degreeAndGrade = db.getDegreeByCourseAndStudentId(courseID, students.getId());
 
-            tv_student_name.setText(students.getFName());
-            tv_student_grade.setText(degreeAndGrade.getStudent_grade());
-
             // Set the text fields with student data
-            if (degreeAndGrade.getStudent_grade().equals("N")) {
-                tv_student_degree.setHint("Not Corrected");
-            } else {
-                tv_student_degree.setText(String.valueOf(degreeAndGrade.getStudent_degree()));
-            }
+            tv_student_name.setText(students.getFName());
+
+            if (degreeAndGrade.getStudent_grade() == null)
+                tv_student_grade.setText("N");
+            else
+                tv_student_grade.setText(degreeAndGrade.getStudent_grade());
+
+
+
 
             if(students.getGender() != null  && students.getGender().equals("Male"))
                 iv_student_icon.setImageResource(R.drawable.ic_male_student);
@@ -158,13 +159,22 @@ public class DoctorStudentsGradesRecyclerViewAdapter extends RecyclerView.Adapte
 
             // Set the text fields with student data
             et_studentName.setText(students.getFName());
-            if (originalGrade.equals("N")) {
-                et_studentScore.setHint("Not Corrected");
-            } else {
-                et_studentScore.setText(String.valueOf(degreeAndGrade.getStudent_degree()));
-            }
             et_studentAid.setText(students.getAcademic_Number());
             et_studentGrad.setText(originalGrade);
+
+                if (degreeAndGrade.getStudent_grade() != null){
+                    if (originalGrade.equals("N")) {
+                        et_studentScore.setHint("Not Corrected");
+                    }
+                    else {
+                        et_studentScore.setText(String.valueOf(degreeAndGrade.getStudent_degree()));
+                    }
+                }
+                else{
+                    et_studentGrad.setText("N");
+                    et_studentScore.setHint("Not Corrected");
+
+                }
 
             // Disable the save button until the data is modified
             btn_save.setEnabled(false);
@@ -215,12 +225,11 @@ public class DoctorStudentsGradesRecyclerViewAdapter extends RecyclerView.Adapte
                                     et_studentGrad.setText("B+");
                                 } else if (score < 90) {
                                     et_studentGrad.setText("A");
-                                } else if (score <= 100) {
+                                } else {
                                     et_studentGrad.setText("A+");
                                 }
                             }
-                        } catch (NumberFormatException e) {
-                            // Handle the exception if the inputis not a valid number
+                        } catch (NumberFormatException ignored) {
                         }
                     }
                 }
