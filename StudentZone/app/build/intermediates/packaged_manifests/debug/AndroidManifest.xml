@@ -8,6 +8,17 @@
         android:minSdkVersion="24"
         android:targetSdkVersion="33" />
 
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+
     <permission
         android:name="com.studentzone.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
@@ -28,10 +39,24 @@
         android:testOnly="true"
         android:theme="@style/Theme.StudentZone" >
         <activity
-            android:name="com.studentzone.Doctor_Classes.Doctor_Activities.DoctorSubjectPdfsActivity"
+            android:name="com.studentzone.ForgetPasswrod_Classes.VerifyOTPActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.studentzone.ForgetPasswrod_Classes.SendOTPActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.studentzone.Doctor_Classes.Doctor_Activities.DoctorCoursesActivity"
             android:exported="false" />
         <activity
-            android:name="com.studentzone.Student_Classes.Student_Activities.StudentSubjectPdfsActivity"
+            android:name="com.studentzone.Doctor_Classes.Doctor_Activities.DoctorHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.studentzone.Doctor_Classes.Doctor_Activities.DoctorStudentGrades"
+            android:exported="false" />
+        <activity
+            android:name="com.studentzone.Doctor_Classes.Doctor_Activities.DoctorAssessStudentActivity"
             android:exported="false" />
         <activity
             android:name="com.studentzone.Student_Classes.Student_Activities.StudentSubjectActivity"
@@ -46,30 +71,23 @@
             android:name="com.studentzone.Student_Classes.Student_Activities.StudentHomeActivity"
             android:exported="false" />
         <activity
-            android:name="com.studentzone.Admin_Calsses.Admin_Activities.AdminStudentsAccountsActivity"
+            android:name="com.studentzone.Admin_Classes.Admin_Activities.AdminStudentsAccountsActivity"
             android:exported="false" />
         <activity
-            android:name="com.studentzone.Admin_Calsses.Admin_Activities.AdminDoctorsAccountsActivity"
+            android:name="com.studentzone.Admin_Classes.Admin_Activities.AdminCoursesActivity"
             android:exported="false" />
         <activity
-            android:name="com.studentzone.Admin_Calsses.Admin_Activities.AdminAbsenceFilesActivity"
+            android:name="com.studentzone.Admin_Classes.Admin_Activities.AdminDoctorsAccountsActivity"
             android:exported="false" />
         <activity
-            android:name="com.studentzone.Admin_Calsses.Admin_Activities.AdminSubjectsActivity"
+            android:name="com.studentzone.Admin_Classes.Admin_Activities.AdminDepartmentsActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.studentzone.Admin_Calsses.Admin_Activities.AdminDepartmentsActivity"
-            android:exported="false" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name="com.studentzone.Admin_Calsses.Admin_Activities.AdminHomeActivity"
+            android:name="com.studentzone.Admin_Classes.Admin_Activities.AdminHomeActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
@@ -95,10 +113,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"

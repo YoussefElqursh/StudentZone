@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.studentzone.app-mergeDebugResources-26:/values-w480dp-port-v13/values-w480dp-port-v13.xml",
+            "outputFile": "com.studentzone.app-mergeDebugResources-28:/values-w480dp-port-v13/values-w480dp-port-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Enter Store\\.gradle\\caches\\transforms-3\\731866f4f07c37e8f6d282fe1dd76996\\transformed\\material-1.9.0\\res\\values-w480dp-port-v13\\values-w480dp-port-v13.xml",
+                    "source": "C:\\Users\\km677\\.gradle\\caches\\transforms-3\\090f337ed676e5ed26d304bf1a78644b\\transformed\\material-1.9.0\\res\\values-w480dp-port-v13\\values-w480dp-port-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

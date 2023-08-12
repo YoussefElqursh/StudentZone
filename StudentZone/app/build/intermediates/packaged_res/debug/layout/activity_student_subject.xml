@@ -15,65 +15,45 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:menu="@menu/activity_admin_depatrments_tbar_menu">
+        app:menu="@menu/activity_admin_departments_sv_menu"
+        android:layout_marginRight="5dp">
+
         <Button
             android:id="@+id/activity_student_subject_btn_back"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="@drawable/ic_back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/custom_btn_back"
             android:contentDescription="back arrow"
-            tools:ignore="TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:drawableLeft="@drawable/ic_back"
+            android:paddingLeft="8dp"
+            android:layout_marginLeft="-10dp"
+            android:layout_marginRight="10dp"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Subjects"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:layout_marginLeft="30dp"
             android:textColor="@color/white"
-            />
+            android:textStyle="bold"/>
+
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:id="@+id/activity_student_subject_ll_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/custom_cv">
 
-        <RelativeLayout
-            android:id="@+id/activity_student_subject_rl_1"
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/custom_cv"
-            android:elevation="50dp">
-            <ScrollView
-                android:id="@+id/activity_student_subject_scv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/custom_cv"
-                android:contentDescription="@string/scrolbar">
+            android:layout_height="wrap_content"
+            android:id="@+id/student_subject_recycleview"
+            android:layout_marginTop="5dp"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/custom_cv"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="vertical"/>
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/student_subject_recycleview"/>
-
-                </LinearLayout>
-            </ScrollView>
-        </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

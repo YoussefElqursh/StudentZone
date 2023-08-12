@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Admin_Calsses.Admin_Activities.AdminAbsenceFilesActivity">
+    tools:context=".Admin_Classes.Admin_Activities.AdminDepartmentsActivity"
+    android:background="@color/blue">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/activity_admin_subjects_tbar"
@@ -14,22 +15,31 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:menu="@menu/activity_admin_subjects_tbar_menu" >
+        app:menu="@menu/activity_admin_subjects_sv_menu"
+        android:layout_marginRight="5dp">
+
         <Button
             android:id="@+id/activity_admin_subjects_btn_back"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="@drawable/ic_back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/custom_btn_back"
             android:contentDescription="back arrow"
-            tools:ignore="TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:drawableLeft="@drawable/ic_back"
+            android:paddingLeft="8dp"
+            android:layout_marginLeft="-10dp"
+            android:layout_marginRight="10dp"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Subjects"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:layout_marginLeft="30dp"
             android:textColor="@color/white"
-            />
+            android:textStyle="bold"/>
+
     </androidx.appcompat.widget.Toolbar>
     <LinearLayout
         android:id="@+id/activity_admin_subjects_ll_main"
@@ -47,94 +57,29 @@
 
             <Button
                 android:id="@+id/activity_admin_subjects_btn_add"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="280dp"
-                android:layout_marginTop="590dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
                 android:background="@drawable/custom_btn_plus_add"
                 android:contentDescription="@string/btn_floating_action"
                 android:drawableRight="@drawable/ic_add"
                 android:fadeScrollbars="false"
-                android:paddingRight="15dp"
+                android:paddingRight="12dp"
                 android:src="@drawable/ic_add"
                 app:elevation="20dp"
                 app:fabSize="normal"
                 app:hoveredFocusedTranslationZ="20dp"
                 app:pressedTranslationZ="20dp" />
 
-            <ScrollView
-                android:id="@+id/activity_admin_subjects_scv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/custom_cv"
-                android:contentDescription="@string/scrolbar">
-
-                <LinearLayout
+                <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/custom_cv"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:id="@+id/activity_admin_subjects_recycleView"
+                    android:layout_marginTop="5dp"/>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="vertical">
-
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/activity_subjects_cv"
-                            android:layout_width="match_parent"
-                            android:layout_height="80dp"
-                            app:cardBackgroundColor="@color/navy_blue"
-                            app:cardCornerRadius="20dp">
-
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <ImageView
-                                    android:id="@+id/activity_admin_subjects_iv"
-                                    android:layout_width="60dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginTop="10dp"
-                                    android:layout_marginBottom="10dp"
-                                    android:gravity="center"
-                                    app:srcCompat="@drawable/ic_book_1">
-
-                                </ImageView>
-
-                                <TextView
-                                    android:id="@+id/activity_admin_subjects_tv_sub_name"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="16dp"
-                                    android:layout_marginTop="20dp"
-                                    android:layout_toRightOf="@id/activity_admin_subjects_iv"
-                                    android:maxLines="1"
-                                    android:text="Operating System"
-                                    android:textColor="@color/white"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:id="@+id/activity_admin_subjects_tv_sub_code"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="30dp"
-                                    android:layout_marginTop="42dp"
-                                    android:layout_toRightOf="@id/activity_admin_subjects_iv"
-                                    android:text="186465454"
-                                    android:textColor="@color/white" />
-
-                            </RelativeLayout>
-                        </androidx.cardview.widget.CardView>
-                    </LinearLayout>
-                </LinearLayout>
-            </ScrollView>
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

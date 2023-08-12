@@ -1,342 +1,590 @@
 [
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_custom_et_selected.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/custom_et_selected.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_illust_students_assissment.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/illust_students_assissment.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_launcher_background.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_fragment_doctor_info_subject.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/fragment_doctor_info_subject.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_female_doctor.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_female_doctor.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_illust_send_message.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/illust_send_message.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/font_amaranth.xml.flat",
-        "source": "com.studentzone.app-main-30:/font/amaranth.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_fragment_student_info_regestration_subject.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/fragment_student_info_regestration_subject.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/layout_activity_admin_home.xml.flat",
-        "source": "com.studentzone.app-main-30:/layout/activity_admin_home.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_tv_name_profile.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_tv_name_profile.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_absence_files.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_absence_files.xml"
+        "merged": "com.studentzone.app-merged_res-30:/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.studentzone.app-main-32:/mipmap-xxxhdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/menu_activity_admin_students_accounts_tbar_menu.xml.flat",
-        "source": "com.studentzone.app-main-30:/menu/activity_admin_students_accounts_tbar_menu.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_close.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_close.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/layout_activity_admin_departments.xml.flat",
-        "source": "com.studentzone.app-main-30:/layout/activity_admin_departments.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_btn_logout.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_btn_logout.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.studentzone.app-main-30:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_tv_forgot_password.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_tv_forgot_password.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/layout_fragment_admin_new_student_account.xml.flat",
-        "source": "com.studentzone.app-main-30:/layout/fragment_admin_new_student_account.xml"
+        "merged": "com.studentzone.app-merged_res-30:/menu_models_ibtn_more_menu.xml.flat",
+        "source": "com.studentzone.app-main-32:/menu/models_ibtn_more_menu.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_custom_rb_selected.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/custom_rb_selected.xml"
+        "merged": "com.studentzone.app-merged_res-30:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "com.studentzone.app-main-32:/mipmap-xhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_id.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_id.xml"
+        "merged": "com.studentzone.app-merged_res-30:/xml_backup_rules.xml.flat",
+        "source": "com.studentzone.app-main-32:/xml/backup_rules.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/layout_activity_admin_subjects.xml.flat",
-        "source": "com.studentzone.app-main-30:/layout/activity_admin_subjects.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_doctor_model_student_grade.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_doctor_model_student_grade.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_custom_view.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/custom_view.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_fragment_admin_subject_edit.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/fragment_admin_subject_edit.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_custom_btn_plus_add.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/custom_btn_plus_add.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_doctor_model_subject.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_doctor_model_subject.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/font_aclonica.xml.flat",
-        "source": "com.studentzone.app-main-30:/font/aclonica.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_gender.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_gender.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_custom_cv.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/custom_cv.xml"
+        "merged": "com.studentzone.app-merged_res-30:/xml_data_extraction_rules.xml.flat",
+        "source": "com.studentzone.app-main-32:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.studentzone.app-main-30:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_admin_doctors_accounts.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_admin_doctors_accounts.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/layout_fragment_admin_new_department.xml.flat",
-        "source": "com.studentzone.app-main-30:/layout/fragment_admin_new_department.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_admin_students_accounts.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_admin_students_accounts.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.studentzone.app-main-30:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_btn_edit_disabled.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_btn_edit_disabled.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_admin.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_admin.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_btn_close.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_btn_close.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.studentzone.app-main-30:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "com.studentzone.app-merged_res-30:/layout_fragment_admin_add_department.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/fragment_admin_add_department.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/layout_activity_student_subject.xml.flat",
-        "source": "com.studentzone.app-main-30:/layout/activity_student_subject.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_student_model_subject.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_student_model_subject.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/menu_activity_admin_depatrments_tbar_menu.xml.flat",
-        "source": "com.studentzone.app-main-30:/menu/activity_admin_depatrments_tbar_menu.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_fragment_admin_edit_student_account.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/fragment_admin_edit_student_account.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/font_saira_stencil_one.xml.flat",
-        "source": "com.studentzone.app-main-30:/font/saira_stencil_one.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_btn_send_receive.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_btn_send_receive.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/mipmap-anydpi-v33_ic_launcher.xml.flat",
-        "source": "com.studentzone.app-main-30:/mipmap-anydpi-v33/ic_launcher.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_user.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_user.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_search.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_search.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_rb_normal.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_rb_normal.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/layout_fragment_admin_new_subject.xml.flat",
-        "source": "com.studentzone.app-main-30:/layout/fragment_admin_new_subject.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_splitter.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_splitter.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.studentzone.app-main-30:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_doctor_model_subject_grade.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_doctor_model_subject_grade.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.studentzone.app-main-30:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_drawer_header_bg.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_drawer_header_bg.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_book_2.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_book_2.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_admin_departments.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_admin_departments.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_back.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_back.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_student_passed_subjects.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_student_passed_subjects.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_custom_btn_welcom.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/custom_btn_welcom.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_et_selected.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_et_selected.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_custom_et_selector.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/custom_et_selector.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_illust_students.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/illust_students.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_close.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_close.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_admin_home.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_admin_home.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/layout_activity_admin_students_accounts.xml.flat",
-        "source": "com.studentzone.app-main-30:/layout/activity_admin_students_accounts.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_sittings.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_sittings.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_custom_fragment_admin_new_department.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/custom_fragment_admin_new_department.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_admin_model_doctor.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_admin_model_doctor.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/layout_activity_student_passed_subjects.xml.flat",
-        "source": "com.studentzone.app-main-30:/layout/activity_student_passed_subjects.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_down_arrow.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_down_arrow.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/layout_activity_student_home.xml.flat",
-        "source": "com.studentzone.app-main-30:/layout/activity_student_home.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_grade.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_grade.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_img_students.png.flat",
-        "source": "com.studentzone.app-main-30:/drawable/img_students.png"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_rb_selector.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_rb_selector.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_male_doctor.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_male_doctor.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_et_normal.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_et_normal.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_lock.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_lock.xml"
+        "merged": "com.studentzone.app-merged_res-30:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.studentzone.app-main-32:/mipmap-xxhdpi/ic_launcher.png"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/layout_activity_login.xml.flat",
-        "source": "com.studentzone.app-main-30:/layout/activity_login.xml"
+        "merged": "com.studentzone.app-merged_res-30:/mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "com.studentzone.app-main-32:/mipmap-hdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/layout_fragment_admin_new_doctor_account.xml.flat",
-        "source": "com.studentzone.app-main-30:/layout/fragment_admin_new_doctor_account.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_book.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_book.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/xml_data_extraction_rules.xml.flat",
-        "source": "com.studentzone.app-main-30:/xml/data_extraction_rules.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_fragment_admin_add_doctor_account.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/fragment_admin_add_doctor_account.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable-v24_ic_launcher_foreground.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable-v24/ic_launcher_foreground.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_back.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_back.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/font_autour_one.xml.flat",
-        "source": "com.studentzone.app-main-30:/font/autour_one.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_doctor_students_grades.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_doctor_students_grades.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/layout_activity_admin_absence_files.xml.flat",
-        "source": "com.studentzone.app-main-30:/layout/activity_admin_absence_files.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_fragment_admin_show_doctor_accout.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/fragment_admin_show_doctor_accout.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/layout_activity_admin_doctors_accounts.xml.flat",
-        "source": "com.studentzone.app-main-30:/layout/activity_admin_doctors_accounts.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_student_home_nav_drawer_header.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_student_home_nav_drawer_header.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/menu_activity_admin_doctors_accounts_tbar_menu.xml.flat",
-        "source": "com.studentzone.app-main-30:/menu/activity_admin_doctors_accounts_tbar_menu.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_cb_remmber_me.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_cb_remmber_me.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/layout_activity_welcome.xml.flat",
-        "source": "com.studentzone.app-main-30:/layout/activity_welcome.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_doctor_subjects.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_doctor_subjects.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.studentzone.app-main-30:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_lock.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_lock.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_students.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_students.xml"
+        "merged": "com.studentzone.app-merged_res-30:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.studentzone.app-main-32:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.studentzone.app-main-30:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_rb_et_icon_selector.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_rb_et_icon_selector.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_book_1.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_book_1.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_fragment_admin_show_student_accout.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/fragment_admin_show_student_accout.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/xml_backup_rules.xml.flat",
-        "source": "com.studentzone.app-main-30:/xml/backup_rules.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_fragment_admin_show_subject.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/fragment_admin_show_subject.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_custom_btn_login.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/custom_btn_login.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_female_doctor.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_female_doctor.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.studentzone.app-main-30:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_ibtn_more.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_ibtn_more.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_student.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_student.xml"
+        "merged": "com.studentzone.app-merged_res-30:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.studentzone.app-main-32:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/font_carter_one.xml.flat",
-        "source": "com.studentzone.app-main-30:/font/carter_one.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_doctor_students_assessment.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_doctor_students_assessment.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_add.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_add.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_view_bottom_sheet.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_view_bottom_sheet.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/layout_activity_student_model_view.xml.flat",
-        "source": "com.studentzone.app-main-30:/layout/activity_student_model_view.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_fragment_admin_edit_department.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/fragment_admin_edit_department.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_subjects.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_subjects.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_illust_welcome.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/illust_welcome.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.studentzone.app-main-30:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_btn_profile.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_btn_profile.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_upload.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_upload.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_illust_passed_subject.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/illust_passed_subject.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_user.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_user.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_login_view.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_login_view.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_custom_et_normal.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/custom_et_normal.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_female.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_female.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_custom_view_bottom_sheet.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/custom_view_bottom_sheet.xml"
+        "merged": "com.studentzone.app-merged_res-30:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.studentzone.app-main-32:/mipmap-xhdpi/ic_launcher.png"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.studentzone.app-main-30:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "com.studentzone.app-merged_res-30:/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable-v24/ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.studentzone.app-main-30:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_illust_new_message.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/illust_new_message.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_custom_rb_normal.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/custom_rb_normal.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_student_subject.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_student_subject.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/layout_activity_student_registration.xml.flat",
-        "source": "com.studentzone.app-main-30:/layout/activity_student_registration.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_admin_model_subject.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_admin_model_subject.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/menu_activity_admin_absence_files_tbar_menu.xml.flat",
-        "source": "com.studentzone.app-main-30:/menu/activity_admin_absence_files_tbar_menu.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_illust_department.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/illust_department.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_download.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_download.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_student_registration.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_student_registration.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_department.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_department.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_et_selector.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_et_selector.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/layout_activity_doctor_subject_pdfs.xml.flat",
-        "source": "com.studentzone.app-main-30:/layout/activity_doctor_subject_pdfs.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_admin_subjects.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_admin_subjects.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_doctor.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_doctor.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_sp_subject.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_sp_subject.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_custom_rb_selector.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/custom_rb_selector.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_notifications.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_notifications.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/menu_activity_admin_subjects_tbar_menu.xml.flat",
-        "source": "com.studentzone.app-main-30:/menu/activity_admin_subjects_tbar_menu.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_fragment_admin_add_student_account.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/fragment_admin_add_student_account.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_female_student.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_female_student.xml"
+        "merged": "com.studentzone.app-merged_res-30:/menu_activity_doctor_home_nav_drawer_menu.xml.flat",
+        "source": "com.studentzone.app-main-32:/menu/activity_doctor_home_nav_drawer_menu.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_logout.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_logout.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_about_us.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_about_us.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/font_adamina.xml.flat",
-        "source": "com.studentzone.app-main-30:/font/adamina.xml"
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_btn_edit_enabled.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_btn_edit_enabled.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_male_student.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_male_student.xml"
+        "merged": "com.studentzone.app-merged_res-30:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "com.studentzone.app-main-32:/mipmap-xxxhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/layout_activity_student_subject_pdfs.xml.flat",
-        "source": "com.studentzone.app-main-30:/layout/activity_student_subject_pdfs.xml"
+        "merged": "com.studentzone.app-merged_res-30:/menu_activity_admin_subjects_sv_menu.xml.flat",
+        "source": "com.studentzone.app-main-32:/menu/activity_admin_subjects_sv_menu.xml"
     },
     {
-        "merged": "com.studentzone.app-merged_res-28:/drawable_ic_doctors.xml.flat",
-        "source": "com.studentzone.app-main-30:/drawable/ic_doctors.xml"
+        "merged": "com.studentzone.app-merged_res-30:/layout_fragment_admin_edit_doctor_accout.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/fragment_admin_edit_doctor_accout.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_send_o_t_p.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_send_o_t_p.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.studentzone.app-main-32:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_male.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_male.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "com.studentzone.app-main-32:/mipmap-mdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_img_arc1.png.flat",
+        "source": "com.studentzone.app-main-32:/drawable/img_arc1.png"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_cv.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_cv.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_btn_back.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_btn_back.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_doctor_home_nav_drawer_header.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_doctor_home_nav_drawer_header.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_doctor_home.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_doctor_home.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_male_student.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_male_student.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/menu_activity_student_home_nav_drawer_menu.xml.flat",
+        "source": "com.studentzone.app-main-32:/menu/activity_student_home_nav_drawer_menu.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_more.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_more.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_admin_home_nav_drawer_header.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_admin_home_nav_drawer_header.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_admin_model_department.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_admin_model_department.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/layout_fragment_admin_show_department.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/fragment_admin_show_department.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "com.studentzone.app-main-32:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/menu_activity_admin_students_accounts_sv_menu.xml.flat",
+        "source": "com.studentzone.app-main-32:/menu/activity_admin_students_accounts_sv_menu.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_tv_grade.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_tv_grade.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_number_of_students.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_number_of_students.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_btn_welcome.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_btn_welcome.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_student_model_regestration.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_student_model_regestration.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_student_home.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_student_home.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_illust_doctor.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/illust_doctor.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_btn_download.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_btn_download.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_fragment_add_new.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_fragment_add_new.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_sp_department.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_sp_department.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_illust_login.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/illust_login.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_sp_doctor.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_sp_doctor.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/menu_activity_admin_departments_sv_menu.xml.flat",
+        "source": "com.studentzone.app-main-32:/menu/activity_admin_departments_sv_menu.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.studentzone.app-main-32:/mipmap-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_btn_edit_state.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_btn_edit_state.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_logout.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_logout.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_male_doctor.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_male_doctor.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/menu_activity_admin_doctors_accounts_sv_menu.xml.flat",
+        "source": "com.studentzone.app-main-32:/menu/activity_admin_doctors_accounts_sv_menu.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.studentzone.app-main-32:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_illust_subject_registration.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/illust_subject_registration.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/layout_fragment_admin_add_subject.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/fragment_admin_add_subject.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_view.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_view.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_verify_o_t_p.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_verify_o_t_p.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.studentzone.app-main-32:/mipmap-xhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_btn_plus_add.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_btn_plus_add.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_score.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_score.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_department.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_department.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/menu_activity_admin_home_nav_drawer_menu.xml.flat",
+        "source": "com.studentzone.app-main-32:/menu/activity_admin_home_nav_drawer_menu.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_info.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_info.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_id.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_id.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_email_address.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_email_address.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_welcome.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_welcome.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_add.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_add.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_login.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_search.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_search.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_arc_1.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_arc_1.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/layout_fragment_doctor_add_student_grade.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/fragment_doctor_add_student_grade.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "com.studentzone.app-main-32:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_rb_selected.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_rb_selected.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_illust_subject.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/illust_subject.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_ic_female_student.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/ic_female_student.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.studentzone.app-main-32:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/drawable_custom_btn_login_save.xml.flat",
+        "source": "com.studentzone.app-main-32:/drawable/custom_btn_login_save.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/layout_activity_admin_model_student.xml.flat",
+        "source": "com.studentzone.app-main-32:/layout/activity_admin_model_student.xml"
+    },
+    {
+        "merged": "com.studentzone.app-merged_res-30:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "com.studentzone.app-main-32:/mipmap-xxhdpi/ic_launcher_round.png"
     }
 ]
