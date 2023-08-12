@@ -1402,6 +1402,7 @@ public class My_DB extends SQLiteOpenHelper {
         db.close();
 
         return result != 0;
+
     }
 
     //*****************************************************************
