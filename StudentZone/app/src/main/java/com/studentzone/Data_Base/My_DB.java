@@ -25,7 +25,7 @@ public class My_DB extends SQLiteOpenHelper {
      ***********************************************************************************************/
     public static final String DB_Name = "Education";
 
-    public static final int DB_Version = 35;
+    public static final int DB_Version = 36;
 
 
     private final Context context;
@@ -1197,39 +1197,8 @@ public class My_DB extends SQLiteOpenHelper {
     /**
      * get name course for student by department
      */
-    public ArrayList<String> Get_all_courses_for_student() {
-        ArrayList<String> courses_name = new ArrayList<>();
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query("" + Education_Table_Courses + "", new String[]{Courses_col_name},
-                null, null, null, null, null);
-        if (cursor.moveToFirst()) {
-            do {
-                String name_course = cursor.getString(0);
-                courses_name.add(name_course);
-            } while (cursor.moveToNext());
-            cursor.close();
-            db.close();
-        }
-        return courses_name;
-    }
 
-    public ArrayList<String> Get_all_courses_have_pre_for_student() {
-        ArrayList<String> courses_name = new ArrayList<>();
-        SQLiteDatabase db = this.getReadableDatabase();
-        String selection = "PreRequests_id is not null";
 
-        Cursor cursor = db.query("" + Education_Table_Courses + "", new String[]{Courses_col_name},
-                selection, null, null, null, null);
-        if (cursor.moveToFirst()) {
-            do {
-                String name_course = cursor.getString(0);
-                courses_name.add(name_course);
-            } while (cursor.moveToNext());
-            cursor.close();
-            db.close();
-        }
-        return courses_name;
-    }
 
     /*********************************************************/
 
@@ -1247,7 +1216,7 @@ public class My_DB extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             @SuppressLint("Range") String column_code = cursor.getString(cursor.getColumnIndex("code"));
             @SuppressLint("Range") String column_name = cursor.getString(cursor.getColumnIndex("name"));
-            SubjectModel model = new SubjectModel(column_name, column_code);
+            SubjectModel model = new SubjectModel(column_name,column_code);
             arrayList.add(model);
         }
         cursor.close();
@@ -1410,21 +1379,7 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
     //*****************************************************************
-    public ArrayList<Integer> getAllcoursesMatchNotEnrolled (){
 
-        SQLiteDatabase db = getReadableDatabase();
-        ArrayList<Integer> courseIds = new ArrayList<>();
-
-        Cursor cursor = db.rawQuery("SELECT Courses._id FROM Courses LEFT JOIN Enrollment ON Courses._id = Enrollment.enrollment_course_id WHERE Enrollment.enrollment_course_id IS NULL", null);
-
-        while (cursor.moveToNext()) {
-            @SuppressLint("Range") int courseId = cursor.getInt(cursor.getColumnIndex("_id"));
-            courseIds.add(courseId);
-        }
-
-        cursor.close();
-        return null;
-    }
 
 }
 

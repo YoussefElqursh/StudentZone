@@ -67,7 +67,6 @@ public class SubjectRegestrationAdapter extends RecyclerView.Adapter<SubjectRege
             abbreviation += firstLetter;
         }
         holder.tv_3.setText(abbreviation.toUpperCase(Locale.ROOT));
-//        holder.CB.setOnCheckedChangeListener((compoundButton, b) -> compoundButton.setChecked(false)); // Clear existing listener to prevent unwanted triggering
 
 
         holder.CB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
