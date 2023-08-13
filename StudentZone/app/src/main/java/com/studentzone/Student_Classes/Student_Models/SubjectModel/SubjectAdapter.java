@@ -119,6 +119,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.ViewHold
             displayPopupMenu(view);
         }
 
+
         @Override
         public boolean onMenuItemClick(MenuItem menuItem) {
             SubjectModel course = arrayList2.get(getAdapterPosition());

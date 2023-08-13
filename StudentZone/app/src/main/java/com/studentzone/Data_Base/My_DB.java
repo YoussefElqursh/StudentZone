@@ -377,18 +377,26 @@ public class My_DB extends SQLiteOpenHelper {
 
     public ArrayList<SubjectRegestrationModel> getCourses_for_students() {
         SQLiteDatabase db = getReadableDatabase();
-        ArrayList<SubjectRegestrationModel> arrayList = new ArrayList();
-        String selection=" NOT EXISTS (SELECT enrollment_course_id FROM Enrollment WHERE enrollment_course_id = Courses.id)";
+        ArrayList<SubjectRegestrationModel> arrayList = new ArrayList<>();
 
-        Cursor cursor = db.query("Courses", new String[]{Courses_col_name,Courses_col_code}, selection, null, null, null, null);
+
+        SharedPreferences preferences = context.getSharedPreferences("userInfo", context.MODE_PRIVATE);
+        String StudentId = preferences.getString("id", "");
+        int S_id = Integer.parseInt(StudentId);
+        // Exclude the registered subjects in the query
+        String selection = "Courses.id NOT IN (SELECT enrollment_course_id FROM Enrollment WHERE enrollment_student_id = ?)";
+        String[] selectionArgs = { String.valueOf(S_id) };
+
+        Cursor cursor = db.query("Courses", new String[]{Courses_col_name, Courses_col_code},
+                selection, selectionArgs, null, null, null);
 
         while (cursor.moveToNext()) {
-
             @SuppressLint("Range") String column_code = cursor.getString(cursor.getColumnIndex(Courses_col_code));
             @SuppressLint("Range") String column_name = cursor.getString(cursor.getColumnIndex(Courses_col_name));
-            SubjectRegestrationModel model = new SubjectRegestrationModel(column_name,column_code );
+            SubjectRegestrationModel model = new SubjectRegestrationModel(column_name, column_code);
             arrayList.add(model);
         }
+
         cursor.close();
         return arrayList;
     }
