@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fragment_admin_new_student_ll_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -81,6 +82,36 @@
         android:textColorHint="@color/gray"
         android:drawableTint="@drawable/custom_et_selector"/>
 
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:id="@+id/fragment_new_student_sp_department"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_sp_department"
+        android:paddingLeft="40dp"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/fragment_new_student_et_student_phone"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_et_selector"
+        android:drawableStart="@drawable/icon_phone_number"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Student Phone Number"
+        android:inputType="numberDecimal"
+        android:paddingLeft="13dp"
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray"
+        android:drawableTint="@drawable/custom_et_selector"
+        android:maxLength="11"/>
+
     <EditText
         android:id="@+id/fragment_new_student_et_student_email"
         android:layout_width="match_parent"
@@ -112,7 +143,7 @@
         android:ems="10"
         android:hint="Student Password"
         android:inputType="text"
-        android:paddingLeft="10dp"
+        android:paddingLeft="13dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
         android:drawableTint="@drawable/custom_et_selector"/>

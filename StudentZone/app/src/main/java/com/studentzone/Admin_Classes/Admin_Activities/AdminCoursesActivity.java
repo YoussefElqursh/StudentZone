@@ -1,5 +1,6 @@
 package com.studentzone.Admin_Classes.Admin_Activities;
 
+import android.graphics.Color;
 import android.text.TextUtils;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
@@ -224,10 +225,10 @@ public class AdminCoursesActivity extends AppCompatActivity {
 
         // Create adapters for the spinners and set them to their respective spinners
 
-        departments.add(0, "Course Department");//Doctor Name
+        departments.add(0, "Subject Department");//Doctor Name
         ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<>(AdminCoursesActivity.this, android.R.layout.simple_spinner_dropdown_item, departments);
         departmentSpinner.setAdapter(arrayAdapter1);
-//        departmentSpinner.setSelection(0);
+        //        departmentSpinner.setSelection(0);
 
         doctors.add(0, "Doctor Name");
         ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<>(AdminCoursesActivity.this, android.R.layout.simple_spinner_dropdown_item, doctors);
@@ -235,7 +236,7 @@ public class AdminCoursesActivity extends AppCompatActivity {
         doctorSpinner.setSelection(0);
 
         // Set up the pre-request course spinner
-        courses.add(0, "Course Previous Request");
+        courses.add(0, "Subject Previous Request");
         preRequestSpinnerAdapter = new ArrayAdapter<>(AdminCoursesActivity.this, android.R.layout.simple_spinner_dropdown_item, courses);
         preRequestSpinner.setAdapter(preRequestSpinnerAdapter);
         preRequestSpinner.setSelection(0);
