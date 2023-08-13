@@ -29,6 +29,12 @@ public class StudentRegistrationActivity extends AppCompatActivity  {
     My_DB my_db=new My_DB( this);
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        recyclerView.refreshDrawableState();
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +65,12 @@ public class StudentRegistrationActivity extends AppCompatActivity  {
                 recreate();
 
 
+
             }
         });
+
+
+
 
 
 

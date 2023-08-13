@@ -1353,7 +1353,7 @@ public class My_DB extends SQLiteOpenHelper {
 
     }
 
-    private int getPreRequestIdBy_Name(String subjectName) {
+    public int getPreRequestIdBy_Name(String subjectName) {
 
         SQLiteDatabase db = getReadableDatabase();
         String selection = "name = ?";
@@ -1371,7 +1371,7 @@ public class My_DB extends SQLiteOpenHelper {
 
         return coursePreId;
     }
-    public boolean deleteSubject(int course_id) {
+    public boolean deleteSubjectfromEnrollment(int course_id) {
         SQLiteDatabase db = getWritableDatabase();
         SharedPreferences preferences = context.getSharedPreferences("userInfo", context.MODE_PRIVATE);
         String studentId = preferences.getString("id", "");
@@ -1386,6 +1386,109 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
     //*****************************************************************
+
+    public String getPreRequestNameId(int id) {
+
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = "id = ?";
+        String[] selectionArgs = {String.valueOf(id)};
+
+        Cursor cursor = db.query("Courses", new String[]{"name"}, selection, selectionArgs, null, null, null);
+        String coursePreId = "None";
+
+        if (cursor.moveToFirst()) {
+            coursePreId = cursor.getString(0);
+        }
+
+        cursor.close();
+        db.close();
+
+        return coursePreId;
+    }
+    //**************************************
+    public String getDoctorName_ById(int Id){
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = "id = ?";
+        String[] selectionArgs = {String.valueOf(Id)};
+        String doctorName = "None"; // Default value if doctor name is not found
+
+
+        Cursor cursor = db.query("Courses", new String[]{Courses_col_doctor_id}, selection, selectionArgs, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            doctorName = cursor.getString(0);
+        }
+
+        cursor.close();
+        db.close();
+
+
+        return doctorName;
+
+    }
+    //**************************************
+    public int getDoctorIdByCourseName(String CourseName){
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = "name = ?";
+        String[] selectionArgs = {String.valueOf(CourseName)};
+        int doctorId = 0; // Default value if doctor name is not found
+
+
+        Cursor cursor = db.query("Courses", new String[]{Courses_col_doctor_id}, selection, selectionArgs, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            doctorId = cursor.getInt(0);
+        }
+
+        cursor.close();
+        db.close();
+
+
+        return doctorId;
+
+    }
+
+    public int getDepartmentIdByCourseName(String CourseName){
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = "name = ?";
+        String[] selectionArgs = {String.valueOf(CourseName)};
+        int departmentId = 0; // Default value if doctor name is not found
+
+
+        Cursor cursor = db.query("Courses", new String[]{Courses_col_department_id}, selection, selectionArgs, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            departmentId = cursor.getInt(0);
+        }
+
+        cursor.close();
+        db.close();
+
+
+        return departmentId;
+
+    }
+    public String getDepartmentName_ById(int id){
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = "id = ?";
+        String[] selectionArgs = {String.valueOf(id)};
+        String departmentName = "None"; // Default value if doctor name is not found
+
+
+        Cursor cursor = db.query("Departments", new String[]{Department_col_name}, selection, selectionArgs, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            departmentName = cursor.getString(0);
+        }
+
+        cursor.close();
+        db.close();
+
+
+        return departmentName;
+
+    }
+
 
 
 }
