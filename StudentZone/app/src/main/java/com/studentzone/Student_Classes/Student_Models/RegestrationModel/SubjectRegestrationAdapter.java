@@ -97,8 +97,10 @@ public class SubjectRegestrationAdapter extends RecyclerView.Adapter<SubjectRege
 
                    }else
                        Course_id.add(ID_Course);
+
                 }else{
                     Course_id.remove(Integer.valueOf(ID_Course));
+
 
                 }
 
