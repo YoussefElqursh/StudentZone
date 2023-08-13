@@ -1,3 +1,4 @@
+
 package com.studentzone.Admin_Classes.Admin_Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,13 +29,13 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
 
     // Views
     private Button btn_add_doctor, back_btn, btn_save_doctor, btn_close_add_doctor_dialog;
-    private EditText et_add_new_doctor_name, et_add_new_doctor_password, et_add_new_doctor_email;
+    private EditText et_add_new_doctor_name, et_add_new_doctor_password, et_add_new_doctor_email,et_add_new_doctor_phone;
     private BottomSheetDialog addDoctorBottomSheetDialog;
     private View addDoctorBottomSheetDialogView;
     private RadioGroup rg_gender;
 
     // Variables for storing doctor data
-    private String doctorName, doctorEmail, doctorPassword, doctorGender = "Male";
+    private String doctorName, doctorEmail, doctorPassword,doctorPhone, doctorGender = "Male";
 
     private RecyclerView doctorRecyclerView;
 
@@ -79,6 +80,7 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         et_add_new_doctor_name = addDoctorBottomSheetDialogView.findViewById(R.id.fragment_new_doctor_et_doctor_name);
         et_add_new_doctor_password = addDoctorBottomSheetDialogView.findViewById(R.id.fragment_new_doctor_et_doctor_password);
         et_add_new_doctor_email = addDoctorBottomSheetDialogView.findViewById(R.id.fragment_new_doctor_et_doctor_email);
+        et_add_new_doctor_phone = addDoctorBottomSheetDialogView.findViewById(R.id.fragment_new_doctor_et_doctor_phone);
 
         rg_gender = addDoctorBottomSheetDialogView.findViewById(R.id.fragment_new_doctor_rg_doctor_kind);
 
@@ -120,12 +122,18 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
             doctorName = et_add_new_doctor_name.getText().toString().trim();
             doctorEmail = et_add_new_doctor_email.getText().toString().trim();
             doctorPassword = et_add_new_doctor_password.getText().toString().trim();
+            doctorPhone = et_add_new_doctor_phone.getText().toString().trim();
 
 
             if (TextUtils.isEmpty(doctorName)) {
                 et_add_new_doctor_name.setError("Is Required !");
                 return;
             }
+            if (TextUtils.isEmpty(doctorPhone) || !doctorPhone.startsWith("01") || doctorPhone.length()<11 || !android.util.Patterns.PHONE.matcher(doctorPhone).matches()) {
+                et_add_new_doctor_phone.setError("Please enter"+ "\n"+ "valid phone number!");
+                return;
+            }
+
             if (TextUtils.isEmpty(doctorEmail)) {
                 et_add_new_doctor_email.setError("Is Required !");
                 return;
@@ -175,9 +183,10 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         doctorName = et_add_new_doctor_name.getText().toString().trim();
         doctorEmail = et_add_new_doctor_email.getText().toString().trim();
         doctorPassword = et_add_new_doctor_password.getText().toString().trim();
+        doctorPhone = et_add_new_doctor_phone.getText().toString().trim();
 
 
-        Doctors doctor = new Doctors(doctorName, doctorEmail, doctorPassword, doctorGender);
+        Doctors doctor = new Doctors(doctorName, doctorEmail, doctorPassword, doctorGender,doctorPhone);
         boolean added = db.addNewDoctor(doctor);
 
         if(added){
@@ -201,9 +210,10 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
      **********************************************************************************************/
     public void clearAddDoctorDialogEditTextFields() {
 
-        et_add_new_doctor_name.setText("");
-        et_add_new_doctor_email.setText("");
-        et_add_new_doctor_password.setText("");
+        et_add_new_doctor_name.getText().clear();
+        et_add_new_doctor_email.getText().clear();
+        et_add_new_doctor_password.getText().clear();
+        et_add_new_doctor_phone.getText().clear();
     }
 
     /** Display All Doctors()
@@ -211,9 +221,9 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
     public void displayAllDoctors() {
         My_DB db = new My_DB(getBaseContext());
 
-        ArrayList<Doctors> doctorsArrayList1 = db.displayAllDoctors();
+        ArrayList<Doctors> doctorsArrayList = db.displayAllDoctors();
 
-        DoctorRecyclerViewAdapter adapter = new DoctorRecyclerViewAdapter(this, doctorsArrayList1);
+        DoctorRecyclerViewAdapter adapter = new DoctorRecyclerViewAdapter(this, doctorsArrayList);
         RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
 
         doctorRecyclerView.setHasFixedSize(true);

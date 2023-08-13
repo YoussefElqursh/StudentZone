@@ -25,8 +25,7 @@ public class My_DB extends SQLiteOpenHelper {
      ***********************************************************************************************/
     public static final String DB_Name = "Education";
 
-    public static final int DB_Version = 36;
-
+    public static final int DB_Version = 39;
 
     private final Context context;
 
@@ -36,11 +35,13 @@ public class My_DB extends SQLiteOpenHelper {
     public static final String Education_Table_Students = "Students";
     public static final String Student_col_id = "id";
     public static final String Student_col_academic_number = "academic_number";
+    public static final String Student_col_dept = "department";
     public static final String Student_col_first_name = "first_name";
     public static final String Student_col_last_name = "last_name";
     public static final String Student_col_gender = "gender";
     public static final String Student_col_email = "email";
     public static final String Student_col_password = "password";
+    public static final String Student_col_phone = "phone";
 
 
     /**
@@ -132,12 +133,14 @@ public class My_DB extends SQLiteOpenHelper {
                 + "" + Student_col_id + " INTEGER PRIMARY KEY AUTOINCREMENT,"
 
                 + "" + Student_col_academic_number + " INTEGER UNIQUE,"
-
+                + "" + Student_col_dept + " INTEGER,"
                 + "" + Student_col_first_name + " TEXT,"
                 + "" + Student_col_last_name + " TEXT,"    //Addition+++++++++++++++++++++++++++++++++
                 + "" + Student_col_gender + " TEXT,"
+                + "" + Student_col_phone + " TEXT,"
                 + "" + Student_col_email + " TEXT UNIQUE NOT NULL CHECK(email LIKE '%.edu%'),"
-                + "" + Student_col_password + " TEXT)");    // Should Be Not Null
+                + "" + Student_col_password + " TEXT,"
+                + "FOREIGN KEY(" + Student_col_dept + ") REFERENCES Departmen(" + Department_col_id + "))");
 
         db.execSQL("CREATE TABLE " + Education_Table_Doctors + " ("
                 + "" + Doctors_col_id + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -198,13 +201,13 @@ public class My_DB extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Sondos', 'Fadl','Female', '01553536567789','sondos22@monufia.edu', '300')");
         db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Nader', 'Mohamed','Male', '011001187654','nader33@monufia.edu', '400')");
 
-        db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + "," + " " + Student_col_last_name + "," + " " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + ")" + " VALUES (1000,'Ahmed', 'Shosha','Male', 'ahmed111@monufia.edu', '1000')");
-        db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + ", " + "" + Student_col_last_name + ", " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + ")" + " VALUES (2000,'Youssef', 'Ramadan','Male', 'yousse222f@monufia.edu', '2000')");
-        db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + ", " + "" + Student_col_last_name + ", " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + ")" + " VALUES (3000,'Momen', 'Ahmed','Male', 'momen333@monufia.edu', '3000')");
-        db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + ", " + "" + Student_col_last_name + ", " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + ")" + " VALUES (4000,'Ali', 'Ahmed','Male', 'ali444@monufia.edu', '4000')");
-        db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + ", " + "" + Student_col_last_name + ", " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + ")" + " VALUES (5000,'Mohamed', 'Mosaad','Male', 'mohamed555@monufia.edu', '5000')");
-        db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + ", " + "" + Student_col_last_name + ", " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + ")" + " VALUES (6000,'Karim', 'Morsy','Male', 'k666@monufia.edu', '6000')");
-        db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + ", " + "" + Student_col_last_name + ", " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + ")" + " VALUES (7000,'Alaa', 'Ali','Female', 'alaa777@monufia.edu', '7000')");
+        db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + ", " + "" + Student_col_last_name + ", " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + "," + Student_col_dept + "," + Student_col_phone + ")" + " VALUES (1000,'Ahmed', 'Shosha','Male', 'ahmed111@monufia.edu', '1000',1,'01281913317')");
+        db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + ", " + "" + Student_col_last_name + ", " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + "," + Student_col_dept + "," + Student_col_phone + ")" + " VALUES (2000,'Youssef', 'Ramadan','Male', 'yousse222f@monufia.edu', '2000',1,'01284486834')");
+        db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + ", " + "" + Student_col_last_name + ", " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + "," + Student_col_dept + "," + Student_col_phone + ")" + " VALUES (3000,'Momen', 'Ahmed','Male', 'momen333@monufia.edu', '3000',1,'01202617505')");
+        db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + ", " + "" + Student_col_last_name + ", " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + "," + Student_col_dept + "," + Student_col_phone + ")" + " VALUES (4000,'Ali', 'Ahmed','Male', 'ali444@monufia.edu', '4000',1,'0155943023')");
+        db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + ", " + "" + Student_col_last_name + ", " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + "," + Student_col_dept + "," + Student_col_phone + ")" + " VALUES (5000,'Mohamed', 'Mosaad','Male', 'mohamed555@monufia.edu', '5000',1,'01029826607')");
+        db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + ", " + "" + Student_col_last_name + ", " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + "," + Student_col_dept + "," + Student_col_phone + ")" + " VALUES (6000,'Karim', 'Morsy','Male', 'k666@monufia.edu', '6000',1,'01279722049')");
+        db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + ", " + "" + Student_col_last_name + ", " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + "," + Student_col_dept + "," + Student_col_phone + ")" + " VALUES (7000,'Alaa', 'Ali','Female', 'alaa777@monufia.edu', '7000',1,'01104060400')");
 
         db.execSQL("INSERT INTO " + Education_Table_Departments + " (" + Department_col_code + "," + Department_col_name + ")" + " VALUES ('CS0','Computer Scince')");
         db.execSQL("INSERT INTO " + Education_Table_Departments + " (" + Department_col_code + "," + Department_col_name + ")" + " VALUES ('IT1','Information Technology')");
@@ -243,10 +246,6 @@ public class My_DB extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id + ")" + " VALUES ('IT080','Computer Netowrk1',2,1)");
         db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id +")" + " VALUES ('IT100','Image Processing',2,3)");
         db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id + "," + Courses_col_PreRequest_id + ")" + " VALUES ('IT081','Computer Netowrk2',2,1,5)");
-
-
-
-
 
     }
 
@@ -407,9 +406,11 @@ public class My_DB extends SQLiteOpenHelper {
         values.put(Student_col_academic_number,student.getAcademic_Number());
         values.put(Student_col_first_name,student.getFName());
         values.put(Student_col_last_name,student.getLastName());
+        values.put(Student_col_dept,student.getDept());
         values.put(Student_col_gender,student.getGender());
         values.put(Student_col_email,student.getEmail());
         values.put(Student_col_password,student.getPassword());
+        values.put(Student_col_phone,student.getPhone());
 
         //To Check If This Academic Number Is Received
         cursor = db.rawQuery("SELECT "+Student_col_academic_number+" FROM "+Education_Table_Students+" WHERE "+Student_col_academic_number+"=? ",new String []{student.getAcademic_Number()});
@@ -447,11 +448,13 @@ public class My_DB extends SQLiteOpenHelper {
             do{
                 String fName = cursor.getString(cursor.getColumnIndex(Student_col_first_name));
                 String aid = cursor.getString(cursor.getColumnIndex(Student_col_academic_number));
+                int dept = cursor.getInt(cursor.getColumnIndex(Student_col_dept));
                 String email = cursor.getString(cursor.getColumnIndex(Student_col_email));
                 String password = cursor.getString(cursor.getColumnIndex(Student_col_password));
                 String gender = cursor.getString(cursor.getColumnIndex(Student_col_gender));
+                String phone = cursor.getString(cursor.getColumnIndex(Student_col_phone));
 
-                Students students = new Students(fName,aid,email,password,gender);
+                Students students = new Students(fName,aid,email,password,gender,phone,dept);
 
                 studentsArrayList.add(students);
 
@@ -476,6 +479,8 @@ public class My_DB extends SQLiteOpenHelper {
         values.put(Student_col_first_name,student.getFName());
         values.put(Student_col_password,student.getPassword());
         values.put(Student_col_gender,student.getGender());
+        values.put(Student_col_dept,student.getDept());
+        values.put(Student_col_phone,student.getPhone());
 
         String args [] = {student.getEmail()};
 
@@ -510,6 +515,7 @@ public class My_DB extends SQLiteOpenHelper {
         values.put(Doctors_col_gender,doctor.getGender());
         values.put(Doctors_col_email,doctor.getEmail());
         values.put(Doctors_col_password,doctor.getPassword());
+        values.put(Doctors_col_phone,doctor.getPhone());
 
 
         //To Check If This Email Is Received
@@ -544,8 +550,9 @@ public class My_DB extends SQLiteOpenHelper {
                 String email = cursor.getString(cursor.getColumnIndex(Doctors_col_email));
                 String password = cursor.getString(cursor.getColumnIndex(Doctors_col_password));
                 String gender = cursor.getString(cursor.getColumnIndex(Doctors_col_gender));
+                String phone = cursor.getString(cursor.getColumnIndex(Doctors_col_phone));
 
-                Doctors doctors = new Doctors(fName,email,password,gender);
+                Doctors doctors = new Doctors(fName,email,password,gender,phone);
 
                 doctorsArrayList.add(doctors);
 
@@ -570,6 +577,7 @@ public class My_DB extends SQLiteOpenHelper {
         values.put(Doctors_col_first_name,doctor.getFName());
         values.put(Doctors_col_password,doctor.getPassword());
         values.put(Doctors_col_gender,doctor.getGender());
+        values.put(Doctors_col_phone,doctor.getPhone());
 
         String args [] = {doctor.getEmail()};
 
@@ -1038,7 +1046,7 @@ public class My_DB extends SQLiteOpenHelper {
     @SuppressLint("Range")
     public String getDepartmentNameById(int departmentId){
         SQLiteDatabase db = getReadableDatabase();
-        String departmentName = "hhh"; // Default value if department name is not found
+        String departmentName = ""; // Default value if department name is not found
 
         String query = "SELECT " + Department_col_name + " FROM " + Education_Table_Departments +
                 " WHERE " + Department_col_id + " = ?";
@@ -1381,6 +1389,4 @@ public class My_DB extends SQLiteOpenHelper {
 
 
 }
-
-
 
