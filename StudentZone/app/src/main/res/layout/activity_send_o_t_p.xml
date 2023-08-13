@@ -22,7 +22,7 @@
             android:layout_marginStart="15dp"
             android:layout_gravity="left"
             android:background="@drawable/custom_btn_back"
-            android:backgroundTint="#fafafa"
+            android:backgroundTint="#FAFAFA"
             android:drawableLeft="@drawable/ic_back"
             android:drawableTint="@color/blue"
             android:paddingLeft="10dp"
@@ -95,7 +95,8 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:layout_marginStart="5dp"
-                tools:ignore="TouchTargetSizeCheck" />
+                tools:ignore="TouchTargetSizeCheck"
+                android:maxLength="11"/>
             
         </LinearLayout>
 

@@ -64,6 +64,25 @@
         android:drawableTint="@drawable/custom_et_selector"/>
 
     <EditText
+        android:id="@+id/fragment_edit_doctor_et_doctor_phone"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_et_selector"
+        android:drawableStart="@drawable/icon_phone_number"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Doctor Phone Number"
+        android:inputType="numberDecimal"
+        android:paddingLeft="12dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray"
+        android:drawableTint="@drawable/custom_et_selector"
+        android:maxLength="11"/>
+
+    <EditText
         android:id="@+id/fragment_edit_doctor_et_doctor_email"
         android:layout_width="match_parent"
         android:layout_height="55dp"
@@ -86,19 +105,19 @@
         android:id="@+id/fragment_edit_doctor_et_doctor_password"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/custom_et_selector"
         android:drawableStart="@drawable/ic_lock"
         android:drawablePadding="12dp"
+        android:drawableTint="@drawable/custom_et_selector"
         android:ems="10"
         android:hint="Doctor Password"
         android:inputType="text"
-        android:paddingLeft="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:paddingLeft="13dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray"
-        android:drawableTint="@drawable/custom_et_selector"/>
+        android:textColorHint="@color/gray" />
 
     <RadioGroup
         android:id="@+id/fragment_edit_doctor_rg_doctor_kind"

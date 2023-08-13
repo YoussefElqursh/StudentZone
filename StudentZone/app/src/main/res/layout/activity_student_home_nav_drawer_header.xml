@@ -6,75 +6,88 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    android:layout_marginBottom="20dp">
+    android:layout_marginBottom="-10dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/sd"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="120dp"
         android:background="@drawable/custom_drawer_header_bg"
-        android:gravity="center">
+        android:layout_gravity="center"
+        android:gravity="center_vertical">
 
         <TextView
             android:id="@+id/activity_student_home_nav_drawer_student_sn"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:background="@drawable/custom_btn_profile"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/custom_tv_nav_drawer_photo"
             android:elevation="5dp"
             android:gravity="center"
             android:maxLength="2"
+            android:text="DN"
+            android:textAlignment="center"
+            android:textColor="@color/blue"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:id="@+id/activity_student_home_nav_drawer_student_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_toRightOf="@+id/activity_student_home_nav_drawer_student_sn"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:maxWidth="250dp"
+            android:maxLines="1"
+            android:text="Momen Ahmed"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/imageView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            android:layout_marginBottom="-50dp"/>
+            android:layout_marginTop="57dp"
+            android:layout_marginLeft="8dp"/>
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/activity_student_home_nav_drawer_student_email"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="-25dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:srcCompat="@drawable/img_arc1"
-            tools:layout_editor_absoluteX="0dp"
-            tools:srcCompat="@drawable/img_arc1" />
+            android:layout_gravity="left"
+            android:layout_toRightOf="@+id/activity_student_home_nav_drawer_student_sn"
+            android:elevation="5dp"
+            android:gravity="left"
+            android:text="moamen.ahmed160830@ci.menofia.edu.eg"
+            android:textColor="@color/white"
+            android:textSize="12dp"
+            tools:ignore="TextSizeCheck"
+            android:layout_marginTop="76dp"
+            android:layout_marginLeft="8dp"
+            android:maxLines="2"
+            android:maxLength="@integer/material_motion_duration_medium_1"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 
-    <TextView
-        android:id="@+id/activity_student_home_nav_drawer_student_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:elevation="5dp"
-        android:gravity="center"
-        android:maxWidth="250dp"
-        android:maxLines="1"
-        android:textAlignment="center"
-        android:textColor="@color/dark_blue"
-        android:textSize="16dp"
-        android:textStyle="bold"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="-20dp"
+        android:rotation="-180"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/custom_arc_2"
+        tools:srcCompat="@drawable/custom_arc_2"/>
 
-    <TextView
-        android:id="@+id/activity_student_home_nav_drawer_student_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:elevation="5dp"
-        android:gravity="center"
-        android:textAlignment="center"
-        android:textColor="@color/dark_blue"
-        android:textSize="14dp"
-        tools:ignore="TextSizeCheck"
-        android:maxLines="1"
-        android:maxWidth="250dp"/>
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/custom_arc_3"
+        tools:srcCompat="@drawable/custom_arc_3"
+        android:rotation="-180"
+        android:layout_marginTop="-70dp"/>
 
 </LinearLayout>

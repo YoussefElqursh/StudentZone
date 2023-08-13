@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="Info"
+        android:id="@+id/activity_student_subjects_model_more_menu_i_info"/>
+
+    <item
+        android:title="Dis-enroll"
+        android:id="@+id/activity_student_subjects_model_more_menu_i_disenroll" />
+</menu>

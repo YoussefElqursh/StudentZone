@@ -54,7 +54,7 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/custom_et_selector"
         android:drawableStart="@drawable/ic_book"
-        android:drawablePadding="10dp"
+        android:drawablePadding="12dp"
         android:ems="10"
         android:hint="Subject Name"
         android:inputType="textPersonName"
@@ -89,9 +89,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        app:hintText="Subject Department"
         android:background="@drawable/custom_sp_department"
-        android:paddingLeft="30dp" />
+        android:paddingLeft="40dp"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
         android:id="@+id/fragment_new_subject_sp_doctor_name"
@@ -100,9 +100,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        app:hintText="Doctor Name"
         android:background="@drawable/custom_sp_doctor"
-        android:paddingLeft="30dp"/>
+        android:paddingLeft="40dp"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
         android:id="@+id/fragment_new_subject_sp_subject_pre_request"
@@ -111,9 +111,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        app:hintText="Subject Previous Request"
         android:background="@drawable/custom_sp_subject"
-        android:paddingLeft="30dp"/>
+        android:paddingLeft="40dp"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/fragment_new_subject_btn_save"

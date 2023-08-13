@@ -84,6 +84,46 @@
         android:textColor="@color/black"/>
 
     <EditText
+        android:id="@+id/fragment_show_student_et_student_department"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_et_selector"
+        android:drawableStart="@drawable/ic_department"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="Student Department"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/fragment_show_student_et_student_phone"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_et_selector"
+        android:drawableStart="@drawable/icon_phone_number"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="Student Phone Number"
+        android:inputType="numberDecimal"
+        android:paddingLeft="13dp"
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black"
+        android:maxLength="11"/>
+
+    <EditText
         android:id="@+id/fragment_show_student_et_student_email"
         android:layout_width="match_parent"
         android:layout_height="55dp"
@@ -116,10 +156,10 @@
         android:enabled="false"
         android:hint="Student Password"
         android:inputType="text"
-        android:paddingLeft="12dp"
+        android:paddingLeft="13dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray" />
 
     <EditText
         android:id="@+id/fragment_show_student_et_student_gender"
@@ -131,7 +171,7 @@
         android:layout_marginBottom="40dp"
         android:background="@drawable/custom_et_selector"
         android:drawableStart="@drawable/ic_gender"
-        android:drawablePadding="7dp"
+        android:drawablePadding="9dp"
         android:ems="10"
         android:enabled="false"
         android:hint="Student Gender"

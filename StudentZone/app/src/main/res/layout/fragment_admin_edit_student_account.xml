@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fragment_edit_student_ll_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -81,6 +82,36 @@
         android:paddingRight="10dp"
         android:textColorHint="@color/gray" />
 
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:id="@+id/fragment_edit_student_sp_department"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_sp_department"
+        android:paddingLeft="40dp"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/fragment_edit_student_et_student_phone"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_et_selector"
+        android:drawableStart="@drawable/icon_phone_number"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Student Phone Number"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="12dp"
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray"
+        android:drawableTint="@drawable/custom_et_selector"
+        android:maxLength="11"/>
+
     <EditText
         android:id="@+id/fragment_edit_student_et_student_email"
         android:layout_width="match_parent"
@@ -113,7 +144,7 @@
         android:ems="10"
         android:hint="Student Password"
         android:inputType="text"
-        android:paddingLeft="10dp"
+        android:paddingLeft="13dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
         android:drawableTint="@drawable/custom_et_selector"/>
@@ -133,6 +164,7 @@
             android:id="@+id/fragment_edit_student_rb_male"
             android:layout_width="95dp"
             android:layout_height="55dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:background="@drawable/custom_rb_et_icon_selector"
             android:buttonTint="@drawable/custom_rb_et_icon_selector"
@@ -140,11 +172,10 @@
             android:text="Male"
             android:textColor="@drawable/custom_rb_et_icon_selector"
             android:textSize="18sp"
-            android:layout_marginRight="10dp"
             android:drawableLeft="@drawable/ic_male"
-            android:drawablePadding="5dp"
+            android:drawablePadding="10dp"
             android:button="@android:color/transparent"
-            android:paddingLeft="5dp"
+            android:paddingLeft="10dp"
             android:drawableTint="@drawable/custom_rb_et_icon_selector"/>
 
         <RadioButton
@@ -153,15 +184,15 @@
             android:layout_height="55dp"
             android:layout_weight="1"
             android:background="@drawable/custom_rb_et_icon_selector"
-            android:buttonTint="@drawable/custom_rb_et_icon_selector"
+            android:buttonTint="@color/gray"
             android:minHeight="48dp"
             android:text="Female"
             android:textColor="@drawable/custom_rb_et_icon_selector"
             android:textSize="18sp"
             android:drawableLeft="@drawable/ic_female"
-            android:drawablePadding="5dp"
+            android:drawablePadding="10dp"
             android:button="@android:color/transparent"
-            android:paddingLeft="5dp"
+            android:paddingLeft="10dp"
             android:drawableTint="@drawable/custom_rb_et_icon_selector"/>
 
     </RadioGroup>
