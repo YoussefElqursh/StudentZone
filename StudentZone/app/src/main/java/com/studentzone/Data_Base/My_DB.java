@@ -1232,7 +1232,6 @@ public class My_DB extends SQLiteOpenHelper {
         SharedPreferences preferences = context.getSharedPreferences("userInfo", context.MODE_PRIVATE);
         String StudentId = preferences.getString("id", "");
         int S_id = Integer.parseInt(StudentId);
-
         values.put(Enrollment_col_course_id, id_Course);
         values.put(Enrollment_col_student_id, S_id);
         long result = 0;
