@@ -13,6 +13,22 @@
         android:gravity="center"
         android:orientation="vertical">
 
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="200dp"-->
+<!--            android:background="@color/blue">-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="520dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:rotation="-180"-->
+<!--                android:src="@drawable/custom_arc_4"-->
+<!--                android:layout_alignParentBottom="true"-->
+<!--                android:layout_marginBottom="-10dp"-->
+<!--                android:layout_marginLeft="-10dp"/>-->
+
+<!--        </RelativeLayout>-->
+
         <Button
             android:id="@+id/activity_verify_otp_btn_back"
             style="@style/Widget.AppCompat.Button.Borderless"

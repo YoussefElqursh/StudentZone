@@ -6,6 +6,11 @@
     <group android:checkableBehavior="single">
 
         <item
+            android:id="@+id/activity_doctor_home_item_profile"
+            android:icon="@drawable/ic_profile"
+            android:title="Profile"/>
+
+        <item
             android:id="@+id/activity_doctor_home_item_notifications"
             android:icon="@drawable/ic_notifications"
             android:title="Notifications"/>
