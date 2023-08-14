@@ -10,10 +10,8 @@
         android:required="false" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-
-    <uses-permission android:name="android.permission.SEND_SMS"/>
-
-    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
     <application
         android:allowBackup="true"
@@ -26,13 +24,22 @@
         android:theme="@style/Theme.StudentZone"
         tools:targetApi="31">
         <activity
+            android:name=".Admin_Classes.Admin_Activities.AdminProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Doctor_Classes.Doctor_Activities.DoctorProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Student_Classes.Student_Activities.StudentProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".ForgetPasswrod_Classes.VerifyOTPActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ForgetPasswrod_Classes.SendOTPActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Doctor_Classes.Doctor_Activities.DoctorCoursesActivity"
             android:exported="false" />

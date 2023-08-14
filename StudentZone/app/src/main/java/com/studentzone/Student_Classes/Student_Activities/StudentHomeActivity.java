@@ -160,6 +160,10 @@ public class StudentHomeActivity extends AppCompatActivity implements Navigation
         switch (item.getItemId()){
             case R.id.activity_student_home_item_logout :
                 logOutConfirmation();
+                break;
+            case R.id.activity_student_home_item_profile:
+                startActivity(new Intent(getBaseContext(), StudentProfileActivity.class));
+                break;
         }
         return false;
     }

@@ -17,6 +17,7 @@ import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.studentzone.Admin_Classes.Admin_Activities.AdminProfileActivity;
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
 
@@ -137,8 +138,12 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.activity_doctor_home_item_logout :
+            case R.id.activity_doctor_home_item_logout:
                 logoutConfirmation();
+                break;
+            case R.id.activity_doctor_home_item_profile:
+                startActivity(new Intent(getBaseContext(), DoctorProfileActivity.class));
+                break;
         }
         return false;
     }

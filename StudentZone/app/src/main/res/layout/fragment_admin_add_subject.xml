@@ -72,7 +72,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/custom_et_selector"
-        android:drawableStart="@drawable/ic_id"
+        android:drawableStart="@drawable/ic_id_1"
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Subject Code"

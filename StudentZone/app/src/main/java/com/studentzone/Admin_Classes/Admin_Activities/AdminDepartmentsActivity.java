@@ -43,9 +43,6 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
     private RecyclerView departmentRecyclerView;
     private DepartmentRecyclerViewAdapter adapter;
 
-
-
-
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,8 +79,6 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
         et_add_new_department_code = addDepartmentBottomSheetDialogView.findViewById(R.id.fragment_new_department_et_code);
 
         departmentRecyclerView = findViewById(R.id.activity_admin_departments_recycelerview);
-
-
     }
 
     /** setAddDepartmentButtonAction()
@@ -107,7 +102,6 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
             displayAllDepartments();
         });
     }
-
 
     /** setSaveDepartmentButtonAction()
      *  check Validation Of Entered Data And save It
