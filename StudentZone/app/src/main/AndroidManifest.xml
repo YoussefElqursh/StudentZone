@@ -40,10 +40,7 @@
             android:name=".Student_Classes.Student_Activities.StudentProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".ForgetPasswrod_Classes.VerifyOTPActivity"
-
             android:name=".Login_Classes.Login_Activities.ForgetPasswrod_Classes.VerifyOTPActivity"
-
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity

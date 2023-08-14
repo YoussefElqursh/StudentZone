@@ -42,7 +42,6 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
 
     private DepartmentRecyclerViewAdapter adapter;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
