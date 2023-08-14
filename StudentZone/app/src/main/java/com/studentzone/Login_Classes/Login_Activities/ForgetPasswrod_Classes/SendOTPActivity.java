@@ -1,4 +1,4 @@
-package com.studentzone.ForgetPasswrod_Classes;
+package com.studentzone.Login_Classes.Login_Activities.ForgetPasswrod_Classes;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,11 +24,11 @@ import java.util.ArrayList;
 public class SendOTPActivity extends AppCompatActivity {
 
      String otp = "548247";
-     String phoneNumber ;
+     String phoneNumber , email;
      String message = "is your verification code.";
      Button buttonGetOTP;
      Button btn_back;
-     EditText inputMobile;
+     EditText inputMobile,inputEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,8 @@ public class SendOTPActivity extends AppCompatActivity {
         buttonGetOTP = findViewById(R.id.btn_getOTP);
 
         btn_back = findViewById(R.id.activity_send_otp_btn_back);
+
+        inputEmail = findViewById(R.id.input_Email);
 
         get_code();
         setBackButtonAction();
@@ -58,25 +60,54 @@ public class SendOTPActivity extends AppCompatActivity {
 
     public void vaidateNumber()
     {
+        email = inputEmail.getText().toString().trim();
         phoneNumber = inputMobile.getText().toString().trim();
-        String phonePattern = "^01[0125][0-9]{8}$";
+        String phonePattern = "^1[0125][0-9]{8}$";
+        String emailPattern = "^[\\w.-]+@monufia\\.edu$";
 
-        if(phoneNumber.matches(phonePattern)){
-            Intent intent = new Intent(getBaseContext(), VerifyOTPActivity.class);
-            intent.putExtra("mobile",inputMobile.getText().toString());
-            intent.putExtra("OTP",otp);
-            startActivity(intent);
+        if(email.matches(emailPattern)){
+            if(phoneNumber.matches(phonePattern))
+            {
+                Intent intent = new Intent(getBaseContext(), VerifyOTPActivity.class);
+                intent.putExtra("mobile",inputMobile.getText().toString());
+                intent.putExtra("OTP",otp);
+                startActivity(intent);
 
-            permissionIsGranted();
-
+                permissionIsGranted();
+            }
+            else
+            {
+                if(phoneNumber.isEmpty())
+                {
+                    Toast.makeText(SendOTPActivity.this, "Mobile Number is empty ", Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    Toast.makeText(SendOTPActivity.this, "Enter correct Mobile Number", Toast.LENGTH_LONG).show();
+                }
+            }
         }
-        else if(inputMobile.getText().toString().trim().isEmpty())
+        else if(phoneNumber.matches(phonePattern))
         {
-            Toast.makeText(SendOTPActivity.this, "Enter Mobile Number", Toast.LENGTH_SHORT).show();
+            if(!email.matches(emailPattern))
+            {
+                if(email.isEmpty())
+                {
+                    Toast.makeText(SendOTPActivity.this, "Email is empty ", Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    Toast.makeText(SendOTPActivity.this, "Enter correct Email", Toast.LENGTH_LONG).show();
+                }
+            }
+        }
+        else if(phoneNumber.isEmpty() && email.isEmpty())
+        {
+                Toast.makeText(SendOTPActivity.this, "Mobile Number and Email is empty ", Toast.LENGTH_LONG).show();
         }
         else
         {
-            Toast.makeText(SendOTPActivity.this, "Enter correct Mobile Number", Toast.LENGTH_LONG).show();
+            Toast.makeText(SendOTPActivity.this, "All of Email and Mobile Number is wrong ", Toast.LENGTH_LONG).show();
         }
     }
 

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ForgetPasswrod_Classes.VerifyOTPActivity">
+    tools:context=".Login_Classes.Login_Activities.ForgetPasswrod_Classes.VerifyOTPActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,42 +13,52 @@
         android:gravity="center"
         android:orientation="vertical">
 
-<!--        <RelativeLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="200dp"-->
-<!--            android:background="@color/blue">-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/blue">
 
-<!--            <ImageView-->
-<!--                android:layout_width="520dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:rotation="-180"-->
-<!--                android:src="@drawable/custom_arc_4"-->
-<!--                android:layout_alignParentBottom="true"-->
-<!--                android:layout_marginBottom="-10dp"-->
-<!--                android:layout_marginLeft="-10dp"/>-->
+            <ImageView
+                android:layout_width="520dp"
+                android:layout_height="match_parent"
+                android:rotation="-180"
+                android:src="@drawable/custom_arc_4"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="-10dp"
+                android:layout_marginLeft="-10dp"/>
 
-<!--        </RelativeLayout>-->
+            <Button
+                android:id="@+id/activity_verify_otp_btn_back"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_gravity="left"
+                android:background="@drawable/custom_btn_back"
+                android:backgroundTint="@color/blue"
+                android:drawableLeft="@drawable/ic_back"
+                android:drawableTint="@color/white"
+                android:paddingLeft="10dp"
+                tools:ignore="TouchTargetSizeCheck"
+                android:contentDescription="@string/back"/>
 
-        <Button
-            android:id="@+id/activity_verify_otp_btn_back"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="15dp"
-            android:layout_gravity="left"
-            android:background="@drawable/custom_btn_back"
-            android:backgroundTint="#fafafa"
-            android:drawableStart="@drawable/ic_back"
-            android:paddingStart="10dp"
-            android:drawableTint="@color/blue"
-            tools:ignore="RtlSymmetry,TouchTargetSizeCheck"
-            android:contentDescription="@string/back"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:text="Phone Verification"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+
+        </RelativeLayout>
 
         <ImageView
             android:layout_width="220dp"
             android:layout_height="220dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="-110dp"
             android:contentDescription="png"
             android:src="@drawable/illust_new_message" />
 

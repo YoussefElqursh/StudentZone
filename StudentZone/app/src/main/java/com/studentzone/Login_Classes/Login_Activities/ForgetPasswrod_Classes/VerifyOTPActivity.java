@@ -1,4 +1,4 @@
-package com.studentzone.ForgetPasswrod_Classes;
+package com.studentzone.Login_Classes.Login_Activities.ForgetPasswrod_Classes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
 
 public class VerifyOTPActivity extends AppCompatActivity {
@@ -28,7 +27,7 @@ public class VerifyOTPActivity extends AppCompatActivity {
         setContentView(R.layout.activity_verify_o_t_p);
 
         mobileNumber = findViewById(R.id.mobileNumber);
-        mobileNumber.setText(String.format("+20- %s",getIntent().getStringExtra("mobile")));
+        mobileNumber.setText(String.format("+20- %s", getIntent().getStringExtra("mobile")));
 
         inputCode1 = findViewById(R.id.inputCode1);
         inputCode2 = findViewById(R.id.inputCode2);
@@ -168,7 +167,7 @@ public class VerifyOTPActivity extends AppCompatActivity {
 
             if(otp.equals(num)) {
 
-                Intent intent = new Intent(getBaseContext(), LoginActivity.class);
+                Intent intent = new Intent(getBaseContext(), ResetPasswordActivity.class);
 
                 startActivity(intent);
             }
