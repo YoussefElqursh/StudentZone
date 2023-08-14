@@ -21,7 +21,6 @@ import com.studentzone.Admin_Classes.Admin_Activities.AdminProfileActivity;
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
 
-
 public class DoctorHomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     CardView cv_subjects,cv_assessStudent;
     SharedPreferences preferences;

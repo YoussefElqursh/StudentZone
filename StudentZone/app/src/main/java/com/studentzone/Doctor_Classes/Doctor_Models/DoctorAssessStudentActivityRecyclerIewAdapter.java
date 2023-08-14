@@ -4,17 +4,12 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.studentzone.Data_Base.Courses;
-import com.studentzone.Data_Base.Departments;
-import com.studentzone.Data_Base.Students;
 import com.studentzone.Doctor_Classes.Doctor_Activities.DoctorStudentGrades;
 import com.studentzone.R;
 
@@ -25,7 +20,7 @@ import java.util.Locale;
 
 public class DoctorAssessStudentActivityRecyclerIewAdapter extends RecyclerView.Adapter<DoctorAssessStudentActivityRecyclerIewAdapter.doctorCoursesAssessViewHolder>
 {
-    private ArrayList<Courses> coursesList;
+    private final ArrayList<Courses> coursesList;
 
 
     /**
@@ -64,20 +59,17 @@ public class DoctorAssessStudentActivityRecyclerIewAdapter extends RecyclerView.
         Courses course = coursesList.get(position);
         holder.bindCourseData(course);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position = holder.getAdapterPosition();
-                if (position != RecyclerView.NO_POSITION) {
-                    Courses course = coursesList.get(position);
+        holder.itemView.setOnClickListener(v -> {
+            int position1 = holder.getAdapterPosition();
+            if (position1 != RecyclerView.NO_POSITION) {
+                Courses course1 = coursesList.get(position1);
 
-                    // Create an intent to open DoctorStudentGrades
-                    Intent intent = new Intent(holder.itemView.getContext(), DoctorStudentGrades.class);
-                    intent.putExtra("courseId", course.getId()+"");
+                // Create an intent to open DoctorStudentGrades
+                Intent intent = new Intent(holder.itemView.getContext(), DoctorStudentGrades.class);
+                intent.putExtra("courseId", course1.getId()+"");
 
-                    // Start the activity
-                    holder.itemView.getContext().startActivity(intent);
-                }
+                // Start the activity
+                holder.itemView.getContext().startActivity(intent);
             }
         });
     }

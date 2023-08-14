@@ -45,7 +45,7 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
     private final ArrayList<Courses> coursesList;
     private final My_DB db;
     private BottomSheetDialog bottomSheetDialog;
-    private Button btn_save_edit_course;
+    private Button btn_save_edit_course; 
     private View bottomSheetDialogView;
     private final AlertDialog.Builder builder;
 
@@ -77,9 +77,7 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
     {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_admin_model_subject,null,false);
 
-        subjectViewHolder subjectViewHolder = new subjectViewHolder(view);
-
-        return subjectViewHolder;
+        return new subjectViewHolder(view);
     }
 
     /** onBindViewHolder ()
@@ -94,7 +92,7 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
     {
         Courses course = coursesList.get(position);
 
-         holder.bindCourseData(course);
+        holder.bindCourseData(course);
 
         Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), android.R.anim.slide_in_left);
 
@@ -302,7 +300,7 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
                     // Enable the save button if the text or spinners has changed from the original values
                     boolean dataChanged = (!departmentSpinner.getSelectedItem().equals(originalDept) || !et_courseName_edit.getText().toString().equals(originalName) || !et_courseCode_edit.getText().toString().equals(originalCode) || !doctorSpinner.getSelectedItem().toString().equals(originalDoctor) || !preRequestSpinner.getSelectedItem().toString().equals(originalPreRequest));
 
-                        btn_save_edit_course.setEnabled( dataChanged);
+                    btn_save_edit_course.setEnabled( dataChanged);
                 }
             };
 
@@ -367,7 +365,7 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
                     return;
                 }
 
-                //This lines to send edited department to data base across pass new instance of department to db.updateDepartment
+                //This lines to send edited course to data base across pass new instance of course to db.updateCourse
                 course.setName(et_courseName_edit.getText().toString());
                 course.setCode(et_courseCode_edit.getText().toString());
                 course.setDepartment(db.getDepartmentIdByName(departmentSpinner.getSelectedItem().toString()));
@@ -388,8 +386,8 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
             //added to handle the close button click. It dismisses the dialog without saving any changes.
             btn_close_edit_course.setOnClickListener(v -> bottomSheetDialog.dismiss());
 
-                    bottomSheetDialog.setContentView(bottomSheetDialogView);
-                    bottomSheetDialog.show();
+            bottomSheetDialog.setContentView(bottomSheetDialogView);
+            bottomSheetDialog.show();
         }
 
 

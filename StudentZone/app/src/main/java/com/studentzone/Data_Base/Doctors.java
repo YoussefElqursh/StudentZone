@@ -1,7 +1,5 @@
 package com.studentzone.Data_Base;
 
-
-
 public class Doctors {
 
     private int id ;
@@ -12,28 +10,15 @@ public class Doctors {
     private String Email ;
     private String Password ;
 
-    public Doctors(int id, String FName, String LastName, String gender, String phone,String email, String password  ) {
-        this.id = id;
+
+    public Doctors(String FName, String email, String password, String gender, String phone)   {
         this.FName = FName;
-        this.LName = LastName;
         this.Email = email;
         this.Password = password;
-        this.Phone = phone;
         this.gender = gender;
+        this.Phone = phone;
     }
 
-    public Doctors(String FName, String email, String password, String gender)   {
-        this.FName = FName;
-        this.Email = email;
-        this.Password = password;
-        this.gender = gender;
-    }
-    public Doctors(String FName, String password, String gender)
-    {
-        this.FName = FName;
-        this.Password = password;
-        this.gender = gender;
-    }
 
     public int getId() {
         return id;
@@ -67,9 +52,7 @@ public class Doctors {
         this.gender = gender;
     }
 
-    public String getPhone() {
-        return Phone;
-    }
+    public String getPhone() {return Phone;}
 
     public void setPhone(String phone) {
         Phone = phone;

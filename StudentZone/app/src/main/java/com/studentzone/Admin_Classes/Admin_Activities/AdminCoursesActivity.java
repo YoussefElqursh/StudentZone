@@ -1,6 +1,5 @@
 package com.studentzone.Admin_Classes.Admin_Activities;
 
-import android.graphics.Color;
 import android.text.TextUtils;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
@@ -274,5 +273,6 @@ public class AdminCoursesActivity extends AppCompatActivity {
         courseRecyclerView.setAdapter(adapter);
 
     }
+
 
 }

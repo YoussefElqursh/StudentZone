@@ -1,7 +1,6 @@
 package com.studentzone.Admin_Classes.Admin_Models;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -11,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -29,20 +30,25 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.Data_Base.Students;
 import com.studentzone.R;
+import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecyclerViewAdapter.studentViewHolder> {
-    private ArrayList<Students> studentList;
+public class   StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecyclerViewAdapter.studentViewHolder> {
+    private final ArrayList<Students> studentList;
+
     private BottomSheetDialog bottomSheetDialog;
     private View bottomSheetDialogView;
-    private EditText studentName, studentAID, studentEmail, studentPassword, studentGender;
-    private Students student;
-    private My_DB db;
+    private EditText studentName;
+    private EditText studentAID;
+    private EditText studentEmail;
+    private EditText studentPassword;
+    private EditText studentPhone;
+    private final My_DB db;
     private Button btn_save, btn_close;
-    private RadioGroup rg;
     private RadioButton rb_male , rb_female;
-    private AlertDialog.Builder builder;
+    private final AlertDialog.Builder builder;
 
     public StudentRecyclerViewAdapter(Context context, ArrayList<Students> studentList) {
         this.studentList = studentList;
@@ -59,9 +65,8 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
     public studentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_admin_model_student,null,false);
-        studentViewHolder studentViewHolder = new studentViewHolder(view);
 
-        return studentViewHolder;
+        return new studentViewHolder(view);
     }
 
 
@@ -73,7 +78,7 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
     @Override
     public void onBindViewHolder(@NonNull studentViewHolder holder, int position) {
 
-        student = studentList.get(position);
+        Students student = studentList.get(position);
 
         holder.setStudentData(student);
 
@@ -95,7 +100,7 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
     /** holder Class For studentRecyclerViewAdapter
      *  It holds references to the views in the item layout and binds the data to the views.
      **********************************************************************************************/
-     class studentViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, PopupMenu.OnMenuItemClickListener {
+    class studentViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, PopupMenu.OnMenuItemClickListener {
         TextView tv_student_name,tv_student_aid;
         ImageView iv;
         ImageButton ib_more;
@@ -126,12 +131,7 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
             else
                 iv.setImageResource(R.drawable.ic_female_student);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    displayStudentDetailsDialog(student);
-                }
-            });
+            itemView.setOnClickListener(v -> displayStudentDetailsDialog(student));
         }
 
         public void onClick(View v) {
@@ -180,9 +180,11 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
 
             studentName = bottomSheetDialogView.findViewById(R.id.fragment_show_student_et_student_name);
             studentAID = bottomSheetDialogView.findViewById(R.id.fragment_show_student_et_student_aid);
+            EditText studentDept = bottomSheetDialogView.findViewById(R.id.fragment_show_student_et_student_department);
             studentEmail = bottomSheetDialogView.findViewById(R.id.fragment_show_student_et_student_email);
             studentPassword = bottomSheetDialogView.findViewById(R.id.fragment_show_student_et_student_password);
-            studentGender = bottomSheetDialogView.findViewById(R.id.fragment_show_student_et_student_gender);
+            EditText studentGender = bottomSheetDialogView.findViewById(R.id.fragment_show_student_et_student_gender);
+            studentPhone = bottomSheetDialogView.findViewById(R.id.fragment_show_student_et_student_phone);
             btn_close = bottomSheetDialogView.findViewById(R.id.fragment_show_student_btn_close);
 
             studentName.setText(student.getFName());
@@ -190,13 +192,9 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
             studentEmail.setText(student.getEmail());
             studentPassword.setText(student.getPassword());
             studentGender.setText(student.getGender());
-
-            btn_close.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    bottomSheetDialog.dismiss();
-                }
-            });
+            studentPhone.setText(student.getPhone());
+            studentDept.setText(db.getDepartmentNameById(student.getDept()));
+            btn_close.setOnClickListener(v -> bottomSheetDialog.dismiss());
 
             bottomSheetDialog.setContentView(bottomSheetDialogView);
             bottomSheetDialog.show();
@@ -217,18 +215,37 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
             studentAID = bottomSheetDialogView.findViewById(R.id.fragment_edit_student_et_student_aid);
             studentEmail = bottomSheetDialogView.findViewById(R.id.fragment_edit_student_et_student_email);
             studentPassword = bottomSheetDialogView.findViewById(R.id.fragment_edit_student_et_student_password);
+            studentPhone = bottomSheetDialogView.findViewById(R.id.fragment_edit_student_et_student_phone);
+            SearchableSpinner departmentSpinner = bottomSheetDialogView.findViewById(R.id.fragment_edit_student_sp_department);
+
             btn_save = bottomSheetDialogView.findViewById(R.id.fragment_edit_student_btn_save);
             btn_close = bottomSheetDialogView.findViewById(R.id.fragment_edit_student_btn_close);
 
-            rg = bottomSheetDialogView.findViewById(R.id.fragment_edit_student_rg_student_kind);
+            RadioGroup rg = bottomSheetDialogView.findViewById(R.id.fragment_edit_student_rg_student_kind);
             rb_male = bottomSheetDialogView.findViewById(R.id.fragment_edit_student_rb_male);
             rb_female = bottomSheetDialogView.findViewById(R.id.fragment_edit_student_rb_female);
+
+            /**Fills out the  spinner with data from the database.
+             **********************************************************************************************/
+            List<String> deptNames = db.getAllDepartmentsNames();
+
+            ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<>(itemView.getContext(), android.R.layout.simple_spinner_item, deptNames);
+            arrayAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            departmentSpinner.setAdapter(arrayAdapter1);
+            // Keep track of the original student name , email , aid , pass
+            String originalName = student.getFName();
+            String originalPassword = student.getPassword();
+            String originalPhone = student.getPhone();
+            String originalDept = db.getDepartmentNameById(student.getDept());
 
             //This Lines To FillOut Text Fields With Student Data
             studentName.setText(student.getFName());
             studentAID.setText(student.getAcademic_Number());
             studentEmail.setText(student.getEmail());
             studentPassword.setText(student.getPassword());
+            studentPhone.setText(student.getPhone());
+            selectItemFromSpinner(originalDept, departmentSpinner);
+
 
 
             //This Lines To Check Radio Button Which Detect The Gender Of Student
@@ -241,9 +258,7 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
             //We Will Put it disabled until user edit any data of this student
             btn_save.setEnabled(false);
 
-            // Keep track of the original student name , email , aid , pass
-            String originalName = student.getFName();
-            String originalPassword = student.getPassword();
+
 
             /*
              *  textWatcher monitor changes in the name and password fields of a form.
@@ -266,7 +281,7 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
                     } else if (rb_female.isChecked() && !student.getGender().equals("Female")) {
                         genderChanged = true;
                     }
-                    boolean dataChanged = !(studentName.getText().toString().equals(originalName) && studentPassword.getText().toString().equals(originalPassword));
+                    boolean dataChanged = !departmentSpinner.getSelectedItem().equals(originalDept) || !(studentName.getText().toString().equals(originalName) && studentPassword.getText().toString().equals(originalPassword)&& studentPhone.getText().toString().equals(originalPhone));
                     btn_save.setEnabled(genderChanged || dataChanged);
 
                 }
@@ -278,7 +293,21 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
              **/
             studentName.addTextChangedListener(textWatcher);
             studentPassword.addTextChangedListener(textWatcher);
+            studentPhone.addTextChangedListener(textWatcher);
 
+            //is added to detect changes in the selected department.
+            departmentSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                    boolean dataChanged = !departmentSpinner.getSelectedItem().equals(originalDept) || !(studentName.getText().toString().equals(originalName) && studentPassword.getText().toString().equals(originalPassword)&& studentPhone.getText().toString().equals(originalPhone));
+                    btn_save.setEnabled( dataChanged);
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+                }
+            });
 
             // This lines Add listener to the radio group to enable the save button when the user changes the gender
             rg.setOnCheckedChangeListener((group, checkedId) -> {
@@ -288,66 +317,63 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
                 } else if (checkedId == rb_female.getId() && !student.getGender().equals("Female")) {
                     genderChanged = true;
                 }
-                boolean dataChanged = !(studentName.getText().toString().equals(originalName) && studentPassword.getText().toString().equals(originalPassword));
+                boolean dataChanged = !(studentName.getText().toString().equals(originalName) && studentPassword.getText().toString().equals(originalPassword)&& studentPhone.getText().toString().equals(originalPhone));
                 btn_save.setEnabled(genderChanged || dataChanged);
             });
 
 
 
             //This is the action of close the bottomSheetDialogView of edit student
-            btn_close.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    bottomSheetDialog.dismiss();
-                }
-            });
+            btn_close.setOnClickListener(v -> bottomSheetDialog.dismiss());
 
             //This is the action of save the changed data or edited data  of student
-            btn_save.setOnClickListener(new View.OnClickListener() {
+            btn_save.setOnClickListener(v -> {
 
-                @Override
-                public void onClick(View v) {
-
-                    //This lines to remember the user to enter data in student name and password
-                    if (TextUtils.isEmpty(studentName.getText().toString().trim())) {
-                        studentName.setError("Is Required !");
-                        return;
-                    }
-                    if (TextUtils.isEmpty(studentPassword.getText().toString().trim())) {
-                        studentPassword.setError("Is Required !");
-                        return;
-                    }
-
-                    //This lines to send edited student to data base across passing new instance of student to db.updateStudent
-                    String gender = "";
-                    if (rb_male.isChecked()) {
-                        gender = "Male";
-                    } else if (rb_female.isChecked()) {
-                        gender = "Female";
-                    }
-
-                    student.setFName(studentName.getText().toString());
-                    student.setEmail(studentEmail.getText().toString());
-                    student.setPassword(studentPassword.getText().toString());
-                    student.setGender(gender);
-
-                    db.updateStudent(student);
-
-                    //this lines to change the student icon if user changed it
-                    if (student.getGender() != null && student.getGender().equals("Male")) {
-                        iv.setImageResource(R.drawable.ic_male_student);
-                    } else {
-                        iv.setImageResource(R.drawable.ic_female_student);
-                    }
-
-                    studentList.set(getAdapterPosition(), student);
-                    notifyItemChanged(getAdapterPosition());
-
-                    bottomSheetDialog.dismiss();
-
-                    Toast.makeText(bottomSheetDialog.getContext(), "Changes saved." , Toast.LENGTH_SHORT).show();
-
+                //This lines to remember the user to enter data in student name and password
+                if (TextUtils.isEmpty(studentName.getText().toString().trim())) {
+                    studentName.setError("Is Required !");
+                    return;
                 }
+                if (TextUtils.isEmpty(studentPassword.getText().toString().trim())) {
+                    studentPassword.setError("Is Required !");
+                    return;
+                }
+
+                if (TextUtils.isEmpty(studentPhone.getText().toString().trim()) || !studentPhone.getText().toString().trim().startsWith("01") || studentPhone.length()<11 || !android.util.Patterns.PHONE.matcher(studentPhone.getText().toString().trim()).matches()) {
+                    studentPhone.setError("Please enter"+ "\n"+ "valid phone number!");
+                    return;
+                }
+                //This lines to send edited student to data base across passing new instance of student to db.updateStudent
+                String gender = "";
+                if (rb_male.isChecked()) {
+                    gender = "Male";
+                } else if (rb_female.isChecked()) {
+                    gender = "Female";
+                }
+                //This lines to send edited Student to data base across pass new instance of student to db.updateStudent
+                student.setFName(studentName.getText().toString());
+                student.setEmail(studentEmail.getText().toString());
+                student.setPhone(studentPhone.getText().toString());
+                student.setPassword(studentPassword.getText().toString());
+                student.setDept(db.getDepartmentIdByName(departmentSpinner.getSelectedItem().toString()));
+                student.setGender(gender);
+
+                db.updateStudent(student);
+
+                //this lines to change the student icon if user changed it
+                if (student.getGender() != null && student.getGender().equals("Male")) {
+                    iv.setImageResource(R.drawable.ic_male_student);
+                } else {
+                    iv.setImageResource(R.drawable.ic_female_student);
+                }
+
+                studentList.set(getAdapterPosition(), student);
+                notifyItemChanged(getAdapterPosition());
+
+                bottomSheetDialog.dismiss();
+
+                Toast.makeText(bottomSheetDialog.getContext(), "Changes saved." , Toast.LENGTH_SHORT).show();
+
             });
 
             bottomSheetDialog.setContentView(bottomSheetDialogView);
@@ -362,23 +388,32 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
         private void displayDeleteConfirmationDialog(Students student) {
             builder.setMessage("Are you sure you want to delete this student?")
                     .setCancelable(false)
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            db.deleteStudent(student.getEmail());
-                            studentList.remove(getAdapterPosition());
-                            Toast.makeText(bottomSheetDialog.getContext(), ""+student.getFName()+" Successfully Deleted." , Toast.LENGTH_SHORT).show();
+                    .setPositiveButton("Yes", (dialog, id) -> {
+                        db.deleteStudent(student.getEmail());
+                        studentList.remove(getAdapterPosition());
+                        Toast.makeText(bottomSheetDialog.getContext(), ""+student.getFName()+" Successfully Deleted." , Toast.LENGTH_SHORT).show();
 
-                            notifyItemRemoved(getAdapterPosition());
-                            dialog.dismiss();
-                        }
+                        notifyItemRemoved(getAdapterPosition());
+                        dialog.dismiss();
                     })
-                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-                        }
-                    });
+                    .setNegativeButton("No", (dialog, id) -> dialog.cancel());
             AlertDialog alert = builder.create();
             alert.show();
+        }
+        /** selectItemFromSpinner()
+         *   This method is used to select an item from a searchable spinner based on the provided itemToSelect.
+         *   It iterates through the spinner items and selects the matching item
+         **********************************************************************************************/
+        private void selectItemFromSpinner(String itemToSelect, SearchableSpinner spinner) {
+            if (itemToSelect != null) {
+                for (int i = 0; i < spinner.getCount(); i++) {
+                    if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(itemToSelect)) {
+                        spinner.setSelection(i);
+                        break;
+                    }
+                }
+
+            }
         }
     }
 }

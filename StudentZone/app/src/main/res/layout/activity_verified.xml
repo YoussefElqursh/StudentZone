@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:overScrollMode="never"
+    android:scrollbars="none"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login_Classes.Login_Activities.ForgetPasswrod_Classes.VerifiedActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/blue">
+
+            <ImageView
+                android:layout_width="520dp"
+                android:layout_height="match_parent"
+                android:rotation="-180"
+                android:src="@drawable/custom_arc_4"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="-10dp"
+                android:layout_marginLeft="-10dp"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:layout_marginTop="-60dp"
+            android:contentDescription="png"
+            android:src="@drawable/illust_verified" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Congrats!"
+            android:textColor="#212121"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:gravity="center"
+            android:text="You have successfully change password. Please,use the new password when login"
+            android:textColor="#757575"
+            android:textSize="14sp"/>
+
+        <Button
+            android:id="@+id/btn_verified"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_margin="30dp"
+            android:background="@drawable/custom_btn_send_receive"
+            android:text="Verified"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
+</ScrollView>

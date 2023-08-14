@@ -8,8 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,8 +20,10 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
+import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectModel;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -28,11 +32,18 @@ public class SubjectRegestrationAdapter extends RecyclerView.Adapter<SubjectRege
     ArrayList<SubjectRegestrationModel>arrayList=new ArrayList<>(); //array list
    public   ArrayList<Integer> Course_id =new ArrayList<>();
     Context context;
+    My_DB Db;
 
+    private BottomSheetDialog bottomSheetDialog;
+
+    private View bottomSheetDialogView;
     public SubjectRegestrationAdapter(Context context, ArrayList<SubjectRegestrationModel>arrayList){
 
         this.context=context;
         this.arrayList=arrayList;
+        Db = new My_DB(context);
+        this.bottomSheetDialog = new BottomSheetDialog(context);
+
 
 
     }
@@ -97,8 +108,10 @@ public class SubjectRegestrationAdapter extends RecyclerView.Adapter<SubjectRege
 
                    }else
                        Course_id.add(ID_Course);
+
                 }else{
                     Course_id.remove(Integer.valueOf(ID_Course));
+
 
                 }
 
@@ -120,12 +133,16 @@ public ArrayList<Integer> getCourse_id(){
 
 
 
-
     @Override
     public int getItemCount() {
         return arrayList.size();
     }//Adapter
-    public class ViewHolder extends RecyclerView.ViewHolder {//holder
+
+
+
+
+
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {//holder
         ImageButton IM;
 
         TextView tv1_n,tv2_c,tv_3;
@@ -140,10 +157,45 @@ public ArrayList<Integer> getCourse_id(){
             CB=itemView.findViewById(R.id.activity_student_subject_tv_sub_state);
             tv_3=itemView.findViewById(R.id.activity_student_registration_tv_sn);
             IM=itemView.findViewById(R.id.activity_student_registration_ibtn_info);
+            IM.setOnClickListener((View.OnClickListener) this);
 
 
 
         }
+        private void showDetailsBottomSheet(String courseName,String courseCode){
+            bottomSheetDialog = new BottomSheetDialog(itemView.getContext(), R.style.BottomSheetStyle);
+            bottomSheetDialogView = LayoutInflater.from(itemView.getContext()).inflate(R.layout.fragment_student_info_regestration_subject, null, false);
+            bottomSheetDialog.setContentView(bottomSheetDialogView);
+            bottomSheetDialog.show();
+            EditText et_courseName_show = bottomSheetDialogView.findViewById(R.id.fragment_student_regestration_subjects_info_et_name);
+            EditText et_courseCode_show = bottomSheetDialogView.findViewById(R.id.fragment_student_regestration_subjects_info_et_code);
+            EditText et_courseDepartment_show = bottomSheetDialogView.findViewById(R.id.fragment_student_regestration_subjects_info_et_department);
+            EditText et_courseDoctor_show = bottomSheetDialogView.findViewById(R.id.fragment_student_regestration_subjects_info_et_doctor_name);
+            EditText et_coursePreRequest_show = bottomSheetDialogView.findViewById(R.id.fragment_student_regestration_subjects_info_et_previous);
+            Button btn_close_show_course = bottomSheetDialogView.findViewById(R.id.fragment_student_regestration_subjects_info_btn_close);
+
+            et_courseName_show.setText(courseName);
+            et_courseCode_show.setText(courseCode);
+            String  Dep_Id= String.valueOf(Db.getDepartmentIdByCourseName(courseName));
+            String Dep_Name= Db.getDepartmentName_ById(Integer.parseInt(Dep_Id));
+            et_courseDepartment_show.setText(Dep_Name);
+            int Doc_id=Db.getDoctorIdByCourseName(courseName);
+            et_courseDoctor_show.setText(Db.getDoctorNameById(Doc_id));
+
+            int id=  Db.getPreRequestIdBy_Name(courseName);
+            et_coursePreRequest_show.setText(Db.getPreRequestNameId(id));
+            btn_close_show_course.setOnClickListener(v -> bottomSheetDialog.dismiss());
+
+        }
+
+        @Override
+        public void onClick(View view) {
+            SubjectRegestrationModel course = arrayList.get(getAdapterPosition());
+
+            showDetailsBottomSheet(course.SubjectName,course.CodeName);
+
+        }
     }
+
 
 }

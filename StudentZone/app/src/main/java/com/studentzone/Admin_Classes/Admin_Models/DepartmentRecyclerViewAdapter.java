@@ -1,12 +1,9 @@
 package com.studentzone.Admin_Classes.Admin_Models;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,8 +12,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -30,25 +25,26 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.studentzone.Data_Base.Departments;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<DepartmentRecyclerViewAdapter.departmentViewHolder>implements Filterable
+public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<DepartmentRecyclerViewAdapter.departmentViewHolder>
 {
 
-    private ArrayList<Departments> departmentsList;
-    private My_DB db;
+    private final ArrayList<Departments> departmentsList;
+    private final My_DB db;
     private BottomSheetDialog bottomSheetDialog;
-    private EditText et_deptName_show, et_deptCode_show, et_deptName_edit, et_deptCode_edit;
-    private Button btn_close_show_dept,btn_save_edit_dept,btn_close_edit_dept;
+    private EditText et_deptName_edit;
+    private EditText et_deptCode_edit;
+    private Button btn_save_edit_dept;
     private TextView tv_first_letter_of_dept;
     private View bottomSheetDialogView;
     private final AlertDialog.Builder builder;
-    private  Departments department;
-    private ArrayList<Departments> filteredDepartmentNames;
     private String code_before_update,name_before_update;
+    private final ArrayList<Departments> filteredStudentEntries=new ArrayList<>();
 
 
     public DepartmentRecyclerViewAdapter(Context context, ArrayList<Departments> departmentsList)
@@ -58,8 +54,13 @@ public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<Departme
         this.bottomSheetDialog = new BottomSheetDialog(context);
         this.builder = new AlertDialog.Builder(context);
 
-        this.filteredDepartmentNames = departmentsList;
     }
+    public void setStudents(ArrayList<Departments> studentEntries) {
+        filteredStudentEntries.addAll(studentEntries);
+        notifyDataSetChanged();
+    }
+
+
 
     /** onCreateViewHolder ()
      *  This method inflates the item layout for the department and returns a new instance of the departmentViewHolder class.
@@ -70,9 +71,7 @@ public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<Departme
     public departmentViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_admin_model_department, null, false);
 
-        departmentViewHolder departmentViewHolder = new departmentViewHolder(view);
-
-        return departmentViewHolder;
+        return new departmentViewHolder(view);
     }
 
 
@@ -84,7 +83,7 @@ public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<Departme
     @Override
     public void onBindViewHolder(@NonNull @NotNull DepartmentRecyclerViewAdapter.departmentViewHolder holder, int position) {
 
-        department = departmentsList.get(position);
+        Departments department = departmentsList.get(position);
 
         holder.setDepartmentData(department);
 
@@ -104,39 +103,9 @@ public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<Departme
         departmentsList.add(department);
     }
 
-    @Override
-    public Filter getFilter() {
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence charSequence) {
-                String query = charSequence.toString().toLowerCase();
-                ArrayList<Departments> filteredList = new ArrayList<>();
-                if (query.isEmpty()) {
-                    filteredList = departmentsList;
-                } else {
-                    for (Departments name : departmentsList) {
-                        if (name.getName().toLowerCase().contains(query)) {
-                            filteredList.add(name);
-                        }
-                    }
-                }
-                FilterResults filterResults = new FilterResults();
-                filterResults.values = filteredList;
-                return filterResults;
-            }
 
-            @SuppressLint("NotifyDataSetChanged")
-            @Override
-            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                filteredDepartmentNames = (ArrayList<Departments>) filterResults.values;
 
-                Log.d("TAG", "Filtered list size: " + filteredDepartmentNames.size());
-                departmentsList = filteredDepartmentNames;
-                notifyDataSetChanged();
 
-            }
-        };
-    }
 
 
     /** holder Class For departmentRecyclerViewAdapter
@@ -177,12 +146,7 @@ public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<Departme
 
 
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    displayDepartmentDetailsDialog(department);
-                }
-            });
+            itemView.setOnClickListener(v -> displayDepartmentDetailsDialog(department));
         }
 
         @Override
@@ -231,20 +195,15 @@ public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<Departme
             bottomSheetDialog = new BottomSheetDialog(itemView.getContext(), R.style.BottomSheetStyle);
             bottomSheetDialogView = LayoutInflater.from(itemView.getContext()).inflate(R.layout.fragment_admin_show_department, null, false);
 
-            et_deptName_show = bottomSheetDialogView.findViewById(R.id.fragment_show_department_et_department_name);
-            et_deptCode_show = bottomSheetDialogView.findViewById(R.id.fragment_show_department_et_department_code);
-            btn_close_show_dept = bottomSheetDialogView.findViewById(R.id.fragment_show_department_btn_close);
+            EditText et_deptName_show = bottomSheetDialogView.findViewById(R.id.fragment_show_department_et_department_name);
+            EditText et_deptCode_show = bottomSheetDialogView.findViewById(R.id.fragment_show_department_et_department_code);
+            Button btn_close_show_dept = bottomSheetDialogView.findViewById(R.id.fragment_show_department_btn_close);
 
             et_deptName_show.setText(department.getName());
             et_deptCode_show.setText(department.getCode());
 
 
-            btn_close_show_dept.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    bottomSheetDialog.dismiss();
-                }
-            });
+            btn_close_show_dept.setOnClickListener(v -> bottomSheetDialog.dismiss());
 
             bottomSheetDialog.setContentView(bottomSheetDialogView);
             bottomSheetDialog.show();
@@ -267,7 +226,7 @@ public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<Departme
             et_deptCode_edit = bottomSheetDialogView.findViewById(R.id.fragment_edit_department_et_department_code);
 
             btn_save_edit_dept = bottomSheetDialogView.findViewById(R.id.fragment_edit_department_btn_save);
-            btn_close_edit_dept = bottomSheetDialogView.findViewById(R.id.fragment_edit_department_btn_close);
+            Button btn_close_edit_dept = bottomSheetDialogView.findViewById(R.id.fragment_edit_department_btn_close);
 
             //This Lines To FillOut Text Fields With doctor Data
             et_deptName_edit.setText(department.getName());
@@ -315,44 +274,36 @@ public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<Departme
 
 
             //This is the action of save the changed data or edited data  of doctor
-            btn_save_edit_dept.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+            btn_save_edit_dept.setOnClickListener(v -> {
 
 
-                    //This lines to remember the user to enter data in department name and code
-                    if (TextUtils.isEmpty(et_deptName_edit.getText().toString().trim())) {
-                        et_deptName_edit.setError("Is Required !");
-                        return;
-                    }
-                    if (TextUtils.isEmpty(et_deptCode_edit.getText().toString().trim())) {
-                        et_deptCode_edit.setError("Is Required !");
-                        return;
-                    }
+                //This lines to remember the user to enter data in department name and code
+                if (TextUtils.isEmpty(et_deptName_edit.getText().toString().trim())) {
+                    et_deptName_edit.setError("Is Required !");
+                    return;
+                }
+                if (TextUtils.isEmpty(et_deptCode_edit.getText().toString().trim())) {
+                    et_deptCode_edit.setError("Is Required !");
+                    return;
+                }
 
-                    //This lines to send edited department to data base across pass new instance of department to db.updateDepartment
-                    department.setName(et_deptName_edit.getText().toString());
-                    department.setCode(et_deptCode_edit.getText().toString());
+                //This lines to send edited department to data base across pass new instance of department to db.updateDepartment
+                department.setName(et_deptName_edit.getText().toString());
+                department.setCode(et_deptCode_edit.getText().toString());
 
 
-                    boolean result = db.updateDepartment(department,code_before_update,name_before_update);
+                boolean result = db.updateDepartment(department,code_before_update,name_before_update);
 
-                    if(result){
-                        departmentsList.set(getAdapterPosition(), department);
-                        notifyItemChanged(getAdapterPosition());
+                if(result){
+                    departmentsList.set(getAdapterPosition(), department);
+                    notifyItemChanged(getAdapterPosition());
 
-                        bottomSheetDialog.dismiss();
-                    }
+                    bottomSheetDialog.dismiss();
                 }
             });
 
             //This is the action of close the bottomSheetDialogView of edit department
-            btn_close_edit_dept.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    bottomSheetDialog.dismiss();
-                }
-            });
+            btn_close_edit_dept.setOnClickListener(v -> bottomSheetDialog.dismiss());
 
 
             bottomSheetDialog.setContentView(bottomSheetDialogView);
@@ -367,20 +318,14 @@ public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<Departme
         private void displayDeleteConfirmationDialog(Departments department) {
             builder.setMessage("Are you sure you want to delete \""+department.getName()+"\" Department? Note you will delete Courses Inside IT Too?")
                     .setCancelable(false)
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            db.deleteDepartment(department.getCode(),department.getId()+"");
-                            departmentsList.remove(getAdapterPosition());
-                            Toast.makeText(bottomSheetDialog.getContext(), ""+department.getName()+" Department Successfully Deleted" , Toast.LENGTH_SHORT).show();
-                            notifyItemRemoved(getAdapterPosition());
-                            dialog.dismiss();
-                        }
+                    .setPositiveButton("Yes", (dialog, id) -> {
+                        db.deleteDepartment(department.getCode(),department.getId()+"");
+                        departmentsList.remove(getAdapterPosition());
+                        Toast.makeText(bottomSheetDialog.getContext(), ""+department.getName()+" Department Successfully Deleted" , Toast.LENGTH_SHORT).show();
+                        notifyItemRemoved(getAdapterPosition());
+                        dialog.dismiss();
                     })
-                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-                        }
-                    });
+                    .setNegativeButton("No", (dialog, id) -> dialog.cancel());
             AlertDialog alert = builder.create();
             alert.show();
         }

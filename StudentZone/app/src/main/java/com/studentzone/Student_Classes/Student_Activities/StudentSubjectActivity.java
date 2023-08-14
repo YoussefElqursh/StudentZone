@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.widget.Button;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.studentzone.Admin_Classes.Admin_Activities.AdminDepartmentsActivity;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
 import com.studentzone.Student_Classes.Student_Models.RegestrationModel.SubjectRegestrationModel;
@@ -28,6 +30,7 @@ public class StudentSubjectActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_subject);
+        initializeViews();
         buttonBackAction();
         recyclerView=findViewById(R.id.student_subject_recycleview );//add item in recycler
          arrayList=my_db.Get_all_courses_for_student_afterRegist();//Method to get all courses name and courses code
@@ -45,6 +48,13 @@ public class StudentSubjectActivity extends AppCompatActivity {
     public void buttonBackAction(){
         btn_back = findViewById(R.id.activity_student_subject_btn_back);
         btn_back.setOnClickListener(v -> startActivity(new Intent(StudentSubjectActivity.this, StudentHomeActivity.class)));
+    }
+    public void initializeViews() {
+
+        BottomSheetDialog addDepartmentBottomSheetDialog = new BottomSheetDialog(this, R.style.BottomSheetStyle);
+
+
+
     }
 
 

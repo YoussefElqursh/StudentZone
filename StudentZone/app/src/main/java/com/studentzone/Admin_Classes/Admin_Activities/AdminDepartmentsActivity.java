@@ -1,26 +1,23 @@
 package com.studentzone.Admin_Classes.Admin_Activities;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.SearchView;
-import android.widget.Toast;
-
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.studentzone.Admin_Classes.Admin_Models.DepartmentRecyclerViewAdapter;
 import com.studentzone.Data_Base.Departments;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
+
 import java.util.ArrayList;
 
 /**
@@ -30,6 +27,7 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
 
     // Database object
     private final My_DB db = new My_DB(this);
+
 
     // Views
     private Button btn_add_department, btn_back, btn_save_department, btn_close_add_department_dialog;
@@ -41,6 +39,7 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
     private String departmentName, departmentCode;
 
     private RecyclerView departmentRecyclerView;
+
     private DepartmentRecyclerViewAdapter adapter;
 
     @SuppressLint("MissingInflatedId")
@@ -48,6 +47,7 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_departments);
+
 
         // Initialize views
         initializeViews();
@@ -178,7 +178,7 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
 
         ArrayList<Departments> departmentsArrayList = db.displayAllDepartments();
 
-        adapter = new DepartmentRecyclerViewAdapter(AdminDepartmentsActivity.this,departmentsArrayList); // assign to adapter variable
+        // assign to adapter variable
 
         DepartmentRecyclerViewAdapter adapter = new DepartmentRecyclerViewAdapter(AdminDepartmentsActivity.this,departmentsArrayList);
         RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
@@ -190,33 +190,5 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
     }
 
 
-
-    // Set up the search view
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        Log.d("TAG", "onCreateOptionsMenu called");
-
-
-        getMenuInflater().inflate(R.menu.activity_admin_departments_sv_menu, menu);
-
-        SearchView searchView = (SearchView) menu.findItem(R.id.activity_admin_departments_sv).getActionView();
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                Log.d("Search", "Query text changed to: " + newText);
-
-                adapter.getFilter().filter(newText);
-                return false;
-            }
-        });
-
-        return true;
-    }
 
 }

@@ -22,7 +22,7 @@ import com.studentzone.R;
 
 
 
-public class StudentHomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class    StudentHomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     CardView cv_subjects_registration, cv_subjects_passed_subjects, cv_subjects;
     SharedPreferences preferences;

@@ -1,12 +1,14 @@
 package com.studentzone.Data_Base;
 public class Students  {
     private int Id;
+    private int dept;
     private String Academic_Number ;
     private String FName ;
     private String LastName ;
     private String gender ;
     private String Email;
     private String Password ;
+    private String Phone ;
 
     public Students(int id, String academic_Number, String FName, String gender, String Email, String Password) {
 
@@ -27,7 +29,7 @@ public class Students  {
         this.gender = gender;
     }
 
-    public Students(String academic_Number, String FName, String LName,  String gender, String Email, String Password) {
+    public Students(String academic_Number, String FName, String LName,  String gender, String Email, String Password, String phone,int dept) {
 
         this.Academic_Number = academic_Number;
         this.FName = FName;
@@ -35,15 +37,19 @@ public class Students  {
         this.gender = gender;
         this.Email = Email;
         this.Password = Password;
+        this.Phone = phone;
+        this.dept = dept;
     }
 
-    public Students(String FName, String academic_Number, String Email, String Password, String gender) {
+    public Students(String FName, String academic_Number, String Email, String Password, String gender, String phone,int dept) {
 
         this.FName = FName;
         this.Academic_Number = academic_Number;
         this.Email = Email;
         this.Password = Password;
         this.gender = gender;
+        this.Phone = phone;
+        this.dept = dept;
     }
 
     public Students(String FName, String academic_Number) {
@@ -62,10 +68,6 @@ public class Students  {
 
     public String getAcademic_Number() {
         return Academic_Number;
-    }
-
-    public void setAcademic_Number(String academic_Number) {
-        Academic_Number = academic_Number;
     }
 
     public String getFName() {
@@ -106,5 +108,21 @@ public class Students  {
 
     public void setPassword(String password) {
         Password = password;
+    }
+
+    public String getPhone() {
+        return Phone;
+    }
+
+    public void setPhone(String phone) {
+        Phone = phone;
+    }
+
+    public int getDept() {
+        return dept;
+    }
+
+    public void setDept(int dept) {
+        this.dept = dept;
     }
 }
