@@ -35,7 +35,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<DepartmentRecyclerViewAdapter.departmentViewHolder>implements Filterable
+public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<DepartmentRecyclerViewAdapter.departmentViewHolder>
 {
 
     private ArrayList<Departments> departmentsList;
@@ -49,6 +49,8 @@ public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<Departme
     private  Departments department;
     private ArrayList<Departments> filteredDepartmentNames;
     private String code_before_update,name_before_update;
+    private ArrayList<Departments> mStudentEntries;
+    private ArrayList<Departments> filteredStudentEntries=new ArrayList<>();
 
 
     public DepartmentRecyclerViewAdapter(Context context, ArrayList<Departments> departmentsList)
@@ -60,6 +62,13 @@ public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<Departme
 
         this.filteredDepartmentNames = departmentsList;
     }
+    public void setStudents(ArrayList<Departments> studentEntries) {
+        this.mStudentEntries = studentEntries;
+        filteredStudentEntries.addAll(mStudentEntries);
+        notifyDataSetChanged();
+    }
+
+
 
     /** onCreateViewHolder ()
      *  This method inflates the item layout for the department and returns a new instance of the departmentViewHolder class.
@@ -104,39 +113,9 @@ public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<Departme
         departmentsList.add(department);
     }
 
-    @Override
-    public Filter getFilter() {
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence charSequence) {
-                String query = charSequence.toString().toLowerCase();
-                ArrayList<Departments> filteredList = new ArrayList<>();
-                if (query.isEmpty()) {
-                    filteredList = departmentsList;
-                } else {
-                    for (Departments name : departmentsList) {
-                        if (name.getName().toLowerCase().contains(query)) {
-                            filteredList.add(name);
-                        }
-                    }
-                }
-                FilterResults filterResults = new FilterResults();
-                filterResults.values = filteredList;
-                return filterResults;
-            }
 
-            @SuppressLint("NotifyDataSetChanged")
-            @Override
-            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                filteredDepartmentNames = (ArrayList<Departments>) filterResults.values;
 
-                Log.d("TAG", "Filtered list size: " + filteredDepartmentNames.size());
-                departmentsList = filteredDepartmentNames;
-                notifyDataSetChanged();
 
-            }
-        };
-    }
 
 
     /** holder Class For departmentRecyclerViewAdapter

@@ -1,6 +1,8 @@
 package com.studentzone.Admin_Classes.Admin_Activities;
 
 import android.annotation.SuppressLint;
+import android.app.SearchManager;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -31,6 +33,7 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
     // Database object
     private final My_DB db = new My_DB(this);
 
+
     // Views
     private Button btn_add_department, btn_back, btn_save_department, btn_close_add_department_dialog;
     private EditText et_add_new_department_name, et_add_new_department_code;
@@ -41,16 +44,14 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
     private String departmentName, departmentCode;
 
     private RecyclerView departmentRecyclerView;
+
     private DepartmentRecyclerViewAdapter adapter;
 
 
-
-
-    @SuppressLint("MissingInflatedId")
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_departments);
+
 
         // Initialize views
         initializeViews();
@@ -196,33 +197,5 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
     }
 
 
-
-    // Set up the search view
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        Log.d("TAG", "onCreateOptionsMenu called");
-
-
-        getMenuInflater().inflate(R.menu.activity_admin_departments_sv_menu, menu);
-
-        SearchView searchView = (SearchView) menu.findItem(R.id.activity_admin_departments_sv).getActionView();
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                Log.d("Search", "Query text changed to: " + newText);
-
-                adapter.getFilter().filter(newText);
-                return false;
-            }
-        });
-
-        return true;
-    }
 
 }

@@ -36,7 +36,7 @@ import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecyclerViewAdapter.studentViewHolder> {
+public class  StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecyclerViewAdapter.studentViewHolder> {
     private ArrayList<Students> studentList;
     private BottomSheetDialog bottomSheetDialog;
     private View bottomSheetDialogView;

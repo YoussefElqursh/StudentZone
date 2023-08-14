@@ -23,7 +23,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
 
-public class AdminHomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class  AdminHomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     CardView cv_department, cv_subjects, cv_doctors_account, cv_students_account;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;

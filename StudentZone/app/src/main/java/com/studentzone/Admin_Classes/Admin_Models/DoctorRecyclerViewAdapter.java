@@ -32,7 +32,7 @@ import com.studentzone.R;
 
 import java.util.ArrayList;
 
-public class DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecyclerViewAdapter.doctorViewHolder> {
+public class  DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecyclerViewAdapter.doctorViewHolder> {
     private ArrayList<Doctors> doctorsArrayList;
     private My_DB db;
     private BottomSheetDialog bottomSheetDialog;
