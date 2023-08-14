@@ -197,6 +197,6 @@
         app:itemTextColor="@color/dark_blue"
         app:itemIconSize="22dp"
         app:elevation="10dp"
-        android:background="@color/white"/>
+        android:background="@color/white_gray"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

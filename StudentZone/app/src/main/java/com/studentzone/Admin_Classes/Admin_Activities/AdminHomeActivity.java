@@ -107,8 +107,6 @@ public class   AdminHomeActivity extends AppCompatActivity implements Navigation
         finish();
     }
 
-
-
     public void departmentsCardViewClickAction() {
         cv_department.setOnClickListener(v -> startActivity(new Intent(getBaseContext(), AdminDepartmentsActivity.class)));
     }
@@ -149,7 +147,6 @@ public class   AdminHomeActivity extends AppCompatActivity implements Navigation
         toggle.syncState();
         getSupportActionBar().setHomeButtonEnabled(true);
         navigationView.setNavigationItemSelectedListener(this);
-
     }
 
 
@@ -160,13 +157,16 @@ public class   AdminHomeActivity extends AppCompatActivity implements Navigation
         builder.setPositiveButton("Yes", (dialog, which) -> logOut());
         builder.setNegativeButton("No", null);
         builder.show();
-
     }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.activity_admin_home_item_logout :
+            case R.id.activity_admin_home_item_logout:
                 logOutConfirmationDialog();
+                break;
+            case R.id.activity_admin_home_item_profile:
+                startActivity(new Intent(getBaseContext(), AdminProfileActivity.class));
+                break;
         }
         return false;
     }

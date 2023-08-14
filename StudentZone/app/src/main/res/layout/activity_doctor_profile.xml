@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginBottom="-10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/custom_drawer_header_bg"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/activity_doctor_profile_btn_back"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_gravity="left"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/custom_btn_back"
+                android:contentDescription="@string/back"
+                android:drawableLeft="@drawable/ic_back"
+                android:drawableTint="@color/white_gray"
+                android:paddingLeft="10dp"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Profile"
+                android:textStyle="bold"
+                android:textColor="@color/white_gray"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"/>
+
+            <Button
+                android:id="@+id/activity_doctor_profile_btn_sittings"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="10dp"
+                android:layout_gravity="left"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/custom_btn_back"
+                android:drawableLeft="@drawable/ic_sittings"
+                android:drawableTint= "@color/white_gray"
+                android:paddingLeft="8dp"
+                tools:ignore="TouchTargetSizeCheck"
+                android:contentDescription="@string/back" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/activity_doctor_profile_shiv_doctor_photo"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@color/white_gray"
+                    app:srcCompat="@drawable/ic_male_profile"
+                    app:shapeAppearanceOverlay="@style/circular"
+                    app:strokeWidth="2dp"
+                    app:strokeColor="@color/white"
+                    android:padding="2dp"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/activity_doctor_profile_tv_edit_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:clickable="true"
+                    android:drawableLeft="@drawable/ic_edit_photo"
+                    android:drawablePadding="5dp"
+                    android:drawableTint="@drawable/custom_tv_edit_photo"
+                    android:text="Edit Photo"
+                    android:textColor="@drawable/custom_tv_edit_photo"
+                    android:textSize="12dp"
+                    tools:ignore="TextSizeCheck,TouchTargetSizeCheck" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="-20dp"
+        android:rotation="-180"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/custom_arc_2"
+        tools:srcCompat="@drawable/custom_arc_2"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/custom_arc_3"
+        tools:srcCompat="@drawable/custom_arc_3"
+        android:rotation="-180"
+        android:layout_marginTop="-70dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Name"
+            android:textAlignment="center"
+            android:textColor="@color/blue"
+            android:textSize="10dp"
+            tools:ignore="TextSizeCheck"
+            android:layout_marginLeft="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/custom_profile_info_tv"
+                android:gravity="center"
+                android:layout_marginLeft="5dp">
+
+                <LinearLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/custom_profile_info_bg_icon"
+                    android:gravity="center"
+                    android:layout_marginLeft="5dp">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        app:srcCompat="@drawable/ic_user_2" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/activity_doctor_profile_tv_doctor_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Momen Ahmed Abdelhay"
+                    android:textColor="#00608C"
+                    android:textSize="12dp"
+                    tools:ignore="TextSizeCheck"
+                    android:layout_marginLeft="10dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Email Address"
+            android:textAlignment="center"
+            android:textColor="@color/blue"
+            android:textSize="10dp"
+            tools:ignore="TextSizeCheck"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/custom_profile_info_tv"
+                android:gravity="center"
+                android:layout_marginLeft="5dp">
+
+                <LinearLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/custom_profile_info_bg_icon"
+                    android:gravity="center"
+                    android:layout_marginLeft="5dp">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        app:srcCompat="@drawable/ic_email_address_2" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/activity_doctor_profile_tv_doctor_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="moamen.ahmed160830@ci.menofia.edu.eg"
+                    android:textColor="#00608C"
+                    android:textSize="12dp"
+                    tools:ignore="TextSizeCheck"
+                    android:layout_marginLeft="10dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Phone Number"
+            android:textAlignment="center"
+            android:textColor="@color/blue"
+            android:textSize="10dp"
+            tools:ignore="TextSizeCheck"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/custom_profile_info_tv"
+                android:gravity="center"
+                android:layout_marginLeft="5dp">
+
+                <LinearLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/custom_profile_info_bg_icon"
+                    android:gravity="center"
+                    android:layout_marginLeft="5dp">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        app:srcCompat="@drawable/icon_phone_number_2" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/activity_doctor_profile_tv_doctor_phone_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="01202617505"
+                    android:textColor="#00608C"
+                    android:textSize="12dp"
+                    tools:ignore="TextSizeCheck"
+                    android:layout_marginLeft="10dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

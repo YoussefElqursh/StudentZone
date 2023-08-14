@@ -30,7 +30,20 @@
             android:name=".Login_Classes.Login_Activities.ForgetPasswrod_Classes.ResetPasswordActivity"
             android:exported="false" />
         <activity
+
+            android:name=".Admin_Classes.Admin_Activities.AdminProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Doctor_Classes.Doctor_Activities.DoctorProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Student_Classes.Student_Activities.StudentProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ForgetPasswrod_Classes.VerifyOTPActivity"
+
             android:name=".Login_Classes.Login_Activities.ForgetPasswrod_Classes.VerifyOTPActivity"
+
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
