@@ -30,11 +30,6 @@ public class Courses {
 
     }
 
-    public Courses(String name, String code) {
-        this.name = name;
-        this.code = code;
-    }
-
 
     public int getId() {
         return id;

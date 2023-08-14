@@ -1,9 +1,6 @@
 package com.studentzone.Data_Base;
 
 
-import android.content.ContentValues;
-import android.database.sqlite.SQLiteDatabase;
-
 public class Departments {
     private int id;
     private String code;

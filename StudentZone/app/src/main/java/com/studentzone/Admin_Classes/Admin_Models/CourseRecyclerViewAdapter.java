@@ -77,9 +77,7 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
     {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_admin_model_subject,null,false);
 
-        subjectViewHolder subjectViewHolder = new subjectViewHolder(view);
-
-        return subjectViewHolder;
+        return new subjectViewHolder(view);
     }
 
     /** onBindViewHolder ()

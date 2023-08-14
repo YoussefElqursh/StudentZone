@@ -70,10 +70,6 @@ public class Students  {
         return Academic_Number;
     }
 
-    public void setAcademic_Number(String academic_Number) {
-        Academic_Number = academic_Number;
-    }
-
     public String getFName() {
         return FName;
     }

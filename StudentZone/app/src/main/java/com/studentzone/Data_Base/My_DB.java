@@ -284,10 +284,10 @@ public class My_DB extends SQLiteOpenHelper {
         boolean isValid = false;
 
         SharedPreferences pref = context.getSharedPreferences("userInfo",Context.MODE_PRIVATE);
-        String firstName = null;
-        String lastName = null;
-        String Email = null;
-        String id = null;
+        String firstName;
+        String lastName;
+        String Email;
+        String id;
 
         switch (kindCheckedId) {
             case -1:
@@ -468,9 +468,9 @@ public class My_DB extends SQLiteOpenHelper {
 
             }while (cursor.moveToNext());
         }
+        assert cursor != null;
         cursor.close();
 //        db.close();
-        db = this.getWritableDatabase();
 
         return studentsArrayList;
     }
@@ -490,7 +490,7 @@ public class My_DB extends SQLiteOpenHelper {
         values.put(Student_col_dept,student.getDept());
         values.put(Student_col_phone,student.getPhone());
 
-        String args [] = {student.getEmail()};
+        String[] args = {student.getEmail()};
 
         int result =  db.update(Education_Table_Students,values,""+Student_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
 
@@ -502,7 +502,7 @@ public class My_DB extends SQLiteOpenHelper {
     public boolean deleteStudent(String email){
 
         SQLiteDatabase db =getWritableDatabase();
-        String args[] ={email};
+        String[] args ={email};
 
         int numDeletedDoctor =db.delete(Education_Table_Students,""+Student_col_email+"=?",args);
 
@@ -566,9 +566,9 @@ public class My_DB extends SQLiteOpenHelper {
 
             }while (cursor.moveToNext());
         }
+        assert cursor != null;
         cursor.close();
 //        db.close();
-        db = this.getWritableDatabase();
 
         return doctorsArrayList;
     }
@@ -587,7 +587,7 @@ public class My_DB extends SQLiteOpenHelper {
         values.put(Doctors_col_gender,doctor.getGender());
         values.put(Doctors_col_phone,doctor.getPhone());
 
-        String args [] = {doctor.getEmail()};
+        String[] args = {doctor.getEmail()};
 
         int result =  db.update(Education_Table_Doctors,values,""+Doctors_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
 
@@ -602,7 +602,7 @@ public class My_DB extends SQLiteOpenHelper {
     public boolean deleteDoctor(String email){
 
         SQLiteDatabase db =getWritableDatabase();
-        String args[] ={email};
+        String[] args ={email};
 
         int numDeletedDoctor =db.delete(Education_Table_Doctors,""+Doctors_col_email+"=?",args);
 
@@ -624,17 +624,17 @@ public class My_DB extends SQLiteOpenHelper {
         if(cursor != null && cursor.moveToFirst()){
 
             do{
-                String docName = cursor.getString(cursor.getColumnIndex(Doctors_col_first_name));
 
-                String name =docName;
+                String name = cursor.getString(cursor.getColumnIndex(Doctors_col_first_name));
 
                 docNames.add(name);
 
             }while (cursor.moveToNext());
         }
+        assert cursor != null;
         cursor.close();
 //        db.close();
-        db = this.getWritableDatabase();
+
 
         return docNames;
     }
@@ -690,9 +690,9 @@ public class My_DB extends SQLiteOpenHelper {
             }while (cursor.moveToNext());
         }
 
+        assert cursor != null;
         cursor.close();
         db.close();
-        db = this.getWritableDatabase();
 
         return departmentsArrayList;
 
@@ -711,7 +711,7 @@ public class My_DB extends SQLiteOpenHelper {
         values.put(Department_col_name,department.getName());
         values.put(Department_col_code,department.getCode());
 
-        String args [] = {codeBeforeUpdate};
+        String[] args = {codeBeforeUpdate};
 
 
         //To Check If This Department Is Exist
@@ -734,7 +734,7 @@ public class My_DB extends SQLiteOpenHelper {
     public boolean deleteDepartment(String code,String id){
 
         SQLiteDatabase db =getWritableDatabase();
-        String args[] ={code};
+        String[] args ={code};
 
         int numDeletedDepartments =db.delete(Education_Table_Departments,""+Department_col_code+"=?",args);
         db.delete(Education_Table_Courses,""+Courses_col_department_id+"=?",new  String[]{id});
@@ -757,17 +757,16 @@ public class My_DB extends SQLiteOpenHelper {
         if(cursor != null && cursor.moveToFirst()){
 
             do{
+
                 String name = cursor.getString(cursor.getColumnIndex(Department_col_name));
 
-                String n = name;
-
-                deptName.add(n);
+                deptName.add(name);
 
             }while (cursor.moveToNext());
         }
+        assert cursor != null;
         cursor.close();
 //        db.close();
-        db = this.getWritableDatabase();
 
         return deptName;
     }
@@ -833,9 +832,9 @@ public class My_DB extends SQLiteOpenHelper {
             }while (cursor.moveToNext());
         }
 
+        assert cursor != null;
         cursor.close();
 //        db.close();
-        db = this.getWritableDatabase();
 
         return coursesList;
 
@@ -852,7 +851,7 @@ public class My_DB extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getReadableDatabase();
 
-        SharedPreferences preferences = context.getSharedPreferences("userInfo",context.MODE_PRIVATE);
+        SharedPreferences preferences = context.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         String doctorId = preferences.getString("id", "");
 
 
@@ -875,9 +874,9 @@ public class My_DB extends SQLiteOpenHelper {
             }while (cursor.moveToNext());
         }
 
+        assert cursor != null;
         cursor.close();
 //        db.close();
-        db = this.getWritableDatabase();
 
         return coursesList;
 
@@ -888,7 +887,7 @@ public class My_DB extends SQLiteOpenHelper {
     /**getEnrolledStudentCountByCourseId()
      * ********************************************************************************************/
     public int getEnrolledStudentCountByCourseId(int courseId){
-        int count = 0;
+        int count;
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.rawQuery("SELECT * FROM " + Education_Table_Enrollment + " WHERE " + Enrollment_col_course_id + " =?", new String[]{courseId+""});
@@ -925,7 +924,7 @@ public class My_DB extends SQLiteOpenHelper {
     @SuppressLint("SuspiciousIndentation")
     public boolean addOrUpdateGrade(Enrollments enrollment){
 
-        int result = 0;
+        int result;
 
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -937,7 +936,7 @@ public class My_DB extends SQLiteOpenHelper {
         values.put(Enrollment_col_student_grade,enrollment.getStudent_grade());
 
 
-        String args [] = {String.valueOf(enrollment.getStudent_id()),String.valueOf(enrollment.getCourse_id())};
+        String[] args = {String.valueOf(enrollment.getStudent_id()),String.valueOf(enrollment.getCourse_id())};
 
 
         result =  db.update(Education_Table_Enrollment,values," "+Enrollment_col_student_id+"=? AND "+Enrollment_col_course_id+"=? ",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
@@ -964,7 +963,7 @@ public class My_DB extends SQLiteOpenHelper {
             values.put(Courses_col_PreRequest_id, course.getPreRequest());
         else
             values.put(Courses_col_PreRequest_id, (Integer) null);
-        String args [] = {codeBeforeUpdate};
+        String[] args = {codeBeforeUpdate};
 
 
         //To Check If This Course Is Exist
@@ -986,7 +985,7 @@ public class My_DB extends SQLiteOpenHelper {
     public boolean deleteCourse(String code,String id){
 
         SQLiteDatabase db =getWritableDatabase();
-        String args[] ={code};
+        String[] args ={code};
 
         int numDeletedCourses = db.delete(Education_Table_Courses,""+Courses_col_code+"=?",args);
 
@@ -1014,17 +1013,16 @@ public class My_DB extends SQLiteOpenHelper {
         if(cursor != null && cursor.moveToFirst()){
 
             do{
-                String courseName = cursor.getString(cursor.getColumnIndex(Courses_col_name));
 
-                String name = courseName;
+                String name = cursor.getString(cursor.getColumnIndex(Courses_col_name));
 
                 coursesNames.add(name);
 
             }while (cursor.moveToNext());
         }
+        assert cursor != null;
         cursor.close();
 //        db.close();
-        db = this.getWritableDatabase();
 
         return coursesNames;
     }
@@ -1209,11 +1207,6 @@ public class My_DB extends SQLiteOpenHelper {
 
 
 //__________________________________Subject Function_______________________________________________
-
-    /**
-     * get name course for student by department
-     */
-
 
 
     /*********************************************************/

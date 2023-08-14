@@ -1,28 +1,23 @@
 package com.studentzone.Admin_Classes.Admin_Activities;
 
-import android.annotation.SuppressLint;
-import android.app.SearchManager;
-import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.SearchView;
-import android.widget.Toast;
-
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.studentzone.Admin_Classes.Admin_Models.DepartmentRecyclerViewAdapter;
 import com.studentzone.Data_Base.Departments;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
+
 import java.util.ArrayList;
 
 /**
@@ -44,8 +39,6 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
     private String departmentName, departmentCode;
 
     private RecyclerView departmentRecyclerView;
-
-    private DepartmentRecyclerViewAdapter adapter;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -185,7 +178,7 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
 
         ArrayList<Departments> departmentsArrayList = db.displayAllDepartments();
 
-        adapter = new DepartmentRecyclerViewAdapter(AdminDepartmentsActivity.this,departmentsArrayList); // assign to adapter variable
+        // assign to adapter variable
 
         DepartmentRecyclerViewAdapter adapter = new DepartmentRecyclerViewAdapter(AdminDepartmentsActivity.this,departmentsArrayList);
         RecyclerView.LayoutManager lm = new LinearLayoutManager(this);

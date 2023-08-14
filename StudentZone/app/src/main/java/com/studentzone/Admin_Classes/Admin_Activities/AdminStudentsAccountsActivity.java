@@ -1,19 +1,22 @@
 package com.studentzone.Admin_Classes.Admin_Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.SearchView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.studentzone.Admin_Classes.Admin_Models.StudentRecyclerViewAdapter;
@@ -79,6 +82,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
     /** initializeViews()
      *  inflate
      **********************************************************************************************/
+    @SuppressLint("WrongViewCast")
     public void initializeViews() {
         btn_add_student = findViewById(R.id.activity_admin_students_accounts_btn_add);
         btn_back = findViewById(R.id.activity_admin_students_accounts_btn_back);
@@ -96,10 +100,12 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
         et_add_new_student_phone = addStudentBottomSheetDialogView.findViewById(R.id.fragment_new_student_et_student_phone);
         departmentSpinner = addStudentBottomSheetDialogView.findViewById(R.id.fragment_new_student_sp_department);
 
+
         rg_gender = addStudentBottomSheetDialogView.findViewById(R.id.fragment_new_student_rg_student_kind);
 
         studentRecyclerView = findViewById(R.id.activity_admin_students_accounts_recyclerview);
     }
+
 
     /** setAddStudentButtonAction()
      *  show Bottom Sheet Dialog
@@ -277,6 +283,18 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
         studentRecyclerView.setHasFixedSize(true);
         studentRecyclerView.setLayoutManager(lm);
         studentRecyclerView.setAdapter(adapter);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_admin_students_accounts_sv_menu, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.activity_admin_students_accounts_sv);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+        searchView.setQueryHint("Type here to search");
+
+        return true;
     }
 
 

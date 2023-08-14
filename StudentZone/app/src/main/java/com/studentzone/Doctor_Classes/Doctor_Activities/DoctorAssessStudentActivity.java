@@ -19,8 +19,6 @@ public class DoctorAssessStudentActivity extends AppCompatActivity {
 
     // Database object
     private final My_DB db = new My_DB(this);
-    private Button btn_back;
-    private RecyclerView doctorCourseAssessRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +30,7 @@ public class DoctorAssessStudentActivity extends AppCompatActivity {
     }
 
     public void buttonBackAction(){
-        btn_back = findViewById(R.id.activity_doctor_assessStudent_btn_back);
+        Button btn_back = findViewById(R.id.activity_doctor_assessStudent_btn_back);
         btn_back.setOnClickListener(v -> startActivity(new Intent(DoctorAssessStudentActivity.this, DoctorHomeActivity.class)));
     }
 
@@ -43,7 +41,7 @@ public class DoctorAssessStudentActivity extends AppCompatActivity {
 
         ArrayList<Courses> coursesList = db.displayDoctorCourses();
 
-        doctorCourseAssessRecyclerView = findViewById(R.id.activity_doctor_assessStudent_recycleView);
+        RecyclerView doctorCourseAssessRecyclerView = findViewById(R.id.activity_doctor_assessStudent_recycleView);
 
 
         // Adapter for the course RecyclerView

@@ -20,7 +20,6 @@ import com.google.android.material.navigation.NavigationView;
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
 
-
 public class DoctorHomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     CardView cv_subjects,cv_assessStudent;
     SharedPreferences preferences;
