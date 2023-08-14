@@ -45,7 +45,7 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
     private final ArrayList<Courses> coursesList;
     private final My_DB db;
     private BottomSheetDialog bottomSheetDialog;
-    private Button btn_save_edit_course;
+    private Button btn_save_edit_course; 
     private View bottomSheetDialogView;
     private final AlertDialog.Builder builder;
 
