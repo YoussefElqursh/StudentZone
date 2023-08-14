@@ -36,7 +36,12 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
         ConfirmationPassword = confirmationPassword.getText().toString().trim();
 
-        if(NewPassword.isEmpty())
+        if (NewPassword.equals(ConfirmationPassword) && !(NewPassword.isEmpty() && ConfirmationPassword.isEmpty() ))
+        {
+            Intent intent = new Intent(ResetPasswordActivity.this, VerifiedActivity.class);
+            startActivity(intent);
+        }
+        else if(NewPassword.isEmpty())
         {
             if (ConfirmationPassword.isEmpty())
             {
@@ -58,15 +63,15 @@ public class ResetPasswordActivity extends AppCompatActivity {
                 Toast.makeText(ResetPasswordActivity.this, "Confirmation Password is Empty", Toast.LENGTH_LONG).show();
             }
         }
-
+        else
+        {
+            Toast.makeText(ResetPasswordActivity.this, "Two Passwords are not Same", Toast.LENGTH_LONG).show();
+        }
     }
 
     public void ChangePassword()
     {
-        resetPassword.setOnClickListener(v -> {
-            Intent intent = new Intent(ResetPasswordActivity.this, VerifiedActivity.class);
-            startActivity(intent);
-        });
+        resetPassword.setOnClickListener(v -> validateNewPassword());
     }
 
 }
