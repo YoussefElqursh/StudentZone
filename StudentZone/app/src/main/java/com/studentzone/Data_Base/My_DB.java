@@ -311,7 +311,7 @@ public class My_DB extends SQLiteOpenHelper {
                     isValid = adminCursor.moveToFirst();
                     int firstNameColumnIndex = adminCursor.getColumnIndex(Admin_col_name);
                     int emailColumnIndex = adminCursor.getColumnIndex(Admin_col_email);
-                    int phoneColumnIndex = adminCursor.getColumnIndex(Admin_col_email);
+                    int phoneColumnIndex = adminCursor.getColumnIndex(Admin_col_phone);
                     int imageColumnIndex = adminCursor.getColumnIndex(Admin_col_image_uri);
 
                     if (firstNameColumnIndex >= 0) {
