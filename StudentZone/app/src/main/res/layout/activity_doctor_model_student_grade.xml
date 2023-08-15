@@ -81,7 +81,6 @@
                 android:layout_marginTop="33dp"
                 android:layout_toRightOf="@id/activity_admin_student_iv_cv"
                 android:maxLines="1"
-                android:text="Score"
                 android:textColor="@color/dark_blue"/>
 
             <TextView

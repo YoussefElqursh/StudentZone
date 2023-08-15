@@ -87,11 +87,8 @@ public class DoctorStudentsGradesRecyclerViewAdapter extends RecyclerView.Adapte
         public doctorStudentsGradesViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            // Get the course ID from the intent
-
-
             tv_student_name = itemView.findViewById(R.id.activity_admin_student_tv_name);
-            tv_student_degree = itemView.findViewById(R.id.activity_admin_student_tv_100);
+            tv_student_degree = itemView.findViewById(R.id.activity_admin_student_tv_score);
             tv_student_grade = itemView.findViewById(R.id.activity_doctor_student_grade_ibtn_more);
             iv_student_icon = itemView.findViewById(R.id.activity_admin_student_iv);
         }
@@ -107,10 +104,11 @@ public class DoctorStudentsGradesRecyclerViewAdapter extends RecyclerView.Adapte
 
             if (degreeAndGrade.getStudent_grade() == null)
                 tv_student_grade.setText("N");
-            else
+            else{
                 tv_student_grade.setText(degreeAndGrade.getStudent_grade());
+                tv_student_degree.setText(String.valueOf(degreeAndGrade.getStudent_degree()));
 
-
+            }
 
 
             if(students.getGender() != null  && students.getGender().equals("Male"))
