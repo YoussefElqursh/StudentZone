@@ -26,7 +26,25 @@
             android:background="@color/blue"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:titleTextColor="@color/blue" />
+            app:titleTextColor="@color/blue" >
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/activity_admin_home_shiv_admin_photo"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/white_gray"
+                android:clickable="true"
+                android:padding="2dp"
+                app:shapeAppearanceOverlay="@style/circular"
+                app:srcCompat="@drawable/ic_male_profile"
+                app:strokeColor="@color/white"
+                app:strokeWidth="2dp"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        </androidx.appcompat.widget.Toolbar>
 
         <TextView
             android:id="@+id/activity_admin_home_tv_home"
