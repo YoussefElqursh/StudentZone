@@ -58,7 +58,7 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
 
         profileName = headerView.findViewById(R.id.activity_doctor_home_nav_drawer_doctor_name);
         profileEmail = headerView.findViewById(R.id.activity_doctor_home_nav_drawer_doctor_email);
-        profileImage = headerView.findViewById(R.id.activity_doctor_home_nav_drawer_doctor_dn);
+//        profileImage = headerView.findViewById(R.id.activity_doctor_home_nav_drawer_doctor_dn);
     }
 
     /**logOut()
@@ -97,7 +97,7 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
 
         profileName.setText(capitalizedStr);
         profileEmail.setText(email);
-        profileImage.setText(abbreviation);
+//        profileImage.setText(abbreviation);
 
     }
 

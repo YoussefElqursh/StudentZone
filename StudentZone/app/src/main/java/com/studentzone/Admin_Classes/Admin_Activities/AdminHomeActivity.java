@@ -64,7 +64,7 @@ public class   AdminHomeActivity extends AppCompatActivity implements Navigation
 
         profileName = headerView.findViewById(R.id.activity_admin_home_nav_drawer_admin_name);
         profileEmail = headerView.findViewById(R.id.activity_admin_home_nav_drawer_admin_email);
-        profileImage = headerView.findViewById(R.id.activity_admin_home_nav_drawer_admin_an);
+//        profileImage = headerView.findViewById(R.id.activity_admin_home_nav_drawer_admin_an);
     }
 
     /**
@@ -91,7 +91,7 @@ public class   AdminHomeActivity extends AppCompatActivity implements Navigation
 
         profileName.setText(capitalizedStr);
         profileEmail.setText(email);
-        profileImage.setText(abbreviation);
+//        profileImage.setText(abbreviation);
 
     }
 
