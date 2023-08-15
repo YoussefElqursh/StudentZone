@@ -115,6 +115,24 @@
         android:paddingLeft="40dp"
         tools:ignore="SpeakableTextPresentCheck" />
 
+    <EditText
+        android:id="@+id/fragment_new_subject_et_subject_drive_link"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_et_selector"
+        android:drawableStart="@drawable/ic_link"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Subject Drive Link"
+        android:inputType="textWebEditText"
+        android:paddingLeft="13dp"
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray"
+        android:drawableTint="@drawable/custom_et_selector"/>
+
     <Button
         android:id="@+id/fragment_new_subject_btn_save"
         android:layout_width="match_parent"
