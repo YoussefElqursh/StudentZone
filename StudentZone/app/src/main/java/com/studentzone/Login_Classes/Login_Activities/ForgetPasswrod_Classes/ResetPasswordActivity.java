@@ -29,7 +29,10 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
         ChangePassword();
     }
-
+    public void ChangePassword()
+    {
+        resetPassword.setOnClickListener(v -> validateNewPassword());
+    }
     public void validateNewPassword()
     {
         NewPassword = newPassword.getText().toString().trim();
@@ -67,11 +70,6 @@ public class ResetPasswordActivity extends AppCompatActivity {
         {
             Toast.makeText(ResetPasswordActivity.this, "Two Passwords are not Same", Toast.LENGTH_LONG).show();
         }
-    }
-
-    public void ChangePassword()
-    {
-        resetPassword.setOnClickListener(v -> validateNewPassword());
     }
 
 }

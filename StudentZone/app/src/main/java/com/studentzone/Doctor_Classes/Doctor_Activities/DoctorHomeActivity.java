@@ -2,12 +2,10 @@ package com.studentzone.Doctor_Classes.Doctor_Activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,6 +17,7 @@ import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.studentzone.Admin_Classes.Admin_Activities.AdminProfileActivity;
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
 
@@ -26,9 +25,7 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
     CardView cv_subjects,cv_assessStudent;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
-    TextView profileName, profileEmail;
-
-    ImageView profileImage_drawer,profileImage;
+    TextView profileImage, profileName, profileEmail;
     DrawerLayout drawerLayout;
     View headerView;
     NavigationView navigationView;
@@ -61,8 +58,7 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
 
         profileName = headerView.findViewById(R.id.activity_doctor_home_nav_drawer_doctor_name);
         profileEmail = headerView.findViewById(R.id.activity_doctor_home_nav_drawer_doctor_email);
-        profileImage_drawer = headerView.findViewById(R.id.activity_doctor_home_nav_drawer_shiv_doctor_photo);
-        profileImage = findViewById(R.id.activity_doctor_home_shiv_doctor_photo);
+//        profileImage = headerView.findViewById(R.id.activity_doctor_home_nav_drawer_doctor_dn);
     }
 
     /**logOut()
@@ -86,25 +82,22 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
         preferences = getSharedPreferences("userInfo",MODE_PRIVATE);
         String name = preferences.getString("fName", "");
         String email = preferences.getString("email", "");
-        String image_uri = preferences.getString("image_uri", "");
 
         String capitalizedStr = name.substring(0, 1).toUpperCase() + name.substring(1);
 
+        String  abbreviation = "";
+        String[] words = name.split(" ");
+        for (String word : words) {
+            char firstLetter = word.charAt(0);
+            abbreviation += firstLetter;
+
+            if(abbreviation.length() == 2)
+                break;
+        }
+
         profileName.setText(capitalizedStr);
         profileEmail.setText(email);
-        profileImage_drawer.setImageURI(Uri.parse(image_uri));
-        profileImage.setImageURI(Uri.parse(image_uri));
-
-
-//        String  abbreviation = "";
-//        String[] words = name.split(" ");
-//        for (String word : words) {
-//            char firstLetter = word.charAt(0);
-//            abbreviation += firstLetter;
-//
-//            if(abbreviation.length() == 2)
-//                break;
-//        }
+//        profileImage.setText(abbreviation);
 
     }
 
