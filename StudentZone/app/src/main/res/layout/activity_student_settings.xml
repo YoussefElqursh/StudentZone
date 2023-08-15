@@ -295,8 +295,7 @@
                 android:layout_height="40sp"
                 android:background="@drawable/custom_dark_mode_bg"
                 android:src="@drawable/ic_system_update"
-                android:padding="5dp"
-                android:rotation="-180"/>
+                android:padding="5dp"/>
 
             <TextView
                 android:id="@+id/systemUpdate_tv"
