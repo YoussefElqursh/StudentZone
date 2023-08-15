@@ -30,7 +30,7 @@ public class   AdminHomeActivity extends AppCompatActivity implements Navigation
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
     TextView profileName, profileEmail;
-    ImageView profileImage;
+    ImageView profileImage_drawer, profileImage;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     View headerView;
@@ -67,7 +67,8 @@ public class   AdminHomeActivity extends AppCompatActivity implements Navigation
 
         profileName = headerView.findViewById(R.id.activity_admin_home_nav_drawer_admin_name);
         profileEmail = headerView.findViewById(R.id.activity_admin_home_nav_drawer_admin_email);
-        profileImage = headerView.findViewById(R.id.activity_admin_home_nav_drawer_shiv_admin_photo);
+        profileImage_drawer = headerView.findViewById(R.id.activity_admin_home_nav_drawer_shiv_admin_photo);
+        profileImage = findViewById(R.id.activity_admin_home_shiv_admin_photo);
     }
 
     /**
@@ -85,6 +86,7 @@ public class   AdminHomeActivity extends AppCompatActivity implements Navigation
 
         profileName.setText(capitalizedName);
         profileEmail.setText(email);
+        profileImage_drawer.setImageURI(Uri.parse(image_uri));
         profileImage.setImageURI(Uri.parse(image_uri));
 
 
