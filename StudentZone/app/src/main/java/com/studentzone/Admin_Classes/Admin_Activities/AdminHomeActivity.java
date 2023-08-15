@@ -157,12 +157,21 @@ public class   AdminHomeActivity extends AppCompatActivity implements Navigation
         builder.setPositiveButton("Yes", (dialog, which) -> logOut());
         builder.setNegativeButton("No", null);
         builder.show();
+
+    }
+    public void openSettings()
+    {
+        Intent intent = new Intent(getBaseContext(), AdminSettingsActivity.class);
+        startActivity(intent);
     }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.activity_admin_home_item_logout:
                 logOutConfirmationDialog();
+                break;
+            case R.id.activity_admin_home_item_settings:
+                openSettings();
                 break;
             case R.id.activity_admin_home_item_profile:
                 startActivity(new Intent(getBaseContext(), AdminProfileActivity.class));

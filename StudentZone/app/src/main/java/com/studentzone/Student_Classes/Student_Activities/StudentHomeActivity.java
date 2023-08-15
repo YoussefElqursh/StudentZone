@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
+import com.studentzone.Admin_Classes.Admin_Activities.AdminSettingsActivity;
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
 
@@ -155,11 +156,20 @@ public class    StudentHomeActivity extends AppCompatActivity implements Navigat
 
     }
 
+    public void openSettings()
+    {
+        Intent intent = new Intent(getBaseContext(), AdminSettingsActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.activity_student_home_item_logout :
                 logOutConfirmation();
+                break;
+            case R.id.activity_student_home_item_settings:
+                openSettings();
                 break;
             case R.id.activity_student_home_item_profile:
                 startActivity(new Intent(getBaseContext(), StudentProfileActivity.class));
