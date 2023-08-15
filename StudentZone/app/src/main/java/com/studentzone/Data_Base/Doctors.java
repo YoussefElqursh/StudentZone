@@ -9,6 +9,7 @@ public class Doctors {
     private String Phone ;
     private String Email ;
     private String Password ;
+    private String image_uri ;
 
 
     public Doctors(String FName, String email, String password, String gender, String phone)   {
@@ -72,5 +73,13 @@ public class Doctors {
 
     public void setPassword(String password) {
         Password = password;
+    }
+
+    public void setImage_uri(String image_uri) {
+        this.image_uri = image_uri;
+    }
+
+    public String getImage_uri() {
+        return image_uri;
     }
 }

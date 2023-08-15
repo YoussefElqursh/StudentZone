@@ -9,6 +9,7 @@ public class Students  {
     private String Email;
     private String Password ;
     private String Phone ;
+    private String image_uri ;
 
     public Students(int id, String academic_Number, String FName, String gender, String Email, String Password) {
 
@@ -124,5 +125,12 @@ public class Students  {
 
     public void setDept(int dept) {
         this.dept = dept;
+    }
+    public void setImage_uri(String image_uri) {
+        this.image_uri = image_uri;
+    }
+
+    public String getImage_uri() {
+        return image_uri;
     }
 }

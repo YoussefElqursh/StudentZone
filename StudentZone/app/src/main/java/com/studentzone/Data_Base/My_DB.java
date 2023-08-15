@@ -25,7 +25,7 @@ public class My_DB extends SQLiteOpenHelper {
      ***********************************************************************************************/
     public static final String DB_Name = "Education";
 
-    public static final int DB_Version = 39;
+    public static final int DB_Version = 41;
 
     private final Context context;
 
@@ -42,6 +42,7 @@ public class My_DB extends SQLiteOpenHelper {
     public static final String Student_col_email = "email";
     public static final String Student_col_password = "password";
     public static final String Student_col_phone = "phone";
+    public static final String Student_col_image_uri = "image";
 
 
     /**
@@ -55,6 +56,7 @@ public class My_DB extends SQLiteOpenHelper {
     public static final String Doctors_col_email = "email";
     public static final String Doctors_col_password = "password";
     public static final String Doctors_col_phone = "phone";
+    public static final String Doctors_col_image_uri = "image";
 
     /**
      * Declaration and initiation of Admins table
@@ -64,6 +66,8 @@ public class My_DB extends SQLiteOpenHelper {
     public static final String Admin_col_name = "name";
     public static final String Admin_col_email = "email";
     public static final String Admin_col_password = "password";
+    public static final String Admin_col_phone = "phone";
+    public static final String Admin_col_image_uri =  "image";
 
     /**
      * Declaration and initiation of Departments table
@@ -140,6 +144,7 @@ public class My_DB extends SQLiteOpenHelper {
                 + "" + Student_col_phone + " TEXT,"
                 + "" + Student_col_email + " TEXT UNIQUE NOT NULL CHECK(email LIKE '%.edu%'),"
                 + "" + Student_col_password + " TEXT,"
+                + "" + Student_col_image_uri + " TEXT,"
                 + "FOREIGN KEY(" + Student_col_dept + ") REFERENCES Departmen(" + Department_col_id + "))");
 
         db.execSQL("CREATE TABLE " + Education_Table_Doctors + " ("
@@ -147,6 +152,7 @@ public class My_DB extends SQLiteOpenHelper {
                 + "" + Doctors_col_first_name + " TEXT,"
                 + "" + Doctors_col_last_name + " TEXT,"
                 + "" + Doctors_col_gender + " TEXT,"
+                + "" + Doctors_col_image_uri + " TEXT,"
                 + "" + Doctors_col_phone + " TEXT UNIQUE,"  //Addition+++++++++++++++++++++++++++++++++
                 + "" + Doctors_col_email + " TEXT UNIQUE NOT NULL CHECK(" + Doctors_col_email + " LIKE '%.edu'),"
                 + "" + Doctors_col_password + " TEXT)");    //Should Be NOT NULL
@@ -154,6 +160,8 @@ public class My_DB extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE " + Education_Table_Admins + " ("
                 + "" + Admin_col_id + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "" + Admin_col_name + " TEXT,"
+                + "" + Admin_col_phone + " TEXT,"
+                + "" + Admin_col_image_uri + " TEXT,"
                 + "" + Admin_col_email + " TEXT UNIQUE NOT NULL CHECK(" + Admin_col_email + " LIKE '%.edu'),"
                 + "" + Admin_col_password + " TEXT)");
 
@@ -194,7 +202,7 @@ public class My_DB extends SQLiteOpenHelper {
 
         /**Insert Sample Data
          ******************************************************************************************/
-        db.execSQL("INSERT INTO " + Education_Table_Admins + " (" + Admin_col_name + ", " + Admin_col_email + ", " + Admin_col_password + ")" + " VALUES ('Jon', 'jon.edu', '10')");
+        db.execSQL("INSERT INTO " + Education_Table_Admins + " (" + Admin_col_name + ", " + Admin_col_email + ", " + Admin_col_password + ", " + Admin_col_phone + ")" + " VALUES ('Jon', 'jon10@monufia.edu', '10','010102030400')");
 
         db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Hammad', 'Ahmed','Male', '01220403050','hammad00@monufia.edu', '100')");
         db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Mulhat', 'Mohamed','Male', '010108787111','mulhat11@monufia.edu', '200')");
@@ -270,8 +278,6 @@ public class My_DB extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-
-
     /**
      * checkLogin()
      * This Method Return True = Account Found In My_DB or False = Not Found In My_DB.
@@ -288,12 +294,16 @@ public class My_DB extends SQLiteOpenHelper {
         String lastName;
         String Email;
         String id;
+        String phoneNumber;
+        String aid;
+        int department;
+        String image_uri;
 
         switch (kindCheckedId) {
             case -1:
                 return isValid;
             case 0:
-                Cursor adminCursor = db.query("" + Education_Table_Admins + "", new String[]{Admin_col_name,Admin_col_email},
+                Cursor adminCursor = db.query("" + Education_Table_Admins + "", new String[]{Admin_col_name,Admin_col_email,Admin_col_phone,Admin_col_image_uri},
                         "" + Admin_col_email + "=? AND " + Admin_col_password + "=?", new String[]{email, password},
                         null, null, null, null);
 
@@ -301,19 +311,26 @@ public class My_DB extends SQLiteOpenHelper {
                     isValid = adminCursor.moveToFirst();
                     int firstNameColumnIndex = adminCursor.getColumnIndex(Admin_col_name);
                     int emailColumnIndex = adminCursor.getColumnIndex(Admin_col_email);
+                    int phoneColumnIndex = adminCursor.getColumnIndex(Admin_col_email);
+                    int imageColumnIndex = adminCursor.getColumnIndex(Admin_col_image_uri);
+
                     if (firstNameColumnIndex >= 0) {
                         firstName = adminCursor.getString(firstNameColumnIndex);
                         Email = adminCursor.getString(emailColumnIndex);
+                        phoneNumber = adminCursor.getString(phoneColumnIndex);
+                        image_uri = adminCursor.getString(imageColumnIndex);
 
                         pref.edit().putString("fName",firstName).apply();
                         pref.edit().putString("email",Email).apply();
+                        pref.edit().putString("phoneNumber",phoneNumber).apply();
+                        pref.edit().putString("image_uri",image_uri).apply();
 
                     }
                 }
                 adminCursor.close();
                 break;
             case 1:
-                Cursor doctorCursor = db.query("" + Education_Table_Doctors + "", new String[]{Doctors_col_first_name,Doctors_col_last_name,Doctors_col_email,Doctors_col_id},
+                Cursor doctorCursor = db.query("" + Education_Table_Doctors + "", new String[]{Doctors_col_first_name,Doctors_col_last_name,Doctors_col_email,Doctors_col_id,Doctors_col_phone,Doctors_col_image_uri},
                         "" + Doctors_col_email + "=? AND " + Doctors_col_password + "=?", new String[]{email, password},
                         null, null, null, null);
 
@@ -324,16 +341,23 @@ public class My_DB extends SQLiteOpenHelper {
                     int lastNameColumnIndex = doctorCursor.getColumnIndex(Doctors_col_last_name);
                     int emailColumnIndex = doctorCursor.getColumnIndex(Doctors_col_email);
                     int idColumnIndex = doctorCursor.getColumnIndex(Doctors_col_id);
-                    if (firstNameColumnIndex >= 0 && lastNameColumnIndex >= 0) {
+                    int phoneColumnIndex = doctorCursor.getColumnIndex(Doctors_col_phone);
+                    int imageColumnIndex = doctorCursor.getColumnIndex(Doctors_col_image_uri);
+
+                    if (firstNameColumnIndex >= 0 && lastNameColumnIndex >= 0 ) {
                         firstName = doctorCursor.getString(firstNameColumnIndex);
                         lastName  = doctorCursor.getString(lastNameColumnIndex);
                         Email  = doctorCursor.getString(emailColumnIndex);
                         id  = doctorCursor.getString(idColumnIndex);
+                        phoneNumber  = doctorCursor.getString(phoneColumnIndex);
+                        image_uri  = doctorCursor.getString(imageColumnIndex);
 
                         pref.edit().putString("fName",firstName).apply();
                         pref.edit().putString("lName",lastName).apply();
                         pref.edit().putString("email",Email).apply();
                         pref.edit().putString("id",id).apply();
+                        pref.edit().putString("image_uri",image_uri).apply();
+                        pref.edit().putString("phoneNumber",phoneNumber).apply();
 
 
                     }
@@ -341,7 +365,7 @@ public class My_DB extends SQLiteOpenHelper {
                 doctorCursor.close();
                 break;
             case 2:
-                Cursor studentCursor = db.query("" + Education_Table_Students + "", new String[]{Student_col_first_name,Student_col_last_name,Student_col_email,Student_col_id},
+                Cursor studentCursor = db.query("" + Education_Table_Students + "", new String[]{Student_col_first_name,Student_col_last_name,Student_col_email,Student_col_id,Student_col_phone,Student_col_academic_number,Student_col_dept,Student_col_image_uri},
                         "" + Student_col_email + "=? AND " + Student_col_password + "=?", new String[]{email, password},
                         null, null, null, null);
 
@@ -351,18 +375,30 @@ public class My_DB extends SQLiteOpenHelper {
                     int lastNameColumnIndex = studentCursor.getColumnIndex(Student_col_last_name);
                     int emailColumnIndex = studentCursor.getColumnIndex(Student_col_email);
                     int idColumnIndex = studentCursor.getColumnIndex(Student_col_id);
+                    int phoneColumnIndex = studentCursor.getColumnIndex(Student_col_phone);
+                    int aidColumnIndex = studentCursor.getColumnIndex(Student_col_academic_number);
+                    int deptColumnIndex = studentCursor.getColumnIndex(Student_col_dept);
+                    int imageColumnIndex = studentCursor.getColumnIndex(Student_col_image_uri);
 
                     if (firstNameColumnIndex >= 0 && lastNameColumnIndex >= 0) {
                         firstName = studentCursor.getString(firstNameColumnIndex);
                         lastName  = studentCursor.getString(lastNameColumnIndex);
                         Email  = studentCursor.getString(emailColumnIndex);
                         id  = studentCursor.getString(idColumnIndex);
+                        phoneNumber  = studentCursor.getString(phoneColumnIndex);
+                        aid  = studentCursor.getString(aidColumnIndex);
+                        department  = studentCursor.getInt(deptColumnIndex);
+                        image_uri  = studentCursor.getString(imageColumnIndex);
 
 
                         pref.edit().putString("fName",firstName).apply();
                         pref.edit().putString("lName",lastName).apply();
                         pref.edit().putString("email",Email).apply();
                         pref.edit().putString("id",id).apply();
+                        pref.edit().putString("phoneNumber",phoneNumber).apply();
+                        pref.edit().putString("aid",aid).apply();
+                        pref.edit().putString("image_uri",image_uri).apply();
+                        pref.edit().putString("department",getDepartmentNameById(department)).apply();
 
 
                     }
@@ -837,6 +873,57 @@ public class My_DB extends SQLiteOpenHelper {
 //        db.close();
 
         return coursesList;
+
+    }
+
+    /**updateAdminImage()
+     * This method To update Admin In image And save image_uri in data base
+     * ********************************************************************************************/
+    public void updateAdminImage(String email, String image_uri){
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(Admin_col_image_uri,image_uri);
+
+        String[] args = {email};
+
+        db.update(Education_Table_Admins,values,""+Admin_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
+
+        }
+
+    /**updateDoctorImage()
+     * This method To update Admin In image And save image_uri in data base
+     * ********************************************************************************************/
+    public void updateDoctorImage(String email, String image_uri){
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(Doctors_col_image_uri,image_uri);
+
+        String[] args = {email};
+
+        db.update(Education_Table_Doctors,values,""+Doctors_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
+
+    }
+
+    /**updateStudentImage()
+     * This method To update Admin In image And save image_uri in data base
+     * ********************************************************************************************/
+    public void updateStudentImage(String email, String image_uri){
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(Student_col_image_uri,image_uri);
+
+        String[] args = {email};
+
+        db.update(Education_Table_Students,values,""+Student_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
 
     }
 

@@ -4,11 +4,13 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,7 +29,8 @@ public class   AdminHomeActivity extends AppCompatActivity implements Navigation
     CardView cv_department, cv_subjects, cv_doctors_account, cv_students_account;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
-    TextView profileImage, profileName, profileEmail;
+    TextView profileName, profileEmail;
+    ImageView profileImage;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     View headerView;
@@ -64,7 +67,7 @@ public class   AdminHomeActivity extends AppCompatActivity implements Navigation
 
         profileName = headerView.findViewById(R.id.activity_admin_home_nav_drawer_admin_name);
         profileEmail = headerView.findViewById(R.id.activity_admin_home_nav_drawer_admin_email);
-//        profileImage = headerView.findViewById(R.id.activity_admin_home_nav_drawer_admin_an);
+        profileImage = headerView.findViewById(R.id.activity_admin_home_nav_drawer_shiv_admin_photo);
     }
 
     /**
@@ -76,23 +79,25 @@ public class   AdminHomeActivity extends AppCompatActivity implements Navigation
         preferences = getSharedPreferences("userInfo",MODE_PRIVATE);
         String name = preferences.getString("fName", "");
         String email = preferences.getString("email", "");
+        String image_uri = preferences.getString("image_uri", "");
 
-        String capitalizedStr = name.substring(0, 1).toUpperCase() + name.substring(1);
+        String capitalizedName = name.substring(0, 1).toUpperCase() + name.substring(1);
 
-        String  abbreviation = "";
-        String[] words = name.split(" ");
-        for (String word : words) {
-            char firstLetter = word.charAt(0);
-            abbreviation += firstLetter;
-
-            if(abbreviation.length() == 2)
-                break;
-        }
-
-        profileName.setText(capitalizedStr);
+        profileName.setText(capitalizedName);
         profileEmail.setText(email);
-//        profileImage.setText(abbreviation);
+        profileImage.setImageURI(Uri.parse(image_uri));
 
+
+
+//        String  abbreviation = "";
+//        String[] words = name.split(" ");
+//        for (String word : words) {
+//            char firstLetter = word.charAt(0);
+//            abbreviation += firstLetter;
+//
+//            if(abbreviation.length() == 2)
+//                break;
+//        }
     }
 
     /**
@@ -170,5 +175,6 @@ public class   AdminHomeActivity extends AppCompatActivity implements Navigation
         }
         return false;
     }
+
 
 }

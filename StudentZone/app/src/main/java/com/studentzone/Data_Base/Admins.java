@@ -6,6 +6,8 @@ public class Admins {
     private String name;
     private String Email;
     private String Password ;
+    private String image_uri ;
+
 
     public Admins(int id, String name, String email, String password) {
         Id = id;
@@ -44,5 +46,13 @@ public class Admins {
 
     public void setPassword(String password) {
         Password = password;
+    }
+
+    public void setImage_uri(String image_uri) {
+        this.image_uri = image_uri;
+    }
+
+    public String getImage_uri() {
+        return image_uri;
     }
 }

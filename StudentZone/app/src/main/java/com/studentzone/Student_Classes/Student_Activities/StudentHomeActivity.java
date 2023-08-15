@@ -10,24 +10,25 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
 
-
-
 public class    StudentHomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     CardView cv_subjects_registration, cv_subjects_passed_subjects, cv_subjects;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
-    TextView profileImage, profileName, profileEmail;
+    TextView  profileName, profileEmail;
+    ImageView profileImage_drawer,profileImage;
     View headerView;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -60,7 +61,8 @@ public class    StudentHomeActivity extends AppCompatActivity implements Navigat
 
         headerView = navigationView.getHeaderView(0);
 
-//        profileImage = headerView.findViewById(R.id.activity_student_home_nav_drawer_student_sn);
+        profileImage_drawer = headerView.findViewById(R.id.activity_student_home_nav_drawer_shiv_student_photo);
+        profileImage = findViewById(R.id.activity_student_home_shiv_student_photo);
         profileName = headerView.findViewById(R.id.activity_student_home_nav_drawer_student_name);
         profileEmail = headerView.findViewById(R.id.activity_student_home_nav_drawer_student_email);
     }
@@ -74,22 +76,25 @@ public class    StudentHomeActivity extends AppCompatActivity implements Navigat
         preferences = getSharedPreferences("userInfo",MODE_PRIVATE);
         String name = preferences.getString("fName", "");
         String email = preferences.getString("email", "");
+        String image_uri = preferences.getString("image_uri", "");
 
         String capitalizedStr = name.substring(0, 1).toUpperCase() + name.substring(1);
 
-        String  abbreviation = "";
-        String[] words = name.split(" ");
-        for (String word : words) {
-            char firstLetter = word.charAt(0);
-            abbreviation += firstLetter;
-
-            if(abbreviation.length() == 2)
-                break;
-        }
-
         profileName.setText(capitalizedStr);
         profileEmail.setText(email);
-//        profileImage.setText(abbreviation);
+        profileImage_drawer.setImageURI(Uri.parse(image_uri));
+        profileImage.setImageURI(Uri.parse(image_uri));
+
+
+//        String  abbreviation = "";
+//        String[] words = name.split(" ");
+//        for (String word : words) {
+//            char firstLetter = word.charAt(0);
+//            abbreviation += firstLetter;
+//
+//            if(abbreviation.length() == 2)
+//                break;
+//        }
 
     }
 
