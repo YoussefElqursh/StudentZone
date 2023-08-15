@@ -60,7 +60,7 @@ public class    StudentHomeActivity extends AppCompatActivity implements Navigat
 
         headerView = navigationView.getHeaderView(0);
 
-        profileImage = headerView.findViewById(R.id.activity_student_home_nav_drawer_student_sn);
+//        profileImage = headerView.findViewById(R.id.activity_student_home_nav_drawer_student_sn);
         profileName = headerView.findViewById(R.id.activity_student_home_nav_drawer_student_name);
         profileEmail = headerView.findViewById(R.id.activity_student_home_nav_drawer_student_email);
     }
@@ -89,7 +89,7 @@ public class    StudentHomeActivity extends AppCompatActivity implements Navigat
 
         profileName.setText(capitalizedStr);
         profileEmail.setText(email);
-        profileImage.setText(abbreviation);
+//        profileImage.setText(abbreviation);
 
     }
 
