@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,8 +20,9 @@ import com.studentzone.R;
 public class AdminProfileActivity extends AppCompatActivity {
 
     ImageView profileImage;
-    TextView tv_edite_photo,tv_name, tv_email, tv_phone_number;
+    TextView tv_edite_photo,tv_name, tv_email;
 
+    EditText et_phone_number, et_password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +43,8 @@ public class AdminProfileActivity extends AppCompatActivity {
         tv_edite_photo = findViewById(R.id.activity_admin_profile_tv_edit_photo);
         tv_name = findViewById(R.id.activity_admin_profile_tv_admin_name);
         tv_email = findViewById(R.id.activity_admin_profile_tv_admin_email);
-        tv_phone_number = findViewById(R.id.activity_admin_profile_tv_admin_phone_number);
-
+        et_phone_number = findViewById(R.id.activity_admin_profile_et_admin_phone_number);
+        et_password = findViewById(R.id.activity_admin_profile_et_admin_password);
     }
 
     /** setEditPhotoTextViewAction()
@@ -89,7 +91,7 @@ public class AdminProfileActivity extends AppCompatActivity {
 
         tv_name.setText(name);
         tv_email.setText(email);
-        tv_phone_number.setText(phone);
+        et_phone_number.setText(phone);
         profileImage.setImageURI(Uri.parse(image_uri));
     }
 
