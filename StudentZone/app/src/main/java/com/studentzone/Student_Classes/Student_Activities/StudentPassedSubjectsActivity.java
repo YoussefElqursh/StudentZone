@@ -1,30 +1,48 @@
 package com.studentzone.Student_Classes.Student_Activities;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
+import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
-import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectAdapter;
-import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectModel;
+import com.studentzone.Student_Classes.Student_Models.RegestrationModel.SubjectRegestrationAdapter;
+import com.studentzone.Student_Classes.Student_Models.RegestrationModel.SubjectRegestrationModel;
+import com.studentzone.Student_Classes.Student_Models.SubjectModel.StudentPassedModel;
+import com.studentzone.Student_Classes.Student_Models.SubjectModel.StudentPassedSubjectsAdapter;
 
 import java.util.ArrayList;
-import java.util.List;
-
 public class StudentPassedSubjectsActivity extends AppCompatActivity {
 
     Button btn_back;
+
+    RecyclerView recyclerView;
+    ArrayList<StudentPassedModel> arrayList;
+    //store in the recycler
+    Button btn_After_Registration;
+    SubjectRegestrationAdapter subjectRegestrationAdapter;
+    My_DB my_db=new My_DB( this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_passed_subjects);
         buttonBackAction();
-        studentPassedSubjectRecyclerView();
+
+        recyclerView=findViewById(R.id.student_passed_subjects_recycleview );//add item in recycler
+        arrayList=my_db.getPassedCoursesForStudents();//Method to get all courses name and courses code
+        StudentPassedSubjectsAdapter studentPassedSubjectsAdapter=new StudentPassedSubjectsAdapter(this,arrayList);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        recyclerView.setAdapter(studentPassedSubjectsAdapter); //add model to recycler view
+
     }
 
     public void buttonBackAction(){
@@ -32,27 +50,7 @@ public class StudentPassedSubjectsActivity extends AppCompatActivity {
         btn_back.setOnClickListener(v -> startActivity(new Intent(StudentPassedSubjectsActivity.this, StudentHomeActivity.class)));
     }
 
-    public RecyclerView studentPassedSubjectRecyclerView() {
-        RecyclerView recyclerView = findViewById(R.id.student_passed_subjects_recycleview);
 
-        List<SubjectModel> studentPassedSubjectModel = new ArrayList<SubjectModel>();
-        studentPassedSubjectModel.add(new SubjectModel("Opearing System-1","15asda"));
-        studentPassedSubjectModel.add(new SubjectModel("Machine Learning","25dsf3"));
-        studentPassedSubjectModel.add(new SubjectModel("Computer Programming-1","4576as"));
-        studentPassedSubjectModel.add(new SubjectModel("Software Engineering","sdf257"));
-        studentPassedSubjectModel.add(new SubjectModel("Mathimatics-3","595sdf"));
-        studentPassedSubjectModel.add(new SubjectModel("Multimedia","d5e8r2"));
-        studentPassedSubjectModel.add(new SubjectModel("Information System","c5d9sd"));
-        studentPassedSubjectModel.add(new SubjectModel("Introduction","9sd64s"));
-        studentPassedSubjectModel.add(new SubjectModel("Opearing System-2","sdaf86"));
-        studentPassedSubjectModel.add(new SubjectModel("Computer Programming-2","74aswe"));
-        studentPassedSubjectModel.add(new SubjectModel("Mathimatics-2","123sdf"));
-        studentPassedSubjectModel.add(new SubjectModel("Computer Programming-3","69sder"));
-        studentPassedSubjectModel.add(new SubjectModel("Mobile Application","r6s95f"));
-        studentPassedSubjectModel.add(new SubjectModel("Mathimatics-1","123dfg"));
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new SubjectAdapter(getApplicationContext(), (ArrayList<SubjectModel>) studentPassedSubjectModel));
-        return recyclerView;
-    }
+
 }

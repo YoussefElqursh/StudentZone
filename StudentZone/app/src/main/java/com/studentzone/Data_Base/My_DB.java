@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import com.studentzone.Student_Classes.Student_Models.RegestrationModel.SubjectRegestrationModel;
+import com.studentzone.Student_Classes.Student_Models.SubjectModel.StudentPassedModel;
 import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectModel;
 
 import java.util.ArrayList;
@@ -1384,8 +1385,6 @@ public class My_DB extends SQLiteOpenHelper {
     /*********************************************************/
 
     public boolean subject_have_Prerequest(String subjectName) {
-        System.out.println("subject_have_Prerequest");
-
         SQLiteDatabase db = getReadableDatabase();
         String[] columns = {"PreRequests_id"};
         String selection = "name = ?";
@@ -1395,14 +1394,16 @@ public class My_DB extends SQLiteOpenHelper {
         boolean hasPrerequisite = false;
         if (cursor.moveToFirst()) {
             int columnIndex = cursor.getColumnIndex("PreRequests_id");
-            String prerequisiteId = cursor.getString(columnIndex);
-            hasPrerequisite = (prerequisiteId != null);
+            int prerequisiteId = cursor.getInt(columnIndex);
+            hasPrerequisite = (prerequisiteId != 0);
+           if(hasPrerequisite==true){System.out.println("have pre reques");} else {
+               System.out.println("does not have pre");
+           }
         }
 
         cursor.close();
         return hasPrerequisite;
     }
-
 
 
     public boolean AskForRegistedPre(String subjectName) {
@@ -1414,12 +1415,13 @@ public class My_DB extends SQLiteOpenHelper {
 
     }
 
-    private boolean
-    pre_thereExist_inEnrollment_course_id(int pre_id) {
+    private boolean pre_thereExist_inEnrollment_course_id(int pre_id) {
         SQLiteDatabase db = getReadableDatabase();
-        String selection = "enrollment_course_id = ?";
-        String[] selectionArgs = {String.valueOf(pre_id)};
-        System.out.println("in the pre_thereExist_inEnrollment_course_id");
+        String selection = "enrollment_course_id = ? AND enrollment_student_id = ?";
+        SharedPreferences preferences = context.getSharedPreferences("userInfo", context.MODE_PRIVATE);
+        String studentId = preferences.getString("id", "");
+        int student_id = Integer.parseInt(studentId);
+        String[] selectionArgs = {String.valueOf(pre_id), String.valueOf(student_id)};
 
         Cursor cursor = db.query("Enrollment", new String[]{Enrollment_col_course_id}, selection, selectionArgs, null, null, null);
         int coursePreId = 0;
@@ -1432,13 +1434,11 @@ public class My_DB extends SQLiteOpenHelper {
         db.close();
 
         if (coursePreId > 0) {
-            System.out.println("He registered the prerequisite.");
+            System.out.println("The student has registered the prerequisite.");
             return true;
         } else {
             return false;
         }
-
-
     }
 
     public int getPreRequestIdBy_Name(String subjectName) {
@@ -1454,8 +1454,10 @@ public class My_DB extends SQLiteOpenHelper {
             coursePreId = cursor.getInt(0);
         }
 
+
         cursor.close();
         db.close();
+        System.out.println("pre request id"+coursePreId);
 
         return coursePreId;
     }
@@ -1576,8 +1578,44 @@ public class My_DB extends SQLiteOpenHelper {
         return departmentName;
 
     }
+    //******************************
 
 
+    public ArrayList<StudentPassedModel> getPassedCoursesForStudents() {
+        SQLiteDatabase db = getReadableDatabase();
+        ArrayList<StudentPassedModel> arrayList = new ArrayList<>();
+
+        SharedPreferences preferences = context.getSharedPreferences("userInfo", context.MODE_PRIVATE);
+        String studentId = preferences.getString("id", "");
+        int sId = Integer.parseInt(studentId);
+
+        String selection = "enrollment_student_id = ? AND enrollment_student_grade >= 50";
+        String[] selectionArgs = { String.valueOf(sId) };
+
+        Cursor cursor = db.query("Enrollment",
+                new String[]{ "enrollment_student_grade", "enrollment_student_degree", "enrollment_course_id" },
+                selection, selectionArgs, null, null, null);
+
+        while (cursor.moveToNext()) {
+            @SuppressLint("Range") int courseId = cursor.getInt(cursor.getColumnIndex("enrollment_course_id"));
+            @SuppressLint("Range") String studentGrade = cursor.getString(cursor.getColumnIndex("enrollment_student_grade"));
+            @SuppressLint("Range") int studentDegree = cursor.getInt(cursor.getColumnIndex("enrollment_student_degree"));
+
+            Cursor courseCursor = db.query("Courses", new String[]{ "name" },
+                    "id = ?", new String[]{ String.valueOf(courseId) }, null, null, null);
+
+            if (courseCursor.moveToNext()) {
+                @SuppressLint("Range") String courseName = courseCursor.getString(courseCursor.getColumnIndex("name"));
+                StudentPassedModel model = new StudentPassedModel(courseName, studentDegree, studentGrade);
+                arrayList.add(model);
+            }
+
+            courseCursor.close();
+        }
+
+        cursor.close();
+        return arrayList;
+    }
 
 }
 

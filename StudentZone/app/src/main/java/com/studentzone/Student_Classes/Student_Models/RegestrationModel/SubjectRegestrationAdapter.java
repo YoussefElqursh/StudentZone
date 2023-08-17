@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
+import com.studentzone.Student_Classes.Student_Models.SubjectModel.StudentPassedModel;
 import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectModel;
 
 import java.util.ArrayList;
@@ -30,15 +31,13 @@ import java.util.Locale;
 
 public class SubjectRegestrationAdapter extends RecyclerView.Adapter<SubjectRegestrationAdapter.ViewHolder> {
     ArrayList<SubjectRegestrationModel>arrayList=new ArrayList<>(); //array list
-   public   ArrayList<Integer> Course_id =new ArrayList<>();
+   private    ArrayList<Integer> Course_id =new ArrayList<>();
     Context context;
     My_DB Db;
-
     private BottomSheetDialog bottomSheetDialog;
-
     private View bottomSheetDialogView;
-    public SubjectRegestrationAdapter(Context context, ArrayList<SubjectRegestrationModel>arrayList){
 
+    public SubjectRegestrationAdapter(Context context, ArrayList<SubjectRegestrationModel>arrayList){
         this.context=context;
         this.arrayList=arrayList;
         Db = new My_DB(context);
@@ -53,8 +52,6 @@ public class SubjectRegestrationAdapter extends RecyclerView.Adapter<SubjectRege
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(context).inflate(R.layout.activity_student_model_regestration,parent,false);//holder have model
         ViewHolder viewHolder=new ViewHolder(view);
-
-
         return viewHolder;
     }
 

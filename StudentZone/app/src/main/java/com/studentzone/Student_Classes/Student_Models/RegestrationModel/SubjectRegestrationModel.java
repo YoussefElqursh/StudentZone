@@ -39,6 +39,4 @@ public class SubjectRegestrationModel {
         this.checkBox = checkBox;
     }
 
-
-
 }

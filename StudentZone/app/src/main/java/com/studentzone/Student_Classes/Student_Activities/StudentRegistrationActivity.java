@@ -1,10 +1,10 @@
 package com.studentzone.Student_Classes.Student_Activities;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -29,12 +29,6 @@ public class StudentRegistrationActivity extends AppCompatActivity  {
     My_DB my_db=new My_DB( this);
 
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        recyclerView.refreshDrawableState();
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,14 +49,25 @@ public class StudentRegistrationActivity extends AppCompatActivity  {
         btn_After_Registration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ArrayList<Integer> CourseId=subjectRegestrationAdapter.getCourse_id();
-                for (Integer id : CourseId) {
-                    my_db.insertEnrollmentTable(id);
+                if(subjectRegestrationAdapter.getCourse_id()!=null&&!subjectRegestrationAdapter.getCourse_id().isEmpty())
+                {
+                    ArrayList<Integer> CourseId=subjectRegestrationAdapter.getCourse_id();
+                    for (Integer id : CourseId) {
+                        my_db.insertEnrollmentTable(id);
+                    }
+                    startActivity(new Intent(StudentRegistrationActivity.this,StudentSubjectActivity.class));
+                    recreate();
+                }else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(StudentRegistrationActivity.this);
+                    builder.setTitle("Watch Out!");
+                    builder.setMessage("you have to regist atleast one subject .");
+                    builder.setNegativeButton("Ok", null);
+                    builder.show();
                 }
 
 
-                startActivity(new Intent(StudentRegistrationActivity.this,StudentSubjectActivity.class));
-                recreate();
+
+
 
 
 
