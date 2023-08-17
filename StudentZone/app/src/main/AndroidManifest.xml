@@ -77,7 +77,7 @@
             android:name=".Student_Classes.Student_Activities.StudentRegistrationActivity"
             android:exported="false" />
         <activity
-            android:name=".Student_Classes.Student_Activities.StudentPassedSubjectsActivity"
+            android:name=".Student_Classes.Student_Activities.StudentGradesActivity"
             android:exported="false" />
         <activity
             android:name=".Student_Classes.Student_Activities.StudentHomeActivity"
