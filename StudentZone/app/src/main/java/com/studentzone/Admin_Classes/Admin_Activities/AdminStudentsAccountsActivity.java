@@ -288,11 +288,10 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_admin_students_accounts_sv_menu, menu);
-
-        MenuItem searchItem = menu.findItem(R.id.activity_admin_students_accounts_sv);
-        SearchView searchView = (SearchView) searchItem.getActionView();
-        searchView.setQueryHint("Type here to search");
+//        getMenuInflater().inflate(R.menu.activity_admin_students_accounts_sv_menu, menu);
+//        MenuItem searchItem = menu.findItem(R.id.activity_admin_students_accounts_sv);
+//        SearchView searchView = (SearchView) searchItem.getActionView();
+//        searchView.setQueryHint("Type here to search");
 
         return true;
     }
