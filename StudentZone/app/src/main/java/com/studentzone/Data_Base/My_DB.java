@@ -1408,11 +1408,28 @@ public class My_DB extends SQLiteOpenHelper {
 
     public boolean AskForRegistedPre(String subjectName) {
         int pre_id = getPreRequestIdBy_Name(subjectName);
-        System.out.println("registed pre AskForRegistedPre");
-        if(pre_thereExist_inEnrollment_course_id(pre_id)){
+        if(pre_thereExist_inEnrollment_course_id(pre_id)&&pre_have_successed(pre_id)){
             return true;
         }else{ return false;}
 
+    }
+
+    private boolean pre_have_successed(int pre_id) {
+        SharedPreferences preferences = context.getSharedPreferences("userInfo", context.MODE_PRIVATE);
+        String studentId = preferences.getString("id", "");
+        int student_id = Integer.parseInt(studentId);
+
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = "enrollment_student_id = ? AND enrollment_course_id = ? AND enrollment_student_degree > 50";
+        String[] selectionArgs = {String.valueOf(student_id), String.valueOf(pre_id)};
+
+        Cursor cursor = db.query("Enrollment", new String[]{"enrollment_student_degree"}, selection, selectionArgs, null, null, null);
+        boolean hasSucceeded = cursor.moveToFirst();
+
+        cursor.close();
+        db.close();
+
+        return hasSucceeded;
     }
 
     private boolean pre_thereExist_inEnrollment_course_id(int pre_id) {
@@ -1615,6 +1632,22 @@ public class My_DB extends SQLiteOpenHelper {
 
         cursor.close();
         return arrayList;
+    }
+    public String get_course_by_Course_Id(int Course_Id) {
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = "id =' " + Course_Id + "'";
+
+        Cursor cursor = db.query("Courses", new String[]{Courses_col_name}, selection, null, null, null, null);
+        String Course_Name = null;
+        if (cursor.moveToFirst()) {
+            do {
+                Course_Name = cursor.getString(0);
+
+            } while (cursor.moveToNext());
+            cursor.close();
+            db.close();
+        }
+        return Course_Name;
     }
 
 }
