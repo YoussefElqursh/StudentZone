@@ -29,7 +29,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginBottom="5dp"
             android:paddingTop="10dp"
-            android:drawableTop="@drawable/ic_close"
+            android:drawableTop="@drawable/ic_close_1"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
             style="@android:style/Widget.Material.Button.Borderless"
             android:background="@drawable/custom_btn_close"/>

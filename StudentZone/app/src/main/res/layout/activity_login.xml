@@ -155,7 +155,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:background="@drawable/custom_et_selector"
-                android:drawableStart="@drawable/ic_lock"
+                android:drawableStart="@drawable/ic_lock_1"
                 android:drawablePadding="10dp"
                 android:hint="Password"
                 android:inputType="textPassword"

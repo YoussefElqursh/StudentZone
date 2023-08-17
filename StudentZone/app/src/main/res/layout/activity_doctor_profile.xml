@@ -107,7 +107,7 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="-20dp"
+        android:layout_marginTop="-15dp"
         android:rotation="-180"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -122,7 +122,7 @@
         app:srcCompat="@drawable/custom_arc_3"
         tools:srcCompat="@drawable/custom_arc_3"
         android:rotation="-180"
-        android:layout_marginTop="-70dp"/>
+        android:layout_marginTop="-68dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -143,41 +143,35 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="55dp"
+            android:background="@drawable/custom_profile_info_tv"
+            android:gravity="center"
+            android:layout_marginLeft="5dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/custom_profile_info_tv"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/custom_profile_info_bg_icon"
                 android:gravity="center"
                 android:layout_marginLeft="5dp">
 
-                <LinearLayout
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/custom_profile_info_bg_icon"
-                    android:gravity="center"
-                    android:layout_marginLeft="5dp">
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    app:srcCompat="@drawable/ic_user_2" />
 
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        app:srcCompat="@drawable/ic_user_2" />
-
-                </LinearLayout>
+            </LinearLayout>
 
                 <TextView
                     android:id="@+id/activity_doctor_profile_tv_doctor_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#00608C"
-                    android:textSize="12dp"
+                    android:textSize="14dp"
                     tools:ignore="TextSizeCheck"
                     android:layout_marginLeft="10dp"/>
 
             </LinearLayout>
-
-        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -193,39 +187,35 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="55dp"
+            android:background="@drawable/custom_profile_info_tv"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/custom_profile_info_tv"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/custom_profile_info_bg_icon"
                 android:gravity="center"
                 android:layout_marginLeft="5dp">
 
-                <LinearLayout
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/custom_profile_info_bg_icon"
-                    android:gravity="center"
-                    android:layout_marginLeft="5dp">
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        app:srcCompat="@drawable/ic_email_address_2" />
-
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/activity_doctor_profile_tv_doctor_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="#00608C"
-                    android:textSize="12dp"
-                    tools:ignore="TextSizeCheck"
-                    android:layout_marginLeft="10dp"/>
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    app:srcCompat="@drawable/ic_email_address_2" />
 
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/activity_doctor_profile_tv_doctor_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#00608C"
+                android:textSize="14dp"
+                tools:ignore="TextSizeCheck"
+                android:layout_marginLeft="10dp"/>`
 
         </LinearLayout>
 
@@ -243,39 +233,122 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="50dp"
+            android:background="@drawable/custom_profile_info_tv"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/custom_profile_info_tv"
-                android:gravity="center"
-                android:layout_marginLeft="5dp">
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/custom_profile_info_bg_icon"
+                android:gravity="center">
 
-                <LinearLayout
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/custom_profile_info_bg_icon"
-                    android:gravity="center"
-                    android:layout_marginLeft="5dp">
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        app:srcCompat="@drawable/icon_phone_number_2" />
-
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/activity_doctor_profile_tv_doctor_phone_number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="#00608C"
-                    android:textSize="12dp"
-                    tools:ignore="TextSizeCheck"
-                    android:layout_marginLeft="10dp"/>
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    app:srcCompat="@drawable/ic_phone_number_2"
+                    android:paddingLeft="2dp"
+                    android:paddingTop="2dp"/>
 
             </LinearLayout>
+
+            <EditText
+                android:id="@+id/activity_doctor_profile_et_doctor_phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:background="@android:color/transparent"
+                android:inputType="number"
+                android:textColor="#00608C"
+                android:textSize="14dp"
+                tools:ignore="SpeakableTextPresentCheck,TextSizeCheck"
+                android:enabled="false"
+                android:maxLength="11"/>
+
+            <Button
+                android:id="@+id/activity_doctor_profile_btn_edit_phone_number"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="-30dp"
+                android:background="@android:color/transparent"
+                android:drawableTint="@drawable/custom_btn_profile_edit"
+                android:contentDescription="@string/edit"
+                android:drawableLeft="@drawable/ic_edit"
+                android:paddingLeft="5dp"
+                tools:ignore="TouchTargetSizeCheck"
+                android:clickable="true"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Password"
+            android:textAlignment="center"
+            android:textColor="@color/blue"
+            android:textSize="10dp"
+            tools:ignore="TextSizeCheck"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_profile_info_tv"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/custom_profile_info_bg_icon"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    app:srcCompat="@drawable/ic_lock_2" />
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/activity_doctor_profile_til_doctor_password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:hintEnabled="false"
+                app:passwordToggleEnabled="false"
+                app:passwordToggleTint="@color/blue"
+                android:layout_marginLeft="10dp">
+
+                <EditText
+                    android:id="@+id/activity_doctor_profile_et_doctor_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:inputType="textPassword"
+                    android:textColor="#00608C"
+                    android:textSize="14dp"
+                    tools:ignore="SpeakableTextPresentCheck,TextSizeCheck"
+                    android:enabled="false"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/activity_doctor_profile_btn_edit_password"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="-30dp"
+                android:background="@android:color/transparent"
+                android:drawableTint="@drawable/custom_btn_profile_edit"
+                android:contentDescription="@string/edit"
+                android:drawableLeft="@drawable/ic_edit"
+                android:paddingLeft="5dp"
+                tools:ignore="TouchTargetSizeCheck"
+                android:clickable="true"/>
 
         </LinearLayout>
 

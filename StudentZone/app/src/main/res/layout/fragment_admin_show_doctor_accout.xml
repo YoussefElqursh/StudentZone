@@ -30,7 +30,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/custom_btn_close"
-            android:drawableTop="@drawable/ic_close"
+            android:drawableTop="@drawable/ic_close_1"
             android:paddingTop="10dp"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
@@ -72,7 +72,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/custom_et_selector"
-        android:drawableStart="@drawable/icon_phone_number_1"
+        android:drawableStart="@drawable/ic_phone_number_1"
         android:drawablePadding="10dp"
         android:ems="10"
         android:enabled="false"
@@ -112,7 +112,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/custom_et_selector"
-        android:drawableStart="@drawable/ic_lock"
+        android:drawableStart="@drawable/ic_lock_1"
         android:drawablePadding="11dp"
         android:ems="10"
         android:enabled="false"
