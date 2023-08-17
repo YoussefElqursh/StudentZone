@@ -24,4 +24,5 @@
     <string name="open_nav">Open Navigation Drawer</string>
     <string name="close_nav">Close Navigation Drawer</string>
     <string name="profile_add_photo_fb">Change Photo</string>
+    <string name="edit">edit</string>
 </resources>

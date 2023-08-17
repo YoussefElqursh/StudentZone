@@ -116,7 +116,7 @@ public class    StudentHomeActivity extends AppCompatActivity implements Navigat
     }
 
     public void subjectsPreviousRequestCardViewClickAction() {
-        cv_subjects_passed_subjects.setOnClickListener(v -> startActivity(new Intent(StudentHomeActivity.this, StudentPassedSubjectsActivity.class)));
+        cv_subjects_passed_subjects.setOnClickListener(v -> startActivity(new Intent(StudentHomeActivity.this, StudentGradesActivity.class)));
     }
 
 

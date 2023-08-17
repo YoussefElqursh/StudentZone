@@ -24,7 +24,7 @@
                 android:rotation="-180"
                 android:src="@drawable/custom_arc_4"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="-10dp"
+                android:layout_marginBottom="-35dp"
                 android:layout_marginLeft="-10dp"/>
 
             <Button

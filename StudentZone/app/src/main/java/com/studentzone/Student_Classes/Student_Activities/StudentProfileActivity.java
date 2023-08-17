@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,8 +20,8 @@ import com.studentzone.R;
 public class StudentProfileActivity extends AppCompatActivity {
 
     ImageView profileImage;
-    TextView tv_edite_photo,tv_name, tv_email, tv_phone_number, tv_aid, tv_dept;
-
+    TextView tv_edite_photo,tv_name, tv_email, tv_aid, tv_dept;
+    EditText et_phone_number, et_password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +41,8 @@ public class StudentProfileActivity extends AppCompatActivity {
         tv_edite_photo = findViewById(R.id.activity_student_profile_tv_edit_photo);
         tv_name = findViewById(R.id.activity_student_profile_tv_student_name);
         tv_email = findViewById(R.id.activity_student_profile_tv_student_email);
-        tv_phone_number = findViewById(R.id.activity_student_profile_tv_student_phone_number);
+        et_phone_number = findViewById(R.id.activity_student_profile_et_student_phone_number);
+        et_password = findViewById(R.id.activity_student_profile_et_student_password);
         tv_aid = findViewById(R.id.activity_student_profile_tv_student_academic_id);
         tv_dept = findViewById(R.id.activity_student_profile_tv_student_department);
     }
@@ -96,7 +98,7 @@ public class StudentProfileActivity extends AppCompatActivity {
         tv_email.setText(email);
         tv_aid.setText(aid);
         tv_dept.setText(dept);
-        tv_phone_number.setText(phoneNumber);
+        et_phone_number.setText(phoneNumber);
         profileImage.setImageURI(Uri.parse(image_uri));
 
 
