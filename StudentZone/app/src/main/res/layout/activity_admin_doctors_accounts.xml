@@ -14,9 +14,7 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        android:layout_marginRight="5dp"
-        app:menu="@menu/activity_admin_doctors_accounts_sv_menu">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
         <Button
             android:id="@+id/activity_admin_doctors_accounts_btn_back"
@@ -36,9 +34,10 @@
             android:layout_height="wrap_content"
             android:text="Doctors Accounts"
             android:textSize="18sp"
-            android:layout_marginLeft="30dp"
             android:textColor="@color/white"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
+
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
@@ -51,8 +50,7 @@
             android:id="@+id/activity_admin_doctors_accounts_rl_1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:background="@drawable/custom_cv"
-            android:elevation="50dp">
+            android:background="@drawable/custom_cv">
 
             <Button
                 android:id="@+id/activity_admin_doctors_accounts_btn_add"

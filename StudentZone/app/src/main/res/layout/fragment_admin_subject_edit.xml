@@ -82,7 +82,6 @@
         android:textColorHint="@color/gray"
         android:drawableTint="@drawable/custom_et_selector"/>
 
-
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
         android:id="@+id/fragment_edit_subject_sp_department"
         android:layout_width="match_parent"
@@ -96,15 +95,33 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
-        android:id="@+id/fragment_edit_subject_sp_doctor_name"
+        android:id="@+id/fragment_edit_subject_sp_subject_level"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:background="@drawable/custom_sp_doctor"
+        android:background="@drawable/custom_sp_level"
         android:paddingLeft="40dp"
         tools:ignore="SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/fragment_edit_subject_et_subject_hours"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_et_selector"
+        android:drawableStart="@drawable/ic_clock"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:hint="Subject Hours"
+        android:inputType="number"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray"
+        android:drawableTint="@drawable/custom_et_selector"/>
 
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
         android:id="@+id/fragment_edit_subject_sp_subject_pre_request"
@@ -114,6 +131,17 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/custom_sp_subject"
+        android:paddingLeft="40dp"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:id="@+id/fragment_edit_subject_sp_doctor_name"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_sp_doctor"
         android:paddingLeft="40dp"
         tools:ignore="SpeakableTextPresentCheck" />
 
