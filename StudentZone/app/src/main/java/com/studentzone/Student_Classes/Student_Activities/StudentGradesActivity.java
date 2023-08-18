@@ -1,28 +1,35 @@
 package com.studentzone.Student_Classes.Student_Activities;
 
+import static androidx.fragment.app.FragmentPagerAdapter.*;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TableLayout;
 
+import com.google.android.material.tabs.TabLayout;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
 import com.studentzone.Student_Classes.Student_Fragments.FourthLevelFragment;
 import com.studentzone.Student_Classes.Student_Fragments.FristLevelFragment;
 import com.studentzone.Student_Classes.Student_Fragments.SecondLevelFragment;
 import com.studentzone.Student_Classes.Student_Fragments.ThirdLevelFragment;
+import com.studentzone.Student_Classes.Student_Fragments.ViewPagerAdapter;
 import com.studentzone.Student_Classes.Student_Models.RegestrationModel.SubjectRegestrationAdapter;
 import com.studentzone.Student_Classes.Student_Models.SubjectModel.StudentPassedModel;
 
 import java.util.ArrayList;
 public class StudentGradesActivity extends AppCompatActivity {
 
-    Button btn_back , btn_level_1 , btn_level_2 , btn_level_3 , btn_level_4;
-
-
+    Button btn_back;
+    TabLayout tabLayout;
+    ViewPager viewPager;
     RecyclerView recyclerView;
     ArrayList<StudentPassedModel> arrayList;
     //store in the recycler
@@ -52,38 +59,21 @@ public class StudentGradesActivity extends AppCompatActivity {
         btn_back.setOnClickListener(v -> startActivity(new Intent(StudentGradesActivity.this, StudentHomeActivity.class)));
     }
 
-
     public void openFragments()
     {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        btn_level_1 = findViewById(R.id.activity_student_grades_btn_l1);
-        btn_level_2 = findViewById(R.id.activity_student_grades_btn_l2);
-        btn_level_3 = findViewById(R.id.activity_student_grades_btn_l3);
-        btn_level_4 = findViewById(R.id.activity_student_grades_btn_l4);
+        tabLayout = findViewById(R.id.activity_student_grades_tab);
+        viewPager = findViewById(R.id.activity_student_grades_viewpager);
 
-        btn_level_1.setOnClickListener(v -> fragmentManager.beginTransaction()
-                .replace(R.id.fragment_student_grades_ll_main, FristLevelFragment.class,null)
-                .setReorderingAllowed(true)
-                .addToBackStack("name")
-                .commit());
+        tabLayout.setupWithViewPager(viewPager);
 
-        btn_level_2.setOnClickListener(v -> fragmentManager.beginTransaction()
-                .replace(R.id.fragment_student_grades_ll_main, SecondLevelFragment.class,null)
-                .setReorderingAllowed(true)
-                .addToBackStack("name")
-                .commit());
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
 
-        btn_level_3.setOnClickListener(v -> fragmentManager.beginTransaction()
-                .replace(R.id.fragment_student_grades_ll_main, ThirdLevelFragment.class,null)
-                .setReorderingAllowed(true)
-                .addToBackStack("name")
-                .commit());
+        viewPagerAdapter.addFragment(new FristLevelFragment(),"Level 1");
+        viewPagerAdapter.addFragment(new SecondLevelFragment(),"Level 2");
+        viewPagerAdapter.addFragment(new ThirdLevelFragment(),"Level 3");
+        viewPagerAdapter.addFragment(new FourthLevelFragment(),"Level 4");
 
-        btn_level_4.setOnClickListener(v -> fragmentManager.beginTransaction()
-                .replace(R.id.fragment_student_grades_ll_main, FourthLevelFragment.class,null)
-                .setReorderingAllowed(true)
-                .addToBackStack("name")
-                .commit());
+        viewPager.setAdapter(viewPagerAdapter);
     }
 
 }
