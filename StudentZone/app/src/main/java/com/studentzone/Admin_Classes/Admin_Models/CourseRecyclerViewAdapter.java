@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +34,7 @@ import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
@@ -200,6 +202,8 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
             EditText et_courseDepartment_show = bottomSheetDialogView.findViewById(R.id.fragment_show_subject_et_department);
             EditText et_courseDoctor_show = bottomSheetDialogView.findViewById(R.id.fragment_show_subject_et_doctor);
             EditText et_coursePreRequest_show = bottomSheetDialogView.findViewById(R.id.fragment_show_subject_et_previous);
+            EditText et_courseLevel_show = bottomSheetDialogView.findViewById(R.id.fragment_show_subject_et_subject_level);
+            EditText et_courseNumberOfHours_show = bottomSheetDialogView.findViewById(R.id.fragment_show_subject_et_subject_hours);
             Button btn_close_show_course = bottomSheetDialogView.findViewById(R.id.fragment_show_subject_btn_close);
 
             // Set the text of the views to the corresponding data of the course
@@ -208,6 +212,8 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
             et_courseDepartment_show.setText(db.getDepartmentNameById(course.getDepartment()));
             et_courseDoctor_show.setText(db.getDoctorNameById(course.getDoctor()));
             et_coursePreRequest_show.setText(db.getPreRequestNameById(course.getPreRequest()));
+            et_courseLevel_show.setText(String.valueOf(course.getLevel()));
+            et_courseNumberOfHours_show.setText(String.valueOf(course.getNumberOfHours()));
 
             // Set a click listener on the close button to dismiss the dialog
             btn_close_show_course.setOnClickListener(v -> bottomSheetDialog.dismiss());
@@ -229,6 +235,7 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
 
             EditText et_courseName_edit = bottomSheetDialogView.findViewById(R.id.fragment_edit_subject_et_name);
             EditText et_courseCode_edit = bottomSheetDialogView.findViewById(R.id.fragment_edit_subject_et_code);
+            EditText et_courseNumberOfHours_edit = bottomSheetDialogView.findViewById(R.id.fragment_edit_subject_et_subject_hours);
 
             btn_save_edit_course = bottomSheetDialogView.findViewById(R.id.fragment_edit_subject_btn_save);
             Button btn_close_edit_course = bottomSheetDialogView.findViewById(R.id.fragment_edit_subject_btn_close);
@@ -236,12 +243,18 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
             SearchableSpinner departmentSpinner = bottomSheetDialogView.findViewById(R.id.fragment_edit_subject_sp_department);
             SearchableSpinner doctorSpinner = bottomSheetDialogView.findViewById(R.id.fragment_edit_subject_sp_doctor_name);
             SearchableSpinner preRequestSpinner = bottomSheetDialogView.findViewById(R.id.fragment_edit_subject_sp_subject_pre_request);
+            Spinner levelSpinner = bottomSheetDialogView.findViewById(R.id.fragment_edit_subject_sp_subject_level);
 
             /**Fills out the three spinners with data from the database.
              **********************************************************************************************/
             List<String> deptNames = db.getAllDepartmentsNames();
             List<String> docNames = db.getAllDoctorsNames();
             List<String> coursesName = db.getAllCoursesNames();
+            List<String> coursesLevels = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
+
+            ArrayAdapter<String> arrayAdapter0 = new ArrayAdapter<>(itemView.getContext(), android.R.layout.simple_spinner_item, coursesLevels);
+            arrayAdapter0.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            levelSpinner.setAdapter(arrayAdapter0);
 
             ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<>(itemView.getContext(), android.R.layout.simple_spinner_item, deptNames);
             arrayAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -265,15 +278,19 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
             String originalDept = db.getDepartmentNameById(course.getDepartment());
             String originalDoctor= db.getDoctorNameById(course.getDoctor());
             String originalPreRequest = db.getPreRequestNameById(course.getPreRequest());
+            String originalNumberOfHours = String.valueOf(course.getNumberOfHours());
+            String originalLevel = String.valueOf(course.getLevel());
 
 
 
             //This Lines To FillOut Text Fields With Course Data
             et_courseName_edit.setText(originalName);
             et_courseCode_edit.setText(originalCode);
-            selectItemFromSpinner(originalDept, departmentSpinner);
-            selectItemFromSpinner(originalDoctor, doctorSpinner);
-            selectItemFromSpinner(originalPreRequest, preRequestSpinner);
+            et_courseNumberOfHours_edit.setText(originalNumberOfHours);
+            selectItemFromSearchableSpinner(originalDept, departmentSpinner);
+            selectItemFromSearchableSpinner(originalDoctor, doctorSpinner);
+            selectItemFromSearchableSpinner(originalPreRequest, preRequestSpinner);
+            selectItemFromSpinner(originalLevel, levelSpinner);
 
 
             //We Will Put it disabled until user edit any data of this doctor
@@ -298,7 +315,7 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
                 @Override
                 public void afterTextChanged(Editable s) {
                     // Enable the save button if the text or spinners has changed from the original values
-                    boolean dataChanged = (!departmentSpinner.getSelectedItem().equals(originalDept) || !et_courseName_edit.getText().toString().equals(originalName) || !et_courseCode_edit.getText().toString().equals(originalCode) || !doctorSpinner.getSelectedItem().toString().equals(originalDoctor) || !preRequestSpinner.getSelectedItem().toString().equals(originalPreRequest));
+                    boolean dataChanged = (!departmentSpinner.getSelectedItem().equals(originalDept) || !levelSpinner.getSelectedItem().equals(originalLevel) || !et_courseName_edit.getText().toString().equals(originalName) || !et_courseNumberOfHours_edit.getText().toString().equals(originalNumberOfHours) || !et_courseCode_edit.getText().toString().equals(originalCode) || !doctorSpinner.getSelectedItem().toString().equals(originalDoctor) || !preRequestSpinner.getSelectedItem().toString().equals(originalPreRequest));
 
                     btn_save_edit_course.setEnabled( dataChanged);
                 }
@@ -310,14 +327,28 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
              **/
             et_courseName_edit.addTextChangedListener(textWatcher);
             et_courseCode_edit.addTextChangedListener(textWatcher);
+            et_courseNumberOfHours_edit.addTextChangedListener(textWatcher);
 
+            //is added to detect changes in the selected level.
+            levelSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                    boolean dataChanged = (!departmentSpinner.getSelectedItem().equals(originalDept) || !levelSpinner.getSelectedItem().equals(originalLevel) || !et_courseName_edit.getText().toString().equals(originalName)  || !et_courseNumberOfHours_edit.getText().toString().equals(originalNumberOfHours) || !et_courseNumberOfHours_edit.getText().toString().equals(originalNumberOfHours)  || !et_courseCode_edit.getText().toString().equals(originalCode) || !doctorSpinner.getSelectedItem().toString().equals(originalDoctor) || !preRequestSpinner.getSelectedItem().toString().equals(originalPreRequest));
+                    btn_save_edit_course.setEnabled( dataChanged);
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+                }
+            });
 
             //is added to detect changes in the selected department.
             departmentSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                    boolean dataChanged = (!departmentSpinner.getSelectedItem().equals(originalDept) || !et_courseName_edit.getText().toString().equals(originalName) || !et_courseCode_edit.getText().toString().equals(originalCode) || !doctorSpinner.getSelectedItem().toString().equals(originalDoctor) || !preRequestSpinner.getSelectedItem().toString().equals(originalPreRequest));
+                    boolean dataChanged = (!departmentSpinner.getSelectedItem().equals(originalDept)  || !levelSpinner.getSelectedItem().equals(originalLevel) || ! et_courseName_edit.getText().toString().equals(originalName)   || !et_courseNumberOfHours_edit.getText().toString().equals(originalNumberOfHours) || !et_courseNumberOfHours_edit.getText().toString().equals(originalNumberOfHours)  || !et_courseCode_edit.getText().toString().equals(originalCode) || !doctorSpinner.getSelectedItem().toString().equals(originalDoctor) || !preRequestSpinner.getSelectedItem().toString().equals(originalPreRequest));
                     btn_save_edit_course.setEnabled( dataChanged);
                 }
 
@@ -330,7 +361,7 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
             doctorSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    boolean dataChanged = (!departmentSpinner.getSelectedItem().equals(originalDept) || !et_courseName_edit.getText().toString().equals(originalName) || !et_courseCode_edit.getText().toString().equals(originalCode) || !doctorSpinner.getSelectedItem().toString().equals(originalDoctor) || !preRequestSpinner.getSelectedItem().toString().equals(originalPreRequest));
+                    boolean dataChanged = (!departmentSpinner.getSelectedItem().equals(originalDept)  || !levelSpinner.getSelectedItem().equals(originalLevel) || !et_courseName_edit.getText().toString().equals(originalName) || !et_courseCode_edit.getText().toString().equals(originalCode)  || !et_courseNumberOfHours_edit.getText().toString().equals(originalNumberOfHours) || !doctorSpinner.getSelectedItem().toString().equals(originalDoctor) || !preRequestSpinner.getSelectedItem().toString().equals(originalPreRequest));
                     btn_save_edit_course.setEnabled( dataChanged);
                 }
 
@@ -343,7 +374,7 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
             preRequestSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    boolean dataChanged = (!departmentSpinner.getSelectedItem().equals(originalDept) || !et_courseName_edit.getText().toString().equals(originalName) || !et_courseCode_edit.getText().toString().equals(originalCode) || !doctorSpinner.getSelectedItem().toString().equals(originalDoctor) || !preRequestSpinner.getSelectedItem().toString().equals(originalPreRequest));
+                    boolean dataChanged = (!departmentSpinner.getSelectedItem().equals(originalDept) || !levelSpinner.getSelectedItem().equals(originalLevel)  || !et_courseName_edit.getText().toString().equals(originalName) || !et_courseNumberOfHours_edit.getText().toString().equals(originalNumberOfHours)  || !et_courseCode_edit.getText().toString().equals(originalCode) || !doctorSpinner.getSelectedItem().toString().equals(originalDoctor) || !preRequestSpinner.getSelectedItem().toString().equals(originalPreRequest));
                     btn_save_edit_course.setEnabled( dataChanged);
                 }
 
@@ -355,6 +386,12 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
             //validates the entered data, updates the course information, and notifies the RecyclerView of the change.
             btn_save_edit_course.setOnClickListener(v -> {
 
+                String courseNumberOfHoursString = et_courseNumberOfHours_edit.getText().toString().trim();
+                int courseNumberOfHours = 0;
+                if (!TextUtils.isEmpty(courseNumberOfHoursString) ) {
+                    courseNumberOfHours = Integer.parseInt(courseNumberOfHoursString);
+                }
+
                 //This lines to remember the user to enter data in department name and code
                 if (TextUtils.isEmpty(et_courseName_edit.getText().toString().trim())) {
                     et_courseName_edit.setError("This Filed Is Required !");
@@ -364,6 +401,14 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
                     et_courseCode_edit.setError("This Filed Is Required !");
                     return;
                 }
+                if (TextUtils.isEmpty(et_courseNumberOfHours_edit.getText().toString().trim())) {
+                    et_courseNumberOfHours_edit.setError("This Filed Is Required !");
+                    return;
+                }
+                if (TextUtils.isEmpty(et_courseNumberOfHours_edit.getText()) || courseNumberOfHours<0 || courseNumberOfHours>6)  {
+                    et_courseNumberOfHours_edit.setError("Please, Enter Valid Number Of Hours! (0-6)");
+                    return;
+                }
 
                 //This lines to send edited course to data base across pass new instance of course to db.updateCourse
                 course.setName(et_courseName_edit.getText().toString());
@@ -371,6 +416,8 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
                 course.setDepartment(db.getDepartmentIdByName(departmentSpinner.getSelectedItem().toString()));
                 course.setDoctor(db.getDoctorIdByName(doctorSpinner.getSelectedItem().toString()));
                 course.setPreRequest(db.getPreRequestIdByName(preRequestSpinner.getSelectedItem().toString()));
+                course.setNumberOfHours(Integer.parseInt(et_courseNumberOfHours_edit.getText().toString().trim()));
+                course.setLevel(Integer.parseInt(levelSpinner.getSelectedItem().toString()));
 
                 boolean result = db.updateCourse(course,originalCode,originalName);
 
@@ -417,7 +464,23 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
          *   This method is used to select an item from a searchable spinner based on the provided itemToSelect.
          *   It iterates through the spinner items and selects the matching item
          **********************************************************************************************/
-        private void selectItemFromSpinner(String itemToSelect, SearchableSpinner spinner) {
+        private void selectItemFromSearchableSpinner(String itemToSelect, SearchableSpinner spinner) {
+            if (itemToSelect != null) {
+                for (int i = 0; i < spinner.getCount(); i++) {
+                    if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(itemToSelect)) {
+                        spinner.setSelection(i);
+                        break;
+                    }
+                }
+
+            }
+        }
+
+        /** selectItemFromSpinner()
+         *   This method is used to select an item from a searchable spinner based on the provided itemToSelect.
+         *   It iterates through the spinner items and selects the matching item
+         **********************************************************************************************/
+        private void selectItemFromSpinner(String itemToSelect, Spinner spinner) {
             if (itemToSelect != null) {
                 for (int i = 0; i < spinner.getCount(); i++) {
                     if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(itemToSelect)) {

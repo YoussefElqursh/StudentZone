@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import com.studentzone.Student_Classes.Student_Models.RegestrationModel.SubjectRegestrationModel;
-import com.studentzone.Student_Classes.Student_Models.SubjectModel.StudentPassedModel;
 import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectModel;
 
 import java.util.ArrayList;
@@ -26,7 +25,7 @@ public class My_DB extends SQLiteOpenHelper {
      ***********************************************************************************************/
     public static final String DB_Name = "Education";
 
-    public static final int DB_Version = 41;
+    public static final int DB_Version = 45;
 
     private final Context context;
 
@@ -44,6 +43,7 @@ public class My_DB extends SQLiteOpenHelper {
     public static final String Student_col_password = "password";
     public static final String Student_col_phone = "phone";
     public static final String Student_col_image_uri = "image";
+    public static final String Student_col_level = "level";
 
 
     /**
@@ -87,8 +87,9 @@ public class My_DB extends SQLiteOpenHelper {
     public static final String Courses_col_code = "code";
     public static final String Courses_col_doctor_id = "course_doctor_id";
     public static final String Courses_col_department_id = "course_department_id";
-
-    public static final String Courses_col_PreRequest_id = "PreRequests_id";  // may be changed to preRequests_name
+    public static final String Courses_col_PreRequest_id = "PreRequests_id";
+    public static final String Courses_col_level = "level";
+    public static final String Courses_col_hours = "hours";
 
 
     /**
@@ -101,6 +102,7 @@ public class My_DB extends SQLiteOpenHelper {
     public static final String Enrollment_col_course_id = "enrollment_course_id";
     public static final String Enrollment_col_student_grade = "enrollment_student_grade";
     public static final String Enrollment_col_student_degree = "enrollment_student_degree";
+    public static final String Enrollment_col_student_course_hours = "student_course_hours";
 
 
     /**
@@ -154,6 +156,7 @@ public class My_DB extends SQLiteOpenHelper {
                 + "" + Doctors_col_last_name + " TEXT,"
                 + "" + Doctors_col_gender + " TEXT,"
                 + "" + Doctors_col_image_uri + " TEXT,"
+                + "" + Student_col_level + " INTEGER,"
                 + "" + Doctors_col_phone + " TEXT UNIQUE,"  //Addition+++++++++++++++++++++++++++++++++
                 + "" + Doctors_col_email + " TEXT UNIQUE NOT NULL CHECK(" + Doctors_col_email + " LIKE '%.edu'),"
                 + "" + Doctors_col_password + " TEXT)");    //Should Be NOT NULL
@@ -178,6 +181,8 @@ public class My_DB extends SQLiteOpenHelper {
                 + "" + Courses_col_PreRequest_id + " INTEGER ,"    // May Be Change To Name
                 + "" + Courses_col_department_id + " INTEGER NOT NULL ,"
                 + "" + Courses_col_doctor_id + " INTEGER,"
+                + "" + Courses_col_level + " INTEGER,"
+                + "" + Courses_col_hours + " INTEGER,"
                 + "FOREIGN KEY(" + Courses_col_department_id + ") REFERENCES Departmen(" + Department_col_id + "),"
                 + "FOREIGN KEY(" + Courses_col_doctor_id + ") REFERENCES Doctors(" + Doctors_col_id + "))");
 
@@ -186,6 +191,7 @@ public class My_DB extends SQLiteOpenHelper {
                 + "" + Enrollment_col_student_id + " INTEGER,"
                 + "" + Enrollment_col_course_id + " INTEGER,"
                 + "" + Enrollment_col_student_grade + " Text,"
+                + "" + Enrollment_col_student_course_hours + " INTEGER,"
                 + "" + Enrollment_col_student_degree + " INTEGER,"
                 + "FOREIGN KEY(" + Enrollment_col_student_id + ") REFERENCES Students(" + Student_col_id + "),"
                 + "FOREIGN KEY(" + Enrollment_col_course_id + ") REFERENCES Courses(" + Courses_col_id
@@ -203,13 +209,72 @@ public class My_DB extends SQLiteOpenHelper {
 
         /**Insert Sample Data
          ******************************************************************************************/
+
+        //Departments
+        db.execSQL("INSERT INTO " + Education_Table_Departments + " (" + Department_col_code + "," + Department_col_name + ")" + " VALUES ('GN0','General')");
+        db.execSQL("INSERT INTO " + Education_Table_Departments + " (" + Department_col_code + "," + Department_col_name + ")" + " VALUES ('CS1','Computer Science')");
+        db.execSQL("INSERT INTO " + Education_Table_Departments + " (" + Department_col_code + "," + Department_col_name + ")" + " VALUES ('IS2','Information Systems')");
+        db.execSQL("INSERT INTO " + Education_Table_Departments + " (" + Department_col_code + "," + Department_col_name + ")" + " VALUES ('IT3','Information Technology')");
+        db.execSQL("INSERT INTO " + Education_Table_Departments + " (" + Department_col_code + "," + Department_col_name + ")" + " VALUES ('OD4','OR and Decision Support')");
+
+        //Admins Accounts
         db.execSQL("INSERT INTO " + Education_Table_Admins + " (" + Admin_col_name + ", " + Admin_col_email + ", " + Admin_col_password + ", " + Admin_col_phone + ")" + " VALUES ('Jon', 'jon10@monufia.edu', '10','010102030400')");
 
+        //Doctors Accounts
         db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Hammad', 'Ahmed','Male', '01220403050','hammad00@monufia.edu', '100')");
         db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Mulhat', 'Mohamed','Male', '010108787111','mulhat11@monufia.edu', '200')");
         db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Sondos', 'Fadl','Female', '01553536567789','sondos22@monufia.edu', '300')");
         db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Nader', 'Mohamed','Male', '011001187654','nader33@monufia.edu', '400')");
 
+        db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Ossama', 'Abdul-Raouf','Male', '015001907654','ossama44@monufia.edu', '500')");
+        db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Kafafi', 'Ahmed','Male', '010001187650','ahmed55@monufia.edu', '600')");
+        db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Ashraf', 'AlSisi','Male', '01581187650','ashraf66@monufia.edu', '700')");
+        db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Hadhoud', 'Mohie','Male', '01511111876','mohie77@monufia.edu', '800')");
+
+        db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Khaled', 'Amin','Male', '01211111876','khaled88@monufia.edu', '900')");
+        db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Hatem', 'AlSyed','Male', '01212221876','hatem99@monufia.edu', '1000')");
+        db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Hamdy', 'Musa','Male', '01590800876','hamdy100@monufia.edu', '1100')");
+        db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Araby', 'Kishk','Male', '01190008076','araby110@monufia.edu', '1200')");
+
+        db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Sameh', 'Zaref','Male', '01009000806','sameh120@monufia.edu', '1300')");
+        db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Amera', 'Abdel Muati','Female', '01229000806','amer130@monufia.edu', '1400')");
+        db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Anas', 'Youssef','Male', '05119000806','anas140@monufia.edu', '1500')");
+        db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Gamal', 'Farouk','Male', '01119000806','gamal150@monufia.edu', '1600')");
+
+
+        //Level 1 Courses
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('MA111','Mathematics-1',1,6,1,3)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('OD111','Discrete Mathematics',5,5,1,3)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('GN170','Scientific & Technical Report Writing',1,8,1,3)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS111','Computer Introduction',2,12,1,3)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS110','Semiconductors',2,7,1,3)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('GN140','Professional Ethics',1,9,1,3)");
+
+
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('GN112','Fundamentals of Management',1,10,1,3)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS131','Fundamentals of Programming',2,4,11,1,3)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('MA112','Mathematics-2',1,1,6,1,3)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('IS111','Introduction to IS',3,12,'1',3)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('ST190','Statistics & Probabilities',1,1,8,'1',3)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('IT181','Logic Design-1',4,5,9,'1',3)");
+
+        //Level 2 Courses
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('IT261','Multimedia-1',4,8,13,2,3)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('IS251','Web Design and Development',3,8,14,2,3)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS132','Computer Programming-1',2,8,8,2,3)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('OD213','Introduction to Operation & Decision Support Research',5,9,6,2,3)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS212','Data Structure',2,8,12,2,3)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('IS212','Systems Analysis & Design-1',3,9,10,2,3)");
+
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('IT282','Computer Architecture',4,13,15,2,3)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS233','Computer Programming-2',2,15,8,2,3)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS261','Operating Systems-1',2,15,7,2,3)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('IT211','Computer Networks-1',4,12,1,2,3)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('OD342','Simulation & Modeling',5,16,16,2,3)");
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('MA213','Mathematics-3',5,9,10,2,3)");
+
+
+        //Students Accounts
         db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + ", " + "" + Student_col_last_name + ", " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + "," + Student_col_dept + "," + Student_col_phone + ")" + " VALUES (1000,'Ahmed', 'Shosha','Male', 'ahmed111@monufia.edu', '1000',1,'01281913317')");
         db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + ", " + "" + Student_col_last_name + ", " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + "," + Student_col_dept + "," + Student_col_phone + ")" + " VALUES (2000,'Youssef', 'Ramadan','Male', 'yousse222f@monufia.edu', '2000',1,'01284486834')");
         db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + ", " + "" + Student_col_last_name + ", " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + "," + Student_col_dept + "," + Student_col_phone + ")" + " VALUES (3000,'Momen', 'Ahmed','Male', 'momen333@monufia.edu', '3000',1,'01202617505')");
@@ -218,46 +283,112 @@ public class My_DB extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + ", " + "" + Student_col_last_name + ", " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + "," + Student_col_dept + "," + Student_col_phone + ")" + " VALUES (6000,'Karim', 'Morsy','Male', 'k666@monufia.edu', '6000',1,'01279722049')");
         db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + ", " + "" + Student_col_last_name + ", " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + "," + Student_col_dept + "," + Student_col_phone + ")" + " VALUES (7000,'Alaa', 'Ali','Female', 'alaa777@monufia.edu', '7000',1,'01104060400')");
 
-        db.execSQL("INSERT INTO " + Education_Table_Departments + " (" + Department_col_code + "," + Department_col_name + ")" + " VALUES ('CS0','Computer Scince')");
-        db.execSQL("INSERT INTO " + Education_Table_Departments + " (" + Department_col_code + "," + Department_col_name + ")" + " VALUES ('IT1','Information Technology')");
-        db.execSQL("INSERT INTO " + Education_Table_Departments + " (" + Department_col_code + "," + Department_col_name + ")" + " VALUES ('IS2','Information System')");
 
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (4,5,80,'B+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (5,5,90,'A+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,5,70,'C+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (7,7,70,'C+')");
+        //Students Grades
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (2,1,3,80,'B+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (2,2,3,90,'A+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (2,3,3,95,'A+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (2,4,3,80,'B+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (2,5,3,70,'C+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (2,6,3,80,'B+')");
 
-
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (4,7,80,'B+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (5,7,90,'A+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,7,70,'C+')");
-
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (1,1,80,'B+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (2,1,90,'A+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (3,1,70,'C+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (4,1,80,'B+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (5,1,70,'C+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,1,80,'B+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (7,1,90,'A+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (2,7,3,80,'B+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (2,8,3,90,'A+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (2,9,3,70,'C+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (2,10,3,80,'B+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (2,11,3,90,'A+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (2,12,3,80,'B+')");
 
 
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (3,1,3,80,'B+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (3,2,3,90,'A+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (3,3,3,70,'C+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (3,4,3,80,'B+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (3,5,3,88,'A')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (3,6,3,80,'B+')");
 
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (1,4,85,'A')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (2,4,80,'B+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (3,4,70,'C+')");
-        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (4,4,85,'A')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (3,7,3,80,'B+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (3,8,3,90,'A+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (3,9,3,88,'A')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (3,10,3,80,'B+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (3,11,3,70,'C+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (3,12,3,80,'B+')");
 
 
-        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id +")" + " VALUES ('CS105','Android',1,4)");
-        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id +"," + Courses_col_doctor_id +")" + " VALUES ('CS103','Operating System1',1,2)");
-        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id + ")" + " VALUES ('IS111','Data Base1',3,4)");
-        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id + "," + Courses_col_PreRequest_id + ")" + " VALUES ('CS106','Flutter',1,4,1)");
-        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id + ")" + " VALUES ('IT080','Computer Netowrk1',2,1)");
-        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id +")" + " VALUES ('IT100','Image Processing',2,3)");
-        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id + "," + Courses_col_PreRequest_id + ")" + " VALUES ('IT081','Computer Netowrk2',2,1,5)");
+
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (4,1,3,80,'B+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (4,2,3,90,'A+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (4,3,3,88,'A')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (4,4,3,80,'B+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (4,5,3,70,'C+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (4,6,3,80,'B+')");
+
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (4,7,3,80,'B+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (4,8,3,90,'A+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (4,9,3,70,'C+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (4,10,3,80,'B+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (4,11,3,85,'A')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (4,12,3,80,'B+')");
+
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (5,1,3,80,'B+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (5,2,3,90,'A+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (5,3,3,84,'B+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (5,4,3,80,'B+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (5,5,3,70,'C+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (5,6,3,80,'B+')");
+
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (5,7,3,80,'B+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (5,8,3,90,'A+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (5,9,3,70,'C+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (5,10,3,80,'B+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (5,11,3,90,'A+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (5,12,3,80,'B+')");
+
+
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,1,3,72,'C+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,2,3,70,'C+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,3,3,74,'C+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,4,3,69,'C')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,5,3,90,'A+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,6,3,75,'B')");
+
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,7,3,68,'C')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,8,3,55,'D')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,9,3,89,'A')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,10,3,66,'C')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,11,3,90,'A+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,12,3,68,'C')");
+
+
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,13,3,80,'B+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,14,3,78,'B')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,15,3,70,'C+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,16,3,74,'C+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,17,3,52,'D')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,18,3,64,'D+')");
+
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,19,3,67,'C')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,20,3,78,'B')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,21,3,61,'D+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,22,3,78,'B')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,23,3,59,'D')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (6,24,3,84,'B+')");
+
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (7,1,3,80,'B+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (7,2,3,90,'A+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (7,3,3,85,'A')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (7,4,3,80,'B+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (7,5,3,70,'C+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (7,6,3,80,'B+')");
+
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (7,7,3,80,'B+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (7,8,3,90,'A+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (7,9,3,70,'C+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (7,10,3,80,'B+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (7,11,3,70,'C+')");
+        db.execSQL("INSERT INTO " + Education_Table_Enrollment + " (" + Enrollment_col_student_id + "," + Enrollment_col_course_id + "," + Enrollment_col_student_course_hours + "," + Enrollment_col_student_degree + "," + Enrollment_col_student_grade + ")" + " VALUES (7,12,3,89,'A')");
 
     }
-
 
     /**
      * onUpgrade()
@@ -498,7 +629,6 @@ public class My_DB extends SQLiteOpenHelper {
                 String password = cursor.getString(cursor.getColumnIndex(Student_col_password));
                 String gender = cursor.getString(cursor.getColumnIndex(Student_col_gender));
                 String phone = cursor.getString(cursor.getColumnIndex(Student_col_phone));
-
                 Students students = new Students(fName,aid,email,password,gender,phone,dept);
 
                 studentsArrayList.add(students);
@@ -820,6 +950,8 @@ public class My_DB extends SQLiteOpenHelper {
         values.put(Courses_col_code, course.getCode());
         values.put(Courses_col_department_id, course.getDepartment());
         values.put(Courses_col_doctor_id, course.getDoctor());
+        values.put(Courses_col_level, course.getLevel());
+        values.put(Courses_col_hours, course.getNumberOfHours());
         if(course.getPreRequest() != -1)
             values.put(Courses_col_PreRequest_id, course.getPreRequest());
         else
@@ -862,8 +994,10 @@ public class My_DB extends SQLiteOpenHelper {
                 int doctor = cursor.getInt(cursor.getColumnIndex(Courses_col_doctor_id));
                 int preRequest = cursor.getInt(cursor.getColumnIndex(Courses_col_PreRequest_id));
                 int id = cursor.getInt(cursor.getColumnIndex(Courses_col_id));
+                int level = cursor.getInt(cursor.getColumnIndex(Courses_col_level));
+                int numberOfHours = cursor.getInt(cursor.getColumnIndex(Courses_col_hours));
 
-                Courses course = new Courses(id,code,name,preRequest,dept,doctor);
+                Courses course = new Courses(id,code,name,preRequest,dept,doctor,level,numberOfHours);
 
                 coursesList.add(course);
             }while (cursor.moveToNext());
@@ -970,8 +1104,6 @@ public class My_DB extends SQLiteOpenHelper {
 
     }
 
-
-
     /**getEnrolledStudentCountByCourseId()
      * ********************************************************************************************/
     public int getEnrolledStudentCountByCourseId(int courseId){
@@ -985,10 +1117,10 @@ public class My_DB extends SQLiteOpenHelper {
         return count;
     }
 
-    /**getDegreeByCourseAndStudentId()
+    /**getStudentDegreeByCourseAndStudentId()
      *********************************************************************************************/
     @SuppressLint("Range")
-    public Enrollments getDegreeByCourseAndStudentId(int courseId, int studentId){
+    public Enrollments getStudentDegreeByCourseAndStudentId(int courseId, int studentId){
 
         SQLiteDatabase db = getReadableDatabase();
         int degree = 0;
@@ -1017,11 +1149,18 @@ public class My_DB extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        if(enrollment.getStudent_degree() == -1)
+        if(enrollment.getStudent_degree() == -1){//if exam not corrected till now
             values.put(Enrollment_col_student_degree,(Integer) null);
-        else
+            values.put(Enrollment_col_student_course_hours,(Integer) null );
+        }
+        else{
             values.put(Enrollment_col_student_degree,enrollment.getStudent_degree());
-        values.put(Enrollment_col_student_grade,enrollment.getStudent_grade());
+            if(enrollment.getStudent_degree() >= 50)//if student passed in this course , set number of hours
+               values.put(Enrollment_col_student_course_hours, getCourseHoursByCourseId(enrollment.getCourse_id()));
+            else //if student didn't pass in this course , set number of hours = 0
+                values.put(Enrollment_col_student_course_hours,0);
+        }
+            values.put(Enrollment_col_student_grade,enrollment.getStudent_grade());
 
 
         String[] args = {String.valueOf(enrollment.getStudent_id()),String.valueOf(enrollment.getCourse_id())};
@@ -1032,6 +1171,8 @@ public class My_DB extends SQLiteOpenHelper {
 
         return result > 0;
     }
+
+
 
     /**updateCourse()
      **********************************************************************************************/
@@ -1047,6 +1188,8 @@ public class My_DB extends SQLiteOpenHelper {
         values.put(Courses_col_code,course.getCode());
         values.put(Courses_col_department_id,course.getDepartment());
         values.put(Courses_col_doctor_id,course.getDoctor());
+        values.put(Courses_col_hours,course.getNumberOfHours());
+        values.put(Courses_col_level,course.getLevel());
         if(course.getPreRequest() != -1)
             values.put(Courses_col_PreRequest_id, course.getPreRequest());
         else
@@ -1193,6 +1336,27 @@ public class My_DB extends SQLiteOpenHelper {
 
         cursor.close();
         return preRequestName;
+
+    }
+
+
+    /**getDoctorNameById()
+     *********************************************************************************************/
+    @SuppressLint("Range")
+    public int getCourseHoursByCourseId(int courseId){
+        SQLiteDatabase db = getReadableDatabase();
+        int courseNumberOfHours = -1;
+
+        String query = "SELECT " + Courses_col_hours + " FROM " + Education_Table_Courses +
+                " WHERE " + Courses_col_id + " = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(courseId)});
+
+        if (cursor.moveToFirst()) {
+            courseNumberOfHours = cursor.getInt(cursor.getColumnIndex(Courses_col_hours));
+        }
+
+        cursor.close();
+        return courseNumberOfHours;
 
     }
 
@@ -1598,57 +1762,57 @@ public class My_DB extends SQLiteOpenHelper {
     //******************************
 
 
-    public ArrayList<StudentPassedModel> getPassedCoursesForStudents() {
-        SQLiteDatabase db = getReadableDatabase();
-        ArrayList<StudentPassedModel> arrayList = new ArrayList<>();
-
-        SharedPreferences preferences = context.getSharedPreferences("userInfo", context.MODE_PRIVATE);
-        String studentId = preferences.getString("id", "");
-        int sId = Integer.parseInt(studentId);
-
-        String selection = "enrollment_student_id = ? AND enrollment_student_grade >= 50";
-        String[] selectionArgs = { String.valueOf(sId) };
-
-        Cursor cursor = db.query("Enrollment",
-                new String[]{ "enrollment_student_grade", "enrollment_student_degree", "enrollment_course_id" },
-                selection, selectionArgs, null, null, null);
-
-        while (cursor.moveToNext()) {
-            @SuppressLint("Range") int courseId = cursor.getInt(cursor.getColumnIndex("enrollment_course_id"));
-            @SuppressLint("Range") String studentGrade = cursor.getString(cursor.getColumnIndex("enrollment_student_grade"));
-            @SuppressLint("Range") int studentDegree = cursor.getInt(cursor.getColumnIndex("enrollment_student_degree"));
-
-            Cursor courseCursor = db.query("Courses", new String[]{ "name" },
-                    "id = ?", new String[]{ String.valueOf(courseId) }, null, null, null);
-
-            if (courseCursor.moveToNext()) {
-                @SuppressLint("Range") String courseName = courseCursor.getString(courseCursor.getColumnIndex("name"));
-                StudentPassedModel model = new StudentPassedModel(courseName, studentDegree, studentGrade);
-                arrayList.add(model);
-            }
-
-            courseCursor.close();
-        }
-
-        cursor.close();
-        return arrayList;
-    }
-    public String get_course_by_Course_Id(int Course_Id) {
-        SQLiteDatabase db = getReadableDatabase();
-        String selection = "id =' " + Course_Id + "'";
-
-        Cursor cursor = db.query("Courses", new String[]{Courses_col_name}, selection, null, null, null, null);
-        String Course_Name = null;
-        if (cursor.moveToFirst()) {
-            do {
-                Course_Name = cursor.getString(0);
-
-            } while (cursor.moveToNext());
-            cursor.close();
-            db.close();
-        }
-        return Course_Name;
-    }
+//    public ArrayList<StudentPassedModel> getPassedCoursesForStudents() {
+//        SQLiteDatabase db = getReadableDatabase();
+//        ArrayList<StudentPassedModel> arrayList = new ArrayList<>();
+//
+//        SharedPreferences preferences = context.getSharedPreferences("userInfo", context.MODE_PRIVATE);
+//        String studentId = preferences.getString("id", "");
+//        int sId = Integer.parseInt(studentId);
+//
+//        String selection = "enrollment_student_id = ? AND enrollment_student_grade >= 50";
+//        String[] selectionArgs = { String.valueOf(sId) };
+//
+//        Cursor cursor = db.query("Enrollment",
+//                new String[]{ "enrollment_student_grade", "enrollment_student_degree", "enrollment_course_id" },
+//                selection, selectionArgs, null, null, null);
+//
+//        while (cursor.moveToNext()) {
+//            @SuppressLint("Range") int courseId = cursor.getInt(cursor.getColumnIndex("enrollment_course_id"));
+//            @SuppressLint("Range") String studentGrade = cursor.getString(cursor.getColumnIndex("enrollment_student_grade"));
+//            @SuppressLint("Range") int studentDegree = cursor.getInt(cursor.getColumnIndex("enrollment_student_degree"));
+//
+//            Cursor courseCursor = db.query("Courses", new String[]{ "name" },
+//                    "id = ?", new String[]{ String.valueOf(courseId) }, null, null, null);
+//
+//            if (courseCursor.moveToNext()) {
+//                @SuppressLint("Range") String courseName = courseCursor.getString(courseCursor.getColumnIndex("name"));
+//                StudentPassedModel model = new StudentPassedModel(courseName, studentDegree, studentGrade);
+//                arrayList.add(model);
+//            }
+//
+//            courseCursor.close();
+//        }
+//
+//        cursor.close();
+//        return arrayList;
+//    }
+//    public String get_course_by_Course_Id(int Course_Id) {
+//        SQLiteDatabase db = getReadableDatabase();
+//        String selection = "id =' " + Course_Id + "'";
+//
+//        Cursor cursor = db.query("Courses", new String[]{Courses_col_name}, selection, null, null, null, null);
+//        String Course_Name = null;
+//        if (cursor.moveToFirst()) {
+//            do {
+//                Course_Name = cursor.getString(0);
+//
+//            } while (cursor.moveToNext());
+//            cursor.close();
+//            db.close();
+//        }
+//        return Course_Name;
+//    }
 
 }
 

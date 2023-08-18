@@ -97,19 +97,24 @@ public class DoctorStudentsGradesRecyclerViewAdapter extends RecyclerView.Adapte
 
             String courseId = ((Activity) itemView.getContext()).getIntent().getStringExtra("courseId");
             int courseID = Integer.parseInt(courseId);
-            Enrollments degreeAndGrade = db.getDegreeByCourseAndStudentId(courseID, students.getId());
+            Enrollments degreeAndGrade = db.getStudentDegreeByCourseAndStudentId(courseID, students.getId());
 
             // Set the text fields with student data
             tv_student_name.setText(students.getFName());
 
-            if (degreeAndGrade.getStudent_grade() == null)
+            if (degreeAndGrade.getStudent_grade() == null){
                 tv_student_grade.setText("N");
-            else{
-                tv_student_grade.setText(degreeAndGrade.getStudent_grade());
-                tv_student_degree.setText(String.valueOf(degreeAndGrade.getStudent_degree()));
-
+                tv_student_degree.setText("");
             }
 
+            else {
+                if (degreeAndGrade.getStudent_grade().equals("N"))
+                    tv_student_degree.setText("");
+                else
+                    tv_student_degree.setText(String.valueOf(degreeAndGrade.getStudent_degree()));
+                tv_student_grade.setText(degreeAndGrade.getStudent_grade());
+
+            }
 
             if(students.getGender() != null  && students.getGender().equals("Male"))
                 iv_student_icon.setImageResource(R.drawable.ic_male_student);
@@ -148,7 +153,7 @@ public class DoctorStudentsGradesRecyclerViewAdapter extends RecyclerView.Adapte
             int courseID = Integer.parseInt(courseId);
 
             // Get the degree and grade for the given course and student
-            Enrollments degreeAndGrade = db.getDegreeByCourseAndStudentId(courseID, students.getId());
+            Enrollments degreeAndGrade = db.getStudentDegreeByCourseAndStudentId(courseID, students.getId());
 
             // Keep track of the original data (grade and degree)
             String originalDegree = String.valueOf(degreeAndGrade.getStudent_degree());

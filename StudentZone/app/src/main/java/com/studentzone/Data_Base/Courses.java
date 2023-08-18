@@ -9,6 +9,8 @@ public class Courses {
     private int preRequest;
     private int department;
     private int doctor;
+    private int level;
+    private int numberOfHours;
 
 
     public Courses(int id, String code, String name, int preRequest, int department, int doctor) {
@@ -20,13 +22,25 @@ public class Courses {
         this.department = department;
     }
 
-    public Courses(String name, String code, int department, int doctor, int preRequest)
+    public Courses(int id, String code, String name, int preRequest, int department, int doctor,int level,int numberOfHours) {
+        this.id = id;
+        this.code = code;
+        this.name = name;
+        this.preRequest = preRequest;
+        this.doctor = doctor;
+        this.department = department;
+        this.level = level;
+        this.numberOfHours = numberOfHours;
+    }
+    public Courses(String name, String code, int department, int doctor, int preRequest,int level,int numberOfHours)
     {
         this.name = name;
         this.code = code;
         this.department = department;
         this.doctor = doctor;
         this.preRequest = preRequest;
+        this.level = level;
+        this.numberOfHours = numberOfHours;
 
     }
 
@@ -75,5 +89,19 @@ public class Courses {
 
     public void setDoctor(int doctor) {
         this.doctor = doctor;
+    }
+
+    public int getLevel() {return level;
+    }
+    public int getNumberOfHours() {
+        return numberOfHours;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public void setNumberOfHours(int numberOfHours) {
+        this.numberOfHours = numberOfHours;
     }
 }

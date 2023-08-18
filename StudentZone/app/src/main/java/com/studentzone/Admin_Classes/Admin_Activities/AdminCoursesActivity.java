@@ -31,14 +31,17 @@ public class AdminCoursesActivity extends AppCompatActivity {
 
     // Views
     private Button btn_add_course, btn_back, btn_save_course, btn_close_add_course_dialog;
-    private EditText et_add_new_course_name, et_add_new_course_code;
+    private EditText et_add_new_course_name, et_add_new_course_code, et_add_new_course_numberOfHours;
     private RecyclerView courseRecyclerView;
     private View addCourseBottomSheetDialogView;
     private BottomSheetDialog addCourseBottomSheetDialog;
     private SearchableSpinner departmentSpinner, doctorSpinner, preRequestSpinner;
+    private  Spinner levelSpinner;
 
     // Variables for storing course data
-    private String courseName, courseCode , courseDepartmentName , courseDoctorName , preRequestCourseName = "None" ;
+    private String courseName, courseCode , courseDepartmentName , courseDoctorName , preRequestCourseName = "None",courseLevel;
+
+    private  int courseNumberOfHours;
     private ArrayAdapter<String> preRequestSpinnerAdapter;
 
     @Override
@@ -46,9 +49,6 @@ public class AdminCoursesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_subjects);
 
-
-        btn_add_course = findViewById(R.id.activity_admin_subjects_btn_add);
-        addCourseBottomSheetDialog = new BottomSheetDialog(AdminCoursesActivity.this, R.style.BottomSheetStyle);
 
         // Initialize views
         initializeViews();
@@ -65,7 +65,6 @@ public class AdminCoursesActivity extends AppCompatActivity {
         setSaveCourseButtonAction();  // Save new Course data to database
         setCloseAddCourseDialogButtonAction();  // Close the "add Course" dialog
         setBackButtonAction();  // Go back to previous activity
-
 
     }
 
@@ -87,9 +86,12 @@ public class AdminCoursesActivity extends AppCompatActivity {
         et_add_new_course_name = addCourseBottomSheetDialogView.findViewById(R.id.fragment_new_subject_et_name);
         et_add_new_course_code = addCourseBottomSheetDialogView.findViewById(R.id.fragment_new_subject_et_code);
 
+        et_add_new_course_numberOfHours = addCourseBottomSheetDialogView.findViewById(R.id.fragment_new_subject_et_subject_hours);
+
         departmentSpinner = addCourseBottomSheetDialogView.findViewById(R.id.fragment_new_subject_sp_department);
         doctorSpinner = addCourseBottomSheetDialogView.findViewById(R.id.fragment_new_subject_sp_doctor_name);
         preRequestSpinner = addCourseBottomSheetDialogView.findViewById(R.id.fragment_new_subject_sp_subject_pre_request);
+        levelSpinner = addCourseBottomSheetDialogView.findViewById(R.id.fragment_new_subject_sp_subject_level);
 
         courseRecyclerView = findViewById(R.id.activity_admin_subjects_recycleView);
     }
@@ -134,6 +136,13 @@ public class AdminCoursesActivity extends AppCompatActivity {
 
             courseName = et_add_new_course_name.getText().toString().trim();
             courseCode = et_add_new_course_code.getText().toString().trim();
+
+            String courseNumberOfHoursString = et_add_new_course_numberOfHours.getText().toString().trim();
+            if (!TextUtils.isEmpty(courseNumberOfHoursString) )
+                courseNumberOfHours = Integer.parseInt(courseNumberOfHoursString);
+
+
+
             // Check for null values before calling toString()
             if (departmentSpinner.getSelectedItem() != null) {
                 courseDepartmentName = departmentSpinner.getSelectedItem().toString();
@@ -146,6 +155,9 @@ public class AdminCoursesActivity extends AppCompatActivity {
             if (preRequestSpinner.getSelectedItem() != null) {
                 preRequestCourseName = preRequestSpinner.getSelectedItem().toString();
             }
+            if (levelSpinner.getSelectedItem() != null) {
+                courseLevel =  levelSpinner.getSelectedItem().toString();
+            }
 
 
             // Validate the entered course data
@@ -157,6 +169,18 @@ public class AdminCoursesActivity extends AppCompatActivity {
                 et_add_new_course_code.setError("This field is required!");
                 return;
             }
+            if (TextUtils.isEmpty(et_add_new_course_numberOfHours.getText())) {
+                et_add_new_course_numberOfHours.setError("This field is required!");
+                return;
+            }
+            if (TextUtils.isEmpty(courseLevel) || courseLevel.equals("Course Level")) {
+                Toast.makeText(AdminCoursesActivity.this, "Please assign a level to this course", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (TextUtils.isEmpty(et_add_new_course_numberOfHours.getText()) || courseNumberOfHours<0 || courseNumberOfHours>6) {
+                et_add_new_course_numberOfHours.setError("Please, Enter Valid Number Of Hours! (0-6)");
+                return;
+            }
             if (TextUtils.isEmpty(courseDepartmentName)|| courseDepartmentName.equals("Course Department")) {
                 Toast.makeText(AdminCoursesActivity.this, "Please select a department", Toast.LENGTH_SHORT).show();
                 return;
@@ -165,6 +189,7 @@ public class AdminCoursesActivity extends AppCompatActivity {
                 Toast.makeText(AdminCoursesActivity.this, "Please assign a doctor to this course", Toast.LENGTH_SHORT).show();
                 return;
             }
+
 
             // Save the new course data to the database
             saveNewCourseToDatabase();
@@ -198,7 +223,7 @@ public class AdminCoursesActivity extends AppCompatActivity {
         int preRequestId = db.getPreRequestIdByName(preRequestCourseName);
 
         // Create a new course object with the entered data and insert it into the database
-        Courses course = new Courses(courseName, courseCode, departmentId, doctorId, preRequestId);
+        Courses course = new Courses(courseName, courseCode, departmentId, doctorId, preRequestId,Integer.parseInt(courseLevel),courseNumberOfHours);
 
         boolean added = db.addNewCourse(course);
 
@@ -220,15 +245,29 @@ public class AdminCoursesActivity extends AppCompatActivity {
         List<String> departments = db.getAllDepartmentsNames();
         List<String> doctors = db.getAllDoctorsNames();
         List<String> courses = db.getAllCoursesNames();
+        List<String> levels = new ArrayList<>(5);
 
 
         // Create adapters for the spinners and set them to their respective spinners
 
-        departments.add(0, "Subject Department");//Doctor Name
+        // Set up the courses levels Spinner
+        levels.add(0,"Course Level");
+        levels.add(1,"1");
+        levels.add(2,"2");
+        levels.add(3,"3");
+        levels.add(4,"4");
+
+        ArrayAdapter<String> arrayAdapter0 = new ArrayAdapter<>(AdminCoursesActivity.this, android.R.layout.simple_spinner_dropdown_item, levels);
+        levelSpinner.setAdapter(arrayAdapter0);
+        levelSpinner.setSelection(0);
+
+        // Set up the courses departments Spinner
+        departments.add(0, "Course Department");//Doctor Name
         ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<>(AdminCoursesActivity.this, android.R.layout.simple_spinner_dropdown_item, departments);
         departmentSpinner.setAdapter(arrayAdapter1);
-        //        departmentSpinner.setSelection(0);
+//      departmentSpinner.setSelection(0);
 
+        // Set up the courses doctor Spinner
         doctors.add(0, "Doctor Name");
         ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<>(AdminCoursesActivity.this, android.R.layout.simple_spinner_dropdown_item, doctors);
         doctorSpinner.setAdapter(arrayAdapter2);
@@ -248,10 +287,12 @@ public class AdminCoursesActivity extends AppCompatActivity {
 
         et_add_new_course_name.getText().clear();
         et_add_new_course_code.getText().clear();
+        et_add_new_course_numberOfHours.getText().clear();
 
         departmentSpinner.setSelection(0);
         doctorSpinner.setSelection(0);
         preRequestSpinner.setSelection(0);
+        levelSpinner.setSelection(0);
 
         preRequestSpinnerAdapter.clear();
         fillOutThreeSpinners();
@@ -273,6 +314,5 @@ public class AdminCoursesActivity extends AppCompatActivity {
         courseRecyclerView.setAdapter(adapter);
 
     }
-
 
 }
