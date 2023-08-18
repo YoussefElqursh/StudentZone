@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Doctor_Classes.Doctor_Activities.DoctorStudentGrades">
-
+    tools:context=".Doctor_Classes.Doctor_Activities.DoctorStudentGrades"
+    android:background="@color/blue">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/activity_doctor_student_degree_tbar"
@@ -40,6 +40,18 @@
             android:layout_gravity="center"/>
 
     </androidx.appcompat.widget.Toolbar>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/activity_doctor_subjects_grades_sv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/custom_sv"
+        app:iconifiedByDefault="false"
+        app:queryHint="Search..."
+        app:searchIcon="@drawable/ic_search" />
 
     <LinearLayout
         android:id="@+id/activity_doctor_student_degree_ll_main"

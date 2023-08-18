@@ -39,6 +39,20 @@
             android:layout_gravity="center"/>
 
     </androidx.appcompat.widget.Toolbar>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/activity_admin_subjects_sv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/custom_sv"
+        app:iconifiedByDefault="false"
+        android:elevation="5dp"
+        app:queryHint="Search..."
+        app:searchIcon="@drawable/ic_search" />
+
     <LinearLayout
         android:id="@+id/activity_admin_subjects_ll_main"
         android:layout_width="match_parent"

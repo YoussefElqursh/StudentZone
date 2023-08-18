@@ -371,22 +371,6 @@
                     tools:ignore="TouchTargetSizeCheck"
                     android:clickable="true"/>
 
-                <Button
-                    android:id="@+id/activity_doctor_profile_btn_save_changes"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_gravity="left"
-                    android:layout_marginStart="10dp"
-                    android:background="@drawable/custom_btn_back"
-                    android:contentDescription="@string/back"
-                    android:drawableLeft="@drawable/ic_true"
-                    android:drawableTint="@color/white_gray"
-                    android:paddingLeft="8dp"
-                    tools:ignore="TouchTargetSizeCheck"
-                    android:visibility="invisible"/>
-
             </LinearLayout>
 
             <TextView

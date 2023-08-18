@@ -2,20 +2,14 @@ package com.studentzone.Welcome_Classes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ContentValues;
 import android.content.Intent;
 
-import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
-
-import com.studentzone.Data_Base.My_DB;
 
 
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
@@ -23,7 +17,7 @@ import com.studentzone.R;
 
 public class WelcomeActivity extends AppCompatActivity {
     Button btn_welcome;
-    ImageView imageView;
+    ImageView iv_welcome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,14 +27,13 @@ public class WelcomeActivity extends AppCompatActivity {
         btn_welcome = findViewById(R.id.activity_welcome_btn_welcome);
         buttonWelcomeAction();
 
+        animateWelcomeImageView();
     }
 
 
     /** Welcome Button
      ******************************************************************************************/
     public void buttonWelcomeAction(){
-
-        imageView = findViewById(R.id.welcome_iv);
         btn_welcome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,5 +63,17 @@ public class WelcomeActivity extends AppCompatActivity {
         getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().
                 putBoolean("isFirstRun", false).apply();
     }
+
+    /** animateWelcomeImageView()
+     *  Make Animation to Welcome ImageView
+     ******************************************************************************************/
+    private void animateWelcomeImageView(){
+        iv_welcome = findViewById(R.id.activity_welcome_iv_welcome);
+
+        Animation animation = AnimationUtils.loadAnimation(WelcomeActivity.this, R.anim.anim_welcom_logo);
+        iv_welcome.startAnimation(animation);
+    }
+
+
 }
 
