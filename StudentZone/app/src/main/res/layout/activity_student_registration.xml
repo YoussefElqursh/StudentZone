@@ -14,9 +14,7 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:menu="@menu/activity_admin_departments_sv_menu"
-        android:layout_marginRight="5dp">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
         <Button
             android:id="@+id/activity_student_regestration_btn_back"
@@ -36,9 +34,9 @@
             android:layout_height="wrap_content"
             android:text="Subjects Registration"
             android:textSize="18sp"
-            android:layout_marginLeft="30dp"
             android:textColor="@color/white"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -49,15 +47,6 @@
         android:orientation="vertical"
         android:background="@drawable/custom_cv">
 
-        <TextView
-            android:id="@+id/activity_student_registration_tv_select_subject"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Select your subjects:"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_margin="10dp"/>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleview_student_regestration_choose_subject"
             android:layout_width="match_parent"
@@ -66,18 +55,19 @@
 
         <Button
             android:id="@+id/fragment_new_department_btn_save"
-            android:layout_width="130dp"
-            android:layout_height="48dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
             android:layout_below="@+id/activity_student_regestration_scv_select_subject"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="25dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/custom_btn_login_save"
-            android:text="Regist"
+            android:text="Enroll"
             android:textColor="@color/white"
             android:textSize="18sp"
-            tools:ignore="TextContrastCheck" />
+            tools:ignore="TextContrastCheck"
+            android:textAllCaps="false"/>
 
     </LinearLayout>
 

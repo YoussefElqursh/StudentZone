@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.*;
 
 
@@ -15,6 +17,7 @@ import com.studentzone.Login_Classes.Login_Activities.ForgetPasswrod_Classes.Sen
 import com.studentzone.Student_Classes.Student_Activities.StudentHomeActivity;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
+import com.studentzone.Welcome_Classes.WelcomeActivity;
 
 public class LoginActivity extends AppCompatActivity {
     Button btn_login;
@@ -30,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
     int kindCheckedId = -1;
     SharedPreferences preferences, pref;
     SharedPreferences.Editor editor;
+    ImageView iv_login_logo;
+    LinearLayout ll_login_container;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +45,8 @@ public class LoginActivity extends AppCompatActivity {
         radioButtonGroupAction();
         buttonLoginAction();
         forget_password();
+        animateLoginLogo();
+        animateLoginContainerLayout();
     }
 
     /** Inflate
@@ -54,6 +61,8 @@ public class LoginActivity extends AppCompatActivity {
         rb_doctor = findViewById(R.id.activity_login_rb_doctor);
         forget_password = findViewById(R.id.activity_login_tv_forgot_password);
         cb_Remember_me = findViewById(R.id.activity_login_cb_rememberme);
+        iv_login_logo = findViewById(R.id.activity_login_iv_login_logo);
+        ll_login_container = findViewById(R.id.activity_login_ll_login_container);
     }
 
 
@@ -196,6 +205,22 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+    }
+
+    /**animateLoginLogo()
+     * Make Animation to Login Logo
+     **********************************************************************************************/
+    private void animateLoginLogo(){
+        Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.anim_login_logo);
+        iv_login_logo.startAnimation(animation);
+    }
+
+    /**animateContainerLayout()
+     * Make Animation to login Container Layout
+     **********************************************************************************************/
+    private void animateLoginContainerLayout(){
+        Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.anim_login_ll_container);
+        ll_login_container.startAnimation(animation);
     }
 
 }

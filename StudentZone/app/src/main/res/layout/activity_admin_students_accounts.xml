@@ -15,8 +15,7 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        android:layout_marginRight="5dp"
-        app:menu="@menu/activity_admin_students_accounts_sv_menu">
+        android:layout_marginRight="5dp">
 
         <Button
             android:id="@+id/activity_admin_students_accounts_btn_back"
@@ -37,11 +36,23 @@
             android:text="Students Accounts"
             android:textSize="18sp"
             android:id="@+id/activity_admin_students_accounts_et_search_for_students"
-            android:layout_marginLeft="30dp"
             android:textColor="@color/white"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
 
     </androidx.appcompat.widget.Toolbar>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/activity_admin_syudents_accounts_sv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/custom_sv"
+        app:iconifiedByDefault="false"
+        app:queryHint="Search..."
+        app:searchIcon="@drawable/ic_search" />
 
     <LinearLayout
         android:id="@+id/activity_admin_students_accounts_ll_main"
@@ -54,8 +65,7 @@
             android:id="@+id/activity_admin_students_accounts_rl_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/custom_cv"
-            android:elevation="50dp">
+            android:background="@drawable/custom_cv">
 
             <Button
                 android:id="@+id/activity_admin_students_accounts_btn_add"

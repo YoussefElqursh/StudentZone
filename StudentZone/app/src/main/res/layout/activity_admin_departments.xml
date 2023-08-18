@@ -12,11 +12,9 @@
         android:id="@+id/activity_admin_departments_tbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="5dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:menu="@menu/activity_admin_departments_sv_menu">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
         <Button
             android:id="@+id/activity_admin_departments_btn_back"
@@ -34,13 +32,25 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
             android:text="Departments"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
 
     </androidx.appcompat.widget.Toolbar>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/activity_admin_departments_sv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/custom_sv"
+        app:iconifiedByDefault="false"
+        app:queryHint="Search..."
+        app:searchIcon="@drawable/ic_search" />
 
     <LinearLayout
         android:id="@+id/activity_admin_departments_ll_main"
@@ -52,8 +62,7 @@
             android:id="@+id/activity_admin_departments_rl_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/custom_cv"
-            android:elevation="50dp">
+            android:background="@drawable/custom_cv">
 
             <Button
                 android:id="@+id/activity_admin_departments_btn_add"
@@ -80,7 +89,9 @@
                     android:id="@+id/activity_admin_departments_recycelerview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp" />
+                    android:layout_marginTop="5dp">
+
+                </androidx.recyclerview.widget.RecyclerView>
 
             </LinearLayout>
 

@@ -99,7 +99,7 @@ public class SubjectRegestrationAdapter extends RecyclerView.Adapter<SubjectRege
 
                            Course_id.add(ID_Course);
                        }else{
-                           Toast.makeText(context, "you should register and succeed the pre", Toast.LENGTH_SHORT).show();
+                           Toast.makeText(context, "so you should regist it again .", Toast.LENGTH_LONG).show();
                            buttonView.setChecked(false);
                        }
 

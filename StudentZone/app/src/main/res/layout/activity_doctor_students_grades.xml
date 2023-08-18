@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Doctor_Classes.Doctor_Activities.DoctorStudentDegree">
-
+    tools:context=".Doctor_Classes.Doctor_Activities.DoctorStudentGrades"
+    android:background="@color/blue">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/activity_doctor_student_degree_tbar"
@@ -15,8 +15,7 @@
         android:layout_marginRight="5dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:menu="@menu/activity_admin_departments_sv_menu">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
         <Button
             android:id="@+id/activity_doctor_student_degree_btn_back"
@@ -34,13 +33,25 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:text="Subject Students"
+            android:text="Subjects Grades"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
 
     </androidx.appcompat.widget.Toolbar>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/activity_doctor_subjects_grades_sv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/custom_sv"
+        app:iconifiedByDefault="false"
+        app:queryHint="Search..."
+        app:searchIcon="@drawable/ic_search" />
 
     <LinearLayout
         android:id="@+id/activity_doctor_student_degree_ll_main"
