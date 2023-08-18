@@ -20,6 +20,7 @@
         android:gravity="center">
 
         <TextView
+            android:id="@+id/activity_welcome_tv_welcome_to"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Welcome to"
@@ -27,6 +28,7 @@
             android:textSize="36dp"/>
 
         <TextView
+            android:id="@+id/activity_welcome_tv_student_zone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" Student Zone."
@@ -37,9 +39,9 @@
     </LinearLayout>
 
     <ImageView
-        android:layout_width="600dp"
-        android:layout_height="400dp"
-        android:id="@+id/welcome_iv"
+        android:id="@+id/activity_welcome_iv_welcome"
+        android:layout_width="500dp"
+        android:layout_height="360dp"
         android:src="@drawable/illust_welcome"
         android:layout_marginLeft="-20dp"
         android:layout_marginRight="-20dp"

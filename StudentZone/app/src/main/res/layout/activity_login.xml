@@ -5,7 +5,8 @@
     android:id="@+id/activity_login_rl_main"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    tools:context=".Login_Classes.Login_Activities.LoginActivity">
+    tools:context=".Login_Classes.Login_Activities.LoginActivity"
+    android:background="@color/blue">
 
     <View
         android:id="@+id/top_view"
@@ -14,7 +15,7 @@
         android:background="@drawable/custom_view" />
 
     <ImageView
-        android:id="@+id/activity_login_iv_loginlogo"
+        android:id="@+id/activity_login_iv_login_logo"
         android:layout_width="match_parent"
         android:layout_height="410dp"
         android:layout_alignParentStart="true"
@@ -25,10 +26,11 @@
         android:layout_marginTop="-50dp"
         android:elevation="5dp"
         android:layout_marginRight="-40dp"
-        android:layout_marginLeft="-40dp"/>
+        android:layout_marginLeft="-40dp"
+        android:layout_alignParentTop="true"/>
 
     <LinearLayout
-        android:id="@+id/activity_login_ll_logincontainer"
+        android:id="@+id/activity_login_ll_login_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/top_view"
