@@ -19,6 +19,7 @@ import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.studentzone.Admin_Classes.Admin_Activities.AdminContactUsActivity;
 import com.studentzone.Admin_Classes.Admin_Activities.AdminProfileActivity;
 import com.studentzone.Admin_Classes.Admin_Activities.AdminSettingsActivity;
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
@@ -146,7 +147,19 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
 
     public void openSettings()
     {
-        Intent intent = new Intent(getBaseContext(), AdminSettingsActivity.class);
+        Intent intent = new Intent(getBaseContext(), DoctorSettingsActivity.class);
+        startActivity(intent);
+    }
+
+    public void openContactUS()
+    {
+        Intent intent = new Intent(getBaseContext(), DoctorContactUsActivity.class);
+        startActivity(intent);
+    }
+
+    public void openProfile()
+    {
+        Intent intent = new Intent(getBaseContext(), DoctorProfileActivity.class);
         startActivity(intent);
     }
 
@@ -160,7 +173,10 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
                 openSettings();
                 break;
             case R.id.activity_doctor_home_item_profile:
-                startActivity(new Intent(getBaseContext(), DoctorProfileActivity.class));
+                openProfile();
+                break;
+            case R.id.activity_doctor_home_item_about_us:
+                openContactUS();
                 break;
         }
         return false;

@@ -20,7 +20,7 @@
             android:layout_marginTop="10dp">
 
             <Button
-                android:id="@+id/activity_admin_profile_btn_back"
+                android:id="@+id/activity_admin_settings_btn_back"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -44,22 +44,6 @@
                 android:textColor="@color/white_gray"
                 android:textSize="20dp"
                 android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/activity_admin_profile_btn_sittings"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentEnd="true"
-                android:layout_gravity="left"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/custom_btn_back"
-                android:contentDescription="@string/back"
-                android:drawableLeft="@drawable/ic_sittings"
-                android:drawableTint="@color/white_gray"
-                android:paddingLeft="8dp"
-                tools:ignore="TouchTargetSizeCheck" />
-
         </RelativeLayout>
 
     </LinearLayout>

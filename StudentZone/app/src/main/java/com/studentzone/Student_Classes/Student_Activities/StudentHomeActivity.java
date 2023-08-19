@@ -19,6 +19,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
+import com.studentzone.Admin_Classes.Admin_Activities.AdminContactUsActivity;
+import com.studentzone.Admin_Classes.Admin_Activities.AdminProfileActivity;
 import com.studentzone.Admin_Classes.Admin_Activities.AdminSettingsActivity;
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
@@ -163,7 +165,19 @@ public class    StudentHomeActivity extends AppCompatActivity implements Navigat
 
     public void openSettings()
     {
-        Intent intent = new Intent(getBaseContext(), AdminSettingsActivity.class);
+        Intent intent = new Intent(getBaseContext(), StudentSettingsActivity.class);
+        startActivity(intent);
+    }
+
+    public void openContactUS()
+    {
+        Intent intent = new Intent(getBaseContext(), StudentContactUsActivity.class);
+        startActivity(intent);
+    }
+
+    public void openProfile()
+    {
+        Intent intent = new Intent(getBaseContext(), StudentProfileActivity.class);
         startActivity(intent);
     }
 
@@ -177,7 +191,10 @@ public class    StudentHomeActivity extends AppCompatActivity implements Navigat
                 openSettings();
                 break;
             case R.id.activity_student_home_item_profile:
-                startActivity(new Intent(getBaseContext(), StudentProfileActivity.class));
+                openProfile();
+                break;
+            case R.id.activity_student_home_item_about_us:
+                openContactUS();
                 break;
         }
         return false;

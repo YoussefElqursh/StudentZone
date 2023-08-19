@@ -176,6 +176,18 @@ public class   AdminHomeActivity extends AppCompatActivity implements Navigation
         Intent intent = new Intent(getBaseContext(), AdminSettingsActivity.class);
         startActivity(intent);
     }
+
+    public void openContactUS()
+    {
+        Intent intent = new Intent(getBaseContext(), AdminContactUsActivity.class);
+        startActivity(intent);
+    }
+
+    public void openProfile()
+    {
+        Intent intent = new Intent(getBaseContext(), AdminProfileActivity.class);
+        startActivity(intent);
+    }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
@@ -186,7 +198,10 @@ public class   AdminHomeActivity extends AppCompatActivity implements Navigation
                 openSettings();
                 break;
             case R.id.activity_admin_home_item_profile:
-                startActivity(new Intent(getBaseContext(), AdminProfileActivity.class));
+                openProfile();
+                break;
+            case R.id.activity_admin_home_item_about_us:
+                openContactUS();
                 break;
         }
         return false;

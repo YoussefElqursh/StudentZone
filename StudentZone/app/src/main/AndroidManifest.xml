@@ -24,6 +24,15 @@
         android:theme="@style/Theme.StudentZone"
         tools:targetApi="31">
         <activity
+            android:name=".Student_Classes.Student_Activities.StudentContactUsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Doctor_Classes.Doctor_Activities.DoctorContactUsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Admin_Classes.Admin_Activities.AdminContactUsActivity"
+            android:exported="false" />
+        <activity
             android:name=".Student_Classes.Student_Activities.StudentSettingsActivity"
             android:exported="false" />
         <activity
