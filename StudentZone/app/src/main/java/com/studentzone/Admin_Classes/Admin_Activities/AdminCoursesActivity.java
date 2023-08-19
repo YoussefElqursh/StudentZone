@@ -1,6 +1,10 @@
 package com.studentzone.Admin_Classes.Admin_Activities;
 
+import android.content.Context;
 import android.text.TextUtils;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -30,8 +35,8 @@ public class AdminCoursesActivity extends AppCompatActivity {
     private final My_DB db = new My_DB(this);
 
     // Views
-    private Button btn_add_course, btn_back, btn_save_course, btn_close_add_course_dialog;
-    private EditText et_add_new_course_name, et_add_new_course_code, et_add_new_course_numberOfHours;
+    private Button btn_add_course, btn_back, btn_save_course, btn_close_add_course_dialog, btn_show_search, btn_hide_search;
+    private EditText et_add_new_course_name, et_add_new_course_code, et_add_new_course_numberOfHours, et_search;
     private RecyclerView courseRecyclerView;
     private View addCourseBottomSheetDialogView;
     private BottomSheetDialog addCourseBottomSheetDialog;
@@ -43,6 +48,9 @@ public class AdminCoursesActivity extends AppCompatActivity {
 
     private  int courseNumberOfHours;
     private ArrayAdapter<String> preRequestSpinnerAdapter;
+
+    private Toolbar toolbar;
+    private LinearLayout ll_search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +73,8 @@ public class AdminCoursesActivity extends AppCompatActivity {
         setSaveCourseButtonAction();  // Save new Course data to database
         setCloseAddCourseDialogButtonAction();  // Close the "add Course" dialog
         setBackButtonAction();  // Go back to previous activity
-
+        setButtonSearchAction(); // show search et
+        setButtonBackSearchAction(); // hide search et
     }
 
 
@@ -76,6 +85,8 @@ public class AdminCoursesActivity extends AppCompatActivity {
     public void initializeViews() {
         btn_add_course = findViewById(R.id.activity_admin_subjects_btn_add);
         btn_back = findViewById(R.id.activity_admin_subjects_btn_back);
+        btn_show_search = findViewById(R.id.activity_admin_subjects_btn_search);
+        btn_hide_search = findViewById(R.id.activity_admin_subjects_btn_search_back);
 
         addCourseBottomSheetDialog = new BottomSheetDialog(AdminCoursesActivity.this, R.style.BottomSheetStyle);
         addCourseBottomSheetDialogView = getLayoutInflater().inflate(R.layout.fragment_admin_add_subject, null, false);
@@ -85,6 +96,7 @@ public class AdminCoursesActivity extends AppCompatActivity {
 
         et_add_new_course_name = addCourseBottomSheetDialogView.findViewById(R.id.fragment_new_subject_et_name);
         et_add_new_course_code = addCourseBottomSheetDialogView.findViewById(R.id.fragment_new_subject_et_code);
+        et_search = findViewById(R.id.activity_admin_subjects_et_search);
 
         et_add_new_course_numberOfHours = addCourseBottomSheetDialogView.findViewById(R.id.fragment_new_subject_et_subject_hours);
 
@@ -92,6 +104,9 @@ public class AdminCoursesActivity extends AppCompatActivity {
         doctorSpinner = addCourseBottomSheetDialogView.findViewById(R.id.fragment_new_subject_sp_doctor_name);
         preRequestSpinner = addCourseBottomSheetDialogView.findViewById(R.id.fragment_new_subject_sp_subject_pre_request);
         levelSpinner = addCourseBottomSheetDialogView.findViewById(R.id.fragment_new_subject_sp_subject_level);
+
+        toolbar = findViewById(R.id.activity_admin_subjects_tbar);
+        ll_search = findViewById(R.id.activity_admin_subjects_ll_search);
 
         courseRecyclerView = findViewById(R.id.activity_admin_subjects_recycleView);
     }
@@ -312,6 +327,51 @@ public class AdminCoursesActivity extends AppCompatActivity {
         courseRecyclerView.setHasFixedSize(true);
         courseRecyclerView.setLayoutManager(lm);
         courseRecyclerView.setAdapter(adapter);
+
+    }
+
+    /**setButtonSearchAction()
+     * Make button search show search edit text and hide toolbar
+     **********************************************************************************************/
+    public void setButtonSearchAction() {
+
+        btn_show_search.setOnClickListener(v -> {
+            toolbar.setVisibility(View.INVISIBLE);
+            ll_search.setVisibility(View.VISIBLE);
+
+            //Show make a cursor focus on edit text when click on search button
+            et_search.requestFocus(v.getTextDirection());
+
+            //Show keyboard INPUT METHOD SERVICE when click on search button
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(et_search, InputMethodManager.SHOW_IMPLICIT);
+
+            //Make animation when click on search btn
+            Animation animation = AnimationUtils.loadAnimation(AdminCoursesActivity.this, R.anim.anim_activities_show_search);
+            ll_search.startAnimation(animation);
+
+        });
+    }
+
+    /**setButtonBackSearchAction()
+     * Make button back Search hide search edit text and show toolbar
+     **********************************************************************************************/
+    public void setButtonBackSearchAction() {
+        btn_hide_search.setOnClickListener(v -> {
+
+            toolbar.setVisibility(View.VISIBLE);
+            ll_search.setVisibility(View.INVISIBLE);
+
+            et_search.setText("");
+
+            //Make animation when click on search back
+            Animation animation = AnimationUtils.loadAnimation(AdminCoursesActivity.this, R.anim.anim_activities_hide_search);
+            toolbar.startAnimation(animation);
+
+            //Close Keyboard INPUT METHOD SERVICE when click on search button
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(et_search.getWindowToken(), 0);
+        });
 
     }
 
