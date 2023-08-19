@@ -231,7 +231,7 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
          **********************************************************************************************/
         private void displayEditCourseDialog(Courses course) {
             bottomSheetDialog = new BottomSheetDialog(itemView.getContext(), R.style.BottomSheetStyle);
-            bottomSheetDialogView = LayoutInflater.from(itemView.getContext()).inflate(R.layout.fragment_admin_subject_edit, null, false);
+            bottomSheetDialogView = LayoutInflater.from(itemView.getContext()).inflate(R.layout.fragment_admin_edit_subject, null, false);
 
             EditText et_courseName_edit = bottomSheetDialogView.findViewById(R.id.fragment_edit_subject_et_name);
             EditText et_courseCode_edit = bottomSheetDialogView.findViewById(R.id.fragment_edit_subject_et_code);
