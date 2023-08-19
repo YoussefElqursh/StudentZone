@@ -193,15 +193,19 @@ public class   AdminHomeActivity extends AppCompatActivity implements Navigation
         switch (item.getItemId()){
             case R.id.activity_admin_home_item_logout:
                 logOutConfirmationDialog();
+                drawerLayout.closeDrawers();
                 break;
             case R.id.activity_admin_home_item_settings:
                 openSettings();
+                drawerLayout.closeDrawers();
                 break;
             case R.id.activity_admin_home_item_profile:
                 openProfile();
+                drawerLayout.closeDrawers();
                 break;
             case R.id.activity_admin_home_item_about_us:
                 openContactUS();
+                drawerLayout.closeDrawers();
                 break;
         }
         return false;

@@ -186,15 +186,19 @@ public class    StudentHomeActivity extends AppCompatActivity implements Navigat
         switch (item.getItemId()){
             case R.id.activity_student_home_item_logout :
                 logOutConfirmation();
+                drawerLayout.closeDrawers();
                 break;
             case R.id.activity_student_home_item_settings:
+                drawerLayout.closeDrawers();
                 openSettings();
                 break;
             case R.id.activity_student_home_item_profile:
                 openProfile();
+                drawerLayout.closeDrawers();
                 break;
             case R.id.activity_student_home_item_about_us:
                 openContactUS();
+                drawerLayout.closeDrawers();
                 break;
         }
         return false;

@@ -168,15 +168,19 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
         switch (item.getItemId()){
             case R.id.activity_doctor_home_item_logout:
                 logoutConfirmation();
+                drawerLayout.closeDrawers();
                 break;
             case R.id.activity_doctor_home_item_settings:
                 openSettings();
+                drawerLayout.closeDrawers();
                 break;
             case R.id.activity_doctor_home_item_profile:
                 openProfile();
+                drawerLayout.closeDrawers();
                 break;
             case R.id.activity_doctor_home_item_about_us:
                 openContactUS();
+                drawerLayout.closeDrawers();
                 break;
         }
         return false;
