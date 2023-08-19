@@ -1,20 +1,26 @@
 package com.studentzone.Admin_Classes.Admin_Activities;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,8 +44,8 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
     private final My_DB db = new My_DB(this);
 
     // Views
-    private Button btn_add_student, btn_back, btn_save_student, btn_close_add_student_dialog;
-    private EditText et_add_new_student_name, et_add_new_student_password, et_add_new_student_email, et_add_new_student_aid,et_add_new_student_phone;
+    private Button btn_add_student, btn_back, btn_save_student, btn_close_add_student_dialog, btn_show_search, btn_hide_search;
+    private EditText et_add_new_student_name, et_add_new_student_password, et_add_new_student_email, et_add_new_student_aid,et_add_new_student_phone, et_search;
     private RadioGroup rg_gender;
     private BottomSheetDialog addStudentBottomSheetDialog;
     private View addStudentBottomSheetDialogView;
@@ -49,6 +55,8 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
     private String studentAID, studentName, studentEmail, studentPassword, studentGender = "Male",studentPhone,studentDepartmentName;
     private RecyclerView studentRecyclerView;
 
+    private Toolbar toolbar;
+    private LinearLayout ll_search;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -76,6 +84,8 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
         setStudentGenderRadioGroupAction(); // Set gender of new student
         setSaveStudentButtonAction(); // Save new student data to database
         setCloseAddStudentDialogButtonAction(); // Close the "add student" dialog
+        setButtonSearchAction(); // show search et
+        setButtonBackSearchAction(); // hide search et
     }
 
 
@@ -86,6 +96,8 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
     public void initializeViews() {
         btn_add_student = findViewById(R.id.activity_admin_students_accounts_btn_add);
         btn_back = findViewById(R.id.activity_admin_students_accounts_btn_back);
+        btn_show_search = findViewById(R.id.activity_admin_students_accounts_btn_search);
+        btn_hide_search = findViewById(R.id.activity_admin_students_accounts_btn_search_back);
 
         addStudentBottomSheetDialog = new BottomSheetDialog(AdminStudentsAccountsActivity.this, R.style.BottomSheetStyle);
         addStudentBottomSheetDialogView = getLayoutInflater().inflate(R.layout.fragment_admin_add_student_account, null, false);
@@ -98,8 +110,12 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
         et_add_new_student_password = addStudentBottomSheetDialogView.findViewById(R.id.fragment_new_student_et_student_password);
         et_add_new_student_email = addStudentBottomSheetDialogView.findViewById(R.id.fragment_new_student_et_student_email);
         et_add_new_student_phone = addStudentBottomSheetDialogView.findViewById(R.id.fragment_new_student_et_student_phone);
+        et_search = findViewById(R.id.activity_admin_students_accounts_et_search);
+
         departmentSpinner = addStudentBottomSheetDialogView.findViewById(R.id.fragment_new_student_sp_department);
 
+        toolbar = findViewById(R.id.activity_admin_students_accounts_tbar);
+        ll_search = findViewById(R.id.activity_admin_students_accounts_ll_search);
 
         rg_gender = addStudentBottomSheetDialogView.findViewById(R.id.fragment_new_student_rg_student_kind);
 
@@ -296,5 +312,50 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
         return true;
     }
 
+    /**setButtonSearchAction()
+     * Make button search show search edit text and hide toolbar
+     **********************************************************************************************/
+    public void setButtonSearchAction() {
+
+        btn_show_search.setOnClickListener(v -> {
+
+            toolbar.setVisibility(View.INVISIBLE);
+            ll_search.setVisibility(View.VISIBLE);
+
+            et_search.setText("");
+
+            //Show make a cursor focus on edit text when click on search button
+            et_search.requestFocus(v.getTextDirection());
+
+            //Show keyboard INPUT METHOD SERVICE when click on search button
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(et_search, InputMethodManager.SHOW_IMPLICIT);
+
+            //Make animation when click on search btn
+            Animation animation = AnimationUtils.loadAnimation(AdminStudentsAccountsActivity.this, R.anim.anim_activities_show_search);
+            ll_search.startAnimation(animation);
+
+        });
+    }
+
+    /**setButtonBackSearchAction()
+     * Make button back Search hide search edit text and show toolbar
+     **********************************************************************************************/
+    public void setButtonBackSearchAction() {
+        btn_hide_search.setOnClickListener(v -> {
+
+            toolbar.setVisibility(View.VISIBLE);
+            ll_search.setVisibility(View.INVISIBLE);
+
+            //Make animation when click on search back
+            Animation animation = AnimationUtils.loadAnimation(AdminStudentsAccountsActivity.this, R.anim.anim_activities_hide_search);
+            toolbar.startAnimation(animation);
+
+            //Close Keyboard INPUT METHOD SERVICE when click on search button
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(et_search.getWindowToken(), 0);
+
+        });
+    }
 
 }

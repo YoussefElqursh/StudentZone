@@ -17,7 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:visibility="invisible">
+            android:visibility="invisible"
+            android:elevation="10dp">
 
             <Button
                 android:id="@+id/activity_admin_doctors_accounts_btn_search_back"
@@ -26,7 +27,6 @@
                 android:layout_height="35dp"
                 android:background="@drawable/custom_btn_back"
                 android:drawableLeft="@drawable/ic_back"
-                android:drawableTint="#014a6b"
                 android:paddingLeft="8dp"
                 tools:ignore="TouchTargetSizeCheck"
                 android:contentDescription="@string/back"
@@ -35,17 +35,33 @@
                 android:layout_marginTop="2dp"
                 android:layout_gravity="center"/>
 
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/activity_admin_doctors_accounts_sv"
+            <EditText
+                android:id="@+id/activity_admin_doctors_accounts_et_search"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/custom_sv"
-                app:iconifiedByDefault="false"
-                app:queryHint="Search..."
-                app:searchIcon="@drawable/ic_search"
-                style="@style/SearchViewBackground">
+                android:hint="Search..."
+                android:textColor="@color/white"
+                android:textColorHint="#B3E6E6E6"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="50dp"
+                android:maxLines="1"/>
 
-            </androidx.appcompat.widget.SearchView>
+            <!-- search delete button -->
+            <Button
+                android:id="@+id/activity_admin_doctors_accounts_btn_search_delete"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/custom_btn_back"
+                android:drawableLeft="@drawable/ic_close_2"
+                android:paddingLeft="8dp"
+                tools:ignore="TouchTargetSizeCheck"
+                android:contentDescription="@string/back"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="-45dp"
+                android:visibility="invisible"/>
 
         </LinearLayout>
 
@@ -75,7 +91,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
-                android:text="Doctors Aaccounts"
+                android:text="Doctors Accounts"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:layout_gravity="center_vertical"

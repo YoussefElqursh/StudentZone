@@ -1,16 +1,21 @@
-
 package com.studentzone.Admin_Classes.Admin_Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -28,8 +33,8 @@ import java.util.ArrayList;
 public class AdminDoctorsAccountsActivity extends AppCompatActivity {
 
     // Views
-    private Button btn_add_doctor, back_btn, btn_save_doctor, btn_close_add_doctor_dialog;
-    private EditText et_add_new_doctor_name, et_add_new_doctor_password, et_add_new_doctor_email,et_add_new_doctor_phone;
+    private Button btn_add_doctor, back_btn, btn_save_doctor, btn_close_add_doctor_dialog, btn_show_search, btn_hide_search;
+    private EditText et_add_new_doctor_name, et_add_new_doctor_password, et_add_new_doctor_email,et_add_new_doctor_phone, et_search;
     private BottomSheetDialog addDoctorBottomSheetDialog;
     private View addDoctorBottomSheetDialogView;
     private RadioGroup rg_gender;
@@ -39,7 +44,8 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
 
     private RecyclerView doctorRecyclerView;
 
-
+    private Toolbar toolbar;
+    private LinearLayout ll_search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +68,8 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         setDoctorGenderRadioGroupAction(); // Set gender of new doctor
         setSaveDoctorButtonAction(); // Save new doctor data to database
         setCloseAddDoctorDialogButtonAction(); // Close the "add doctor" dialog
+        setButtonSearchAction(); // show search et
+        setButtonBackSearchAction(); // hide search et
     }
 
     /** initializeViews()
@@ -70,6 +78,8 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
     public void initializeViews() {
         btn_add_doctor = findViewById(R.id.activity_admin_doctors_accounts_btn_add);
         back_btn = findViewById(R.id.activity_admin_doctors_accounts_btn_back);
+        btn_show_search = findViewById(R.id.activity_admin_doctors_accounts_btn_search);
+        btn_hide_search = findViewById(R.id.activity_admin_doctors_accounts_btn_search_back);
 
         addDoctorBottomSheetDialog = new BottomSheetDialog(AdminDoctorsAccountsActivity.this, R.style.BottomSheetStyle);
         addDoctorBottomSheetDialogView = getLayoutInflater().inflate(R.layout.fragment_admin_add_doctor_account, null, false);
@@ -81,9 +91,12 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         et_add_new_doctor_password = addDoctorBottomSheetDialogView.findViewById(R.id.fragment_new_doctor_et_doctor_password);
         et_add_new_doctor_email = addDoctorBottomSheetDialogView.findViewById(R.id.fragment_new_doctor_et_doctor_email);
         et_add_new_doctor_phone = addDoctorBottomSheetDialogView.findViewById(R.id.fragment_new_doctor_et_doctor_phone);
+        et_search = findViewById(R.id.activity_admin_doctors_accounts_et_search);
 
         rg_gender = addDoctorBottomSheetDialogView.findViewById(R.id.fragment_new_doctor_rg_doctor_kind);
 
+        toolbar = findViewById(R.id.activity_admin_doctors_accounts_tbar);
+        ll_search = findViewById(R.id.activity_admin_doctors_accounts_ll_search);
 
         doctorRecyclerView = findViewById(R.id.activity_admin_doctors_accounts_recyclerview);
 
@@ -229,6 +242,52 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         doctorRecyclerView.setHasFixedSize(true);
         doctorRecyclerView.setLayoutManager(lm);
         doctorRecyclerView.setAdapter(adapter);
+    }
+
+    /**setButtonSearchAction()
+     * Make button search show search edit text and hide toolbar
+     **********************************************************************************************/
+    public void setButtonSearchAction() {
+
+        btn_show_search.setOnClickListener(v -> {
+
+            toolbar.setVisibility(View.INVISIBLE);
+            ll_search.setVisibility(View.VISIBLE);
+
+            et_search.setText("");
+
+            //Show make a cursor focus on edit text when click on search button
+            et_search.requestFocus(v.getTextDirection());
+
+            //Show keyboard INPUT METHOD SERVICE when click on search button
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(et_search, InputMethodManager.SHOW_IMPLICIT);
+
+            //Make animation when click on search btn
+            Animation animation = AnimationUtils.loadAnimation(AdminDoctorsAccountsActivity.this, R.anim.anim_activities_show_search);
+            ll_search.startAnimation(animation);
+
+        });
+    }
+
+    /**setButtonBackSearchAction()
+     * Make button back Search hide search edit text and show toolbar
+     **********************************************************************************************/
+    public void setButtonBackSearchAction() {
+        btn_hide_search.setOnClickListener(v -> {
+
+            toolbar.setVisibility(View.VISIBLE);
+            ll_search.setVisibility(View.INVISIBLE);
+
+            //Make animation when click on search back
+            Animation animation = AnimationUtils.loadAnimation(AdminDoctorsAccountsActivity.this, R.anim.anim_activities_hide_search);
+            toolbar.startAnimation(animation);
+
+            //Close Keyboard INPUT METHOD SERVICE when click on search button
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(et_search.getWindowToken(), 0);
+
+        });
     }
 
 }
