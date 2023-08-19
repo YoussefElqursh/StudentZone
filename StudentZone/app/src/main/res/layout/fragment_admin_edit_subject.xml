@@ -90,7 +90,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:paddingLeft="40dp"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck"
+        android:background="@drawable/custom_sp_level" />
 
     <EditText
         android:id="@+id/fragment_edit_subject_et_subject_hours"
@@ -101,7 +102,7 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/custom_et_selector"
         android:drawableStart="@drawable/ic_clock"
-        android:drawablePadding="12dp"
+        android:drawablePadding="11dp"
         android:ems="10"
         android:hint="Subject Hours"
         android:maxLength="1"

@@ -119,7 +119,8 @@
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
         android:drawableTint="@drawable/custom_et_selector"
-        android:enabled="false"/>
+        android:enabled="false"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/fragment_show_subject_et_subject_hours"
@@ -138,7 +139,8 @@
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
         android:drawableTint="@drawable/custom_et_selector"
-        android:enabled="false"/>
+        android:enabled="false"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/fragment_show_subject_et_doctor"
@@ -149,7 +151,7 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/custom_et_selector"
         android:drawableStart="@drawable/ic_user_1"
-        android:drawablePadding="10dp"
+        android:drawablePadding="11dp"
         android:ems="10"
         android:enabled="false"
         android:hint="Doctor Name"
@@ -169,12 +171,12 @@
         android:layout_marginBottom="40dp"
         android:background="@drawable/custom_et_selector"
         android:drawableStart="@drawable/ic_book"
-        android:drawablePadding="10dp"
+        android:drawablePadding="12dp"
         android:ems="10"
         android:enabled="false"
         android:hint="Subject Previous Request"
         android:inputType="text"
-        android:paddingLeft="15dp"
+        android:paddingLeft="13dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
         android:textColor="@color/black"/>

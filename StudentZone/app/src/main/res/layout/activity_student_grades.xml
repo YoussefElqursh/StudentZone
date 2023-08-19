@@ -12,7 +12,6 @@
         android:id="@+id/activity_student_grades_tbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="5dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark">
@@ -33,23 +32,31 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:text="Grades"
+            android:text="Subjects Grades"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
 
     </androidx.appcompat.widget.Toolbar>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/activity_student_grades_tab"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:tabSelectedTextColor="@color/white"
+        app:tabIndicatorColor="@color/white"
+        android:background="@color/white"
+        app:tabBackground="@color/blue"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:layout_marginBottom="1dp"
+        app:tabTextAppearance="@style/CustomTextAppearanceTab">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Level 1" />
+            android:text="Level 1"
+            android:textAllCaps="false"/>
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
@@ -65,6 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Level 4" />
+
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager

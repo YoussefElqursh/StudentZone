@@ -1,14 +1,21 @@
 package com.studentzone.Admin_Classes.Admin_Activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,25 +35,24 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
     // Database object
     private final My_DB db = new My_DB(this);
 
-
     // Views
-    private Button btn_add_department, btn_back, btn_save_department, btn_close_add_department_dialog;
+    private Button btn_add_department, btn_back, btn_save_department, btn_close_add_department_dialog, btn_show_search, btn_hide_search ;
     private EditText et_add_new_department_name, et_add_new_department_code;
     private BottomSheetDialog addDepartmentBottomSheetDialog;
     private View addDepartmentBottomSheetDialogView;
 
     // Variables for storing department data
     private String departmentName, departmentCode;
-
     private RecyclerView departmentRecyclerView;
 
     private DepartmentRecyclerViewAdapter adapter;
-
+    private Toolbar toolbar;
+    private LinearLayout ll_search;
+    SearchView searchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_departments);
-
 
         // Initialize views
         initializeViews();
@@ -59,6 +65,9 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
         setSaveDepartmentButtonAction();  // Save new department data to database
         setCloseAddDepartmentDialogButtonAction();  // Close the "add department" dialog
         setBackButtonAction();  // Go back to previous activity
+
+        setButtonSearchAction();
+        setButtonBackSearchAction();
     }
 
     /** initializeViews()
@@ -67,6 +76,8 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
     public void initializeViews() {
         btn_add_department = findViewById(R.id.activity_admin_departments_btn_add);
         btn_back = findViewById(R.id.activity_admin_departments_btn_back);
+        btn_show_search = findViewById(R.id.activity_admin_departments_btn_search);
+        btn_hide_search = findViewById(R.id.activity_admin_departments_btn_search_back);
 
         addDepartmentBottomSheetDialog = new BottomSheetDialog(AdminDepartmentsActivity.this, R.style.BottomSheetStyle);
         addDepartmentBottomSheetDialogView = getLayoutInflater().inflate(R.layout.fragment_admin_add_department, null, false);
@@ -78,6 +89,12 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
         et_add_new_department_code = addDepartmentBottomSheetDialogView.findViewById(R.id.fragment_new_department_et_code);
 
         departmentRecyclerView = findViewById(R.id.activity_admin_departments_recycelerview);
+
+        toolbar = findViewById(R.id.activity_admin_departments_tbar);
+
+        ll_search = findViewById(R.id.activity_admin_departments_ll_search);
+
+        searchView = findViewById(R.id.activity_admin_departments_sv);
     }
 
     /** setAddDepartmentButtonAction()
@@ -111,7 +128,6 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
             departmentName = et_add_new_department_name.getText().toString().trim();
             departmentCode = et_add_new_department_code.getText().toString().trim();
 
-
             if (TextUtils.isEmpty(departmentName)) {
                 et_add_new_department_name.setError("Is Required !");
                 return;
@@ -135,12 +151,10 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
         btn_back.setOnClickListener(v -> startActivity(new Intent(getBaseContext(),AdminHomeActivity.class)));
     }
 
-
     /** saveNewDepartmentToDatabase()
      *  add New Department
      **********************************************************************************************/
     public void saveNewDepartmentToDatabase() {
-
 
         My_DB db = new My_DB(getBaseContext());
 
@@ -168,8 +182,6 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
         et_add_new_department_code.setText("");
     }
 
-
-
     /**displayAllDepartments()
      **********************************************************************************************/
 
@@ -188,6 +200,53 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
 
     }
 
+    /**setButtonSearchAction()
+     * Make button Search Show search view and hide toolbar
+     **********************************************************************************************/
+    public void setButtonSearchAction() {
 
+        //show Keyboard INPUT METHOD SERVICE when click on search button
+        searchView.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (hasFocus) {
+                    showInputMethod(view.findFocus());
+                }
+            }
+        });
+
+        btn_show_search.setOnClickListener(v -> {
+            toolbar.setVisibility(View.INVISIBLE);
+            ll_search.setVisibility(View.VISIBLE);
+            searchView.requestFocus(v.getTextDirection());
+
+            Animation animation = AnimationUtils.loadAnimation(AdminDepartmentsActivity.this, R.anim.anim_activities_show_search);
+            ll_search.startAnimation(animation);
+
+        });
+    }
+
+    /**setButtonBackSearchAction()
+     * Make button back Search hide search view and show toolbar
+     **********************************************************************************************/
+    public void setButtonBackSearchAction() {
+        btn_hide_search.setOnClickListener(v -> {
+            toolbar.setVisibility(View.VISIBLE);
+            ll_search.setVisibility(View.INVISIBLE);
+
+            Animation animation = AnimationUtils.loadAnimation(AdminDepartmentsActivity.this, R.anim.anim_activities_hide_search);
+            toolbar.startAnimation(animation);
+        });
+    }
+
+    /**showInputMethod()
+     * Call Keyboard INPUT_METHOD_SERVICE
+     **********************************************************************************************/
+    private void showInputMethod(View view) {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (imm != null) {
+            imm.showSoftInput(view, 0);
+        }
+    }
 
 }
