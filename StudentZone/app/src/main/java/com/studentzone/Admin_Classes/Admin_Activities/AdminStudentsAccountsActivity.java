@@ -43,7 +43,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
     private final My_DB db = new My_DB(this);
 
     // Views
-    private Button btn_add_student, btn_back, btn_save_student, btn_close_add_student_dialog, btn_show_search, btn_hide_search;
+    private Button btn_add_student, btn_back, btn_save_student, btn_close_add_student_dialog, btn_show_search, btn_hide_search,btn_clear_searchKey;
     private EditText et_add_new_student_name, et_add_new_student_password, et_add_new_student_email, et_add_new_student_aid,et_add_new_student_phone, et_search;
     private RadioGroup rg_gender;
     private BottomSheetDialog addStudentBottomSheetDialog;
@@ -89,6 +89,8 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
         setCloseAddStudentDialogButtonAction(); // Close the "add student" dialog
         setButtonSearchAction(); // show search et
         setButtonBackSearchAction(); // hide search et
+        clearSearchKey(); //clear search edit text
+
     }
 
 
@@ -113,7 +115,9 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
         et_add_new_student_password = addStudentBottomSheetDialogView.findViewById(R.id.fragment_new_student_et_student_password);
         et_add_new_student_email = addStudentBottomSheetDialogView.findViewById(R.id.fragment_new_student_et_student_email);
         et_add_new_student_phone = addStudentBottomSheetDialogView.findViewById(R.id.fragment_new_student_et_student_phone);
+
         et_search = findViewById(R.id.activity_admin_students_accounts_et_search);
+        btn_clear_searchKey = findViewById(R.id.activity_admin_students_accounts_btn_search_delete);
 
         departmentSpinner = addStudentBottomSheetDialogView.findViewById(R.id.fragment_new_student_sp_department);
 
@@ -349,6 +353,18 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
         });
     }
 
+    /**clearSearchKey()
+     * this button appear in search edite text when user start in write and ,
+     * clear the text in edite text when the user click on it
+     **********************************************************************************************/
+    private void clearSearchKey(){
+        btn_clear_searchKey.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                et_search.getText().clear();
+            }
+        });
+    }
 
     /**setupSearchFunctionality()
      * Sets up the search functionality for the EditText view.
@@ -362,10 +378,16 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
                 // Convert the text to lowercase and remove leading/trailing whitespace
-                String searchKye =  s.toString().toLowerCase().trim();
+                String searchKey =  s.toString().toLowerCase();
 
                 // Perform search operation as the user types in the edit text
-                performSearch(searchKye);
+                performSearch(searchKey.trim());
+
+
+                if(searchKey.isEmpty())
+                    btn_clear_searchKey.setVisibility(View.INVISIBLE);
+                else
+                    btn_clear_searchKey.setVisibility(View.VISIBLE);
             }
             @Override
             public void afterTextChanged(Editable s) {}

@@ -37,7 +37,7 @@ public class AdminCoursesActivity extends AppCompatActivity {
     private final My_DB db = new My_DB(this);
 
     // Views
-    private Button btn_add_course, btn_back, btn_save_course, btn_close_add_course_dialog, btn_show_search, btn_hide_search;
+    private Button btn_add_course, btn_back, btn_save_course, btn_close_add_course_dialog, btn_show_search, btn_hide_search,btn_clear_searchKey;
     private EditText et_add_new_course_name, et_add_new_course_code, et_add_new_course_numberOfHours, et_search;
     private RecyclerView courseRecyclerView;
     private View addCourseBottomSheetDialogView;
@@ -80,6 +80,7 @@ public class AdminCoursesActivity extends AppCompatActivity {
         setBackButtonAction();  // Go back to previous activity
         setButtonSearchAction(); // show search et
         setButtonBackSearchAction(); // hide search et
+        clearSearchKey();//clear search edit text
     }
 
 
@@ -101,7 +102,9 @@ public class AdminCoursesActivity extends AppCompatActivity {
 
         et_add_new_course_name = addCourseBottomSheetDialogView.findViewById(R.id.fragment_new_subject_et_name);
         et_add_new_course_code = addCourseBottomSheetDialogView.findViewById(R.id.fragment_new_subject_et_code);
+
         et_search = findViewById(R.id.activity_admin_subjects_et_search);
+        btn_clear_searchKey = findViewById(R.id.activity_admin_subjects_btn_search_delete);
 
         et_add_new_course_numberOfHours = addCourseBottomSheetDialogView.findViewById(R.id.fragment_new_subject_et_subject_hours);
 
@@ -382,6 +385,19 @@ public class AdminCoursesActivity extends AppCompatActivity {
     }
 
 
+    /**clearSearchKey()
+     * this button appear in search edite text when user start in write and ,
+     * clear the text in edite text when the user click on it
+     **********************************************************************************************/
+    private void clearSearchKey(){
+        btn_clear_searchKey.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                et_search.getText().clear();
+            }
+        });
+    }
+
     /**setupSearchFunctionality()
      * Sets up the search functionality for the EditText view.
      * Adds a TextWatcher to monitor changes in the text as the user types.
@@ -394,12 +410,16 @@ public class AdminCoursesActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
                 // Convert the text to lowercase and remove leading/trailing whitespace
-                String searchKey =  s.toString().toLowerCase().trim();
-
-//                String courseName = et_search.getText().toString();
+                String searchKey =  s.toString().toLowerCase();
 
                 // Perform search operation as the user types in the edit text
-                performSearch(searchKey);
+                performSearch(searchKey.trim());
+
+                if(searchKey.isEmpty())
+                    btn_clear_searchKey.setVisibility(View.INVISIBLE);
+                else
+                    btn_clear_searchKey.setVisibility(View.VISIBLE);
+
             }
             @Override
             public void afterTextChanged(Editable s) {}

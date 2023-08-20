@@ -39,7 +39,7 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
     private final My_DB db = new My_DB(this);
 
     // Views
-    private Button btn_add_doctor, back_btn, btn_save_doctor, btn_close_add_doctor_dialog, btn_show_search, btn_hide_search;
+    private Button btn_add_doctor, back_btn, btn_save_doctor, btn_close_add_doctor_dialog, btn_show_search, btn_hide_search,btn_clear_searchKey;
     private EditText et_add_new_doctor_name, et_add_new_doctor_password, et_add_new_doctor_email,et_add_new_doctor_phone, et_search;
     private BottomSheetDialog addDoctorBottomSheetDialog;
     private View addDoctorBottomSheetDialogView;
@@ -80,6 +80,7 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         setCloseAddDoctorDialogButtonAction(); // Close the "add doctor" dialog
         setButtonSearchAction(); // show search et
         setButtonBackSearchAction(); // hide search et
+        clearSearchKey();//clear search edit text
     }
 
     /** initializeViews()
@@ -101,7 +102,9 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         et_add_new_doctor_password = addDoctorBottomSheetDialogView.findViewById(R.id.fragment_new_doctor_et_doctor_password);
         et_add_new_doctor_email = addDoctorBottomSheetDialogView.findViewById(R.id.fragment_new_doctor_et_doctor_email);
         et_add_new_doctor_phone = addDoctorBottomSheetDialogView.findViewById(R.id.fragment_new_doctor_et_doctor_phone);
+
         et_search = findViewById(R.id.activity_admin_doctors_accounts_et_search);
+        btn_clear_searchKey = findViewById(R.id.activity_admin_doctors_accounts_btn_search_delete);
 
         rg_gender = addDoctorBottomSheetDialogView.findViewById(R.id.fragment_new_doctor_rg_doctor_kind);
 
@@ -302,6 +305,19 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         });
     }
 
+    /**clearSearchKey()
+     * this button appear in search edite text when user start in write and ,
+     * clear the text in edite text when the user click on it
+     **********************************************************************************************/
+    private void clearSearchKey(){
+        btn_clear_searchKey.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                et_search.getText().clear();
+            }
+        });
+    }
+
     /**setupSearchFunctionality()
      * Sets up the search functionality for the EditText view.
      * Adds a TextWatcher to monitor changes in the text as the user types.
@@ -314,10 +330,16 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
                 // Convert the text to lowercase and remove leading/trailing whitespace
-                String searchKye =  s.toString().toLowerCase().trim();
+                String searchKey =  s.toString().toLowerCase();
 
                 // Perform search operation as the user types in the edit text
-                performSearch(searchKye);
+                performSearch(searchKey.trim());
+
+
+                if(searchKey.isEmpty())
+                    btn_clear_searchKey.setVisibility(View.INVISIBLE);
+                else
+                    btn_clear_searchKey.setVisibility(View.VISIBLE);
             }
             @Override
             public void afterTextChanged(Editable s) {}
