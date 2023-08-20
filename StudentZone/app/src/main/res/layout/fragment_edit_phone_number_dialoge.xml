@@ -25,7 +25,7 @@
         android:textColor="@color/gray"
         android:textSize="10dp"
         tools:ignore="TextSizeCheck"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="20dp"/>
 
     <EditText
         android:id="@+id/fragment_edit_phone_number_dialog_et_phone_number"
