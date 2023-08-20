@@ -27,6 +27,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.studentzone.Data_Base.Doctors;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.Data_Base.Students;
 import com.studentzone.R;
@@ -36,7 +37,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class   StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecyclerViewAdapter.studentViewHolder> {
-    private final ArrayList<Students> studentList;
+    private ArrayList<Students> studentList;
 
     private BottomSheetDialog bottomSheetDialog;
     private View bottomSheetDialogView;
@@ -96,6 +97,15 @@ public class   StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRe
         studentList.add(student);
     }
 
+
+    /**updateStudents()
+     * this method to update RecyclerView with searched students
+     ***********************************************************************************************/
+    public void updateStudents(ArrayList<Students> studentsArrayList )
+    {
+        this.studentList = studentsArrayList;
+        notifyDataSetChanged();
+    }
 
     /** holder Class For studentRecyclerViewAdapter
      *  It holds references to the views in the item layout and binds the data to the views.

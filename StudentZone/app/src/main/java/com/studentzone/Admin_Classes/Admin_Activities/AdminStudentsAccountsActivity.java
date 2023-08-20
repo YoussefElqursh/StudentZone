@@ -4,9 +4,9 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -16,7 +16,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
-import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -54,9 +53,10 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
     // Variables for storing students data
     private String studentAID, studentName, studentEmail, studentPassword, studentGender = "Male",studentPhone,studentDepartmentName;
     private RecyclerView studentRecyclerView;
-
     private Toolbar toolbar;
     private LinearLayout ll_search;
+    private StudentRecyclerViewAdapter adapter;
+    private ArrayList<Students>filteredStudentList;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -77,6 +77,9 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
 
         // Display all students in the RecyclerView
         displayAllStudents();
+
+        // search for students
+        setupSearchFunctionality();
 
         // Set button actions
         setAddStudentButtonAction(); // Add new student
@@ -228,8 +231,6 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
      ******************************************************************************************/
     public void saveNewStudentToDatabase() {
 
-        My_DB db = new My_DB(getBaseContext());
-
         studentAID = et_add_new_student_aid.getText().toString().trim();
         studentName = et_add_new_student_name.getText().toString().trim();
         studentEmail = et_add_new_student_email.getText().toString().trim();
@@ -289,27 +290,15 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
      **********************************************************************************************/
     public void displayAllStudents() {
 
-        My_DB db = new My_DB(getBaseContext());
+        ArrayList<Students> studentsArrayList = db.displayStudents("");
 
-        ArrayList<Students> studentsArrayList = db.displayAllStudents();
-
-        StudentRecyclerViewAdapter adapter = new StudentRecyclerViewAdapter(this, studentsArrayList);
+        filteredStudentList = new ArrayList<>(studentsArrayList);
+        adapter = new StudentRecyclerViewAdapter(this, studentsArrayList);
         RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
 
         studentRecyclerView.setHasFixedSize(true);
         studentRecyclerView.setLayoutManager(lm);
         studentRecyclerView.setAdapter(adapter);
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.activity_admin_students_accounts_sv_menu, menu);
-//        MenuItem searchItem = menu.findItem(R.id.activity_admin_students_accounts_sv);
-//        SearchView searchView = (SearchView) searchItem.getActionView();
-//        searchView.setQueryHint("Type here to search");
-
-        return true;
     }
 
     /**setButtonSearchAction()
@@ -347,6 +336,8 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
             toolbar.setVisibility(View.VISIBLE);
             ll_search.setVisibility(View.INVISIBLE);
 
+            et_search.getText().clear();
+
             //Make animation when click on search back
             Animation animation = AnimationUtils.loadAnimation(AdminStudentsAccountsActivity.this, R.anim.anim_activities_hide_search);
             toolbar.startAnimation(animation);
@@ -356,6 +347,39 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
             imm.hideSoftInputFromWindow(et_search.getWindowToken(), 0);
 
         });
+    }
+
+
+    /**setupSearchFunctionality()
+     * Sets up the search functionality for the EditText view.
+     * Adds a TextWatcher to monitor changes in the text as the user types.
+     **********************************************************************************************/
+    public void setupSearchFunctionality(){
+        et_search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                // Convert the text to lowercase and remove leading/trailing whitespace
+                String searchKye =  s.toString().toLowerCase().trim();
+
+                // Perform search operation as the user types in the edit text
+                performSearch(searchKye);
+            }
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+    }
+
+    /**performSearch()
+     * This method get searched Students from data base and pss it to RecyclerView to update it
+     **********************************************************************************************/
+    private  void performSearch(String searchKye){
+
+        filteredStudentList = db.displayStudents(searchKye);
+
+        adapter.updateStudents(filteredStudentList);
     }
 
 }

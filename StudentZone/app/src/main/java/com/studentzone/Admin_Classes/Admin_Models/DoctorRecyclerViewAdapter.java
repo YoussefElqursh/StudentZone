@@ -32,7 +32,7 @@ import com.studentzone.R;
 import java.util.ArrayList;
 
 public class   DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecyclerViewAdapter.doctorViewHolder> {
-    private final ArrayList<Doctors> doctorsArrayList;
+    private ArrayList<Doctors> doctorsList;
     private final My_DB db;
     private BottomSheetDialog bottomSheetDialog;
     private View bottomSheetDialogView;
@@ -44,8 +44,8 @@ public class   DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecy
     private RadioButton rb_male , rb_female;
     private final AlertDialog.Builder builder;
 
-    public DoctorRecyclerViewAdapter(Context context, ArrayList<Doctors> doctorsArrayList) {
-        this.doctorsArrayList = doctorsArrayList;
+    public DoctorRecyclerViewAdapter(Context context, ArrayList<Doctors> doctorsList) {
+        this.doctorsList = doctorsList;
         this.db = new My_DB(context);
         this.bottomSheetDialog = new BottomSheetDialog(context);
         this.builder = new AlertDialog.Builder(context);
@@ -68,7 +68,7 @@ public class   DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecy
      **********************************************************************************************/
     @Override
     public void onBindViewHolder(@NonNull doctorViewHolder holder, int position) {
-        Doctors doctor = doctorsArrayList.get(position);
+        Doctors doctor = doctorsList.get(position);
 
         holder.setDoctorData(doctor);
 
@@ -77,9 +77,17 @@ public class   DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecy
         holder.itemView.startAnimation(animation);
     }
 
+    /**updateDoctors()
+     * this method to update RecyclerView with searched doctors
+     ***********************************************************************************************/
+    public void updateDoctors(ArrayList<Doctors> doctorsArrayList )
+    {
+        this.doctorsList = doctorsArrayList;
+        notifyDataSetChanged();
+    }
     @Override
     public int getItemCount() {
-        return doctorsArrayList.size();
+        return doctorsList.size();
     }
 
     /** holder Class For doctorRecyclerViewAdapter
@@ -141,7 +149,7 @@ public class   DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecy
          **********************************************************************************************/
         @Override
         public boolean onMenuItemClick(MenuItem item) {
-            Doctors doctor = doctorsArrayList.get(getAdapterPosition());
+            Doctors doctor = doctorsList.get(getAdapterPosition());
 
             switch (item.getItemId()) {
                 case R.id.models_ibtn_menu_edit:
@@ -320,7 +328,7 @@ public class   DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecy
 
                 db.updateDoctor(doctor);
 
-                doctorsArrayList.set(getAdapterPosition(), doctor);
+                doctorsList.set(getAdapterPosition(), doctor);
                 notifyItemChanged(getAdapterPosition());
 
                 bottomSheetDialog.dismiss();
@@ -343,7 +351,7 @@ public class   DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecy
                     .setCancelable(false)
                     .setPositiveButton("Yes", (dialog, id) -> {
                         db.deleteDoctor(doctor.getEmail());
-                        doctorsArrayList.remove(getAdapterPosition());
+                        doctorsList.remove(getAdapterPosition());
                         Toast.makeText(bottomSheetDialog.getContext(), "Dr: "+doctor.getFName()+" Successfully Deleted." , Toast.LENGTH_SHORT).show();
                         notifyItemRemoved(getAdapterPosition());
                         dialog.dismiss();

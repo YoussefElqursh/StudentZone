@@ -27,6 +27,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.studentzone.Data_Base.Courses;
+import com.studentzone.Data_Base.Departments;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
 import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
@@ -44,7 +45,7 @@ import java.util.Locale;
 public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecyclerViewAdapter.subjectViewHolder>
 {
 
-    private final ArrayList<Courses> coursesList;
+    private ArrayList<Courses> coursesList;
     private final My_DB db;
     private BottomSheetDialog bottomSheetDialog;
     private Button btn_save_edit_course; 
@@ -109,6 +110,15 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
     public int getItemCount()
     {
         return coursesList.size();
+    }
+
+    /**updateCourses()
+     * this method to update RecyclerView with searched courses
+     ***********************************************************************************************/
+    public void updateCourses(ArrayList<Courses> coursesArrayList )
+    {
+        this.coursesList = coursesArrayList;
+        notifyDataSetChanged();
     }
 
 

@@ -34,7 +34,7 @@ import java.util.Locale;
 public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<DepartmentRecyclerViewAdapter.departmentViewHolder>
 {
 
-    private final ArrayList<Departments> departmentsList;
+    private ArrayList<Departments> departmentsList;
     private final My_DB db;
     private BottomSheetDialog bottomSheetDialog;
     private EditText et_deptName_edit;
@@ -44,7 +44,6 @@ public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<Departme
     private View bottomSheetDialogView;
     private final AlertDialog.Builder builder;
     private String code_before_update,name_before_update;
-    private final ArrayList<Departments> filteredStudentEntries=new ArrayList<>();
 
 
     public DepartmentRecyclerViewAdapter(Context context, ArrayList<Departments> departmentsList)
@@ -55,11 +54,6 @@ public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<Departme
         this.builder = new AlertDialog.Builder(context);
 
     }
-    public void setStudents(ArrayList<Departments> studentEntries) {
-        filteredStudentEntries.addAll(studentEntries);
-        notifyDataSetChanged();
-    }
-
 
 
     /** onCreateViewHolder ()
@@ -88,7 +82,6 @@ public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<Departme
         holder.setDepartmentData(department);
 
         Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), android.R.anim.slide_in_left);
-
         holder.itemView.startAnimation(animation);
     }
 
@@ -97,15 +90,14 @@ public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<Departme
         return departmentsList.size();
     }
 
-    public void addItem(Departments department)
+    /**updateDepartments()
+     * this method to update RecyclerView with searched departments
+    ***********************************************************************************************/
+    public void updateDepartments(ArrayList<Departments> departmentsArrayList )
     {
-
-        departmentsList.add(department);
+        this.departmentsList = departmentsArrayList;
+        notifyDataSetChanged();
     }
-
-
-
-
 
 
     /** holder Class For departmentRecyclerViewAdapter

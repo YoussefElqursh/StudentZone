@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 public class DoctorStudentsGradesRecyclerViewAdapter extends RecyclerView.Adapter<DoctorStudentsGradesRecyclerViewAdapter.doctorStudentsGradesViewHolder> {
 
-    private final ArrayList<Students> studentsList;
+    private ArrayList<Students> studentsList;
     private final My_DB db;
 
     /**
@@ -67,6 +67,7 @@ public class DoctorStudentsGradesRecyclerViewAdapter extends RecyclerView.Adapte
 
     }
 
+
     /**getItemCount()
      * Returns the total number of items in the data set held by the adapter.
      * @return The total number of items in this adapter.
@@ -75,6 +76,16 @@ public class DoctorStudentsGradesRecyclerViewAdapter extends RecyclerView.Adapte
     public int getItemCount() {
         return studentsList.size();
     }
+
+    /**updateStudents()
+     * this method to update RecyclerView with searched students
+     ***********************************************************************************************/
+    public void updateStudents(ArrayList<Students> studentsArrayList )
+    {
+        this.studentsList = studentsArrayList;
+        notifyDataSetChanged();
+    }
+
 
     /** holder Class For DoctorStudentsGradesRecyclerViewAdapter
      *  It holds references to the views in the item layout and binds the data to the views.

@@ -3,6 +3,8 @@ package com.studentzone.Doctor_Classes.Doctor_Activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -17,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.studentzone.Admin_Classes.Admin_Activities.AdminDoctorsAccountsActivity;
+import com.studentzone.Admin_Classes.Admin_Models.StudentRecyclerViewAdapter;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.Data_Base.Students;
 import com.studentzone.Doctor_Classes.Doctor_Models.DoctorStudentsGradesRecyclerViewAdapter;
@@ -26,21 +29,35 @@ import java.util.ArrayList;
 
 public class DoctorStudentGrades extends AppCompatActivity {
 
+    // Database object
+    private final My_DB db = new My_DB(this);
     private Button btn_show_search, btn_hide_search;
     private EditText et_search;
     private Toolbar toolbar;
     private LinearLayout ll_search;
+    private DoctorStudentsGradesRecyclerViewAdapter adapter;
+    private ArrayList<Students> studentsList, filteredStudentList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_doctor_students_assessment);
+        setContentView(R.layout.activity_doctor_students_grades);
 
-        setBackButtonAction();
+        // Initialize views
+        initializeViews();
+
+        // Display all students in the RecyclerView
         displayAllStudents();
 
-//        setButtonSearchAction(); // show search et
-//        setButtonBackSearchAction(); // hide search et
+        // search for students
+        setupSearchFunctionality();
+
+        // Go back to previous activity
+        setBackButtonAction();
+
+
+        setButtonSearchAction(); // show search et
+        setButtonBackSearchAction(); // hide search et
 
     }
 
@@ -57,7 +74,7 @@ public class DoctorStudentGrades extends AppCompatActivity {
         ll_search = findViewById(R.id.activity_doctor_student_degree_ll_search);
     }
     public void setBackButtonAction(){
-        Button btn_back = findViewById(R.id.activity_doctor_assessStudent_btn_back);
+        Button btn_back = findViewById(R.id.activity_doctor_student_degree_btn_back);
         btn_back.setOnClickListener(v -> startActivity(new Intent(DoctorStudentGrades.this, DoctorAssessStudentActivity.class)));
     }
 
@@ -65,15 +82,15 @@ public class DoctorStudentGrades extends AppCompatActivity {
      **********************************************************************************************/
     public void displayAllStudents() {
 
-        My_DB db = new My_DB(getBaseContext());
-
         String courseId = getIntent().getStringExtra("courseId");
         int courseID = Integer.parseInt(courseId);
 
-        ArrayList<Students> studentsArrayList = db.getEnrolledStudentsByCourseId(courseID);
-        RecyclerView studentRecyclerView = findViewById(R.id.activity_doctor_assessStudent_recycleView);
+        studentsList = db.getEnrolledStudentsByCourseId(courseID);
+        filteredStudentList = new ArrayList<>(studentsList);
 
-        DoctorStudentsGradesRecyclerViewAdapter adapter = new DoctorStudentsGradesRecyclerViewAdapter(studentsArrayList, this);
+        RecyclerView studentRecyclerView = findViewById(R.id.activity_doctor_student_degree_recycleView);
+
+         adapter = new DoctorStudentsGradesRecyclerViewAdapter(studentsList, this);
         RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
 
         studentRecyclerView.setHasFixedSize(true);
@@ -126,4 +143,45 @@ public class DoctorStudentGrades extends AppCompatActivity {
         });
     }
 
+    /**setupSearchFunctionality()
+     * Sets up the search functionality for the EditText view.
+     * Adds a TextWatcher to monitor changes in the text as the user types.
+     **********************************************************************************************/
+    public void setupSearchFunctionality(){
+        et_search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                // Convert the text to lowercase and remove leading/trailing whitespace
+                String searchKye =  s.toString().toLowerCase().trim();
+
+                // Perform search operation as the user types in the edit text
+                performSearch(searchKye);
+            }
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+    }
+
+    /**performSearch()
+     his method filters the studentsList based on the search key and updates the RecyclerView adapter.
+     **********************************************************************************************/
+    private void performSearch(String searchKey) {
+        filteredStudentList.clear();
+
+        if (searchKey.isEmpty()) {
+            filteredStudentList.addAll(studentsList);
+        } else {
+            for (Students student : studentsList) {
+                if (student.getFName().toLowerCase().contains(searchKey)
+                        || student.getAcademic_Number().toLowerCase().contains(searchKey)) {
+                    filteredStudentList.add(student);
+                }
+            }
+        }
+
+        adapter.updateStudents(filteredStudentList);
+    }
 }

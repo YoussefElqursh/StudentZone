@@ -44,11 +44,11 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
     // Variables for storing department data
     private String departmentName, departmentCode;
     private RecyclerView departmentRecyclerView;
-
-    private DepartmentRecyclerViewAdapter adapter;
     private Toolbar toolbar;
     private LinearLayout ll_search;
-    SearchView searchView;
+    private SearchView searchView;
+    private  ArrayList<Departments> filteredDepartmentsList;
+    DepartmentRecyclerViewAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +59,9 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
 
         // Show all departments in the RecyclerView
         displayAllDepartments();
+
+        // search for departments
+        setupSearchFunctionality();
 
         // Set up button actions
         setAddDepartmentButtonAction();  // Add new department
@@ -105,6 +108,7 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
 
             addDepartmentBottomSheetDialog.setContentView(addDepartmentBottomSheetDialogView);
             addDepartmentBottomSheetDialog.show();
+
         });
     }
 
@@ -156,7 +160,6 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
      **********************************************************************************************/
     public void saveNewDepartmentToDatabase() {
 
-        My_DB db = new My_DB(getBaseContext());
 
         departmentName = et_add_new_department_name.getText().toString().trim();
         departmentCode = et_add_new_department_code.getText().toString().trim();
@@ -187,11 +190,14 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
 
     public void displayAllDepartments() {
 
-        ArrayList<Departments> departmentsArrayList = db.displayAllDepartments();
+        ArrayList<Departments> departmentsArrayList = db.displayDepartments("");
+
+
+        // Initialize the filtered departments list with all departments
+         filteredDepartmentsList = new ArrayList<>(departmentsArrayList);
 
         // assign to adapter variable
-
-        DepartmentRecyclerViewAdapter adapter = new DepartmentRecyclerViewAdapter(AdminDepartmentsActivity.this,departmentsArrayList);
+        adapter = new DepartmentRecyclerViewAdapter(AdminDepartmentsActivity.this,departmentsArrayList);
         RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
 
         departmentRecyclerView.setHasFixedSize(true);
@@ -234,6 +240,7 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
             toolbar.setVisibility(View.VISIBLE);
             ll_search.setVisibility(View.INVISIBLE);
 
+
             Animation animation = AnimationUtils.loadAnimation(AdminDepartmentsActivity.this, R.anim.anim_activities_hide_search);
             toolbar.startAnimation(animation);
         });
@@ -247,6 +254,38 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
         if (imm != null) {
             imm.showSoftInput(view, 0);
         }
+    }
+
+
+    /**setupSearchFunctionality()
+     * This method configures the search view to handle user search queries
+      **********************************************************************************************/
+    public  void  setupSearchFunctionality(){
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // Perform search operation as the user types in the query
+                performSearch(query.toLowerCase().trim());
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // Perform search operation as the user types in the query
+                performSearch(newText.toLowerCase().trim());
+                return true;
+            }
+        });
+    }
+
+
+    /**performSearch()
+     * This method get searched departments from data base and pss it to RecyclerView to update it
+     **********************************************************************************************/
+    private  void performSearch(String searchKye){
+
+        filteredDepartmentsList = db.displayDepartments(searchKye);
+        adapter.updateDepartments(filteredDepartmentsList);
     }
 
 }

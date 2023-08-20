@@ -1,7 +1,9 @@
 package com.studentzone.Admin_Classes.Admin_Activities;
 
 import android.content.Context;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
@@ -45,12 +47,12 @@ public class AdminCoursesActivity extends AppCompatActivity {
 
     // Variables for storing course data
     private String courseName, courseCode , courseDepartmentName , courseDoctorName , preRequestCourseName = "None",courseLevel;
-
     private  int courseNumberOfHours;
     private ArrayAdapter<String> preRequestSpinnerAdapter;
-
     private Toolbar toolbar;
     private LinearLayout ll_search;
+    private CourseRecyclerViewAdapter adapter;
+    private ArrayList<Courses> filteredCoursesList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,9 @@ public class AdminCoursesActivity extends AppCompatActivity {
 
         // Fill out the three spinners with data
         fillOutThreeSpinners();
+
+        // search for course
+        setupSearchFunctionality();
 
         // Set up button actions
         setAddCourseButtonAction();// Add new Course
@@ -318,10 +323,11 @@ public class AdminCoursesActivity extends AppCompatActivity {
      **********************************************************************************************/
     public void displayAllCourses() {
 
-        ArrayList<Courses> coursesList = db.displayAllCourses();
+        ArrayList<Courses> coursesList = db.displayCourses("");
+        filteredCoursesList = new ArrayList<>(coursesList);
 
         // Adapter for the course RecyclerView
-        CourseRecyclerViewAdapter adapter = new CourseRecyclerViewAdapter(this,coursesList); // assign to adapter variable
+        adapter = new CourseRecyclerViewAdapter(this,coursesList); // assign to adapter variable
         RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
 
         courseRecyclerView.setHasFixedSize(true);
@@ -362,7 +368,7 @@ public class AdminCoursesActivity extends AppCompatActivity {
             toolbar.setVisibility(View.VISIBLE);
             ll_search.setVisibility(View.INVISIBLE);
 
-            et_search.setText("");
+            et_search.getText().clear();
 
             //Make animation when click on search back
             Animation animation = AnimationUtils.loadAnimation(AdminCoursesActivity.this, R.anim.anim_activities_hide_search);
@@ -373,6 +379,41 @@ public class AdminCoursesActivity extends AppCompatActivity {
             imm.hideSoftInputFromWindow(et_search.getWindowToken(), 0);
         });
 
+    }
+
+
+    /**setupSearchFunctionality()
+     * Sets up the search functionality for the EditText view.
+     * Adds a TextWatcher to monitor changes in the text as the user types.
+     **********************************************************************************************/
+    public void setupSearchFunctionality(){
+        et_search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                // Convert the text to lowercase and remove leading/trailing whitespace
+                String searchKey =  s.toString().toLowerCase().trim();
+
+//                String courseName = et_search.getText().toString();
+
+                // Perform search operation as the user types in the edit text
+                performSearch(searchKey);
+            }
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+    }
+
+    /**performSearch()
+     * This method get searched courses from data base and pss it to RecyclerView to update it
+     **********************************************************************************************/
+    private  void performSearch(String searchKye){
+
+        filteredCoursesList = db.displayCourses(searchKye);
+
+        adapter.updateCourses(filteredCoursesList);
     }
 
 }

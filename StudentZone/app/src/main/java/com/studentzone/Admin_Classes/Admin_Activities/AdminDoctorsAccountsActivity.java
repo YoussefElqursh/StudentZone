@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -32,6 +34,10 @@ import java.util.ArrayList;
  */
 public class AdminDoctorsAccountsActivity extends AppCompatActivity {
 
+
+    // Database object
+    private final My_DB db = new My_DB(this);
+
     // Views
     private Button btn_add_doctor, back_btn, btn_save_doctor, btn_close_add_doctor_dialog, btn_show_search, btn_hide_search;
     private EditText et_add_new_doctor_name, et_add_new_doctor_password, et_add_new_doctor_email,et_add_new_doctor_phone, et_search;
@@ -41,11 +47,12 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
 
     // Variables for storing doctor data
     private String doctorName, doctorEmail, doctorPassword,doctorPhone, doctorGender = "Male";
-
     private RecyclerView doctorRecyclerView;
-
     private Toolbar toolbar;
     private LinearLayout ll_search;
+
+    private ArrayList<Doctors> filteredCoursesList;
+    private DoctorRecyclerViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +68,9 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
 
         // Display all doctors in the RecyclerView
         displayAllDoctors();
+
+        // search for doctors
+        setupSearchFunctionality();
 
         // Set button actions
         setAddDoctorButtonAction(); // Add new doctor
@@ -232,11 +242,11 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
     /** Display All Doctors()
      **********************************************************************************************/
     public void displayAllDoctors() {
-        My_DB db = new My_DB(getBaseContext());
 
-        ArrayList<Doctors> doctorsArrayList = db.displayAllDoctors();
+        ArrayList<Doctors> doctorsArrayList = db.displayDoctors("");
+        filteredCoursesList = new ArrayList<>(doctorsArrayList);
 
-        DoctorRecyclerViewAdapter adapter = new DoctorRecyclerViewAdapter(this, doctorsArrayList);
+        adapter = new DoctorRecyclerViewAdapter(this, doctorsArrayList);
         RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
 
         doctorRecyclerView.setHasFixedSize(true);
@@ -279,6 +289,8 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
             toolbar.setVisibility(View.VISIBLE);
             ll_search.setVisibility(View.INVISIBLE);
 
+            et_search.getText().clear();
+
             //Make animation when click on search back
             Animation animation = AnimationUtils.loadAnimation(AdminDoctorsAccountsActivity.this, R.anim.anim_activities_hide_search);
             toolbar.startAnimation(animation);
@@ -288,6 +300,38 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
             imm.hideSoftInputFromWindow(et_search.getWindowToken(), 0);
 
         });
+    }
+
+    /**setupSearchFunctionality()
+     * Sets up the search functionality for the EditText view.
+     * Adds a TextWatcher to monitor changes in the text as the user types.
+     **********************************************************************************************/
+    public void setupSearchFunctionality(){
+        et_search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                // Convert the text to lowercase and remove leading/trailing whitespace
+                String searchKye =  s.toString().toLowerCase().trim();
+
+                // Perform search operation as the user types in the edit text
+                performSearch(searchKye);
+            }
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+    }
+
+    /**performSearch()
+     * This method get searched doctors from data base and pss it to RecyclerView to update it
+     **********************************************************************************************/
+    private  void performSearch(String searchKye){
+
+        filteredCoursesList = db.displayDoctors(searchKye);
+
+        adapter.updateDoctors(filteredCoursesList);
     }
 
 }

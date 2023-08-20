@@ -612,14 +612,22 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
     /**displayAllStudents()
+     * this method for display and search at the same time
      **********************************************************************************************/
     @SuppressLint("Range")
-    public ArrayList<Students> displayAllStudents(){
+    public ArrayList<Students> displayStudents(String searchKye){
 
         ArrayList<Students> studentsArrayList = new ArrayList<>();
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor =  db.rawQuery("SELECT * FROM "+Education_Table_Students,null);
+
+        Cursor cursor = null;
+
+        if(searchKye.isEmpty())
+            cursor =  db.rawQuery("SELECT * FROM "+Education_Table_Students,null);
+        else
+            cursor = db.rawQuery("SELECT * FROM " + Education_Table_Students + " WHERE LOWER(" + Student_col_first_name + ") LIKE '%' || ? || '%' OR LOWER(" + Student_col_academic_number + ") LIKE '%' || ? || '%'", new String[] { searchKye, searchKye });
+
 
         if(cursor != null && cursor.moveToFirst()){
 
@@ -711,15 +719,25 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
 
-    /**display All Doctors()
+    /**display  Doctors()
+     * this method for display and search at the same time
      * ********************************************************************************************/
     @SuppressLint("Range")
-    public ArrayList<Doctors> displayAllDoctors(){
+    public ArrayList<Doctors> displayDoctors(String searchKye){
 
         ArrayList<Doctors> doctorsArrayList = new ArrayList<>();
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor =  db.rawQuery("SELECT * FROM "+Education_Table_Doctors,null);
+
+        Cursor cursor = null;
+
+        if(searchKye.isEmpty())
+            cursor =  db.rawQuery("SELECT * FROM "+Education_Table_Doctors,null);
+        else
+            cursor = db.rawQuery("SELECT * FROM " + Education_Table_Doctors + " WHERE LOWER(" +Doctors_col_first_name+ ") LIKE '%' || ? || '%' OR LOWER(" + Doctors_col_email + ") LIKE '%' || ? || '%'", new String[] { searchKye, searchKye });
+
+
+
 
         if(cursor != null && cursor.moveToFirst()){
 
@@ -834,17 +852,22 @@ public class My_DB extends SQLiteOpenHelper {
         return  result !=-1;
     }
 
-    /**display All Departments()
+    /**display Departments()
+     * this method for display and search at the same time
      * ********************************************************************************************/
-    @SuppressLint("Range")
-    public ArrayList<Departments> displayAllDepartments()
+    @SuppressLint({"Range", "SuspiciousIndentation"})
+    public ArrayList<Departments> displayDepartments(String searchKye)
     {
         ArrayList<Departments> departmentsArrayList = new ArrayList<>();
 
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM "+Education_Table_Departments,null);
+        Cursor cursor = null;
 
+        if(searchKye.isEmpty())
+            cursor = db.rawQuery("SELECT * FROM "+Education_Table_Departments,null);
+        else
+            cursor = db.rawQuery("SELECT * FROM " + Education_Table_Departments + " WHERE LOWER(" + Department_col_name + ") LIKE '%' || ? || '%' OR LOWER(" + Department_col_code + ") LIKE '%' || ? || '%'", new String[] { searchKye, searchKye });
 
         if(cursor != null && cursor.moveToFirst())
         {
@@ -867,7 +890,6 @@ public class My_DB extends SQLiteOpenHelper {
         return departmentsArrayList;
 
     }
-
     /**updateDepartment()
      **********************************************************************************************/
     public boolean updateDepartment(Departments department, String codeBeforeUpdate,String nameBeforeUpdate){
@@ -975,16 +997,22 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
 
-    /**display All Courses()
+    /**display Courses()
+     * this method for display and search at the same time
      * ********************************************************************************************/
     @SuppressLint("Range")
-    public ArrayList<Courses> displayAllCourses()
+    public ArrayList<Courses> displayCourses(String searchKye)
     {
         ArrayList<Courses> coursesList = new ArrayList<>();
 
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM "+Education_Table_Courses,null);
+        Cursor cursor = null;
+
+        if(searchKye.isEmpty())
+            cursor = db.rawQuery("SELECT * FROM "+Education_Table_Courses,null);
+        else
+            cursor = db.rawQuery("SELECT * FROM " + Education_Table_Courses + " WHERE LOWER(" + Courses_col_name + ") LIKE '%' || ? || '%' OR LOWER(" + Courses_col_code + ") LIKE '%' || ? || '%'", new String[] { searchKye, searchKye });
 
 
         if(cursor != null && cursor.moveToFirst())
