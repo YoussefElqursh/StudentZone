@@ -238,8 +238,6 @@ public class AdminCoursesActivity extends AppCompatActivity {
     public void saveNewCourseToDatabase() {
 
 
-        My_DB db = new My_DB(getBaseContext());
-
         // Get the IDs of the selected department, doctor, and prerequisite course
         int departmentId = db.getDepartmentIdByName(courseDepartmentName);
         int doctorId = db.getDoctorIdByName(courseDoctorName);
@@ -390,12 +388,7 @@ public class AdminCoursesActivity extends AppCompatActivity {
      * clear the text in edite text when the user click on it
      **********************************************************************************************/
     private void clearSearchKey(){
-        btn_clear_searchKey.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                et_search.getText().clear();
-            }
-        });
+        btn_clear_searchKey.setOnClickListener(v -> et_search.getText().clear());
     }
 
     /**setupSearchFunctionality()

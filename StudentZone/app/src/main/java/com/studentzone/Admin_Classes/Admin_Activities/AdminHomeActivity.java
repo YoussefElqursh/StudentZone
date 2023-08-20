@@ -27,17 +27,14 @@ import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
 
 public class   AdminHomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-    CardView cv_department, cv_subjects, cv_doctors_account, cv_students_account;
-    SharedPreferences preferences;
-    SharedPreferences.Editor editor;
-    TextView profileName, profileEmail;
-    ImageView profileImage_drawer, profileImage;
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
-    View headerView;
-    ActionBarDrawerToggle toggle;
-    Toolbar toolbar;
-    Menu menu;
+    private CardView cv_department, cv_subjects, cv_doctors_account, cv_students_account;
+    private SharedPreferences preferences;
+    private TextView profileName, profileEmail;
+    private ImageView profileImage_drawer, profileImage;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+    private Toolbar toolbar;
+    private static final int PROFILE_IMAGE_REQUEST_CODE = 1;
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -66,7 +63,7 @@ public class   AdminHomeActivity extends AppCompatActivity implements Navigation
         navigationView = findViewById(R.id.activity_admin_home_nav_drawer);
         toolbar = findViewById(R.id.activity_admin_home_tb);
 
-        headerView = navigationView.getHeaderView(0);
+        View headerView = navigationView.getHeaderView(0);
 
         profileName = headerView.findViewById(R.id.activity_admin_home_nav_drawer_admin_name);
         profileEmail = headerView.findViewById(R.id.activity_admin_home_nav_drawer_admin_email);
@@ -92,27 +89,34 @@ public class   AdminHomeActivity extends AppCompatActivity implements Navigation
         profileImage_drawer.setImageURI(Uri.parse(image_uri));
         profileImage.setImageURI(Uri.parse(image_uri));
 
-
-
-//        String  abbreviation = "";
-//        String[] words = name.split(" ");
-//        for (String word : words) {
-//            char firstLetter = word.charAt(0);
-//            abbreviation += firstLetter;
-//
-//            if(abbreviation.length() == 2)
-//                break;
-//        }
     }
 
+    /* this methode receive edited image from AdminProfileActivity ,
+     * to reflect the changes in AdminHomeActivity at the same time
+     **********************************************************************************************/
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PROFILE_IMAGE_REQUEST_CODE && resultCode == RESULT_OK) {
+
+            assert data != null;
+            String imageUri = data.getStringExtra("image_uri");
+
+            // Update the image in AdminHomeActivity using the received imageUri
+            profileImage_drawer.setImageURI(Uri.parse(imageUri));
+            profileImage.setImageURI(Uri.parse(imageUri));
+
+        }
+    }
 
     /**
      * logOut()
      **********************************************************************************************/
     private void logOut() {
         preferences = getSharedPreferences("Login_Prefs", MODE_PRIVATE);
-        editor = preferences.edit();
+        SharedPreferences.Editor editor = preferences.edit();
         editor.clear();
         editor.apply();
         startActivity(new Intent(getBaseContext(), LoginActivity.class));
@@ -151,10 +155,10 @@ public class   AdminHomeActivity extends AppCompatActivity implements Navigation
      **********************************************************************************************/
     public void drawerToggleButtonAction(){
         setSupportActionBar(toolbar);
-        menu = navigationView.getMenu();
+        Menu menu = navigationView.getMenu();
         navigationView.getHeaderView(0);
         navigationView.bringToFront();
-        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav, R.string.close_nav);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav, R.string.close_nav);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -185,9 +189,13 @@ public class   AdminHomeActivity extends AppCompatActivity implements Navigation
 
     public void openProfile()
     {
-        Intent intent = new Intent(getBaseContext(), AdminProfileActivity.class);
-        startActivity(intent);
+        Intent intent = new Intent(AdminHomeActivity.this, AdminProfileActivity.class);
+
+        intent.putExtra("request_code", PROFILE_IMAGE_REQUEST_CODE);
+        startActivityForResult(intent, PROFILE_IMAGE_REQUEST_CODE);
     }
+
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){

@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,26 +20,19 @@ import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
-import com.studentzone.Admin_Classes.Admin_Activities.AdminContactUsActivity;
-import com.studentzone.Admin_Classes.Admin_Activities.AdminProfileActivity;
-import com.studentzone.Admin_Classes.Admin_Activities.AdminSettingsActivity;
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
 
 public class DoctorHomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-    CardView cv_subjects,cv_assessStudent;
-    SharedPreferences preferences;
-    SharedPreferences.Editor editor;
-    TextView  profileName, profileEmail;
+    private CardView cv_subjects,cv_assessStudent;
+    private SharedPreferences preferences;
+    private TextView  profileName, profileEmail;
+    private ImageView profileImage_drawer, profileImage;
+    private  DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+    private Toolbar toolbar;
+    private static final int PROFILE_IMAGE_REQUEST_CODE = 1;
 
-    ImageView profileImage_drawer, profileImage;
-
-    DrawerLayout drawerLayout;
-    View headerView;
-    NavigationView navigationView;
-    ActionBarDrawerToggle toggle;
-    Toolbar toolbar;
-    Menu menu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +55,7 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
         navigationView = findViewById(R.id.activity_doctor_home_nav_drawer);
         toolbar = findViewById(R.id.activity_doctor_home_tb);
 
-        headerView = navigationView.getHeaderView(0);
+        View headerView = navigationView.getHeaderView(0);
 
         profileName = headerView.findViewById(R.id.activity_doctor_home_nav_drawer_doctor_name);
         profileEmail = headerView.findViewById(R.id.activity_doctor_home_nav_drawer_doctor_email);
@@ -73,7 +67,7 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
      **********************************************************************************************/
     private void logOut(){
         preferences = getSharedPreferences("Login_Prefs", MODE_PRIVATE);
-        editor = preferences.edit();
+        SharedPreferences.Editor editor = preferences.edit();
         editor.clear();
         editor.apply();
         startActivity(new Intent(getBaseContext(), LoginActivity.class));
@@ -99,16 +93,25 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
         profileImage_drawer.setImageURI(Uri.parse(image_uri));
         profileImage.setImageURI(Uri.parse(image_uri));
 
+    }
 
-//        String  abbreviation = "";
-//        String[] words = name.split(" ");
-//        for (String word : words) {
-//            char firstLetter = word.charAt(0);
-//            abbreviation += firstLetter;
-//
-//            if(abbreviation.length() == 2)
-//                break;
-//        }
+    /* this methode receive edited image from DoctorProfileActivity ,
+     * to reflect the changes in DoctorHomeActivity at the same time
+     **********************************************************************************************/
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PROFILE_IMAGE_REQUEST_CODE && resultCode == RESULT_OK) {
+
+            assert data != null;
+            String imageUri = data.getStringExtra("image_uri");
+
+            // Update the image in AdminHomeActivity using the received imageUri
+            profileImage_drawer.setImageURI(Uri.parse(imageUri));
+            profileImage.setImageURI(Uri.parse(imageUri));
+
+        }
     }
 
     public void subjectsCardViewClickAction() {
@@ -125,10 +128,10 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
      **********************************************************************************************/
     public void drawerToggleButtonAction(){
         setSupportActionBar(toolbar);
-        menu = navigationView.getMenu();
+        Menu menu = navigationView.getMenu();
         navigationView.getHeaderView(0);
         navigationView.bringToFront();
-        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav, R.string.close_nav);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav, R.string.close_nav);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -160,8 +163,9 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
     public void openProfile()
     {
         Intent intent = new Intent(getBaseContext(), DoctorProfileActivity.class);
-        startActivity(intent);
-    }
+
+        intent.putExtra("request_code", PROFILE_IMAGE_REQUEST_CODE);
+        startActivityForResult(intent, PROFILE_IMAGE_REQUEST_CODE);    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

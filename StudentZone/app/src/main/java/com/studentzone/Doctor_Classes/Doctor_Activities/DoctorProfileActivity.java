@@ -66,6 +66,7 @@ public class DoctorProfileActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        assert data != null;
         Uri uri = data.getData();
         profileImage.setImageURI(uri);
 
@@ -76,6 +77,12 @@ public class DoctorProfileActivity extends AppCompatActivity {
 
         String email = preferences.getString("email", "");
         db.updateDoctorImage(email, String.valueOf(uri));
+
+        // Set the result to send edited image to DoctorHomeActivity
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("image_uri", String.valueOf(uri));
+        setResult(RESULT_OK, resultIntent);
+
     }
 
     /** fillOutProfileWithUserData()
@@ -103,12 +110,6 @@ public class DoctorProfileActivity extends AppCompatActivity {
      **********************************************************************************************/
     public void setBackButtonAction(){
         Button btn_back = findViewById(R.id.activity_doctor_profile_btn_back);
-        btn_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                onBackPressed();
-            }
-        });
+        btn_back.setOnClickListener(v -> onBackPressed());
     }
 }

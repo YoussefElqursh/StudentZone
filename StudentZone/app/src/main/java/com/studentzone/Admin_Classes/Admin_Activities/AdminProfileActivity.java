@@ -40,6 +40,8 @@ public class AdminProfileActivity extends AppCompatActivity {
      **********************************************************************************************/
     public void inflate() {
         profileImage = findViewById(R.id.activity_admin_profile_shiv_admin_photo);
+        profileImage.setImageResource(R.drawable.ic_male_profile);
+
         tv_edite_photo = findViewById(R.id.activity_admin_profile_tv_edit_photo);
         tv_name = findViewById(R.id.activity_admin_profile_tv_admin_name);
         tv_email = findViewById(R.id.activity_admin_profile_tv_admin_email);
@@ -76,6 +78,13 @@ public class AdminProfileActivity extends AppCompatActivity {
 
         String email = preferences.getString("email", "");
         db.updateAdminImage(email, String.valueOf(uri));
+
+
+
+        // Set the result to send edited image to AdminHomeActivity
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("image_uri", String.valueOf(uri));
+        setResult(RESULT_OK, resultIntent);
     }
 
     /** fillOutProfileWithUserData()

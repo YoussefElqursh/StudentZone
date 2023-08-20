@@ -1,13 +1,5 @@
 package com.studentzone.Student_Classes.Student_Activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -18,27 +10,29 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import com.google.android.material.navigation.NavigationView;
-import com.studentzone.Admin_Classes.Admin_Activities.AdminContactUsActivity;
-import com.studentzone.Admin_Classes.Admin_Activities.AdminProfileActivity;
-import com.studentzone.Admin_Classes.Admin_Activities.AdminSettingsActivity;
 import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
 
-public class    StudentHomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class StudentHomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    CardView cv_subjects_registration, cv_subjects_passed_subjects, cv_subjects;
-    SharedPreferences preferences;
-    SharedPreferences.Editor editor;
-    TextView  profileName, profileEmail;
-    ImageView profileImage_drawer,profileImage;
-    View headerView;
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
-    ActionBarDrawerToggle toggle;
-    Toolbar toolbar;
-    Menu menu;
-
+    private CardView cv_subjects_registration, cv_subjects_passed_subjects, cv_subjects;
+    private SharedPreferences preferences;
+    private TextView  profileName, profileEmail;
+    private ImageView profileImage_drawer,profileImage;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+    private Toolbar toolbar;
+    private static final int PROFILE_IMAGE_REQUEST_CODE = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +56,7 @@ public class    StudentHomeActivity extends AppCompatActivity implements Navigat
         navigationView = findViewById(R.id.activity_student_home_nav_drawer);
         toolbar = findViewById(R.id.activity_student_home_tb);
 
-        headerView = navigationView.getHeaderView(0);
+        View headerView = navigationView.getHeaderView(0);
 
         profileImage_drawer = headerView.findViewById(R.id.activity_student_home_nav_drawer_shiv_student_photo);
         profileImage = findViewById(R.id.activity_student_home_shiv_student_photo);
@@ -88,17 +82,25 @@ public class    StudentHomeActivity extends AppCompatActivity implements Navigat
         profileImage_drawer.setImageURI(Uri.parse(image_uri));
         profileImage.setImageURI(Uri.parse(image_uri));
 
+    }
 
-//        String  abbreviation = "";
-//        String[] words = name.split(" ");
-//        for (String word : words) {
-//            char firstLetter = word.charAt(0);
-//            abbreviation += firstLetter;
-//
-//            if(abbreviation.length() == 2)
-//                break;
-//        }
+    /* this methode receive edited image from StudentProfileActivity ,
+    *  to reflect the changes in StudentHomeActivity at the same time
+     **********************************************************************************************/
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
+        if (requestCode == PROFILE_IMAGE_REQUEST_CODE && resultCode == RESULT_OK) {
+
+            assert data != null;
+            String imageUri = data.getStringExtra("image_uri");
+
+            // Update the image in StudentHomeActivity using the received imageUri
+            profileImage_drawer.setImageURI(Uri.parse(imageUri));
+            profileImage.setImageURI(Uri.parse(imageUri));
+
+        }
     }
 
     /**
@@ -106,7 +108,7 @@ public class    StudentHomeActivity extends AppCompatActivity implements Navigat
      **********************************************************************************************/
     private void logOut() {
         preferences = getSharedPreferences("Login_Prefs", MODE_PRIVATE);
-        editor = preferences.edit();
+        SharedPreferences.Editor editor = preferences.edit();
         editor.clear();
         editor.apply();
         startActivity(new Intent(getBaseContext(), LoginActivity.class));
@@ -142,10 +144,10 @@ public class    StudentHomeActivity extends AppCompatActivity implements Navigat
      **********************************************************************************************/
     public void drawerToggleButtonAction() {
         setSupportActionBar(toolbar);
-        menu = navigationView.getMenu();
+        Menu menu = navigationView.getMenu();
         navigationView.getHeaderView(0);
         navigationView.bringToFront();
-        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav, R.string.close_nav);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav, R.string.close_nav);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -178,7 +180,9 @@ public class    StudentHomeActivity extends AppCompatActivity implements Navigat
     public void openProfile()
     {
         Intent intent = new Intent(getBaseContext(), StudentProfileActivity.class);
-        startActivity(intent);
+
+        intent.putExtra("request_code",PROFILE_IMAGE_REQUEST_CODE);
+        startActivityForResult(intent,PROFILE_IMAGE_REQUEST_CODE);
     }
 
     @Override

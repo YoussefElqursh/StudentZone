@@ -621,7 +621,7 @@ public class My_DB extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = null;
+        Cursor cursor;
 
         if(searchKye.isEmpty())
             cursor =  db.rawQuery("SELECT * FROM "+Education_Table_Students,null);
@@ -729,7 +729,7 @@ public class My_DB extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = null;
+        Cursor cursor;
 
         if(searchKye.isEmpty())
             cursor =  db.rawQuery("SELECT * FROM "+Education_Table_Doctors,null);
@@ -862,7 +862,7 @@ public class My_DB extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = null;
+        Cursor cursor;
 
         if(searchKye.isEmpty())
             cursor = db.rawQuery("SELECT * FROM "+Education_Table_Departments,null);
@@ -1007,7 +1007,7 @@ public class My_DB extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = null;
+        Cursor cursor;
 
         if(searchKye.isEmpty())
             cursor = db.rawQuery("SELECT * FROM "+Education_Table_Courses,null);
@@ -1413,13 +1413,11 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
     /**getEnrolledStudentsByCourseId()
-     **********************************************************************************************/
-    /**
      * Retrieves a list of enrolled students for a given course ID.
-     *
      * @param courseId The ID of the course.
      * @return An ArrayList of Students representing the enrolled students.
-     */
+     **********************************************************************************************/
+
     @SuppressLint("Range")
     public ArrayList<Students> getEnrolledStudentsByCourseId(int courseId) {
 
@@ -1496,8 +1494,8 @@ public class My_DB extends SQLiteOpenHelper {
 
     public ArrayList<SubjectModel> Get_all_courses_for_student_afterRegist() {
         SQLiteDatabase db = getReadableDatabase();
-        ArrayList<SubjectModel> arrayList = new ArrayList();
-        SharedPreferences preferences = context.getSharedPreferences("userInfo", context.MODE_PRIVATE);
+        ArrayList<SubjectModel> arrayList = new ArrayList<>();
+        SharedPreferences preferences = context.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         String StudentId = preferences.getString("id", "");
         int S_id = Integer.parseInt(StudentId);
         String selection = "Courses.id = Enrollment.enrollment_course_id AND Enrollment.enrollment_student_id = " + S_id;

@@ -204,7 +204,6 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
      **********************************************************************************************/
     public void saveNewDoctorToDatabase() {
 
-        My_DB db = new My_DB(getBaseContext());
 
         doctorName = et_add_new_doctor_name.getText().toString().trim();
         doctorEmail = et_add_new_doctor_email.getText().toString().trim();
@@ -310,12 +309,7 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
      * clear the text in edite text when the user click on it
      **********************************************************************************************/
     private void clearSearchKey(){
-        btn_clear_searchKey.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                et_search.getText().clear();
-            }
-        });
+        btn_clear_searchKey.setOnClickListener(v -> et_search.getText().clear());
     }
 
     /**setupSearchFunctionality()

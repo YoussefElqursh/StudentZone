@@ -358,12 +358,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
      * clear the text in edite text when the user click on it
      **********************************************************************************************/
     private void clearSearchKey(){
-        btn_clear_searchKey.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                et_search.getText().clear();
-            }
-        });
+        btn_clear_searchKey.setOnClickListener(v -> et_search.getText().clear());
     }
 
     /**setupSearchFunctionality()
