@@ -261,7 +261,8 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/custom_profile_info_bg_icon"
-                android:gravity="center">
+                android:gravity="center"
+                android:layout_marginLeft="5dp">
 
                 <ImageView
                     android:layout_width="25dp"
@@ -283,18 +284,18 @@
                 android:textSize="14dp"
                 tools:ignore="SpeakableTextPresentCheck,TextSizeCheck"
                 android:enabled="false"
-                android:maxLength="11"/>
+                android:maxLength="11" />
 
             <Button
                 android:id="@+id/activity_admin_profile_btn_edit_phone_number"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="-30dp"
-                android:background="@android:color/transparent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="-40dp"
+                android:background="@drawable/custom_btn_edit"
                 android:drawableTint="@drawable/custom_btn_profile_edit"
                 android:contentDescription="@string/edit"
                 android:drawableLeft="@drawable/ic_edit"
-                android:paddingLeft="5dp"
+                android:paddingLeft="13dp"
                 tools:ignore="TouchTargetSizeCheck"
                 android:clickable="true"/>
 
@@ -324,7 +325,8 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/custom_profile_info_bg_icon"
-                android:gravity="center">
+                android:gravity="center"
+                android:layout_marginLeft="5dp">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -357,14 +359,14 @@
 
             <Button
                 android:id="@+id/activity_admin_profile_btn_edit_password"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="-30dp"
-                android:background="@android:color/transparent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="-40dp"
+                android:background="@drawable/custom_btn_edit"
                 android:drawableTint="@drawable/custom_btn_profile_edit"
                 android:contentDescription="@string/edit"
                 android:drawableLeft="@drawable/ic_edit"
-                android:paddingLeft="5dp"
+                android:paddingLeft="13dp"
                 tools:ignore="TouchTargetSizeCheck"
                 android:clickable="true"/>
 
