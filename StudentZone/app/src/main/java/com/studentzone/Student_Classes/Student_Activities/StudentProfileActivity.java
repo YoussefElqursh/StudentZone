@@ -1,8 +1,11 @@
 package com.studentzone.Student_Classes.Student_Activities;
 
+import static com.studentzone.R.drawable.custom_profile_dialoge;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -15,6 +18,7 @@ import android.widget.TextView;
 
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.studentzone.Data_Base.My_DB;
+import com.studentzone.Doctor_Classes.Doctor_Activities.DoctorProfileActivity;
 import com.studentzone.R;
 
 public class StudentProfileActivity extends AppCompatActivity {
@@ -22,6 +26,8 @@ public class StudentProfileActivity extends AppCompatActivity {
     ImageView profileImage;
     TextView tv_edite_photo,tv_name, tv_email, tv_aid, tv_dept;
     EditText et_phone_number, et_password;
+    Dialog dialog_edit_phone_number, dialog_edit_password;
+    Button btn_edit_phone_number, btn_edit_password, btn_back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +37,12 @@ public class StudentProfileActivity extends AppCompatActivity {
         setEditPhotoTextViewAction();
         fillOutProfileWithUserData();
         setBackButtonAction();
+
+        initializeDialogEditPhoneNumber();
+        initializeDialogEditPassword();
+
+        setEditPhoneNumberButtonAction();
+        setEditPasswordButtonAction();
     }
 
     /**
@@ -38,13 +50,20 @@ public class StudentProfileActivity extends AppCompatActivity {
      **********************************************************************************************/
     public void inflate() {
         profileImage = findViewById(R.id.activity_student_profile_shiv_student_photo);
+
         tv_edite_photo = findViewById(R.id.activity_student_profile_tv_edit_photo);
         tv_name = findViewById(R.id.activity_student_profile_tv_student_name);
         tv_email = findViewById(R.id.activity_student_profile_tv_student_email);
+
         et_phone_number = findViewById(R.id.activity_student_profile_et_student_phone_number);
         et_password = findViewById(R.id.activity_student_profile_et_student_password);
+
         tv_aid = findViewById(R.id.activity_student_profile_tv_student_academic_id);
         tv_dept = findViewById(R.id.activity_student_profile_tv_student_department);
+
+        btn_edit_phone_number = findViewById(R.id.activity_student_profile_btn_edit_phone_number);
+        btn_edit_password = findViewById(R.id.activity_student_profile_btn_edit_password);
+        btn_back = findViewById(R.id.activity_student_profile_btn_back);
     }
 
     /** setEditPhotoTextViewAction()
@@ -115,7 +134,56 @@ public class StudentProfileActivity extends AppCompatActivity {
      *  Back To The Previous Activity
      **********************************************************************************************/
     public void setBackButtonAction(){
-        Button btn_back = findViewById(R.id.activity_student_profile_btn_back);
-        btn_back.setOnClickListener(v -> onBackPressed());
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+
+            }
+        });
+    }
+    /** initializeDialogEditPhoneNumber()
+     *  Initialize Dialog Edit PhoneNumber
+     **********************************************************************************************/
+    public void initializeDialogEditPhoneNumber() {
+        dialog_edit_phone_number = new Dialog(StudentProfileActivity.this);
+        dialog_edit_phone_number.setContentView(R.layout.fragment_edit_phone_number_dialoge);
+        dialog_edit_phone_number.getWindow().setBackgroundDrawable(getDrawable(custom_profile_dialoge));
+    }
+
+    /** initializeDialogEditPassword()
+     *  Initialize Dialog Edit Password
+     **********************************************************************************************/
+    public void initializeDialogEditPassword() {
+        dialog_edit_password = new Dialog(StudentProfileActivity.this);
+        dialog_edit_password.setContentView(R.layout.fragment_edit_password_dialoge);
+        dialog_edit_password.getWindow().setBackgroundDrawable(getDrawable(custom_profile_dialoge));
+    }
+
+
+    /** setEditPhoneNumberButtonAction()
+     *  Set Edit Phone Number Button Action
+     **********************************************************************************************/
+    public void setEditPhoneNumberButtonAction() {
+        btn_edit_phone_number.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog_edit_phone_number.show();
+            }
+        });
+
+    }
+
+    /** setEditPasswordButtonAction()
+     *  Set Edit Password Button Action
+     **********************************************************************************************/
+    public void setEditPasswordButtonAction() {
+        btn_edit_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog_edit_password.show();
+            }
+        });
+
     }
 }
