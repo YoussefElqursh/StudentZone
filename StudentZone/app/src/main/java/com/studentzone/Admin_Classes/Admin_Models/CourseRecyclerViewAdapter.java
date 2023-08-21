@@ -150,8 +150,16 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
             String courseName = course.getName();
             String[] words = courseName.split(" ");
             for (String word : words) {
-                char firstLetter = word.charAt(0);
-                abbreviation += firstLetter;
+                char firstLetterInEachWord = word.charAt(0);
+
+                // to ignore A from And , O from Of , T from to, & from &
+                if (!word.equalsIgnoreCase("&")  && !word.equalsIgnoreCase("and") && !word.equalsIgnoreCase("of") && !word.equalsIgnoreCase("to"))
+                    abbreviation += firstLetterInEachWord;
+
+                // Check if the last character of the word is a digit
+                if (Character.isDigit(word.charAt(word.length() - 1)))
+                    abbreviation += word.charAt(word.length() - 1);
+
             }
 
             tv_course_name.setText(course.getName());

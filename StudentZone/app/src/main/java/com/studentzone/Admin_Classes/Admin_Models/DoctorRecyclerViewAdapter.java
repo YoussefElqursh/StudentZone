@@ -57,7 +57,9 @@ public class   DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecy
     @NonNull
     @Override
     public doctorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_admin_model_doctor,null,false);
+
         return new doctorViewHolder(view);
     }
 

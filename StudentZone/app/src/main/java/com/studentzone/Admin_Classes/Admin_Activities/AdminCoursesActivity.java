@@ -50,7 +50,7 @@ public class AdminCoursesActivity extends AppCompatActivity {
     private  int courseNumberOfHours;
     private ArrayAdapter<String> preRequestSpinnerAdapter;
     private Toolbar toolbar;
-    private LinearLayout ll_search;
+    private LinearLayout ll_search, ll_no_search_results;
     private CourseRecyclerViewAdapter adapter;
     private ArrayList<Courses> filteredCoursesList;
 
@@ -59,19 +59,17 @@ public class AdminCoursesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_subjects);
 
-
         // Initialize views
         initializeViews();
 
-
-        // Show all Courses in the RecyclerView
+        // Display all Courses in the RecyclerView
         displayAllCourses();
-
-        // Fill out the three spinners with data
-        fillOutThreeSpinners();
 
         // search for course
         setupSearchFunctionality();
+
+        // Fill out the three spinners with data
+        fillOutThreeSpinners();
 
         // Set up button actions
         setAddCourseButtonAction();// Add new Course
@@ -115,6 +113,7 @@ public class AdminCoursesActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.activity_admin_subjects_tbar);
         ll_search = findViewById(R.id.activity_admin_subjects_ll_search);
+        ll_no_search_results = findViewById(R.id.activity_admin_subjects_ll_no_search_results);
 
         courseRecyclerView = findViewById(R.id.activity_admin_subjects_recycleView);
     }
@@ -328,7 +327,7 @@ public class AdminCoursesActivity extends AppCompatActivity {
         filteredCoursesList = new ArrayList<>(coursesList);
 
         // Adapter for the course RecyclerView
-        adapter = new CourseRecyclerViewAdapter(this,coursesList); // assign to adapter variable
+        adapter = new CourseRecyclerViewAdapter(this,coursesList); // assign list to adapter variable
         RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
 
         courseRecyclerView.setHasFixedSize(true);
@@ -406,13 +405,17 @@ public class AdminCoursesActivity extends AppCompatActivity {
                 String searchKey =  s.toString().toLowerCase();
 
                 // Perform search operation as the user types in the edit text
-                performSearch(searchKey.trim());
+                if(searchKey.isEmpty() || searchKey.trim().isEmpty())
+                    displayAllCourses();
+                else
+                    performSearch(searchKey.trim());
 
                 if(searchKey.isEmpty())
                     btn_clear_searchKey.setVisibility(View.INVISIBLE);
                 else
                     btn_clear_searchKey.setVisibility(View.VISIBLE);
 
+                handleSearchQueryResult();
             }
             @Override
             public void afterTextChanged(Editable s) {}
@@ -429,4 +432,18 @@ public class AdminCoursesActivity extends AppCompatActivity {
         adapter.updateCourses(filteredCoursesList);
     }
 
+    /**handleSearchQueryResult()
+     * This method is likely called after performing a search
+     * It ensures that the appropriate views are shown or hidden based on whether there are search results available
+     **********************************************************************************************/
+    public void handleSearchQueryResult(){
+        if(filteredCoursesList.size()>0){
+            courseRecyclerView.setVisibility(View.VISIBLE);
+            ll_no_search_results.setVisibility(View.INVISIBLE);
+        }
+        else {
+            ll_no_search_results.setVisibility(View.VISIBLE);
+            courseRecyclerView.setVisibility(View.INVISIBLE);
+        }
+    }
 }

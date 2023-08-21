@@ -129,6 +129,15 @@ public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<Departme
             String[] words = courseName.split(" ");
             for (String word : words) {
                 char firstLetter = word.charAt(0);
+
+                if(word.equals("OR")){
+                    abbreviation = word;
+                    break;
+                }
+                if(word.equalsIgnoreCase("General")){
+                    abbreviation = "GN";
+                    break;
+                }
                 abbreviation += firstLetter;
             }
 
