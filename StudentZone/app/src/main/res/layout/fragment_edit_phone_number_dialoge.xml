@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="300dp"
-    android:layout_height="250dp"
+    android:layout_height="230dp"
     android:background="@color/white_gray"
     android:orientation="vertical"
     android:padding="20dp">
@@ -27,30 +27,47 @@
         tools:ignore="TextSizeCheck"
         android:layout_marginTop="20dp"/>
 
-    <EditText
-        android:id="@+id/fragment_edit_phone_number_dialog_et_phone_number"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="@drawable/custom_et_profile_dialog"
-        android:drawableStart="@drawable/ic_phone_number_3"
-        android:drawablePadding="5dp"
-        android:drawableTint="@drawable/custom_et_profile_dialog"
-        android:hint="Phone Number"
-        android:inputType="numberDecimal"
-        android:maxLines="1"
-        android:minHeight="48dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:textColorHint="@color/gray"
-        android:textSize="14dp"
-        tools:ignore="SpeakableTextPresentCheck,TextSizeCheck,TouchTargetSizeCheck" />
+        android:layout_height="65dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/fragment_edit_password_dialog_til_confirm_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintEnabled="false"
+            app:hintTextColor="@color/blue"
+            app:helperTextTextAppearance="@style/CustomTextInputEditText">
+
+            <EditText
+                android:id="@+id/fragment_edit_phone_number_dialog_et_phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/custom_et_profile_dialog"
+                android:drawableStart="@drawable/ic_phone_number_3"
+                android:drawablePadding="5dp"
+                android:drawableTint="@drawable/custom_et_profile_dialog"
+                android:hint="Phone Number"
+                android:inputType="numberDecimal"
+                android:maxLines="1"
+                android:minHeight="48dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColorHint="@color/gray"
+                android:textSize="14dp"
+                tools:ignore="SpeakableTextPresentCheck,TextSizeCheck,TouchTargetSizeCheck"
+                android:maxLength="11"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:orientation="horizontal"
         android:gravity="right"
-        android:layout_marginTop="40dp">
+        android:layout_marginTop="20dp">
 
         <Button
             android:id="@+id/fragment_edit_phone_number_dialog_btn_cansel"
