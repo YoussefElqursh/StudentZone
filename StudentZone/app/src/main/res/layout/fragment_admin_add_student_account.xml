@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="New Student"
-            android:textSize="18dp"
+            android:textSize="16dp"
             android:textStyle="bold"
             android:layout_marginTop="7dp"
             android:gravity="center"/>
@@ -62,6 +62,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
+        android:textSize="16sp"
         android:drawableTint="@drawable/custom_et_selector"/>
 
     <EditText
@@ -80,6 +81,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
+        android:textSize="16sp"
         android:drawableTint="@drawable/custom_et_selector"/>
 
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
@@ -109,6 +111,7 @@
         android:paddingLeft="13dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
+        android:textSize="16sp"
         android:drawableTint="@drawable/custom_et_selector"
         android:maxLength="11"/>
 
@@ -128,6 +131,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
+        android:textSize="16sp"
         android:drawableTint="@drawable/custom_et_selector"/>
 
     <EditText
@@ -146,6 +150,7 @@
         android:paddingLeft="13dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
+        android:textSize="16sp"
         android:drawableTint="@drawable/custom_et_selector"/>
 
     <RadioGroup
@@ -170,7 +175,7 @@
             android:minHeight="48dp"
             android:text="Male"
             android:textColor="@drawable/custom_rb_et_icon_selector"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:drawableLeft="@drawable/ic_male"
             android:drawablePadding="10dp"
             android:button="@android:color/transparent"
@@ -187,7 +192,7 @@
             android:minHeight="48dp"
             android:text="Female"
             android:textColor="@drawable/custom_rb_et_icon_selector"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:drawableLeft="@drawable/ic_female"
             android:drawablePadding="10dp"
             android:button="@android:color/transparent"

@@ -47,7 +47,7 @@
             android:layout_gravity="center"
             android:text="Login"
             android:textAllCaps="true"
-            android:textSize="24dp"
+            android:textSize="24sp"
             android:textStyle="bold"
             android:layout_marginTop="10dp"
             android:textColor="@color/blue"
@@ -84,7 +84,7 @@
                 android:paddingLeft="5dp"
                 android:text="Admin"
                 android:textColor="@drawable/custom_rb_et_icon_selector"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textAlignment="center"/>
 
             <RadioButton
@@ -98,7 +98,7 @@
                 android:minHeight="48dp"
                 android:text="Doctor"
                 android:textColor="@drawable/custom_rb_et_icon_selector"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:button="@android:color/transparent"
                 android:drawableTint="@drawable/custom_rb_et_icon_selector"
                 android:textAlignment="center"/>
@@ -116,7 +116,7 @@
                 android:minHeight="48dp"
                 android:text="Student"
                 android:textColor="@drawable/custom_rb_et_icon_selector"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textAlignment="center" />
 
         </RadioGroup>
@@ -139,7 +139,7 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:textColorHint="@color/gray"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:drawableTint="@drawable/custom_et_selector"/>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -163,11 +163,12 @@
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:minHeight="48dp"
-                android:paddingLeft="14dp"
+                android:paddingLeft="12dp"
                 android:paddingRight="10dp"
                 android:textColorHint="@color/gray"
                 tools:ignore="SpeakableTextPresentCheck"
-                android:drawableTint="@drawable/custom_et_selector" />
+                android:drawableTint="@drawable/custom_et_selector"
+                android:textSize="16sp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -185,7 +186,7 @@
                 android:buttonTint="@drawable/custom_rb_et_icon_selector"
                 android:text="@string/remember_me"
                 android:textColor="@drawable/custom_rb_et_icon_selector"
-                android:textSize="20sp"
+                android:textSize="20dp"
                 tools:ignore="TouchTargetSizeCheck"
                 android:elevation="5dp"
                 android:scaleX="0.7"
@@ -215,10 +216,10 @@
             android:background="@drawable/custom_btn_login_save"
             android:text="@string/login"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="20sp"
             tools:ignore="TextContrastCheck"
             android:textAllCaps="false"
-            android:elevation="3dp"/>
+            android:elevation="2dp"/>
 
     </LinearLayout>
 

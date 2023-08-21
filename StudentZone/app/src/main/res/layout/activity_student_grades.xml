@@ -35,7 +35,6 @@
             android:text="Subjects Grades"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:textStyle="bold"
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"/>
 
