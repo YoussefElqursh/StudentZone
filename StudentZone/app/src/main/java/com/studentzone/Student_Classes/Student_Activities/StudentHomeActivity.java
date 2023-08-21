@@ -33,6 +33,8 @@ public class StudentHomeActivity extends AppCompatActivity implements Navigation
     private NavigationView navigationView;
     private Toolbar toolbar;
     private static final int PROFILE_IMAGE_REQUEST_CODE = 1;
+    private Intent intent_send;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -185,6 +187,17 @@ public class StudentHomeActivity extends AppCompatActivity implements Navigation
         startActivityForResult(intent,PROFILE_IMAGE_REQUEST_CODE);
     }
 
+    /** openShareApplication()
+     *  Open Share Application
+     **********************************************************************************************/
+    public void openShareApplication() {
+        intent_send = new Intent(Intent.ACTION_SEND);;
+        intent_send.setType("text/plain");
+        intent_send.putExtra(Intent.EXTRA_SUBJECT, "");
+        intent_send.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=com.student.zone");
+        startActivity(Intent.createChooser(intent_send, "Share via"));
+    }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
@@ -204,10 +217,13 @@ public class StudentHomeActivity extends AppCompatActivity implements Navigation
                 openContactUS();
                 drawerLayout.closeDrawers();
                 break;
+            case R.id.activity_student_home_item_share:
+                openShareApplication();
+                drawerLayout.closeDrawers();
+                break;
         }
         return false;
     }
-
 }
 
 
