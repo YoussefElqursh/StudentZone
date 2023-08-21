@@ -26,7 +26,6 @@
                 android:layout_height="35dp"
                 android:background="@drawable/custom_btn_back"
                 android:drawableLeft="@drawable/ic_back"
-                android:drawableTint="#014a6b"
                 android:paddingLeft="8dp"
                 tools:ignore="TouchTargetSizeCheck"
                 android:contentDescription="@string/back"
@@ -35,17 +34,32 @@
                 android:layout_marginTop="2dp"
                 android:layout_gravity="center"/>
 
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/activity_admin_departments_sv"
+            <EditText
+                android:id="@+id/activity_admin_departments_et_search"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/custom_sv"
-                app:iconifiedByDefault="false"
-                app:queryHint="Search..."
-                app:searchIcon="@drawable/ic_search"
-                style="@style/SearchViewBackground">
+                android:hint="Search name or code"
+                android:textColor="@color/white"
+                android:textColorHint="#B3E6E6E6"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="50dp"
+                android:maxLines="1"/>
 
-            </androidx.appcompat.widget.SearchView>
+            <Button
+                android:id="@+id/activity_admin_departments_btn_search_delete"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/custom_btn_back"
+                android:drawableLeft="@drawable/ic_close_2"
+                android:paddingLeft="8dp"
+                tools:ignore="TouchTargetSizeCheck"
+                android:contentDescription="@string/back"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="-45dp"
+                android:visibility="invisible"/>
 
         </LinearLayout>
 
@@ -128,20 +142,60 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"/>
 
+            <!-- This Linear Layout will be enabled when there are not found search result-->
             <LinearLayout
+                android:id="@+id/activity_admin_departments_ll_no_search_results"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:gravity="center"
+                android:visibility="invisible">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/activity_admin_departments_recycelerview"
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:srcCompat="@drawable/ic_no_search_results"
+                    tools:srcCompat="@drawable/ic_no_search_results"/>
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp">
+                    android:text="No Results"
+                    android:textAlignment="center"
+                    android:textColor="#7a8593"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:layout_marginTop="20dp"/>
 
-                </androidx.recyclerview.widget.RecyclerView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Sorry, there are no results for this search. "
+                    android:textAlignment="center"
+                    android:textColor="#7a8593"
+                    android:textSize="14dp"
+                    tools:ignore="TextSizeCheck" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Please try another phrase"
+                    android:textAlignment="center"
+                    android:textColor="#7a8593"
+                    android:textSize="14dp"
+                    tools:ignore="TextSizeCheck" />
+
+
 
             </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/activity_admin_departments_recycelerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:visibility="visible"/>
 
         </RelativeLayout>
 

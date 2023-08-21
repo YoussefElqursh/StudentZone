@@ -40,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/custom_sv"
-                android:hint="Search..."
+                android:hint="Search name or code"
                 android:textColor="@color/white"
                 android:textColorHint="#B3E6E6E6"
                 android:layout_marginLeft="60dp"
@@ -148,11 +148,59 @@
                 app:hoveredFocusedTranslationZ="20dp"
                 app:pressedTranslationZ="20dp" />
 
-                <androidx.recyclerview.widget.RecyclerView
+            <!-- This Linear Layout will be enabled when there are not found search result-->
+            <LinearLayout
+                android:id="@+id/activity_admin_subjects_ll_no_search_results"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:visibility="invisible">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:srcCompat="@drawable/ic_no_search_results"
+                    tools:srcCompat="@drawable/ic_no_search_results"/>
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/activity_admin_subjects_recycleView"
-                    android:layout_marginTop="5dp"/>
+                    android:text="No Results"
+                    android:textAlignment="center"
+                    android:textColor="#7a8593"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:layout_marginTop="20dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Sorry, there are no results for this search. "
+                    android:textAlignment="center"
+                    android:textColor="#7a8593"
+                    android:textSize="14dp"
+                    tools:ignore="TextSizeCheck" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Please try another phrase"
+                    android:textAlignment="center"
+                    android:textColor="#7a8593"
+                    android:textSize="14dp"
+                    tools:ignore="TextSizeCheck" />
+
+
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/activity_admin_subjects_recycleView"
+                android:layout_marginTop="5dp"/>
 
         </RelativeLayout>
     </LinearLayout>

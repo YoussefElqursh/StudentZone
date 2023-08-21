@@ -3,7 +3,9 @@ package com.studentzone.Admin_Classes.Admin_Activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -36,7 +38,7 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
     private final My_DB db = new My_DB(this);
 
     // Views
-    private Button btn_add_department, btn_back, btn_save_department, btn_close_add_department_dialog, btn_show_search, btn_hide_search ;
+    private Button btn_add_department, btn_back, btn_save_department, btn_close_add_department_dialog, btn_show_search, btn_hide_search, btn_clear_searchKey;
     private EditText et_add_new_department_name, et_add_new_department_code;
     private BottomSheetDialog addDepartmentBottomSheetDialog;
     private View addDepartmentBottomSheetDialogView;
@@ -46,7 +48,7 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
     private RecyclerView departmentRecyclerView;
     private Toolbar toolbar;
     private LinearLayout ll_search;
-    private SearchView searchView;
+    private EditText et_search;
     private  ArrayList<Departments> filteredDepartmentsList;
     DepartmentRecyclerViewAdapter adapter;
     @Override
@@ -68,9 +70,9 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
         setSaveDepartmentButtonAction();  // Save new department data to database
         setCloseAddDepartmentDialogButtonAction();  // Close the "add department" dialog
         setBackButtonAction();  // Go back to previous activity
-
-        setButtonSearchAction();
-        setButtonBackSearchAction();
+        setButtonSearchAction(); // show search et
+        setButtonBackSearchAction(); // hide search et
+        clearSearchKey(); //clear search edit text
     }
 
     /** initializeViews()
@@ -81,6 +83,7 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
         btn_back = findViewById(R.id.activity_admin_departments_btn_back);
         btn_show_search = findViewById(R.id.activity_admin_departments_btn_search);
         btn_hide_search = findViewById(R.id.activity_admin_departments_btn_search_back);
+        btn_clear_searchKey = findViewById(R.id.activity_admin_departments_btn_search_delete);
 
         addDepartmentBottomSheetDialog = new BottomSheetDialog(AdminDepartmentsActivity.this, R.style.BottomSheetStyle);
         addDepartmentBottomSheetDialogView = getLayoutInflater().inflate(R.layout.fragment_admin_add_department, null, false);
@@ -97,7 +100,7 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
 
         ll_search = findViewById(R.id.activity_admin_departments_ll_search);
 
-        searchView = findViewById(R.id.activity_admin_departments_sv);
+        et_search = findViewById(R.id.activity_admin_departments_et_search);
     }
 
     /** setAddDepartmentButtonAction()
@@ -207,25 +210,25 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
     }
 
     /**setButtonSearchAction()
-     * Make button Search Show search view and hide toolbar
+     * Make button search show search edit text and hide toolbar
      **********************************************************************************************/
     public void setButtonSearchAction() {
 
-        //show Keyboard INPUT METHOD SERVICE when click on search button
-        searchView.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean hasFocus) {
-                if (hasFocus) {
-                    showInputMethod(view.findFocus());
-                }
-            }
-        });
-
         btn_show_search.setOnClickListener(v -> {
+
             toolbar.setVisibility(View.INVISIBLE);
             ll_search.setVisibility(View.VISIBLE);
-            searchView.requestFocus(v.getTextDirection());
 
+            et_search.setText("");
+
+            //Show make a cursor focus on edit text when click on search button
+            et_search.requestFocus(v.getTextDirection());
+
+            //Show keyboard INPUT METHOD SERVICE when click on search button
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(et_search, InputMethodManager.SHOW_IMPLICIT);
+
+            //Make animation when click on search btn
             Animation animation = AnimationUtils.loadAnimation(AdminDepartmentsActivity.this, R.anim.anim_activities_show_search);
             ll_search.startAnimation(animation);
 
@@ -233,58 +236,70 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
     }
 
     /**setButtonBackSearchAction()
-     * Make button back Search hide search view and show toolbar
+     * Make button back Search hide search edit text and show toolbar
      **********************************************************************************************/
     public void setButtonBackSearchAction() {
         btn_hide_search.setOnClickListener(v -> {
+
             toolbar.setVisibility(View.VISIBLE);
             ll_search.setVisibility(View.INVISIBLE);
 
+            et_search.getText().clear();
 
+            //Make animation when click on search back
             Animation animation = AnimationUtils.loadAnimation(AdminDepartmentsActivity.this, R.anim.anim_activities_hide_search);
             toolbar.startAnimation(animation);
+
+            //Close Keyboard INPUT METHOD SERVICE when click on search button
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(et_search.getWindowToken(), 0);
+
         });
     }
 
-    /**showInputMethod()
-     * Call Keyboard INPUT_METHOD_SERVICE
+    /**clearSearchKey()
+     * this button appear in search edite text when user start in write and ,
+     * clear the text in edite text when the user click on it
      **********************************************************************************************/
-    private void showInputMethod(View view) {
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        if (imm != null) {
-            imm.showSoftInput(view, 0);
-        }
+    private void clearSearchKey(){
+        btn_clear_searchKey.setOnClickListener(v -> et_search.getText().clear());
     }
-
 
     /**setupSearchFunctionality()
-     * This method configures the search view to handle user search queries
-      **********************************************************************************************/
-    public  void  setupSearchFunctionality(){
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+     * Sets up the search functionality for the EditText view.
+     * Adds a TextWatcher to monitor changes in the text as the user types.
+     **********************************************************************************************/
+    public void setupSearchFunctionality(){
+        et_search.addTextChangedListener(new TextWatcher() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                // Perform search operation as the user types in the query
-                performSearch(query.toLowerCase().trim());
-                return true;
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                // Perform search operation as the user types in the query
-                performSearch(newText.toLowerCase().trim());
-                return true;
+                // Convert the text to lowercase and remove leading/trailing whitespace
+                String searchKey =  s.toString().toLowerCase();
+
+                // Perform search operation as the user types in the edit text
+                performSearch(searchKey.trim());
+
+
+                if(searchKey.isEmpty())
+                    btn_clear_searchKey.setVisibility(View.INVISIBLE);
+                else
+                    btn_clear_searchKey.setVisibility(View.VISIBLE);
             }
+            @Override
+            public void afterTextChanged(Editable s) {}
         });
     }
 
-
     /**performSearch()
-     * This method get searched departments from data base and pss it to RecyclerView to update it
+     * This method get searched doctors from data base and pss it to RecyclerView to update it
      **********************************************************************************************/
     private  void performSearch(String searchKye){
 
         filteredDepartmentsList = db.displayDepartments(searchKye);
+
         adapter.updateDepartments(filteredDepartmentsList);
     }
 
