@@ -145,6 +145,7 @@ public class DoctorProfileActivity extends AppCompatActivity {
         dialog_edit_phone_number = new Dialog(DoctorProfileActivity.this);
         dialog_edit_phone_number.setContentView(R.layout.fragment_edit_phone_number_dialoge);
         dialog_edit_phone_number.getWindow().setBackgroundDrawable(getDrawable(custom_profile_dialoge));
+        dialog_edit_phone_number.getWindow().getAttributes().windowAnimations = R.style.DialogTheme;
     }
 
     /** initializeDialogEditPassword()
@@ -154,6 +155,7 @@ public class DoctorProfileActivity extends AppCompatActivity {
         dialog_edit_password = new Dialog(DoctorProfileActivity.this);
         dialog_edit_password.setContentView(R.layout.fragment_edit_password_dialoge);
         dialog_edit_password.getWindow().setBackgroundDrawable(getDrawable(custom_profile_dialoge));
+        dialog_edit_password.getWindow().getAttributes().windowAnimations = R.style.DialogTheme;
     }
 
 

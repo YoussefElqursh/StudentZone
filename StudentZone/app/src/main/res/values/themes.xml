@@ -39,4 +39,14 @@
         <item name="queryBackground">@android:color/transparent</item>
     </style>
 
+    <!-- Customize Edit profile dialog -->
+    <style name="DialogTheme">
+        <item name="android:windowEnterAnimation">@anim/anim_show_profile_edit_dialog</item>
+        <item name="android:windowExitAnimation">@anim/anim_hide_profile_edit_dialog</item>
+    </style>
+
+    <!-- Customize Text Appearance Tab TabLayout -->
+    <style name="CustomTextInputEditText" parent="ThemeOverlay.Material3.TextInputEditText">
+        <item name="android:textSize">10dp</item>
+    </style>
 </resources>
