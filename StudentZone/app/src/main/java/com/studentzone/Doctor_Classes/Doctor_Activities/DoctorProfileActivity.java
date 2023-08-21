@@ -114,10 +114,12 @@ public class DoctorProfileActivity extends AppCompatActivity {
         String email = preferences.getString("email", "");
         String phoneNumber = preferences.getString("phoneNumber", "");
         String image_uri = preferences.getString("image_uri", "");
+        String password = preferences.getString("password", "");
 
 
         tv_name.setText(name);
         tv_email.setText(email);
+        et_password.setText(password);
         et_phone_number.setText(phoneNumber);
         profileImage.setImageURI(Uri.parse(image_uri));
 

@@ -114,6 +114,7 @@ public class StudentProfileActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("userInfo",MODE_PRIVATE);
         String name = preferences.getString("fName", "");
         String email = preferences.getString("email", "");
+        String password = preferences.getString("password", "");
         String aid = preferences.getString("aid", "");
         String dept = preferences.getString("department", "");
         String phoneNumber = preferences.getString("phoneNumber", "");
@@ -122,6 +123,7 @@ public class StudentProfileActivity extends AppCompatActivity {
 
         tv_name.setText(name);
         tv_email.setText(email);
+        et_password.setText(password);
         tv_aid.setText(aid);
         tv_dept.setText(dept);
         et_phone_number.setText(phoneNumber);

@@ -27,7 +27,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.studentzone.Data_Base.Doctors;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.Data_Base.Students;
 import com.studentzone.R;
@@ -91,10 +90,6 @@ public class   StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRe
     @Override
     public int getItemCount() {
         return studentList.size();
-    }
-
-    public void addItem(Students student){
-        studentList.add(student);
     }
 
 
@@ -242,6 +237,7 @@ public class   StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRe
             ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<>(itemView.getContext(), android.R.layout.simple_spinner_item, deptNames);
             arrayAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             departmentSpinner.setAdapter(arrayAdapter1);
+
             // Keep track of the original student name , email , aid , pass
             String originalName = student.getFName();
             String originalPassword = student.getPassword();
@@ -255,7 +251,6 @@ public class   StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRe
             studentPassword.setText(student.getPassword());
             studentPhone.setText(student.getPhone());
             selectItemFromSpinner(originalDept, departmentSpinner);
-
 
 
             //This Lines To Check Radio Button Which Detect The Gender Of Student
