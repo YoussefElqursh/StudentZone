@@ -2,6 +2,7 @@ package com.studentzone.Student_Classes.Student_Models.SubjectModel;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
+import com.studentzone.Student_Classes.Student_Fragments.FristLevelFragment;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -31,11 +33,12 @@ public class StudentPassedSubjectsAdapter extends RecyclerView.Adapter<StudentPa
     public StudentPassedSubjectsAdapter() {
 
     }
-    public StudentPassedSubjectsAdapter(Context context, ArrayList<StudentPassedModel>arrayList) {
-        this.context=context;
-        this.arrayList=arrayList;
-        Db = new My_DB(context);
 
+
+    public StudentPassedSubjectsAdapter(Context context, ArrayList<StudentPassedModel> arrayList) {
+        this.context = context;
+        this.arrayList = arrayList;
+        Db = new My_DB(context);
     }
 
 

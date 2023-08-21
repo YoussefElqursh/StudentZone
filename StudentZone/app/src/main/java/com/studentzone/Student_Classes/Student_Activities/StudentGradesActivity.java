@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TableLayout;
+import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 import com.studentzone.Data_Base.My_DB;
@@ -29,6 +30,7 @@ public class StudentGradesActivity extends AppCompatActivity {
 
     Button btn_back;
     TabLayout tabLayout;
+    TextView NumberOfHours;
     ViewPager viewPager;
     RecyclerView recyclerView;
     ArrayList<StudentPassedModel> arrayList;
@@ -44,13 +46,6 @@ public class StudentGradesActivity extends AppCompatActivity {
         buttonBackAction();
         openFragments();
 
-//        recyclerView=findViewById(R.id.student_passed_subjects_recycleview);//add item in recycler
-//        arrayList=my_db.getPassedCoursesForStudents();//Method to get all courses name and courses code
-//        StudentPassedSubjectsAdapter studentPassedSubjectsAdapter=new StudentPassedSubjectsAdapter(this,arrayList);
-//
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//
-//        recyclerView.setAdapter(studentPassedSubjectsAdapter); //add model to recycler view
 
     }
 

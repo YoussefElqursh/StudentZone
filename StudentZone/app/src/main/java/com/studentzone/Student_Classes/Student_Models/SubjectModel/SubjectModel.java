@@ -11,6 +11,10 @@ public class SubjectModel {
 
     }
 
+    public SubjectModel(String courseName) {
+
+    }
+
     public String getSubjectName() {
         return SubjectName;
     }
@@ -26,4 +30,6 @@ public class SubjectModel {
     public void setCodeName(String codeName) {
         CodeName = codeName;
     }
+
+
 }

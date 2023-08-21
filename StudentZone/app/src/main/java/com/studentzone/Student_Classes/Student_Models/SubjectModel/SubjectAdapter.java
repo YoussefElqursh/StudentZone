@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,13 +40,24 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.ViewHold
 
 
 
+    public void removeItem(SubjectModel subject) {
+        int position = arrayList2.indexOf(subject);
+        if (position != -1) {
+            arrayList2.remove(position);
+            notifyItemRemoved(position);
+            Toast.makeText(context, subject.getSubjectName() + " Course Successfully Deleted", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     public SubjectAdapter(Context context, ArrayList<SubjectModel> arrayList2) {
         this.context=context;
         Db = new My_DB(context);
+
         this.arrayList2 = arrayList2;
         this.bottomSheetDialog = new BottomSheetDialog(context);
         this.builder = new AlertDialog.Builder(context);
+        filterPassedSubjects();
+
     }
 
     @NonNull
@@ -60,16 +72,11 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tv1_n.setText(arrayList2.get(position).getSubjectName());
         holder.tv2_c.setText(arrayList2.get(position).getCodeName());
-
-
-
         Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), android.R.anim.slide_in_left);
-
         holder.itemView.startAnimation(animation);
-
         SubjectModel model = arrayList2.get(position);
-
-        String  abbreviation = "",courseName = model.getSubjectName();
+        String  abbreviation = "";
+        String courseName = model.getSubjectName();
         String[] words = courseName.split(" ");
         for (String word : words) {
             char firstLetter = word.charAt(0);
@@ -77,6 +84,21 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.ViewHold
         }
         holder.tv_3.setText(abbreviation.toUpperCase(Locale.ROOT));
 
+
+    }
+
+    private void filterPassedSubjects() {
+        ArrayList<SubjectModel> passedSubjects = new ArrayList<>();
+        for (SubjectModel subject : arrayList2) {
+            String subjectName = subject.getSubjectName();
+            int id = Db.get_Id_course_by_CourseName(subjectName);
+            int degree = Db.getSubjectDegree_Id(id);
+
+            if (degree >= 50) {
+                passedSubjects.add(subject);
+            }
+        }
+        arrayList2.removeAll(passedSubjects);
     }
 
 
@@ -91,6 +113,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.ViewHold
         ImageButton IM;
         TextView tv1_n,tv2_c,tv_3;
         CardView crv;
+        RelativeLayout relativeLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -99,11 +122,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.ViewHold
             crv=itemView.findViewById(R.id.activity_student_subject_iv_cv);
             tv_3=itemView.findViewById(R.id.activity_student_subject_tv_sn);
             IM=itemView.findViewById(R.id.activity_student_subject_ibtn_more);
-
             IM.setOnClickListener(this);
-
-
-
 
         }
         private void displayPopupMenu(View view){
@@ -138,6 +157,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.ViewHold
             }
 
         }
+
         private void showDetailsBottomSheet(String courseName,String courseCode){
             bottomSheetDialog = new BottomSheetDialog(itemView.getContext(), R.style.BottomSheetStyle);
             bottomSheetDialogView = LayoutInflater.from(itemView.getContext()).inflate(R.layout.fragment_student_info_regestration_subject, null, false);

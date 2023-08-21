@@ -45,6 +45,7 @@
                     android:layout_centerVertical="true"/>
 
                 <TextView
+                    android:id="@+id/GPA"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -86,6 +87,7 @@
                     android:layout_centerVertical="true"/>
 
                 <TextView
+                    android:id="@+id/NumberOfSubjects"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -125,6 +127,7 @@
                     android:layout_centerVertical="true"/>
 
                 <TextView
+                    android:id="@+id/Hours_Result"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
