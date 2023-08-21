@@ -349,7 +349,7 @@ public class   StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRe
                     return;
                 }
 
-                if (TextUtils.isEmpty(studentPhone.getText().toString().trim()) || !studentPhone.getText().toString().trim().startsWith("01") || studentPhone.length()<11 || !android.util.Patterns.PHONE.matcher(studentPhone.getText().toString().trim()).matches()) {
+                if (TextUtils.isEmpty(studentPhone.getText().toString().trim()) ||  !studentPhone.getText().toString().matches("01[0125]\\d{8}")) {
                     studentPhone.setError("Please enter"+ "\n"+ "valid phone number!");
                     return;
                 }

@@ -190,7 +190,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
                 return;
             }
 
-            if (TextUtils.isEmpty(studentPhone) || !studentPhone.startsWith("01") || studentPhone.length()<11 || !android.util.Patterns.PHONE.matcher(studentPhone).matches()) {
+            if (TextUtils.isEmpty(studentPhone) || !studentPhone.matches("01[0125]\\d{8}")) {
                 et_add_new_student_phone.setError("Please enter"+ "\n"+ "valid phone number!");
                 return;
             }

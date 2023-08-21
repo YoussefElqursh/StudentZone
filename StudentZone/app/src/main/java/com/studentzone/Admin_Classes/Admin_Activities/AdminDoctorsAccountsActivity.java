@@ -151,7 +151,7 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
                 et_add_new_doctor_name.setError("Is Required !");
                 return;
             }
-            if (TextUtils.isEmpty(doctorPhone) || !doctorPhone.startsWith("01") || doctorPhone.length()<11 || !android.util.Patterns.PHONE.matcher(doctorPhone).matches()) {
+            if (TextUtils.isEmpty(doctorPhone) || !doctorPhone.matches("01[0125]\\d{8}")) {
                 et_add_new_doctor_phone.setError("Please enter"+ "\n"+ "valid phone number!");
                 return;
             }
