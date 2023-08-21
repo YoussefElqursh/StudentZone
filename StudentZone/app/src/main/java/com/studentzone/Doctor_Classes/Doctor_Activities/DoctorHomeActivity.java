@@ -32,6 +32,8 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
     private NavigationView navigationView;
     private Toolbar toolbar;
     private static final int PROFILE_IMAGE_REQUEST_CODE = 1;
+    private Intent intent_send;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -165,7 +167,19 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
         Intent intent = new Intent(getBaseContext(), DoctorProfileActivity.class);
 
         intent.putExtra("request_code", PROFILE_IMAGE_REQUEST_CODE);
-        startActivityForResult(intent, PROFILE_IMAGE_REQUEST_CODE);    }
+        startActivityForResult(intent, PROFILE_IMAGE_REQUEST_CODE);
+    }
+
+    /** openShareApplication()
+     *  Open Share Application
+     **********************************************************************************************/
+    public void openShareApplication() {
+        intent_send = new Intent(Intent.ACTION_SEND);;
+        intent_send.setType("text/plain");
+        intent_send.putExtra(Intent.EXTRA_SUBJECT, "");
+        intent_send.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=com.student.zone");
+        startActivity(Intent.createChooser(intent_send, "Share via"));
+    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -184,6 +198,10 @@ public class DoctorHomeActivity extends AppCompatActivity implements NavigationV
                 break;
             case R.id.activity_doctor_home_item_about_us:
                 openContactUS();
+                drawerLayout.closeDrawers();
+                break;
+            case R.id.activity_doctor_home_item_share:
+                openShareApplication();
                 drawerLayout.closeDrawers();
                 break;
         }
