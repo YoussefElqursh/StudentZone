@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Show Student"
-            android:textSize="18dp"
+            android:textSize="16dp"
             android:textStyle="bold"
             android:layout_marginTop="7dp"
             android:gravity="center"/>
@@ -62,6 +62,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
+        android:textSize="16sp"
         android:textColor="@color/black"/>
 
     <EditText
@@ -81,6 +82,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
+        android:textSize="16sp"
         android:textColor="@color/black"/>
 
     <EditText
@@ -101,6 +103,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
+        android:textSize="16sp"
         android:textColor="@color/black"/>
 
     <EditText
@@ -121,6 +124,7 @@
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
         android:textColor="@color/black"
+        android:textSize="16sp"
         android:maxLength="11"/>
 
     <EditText
@@ -140,6 +144,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
+        android:textSize="16sp"
         android:textColor="@color/black"/>
 
     <EditText
@@ -159,6 +164,7 @@
         android:paddingLeft="13dp"
         android:paddingRight="10dp"
         android:textColor="@color/black"
+        android:textSize="16sp"
         android:textColorHint="@color/gray" />
 
     <EditText
@@ -179,7 +185,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
-        android:textSize="18dp"
+        android:textSize="16dp"
         android:textColor="@color/black"/>
 
 </LinearLayout>

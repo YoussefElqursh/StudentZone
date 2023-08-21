@@ -43,6 +43,7 @@
                 android:background="@drawable/custom_sv"
                 android:hint="Search name or AID"
                 android:textColor="@color/white"
+                android:textSize="16sp"
                 android:textColorHint="#B3E6E6E6"
                 android:layout_marginLeft="60dp"
                 android:layout_marginRight="50dp"

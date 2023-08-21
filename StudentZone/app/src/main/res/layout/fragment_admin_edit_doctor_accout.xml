@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Edit Doctor"
-            android:textSize="18dp"
+            android:textSize="16dp"
             android:textStyle="bold"
             android:layout_marginTop="7dp"
             android:gravity="center"/>
@@ -61,6 +61,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:textColorHint="@color/gray"
+        android:textSize="16sp"
         android:drawableTint="@drawable/custom_et_selector"/>
 
     <EditText
@@ -79,6 +80,7 @@
         android:layout_marginRight="20dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
+        android:textSize="16sp"
         android:drawableTint="@drawable/custom_et_selector"
         android:maxLength="11"/>
 
@@ -99,6 +101,7 @@
         android:paddingRight="10dp"
         android:enabled="false"
         android:textColorHint="@color/gray"
+        android:textSize="16sp"
         android:drawableTint="@drawable/custom_et_selector"/>
 
     <EditText
@@ -117,7 +120,8 @@
         android:inputType="text"
         android:paddingLeft="13dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/gray" />
+        android:textColorHint="@color/gray"
+        android:textSize="16sp"/>
 
     <RadioGroup
         android:id="@+id/fragment_edit_doctor_rg_doctor_kind"
@@ -140,7 +144,7 @@
             android:minHeight="48dp"
             android:text="Male"
             android:textColor="@drawable/custom_rb_et_icon_selector"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:layout_marginRight="10dp"
             android:drawableLeft="@drawable/ic_male"
             android:drawablePadding="5dp"
@@ -158,7 +162,7 @@
             android:minHeight="48dp"
             android:text="Female"
             android:textColor="@drawable/custom_rb_et_icon_selector"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:drawableLeft="@drawable/ic_female"
             android:drawablePadding="5dp"
             android:button="@android:color/transparent"
