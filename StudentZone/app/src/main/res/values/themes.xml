@@ -49,4 +49,10 @@
     <style name="CustomTextInputEditText" parent="ThemeOverlay.Material3.TextInputEditText">
         <item name="android:textSize">10dp</item>
     </style>
+
+    <!-- Customize Profile Photo -->
+    <style name="circular">
+        <item name="cornerSize">40%</item>
+    </style>
+
 </resources>

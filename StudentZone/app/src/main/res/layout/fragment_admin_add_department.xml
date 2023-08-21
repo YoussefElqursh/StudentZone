@@ -40,7 +40,7 @@
             android:layout_marginTop="7dp"
             android:gravity="center"
             android:text="New Department"
-            android:textSize="18dp"
+            android:textSize="16dp"
             android:textStyle="bold" />
 
     </RelativeLayout>
@@ -62,7 +62,8 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
-        android:drawableTint="@drawable/custom_et_selector"/>
+        android:drawableTint="@drawable/custom_et_selector"
+        android:textSize="16sp"/>
 
     <EditText
         android:id="@+id/fragment_new_department_et_code"
@@ -82,6 +83,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
+        android:textSize="16sp"
         android:drawableTint="@drawable/custom_et_selector"/>
 
     <Button
