@@ -6,18 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Admin_Classes.Admin_Activities.AdminContactUsActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:background="@drawable/custom_drawer_header_bg"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp">
+            android:layout_height="50dp">
 
             <Button
                 android:id="@+id/activity_admin_settings_btn_back"
@@ -27,47 +26,30 @@
                 android:layout_alignParentStart="true"
                 android:layout_gravity="left"
                 android:layout_marginStart="10dp"
-                android:background="@drawable/custom_btn_back"
+                android:layout_centerVertical="true"
+                android:background="@drawable/custom_btn_download"
                 android:contentDescription="@string/back"
                 android:drawableLeft="@drawable/ic_back"
-                android:drawableTint="@color/white_gray"
+                android:drawableTint="@color/blue"
                 android:paddingLeft="10dp"
                 tools:ignore="TouchTargetSizeCheck" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
                 android:gravity="center"
                 android:text="Contact US"
                 android:textAlignment="center"
-                android:textColor="@color/white_gray"
+                android:textColor="@color/blue"
                 android:textSize="20dp"
                 android:textStyle="bold" />
         </RelativeLayout>
 
     </LinearLayout>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="-20dp"
-        android:rotation="-180"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/custom_arc_2"
-        tools:srcCompat="@drawable/custom_arc_2"/>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        app:srcCompat="@drawable/custom_arc_3"
-        tools:srcCompat="@drawable/custom_arc_3"
-        android:rotation="-180"
-        android:layout_marginTop="-70dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -82,7 +64,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="-8dp"/>
+            android:layout_marginTop="5dp"/>
 
         <View
             android:layout_width="match_parent"
@@ -96,7 +78,7 @@
             android:id="@+id/activity_doctor_contact_us_maps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-65dp"
+            android:layout_marginTop="-45dp"
             android:src="@drawable/im_map"/>
 
     </LinearLayout>
@@ -130,7 +112,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="15dp">
 
         <ImageView
             android:layout_width="30sp"
@@ -153,6 +135,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0482222170"
+            android:textColor="@drawable/custom_tv_forgot_password"
             android:textStyle="bold"
             android:layout_gravity="center_vertical"
             android:textSize="18dp"
@@ -164,12 +147,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="15dp">
 
         <ImageView
             android:layout_width="30sp"
             android:layout_height="30sp"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="15dp"
             android:src="@drawable/ic_email_address_1"
             android:layout_gravity="center_vertical"/>
 
@@ -187,6 +170,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="http://mu.menofia.edu.eg"
+            android:textColor="@drawable/custom_tv_forgot_password"
             android:textStyle="bold"
             android:layout_gravity="center_vertical"
             android:textSize="18dp"
@@ -198,7 +182,7 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="50dp"
         android:background="#BDBDBD"/>
 
@@ -207,7 +191,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="15dp">
 
         <ImageView
             android:id="@+id/facebook_iv"
