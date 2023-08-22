@@ -32,7 +32,7 @@ import java.util.Locale;
 
 public class SubjectRegestrationAdapter extends RecyclerView.Adapter<SubjectRegestrationAdapter.ViewHolder> {
     ArrayList<SubjectRegestrationModel>arrayList=new ArrayList<>(); //array list
-   private    final ArrayList<Integer> Course_id =new ArrayList<>();
+   private  ArrayList<Integer> Course_id =new ArrayList<>();
     Context context;
     My_DB Db;
     private BottomSheetDialog bottomSheetDialog;
