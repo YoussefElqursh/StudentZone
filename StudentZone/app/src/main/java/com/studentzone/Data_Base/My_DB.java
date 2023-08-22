@@ -1911,14 +1911,17 @@ public class My_DB extends SQLiteOpenHelper {
 
         String selection = Enrollment_col_student_degree + " <50 AND " + Enrollment_col_student_id + " = ?";
         String[] selectionArgs = { String.valueOf(student_id)};
-        int result = db.delete(Education_Table_Enrollment, selection, selectionArgs);
+         db.delete(Education_Table_Enrollment, selection, selectionArgs);
 
 
     }
 
     public Integer getSubjectDegree_Id(int id) {
         SQLiteDatabase db = getReadableDatabase();
-        String selection = "enrollment_course_id ='" + id + "'";
+        SharedPreferences preferences = context.getSharedPreferences("userInfo", context.MODE_PRIVATE);
+        String studentId = preferences.getString("id", "");
+        int student_id = Integer.parseInt(studentId);
+        String selection = "enrollment_course_id ='" + id + "'AND enrollment_student_id="+student_id;
 
         Cursor cursor = db.query("Enrollment", new String[]{Enrollment_col_student_degree}, selection, null, null, null, null);
         Integer CourseDegree = NULL;
