@@ -344,6 +344,7 @@ public class AdminCoursesActivity extends AppCompatActivity {
         btn_show_search.setOnClickListener(v -> {
             toolbar.setVisibility(View.INVISIBLE);
             ll_search.setVisibility(View.VISIBLE);
+            btn_add_course.setVisibility(View.INVISIBLE);
 
             //Show make a cursor focus on edit text when click on search button
             et_search.requestFocus(v.getTextDirection());
@@ -367,6 +368,7 @@ public class AdminCoursesActivity extends AppCompatActivity {
 
             toolbar.setVisibility(View.VISIBLE);
             ll_search.setVisibility(View.INVISIBLE);
+            btn_add_course.setVisibility(View.VISIBLE);
 
             et_search.getText().clear();
 
@@ -444,6 +446,10 @@ public class AdminCoursesActivity extends AppCompatActivity {
         else {
             ll_no_search_results.setVisibility(View.VISIBLE);
             courseRecyclerView.setVisibility(View.INVISIBLE);
+
+            //Make animation of no search results layout
+            Animation animation = AnimationUtils.loadAnimation(AdminCoursesActivity.this, R.anim.anim_show_ll_no_search_results);
+            ll_no_search_results.startAnimation(animation);
         }
     }
 }
