@@ -432,6 +432,7 @@ public class My_DB extends SQLiteOpenHelper {
         String firstName;
         String lastName;
         String Email;
+        String Password;
         String id;
         String phoneNumber;
         String aid;
@@ -442,7 +443,7 @@ public class My_DB extends SQLiteOpenHelper {
             case -1:
                 return isValid;
             case 0:
-                Cursor adminCursor = db.query("" + Education_Table_Admins + "", new String[]{Admin_col_name,Admin_col_email,Admin_col_phone,Admin_col_image_uri},
+                Cursor adminCursor = db.query("" + Education_Table_Admins + "", new String[]{Admin_col_name,Admin_col_email,Admin_col_phone,Admin_col_image_uri,Admin_col_password},
                         "" + Admin_col_email + "=? AND " + Admin_col_password + "=?", new String[]{email, password},
                         null, null, null, null);
 
@@ -452,15 +453,18 @@ public class My_DB extends SQLiteOpenHelper {
                     int emailColumnIndex = adminCursor.getColumnIndex(Admin_col_email);
                     int phoneColumnIndex = adminCursor.getColumnIndex(Admin_col_phone);
                     int imageColumnIndex = adminCursor.getColumnIndex(Admin_col_image_uri);
+                    int passwordColumnIndex = adminCursor.getColumnIndex(Admin_col_password);
 
                     if (firstNameColumnIndex >= 0) {
                         firstName = adminCursor.getString(firstNameColumnIndex);
                         Email = adminCursor.getString(emailColumnIndex);
                         phoneNumber = adminCursor.getString(phoneColumnIndex);
                         image_uri = adminCursor.getString(imageColumnIndex);
+                        Password = adminCursor.getString(passwordColumnIndex);
 
                         pref.edit().putString("fName",firstName).apply();
                         pref.edit().putString("email",Email).apply();
+                        pref.edit().putString("password",Password).apply();
                         pref.edit().putString("phoneNumber",phoneNumber).apply();
                         pref.edit().putString("image_uri",image_uri).apply();
 
@@ -469,7 +473,7 @@ public class My_DB extends SQLiteOpenHelper {
                 adminCursor.close();
                 break;
             case 1:
-                Cursor doctorCursor = db.query("" + Education_Table_Doctors + "", new String[]{Doctors_col_first_name,Doctors_col_last_name,Doctors_col_email,Doctors_col_id,Doctors_col_phone,Doctors_col_image_uri},
+                Cursor doctorCursor = db.query("" + Education_Table_Doctors + "", new String[]{Doctors_col_first_name,Doctors_col_last_name,Doctors_col_email,Doctors_col_id,Doctors_col_phone,Doctors_col_image_uri,Doctors_col_password},
                         "" + Doctors_col_email + "=? AND " + Doctors_col_password + "=?", new String[]{email, password},
                         null, null, null, null);
 
@@ -482,6 +486,7 @@ public class My_DB extends SQLiteOpenHelper {
                     int idColumnIndex = doctorCursor.getColumnIndex(Doctors_col_id);
                     int phoneColumnIndex = doctorCursor.getColumnIndex(Doctors_col_phone);
                     int imageColumnIndex = doctorCursor.getColumnIndex(Doctors_col_image_uri);
+                    int passwordColumnIndex = doctorCursor.getColumnIndex(Doctors_col_password);
 
                     if (firstNameColumnIndex >= 0 && lastNameColumnIndex >= 0 ) {
                         firstName = doctorCursor.getString(firstNameColumnIndex);
@@ -490,10 +495,12 @@ public class My_DB extends SQLiteOpenHelper {
                         id  = doctorCursor.getString(idColumnIndex);
                         phoneNumber  = doctorCursor.getString(phoneColumnIndex);
                         image_uri  = doctorCursor.getString(imageColumnIndex);
+                        Password  = doctorCursor.getString(passwordColumnIndex);
 
                         pref.edit().putString("fName",firstName).apply();
                         pref.edit().putString("lName",lastName).apply();
                         pref.edit().putString("email",Email).apply();
+                        pref.edit().putString("password",Password).apply();
                         pref.edit().putString("id",id).apply();
                         pref.edit().putString("image_uri",image_uri).apply();
                         pref.edit().putString("phoneNumber",phoneNumber).apply();
@@ -518,11 +525,13 @@ public class My_DB extends SQLiteOpenHelper {
                     int aidColumnIndex = studentCursor.getColumnIndex(Student_col_academic_number);
                     int deptColumnIndex = studentCursor.getColumnIndex(Student_col_dept);
                     int imageColumnIndex = studentCursor.getColumnIndex(Student_col_image_uri);
+                    int passwordColumnIndex = studentCursor.getColumnIndex(Student_col_password);
 
                     if (firstNameColumnIndex >= 0 && lastNameColumnIndex >= 0) {
                         firstName = studentCursor.getString(firstNameColumnIndex);
                         lastName  = studentCursor.getString(lastNameColumnIndex);
                         Email  = studentCursor.getString(emailColumnIndex);
+                        Password  = studentCursor.getString(emailColumnIndex);
                         id  = studentCursor.getString(idColumnIndex);
                         phoneNumber  = studentCursor.getString(phoneColumnIndex);
                         aid  = studentCursor.getString(aidColumnIndex);
@@ -533,6 +542,7 @@ public class My_DB extends SQLiteOpenHelper {
                         pref.edit().putString("fName",firstName).apply();
                         pref.edit().putString("lName",lastName).apply();
                         pref.edit().putString("email",Email).apply();
+                        pref.edit().putString("password",Password).apply();
                         pref.edit().putString("id",id).apply();
                         pref.edit().putString("phoneNumber",phoneNumber).apply();
                         pref.edit().putString("aid",aid).apply();

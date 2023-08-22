@@ -40,7 +40,7 @@
             android:layout_marginTop="7dp"
             android:gravity="center"
             android:text="Show Doctor"
-            android:textSize="18dp"
+            android:textSize="16dp"
             android:textStyle="bold" />
 
     </RelativeLayout>
@@ -62,6 +62,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
+        android:textSize="16sp"
         android:textColor="@color/black"/>
 
     <EditText
@@ -83,6 +84,7 @@
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
         android:textColor="@color/black"
+        android:textSize="16sp"
         android:maxLength="11"/>
 
     <EditText
@@ -102,6 +104,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
+        android:textSize="16sp"
         android:textColor="@color/black"/>
 
     <EditText
@@ -121,6 +124,7 @@
         android:paddingLeft="13dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
+        android:textSize="16sp"
         android:textColor="@color/black"/>
 
     <EditText
@@ -141,7 +145,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
-        android:textSize="18dp"
+        android:textSize="16sp"
         android:textColor="@color/black"/>
 
 

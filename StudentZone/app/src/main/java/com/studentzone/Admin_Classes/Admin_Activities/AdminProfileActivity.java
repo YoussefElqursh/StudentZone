@@ -22,24 +22,25 @@ import com.studentzone.R;
 
 public class AdminProfileActivity extends AppCompatActivity {
 
-    ImageView profileImage;
-    TextView tv_edite_photo,tv_name, tv_email;
-    EditText et_phone_number, et_password;
-    Dialog dialog_edit_phone_number, dialog_edit_password;
-    Button btn_edit_phone_number, btn_edit_password, btn_back;
+    private ImageView profileImage;
+    private TextView tv_edite_photo,tv_name, tv_email;
+    private EditText et_phone_number, et_password;
+    private Dialog dialog_edit_phone_number, dialog_edit_password;
+    private Button btn_edit_phone_number, btn_edit_password, btn_back, dialog_phone_number_btn_save, dialog_phone_number_btn_cancel, dialog_password_btn_save, dialog_password_btn_cancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_profile);
 
-        inflate();
+        initializeViews();
         setEditPhotoTextViewAction();
         fillOutProfileWithUserData();
         setBackButtonAction();
 
-        initializeDialogEditPhoneNumber();
-        initializeDialogEditPassword();
+        setCancelEditedPhoneNumberButtonAction();
+        setCancelEditedPasswordButtonAction();
+
 
         setEditPhoneNumberButtonAction();
         setEditPasswordButtonAction();
@@ -49,7 +50,7 @@ public class AdminProfileActivity extends AppCompatActivity {
     /**
      * Inflate
      **********************************************************************************************/
-    public void inflate() {
+    public void initializeViews() {
         profileImage = findViewById(R.id.activity_admin_profile_shiv_admin_photo);
         profileImage.setImageResource(R.drawable.ic_male_profile);
 
@@ -63,6 +64,10 @@ public class AdminProfileActivity extends AppCompatActivity {
         btn_back = findViewById(R.id.activity_admin_profile_btn_back);
         btn_edit_phone_number = findViewById(R.id.activity_admin_profile_btn_edit_phone_number);
         btn_edit_password = findViewById(R.id.activity_admin_profile_btn_edit_password);
+
+
+        initializeDialogEditPhoneNumber();
+        initializeDialogEditPassword();
     }
 
     /** setEditPhotoTextViewAction()
@@ -113,10 +118,12 @@ public class AdminProfileActivity extends AppCompatActivity {
         String email = preferences.getString("email", "");
         String phone = preferences.getString("phoneNumber", "");
         String image_uri = preferences.getString("image_uri", "");
+        String password = preferences.getString("password", "");
 
         tv_name.setText(name);
         tv_email.setText(email);
         et_phone_number.setText(phone);
+        et_password.setText(password);
         profileImage.setImageURI(Uri.parse(image_uri));
     }
 
@@ -141,6 +148,9 @@ public class AdminProfileActivity extends AppCompatActivity {
         dialog_edit_phone_number.setContentView(R.layout.fragment_edit_phone_number_dialoge);
         dialog_edit_phone_number.getWindow().setBackgroundDrawable(getDrawable(custom_profile_dialoge));
         dialog_edit_phone_number.getWindow().getAttributes().windowAnimations = R.style.DialogTheme;
+
+        dialog_phone_number_btn_save = dialog_edit_phone_number.findViewById(R.id.fragment_edit_phone_number_dialog_btn_save);
+        dialog_phone_number_btn_cancel = dialog_edit_phone_number.findViewById(R.id.fragment_edit_phone_number_dialog_btn_cansel);
     }
 
     /** initializeDialogEditPassword()
@@ -151,6 +161,9 @@ public class AdminProfileActivity extends AppCompatActivity {
         dialog_edit_password.setContentView(R.layout.fragment_edit_password_dialoge);
         dialog_edit_password.getWindow().setBackgroundDrawable(getDrawable(custom_profile_dialoge));
         dialog_edit_password.getWindow().getAttributes().windowAnimations = R.style.DialogTheme;
+
+        dialog_password_btn_save = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_btn_save);
+        dialog_password_btn_cancel = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_btn_cansel);
     }
 
 
@@ -177,7 +190,60 @@ public class AdminProfileActivity extends AppCompatActivity {
                 dialog_edit_password.show();
             }
         });
-
     }
 
+    /** setCancelEditedPhoneNumberButtonAction()
+     *  Set Cancel Edited PhoneNumber  Button Action
+     **********************************************************************************************/
+    public void setCancelEditedPhoneNumberButtonAction () {
+        dialog_phone_number_btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dialog_edit_phone_number.cancel();
+            }
+        });
+    }
+
+
+    /** setSaveEditedPhoneNumberButtonAction()
+     *  Set Save Edited PhoneNumber Button Action
+     **********************************************************************************************/
+    public void setSaveEditedPhoneNumberButtonAction () {
+        dialog_phone_number_btn_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+            }
+        });
+    }
+
+
+    /** setCancelEditedPasswordButtonAction()
+     *  Set Cancel Edited Password  Button Action
+     **********************************************************************************************/
+    public void setCancelEditedPasswordButtonAction () {
+        dialog_password_btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dialog_edit_password.cancel();
+            }
+        });
+    }
+
+
+    /** setSaveEditedPasswordButtonAction()
+     *  Set Save Edited Password Button Action
+     **********************************************************************************************/
+    public void setSaveEditedPasswordButtonAction () {
+        dialog_phone_number_btn_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+            }
+        });
+    }
 }

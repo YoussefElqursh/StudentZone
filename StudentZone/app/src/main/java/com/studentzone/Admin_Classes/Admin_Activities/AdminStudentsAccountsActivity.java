@@ -54,7 +54,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
     private String studentAID, studentName, studentEmail, studentPassword, studentGender = "Male",studentPhone,studentDepartmentName;
     private RecyclerView studentRecyclerView;
     private Toolbar toolbar;
-    private LinearLayout ll_search;
+    private LinearLayout ll_search,ll_no_search_results;
     private StudentRecyclerViewAdapter adapter;
     private ArrayList<Students>filteredStudentList;
 
@@ -62,8 +62,6 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_students_accounts);
-
 
         // Set the layout for the activity
         setContentView(R.layout.activity_admin_students_accounts);
@@ -123,6 +121,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.activity_admin_students_accounts_tbar);
         ll_search = findViewById(R.id.activity_admin_students_accounts_ll_search);
+        ll_no_search_results = findViewById(R.id.activity_admin_students_accounts_ll_no_search_results);
 
         rg_gender = addStudentBottomSheetDialogView.findViewById(R.id.fragment_new_student_rg_student_kind);
 
@@ -191,7 +190,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
                 return;
             }
 
-            if (TextUtils.isEmpty(studentPhone) || !studentPhone.startsWith("01") || studentPhone.length()<11 || !android.util.Patterns.PHONE.matcher(studentPhone).matches()) {
+            if (TextUtils.isEmpty(studentPhone) || !studentPhone.matches("01[0125]\\d{8}")) {
                 et_add_new_student_phone.setError("Please enter"+ "\n"+ "valid phone number!");
                 return;
             }
@@ -314,8 +313,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
 
             toolbar.setVisibility(View.INVISIBLE);
             ll_search.setVisibility(View.VISIBLE);
-
-            et_search.setText("");
+            btn_add_student.setVisibility(View.INVISIBLE);
 
             //Show make a cursor focus on edit text when click on search button
             et_search.requestFocus(v.getTextDirection());
@@ -339,6 +337,7 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
 
             toolbar.setVisibility(View.VISIBLE);
             ll_search.setVisibility(View.INVISIBLE);
+            btn_add_student.setVisibility(View.VISIBLE);
 
             et_search.getText().clear();
 
@@ -376,13 +375,17 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
                 String searchKey =  s.toString().toLowerCase();
 
                 // Perform search operation as the user types in the edit text
-                performSearch(searchKey.trim());
-
+                if(searchKey.isEmpty() || searchKey.trim().isEmpty())
+                    displayAllStudents();
+                else
+                    performSearch(searchKey.trim());
 
                 if(searchKey.isEmpty())
                     btn_clear_searchKey.setVisibility(View.INVISIBLE);
                 else
                     btn_clear_searchKey.setVisibility(View.VISIBLE);
+
+                handleSearchQueryResult();
             }
             @Override
             public void afterTextChanged(Editable s) {}
@@ -397,6 +400,25 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
         filteredStudentList = db.displayStudents(searchKye);
 
         adapter.updateStudents(filteredStudentList);
+    }
+
+    /**handleSearchQueryResult()
+     * This method is likely called after performing a search
+     * It ensures that the appropriate views are shown or hidden based on whether there are search results available
+     **********************************************************************************************/
+    public void handleSearchQueryResult(){
+        if(filteredStudentList.size()>0){
+            studentRecyclerView.setVisibility(View.VISIBLE);
+            ll_no_search_results.setVisibility(View.INVISIBLE);
+        }
+        else {
+            ll_no_search_results.setVisibility(View.VISIBLE);
+            studentRecyclerView.setVisibility(View.INVISIBLE);
+
+            //Make animation of no search results layout
+            Animation animation = AnimationUtils.loadAnimation(AdminStudentsAccountsActivity.this, R.anim.anim_show_ll_no_search_results);
+            ll_no_search_results.startAnimation(animation);
+        }
     }
 
 }

@@ -44,7 +44,8 @@
                 android:textColorHint="#B3E6E6E6"
                 android:layout_marginLeft="60dp"
                 android:layout_marginRight="50dp"
-                android:maxLines="1"/>
+                android:maxLines="1"
+                android:textSize="16dp"/>
 
             <Button
                 android:id="@+id/activity_admin_departments_btn_search_delete"
@@ -191,7 +192,7 @@
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/activity_admin_departments_recycelerview"
+                android:id="@+id/activity_admin_departments_recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"

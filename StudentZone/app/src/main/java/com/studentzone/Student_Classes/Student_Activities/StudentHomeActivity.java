@@ -206,8 +206,8 @@ public class StudentHomeActivity extends AppCompatActivity implements Navigation
                 drawerLayout.closeDrawers();
                 break;
             case R.id.activity_student_home_item_settings:
-                drawerLayout.closeDrawers();
                 openSettings();
+                drawerLayout.closeDrawers();
                 break;
             case R.id.activity_student_home_item_profile:
                 openProfile();

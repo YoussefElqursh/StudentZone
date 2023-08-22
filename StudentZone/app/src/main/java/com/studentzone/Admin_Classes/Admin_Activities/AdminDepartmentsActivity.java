@@ -16,7 +16,6 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,14 +42,16 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
     private BottomSheetDialog addDepartmentBottomSheetDialog;
     private View addDepartmentBottomSheetDialogView;
 
+
     // Variables for storing department data
     private String departmentName, departmentCode;
     private RecyclerView departmentRecyclerView;
     private Toolbar toolbar;
-    private LinearLayout ll_search;
+    private LinearLayout ll_search, ll_no_search_results;
     private EditText et_search;
     private  ArrayList<Departments> filteredDepartmentsList;
-    DepartmentRecyclerViewAdapter adapter;
+    private DepartmentRecyclerViewAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,11 +95,12 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
         et_add_new_department_name = addDepartmentBottomSheetDialogView.findViewById(R.id.fragment_new_department_et_name);
         et_add_new_department_code = addDepartmentBottomSheetDialogView.findViewById(R.id.fragment_new_department_et_code);
 
-        departmentRecyclerView = findViewById(R.id.activity_admin_departments_recycelerview);
+        departmentRecyclerView = findViewById(R.id.activity_admin_departments_recyclerview);
 
         toolbar = findViewById(R.id.activity_admin_departments_tbar);
 
         ll_search = findViewById(R.id.activity_admin_departments_ll_search);
+        ll_no_search_results = findViewById(R.id.activity_admin_departments_ll_no_search_results);
 
         et_search = findViewById(R.id.activity_admin_departments_et_search);
     }
@@ -218,8 +220,8 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
 
             toolbar.setVisibility(View.INVISIBLE);
             ll_search.setVisibility(View.VISIBLE);
+            btn_add_department.setVisibility(View.INVISIBLE);
 
-            et_search.setText("");
 
             //Show make a cursor focus on edit text when click on search button
             et_search.requestFocus(v.getTextDirection());
@@ -243,6 +245,7 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
 
             toolbar.setVisibility(View.VISIBLE);
             ll_search.setVisibility(View.INVISIBLE);
+            btn_add_department.setVisibility(View.VISIBLE);
 
             et_search.getText().clear();
 
@@ -280,13 +283,17 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
                 String searchKey =  s.toString().toLowerCase();
 
                 // Perform search operation as the user types in the edit text
-                performSearch(searchKey.trim());
-
+                if(searchKey.isEmpty() || searchKey.trim().isEmpty())
+                    displayAllDepartments();
+                else
+                    performSearch(searchKey.trim());
 
                 if(searchKey.isEmpty())
                     btn_clear_searchKey.setVisibility(View.INVISIBLE);
                 else
                     btn_clear_searchKey.setVisibility(View.VISIBLE);
+
+                handleSearchQueryResult();
             }
             @Override
             public void afterTextChanged(Editable s) {}
@@ -301,6 +308,27 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
         filteredDepartmentsList = db.displayDepartments(searchKye);
 
         adapter.updateDepartments(filteredDepartmentsList);
+
+
+    }
+
+    /**handleSearchQueryResult()
+     * This method is likely called after performing a search
+     * It ensures that the appropriate views are shown or hidden based on whether there are search results available
+     **********************************************************************************************/
+    public void handleSearchQueryResult(){
+        if(filteredDepartmentsList.size()>0){
+            departmentRecyclerView.setVisibility(View.VISIBLE);
+            ll_no_search_results.setVisibility(View.INVISIBLE);
+        }
+        else {
+            ll_no_search_results.setVisibility(View.VISIBLE);
+            departmentRecyclerView.setVisibility(View.INVISIBLE);
+
+            //Make animation of no search results layout
+            Animation animation = AnimationUtils.loadAnimation(AdminDepartmentsActivity.this, R.anim.anim_show_ll_no_search_results);
+            ll_no_search_results.startAnimation(animation);
+        }
     }
 
 }

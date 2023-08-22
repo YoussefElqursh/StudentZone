@@ -49,18 +49,13 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
     private String doctorName, doctorEmail, doctorPassword,doctorPhone, doctorGender = "Male";
     private RecyclerView doctorRecyclerView;
     private Toolbar toolbar;
-    private LinearLayout ll_search;
-
-    private ArrayList<Doctors> filteredCoursesList;
+    private LinearLayout ll_search,ll_no_search_results;
     private DoctorRecyclerViewAdapter adapter;
+    private ArrayList<Doctors> filteredCoursesList ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_doctors_accounts);
-
-
-        // Set the layout for the activity
         setContentView(R.layout.activity_admin_doctors_accounts);
 
         // Initialize views
@@ -110,6 +105,7 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.activity_admin_doctors_accounts_tbar);
         ll_search = findViewById(R.id.activity_admin_doctors_accounts_ll_search);
+        ll_no_search_results = findViewById(R.id.activity_admin_doctors_accounts_ll_no_search_results);
 
         doctorRecyclerView = findViewById(R.id.activity_admin_doctors_accounts_recyclerview);
 
@@ -155,7 +151,7 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
                 et_add_new_doctor_name.setError("Is Required !");
                 return;
             }
-            if (TextUtils.isEmpty(doctorPhone) || !doctorPhone.startsWith("01") || doctorPhone.length()<11 || !android.util.Patterns.PHONE.matcher(doctorPhone).matches()) {
+            if (TextUtils.isEmpty(doctorPhone) || !doctorPhone.matches("01[0125]\\d{8}")) {
                 et_add_new_doctor_phone.setError("Please enter"+ "\n"+ "valid phone number!");
                 return;
             }
@@ -245,10 +241,11 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
      **********************************************************************************************/
     public void displayAllDoctors() {
 
-        ArrayList<Doctors> doctorsArrayList = db.displayDoctors("");
-        filteredCoursesList = new ArrayList<>(doctorsArrayList);
+        ArrayList<Doctors> doctorsList = db.displayDoctors("");
+        filteredCoursesList = new ArrayList<>(doctorsList);
 
-        adapter = new DoctorRecyclerViewAdapter(this, doctorsArrayList);
+        // Adapter for the course RecyclerView
+        adapter = new DoctorRecyclerViewAdapter(this, doctorsList); // assign list to adapter variable
         RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
 
         doctorRecyclerView.setHasFixedSize(true);
@@ -265,8 +262,7 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
 
             toolbar.setVisibility(View.INVISIBLE);
             ll_search.setVisibility(View.VISIBLE);
-
-            et_search.setText("");
+            btn_add_doctor.setVisibility(View.INVISIBLE);
 
             //Show make a cursor focus on edit text when click on search button
             et_search.requestFocus(v.getTextDirection());
@@ -290,6 +286,7 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
 
             toolbar.setVisibility(View.VISIBLE);
             ll_search.setVisibility(View.INVISIBLE);
+            btn_add_doctor.setVisibility(View.VISIBLE);
 
             et_search.getText().clear();
 
@@ -327,13 +324,18 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
                 String searchKey =  s.toString().toLowerCase();
 
                 // Perform search operation as the user types in the edit text
-                performSearch(searchKey.trim());
+                if(searchKey.isEmpty() || searchKey.trim().isEmpty())
+                    displayAllDoctors();
+                else
+                    performSearch(searchKey.trim());
 
 
                 if(searchKey.isEmpty())
                     btn_clear_searchKey.setVisibility(View.INVISIBLE);
                 else
                     btn_clear_searchKey.setVisibility(View.VISIBLE);
+
+                handleSearchQueryResult();
             }
             @Override
             public void afterTextChanged(Editable s) {}
@@ -346,8 +348,27 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
     private  void performSearch(String searchKye){
 
         filteredCoursesList = db.displayDoctors(searchKye);
-
         adapter.updateDoctors(filteredCoursesList);
+
+    }
+
+    /**handleSearchQueryResult()
+     * This method is likely called after performing a search
+     * It ensures that the appropriate views are shown or hidden based on whether there are search results available
+     **********************************************************************************************/
+    public void handleSearchQueryResult(){
+        if(filteredCoursesList.size()>0){
+            doctorRecyclerView.setVisibility(View.VISIBLE);
+            ll_no_search_results.setVisibility(View.INVISIBLE);
+        }
+        else {
+            ll_no_search_results.setVisibility(View.VISIBLE);
+            doctorRecyclerView.setVisibility(View.INVISIBLE);
+
+            //Make animation of no search results layout
+            Animation animation = AnimationUtils.loadAnimation(AdminDoctorsAccountsActivity.this, R.anim.anim_show_ll_no_search_results);
+            ll_no_search_results.startAnimation(animation);
+        }
     }
 
 }

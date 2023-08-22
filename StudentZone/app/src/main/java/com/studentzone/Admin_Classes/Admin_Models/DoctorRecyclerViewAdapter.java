@@ -57,7 +57,9 @@ public class   DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecy
     @NonNull
     @Override
     public doctorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_admin_model_doctor,null,false);
+
         return new doctorViewHolder(view);
     }
 
@@ -299,7 +301,7 @@ public class   DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecy
                     doctorPassword.setError("Is Required !");
                     return;
                 }
-                if (TextUtils.isEmpty(doctorPhone.getText().toString().trim()) || !doctorPhone.getText().toString().trim().startsWith("01") || doctorPhone.length()<11 || !android.util.Patterns.PHONE.matcher(doctorPhone.getText().toString().trim()).matches()) {
+                if (TextUtils.isEmpty(doctorPhone.getText().toString().trim()) || !doctorPhone.getText().toString().matches("01[0125]\\d{8}")) {
                     doctorPhone.setError("Please enter"+ "\n"+ "valid phone number!");
                     return;
                 }

@@ -25,7 +25,7 @@ public class StudentSettingsActivity extends AppCompatActivity {
      *  Back To The Previous Activity
      **********************************************************************************************/
     public void setBackButtonAction(){
-        btn_back = findViewById(R.id.activity_doctor_settings_btn_back);
-        btn_back.setOnClickListener(v -> startActivity(new Intent(getBaseContext(), AdminHomeActivity.class)));
+        btn_back = findViewById(R.id.activity_student_settings_btn_back);
+        btn_back.setOnClickListener(v -> startActivity(new Intent(getBaseContext(), StudentHomeActivity.class)));
     }
 }

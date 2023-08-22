@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Student Grade"
-            android:textSize="18dp"
+            android:textSize="16dp"
             android:textStyle="bold"
             android:layout_marginTop="7dp"
             android:gravity="center"/>
@@ -61,6 +61,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
+        android:textSize="16sp"
         android:drawableTint="@drawable/custom_et_selector"
         android:enabled="false"
         android:textColor="@color/black"/>
@@ -81,6 +82,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"
+        android:textSize="16sp"
         android:drawableTint="@drawable/custom_et_selector"
         android:enabled="false"
         android:textColor="@color/black"/>
@@ -107,6 +109,7 @@
             android:paddingLeft="13dp"
             android:paddingRight="10dp"
             android:textColorHint="@color/gray"
+            android:textSize="16sp"
             android:drawableTint="@drawable/custom_et_selector"
             android:layout_marginRight="5dp"
             android:maxLength="3"/>
@@ -123,6 +126,7 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:textColorHint="@color/gray"
+            android:textSize="16sp"
             android:drawableLeft="@drawable/ic_grade"
             android:drawableTint="@drawable/custom_et_selector"
             android:maxLength="2"

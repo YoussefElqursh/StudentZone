@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".Login_Classes.Login_Activities.ForgetPasswrod_Classes.VerifyOTPActivity">
 
     <LinearLayout
@@ -15,17 +16,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@color/blue">
-
-            <ImageView
-                android:layout_width="520dp"
-                android:layout_height="match_parent"
-                android:rotation="-180"
-                android:src="@drawable/im_custom_arc_4"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="-35dp"
-                android:layout_marginLeft="-10dp"/>
+            android:layout_height="50dp">
 
             <Button
                 android:id="@+id/activity_verify_otp_btn_back"
@@ -35,10 +26,10 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginStart="15dp"
                 android:layout_gravity="left"
-                android:background="@drawable/custom_btn_back"
-                android:backgroundTint="@color/blue"
+                android:layout_centerVertical="true"
+                android:background="@drawable/custom_btn_download"
                 android:drawableLeft="@drawable/ic_back"
-                android:drawableTint="@color/white"
+                android:drawableTint="@color/blue"
                 android:paddingLeft="10dp"
                 tools:ignore="TouchTargetSizeCheck"
                 android:contentDescription="@string/back"/>
@@ -47,18 +38,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
                 android:layout_marginTop="25dp"
                 android:text="Phone Verification"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/white"/>
+                android:textColor="@color/blue"/>
 
         </RelativeLayout>
 
         <ImageView
             android:layout_width="220dp"
             android:layout_height="220dp"
-            android:layout_marginTop="-110dp"
+            android:layout_marginTop="10dp"
             android:contentDescription="png"
             android:src="@drawable/illust_new_message" />
 

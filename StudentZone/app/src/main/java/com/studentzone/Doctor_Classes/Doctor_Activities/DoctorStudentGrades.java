@@ -34,7 +34,8 @@ public class DoctorStudentGrades extends AppCompatActivity {
     private Button btn_show_search, btn_hide_search;
     private EditText et_search;
     private Toolbar toolbar;
-    private LinearLayout ll_search;
+    private LinearLayout ll_search, ll_no_search_results;
+    private RecyclerView studentRecyclerView;
     private DoctorStudentsGradesRecyclerViewAdapter adapter;
     private ArrayList<Students> studentsList, filteredStudentList;
     @Override
@@ -55,7 +56,6 @@ public class DoctorStudentGrades extends AppCompatActivity {
         // Go back to previous activity
         setBackButtonAction();
 
-
         setButtonSearchAction(); // show search et
         setButtonBackSearchAction(); // hide search et
 
@@ -71,7 +71,11 @@ public class DoctorStudentGrades extends AppCompatActivity {
         et_search = findViewById(R.id.activity_doctor_student_degree_et_search);
 
         toolbar = findViewById(R.id.activity_doctor_student_degree_tbar);
+
         ll_search = findViewById(R.id.activity_doctor_student_degree_ll_search);
+        ll_no_search_results = findViewById(R.id.activity_doctor_student_degree_ll_no_search_results);
+
+        studentRecyclerView = findViewById(R.id.activity_doctor_student_degree_recycleView);
     }
     public void setBackButtonAction(){
         Button btn_back = findViewById(R.id.activity_doctor_student_degree_btn_back);
@@ -159,10 +163,12 @@ public class DoctorStudentGrades extends AppCompatActivity {
 
                 // Perform search operation as the user types in the edit text
                 performSearch(searchKye);
+                handleSearchQueryResult();
             }
             @Override
             public void afterTextChanged(Editable s) {}
         });
+
     }
 
     /**performSearch()
@@ -183,5 +189,24 @@ public class DoctorStudentGrades extends AppCompatActivity {
         }
 
         adapter.updateStudents(filteredStudentList);
+    }
+
+    /**handleSearchQueryResult()
+     * This method is likely called after performing a search
+     * It ensures that the appropriate views are shown or hidden based on whether there are search results available
+     **********************************************************************************************/
+    public void handleSearchQueryResult(){
+        if(filteredStudentList.size()>0){
+            studentRecyclerView.setVisibility(View.VISIBLE);
+            ll_no_search_results.setVisibility(View.INVISIBLE);
+        }
+        else {
+            ll_no_search_results.setVisibility(View.VISIBLE);
+            studentRecyclerView.setVisibility(View.INVISIBLE);
+
+            //Make animation of no search results layout
+            Animation animation = AnimationUtils.loadAnimation(DoctorStudentGrades.this, R.anim.anim_show_ll_no_search_results);
+            ll_no_search_results.startAnimation(animation);
+        }
     }
 }
