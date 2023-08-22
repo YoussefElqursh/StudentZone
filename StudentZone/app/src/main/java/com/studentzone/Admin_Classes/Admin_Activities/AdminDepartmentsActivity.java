@@ -51,6 +51,7 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
     private EditText et_search;
     private  ArrayList<Departments> filteredDepartmentsList;
     private DepartmentRecyclerViewAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -219,6 +220,7 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
 
             toolbar.setVisibility(View.INVISIBLE);
             ll_search.setVisibility(View.VISIBLE);
+            btn_add_department.setVisibility(View.INVISIBLE);
 
 
             //Show make a cursor focus on edit text when click on search button
@@ -243,6 +245,7 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
 
             toolbar.setVisibility(View.VISIBLE);
             ll_search.setVisibility(View.INVISIBLE);
+            btn_add_department.setVisibility(View.VISIBLE);
 
             et_search.getText().clear();
 
@@ -308,6 +311,7 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
 
 
     }
+
     /**handleSearchQueryResult()
      * This method is likely called after performing a search
      * It ensures that the appropriate views are shown or hidden based on whether there are search results available
@@ -320,6 +324,10 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
         else {
             ll_no_search_results.setVisibility(View.VISIBLE);
             departmentRecyclerView.setVisibility(View.INVISIBLE);
+
+            //Make animation of no search results layout
+            Animation animation = AnimationUtils.loadAnimation(AdminDepartmentsActivity.this, R.anim.anim_show_ll_no_search_results);
+            ll_no_search_results.startAnimation(animation);
         }
     }
 
