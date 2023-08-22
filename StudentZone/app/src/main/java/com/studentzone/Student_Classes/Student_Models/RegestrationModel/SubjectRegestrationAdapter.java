@@ -1,5 +1,7 @@
 package com.studentzone.Student_Classes.Student_Models.RegestrationModel;
 
+import static java.sql.Types.NULL;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -23,15 +25,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
-import com.studentzone.Student_Classes.Student_Models.SubjectModel.StudentPassedModel;
-import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectModel;
+
 
 import java.util.ArrayList;
 import java.util.Locale;
 
 public class SubjectRegestrationAdapter extends RecyclerView.Adapter<SubjectRegestrationAdapter.ViewHolder> {
     ArrayList<SubjectRegestrationModel>arrayList=new ArrayList<>(); //array list
-   private    ArrayList<Integer> Course_id =new ArrayList<>();
+   private    final ArrayList<Integer> Course_id =new ArrayList<>();
     Context context;
     My_DB Db;
     private BottomSheetDialog bottomSheetDialog;
@@ -87,29 +88,37 @@ public class SubjectRegestrationAdapter extends RecyclerView.Adapter<SubjectRege
                 String StudentId = preferences.getString("id", "");
                 int S_id = Integer.parseInt(StudentId);
 
+                if (isChecked == true) {
+                    if (my_db.SubjectDuplicated(S_id, ID_Course)) {
+                        Toast.makeText(context, "Subject already registered!", Toast.LENGTH_SHORT).show();
+                        buttonView.setChecked(false);
+                        System.out.println("SubjectDuplicated");
+                    } else if (my_db.subject_have_Prerequest(model.getSubjectName())) {
+                        int pre_id = my_db.getPreRequestIdBy_Name(model.getSubjectName());
+                        System.out.println("prepre :"+pre_id);
+                        if (my_db.pre_thereExist_inEnrollment_course_id(pre_id)) {
 
-                if(isChecked==true){
-                   if(my_db.SubjectDuplicated(S_id,ID_Course)){
-                       Toast.makeText(context, "Subject already registered!", Toast.LENGTH_SHORT).show();
-                       buttonView.setChecked(false);
-                       System.out.println("SubjectDuplicated");
-
-                   } else if (my_db.subject_have_Prerequest(model.getSubjectName())) {
-                       if(my_db.AskForRegistedPre(model.getSubjectName())){
-
-                           Course_id.add(ID_Course);
-                       }else{
-                           Toast.makeText(context, "so you should regist it again .", Toast.LENGTH_LONG).show();
-                           buttonView.setChecked(false);
-                       }
-
-                   }else
-                       Course_id.add(ID_Course);
-
-                }else{
+                            if (my_db.getSubjectDegree_Id(pre_id) != NULL) {
+                                if (my_db.getSubjectDegree_Id(pre_id) >= 50) {
+                                    Toast.makeText(context, "You have succeeded in the prerequisite " + my_db.get_course_by_Course_Id(pre_id) + ".", Toast.LENGTH_LONG).show();
+                                    Course_id.add(ID_Course);
+                                } else {
+                                    Toast.makeText(context, "You have failed in the prerequisite " + my_db.get_course_by_Course_Id(pre_id) + ".", Toast.LENGTH_LONG).show();
+                                    buttonView.setChecked(false);
+                                }
+                            } else {
+                                Toast.makeText(context, "You don't have a degree in the prerequisite " + my_db.get_course_by_Course_Id(pre_id) + ".", Toast.LENGTH_LONG).show();
+                                buttonView.setChecked(false);
+                            }
+                        } else {
+                            Toast.makeText(context, "You should register the prerequisite " + my_db.get_course_by_Course_Id(pre_id) + ".", Toast.LENGTH_LONG).show();
+                            buttonView.setChecked(false);
+                        }
+                    } else {
+                        Course_id.add(ID_Course);
+                    }
+                } else {
                     Course_id.remove(Integer.valueOf(ID_Course));
-
-
                 }
 
             }

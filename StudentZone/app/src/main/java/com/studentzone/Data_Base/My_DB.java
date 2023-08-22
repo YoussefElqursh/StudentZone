@@ -1,5 +1,7 @@
 package com.studentzone.Data_Base;
 
+import static java.sql.Types.NULL;
+
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
@@ -1621,7 +1623,7 @@ public class My_DB extends SQLiteOpenHelper {
             int columnIndex = cursor.getColumnIndex("PreRequests_id");
             int prerequisiteId = cursor.getInt(columnIndex);
             hasPrerequisite = (prerequisiteId != 0);
-           if(hasPrerequisite==true){System.out.println("have pre reques");} else {
+           if(hasPrerequisite==true){System.out.println("have pre request"+prerequisiteId);} else {
                System.out.println("does not have pre");
            }
         }
@@ -1631,39 +1633,14 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
 
-    public boolean AskForRegistedPre(String subjectName) {
-        int pre_id = getPreRequestIdBy_Name(subjectName);
-        if(pre_thereExist_inEnrollment_course_id(pre_id)&&pre_have_successed(pre_id)){
-            return true;
-        }else{ return false;}
 
-    }
 
-    private boolean pre_have_successed(int pre_id) {
-        SharedPreferences preferences = context.getSharedPreferences("userInfo", context.MODE_PRIVATE);
-        String studentId = preferences.getString("id", "");
-        int student_id = Integer.parseInt(studentId);
 
+
+
+    public boolean pre_thereExist_inEnrollment_course_id(int pre_id) {
         SQLiteDatabase db = getReadableDatabase();
-        String selection = "enrollment_student_id = ? AND enrollment_course_id = ? AND enrollment_student_degree > 50";
-        String[] selectionArgs = {String.valueOf(student_id), String.valueOf(pre_id)};
-
-        Cursor cursor = db.query("Enrollment", new String[]{"enrollment_student_degree"}, selection, selectionArgs, null, null, null);
-        boolean hasSucceeded = cursor.moveToFirst();
-
-        cursor.close();
-        db.close();
-       String PreCourse= get_course_by_Course_Id(pre_id);
-if (hasSucceeded==true){ Toast.makeText(context, "you succeed in the pre", Toast.LENGTH_SHORT).show();
-    }else{
-    Toast.makeText(context, "you failed in the "+PreCourse+". ", Toast.LENGTH_SHORT).show();
-    }
-        return hasSucceeded;
-    }
-
-    private boolean pre_thereExist_inEnrollment_course_id(int pre_id) {
-        SQLiteDatabase db = getReadableDatabase();
-        String selection = "enrollment_course_id = ? AND enrollment_student_id = ?";
+        String selection = "enrollment_course_id = ? AND enrollment_student_id = ? ";
         SharedPreferences preferences = context.getSharedPreferences("userInfo", context.MODE_PRIVATE);
         String studentId = preferences.getString("id", "");
         int student_id = Integer.parseInt(studentId);
@@ -1929,21 +1906,18 @@ if (hasSucceeded==true){ Toast.makeText(context, "you succeed in the pre", Toast
 
     }
 
-    public int getSubjectDegree_Id(int id) {
+    public Integer getSubjectDegree_Id(int id) {
         SQLiteDatabase db = getReadableDatabase();
-        String selection = "enrollment_course_id =' " + id + "'";
+        String selection = "enrollment_course_id ='" + id + "'";
 
         Cursor cursor = db.query("Enrollment", new String[]{Enrollment_col_student_degree}, selection, null, null, null, null);
-        int CourseDegree = 0;
+        Integer CourseDegree = NULL;
         if (cursor.moveToFirst()) {
-            do {
-                CourseDegree = cursor.getInt(0);
-
-            } while (cursor.moveToNext());
-            cursor.close();
-            db.close();
-
+            CourseDegree = cursor.getInt(0);
         }
+        cursor.close();
+        db.close();
+
         return CourseDegree;
     }
 

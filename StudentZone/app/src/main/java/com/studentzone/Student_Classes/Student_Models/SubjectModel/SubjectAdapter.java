@@ -40,14 +40,8 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.ViewHold
 
 
 
-    public void removeItem(SubjectModel subject) {
-        int position = arrayList2.indexOf(subject);
-        if (position != -1) {
-            arrayList2.remove(position);
-            notifyItemRemoved(position);
-            Toast.makeText(context, subject.getSubjectName() + " Course Successfully Deleted", Toast.LENGTH_SHORT).show();
-        }
-    }
+
+
 
     public SubjectAdapter(Context context, ArrayList<SubjectModel> arrayList2) {
         this.context=context;

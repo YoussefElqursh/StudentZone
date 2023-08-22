@@ -25,7 +25,7 @@ public class StudentRegistrationActivity extends AppCompatActivity  {
     ArrayList<SubjectRegestrationModel>arrayList;
     //store in the recycler
     Button btn_After_Registration;
-    SubjectRegestrationAdapter subjectRegestrationAdapter;
+
     My_DB my_db=new My_DB( this);
 
 
