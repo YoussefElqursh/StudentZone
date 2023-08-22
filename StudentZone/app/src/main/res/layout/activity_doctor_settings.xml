@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Admin_Classes.Admin_Activities.AdminSettingsActivity"
+    tools:context=".Doctor_Classes.Doctor_Activities.DoctorSettingsActivity"
     android:background="@color/white">
 
     <LinearLayout
@@ -38,7 +38,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
+                android:layout_marginStart="60dp"
                 android:layout_centerVertical="true"
                 android:gravity="center"
                 android:text="Settings"
@@ -148,7 +148,6 @@
                     android:layout_marginStart="10dp"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    android:textStyle="bold"
                     android:layout_centerVertical="true"/>
 
                 <androidx.appcompat.widget.SwitchCompat
@@ -198,7 +197,6 @@
                     android:layout_marginStart="10dp"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    android:textStyle="bold"
                     android:layout_centerVertical="true"/>
 
             </RelativeLayout>
@@ -255,7 +253,6 @@
                     android:layout_marginStart="10dp"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    android:textStyle="bold"
                     android:layout_centerVertical="true"/>
 
                 <androidx.appcompat.widget.SwitchCompat
@@ -305,7 +302,6 @@
                     android:layout_marginStart="10dp"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    android:textStyle="bold"
                     android:layout_centerVertical="true"/>
 
             </RelativeLayout>
@@ -361,7 +357,6 @@
                     android:layout_marginStart="10dp"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    android:textStyle="bold"
                     android:layout_centerVertical="true"/>
 
             </RelativeLayout>
@@ -401,7 +396,6 @@
                     android:layout_marginStart="10dp"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    android:textStyle="bold"
                     android:layout_centerVertical="true"/>
 
             </RelativeLayout>
