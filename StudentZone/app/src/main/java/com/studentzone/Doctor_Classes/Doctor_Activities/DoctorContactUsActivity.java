@@ -5,13 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.studentzone.R;
+import com.studentzone.Student_Classes.Student_Activities.StudentHomeActivity;
 
 public class DoctorContactUsActivity extends AppCompatActivity {
 
     ImageView map , facebook , website;
+
+    Button btn_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +25,13 @@ public class DoctorContactUsActivity extends AppCompatActivity {
         openMap();
         openFacebook();
         openWebsite();
+        setBackButtonAction();
+    }
 
+    public void gotoUrl(String s)
+    {
+        Uri uri = Uri.parse(s);
+        startActivity(new Intent(Intent.ACTION_VIEW,uri));
     }
 
     public void openMap()
@@ -56,10 +66,11 @@ public class DoctorContactUsActivity extends AppCompatActivity {
         });
     }
 
-    public void gotoUrl(String s)
-    {
-        Uri uri = Uri.parse(s);
-        startActivity(new Intent(Intent.ACTION_VIEW,uri));
+    /** setBackButtonAction()
+     *  Back To The Previous Activity
+     **********************************************************************************************/
+    public void setBackButtonAction(){
+        btn_back = findViewById(R.id.activity_doctor_contact_us_btn_back);
+        btn_back.setOnClickListener(v -> startActivity(new Intent(getBaseContext(), DoctorHomeActivity.class)));
     }
-
 }

@@ -6,13 +6,17 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
+import com.studentzone.Doctor_Classes.Doctor_Activities.DoctorHomeActivity;
 import com.studentzone.R;
 
 public class AdminContactUsActivity extends AppCompatActivity {
 
     ImageView map , facebook , website;
+
+    Button btn_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +26,13 @@ public class AdminContactUsActivity extends AppCompatActivity {
         openMap();
         openFacebook();
         openWebsite();
+        setBackButtonAction();
+    }
+
+    public void gotoUrl(String s)
+    {
+        Uri uri = Uri.parse(s);
+        startActivity(new Intent(Intent.ACTION_VIEW,uri));
     }
 
     public void openMap()
@@ -55,9 +66,11 @@ public class AdminContactUsActivity extends AppCompatActivity {
         });
     }
 
-    public void gotoUrl(String s)
-    {
-        Uri uri = Uri.parse(s);
-        startActivity(new Intent(Intent.ACTION_VIEW,uri));
+    /** setBackButtonAction()
+     *  Back To The Previous Activity
+     **********************************************************************************************/
+    public void setBackButtonAction(){
+        btn_back = findViewById(R.id.activity_admin_contact_us_btn_back);
+        btn_back.setOnClickListener(v -> startActivity(new Intent(getBaseContext(), AdminHomeActivity.class)));
     }
 }
