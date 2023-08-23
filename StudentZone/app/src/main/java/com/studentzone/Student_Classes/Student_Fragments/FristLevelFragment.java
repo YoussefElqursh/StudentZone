@@ -1,8 +1,6 @@
 package com.studentzone.Student_Classes.Student_Fragments;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,57 +12,39 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
-import com.studentzone.Student_Classes.Student_Activities.StudentHomeActivity;
-import com.studentzone.Student_Classes.Student_Activities.StudentSubjectActivity;
-import com.studentzone.Student_Classes.Student_Models.RegestrationModel.SubjectRegestrationAdapter;
-import com.studentzone.Student_Classes.Student_Models.RegestrationModel.SubjectRegestrationModel;
 import com.studentzone.Student_Classes.Student_Models.SubjectModel.StudentPassedModel;
 import com.studentzone.Student_Classes.Student_Models.SubjectModel.StudentPassedSubjectsAdapter;
-import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectAdapter;
-import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectModel;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class FristLevelFragment extends Fragment {
 
-   TextView Hours,NumberOfSubjects,Gpa;
+   TextView Hours,Gpa;
     My_DB my_db;
     ArrayList<StudentPassedModel> arrayList =new ArrayList<>();
     RecyclerView recyclerView;
     @SuppressLint({"ResourceType", "MissingInflatedId"})
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_frist_level, container, false);
         my_db=new My_DB(getActivity());
         Hours=view.findViewById(R.id.Hours_Result);
-        NumberOfSubjects=view.findViewById(R.id.NumberOfSubjects);
         Gpa=view.findViewById(R.id.GPA);
-
-        String Total_Hours=String.valueOf(my_db.getSumOfSubjectHours());
-        String NumberOfPassedSubjects=String.valueOf((my_db.getNumberOfPassedSubjects()));
-
+        String Total_Hours=String.valueOf(my_db.getSumOfSubjectHourslevel_1());
         Hours.setText(Total_Hours);
-        NumberOfSubjects.setText(NumberOfPassedSubjects);
-
-
-
         recyclerView=view.findViewById(R.id.student_grades_l1_recycleview);
-
-
-
-        arrayList=my_db.getPassedCoursesForStudents();
+        arrayList=my_db.getPassedCoursesForStudents_Level_1();
         StudentPassedSubjectsAdapter subjectAdapter=new StudentPassedSubjectsAdapter(getContext(),arrayList);
-        float gpa= (float) calculateGPA(arrayList);
-        String GPA= String.valueOf(gpa);
+        float gpa = (float) calculateGPA(arrayList);
+        DecimalFormat decimalFormat = new DecimalFormat("0.00");
+        String formattedGpa = decimalFormat.format(gpa);
 
-        Gpa.setText(GPA);
+        Gpa.setText(formattedGpa);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(subjectAdapter);
         return view;
