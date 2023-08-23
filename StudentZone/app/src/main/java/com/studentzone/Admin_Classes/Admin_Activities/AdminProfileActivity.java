@@ -52,7 +52,7 @@ public class AdminProfileActivity extends AppCompatActivity {
      **********************************************************************************************/
     public void initializeViews() {
         profileImage = findViewById(R.id.activity_admin_profile_shiv_admin_photo);
-        profileImage.setImageResource(R.drawable.ic_male_profile);
+        profileImage.setImageResource(R.drawable.ic_male_student);
 
         tv_edite_photo = findViewById(R.id.activity_admin_profile_tv_edit_photo);
         tv_name = findViewById(R.id.activity_admin_profile_tv_admin_name);

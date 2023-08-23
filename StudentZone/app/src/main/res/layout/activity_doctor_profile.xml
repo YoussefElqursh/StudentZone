@@ -92,7 +92,7 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:background="@color/white_gray"
-                    app:srcCompat="@drawable/ic_male_profile"
+                    app:srcCompat="@drawable/ic_male_student"
                     app:shapeAppearanceOverlay="@style/circular"
                     app:strokeWidth="2dp"
                     app:strokeColor="@color/white"
