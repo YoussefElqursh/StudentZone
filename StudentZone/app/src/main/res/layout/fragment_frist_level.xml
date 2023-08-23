@@ -141,7 +141,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="75dp"
                     android:layout_toEndOf="@+id/hours1"
-                    android:text="18"
+                    android:text="36"
                     android:textColor="@color/gray"/>
 
             </RelativeLayout>
