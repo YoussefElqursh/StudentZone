@@ -7,26 +7,34 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.google.android.material.textfield.TextInputLayout;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
 
 public class AdminProfileActivity extends AppCompatActivity {
 
+    private My_DB db = new My_DB(this);
+
     private ImageView profileImage;
     private TextView tv_edite_photo,tv_name, tv_email;
-    private EditText et_phone_number, et_password;
+    private EditText et_phone_number, et_password, phone_number_dialog_et, password_dialog_et_old_password, password_dialog_et_new_password, password_dialog_et_confirm_password;
+    private TextInputLayout layout_phone_number;
     private Dialog dialog_edit_phone_number, dialog_edit_password;
-    private Button btn_edit_phone_number, btn_edit_password, btn_back, dialog_phone_number_btn_save, dialog_phone_number_btn_cancel, dialog_password_btn_save, dialog_password_btn_cancel;
+    private Button btn_edit_phone_number, btn_edit_password, btn_back, phone_number_dialog_btn_save, phone_number_dialog_btn_cancel, password_dialog_btn_save, password_dialog_btn_cancel;
+    private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +52,9 @@ public class AdminProfileActivity extends AppCompatActivity {
 
         setEditPhoneNumberButtonAction();
         setEditPasswordButtonAction();
+
+        setSaveEditedPhoneNumberButtonAction();
+
 
     }
 
@@ -92,9 +103,6 @@ public class AdminProfileActivity extends AppCompatActivity {
         profileImage.setImageURI(uri);
 
 
-        My_DB db = new My_DB(this);
-        SharedPreferences preferences = getSharedPreferences("userInfo",MODE_PRIVATE);
-
         preferences.edit().putString("image_uri",String.valueOf(uri)).apply();
 
         String email = preferences.getString("email", "");
@@ -112,7 +120,7 @@ public class AdminProfileActivity extends AppCompatActivity {
      *  fillOut Admin Data (name,email,phone)
      **********************************************************************************************/
     public void fillOutProfileWithUserData(){
-        SharedPreferences preferences = getSharedPreferences("userInfo",MODE_PRIVATE);
+        preferences = getSharedPreferences("userInfo",MODE_PRIVATE);
 
         String name = preferences.getString("fName", "");
         String email = preferences.getString("email", "");
@@ -149,8 +157,11 @@ public class AdminProfileActivity extends AppCompatActivity {
         dialog_edit_phone_number.getWindow().setBackgroundDrawable(getDrawable(custom_profile_dialoge));
         dialog_edit_phone_number.getWindow().getAttributes().windowAnimations = R.style.DialogTheme;
 
-        dialog_phone_number_btn_save = dialog_edit_phone_number.findViewById(R.id.fragment_edit_phone_number_dialog_btn_save);
-        dialog_phone_number_btn_cancel = dialog_edit_phone_number.findViewById(R.id.fragment_edit_phone_number_dialog_btn_cansel);
+        phone_number_dialog_et = dialog_edit_phone_number.findViewById(R.id.fragment_edit_phone_number_dialog_et_phone_number);
+        layout_phone_number = dialog_edit_phone_number.findViewById(R.id.fragment_edit_phone_number_dialog_til_phone_number);
+
+        phone_number_dialog_btn_save = dialog_edit_phone_number.findViewById(R.id.fragment_edit_phone_number_dialog_btn_save);
+        phone_number_dialog_btn_cancel = dialog_edit_phone_number.findViewById(R.id.fragment_edit_phone_number_dialog_btn_cansel);
     }
 
     /** initializeDialogEditPassword()
@@ -162,8 +173,12 @@ public class AdminProfileActivity extends AppCompatActivity {
         dialog_edit_password.getWindow().setBackgroundDrawable(getDrawable(custom_profile_dialoge));
         dialog_edit_password.getWindow().getAttributes().windowAnimations = R.style.DialogTheme;
 
-        dialog_password_btn_save = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_btn_save);
-        dialog_password_btn_cancel = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_btn_cansel);
+        password_dialog_btn_save = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_btn_save);
+        password_dialog_btn_cancel = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_btn_cansel);
+
+        password_dialog_et_old_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_et_old_password);
+        password_dialog_et_new_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_et_new_password);
+        password_dialog_et_confirm_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_et_confirm_password);
     }
 
 
@@ -175,6 +190,10 @@ public class AdminProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog_edit_phone_number.show();
+                phone_number_dialog_et.setText(preferences.getString("phoneNumber", ""));
+
+                isPhoneNumberChanged();
+
             }
         });
 
@@ -188,6 +207,7 @@ public class AdminProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog_edit_password.show();
+                password_dialog_et_old_password.setText(preferences.getString("password", ""));
             }
         });
     }
@@ -196,24 +216,94 @@ public class AdminProfileActivity extends AppCompatActivity {
      *  Set Cancel Edited PhoneNumber  Button Action
      **********************************************************************************************/
     public void setCancelEditedPhoneNumberButtonAction () {
-        dialog_phone_number_btn_cancel.setOnClickListener(new View.OnClickListener() {
+        phone_number_dialog_btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 dialog_edit_phone_number.cancel();
+                phone_number_dialog_et.getText().clear();
             }
         });
     }
 
 
+
+    /** isPhoneNumberChanged()
+     *  this method to monitor is phone number changed set button save enabled else set it disabled
+     **********************************************************************************************/
+    private void isPhoneNumberChanged(){
+
+        String originalPhoneNumber = preferences.getString("phoneNumber", "");
+
+        phone_number_dialog_et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                // Check if the phone number has changed
+                boolean isChanged = !(phone_number_dialog_et.getText().toString().equals(originalPhoneNumber));
+
+                // Validate the phone number format
+                String phoneNumber = phone_number_dialog_et.getText().toString();
+                boolean isValidPhoneNumber = isValidEgyptianPhoneNumber(phoneNumber);
+
+
+
+                // Handle error and helper messages
+                if (phoneNumber.length() < 11) {
+                    layout_phone_number.setError("Enter a valid phone number");
+                    layout_phone_number.setHelperText("");
+                    phone_number_dialog_btn_save.setEnabled(false);
+                } else if (!isValidPhoneNumber) {
+                    layout_phone_number.setError("Enter a valid Egyptian phone number");
+                    layout_phone_number.setHelperText("");
+                    phone_number_dialog_btn_save.setEnabled(false);
+                } else {
+                    layout_phone_number.setError("");
+                    layout_phone_number.setHelperText("Example: 01XXXXXXXXX");
+                    phone_number_dialog_btn_save.setEnabled(true);
+                }
+
+                // Enable/disable save button based on phone number validity
+                phone_number_dialog_btn_save.setEnabled(isChanged && isValidPhoneNumber);
+            }
+        });
+    }
+
+    private boolean isValidEgyptianPhoneNumber(String phoneNumber) {
+
+        return phoneNumber.matches("01[0125]\\d{8}");
+    }
     /** setSaveEditedPhoneNumberButtonAction()
      *  Set Save Edited PhoneNumber Button Action
      **********************************************************************************************/
     public void setSaveEditedPhoneNumberButtonAction () {
-        dialog_phone_number_btn_save.setOnClickListener(new View.OnClickListener() {
+        phone_number_dialog_btn_save.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View v) {
 
+                String newPhoneNumber = phone_number_dialog_et.getText().toString();
+
+
+
+                db.updateAdminPhoneNumber(tv_email.getText().toString(),newPhoneNumber); //update in data base
+
+                preferences.edit().putString("phoneNumber",newPhoneNumber).apply(); //update in shared Preferences userInfo file
+                et_phone_number.setText(newPhoneNumber); //update in editText profile
+
+                dialog_edit_phone_number.cancel(); // close dialog
 
             }
         });
@@ -224,7 +314,7 @@ public class AdminProfileActivity extends AppCompatActivity {
      *  Set Cancel Edited Password  Button Action
      **********************************************************************************************/
     public void setCancelEditedPasswordButtonAction () {
-        dialog_password_btn_cancel.setOnClickListener(new View.OnClickListener() {
+        password_dialog_btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -234,14 +324,15 @@ public class AdminProfileActivity extends AppCompatActivity {
     }
 
 
-    /** setSaveEditedPasswordButtonAction()
+    /** dialog_edit_password_btn_save()
      *  Set Save Edited Password Button Action
      **********************************************************************************************/
     public void setSaveEditedPasswordButtonAction () {
-        dialog_phone_number_btn_save.setOnClickListener(new View.OnClickListener() {
+        password_dialog_btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                String editedPhoneNumber = phone_number_dialog_et.getText().toString().trim();
 
             }
         });

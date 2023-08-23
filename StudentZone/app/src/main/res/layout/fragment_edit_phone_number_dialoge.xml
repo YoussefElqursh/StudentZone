@@ -32,7 +32,7 @@
         android:layout_height="65dp">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/fragment_edit_password_dialog_til_confirm_password"
+            android:id="@+id/fragment_edit_phone_number_dialog_til_phone_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintEnabled="false"
@@ -48,7 +48,7 @@
                 android:drawablePadding="5dp"
                 android:drawableTint="@drawable/custom_et_profile_dialog"
                 android:hint="Phone Number"
-                android:inputType="numberDecimal"
+                android:inputType="phone"
                 android:maxLines="1"
                 android:minHeight="48dp"
                 android:paddingLeft="10dp"
