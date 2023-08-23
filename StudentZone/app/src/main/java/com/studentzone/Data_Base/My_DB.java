@@ -592,7 +592,6 @@ public class My_DB extends SQLiteOpenHelper {
         String studentId = preferences.getString("id", "");
         int student_Id = Integer.parseInt(studentId);
 
-        int studentDepartmentId = getStudentDepartmentId_byStudent_id(student_Id);
         String selection = "Courses.id NOT IN (SELECT enrollment_course_id FROM Enrollment WHERE enrollment_student_id = ? )" +
                 " AND Courses.level = 1";
         String[] selectionArgs = { String.valueOf(student_Id)};
@@ -619,7 +618,6 @@ public class My_DB extends SQLiteOpenHelper {
         String studentId = preferences.getString("id", "");
         int student_Id = Integer.parseInt(studentId);
 
-        int studentDepartmentId = getStudentDepartmentId_byStudent_id(student_Id);
         String selection = "Courses.id NOT IN (SELECT enrollment_course_id FROM Enrollment WHERE enrollment_student_id = ? )" +
                 " AND Courses.level = 2";
         String[] selectionArgs = { String.valueOf(student_Id)};
@@ -2153,6 +2151,51 @@ public class My_DB extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return arrayList;
+    }
+
+    @SuppressLint("Range")
+    public int getSubjectLevel(String courseName) {
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = "name = ?";
+        String[] selectionArgs = {courseName};
+
+        Cursor cursor = db.query("Courses",
+                new String[]{Courses_col_level},
+                selection, selectionArgs, null, null, null);
+
+        int courseLevel = 0;
+
+        if (cursor.moveToFirst()) {
+            courseLevel = cursor.getInt(cursor.getColumnIndex(Courses_col_level));
+        }
+
+        cursor.close();
+        db.close();
+
+        return courseLevel;
+    }
+
+    @SuppressLint("Range")
+    public int getCourseHoursByCourseName(String courseName) {
+
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = "name = ?";
+        String[] selectionArgs = {courseName};
+
+        Cursor cursor = db.query("Courses",
+                new String[]{Courses_col_hours},
+                selection, selectionArgs, null, null, null);
+
+        int courseHours = 0;
+
+        if (cursor.moveToFirst()) {
+            courseHours = cursor.getInt(cursor.getColumnIndex(Courses_col_hours));
+        }
+
+        cursor.close();
+        db.close();
+
+        return courseHours;
     }
 }
 
