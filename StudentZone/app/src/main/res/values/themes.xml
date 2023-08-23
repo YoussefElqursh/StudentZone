@@ -55,4 +55,9 @@
         <item name="cornerSize">40%</item>
     </style>
 
+    <!-- Customize Doctor and Student Model Photo -->
+    <style name="doctor_student_photo_style">
+        <item name="cornerSize">50%</item>
+    </style>
+
 </resources>

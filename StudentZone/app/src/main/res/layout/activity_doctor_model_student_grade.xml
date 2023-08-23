@@ -5,58 +5,40 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_admin_student_model_container"
-    android:layout_marginBottom="20dp">
+    android:layout_marginBottom="20dp"
+    android:background="@color/white">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/activity_admin_student_cv"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="65dp"
-        app:cardBackgroundColor="#F8F8F7"
-        app:cardCornerRadius="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        app:cardElevation="5dp">
+        android:background="@drawable/custom_model_bg"
+        android:paddingLeft="10dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
-                android:rotation="-50"
-                app:srcCompat="@drawable/custom_arc_1"
-                tools:srcCompat="@drawable/custom_arc_1"
-                android:layout_marginRight="-45dp"
-                android:layout_marginTop="20dp"/>
-
             <androidx.cardview.widget.CardView
-                android:id="@+id/activity_admin_student_iv_cv"
-                app:cardCornerRadius="10dp"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="8dp"
+                android:id="@+id/activity_admin_student_cv"
+                app:cardCornerRadius="30dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="8dp"
+                android:layout_centerVertical="true"
+                app:cardElevation="0dp"
                 app:cardBackgroundColor="@color/dark_blue">
 
-                <RelativeLayout
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
-                    android:layout_gravity="center"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/activity_admin_student_iv"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:gravity="center" />
-
-                </RelativeLayout>
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/activity_admin_student_iv"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:background="@color/white_gray"
+                    android:clickable="true"
+                    android:padding="1dp"
+                    app:shapeAppearanceOverlay="@style/doctor_student_photo_style"
+                    app:srcCompat="@drawable/ic_male_student"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+                    app:strokeColor="@null"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -65,13 +47,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
-                android:layout_marginTop="12dp"
-                android:layout_toRightOf="@id/activity_admin_student_iv_cv"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@id/activity_admin_student_cv"
                 android:text="Student Name"
                 android:maxLines="1"
                 android:textColor="@color/dark_blue"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="14sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/activity_admin_student_tv_score"
@@ -79,9 +61,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="33dp"
-                android:layout_toRightOf="@id/activity_admin_student_iv_cv"
+                android:layout_toRightOf="@id/activity_admin_student_cv"
                 android:maxLines="1"
-                android:textColor="@color/dark_blue"/>
+                android:textColor="@color/dark_blue"
+                android:textSize="12sp"
+                android:text="Score"/>
 
             <TextView
                 android:id="@+id/activity_admin_student_tv_100"
@@ -92,28 +76,56 @@
                 android:maxLines="1"
                 android:text=" /100"
                 android:textColor="@color/dark_blue"
+                android:textSize="12sp"
                 tools:ignore="SpeakableTextPresentCheck" />
 
-            <TextView
-                android:id="@+id/activity_doctor_student_grade_ibtn_more"
+            <LinearLayout
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:orientation="vertical"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="40dp"
-                android:paddingBottom="5dp"
-                android:elevation="10dp"
-                android:gravity="center"
-                android:maxLength="2"
-                android:text="-"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
-                android:background="@drawable/custom_tv_grade"/>
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:id="@+id/activity_doctor_student_grade_ibtn_more"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:maxLength="2"
+                    android:text="-"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+                    android:background="@drawable/custom_tv_grade"
+                    android:layout_marginBottom="-21dp"/>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+                    android:background="@drawable/ic_certificate"/>
+
+            </LinearLayout>
 
         </RelativeLayout>
 
-    </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#46A1A1A1"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="75dp"/>
 
 </RelativeLayout>

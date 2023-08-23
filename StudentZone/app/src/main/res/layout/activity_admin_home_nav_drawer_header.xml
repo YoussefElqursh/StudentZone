@@ -25,7 +25,7 @@
             android:background="@color/white_gray"
             android:padding="2dp"
             app:shapeAppearanceOverlay="@style/circular"
-            app:srcCompat="@drawable/ic_male_profile"
+            app:srcCompat="@drawable/ic_male_student"
             app:strokeColor="@color/white"
             app:strokeWidth="2dp"/>
 

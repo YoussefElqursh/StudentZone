@@ -3,35 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/white">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/activity_student_Regestration_cv"
         android:layout_width="match_parent"
         android:layout_height="65dp"
-        app:cardBackgroundColor="#F8F8F7"
-        app:cardCornerRadius="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        app:cardElevation="5dp">
+        android:paddingLeft="10dp"
+        app:cardElevation="0dp"
+        android:background="@color/white">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center|center_horizontal|center_vertical"
             android:paddingLeft="10dp">
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
-                android:rotation="-50"
-                app:srcCompat="@drawable/custom_arc_1"
-                tools:srcCompat="@drawable/custom_arc_1"
-                android:layout_marginRight="-45dp"
-                android:layout_marginTop="20dp"/>
 
             <CheckBox
                 android:id="@+id/activity_student_subject_tv_sub_state"
@@ -40,7 +27,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:buttonTint="@color/dark_blue"
+                android:buttonTint="@drawable/custom_rb_subject_registration"
                 android:clickable="true"
                 android:gravity="center|center_horizontal|center_vertical"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -53,30 +40,26 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/activity_student_registration_iv_cv"
-                    app:cardCornerRadius="10dp"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="8dp"
+                    app:cardCornerRadius="30dp"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_centerVertical="true"
+                    app:cardElevation="0dp"
                     app:cardBackgroundColor="@color/dark_blue">
 
-                    <RelativeLayout
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
+                    <TextView
+                        android:id="@+id/activity_student_registration_tv_sn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:text="SN"
+                        android:textColor="@color/white"
+                        android:maxLength="2"
+                        android:textStyle="bold"
                         android:layout_gravity="center"
-                        android:gravity="center">
+                        android:textAlignment="center"/>
 
-                        <TextView
-                            android:id="@+id/activity_student_registration_tv_sn"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="20dp"
-                            android:text="SN"
-                            android:textStyle="bold"
-                            android:textColor="@color/white"
-                            android:maxLength="2"/>
-
-                    </RelativeLayout>
 
                 </androidx.cardview.widget.CardView>
 
@@ -85,24 +68,26 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="13dp"
                     android:layout_toRightOf="@id/activity_student_registration_iv_cv"
                     android:text="Subject Name"
                     android:maxLines="1"
                     android:textColor="@color/dark_blue"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:maxEms="10"/>
 
                 <TextView
                     android:id="@+id/activity_student_registration_tv_sub_code"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="33dp"
                     android:layout_toRightOf="@id/activity_student_registration_iv_cv"
                     android:maxLines="1"
                     android:text="Subject Code"
-                    android:textColor="@color/dark_blue" />
+                    android:textColor="@color/dark_blue"
+                    android:textSize="12sp"/>
 
                 <ImageButton
                     android:id="@+id/activity_student_registration_ibtn_info"
