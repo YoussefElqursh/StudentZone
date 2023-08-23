@@ -37,6 +37,7 @@
                     android:layout_marginStart="10dp"/>
 
                 <TextView
+                    android:id="@+id/Current_Gpa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -45,7 +46,8 @@
                     android:layout_toEndOf="@+id/gpa"
                     android:text="0"
                     android:textColor="@color/gray"
-                    android:textSize="12sp"/>
+                    android:textSize="12sp"
+                    tools:ignore="InvalidId" />
 
             </RelativeLayout>
 
@@ -100,6 +102,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/current_hours"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -108,7 +111,8 @@
                     android:layout_toEndOf="@+id/hours"
                     android:text="0"
                     android:textColor="@color/gray"
-                    android:textSize="12sp"/>
+                    android:textSize="12sp"
+                    tools:ignore="InvalidId" />
 
             </RelativeLayout>
 
@@ -137,7 +141,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="75dp"
                     android:layout_toEndOf="@+id/hours1"
-                    android:text="18"
+                    android:text="36"
                     android:textColor="@color/gray"
                     android:textSize="12sp"/>
 
