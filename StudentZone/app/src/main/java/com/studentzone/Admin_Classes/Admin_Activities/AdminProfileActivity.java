@@ -9,12 +9,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,8 +24,10 @@ import com.studentzone.R;
 
 public class AdminProfileActivity extends AppCompatActivity {
 
-    private My_DB db = new My_DB(this);
+    // Database object for accessing student data
+    private final My_DB db = new My_DB(this);
 
+    // Views
     private ImageView profileImage;
     private TextView tv_edite_photo,tv_name, tv_email;
     private EditText et_phone_number, et_password, phone_number_dialog_et, password_dialog_et_old_password, password_dialog_et_new_password, password_dialog_et_confirm_password;
@@ -41,25 +41,31 @@ public class AdminProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_profile);
 
+        // Initialize views
         initializeViews();
+
+        // Set click listener for "Edit Photo" text
         setEditPhotoTextViewAction();
-        fillOutProfileWithUserData();
+
+        // Set click listener for back button
         setBackButtonAction();
 
-        setCancelEditedPhoneNumberButtonAction();
-        setCancelEditedPasswordButtonAction();
-
+        // Populate user profile data
+        fillOutProfileWithUserData();
 
         setEditPhoneNumberButtonAction();
         setEditPasswordButtonAction();
 
+
+        // Set click listener for "Cancel" button in the edit phone number dialog
+        setCancelEditedPhoneNumberButtonAction();
+
+        // Set click listener for "Save" button in the edit phone number dialog
         setSaveEditedPhoneNumberButtonAction();
-
-
     }
 
     /**
-     * Inflate
+     * Initialize views
      **********************************************************************************************/
     public void initializeViews() {
         profileImage = findViewById(R.id.activity_admin_profile_shiv_admin_photo);
@@ -95,24 +101,26 @@ public class AdminProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-
         super.onActivityResult(requestCode, resultCode, data);
+
         assert data != null;
-        Uri uri = data.getData();
+        // Retrieve the selected image URI
+        Uri imageUri = data.getData();
 
-        profileImage.setImageURI(uri);
+        // Update profile image view
+        profileImage.setImageURI(imageUri);
 
-
-        preferences.edit().putString("image_uri",String.valueOf(uri)).apply();
+        // Save image URI in SharedPreferences and database
+        preferences.edit().putString("image_uri",String.valueOf(imageUri)).apply();
 
         String email = preferences.getString("email", "");
-        db.updateAdminImage(email, String.valueOf(uri));
+        db.updateAdminImage(email, String.valueOf(imageUri));
 
 
 
         // Set the result to send edited image to AdminHomeActivity
         Intent resultIntent = new Intent();
-        resultIntent.putExtra("image_uri", String.valueOf(uri));
+        resultIntent.putExtra("image_uri", String.valueOf(imageUri));
         setResult(RESULT_OK, resultIntent);
     }
 
@@ -120,6 +128,9 @@ public class AdminProfileActivity extends AppCompatActivity {
      *  fillOut Admin Data (name,email,phone)
      **********************************************************************************************/
     public void fillOutProfileWithUserData(){
+
+        // Retrieve user data from SharedPreferences
+        // Populate views with user data
         preferences = getSharedPreferences("userInfo",MODE_PRIVATE);
 
         String name = preferences.getString("fName", "");
@@ -139,12 +150,7 @@ public class AdminProfileActivity extends AppCompatActivity {
      *  Back To The Previous Activity
      **********************************************************************************************/
     public void setBackButtonAction() {
-        btn_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        btn_back.setOnClickListener(v -> onBackPressed());
 
     }
 
@@ -186,15 +192,13 @@ public class AdminProfileActivity extends AppCompatActivity {
      *  Set Edit Phone Number Button Action
      **********************************************************************************************/
     public void setEditPhoneNumberButtonAction() {
-        btn_edit_phone_number.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog_edit_phone_number.show();
-                phone_number_dialog_et.setText(preferences.getString("phoneNumber", ""));
+        btn_edit_phone_number.setOnClickListener(v -> {
 
-                isPhoneNumberChanged();
+            dialog_edit_phone_number.show();
+            phone_number_dialog_et.setText(preferences.getString("phoneNumber", ""));
 
-            }
+            isPhoneNumberChanged();
+
         });
 
     }
@@ -203,30 +207,19 @@ public class AdminProfileActivity extends AppCompatActivity {
      *  Set Edit Password Button Action
      **********************************************************************************************/
     public void setEditPasswordButtonAction() {
-        btn_edit_password.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog_edit_password.show();
-                password_dialog_et_old_password.setText(preferences.getString("password", ""));
-            }
-        });
+        btn_edit_password.setOnClickListener(v -> dialog_edit_password.show());
     }
 
     /** setCancelEditedPhoneNumberButtonAction()
      *  Set Cancel Edited PhoneNumber  Button Action
      **********************************************************************************************/
     public void setCancelEditedPhoneNumberButtonAction () {
-        phone_number_dialog_btn_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        phone_number_dialog_btn_cancel.setOnClickListener(v -> {
 
-                dialog_edit_phone_number.cancel();
-                phone_number_dialog_et.getText().clear();
-            }
+            dialog_edit_phone_number.cancel();
+            phone_number_dialog_et.getText().clear();
         });
     }
-
-
 
     /** isPhoneNumberChanged()
      *  this method to monitor is phone number changed set button save enabled else set it disabled
@@ -238,13 +231,10 @@ public class AdminProfileActivity extends AppCompatActivity {
         phone_number_dialog_et.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-
             }
 
             @Override
@@ -255,7 +245,8 @@ public class AdminProfileActivity extends AppCompatActivity {
 
                 // Validate the phone number format
                 String phoneNumber = phone_number_dialog_et.getText().toString();
-                boolean isValidPhoneNumber = isValidEgyptianPhoneNumber(phoneNumber);
+
+                boolean isValidPhoneNumber = phoneNumber.matches("01[0125]\\d{8}");
 
 
 
@@ -280,32 +271,22 @@ public class AdminProfileActivity extends AppCompatActivity {
         });
     }
 
-    private boolean isValidEgyptianPhoneNumber(String phoneNumber) {
-
-        return phoneNumber.matches("01[0125]\\d{8}");
-    }
     /** setSaveEditedPhoneNumberButtonAction()
      *  Set Save Edited PhoneNumber Button Action
      **********************************************************************************************/
     public void setSaveEditedPhoneNumberButtonAction () {
-        phone_number_dialog_btn_save.setOnClickListener(new View.OnClickListener() {
+        phone_number_dialog_btn_save.setOnClickListener(v -> {
+
+            String newPhoneNumber = phone_number_dialog_et.getText().toString();
 
 
-            @Override
-            public void onClick(View v) {
+            db.updateAdminPhoneNumber(tv_email.getText().toString(),newPhoneNumber); //update in data base
 
-                String newPhoneNumber = phone_number_dialog_et.getText().toString();
+            preferences.edit().putString("phoneNumber",newPhoneNumber).apply(); //update in shared Preferences userInfo file
+            et_phone_number.setText(newPhoneNumber); //update in editText profile
 
+            dialog_edit_phone_number.cancel(); // close dialog
 
-
-                db.updateAdminPhoneNumber(tv_email.getText().toString(),newPhoneNumber); //update in data base
-
-                preferences.edit().putString("phoneNumber",newPhoneNumber).apply(); //update in shared Preferences userInfo file
-                et_phone_number.setText(newPhoneNumber); //update in editText profile
-
-                dialog_edit_phone_number.cancel(); // close dialog
-
-            }
         });
     }
 
@@ -314,13 +295,7 @@ public class AdminProfileActivity extends AppCompatActivity {
      *  Set Cancel Edited Password  Button Action
      **********************************************************************************************/
     public void setCancelEditedPasswordButtonAction () {
-        password_dialog_btn_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                dialog_edit_password.cancel();
-            }
-        });
+        password_dialog_btn_cancel.setOnClickListener(v -> dialog_edit_password.cancel());
     }
 
 
@@ -328,13 +303,10 @@ public class AdminProfileActivity extends AppCompatActivity {
      *  Set Save Edited Password Button Action
      **********************************************************************************************/
     public void setSaveEditedPasswordButtonAction () {
-        password_dialog_btn_save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        password_dialog_btn_save.setOnClickListener(v -> {
 
-                String editedPhoneNumber = phone_number_dialog_et.getText().toString().trim();
 
-            }
+
         });
     }
 }

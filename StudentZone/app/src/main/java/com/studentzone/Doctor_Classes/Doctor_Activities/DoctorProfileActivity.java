@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,27 +19,40 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.dhaval2404.imagepicker.ImagePicker;
-import com.studentzone.Admin_Classes.Admin_Activities.AdminProfileActivity;
+import com.google.android.material.textfield.TextInputLayout;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
 
 public class DoctorProfileActivity extends AppCompatActivity {
 
-    ImageView profileImage;
-    TextView tv_edite_photo,tv_name, tv_email;
-    EditText et_phone_number, et_password;
-    Dialog dialog_edit_phone_number, dialog_edit_password;
-    Button btn_edit_phone_number, btn_edit_password, btn_back;
+    // Database object for accessing student data
+    private final My_DB db = new My_DB(this);
+
+    // Views
+    private ImageView profileImage;
+    private TextView tv_edite_photo,tv_name, tv_email;
+    private EditText et_phone_number, et_password, phone_number_dialog_et;
+    private TextInputLayout layout_phone_number;
+    private Dialog dialog_edit_phone_number, dialog_edit_password;
+    private Button btn_edit_phone_number, btn_edit_password, btn_back, phone_number_dialog_btn_save, phone_number_dialog_btn_cancel;
+    private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_profile);
 
-        inflate();
+        // Initialize views
+        initializeViews();
+
+        // Set click listener for "Edit Photo" text
         setEditPhotoTextViewAction();
-        fillOutProfileWithUserData();
+
+        // Set click listener for back button
         setBackButtonAction();
+
+        // Populate user profile data
+        fillOutProfileWithUserData();
 
         initializeDialogEditPhoneNumber();
         initializeDialogEditPassword();
@@ -45,12 +60,17 @@ public class DoctorProfileActivity extends AppCompatActivity {
         setEditPhoneNumberButtonAction();
         setEditPasswordButtonAction();
 
+        // Set click listener for "Cancel" button in the edit phone number dialog
+        setCancelEditedPhoneNumberButtonAction();
+
+        // Set click listener for "Save" button in the edit phone number dialog
+        setSaveEditedPhoneNumberButtonAction();
     }
 
     /**
-     * Inflate
+     * Initialize views
      **********************************************************************************************/
-    public void inflate() {
+    public void initializeViews() {
         profileImage = findViewById(R.id.activity_doctor_profile_shiv_doctor_photo);
 
         tv_edite_photo = findViewById(R.id.activity_doctor_profile_tv_edit_photo);
@@ -85,21 +105,22 @@ public class DoctorProfileActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        assert data != null;
-        Uri uri = data.getData();
-        profileImage.setImageURI(uri);
 
-        My_DB db = new My_DB(this);
-        SharedPreferences preferences = getSharedPreferences("userInfo",MODE_PRIVATE);
+         assert data != null;
+        // Retrieve the selected image URI
+        Uri imageUri = data.getData();
 
-        preferences.edit().putString("image_uri",String.valueOf(uri)).apply();
+        // Update profile image view
+        profileImage.setImageURI(imageUri);
 
+        // Save image URI in SharedPreferences and database
+        preferences.edit().putString("image_uri",String.valueOf(imageUri)).apply();
         String email = preferences.getString("email", "");
-        db.updateDoctorImage(email, String.valueOf(uri));
+        db.updateDoctorImage(email, String.valueOf(imageUri));
 
         // Set the result to send edited image to DoctorHomeActivity
         Intent resultIntent = new Intent();
-        resultIntent.putExtra("image_uri", String.valueOf(uri));
+        resultIntent.putExtra("image_uri", String.valueOf(imageUri));
         setResult(RESULT_OK, resultIntent);
 
     }
@@ -109,7 +130,9 @@ public class DoctorProfileActivity extends AppCompatActivity {
      **********************************************************************************************/
     public void fillOutProfileWithUserData(){
 
-        SharedPreferences preferences = getSharedPreferences("userInfo",MODE_PRIVATE);
+        // Retrieve user data from SharedPreferences
+        // Populate views with user data
+        preferences = getSharedPreferences("userInfo",MODE_PRIVATE);
         String name = preferences.getString("fName", "");
         String email = preferences.getString("email", "");
         String phoneNumber = preferences.getString("phoneNumber", "");
@@ -131,13 +154,7 @@ public class DoctorProfileActivity extends AppCompatActivity {
      **********************************************************************************************/
     public void setBackButtonAction(){
         btn_back = findViewById(R.id.activity_doctor_profile_btn_back);
-        btn_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                onBackPressed();
-            }
-        });
+        btn_back.setOnClickListener(v -> onBackPressed());
     }
 
     /** initializeDialogEditPhoneNumber()
@@ -148,6 +165,12 @@ public class DoctorProfileActivity extends AppCompatActivity {
         dialog_edit_phone_number.setContentView(R.layout.fragment_edit_phone_number_dialoge);
         dialog_edit_phone_number.getWindow().setBackgroundDrawable(getDrawable(custom_profile_dialoge));
         dialog_edit_phone_number.getWindow().getAttributes().windowAnimations = R.style.DialogTheme;
+
+        phone_number_dialog_et = dialog_edit_phone_number.findViewById(R.id.fragment_edit_phone_number_dialog_et_phone_number);
+        layout_phone_number = dialog_edit_phone_number.findViewById(R.id.fragment_edit_phone_number_dialog_til_phone_number);
+
+        phone_number_dialog_btn_save = dialog_edit_phone_number.findViewById(R.id.fragment_edit_phone_number_dialog_btn_save);
+        phone_number_dialog_btn_cancel = dialog_edit_phone_number.findViewById(R.id.fragment_edit_phone_number_dialog_btn_cansel);
     }
 
     /** initializeDialogEditPassword()
@@ -165,12 +188,10 @@ public class DoctorProfileActivity extends AppCompatActivity {
      *  Set Edit Phone Number Button Action
      **********************************************************************************************/
     public void setEditPhoneNumberButtonAction() {
-        btn_edit_phone_number.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog_edit_phone_number.show();
-            }
-        });
+        btn_edit_phone_number.setOnClickListener(v -> dialog_edit_phone_number.show());
+
+        phone_number_dialog_et.setText(preferences.getString("phoneNumber", ""));
+        isPhoneNumberChanged();
 
     }
 
@@ -178,12 +199,88 @@ public class DoctorProfileActivity extends AppCompatActivity {
      *  Set Edit Password Button Action
      **********************************************************************************************/
     public void setEditPasswordButtonAction() {
-        btn_edit_password.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog_edit_password.show();
-            }
-        });
+        btn_edit_password.setOnClickListener(v -> dialog_edit_password.show());
 
     }
+
+    /** setCancelEditedPhoneNumberButtonAction()
+     *  Set Cancel Edited PhoneNumber  Button Action
+     **********************************************************************************************/
+    public void setCancelEditedPhoneNumberButtonAction () {
+        phone_number_dialog_btn_cancel.setOnClickListener(v -> {
+
+            dialog_edit_phone_number.cancel();
+            phone_number_dialog_et.getText().clear();
+        });
+    }
+
+    /** isPhoneNumberChanged()
+     *  this method to monitor is phone number changed set button save enabled else set it disabled
+     **********************************************************************************************/
+    private void isPhoneNumberChanged(){
+
+        String originalPhoneNumber = preferences.getString("phoneNumber", "");
+
+        phone_number_dialog_et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                // Check if the phone number has changed
+                boolean isChanged = !(phone_number_dialog_et.getText().toString().equals(originalPhoneNumber));
+
+                // Validate the phone number format
+                String phoneNumber = phone_number_dialog_et.getText().toString();
+
+                boolean isValidPhoneNumber = phoneNumber.matches("01[0125]\\d{8}");
+
+
+
+                // Handle error and helper messages
+                if (phoneNumber.length() < 11) {
+                    layout_phone_number.setError("Enter a valid phone number");
+                    layout_phone_number.setHelperText("");
+                    phone_number_dialog_btn_save.setEnabled(false);
+                } else if (!isValidPhoneNumber) {
+                    layout_phone_number.setError("Enter a valid Egyptian phone number");
+                    layout_phone_number.setHelperText("");
+                    phone_number_dialog_btn_save.setEnabled(false);
+                } else {
+                    layout_phone_number.setError("");
+                    layout_phone_number.setHelperText("Example: 01XXXXXXXXX");
+                    phone_number_dialog_btn_save.setEnabled(true);
+                }
+
+                // Enable/disable save button based on phone number validity
+                phone_number_dialog_btn_save.setEnabled(isChanged && isValidPhoneNumber);
+            }
+        });
+    }
+
+    /** setSaveEditedPhoneNumberButtonAction()
+     *  Set Save Edited PhoneNumber Button Action
+     **********************************************************************************************/
+    public void setSaveEditedPhoneNumberButtonAction () {
+        phone_number_dialog_btn_save.setOnClickListener(v -> {
+
+            String newPhoneNumber = phone_number_dialog_et.getText().toString();
+
+
+            db.updateDoctorPhoneNumber(tv_email.getText().toString(),newPhoneNumber); //update in data base
+
+            preferences.edit().putString("phoneNumber",newPhoneNumber).apply(); //update in shared Preferences userInfo file
+            et_phone_number.setText(newPhoneNumber); //update in editText profile
+
+            dialog_edit_phone_number.cancel(); // close dialog
+
+        });
+    }
+
 }
