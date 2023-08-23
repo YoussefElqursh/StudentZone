@@ -19,6 +19,7 @@ import com.studentzone.R;
 import com.studentzone.Student_Classes.Student_Models.SubjectModel.StudentPassedModel;
 import com.studentzone.Student_Classes.Student_Models.SubjectModel.StudentPassedSubjectsAdapter;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class FristLevelFragment extends Fragment {
@@ -39,9 +40,11 @@ public class FristLevelFragment extends Fragment {
         recyclerView=view.findViewById(R.id.student_grades_l1_recycleview);
         arrayList=my_db.getPassedCoursesForStudents_Level_1();
         StudentPassedSubjectsAdapter subjectAdapter=new StudentPassedSubjectsAdapter(getContext(),arrayList);
-        float gpa= (float) calculateGPA(arrayList);
-        String GPA= String.valueOf(gpa);
-        Gpa.setText(GPA);
+        float gpa = (float) calculateGPA(arrayList);
+        DecimalFormat decimalFormat = new DecimalFormat("0.00");
+        String formattedGpa = decimalFormat.format(gpa);
+
+        Gpa.setText(formattedGpa);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(subjectAdapter);
         return view;
