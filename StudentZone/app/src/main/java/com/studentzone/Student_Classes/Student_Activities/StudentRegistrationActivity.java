@@ -36,9 +36,16 @@ public class StudentRegistrationActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_student_registration);
         btn_After_Registration=  findViewById(R.id.fragment_new_department_btn_save);
         buttonBackAction();
-
         recyclerView=findViewById(R.id.recycleview_student_regestration_choose_subject );//add item in recycler
-        arrayList=my_db.getCourses_for_students();//Method to get all courses name and courses code
+        if(my_db.getSumOfSubjectHours_as_all()<=27){
+            arrayList=my_db.getCourses_for_students_level1();//Method to get all courses name and courses code
+        } else if (my_db.getSumOfSubjectHours_as_all()>27) {
+            arrayList=my_db.getCourses_for_students_level2();
+            arrayList.addAll(my_db.getCourses_for_students_level1());
+        } else if (my_db.getSumOfSubjectHours_as_all()>=63) {
+//            arrayList=my_db.getCourses_for_students_level3();
+//            arrayList.addAll(my_db.getCourses_for_students_level2());
+        }
         SubjectRegestrationAdapter subjectRegestrationAdapter=new SubjectRegestrationAdapter(this,arrayList);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
