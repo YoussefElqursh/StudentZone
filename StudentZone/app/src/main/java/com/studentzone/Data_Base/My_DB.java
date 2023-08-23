@@ -254,9 +254,7 @@ public class My_DB extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Ahmed', 'Sakr','Male', '01533000877','ahmed200@monufia.edu', '2000')");//20
 
         db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Hyam', 'AL-Hussien','Female', '01111000806','hyam210@monufia.edu', '2100')");//21
-        db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Afaf', 'Mohamed','Female', '01222000800','afaf180@monufia.edu', '1800')");//22
-        db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Eman', 'Meselhy','Female', '01222000877','eman190@monufia.edu', '1900')");//23
-        db.execSQL("INSERT INTO " + Education_Table_Doctors + " (" + Doctors_col_first_name + ", " + Doctors_col_last_name + ", " + Doctors_col_gender + "," + Doctors_col_phone + ", " + Doctors_col_email + ", " + Doctors_col_password + ")" + " VALUES ('Ahmed', 'Sakr','Male', '01533000877','ahmed200@monufia.edu', '2000')");//24
+
 
         //Level 1 Courses
         db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('MA111','Mathematics-1',1,6,1,3)");//1
@@ -1179,7 +1177,7 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
     /**updateAdminPhoneNumber()
-     * This method To update Admin In Phone Number And save it in data base
+     * This method To update Admin Phone Number And save it in data base
      * ********************************************************************************************/
     public void updateAdminPhoneNumber(String email, String phoneNumber){
 
@@ -1192,6 +1190,44 @@ public class My_DB extends SQLiteOpenHelper {
         String[] args = {email};
 
        int isUpdated =  db.update(Education_Table_Admins,values,""+Admin_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
+
+        if(isUpdated>0)
+          Toast.makeText(context, "Phone Number Changed.", Toast.LENGTH_SHORT).show();
+    }
+
+    /**updateDoctorPhoneNumber()
+     * This method To update Doctor Phone Number And save it in data base
+     * ********************************************************************************************/
+    public void updateDoctorPhoneNumber(String email, String phoneNumber){
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(Doctors_col_phone,phoneNumber);
+
+        String[] args = {email};
+
+       int isUpdated =  db.update(Education_Table_Doctors,values,""+Doctors_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
+
+        if(isUpdated>0)
+          Toast.makeText(context, "Phone Number Changed.", Toast.LENGTH_SHORT).show();
+    }
+
+    /**updateStudentPhoneNumber()
+     * This method To update Student Phone Number And save it in data base
+     * ********************************************************************************************/
+    public void updateStudentPhoneNumber(String email, String phoneNumber){
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(Student_col_phone,phoneNumber);
+
+        String[] args = {email};
+
+       int isUpdated =  db.update(Education_Table_Students,values,""+Student_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
 
         if(isUpdated>0)
           Toast.makeText(context, "Phone Number Changed.", Toast.LENGTH_SHORT).show();
