@@ -178,6 +178,11 @@ public ArrayList<Integer> getCourse_id(){
             EditText et_courseDepartment_show = bottomSheetDialogView.findViewById(R.id.fragment_student_regestration_subjects_info_et_department);
             EditText et_courseDoctor_show = bottomSheetDialogView.findViewById(R.id.fragment_student_regestration_subjects_info_et_doctor_name);
             EditText et_coursePreRequest_show = bottomSheetDialogView.findViewById(R.id.fragment_student_regestration_subjects_info_et_previous);
+            EditText et_course_Level_show = bottomSheetDialogView.findViewById(R.id.fragment_student_regestration_subjects_info_et_level);
+            EditText et_course_Hours_show = bottomSheetDialogView.findViewById(R.id.fragment_student_regestration_subjects_info_et_hours);
+
+
+
             Button btn_close_show_course = bottomSheetDialogView.findViewById(R.id.fragment_student_regestration_subjects_info_btn_close);
 
             et_courseName_show.setText(courseName);
@@ -190,6 +195,9 @@ public ArrayList<Integer> getCourse_id(){
 
             int id=  Db.getPreRequestIdBy_Name(courseName);
             et_coursePreRequest_show.setText(Db.getPreRequestNameId(id));
+            et_course_Level_show.setText("Level "+String.valueOf(Db.getSubjectLevel(courseName)));
+            et_course_Hours_show.setText(String.valueOf(Db.getCourseHoursByCourseName(courseName))+"hrs");
+
             btn_close_show_course.setOnClickListener(v -> bottomSheetDialog.dismiss());
 
         }

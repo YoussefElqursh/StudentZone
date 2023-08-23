@@ -162,6 +162,9 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.ViewHold
             EditText et_courseDepartment_show = bottomSheetDialogView.findViewById(R.id.fragment_student_regestration_subjects_info_et_department);
             EditText et_courseDoctor_show = bottomSheetDialogView.findViewById(R.id.fragment_student_regestration_subjects_info_et_doctor_name);
             EditText et_coursePreRequest_show = bottomSheetDialogView.findViewById(R.id.fragment_student_regestration_subjects_info_et_previous);
+            EditText et_courseLevel_show = bottomSheetDialogView.findViewById(R.id.fragment_student_regestration_subjects_info_et_level);
+            EditText et_courseHours_show = bottomSheetDialogView.findViewById(R.id.fragment_student_regestration_subjects_info_et_hours);
+
             Button btn_close_show_course = bottomSheetDialogView.findViewById(R.id.fragment_student_regestration_subjects_info_btn_close);
 
             et_courseName_show.setText(courseName);
@@ -174,6 +177,9 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.ViewHold
 
           int id=  Db.getPreRequestIdBy_Name(courseName);
             et_coursePreRequest_show.setText(Db.getPreRequestNameId(id));
+            et_courseLevel_show.setText("Level "+Db.getSubjectLevel(courseName));
+            et_courseHours_show.setText(Db.getCourseHoursByCourseName(courseName)+"hrs");
+
             btn_close_show_course.setOnClickListener(v -> bottomSheetDialog.dismiss());
 
         }
