@@ -29,7 +29,7 @@ public class My_DB extends SQLiteOpenHelper {
      ***********************************************************************************************/
     public static final String DB_Name = "Education";
 
-    public static final int DB_Version = 46;
+    public static final int DB_Version = 47;
 
     private final Context context;
 
