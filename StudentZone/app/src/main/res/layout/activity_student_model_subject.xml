@@ -1,64 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_student_subject_model_container"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_student_subject_model_container"
+    android:layout_marginBottom="20dp"
+    android:background="@color/white">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/activity_student_subject_cv"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="65dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="5dp"
-        app:cardBackgroundColor="#F8F8F7"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="5dp">
+        android:background="@drawable/custom_model_bg"
+        android:paddingLeft="10dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
-                android:rotation="-50"
-                app:srcCompat="@drawable/custom_arc_1"
-                tools:srcCompat="@drawable/custom_arc_1"
-                android:layout_marginRight="-45dp"
-                android:layout_marginTop="20dp"/>
-
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/activity_student_subject_iv_cv"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="8dp"
-                app:cardBackgroundColor="@color/dark_blue"
-                app:cardCornerRadius="10dp">
+                app:cardCornerRadius="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="8dp"
+                android:layout_centerVertical="true"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/dark_blue">
 
-                <RelativeLayout
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
+                <TextView
+                    android:id="@+id/activity_student_subject_tv_sn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:text="DN"
+                    android:textColor="@color/white"
+                    android:maxLength="2"
+                    android:textStyle="bold"
                     android:layout_gravity="center"
-                    android:gravity="center">
-
-                    <TextView
-                        android:id="@+id/activity_student_subject_tv_sn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:maxLength="2"
-                        android:text="SN"
-                        android:textColor="@color/white"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
-                </RelativeLayout>
+                    android:textAlignment="center"
+                    android:textAllCaps="true"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -67,41 +48,49 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="15dp"
                 android:layout_toRightOf="@id/activity_student_subject_iv_cv"
+                android:text="Department Name"
                 android:maxLines="1"
-                android:text="Subject Name"
                 android:textColor="@color/dark_blue"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="14sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/activity_student_subject_tv_sub_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="34dp"
                 android:layout_toRightOf="@id/activity_student_subject_iv_cv"
                 android:maxLines="1"
-                android:text="Subject Code"
-                android:textColor="@color/dark_blue" />
+                android:text="Department Code"
+                android:textColor="@color/dark_blue"
+                android:textSize="12sp"/>
 
             <ImageButton
                 android:id="@+id/activity_student_subject_ibtn_more"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="8dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="13dp"
                 android:background="@drawable/custom_ibtn_more"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:src="@drawable/ic_more"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"/>
+                android:layout_alignParentEnd="true"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         </RelativeLayout>
 
-    </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#46A1A1A1"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="75dp"/>
 
 </RelativeLayout>

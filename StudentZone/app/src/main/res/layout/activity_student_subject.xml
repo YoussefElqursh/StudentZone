@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/student_subject_recycleview"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="17dp"/>
 
     </LinearLayout>
 </LinearLayout>

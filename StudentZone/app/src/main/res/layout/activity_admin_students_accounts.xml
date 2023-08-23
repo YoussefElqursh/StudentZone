@@ -192,16 +192,16 @@
                     android:textSize="14dp"
                     tools:ignore="TextSizeCheck" />
 
-
-
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/activity_admin_students_accounts_recyclerview"
-                android:layout_marginTop="5dp"/>
+                android:layout_marginTop="17dp"/>
 
         </RelativeLayout>
+
     </LinearLayout>
+
 </LinearLayout>
