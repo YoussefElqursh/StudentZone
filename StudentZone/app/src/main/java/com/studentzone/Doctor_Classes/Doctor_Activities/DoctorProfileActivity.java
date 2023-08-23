@@ -188,12 +188,16 @@ public class DoctorProfileActivity extends AppCompatActivity {
      *  Set Edit Phone Number Button Action
      **********************************************************************************************/
     public void setEditPhoneNumberButtonAction() {
-        btn_edit_phone_number.setOnClickListener(v -> dialog_edit_phone_number.show());
+        btn_edit_phone_number.setOnClickListener(v -> {
 
-        phone_number_dialog_et.setText(preferences.getString("phoneNumber", ""));
-        isPhoneNumberChanged();
+               dialog_edit_phone_number.show();
 
+               phone_number_dialog_et.setText(preferences.getString("phoneNumber", ""));
+
+               isPhoneNumberChanged();
+        });
     }
+
 
     /** setEditPasswordButtonAction()
      *  Set Edit Password Button Action

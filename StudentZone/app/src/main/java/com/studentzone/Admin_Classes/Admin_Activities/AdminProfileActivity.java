@@ -62,6 +62,12 @@ public class AdminProfileActivity extends AppCompatActivity {
 
         // Set click listener for "Save" button in the edit phone number dialog
         setSaveEditedPhoneNumberButtonAction();
+
+        // Set click listener for "Cancel" button in the edit password dialog
+        setCancelEditedPasswordButtonAction();
+
+        // Set click listener for "Save" button in the edit password dialog
+        setSaveEditedPasswordButtonAction();
     }
 
     /**
@@ -295,7 +301,9 @@ public class AdminProfileActivity extends AppCompatActivity {
      *  Set Cancel Edited Password  Button Action
      **********************************************************************************************/
     public void setCancelEditedPasswordButtonAction () {
-        password_dialog_btn_cancel.setOnClickListener(v -> dialog_edit_password.cancel());
+        password_dialog_btn_cancel.setOnClickListener(v ->
+                dialog_edit_password.cancel());
+
     }
 
 
