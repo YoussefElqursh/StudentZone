@@ -254,20 +254,19 @@ public class AdminProfileActivity extends AppCompatActivity {
 
                 boolean isValidPhoneNumber = phoneNumber.matches("01[0125]\\d{8}");
 
-
-
                 // Handle error and helper messages
-                if (phoneNumber.length() < 11) {
-                    layout_phone_number.setError("Enter a valid phone number");
-                    layout_phone_number.setHelperText("");
+                if (phoneNumber.length() == 0) {
+                    layout_phone_number.setError("");
+                    layout_phone_number.setHelperText("Example: 01XXXXXXXXX");
                     phone_number_dialog_btn_save.setEnabled(false);
-                } else if (!isValidPhoneNumber) {
+                }
+                else if (!isValidPhoneNumber) {
                     layout_phone_number.setError("Enter a valid Egyptian phone number");
                     layout_phone_number.setHelperText("");
                     phone_number_dialog_btn_save.setEnabled(false);
-                } else {
+                }
+                else {
                     layout_phone_number.setError("");
-                    layout_phone_number.setHelperText("Example: 01XXXXXXXXX");
                     phone_number_dialog_btn_save.setEnabled(true);
                 }
 
@@ -295,6 +294,33 @@ public class AdminProfileActivity extends AppCompatActivity {
 
         });
     }
+    /** isPhoneNumberChanged()
+     *  this method to monitor is phone number changed set button save enabled else set it disabled
+     **********************************************************************************************/
+    private void isPasswordChanged(){
+
+        String oldPassword = preferences.getString("password", "");
+
+        TextWatcher textWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+
+
+            }
+        };
+
+
+        password_dialog_et_old_password.addTextChangedListener(textWatcher);
+        password_dialog_et_new_password.addTextChangedListener(textWatcher);
+        password_dialog_et_confirm_password.addTextChangedListener(textWatcher);
+    }
+
 
 
     /** setCancelEditedPasswordButtonAction()
@@ -302,7 +328,11 @@ public class AdminProfileActivity extends AppCompatActivity {
      **********************************************************************************************/
     public void setCancelEditedPasswordButtonAction () {
         password_dialog_btn_cancel.setOnClickListener(v ->
+
                 dialog_edit_password.cancel());
+                password_dialog_et_old_password.getText().clear();
+                password_dialog_et_new_password.getText().clear();
+                password_dialog_et_confirm_password.getText().clear();
 
     }
 
@@ -312,6 +342,7 @@ public class AdminProfileActivity extends AppCompatActivity {
      **********************************************************************************************/
     public void setSaveEditedPasswordButtonAction () {
         password_dialog_btn_save.setOnClickListener(v -> {
+
 
 
 
