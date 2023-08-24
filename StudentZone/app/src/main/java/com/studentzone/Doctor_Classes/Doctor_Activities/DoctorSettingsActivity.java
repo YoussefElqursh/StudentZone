@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-
-import com.studentzone.Admin_Classes.Admin_Activities.AdminHomeActivity;
 import com.studentzone.R;
 
 public class DoctorSettingsActivity extends AppCompatActivity {
@@ -26,6 +24,6 @@ public class DoctorSettingsActivity extends AppCompatActivity {
      **********************************************************************************************/
     public void setBackButtonAction(){
         btn_back = findViewById(R.id.activity_doctor_settings_btn_back);
-        btn_back.setOnClickListener(v -> startActivity(new Intent(getBaseContext(), AdminHomeActivity.class)));
+        btn_back.setOnClickListener(v -> startActivity(new Intent(getBaseContext(), DoctorHomeActivity.class)));
     }
 }
