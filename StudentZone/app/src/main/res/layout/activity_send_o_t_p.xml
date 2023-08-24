@@ -16,9 +16,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp">
-
-
+            android:layout_height="55dp">
 
             <Button
                 android:id="@+id/activity_send_otp_btn_back"
@@ -43,148 +41,157 @@
                 android:layout_centerVertical="true"
                 android:layout_marginTop="25dp"
                 android:text="Forgot Password"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/blue"/>
 
         </RelativeLayout>
 
-        <ImageView
-            android:layout_width="220dp"
-            android:layout_height="220dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/illust_send_message"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="OTP Verification"
-            android:textColor="#212121"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="50dp"
-            android:gravity="center"
-            android:text="We will send you an One Time Password on this mobile number"
-            android:textColor="#757575"
-            android:textSize="14sp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:text="Enter Your E-mail"
-            android:textColor="#757575"
-            android:textSize="14sp"/>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginEnd="60dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp">
+
+                <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/illust_send_message"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:gravity="center"
-                android:drawableLeft="@drawable/ic_email_address_2"
-
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="OTP Verification"
                 android:textColor="#212121"
-                android:textSize="16sp"
-                android:textStyle="bold"/>
-
-            <EditText
-                android:id="@+id/input_Email"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:background="@null"
-                android:hint="example@monufia.edu"
-                android:imeOptions="actionDone"
-                android:importantForAutofill="no"
-                android:inputType="textEmailAddress"
-                android:textColor="#212121"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                android:layout_marginStart="5dp"
-                tools:ignore="TouchTargetSizeCheck"/>
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:text="Enter Mobile Number"
-            android:textColor="#757575"
-            android:textSize="14sp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginEnd="60dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+                android:textAlignment="center"
+                />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="50dp"
                 android:gravity="center"
-                android:text="+20-"
-                android:textColor="@color/blue"
-                android:textSize="16sp"
-                android:textStyle="bold"/>
+                android:text="We will send you an One Time Password on this mobile number"
+                android:textColor="#757575"
+                android:textSize="14sp"/>
 
-            <EditText
-                android:id="@+id/input_PhoneNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:background="@null"
-                android:hint="1234567891"
-                android:imeOptions="actionDone"
-                android:importantForAutofill="no"
-                android:inputType="phone"
-                android:textColor="#212121"
-                android:textSize="16sp"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="Enter Your E-mail"
+                android:textColor="#757575"
+                android:textSize="14sp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="60dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:drawableLeft="@drawable/ic_email_address_2"
+
+                    android:textColor="#212121"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/input_Email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@null"
+                    android:hint="example@monufia.edu"
+                    android:imeOptions="actionDone"
+                    android:importantForAutofill="no"
+                    android:inputType="textEmailAddress"
+                    android:textColor="#212121"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="5dp"
+                    tools:ignore="TouchTargetSizeCheck"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="Enter Mobile Number"
+                android:textColor="#757575"
+                android:textSize="14sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="60dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="+20-"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/input_PhoneNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@null"
+                    android:hint="1234567891"
+                    android:imeOptions="actionDone"
+                    android:importantForAutofill="no"
+                    android:inputType="phone"
+                    android:textColor="#212121"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="5dp"
+                    tools:ignore="TouchTargetSizeCheck"
+                    android:maxLength="10"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="70dp"
+                android:background="#BDBDBD"/>
+
+            <Button
+                android:id="@+id/btn_getOTP"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_margin="30dp"
+                android:background="@drawable/custom_btn_send_receive"
+                android:text="Get OTP"
+                android:textColor="@color/white"
+                android:textSize="18sp"
                 android:textStyle="bold"
-                android:layout_marginStart="5dp"
-                tools:ignore="TouchTargetSizeCheck"
-                android:maxLength="10"/>
+                android:textAllCaps="false"/>
 
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginStart="70dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="70dp"
-            android:background="#BDBDBD"/>
-
-        <Button
-            android:id="@+id/btn_getOTP"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_margin="30dp"
-            android:background="@drawable/custom_btn_send_receive"
-            android:text="Get OTP"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textAllCaps="false"/>
 
     </LinearLayout>
 

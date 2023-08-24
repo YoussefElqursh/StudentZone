@@ -51,6 +51,7 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
     private EditText et_search;
     private  ArrayList<Departments> filteredDepartmentsList;
     private DepartmentRecyclerViewAdapter adapter;
+    private int search_not_results_counter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -320,14 +321,18 @@ public class AdminDepartmentsActivity extends AppCompatActivity  {
         if(filteredDepartmentsList.size()>0){
             departmentRecyclerView.setVisibility(View.VISIBLE);
             ll_no_search_results.setVisibility(View.INVISIBLE);
+            search_not_results_counter = 0;
         }
         else {
             ll_no_search_results.setVisibility(View.VISIBLE);
             departmentRecyclerView.setVisibility(View.INVISIBLE);
 
-            //Make animation of no search results layout
-            Animation animation = AnimationUtils.loadAnimation(AdminDepartmentsActivity.this, R.anim.anim_show_ll_no_search_results);
-            ll_no_search_results.startAnimation(animation);
+            if(search_not_results_counter == 0){
+                //Make animation of no search results layout
+                Animation animation = AnimationUtils.loadAnimation(AdminDepartmentsActivity.this, R.anim.anim_show_ll_no_search_results);
+                ll_no_search_results.startAnimation(animation);
+            }
+            search_not_results_counter++;
         }
     }
 
