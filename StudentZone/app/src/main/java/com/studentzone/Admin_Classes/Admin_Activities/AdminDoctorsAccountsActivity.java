@@ -52,6 +52,8 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
     private LinearLayout ll_search,ll_no_search_results;
     private DoctorRecyclerViewAdapter adapter;
     private ArrayList<Doctors> filteredCoursesList ;
+    private int search_not_results_counter = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -360,14 +362,18 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         if(filteredCoursesList.size()>0){
             doctorRecyclerView.setVisibility(View.VISIBLE);
             ll_no_search_results.setVisibility(View.INVISIBLE);
+            search_not_results_counter = 0;
         }
         else {
             ll_no_search_results.setVisibility(View.VISIBLE);
             doctorRecyclerView.setVisibility(View.INVISIBLE);
 
-            //Make animation of no search results layout
-            Animation animation = AnimationUtils.loadAnimation(AdminDoctorsAccountsActivity.this, R.anim.anim_show_ll_no_search_results);
-            ll_no_search_results.startAnimation(animation);
+            if(search_not_results_counter == 0){
+                //Make animation of no search results layout
+                Animation animation = AnimationUtils.loadAnimation(AdminDoctorsAccountsActivity.this, R.anim.anim_show_ll_no_search_results);
+                ll_no_search_results.startAnimation(animation);
+            }
+            search_not_results_counter++;
         }
     }
 

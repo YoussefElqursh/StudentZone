@@ -57,6 +57,8 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
     private LinearLayout ll_search,ll_no_search_results;
     private StudentRecyclerViewAdapter adapter;
     private ArrayList<Students>filteredStudentList;
+    private int search_not_results_counter = 0;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -410,14 +412,18 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
         if(filteredStudentList.size()>0){
             studentRecyclerView.setVisibility(View.VISIBLE);
             ll_no_search_results.setVisibility(View.INVISIBLE);
+            search_not_results_counter = 0;
         }
         else {
             ll_no_search_results.setVisibility(View.VISIBLE);
             studentRecyclerView.setVisibility(View.INVISIBLE);
 
-            //Make animation of no search results layout
-            Animation animation = AnimationUtils.loadAnimation(AdminStudentsAccountsActivity.this, R.anim.anim_show_ll_no_search_results);
-            ll_no_search_results.startAnimation(animation);
+            if(search_not_results_counter == 0){
+                //Make animation of no search results layout
+                Animation animation = AnimationUtils.loadAnimation(AdminStudentsAccountsActivity.this, R.anim.anim_show_ll_no_search_results);
+                ll_no_search_results.startAnimation(animation);
+            }
+            search_not_results_counter++;
         }
     }
 

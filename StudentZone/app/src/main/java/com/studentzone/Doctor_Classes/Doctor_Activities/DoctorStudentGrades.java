@@ -38,6 +38,8 @@ public class DoctorStudentGrades extends AppCompatActivity {
     private RecyclerView studentRecyclerView;
     private DoctorStudentsGradesRecyclerViewAdapter adapter;
     private ArrayList<Students> studentsList, filteredStudentList;
+    private int search_not_results_counter = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -199,14 +201,18 @@ public class DoctorStudentGrades extends AppCompatActivity {
         if(filteredStudentList.size()>0){
             studentRecyclerView.setVisibility(View.VISIBLE);
             ll_no_search_results.setVisibility(View.INVISIBLE);
+            search_not_results_counter = 0;
         }
         else {
             ll_no_search_results.setVisibility(View.VISIBLE);
             studentRecyclerView.setVisibility(View.INVISIBLE);
 
-            //Make animation of no search results layout
-            Animation animation = AnimationUtils.loadAnimation(DoctorStudentGrades.this, R.anim.anim_show_ll_no_search_results);
-            ll_no_search_results.startAnimation(animation);
+            if(search_not_results_counter == 0){
+                //Make animation of no search results layout
+                Animation animation = AnimationUtils.loadAnimation(DoctorStudentGrades.this, R.anim.anim_show_ll_no_search_results);
+                ll_no_search_results.startAnimation(animation);
+            }
+            search_not_results_counter++;
         }
     }
 }

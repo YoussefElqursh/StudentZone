@@ -81,7 +81,7 @@
 
             <LinearLayout
                 android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_height="45dp"
                 android:orientation="vertical"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
@@ -103,7 +103,8 @@
                     android:textStyle="bold"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
                     android:background="@drawable/custom_tv_grade"
-                    android:layout_marginBottom="-21dp"/>
+                    android:layout_marginBottom="-21dp"
+                    android:layout_marginTop="5dp"/>
 
                 <ImageView
                     android:layout_width="30dp"
