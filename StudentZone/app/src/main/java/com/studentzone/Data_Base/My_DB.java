@@ -637,24 +637,6 @@ public class My_DB extends SQLiteOpenHelper {
 
 
 
-    @SuppressLint("Range")
-    private int getStudentDepartmentId_byStudent_id(int student_id) {
-        SQLiteDatabase db = getReadableDatabase();
-        int departmentId = -1; // Default value if department ID is not found
-
-        String query = "SELECT " + Student_col_dept + " FROM " + Education_Table_Students +
-                " WHERE " + Student_col_id + " = ?";
-        String[] selectionArgs = { String.valueOf(student_id) };
-        Cursor cursor = db.rawQuery(query, selectionArgs);
-
-        if (cursor.moveToFirst()) {
-            departmentId = cursor.getInt(cursor.getColumnIndex(Student_col_dept));
-        }
-
-        cursor.close();
-
-        return departmentId;
-    }
 
     /**Add New Student()
      **********************************************************************************************/
@@ -1987,6 +1969,39 @@ public class My_DB extends SQLiteOpenHelper {
       db.close();
       return arrayList;
   }
+    public ArrayList<StudentPassedModel> getPassedCoursesForStudents_Level_3() {
+        SQLiteDatabase db = getReadableDatabase();
+        ArrayList<StudentPassedModel> arrayList = new ArrayList<>();
+
+        SharedPreferences preferences = context.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        String studentId = preferences.getString("id", "");
+        int sId = Integer.parseInt(studentId);
+
+        String selection = "enrollment_student_id = ? AND enrollment_student_degree >= 50";
+        String[] selectionArgs = { String.valueOf(sId) };
+
+        Cursor cursor = db.query("Enrollment",
+                new String[]{"enrollment_student_grade", "enrollment_student_degree", "enrollment_course_id"},
+                selection, selectionArgs, null, null, null);
+
+        while (cursor.moveToNext()) {
+            @SuppressLint("Range") int courseId = cursor.getInt(cursor.getColumnIndex("enrollment_course_id"));
+            @SuppressLint("Range") String studentGrade = cursor.getString(cursor.getColumnIndex("enrollment_student_grade"));
+            @SuppressLint("Range") int studentDegree = cursor.getInt(cursor.getColumnIndex("enrollment_student_degree"));
+            String courseName = get_course_by_Course_Id(courseId);
+
+            // Check if the course belongs to level 2
+            if (isCourseLevel3(courseId)) {
+                StudentPassedModel model = new StudentPassedModel(courseName, studentDegree, studentGrade);
+                arrayList.add(model);
+            }
+        }
+
+        cursor.close();
+        db.close();
+        return arrayList;
+    }
+
 
     private boolean isCourseLevel2(int courseId) {
         SQLiteDatabase db = getReadableDatabase();
@@ -1995,9 +2010,20 @@ public class My_DB extends SQLiteOpenHelper {
         Cursor cursor = db.query("Courses",
                 new String[]{Courses_col_id},
                 selection, selectionArgs, null, null, null);
-        boolean isLevel1 = cursor.moveToFirst();
+        boolean isLevel2 = cursor.moveToFirst();
         cursor.close();
-        return isLevel1;
+        return isLevel2;
+    }
+    private boolean isCourseLevel3(int courseId) {
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = "id = ? AND level = 3";
+        String[] selectionArgs = { String.valueOf(courseId) };
+        Cursor cursor = db.query("Courses",
+                new String[]{Courses_col_id},
+                selection, selectionArgs, null, null, null);
+        boolean isLevel3 = cursor.moveToFirst();
+        cursor.close();
+        return isLevel3;
     }
 
 
@@ -2036,7 +2062,6 @@ public class My_DB extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 @SuppressLint("Range") int courseHours = cursor.getInt(cursor.getColumnIndex("student_course_hours"));
-                @SuppressLint("Range") int CourseId=cursor.getInt(cursor.getColumnIndex("enrollment_course_id"));
                 courseHoursSum += courseHours;
             } while (cursor.moveToNext());
         }
@@ -2059,6 +2084,28 @@ public class My_DB extends SQLiteOpenHelper {
                 @SuppressLint("Range") int courseHours = cursor.getInt(cursor.getColumnIndex("student_course_hours"));
                 @SuppressLint("Range") int CourseId=cursor.getInt(cursor.getColumnIndex("enrollment_course_id"));
                 if (isCourseLevel1(CourseId)){courseHoursSum += courseHours;}
+
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return courseHoursSum;
+    }
+    public int getSumOfSubjectHourslevel_3() {
+        SQLiteDatabase db = getReadableDatabase();
+        SharedPreferences preferences = context.getSharedPreferences("userInfo", context.MODE_PRIVATE);
+        String studentId = preferences.getString("id", "");
+        int sId = Integer.parseInt(studentId);
+
+        String selection = "enrollment_student_id ='" + sId + "' AND enrollment_student_degree >= 50";
+
+        Cursor cursor = db.query("Enrollment", new String[]{Enrollment_col_student_course_hours,Enrollment_col_course_id}, selection, null, null, null, null);
+        int courseHoursSum = 0;
+        if (cursor.moveToFirst()) {
+            do {
+                @SuppressLint("Range") int courseHours = cursor.getInt(cursor.getColumnIndex("student_course_hours"));
+                @SuppressLint("Range") int CourseId=cursor.getInt(cursor.getColumnIndex("enrollment_course_id"));
+                if (isCourseLevel3(CourseId)){courseHoursSum += courseHours;}
 
             } while (cursor.moveToNext());
         }
@@ -2169,9 +2216,8 @@ public class My_DB extends SQLiteOpenHelper {
         String studentId = preferences.getString("id", "");
         int student_Id = Integer.parseInt(studentId);
 
-        int studentDepartmentId = getStudentDepartmentId_byStudent_id(student_Id);
         String selection = "Courses.id NOT IN (SELECT enrollment_course_id FROM Enrollment WHERE enrollment_student_id = ? )" +
-                " AND Courses.level = 2";
+                " AND Courses.level = 3";
         String[] selectionArgs = { String.valueOf(student_Id)};
 
         Cursor cursor = db.query("Courses", new String[]{Courses_col_name, Courses_col_code},
@@ -2232,6 +2278,31 @@ public class My_DB extends SQLiteOpenHelper {
         db.close();
 
         return courseHours;
+    }
+
+    @SuppressLint("Range")
+    public int studentCs() {
+        SharedPreferences preferences = context.getSharedPreferences("userInfo", context.MODE_PRIVATE);
+        String studentId = preferences.getString("id", "");
+        int student_Id = Integer.parseInt(studentId);
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = "id = ?";
+        String[] selectionArgs = {String.valueOf(student_Id)};
+        Cursor cursor = db.query("Students",
+                new String[]{Student_col_dept},
+                selection, selectionArgs, null, null, null);
+
+        int StudentDep = 0;
+
+        if (cursor.moveToFirst()) {
+            StudentDep = cursor.getInt(cursor.getColumnIndex(Student_col_dept));
+        }
+        System.out.println("dep    "+StudentDep);
+
+        cursor.close();
+        db.close();
+
+        return StudentDep;
     }
 }
 
