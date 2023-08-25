@@ -20,7 +20,6 @@ public class DoctorCoursesActivity extends AppCompatActivity {
 
 
     // Database object
-
     private final My_DB db = new My_DB(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -288,7 +288,7 @@ public class My_DB extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('MA213','Mathematics-3',5,9,10,2,3)");//24
 
         //Level 3 Courses
-        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS321','Artificial Intelligence-1',2,20,17,3,3)");//35
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS321','Artificial Intelligence-1',2,20,17,3,3)");//25
         db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS362','Operating Systems-2',2,21,7,3,3)");//26
         db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS334','Computer Programming-3',2,20,19,3,3)");//27
         db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS251','Software Engineering-1',2,20,2,3,3)");//28
@@ -296,12 +296,19 @@ public class My_DB extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS433','Cloud Computing',2,21,20,3,3)");//30
 
         db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS352','Software Engineering-2',3,2,7,3,3)");//31
-        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS424','Knowledge Based Systems',2,35,18,3,3)");//32
-        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS323','Machine learning',2,35,17,3,3)");//33
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS424','Knowledge Based Systems',2,25,18,3,3)");//32
+        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS323','Machine learning',2,25,17,3,3)");//33
         db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS415','Computer Security',2,22,21,3,3)");//34
         db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS438','Mobile Application Programming',2,27,4,3,3)");//35
         db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS313','Analysis and Design of Algorithms',2,18,3,3,3)");//36
 
+        //Level 4 Courses
+//        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS321','Artificial Intelligence-1',2,20,17,3,3)");//37
+//        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS362','Operating Systems-2',2,21,7,3,3)");//38
+//        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS334','Computer Programming-3',2,20,19,3,3)");//39
+//        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS251','Software Engineering-1',2,20,2,3,3)");//40
+//        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('IS221','Database Systems-1',3,17,4,3,3)");//41
+//        db.execSQL("INSERT INTO " + Education_Table_Courses + " (" + Courses_col_code + "," + Courses_col_name + "," + Courses_col_department_id + "," + Courses_col_PreRequest_id + "," + Courses_col_doctor_id +"," + Courses_col_level +"," + Courses_col_hours +")" + " VALUES ('CS433','Cloud Computing',2,21,20,3,3)");//42vf65e3rwsaW3
 
         //Students Accounts
         db.execSQL("INSERT INTO " + Education_Table_Students + " (" + Student_col_academic_number + "," + Student_col_first_name + ", " + "" + Student_col_last_name + ", " + Student_col_gender + ", " + Student_col_email + ", " + Student_col_password + "," + Student_col_dept + "," + Student_col_phone + ")" + " VALUES (1000,'Ahmed', 'Shosha','Male', 'ahmed111@monufia.edu', '1000',1,'01281913317')");
@@ -1242,8 +1249,10 @@ public class My_DB extends SQLiteOpenHelper {
                 int doctor = cursor.getInt(cursor.getColumnIndex(Courses_col_doctor_id));
                 int preRequest = cursor.getInt(cursor.getColumnIndex(Courses_col_PreRequest_id));
                 int id = cursor.getInt(cursor.getColumnIndex(Courses_col_id));
+                int level = cursor.getInt(cursor.getColumnIndex(Courses_col_level));
+                int hours = cursor.getInt(cursor.getColumnIndex(Courses_col_hours));
 
-                Courses course = new Courses(id,code,name,preRequest,dept,doctor);
+                Courses course = new Courses(id,code,name,preRequest,dept,doctor,level,hours);
 
                 coursesList.add(course);
             }while (cursor.moveToNext());
