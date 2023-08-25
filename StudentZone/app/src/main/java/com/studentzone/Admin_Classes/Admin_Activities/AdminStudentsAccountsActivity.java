@@ -164,6 +164,10 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
             studentAID = et_add_new_student_aid.getText().toString().trim();
             studentPhone = et_add_new_student_phone.getText().toString().trim();
 
+            // Define the password validation criteria
+            boolean isValidPassword = studentPassword.matches("^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).*$");
+
+
             // Check for null values before calling toString()
             if (departmentSpinner.getSelectedItem() != null) {
                 studentDepartmentName = departmentSpinner.getSelectedItem().toString();
@@ -176,6 +180,14 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
             }
             if (TextUtils.isEmpty(studentAID)) {
                 et_add_new_student_aid.setError("Is Required !");
+                return;
+            }
+            if (TextUtils.isEmpty(studentDepartmentName)|| studentDepartmentName.equals("Student Department")) {
+                Toast.makeText(AdminStudentsAccountsActivity.this, "Please assign a student to department", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (TextUtils.isEmpty(studentPhone) || !studentPhone.matches("01[0125]\\d{8}")) {
+                et_add_new_student_phone.setError("Please enter"+ "\n"+ "valid phone number!");
                 return;
             }
 
@@ -191,15 +203,16 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
                 et_add_new_student_password.setError("Is Required !");
                 return;
             }
+            if (TextUtils.isEmpty(studentPassword) || studentPassword.length() < 6) {
+                et_add_new_student_password.setError("Password must be at least 6 characters!");
+                return;
+            }
+            if (TextUtils.isEmpty(studentPassword) || studentPassword.length() >= 6 && !isValidPassword) {
+                et_add_new_student_password.setError("Password should contain at least one number, one letter, and one special character (!@#$%^&*)");
+                return;
+            }
 
-            if (TextUtils.isEmpty(studentPhone) || !studentPhone.matches("01[0125]\\d{8}")) {
-                et_add_new_student_phone.setError("Please enter"+ "\n"+ "valid phone number!");
-                return;
-            }
-            if (TextUtils.isEmpty(studentDepartmentName)|| studentDepartmentName.equals("Student Department")) {
-                Toast.makeText(AdminStudentsAccountsActivity.this, "Please assign a student to department", Toast.LENGTH_SHORT).show();
-                return;
-            }
+
 
             saveNewStudentToDatabase();
             clearAddStudentDialogEditTextFields();

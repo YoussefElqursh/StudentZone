@@ -12,7 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import com.studentzone.Admin_Classes.Admin_Activities.AdminProfileActivity;
 import com.studentzone.R;
 
 public class DoctorSettingsActivity extends AppCompatActivity {

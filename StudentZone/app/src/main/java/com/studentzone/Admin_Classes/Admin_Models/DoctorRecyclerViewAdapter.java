@@ -291,6 +291,9 @@ public class   DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecy
             //This is the action of save the changed data or edited data  of doctor
             btn_save.setOnClickListener(v -> {
 
+                // Define the password validation criteria
+                boolean isValidPassword = doctorPassword.getText().toString().trim().matches("^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).*$");
+
 
                 //This lines to remember the user to enter data in student name and pass
                 if (TextUtils.isEmpty(doctorName.getText().toString().trim())) {
@@ -299,6 +302,14 @@ public class   DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecy
                 }
                 if (TextUtils.isEmpty(doctorPassword.getText().toString().trim())) {
                     doctorPassword.setError("Is Required !");
+                    return;
+                }
+                if (TextUtils.isEmpty(doctorPassword.getText().toString().trim()) || doctorPassword.length() < 6) {
+                    doctorPassword.setError("Password must be at least 6 characters!");
+                    return;
+                }
+                if (TextUtils.isEmpty(doctorPassword.getText().toString().trim()) || doctorPassword.length() >= 6 && !isValidPassword) {
+                    doctorPassword.setError("Password should contain at least one number, one letter, and one special character (!@#$%^&*)");
                     return;
                 }
                 if (TextUtils.isEmpty(doctorPhone.getText().toString().trim()) || !doctorPhone.getText().toString().matches("01[0125]\\d{8}")) {

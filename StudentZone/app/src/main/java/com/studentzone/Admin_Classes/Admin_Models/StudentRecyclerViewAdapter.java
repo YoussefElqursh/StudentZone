@@ -334,20 +334,33 @@ public class   StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRe
             //This is the action of save the changed data or edited data  of student
             btn_save.setOnClickListener(v -> {
 
+                // Define the password validation criteria
+                boolean isValidPassword = studentPassword.getText().toString().trim().matches("^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).*$");
+
+
                 //This lines to remember the user to enter data in student name and password
                 if (TextUtils.isEmpty(studentName.getText().toString().trim())) {
                     studentName.setError("Is Required !");
+                    return;
+                }
+                if (TextUtils.isEmpty(studentPhone.getText().toString().trim()) ||  !studentPhone.getText().toString().matches("01[0125]\\d{8}")) {
+                    studentPhone.setError("Please enter"+ "\n"+ "valid phone number!");
                     return;
                 }
                 if (TextUtils.isEmpty(studentPassword.getText().toString().trim())) {
                     studentPassword.setError("Is Required !");
                     return;
                 }
-
-                if (TextUtils.isEmpty(studentPhone.getText().toString().trim()) ||  !studentPhone.getText().toString().matches("01[0125]\\d{8}")) {
-                    studentPhone.setError("Please enter"+ "\n"+ "valid phone number!");
+                if (TextUtils.isEmpty(studentPassword.getText().toString().trim()) || studentPassword.length() < 6) {
+                    studentPassword.setError("Password must be at least 6 characters!");
                     return;
                 }
+                if (TextUtils.isEmpty(studentPassword.getText().toString().trim()) || studentPassword.length() >= 6 && !isValidPassword) {
+                    studentPassword.setError("Password should contain at least one number, one letter, and one special character (!@#$%^&*)");
+                    return;
+                }
+
+
                 //This lines to send edited student to data base across passing new instance of student to db.updateStudent
                 String gender = "";
                 if (rb_male.isChecked()) {
