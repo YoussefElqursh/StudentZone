@@ -60,9 +60,9 @@ public class StudentSettingsActivity extends AppCompatActivity {
      **********************************************************************************************/
     public void openEditePersonalInfo()
     {
-        CardView cv_profile = findViewById(R.id.activity_admin_settings_cv_profile);
+        CardView cv_profile = findViewById(R.id.activity_student_settings_cv_profile);
         cv_profile.setOnClickListener(v -> {
-            Intent intent = new Intent(StudentSettingsActivity.this, AdminProfileActivity.class);
+            Intent intent = new Intent(StudentSettingsActivity.this, StudentProfileActivity.class);
 
             intent.putExtra("request_code", PROFILE_IMAGE_REQUEST_CODE);
             startActivityForResult(intent, PROFILE_IMAGE_REQUEST_CODE);

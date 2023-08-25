@@ -62,7 +62,7 @@ public class DoctorSettingsActivity extends AppCompatActivity {
     {
         CardView cv_profile = findViewById(R.id.activity_doctor_settings_cv_profile);
         cv_profile.setOnClickListener(v -> {
-            Intent intent = new Intent(DoctorSettingsActivity.this, AdminProfileActivity.class);
+            Intent intent = new Intent(DoctorSettingsActivity.this, DoctorProfileActivity.class);
 
             intent.putExtra("request_code", PROFILE_IMAGE_REQUEST_CODE);
             startActivityForResult(intent, PROFILE_IMAGE_REQUEST_CODE);
