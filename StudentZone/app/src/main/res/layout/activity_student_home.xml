@@ -101,7 +101,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
                         android:gravity="center"
-                        android:text="Subjects Enrolment"
+                        android:text="Subjects Enrollment"
                         android:textColor="@color/home_cv_text_color"
                         android:textSize="14sp"
                         android:textStyle="bold|italic"/>

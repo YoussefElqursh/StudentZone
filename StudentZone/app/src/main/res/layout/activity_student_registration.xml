@@ -33,7 +33,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="35dp"
-            android:text="Students Registration"
+            android:text="Students Enrollment"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:layout_gravity="center_vertical"
@@ -42,20 +42,68 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/activity_student_regestration_ll_main"
         android:layout_width="match_parent"
         android:layout_height="570dp"
         android:orientation="vertical"
         android:background="@drawable/custom_cv">
 
+        <!-- This Linear Layout will be enabled when the student enroll in all courses already -->
+        <LinearLayout
+            android:id="@+id/activity_student_subject_ll_no_subjects"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="invisible">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/ic_already_enrolled"
+                tools:srcCompat="@drawable/ic_already_enrolled"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Already Enrolled"
+                android:textAlignment="center"
+                android:textColor="#7a8593"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="You are already enrolled in all permitted subjects."
+                android:textAlignment="center"
+                android:textColor="#7a8593"
+                android:textSize="12dp"
+                tools:ignore="TextSizeCheck" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Go to subjects page to see your subjects"
+                android:textAlignment="center"
+                android:textColor="#7a8593"
+                android:textSize="12dp"
+                tools:ignore="TextSizeCheck" />
+
+        </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleview_student_regestration_choose_subject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="17dp"/>
+            android:layout_marginTop="17dp"
+            android:visibility="visible"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

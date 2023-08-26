@@ -67,7 +67,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="No Courses"
+                android:text="No Subjects"
                 android:textAlignment="center"
                 android:textColor="#7a8593"
                 android:textStyle="bold"
@@ -78,7 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Go to the courses enrolment page to"
+                android:text="Go to the subjects enrolment page to"
                 android:textAlignment="center"
                 android:textColor="#7a8593"
                 android:textSize="12dp"
@@ -87,7 +87,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="enroll in a new course."
+                android:text="enroll in a new subjects."
                 android:textAlignment="center"
                 android:textColor="#7a8593"
                 android:textSize="12dp"
