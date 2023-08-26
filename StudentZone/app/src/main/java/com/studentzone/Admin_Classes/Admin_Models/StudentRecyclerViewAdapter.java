@@ -81,10 +81,6 @@ public class   StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRe
         Students student = studentList.get(position);
 
         holder.setStudentData(student);
-
-        Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), android.R.anim.slide_in_left);
-
-        holder.itemView.startAnimation(animation);
     }
 
     @Override

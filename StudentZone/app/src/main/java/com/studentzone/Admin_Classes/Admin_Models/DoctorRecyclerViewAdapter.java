@@ -73,10 +73,6 @@ public class   DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecy
         Doctors doctor = doctorsList.get(position);
 
         holder.setDoctorData(doctor);
-
-        Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), android.R.anim.slide_in_left);
-
-        holder.itemView.startAnimation(animation);
     }
 
     /**updateDoctors()

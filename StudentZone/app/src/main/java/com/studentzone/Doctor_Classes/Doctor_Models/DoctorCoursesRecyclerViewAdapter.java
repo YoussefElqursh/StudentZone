@@ -73,10 +73,6 @@ public class DoctorCoursesRecyclerViewAdapter extends RecyclerView.Adapter<Docto
         Courses course = coursesList.get(position);
 
         holder.bindCourseData(course);
-
-        Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), android.R.anim.slide_in_left);
-
-        holder.itemView.startAnimation(animation);
     }
 
 

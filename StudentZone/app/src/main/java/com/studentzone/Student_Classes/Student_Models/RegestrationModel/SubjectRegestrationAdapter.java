@@ -61,12 +61,6 @@ public class SubjectRegestrationAdapter extends RecyclerView.Adapter<SubjectRege
         holder.tv1_n.setText(arrayList.get(position).getSubjectName());
         holder.tv2_c.setText(arrayList.get(position).getCodeName());
 
-
-        Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), android.R.anim.slide_in_left);
-
-        holder.itemView.startAnimation(animation);
-
-
         SubjectRegestrationModel model = arrayList.get(position);
 
         String  abbreviation = "",courseName = model.getSubjectName();
