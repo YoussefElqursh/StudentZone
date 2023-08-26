@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -31,7 +32,7 @@ public class AdminProfileActivity extends AppCompatActivity {
     private ImageView profileImage;
     private TextView tv_edite_photo,tv_name, tv_email;
     private EditText et_phone_number, et_password, phone_number_dialog_et, password_dialog_et_old_password, password_dialog_et_new_password, password_dialog_et_confirm_password;
-    private TextInputLayout layout_phone_number;
+    private TextInputLayout layout_phone_number, layout_old_password, layout_new_password, layout_confirm_password;
     private Dialog dialog_edit_phone_number, dialog_edit_password;
     private Button btn_edit_phone_number, btn_edit_password, btn_back, phone_number_dialog_btn_save, phone_number_dialog_btn_cancel, password_dialog_btn_save, password_dialog_btn_cancel;
     private SharedPreferences preferences;
@@ -124,7 +125,7 @@ public class AdminProfileActivity extends AppCompatActivity {
 
 
 
-        // Set the result to send edited image to AdminHomeActivity
+        // Set the result to send edited image to AdminHomeActivity & Sittings
         Intent resultIntent = new Intent();
         resultIntent.putExtra("image_uri", String.valueOf(imageUri));
         setResult(RESULT_OK, resultIntent);
@@ -191,6 +192,11 @@ public class AdminProfileActivity extends AppCompatActivity {
         password_dialog_et_old_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_et_old_password);
         password_dialog_et_new_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_et_new_password);
         password_dialog_et_confirm_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_et_confirm_password);
+
+        layout_old_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_til_old_password);
+        layout_new_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_til_new_password);
+        layout_confirm_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_til_confirm_password);
+
     }
 
 
@@ -212,8 +218,15 @@ public class AdminProfileActivity extends AppCompatActivity {
     /** setEditPasswordButtonAction()
      *  Set Edit Password Button Action
      **********************************************************************************************/
-    public void setEditPasswordButtonAction() {
-        btn_edit_password.setOnClickListener(v -> dialog_edit_password.show());
+    public void setEditPasswordButtonAction(){
+        btn_edit_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog_edit_password.show();
+                isPasswordChanged();
+
+            }
+        });
     }
 
     /** setCancelEditedPhoneNumberButtonAction()
@@ -246,6 +259,7 @@ public class AdminProfileActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
 
+
                 // Check if the phone number has changed
                 boolean isChanged = !(phone_number_dialog_et.getText().toString().equals(originalPhoneNumber));
 
@@ -254,6 +268,7 @@ public class AdminProfileActivity extends AppCompatActivity {
 
                 boolean isValidPhoneNumber = phoneNumber.matches("01[0125]\\d{8}");
 
+
                 // Handle error and helper messages
                 if (phoneNumber.length() == 0) {
                     layout_phone_number.setError("");
@@ -261,7 +276,7 @@ public class AdminProfileActivity extends AppCompatActivity {
                     phone_number_dialog_btn_save.setEnabled(false);
                 }
                 else if (!isValidPhoneNumber) {
-                    layout_phone_number.setError("Enter a valid Egyptian phone number");
+                    layout_phone_number.setError("Enter a valid phone number");
                     layout_phone_number.setHelperText("");
                     phone_number_dialog_btn_save.setEnabled(false);
                 }
@@ -294,27 +309,82 @@ public class AdminProfileActivity extends AppCompatActivity {
 
         });
     }
-    /** isPhoneNumberChanged()
-     *  this method to monitor is phone number changed set button save enabled else set it disabled
+    /** isPasswordChanged()
+     *  This method monitors whether the password has changed and sets the save button accordingly.
      **********************************************************************************************/
-    private void isPasswordChanged(){
-
+    private void isPasswordChanged() {
         String oldPassword = preferences.getString("password", "");
 
         TextWatcher textWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
             }
+
             @Override
             public void afterTextChanged(Editable s) {
+
+                String newPassword = password_dialog_et_new_password.getText().toString();
+                String confirmPassword = password_dialog_et_confirm_password.getText().toString();
+
+                // Validate the password format
+                boolean isOldPasswordNotCorrect = !(password_dialog_et_old_password.getText().toString().equals(oldPassword));
+                boolean isNewMatchOld = newPassword.equals(oldPassword);
+                boolean isPasswordLengthMoreThanFif = newPassword.length() >= 6;
+                boolean isValidPassword = newPassword. matches("^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).*$");
+                boolean isMatchingPasswords = newPassword.equals(confirmPassword);
+
+                //set save button disabled if old,new,confirm any of them is empty
+                password_dialog_btn_save.setEnabled(!isOldPasswordNotCorrect && !isNewMatchOld && isPasswordLengthMoreThanFif && isValidPassword && isMatchingPasswords);
+
+                //This For Old Password
+                if(isOldPasswordNotCorrect && !password_dialog_et_old_password.hasFocus()){
+                    layout_old_password.setError("Wrong password! Please enter the correct old password.");
+                    layout_old_password.setHelperText("");
+                }
+                else if (!isOldPasswordNotCorrect && !password_dialog_et_old_password.hasFocus()){
+                    password_dialog_et_old_password.setEnabled(false);
+                }
+                else if (!isOldPasswordNotCorrect) {
+                    layout_old_password.setError("");
+                    layout_old_password.setHelperText("");
+                }
+
+                //This For New Password
+                if(isNewMatchOld) {
+                    layout_new_password.setError("Please choose a different password. New password cannot be the same as the old password.");
+                    layout_new_password.setHelperText("");
+                }
+                else if (!isPasswordLengthMoreThanFif && !password_dialog_et_new_password.hasFocus() && !password_dialog_et_old_password.hasFocus()) {
+                    layout_new_password.setError("Password must be at least 6 characters long.");
+                    layout_new_password.setHelperText("");
+                }
+                else if (!isValidPassword && !password_dialog_et_new_password.hasFocus() && !password_dialog_et_old_password.hasFocus()) {
+                    layout_new_password.setError("Password should contain at least one number, one letter, and one special character (!@#$%^&*)");
+                    layout_new_password.setHelperText("");
+                }
+                else {
+                    layout_new_password.setError("");
+                    layout_new_password.setHelperText("");
+                }
+
+                //This For Confirm Password
+                if(!isMatchingPasswords && !password_dialog_et_new_password.hasFocus()){
+                    layout_confirm_password.setError("Passwords don't Match!");
+                    layout_confirm_password.setHelperText("");
+                }
+                else {
+                    layout_confirm_password.setError("");
+                    layout_confirm_password.setHelperText("");
+                }
+
 
 
             }
         };
-
 
         password_dialog_et_old_password.addTextChangedListener(textWatcher);
         password_dialog_et_new_password.addTextChangedListener(textWatcher);
@@ -342,7 +412,6 @@ public class AdminProfileActivity extends AppCompatActivity {
      **********************************************************************************************/
     public void setSaveEditedPasswordButtonAction () {
         password_dialog_btn_save.setOnClickListener(v -> {
-
 
 
 
