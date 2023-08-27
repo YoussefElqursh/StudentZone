@@ -52,6 +52,8 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
     private LinearLayout ll_search,ll_no_search_results;
     private DoctorRecyclerViewAdapter adapter;
     private ArrayList<Doctors> filteredCoursesList ;
+    private int search_not_results_counter = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,6 +148,9 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
             doctorPassword = et_add_new_doctor_password.getText().toString().trim();
             doctorPhone = et_add_new_doctor_phone.getText().toString().trim();
 
+            // Define the password validation criteria
+            boolean isValidPassword = doctorPassword. matches("^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).*$");
+
 
             if (TextUtils.isEmpty(doctorName)) {
                 et_add_new_doctor_name.setError("Is Required !");
@@ -166,6 +171,14 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
             }
             if (TextUtils.isEmpty(doctorPassword)) {
                 et_add_new_doctor_password.setError("Is Required !");
+                return;
+            }
+            if (TextUtils.isEmpty(doctorPassword) || doctorPassword.length() < 6) {
+                et_add_new_doctor_password.setError("Password must be at least 6 characters!");
+                return;
+            }
+            if (TextUtils.isEmpty(doctorPassword) || doctorPassword.length() >= 6 && !isValidPassword) {
+                et_add_new_doctor_password.setError("Password should contain at least one number, one letter, and one special character (!@#$%^&*)");
                 return;
             }
             saveNewDoctorToDatabase();
@@ -360,14 +373,18 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
         if(filteredCoursesList.size()>0){
             doctorRecyclerView.setVisibility(View.VISIBLE);
             ll_no_search_results.setVisibility(View.INVISIBLE);
+            search_not_results_counter = 0;
         }
         else {
             ll_no_search_results.setVisibility(View.VISIBLE);
             doctorRecyclerView.setVisibility(View.INVISIBLE);
 
-            //Make animation of no search results layout
-            Animation animation = AnimationUtils.loadAnimation(AdminDoctorsAccountsActivity.this, R.anim.anim_show_ll_no_search_results);
-            ll_no_search_results.startAnimation(animation);
+            if(search_not_results_counter == 0){
+                //Make animation of no search results layout
+                Animation animation = AnimationUtils.loadAnimation(AdminDoctorsAccountsActivity.this, R.anim.anim_show_ll_no_search_results);
+                ll_no_search_results.startAnimation(animation);
+            }
+            search_not_results_counter++;
         }
     }
 

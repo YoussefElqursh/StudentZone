@@ -47,7 +47,7 @@ public class AdminCoursesActivity extends AppCompatActivity {
 
     // Variables for storing course data
     private String courseName, courseCode , courseDepartmentName , courseDoctorName , preRequestCourseName = "None",courseLevel;
-    private  int courseNumberOfHours;
+    private  int courseNumberOfHours, search_not_results_counter = 0;
     private ArrayAdapter<String> preRequestSpinnerAdapter;
     private Toolbar toolbar;
     private LinearLayout ll_search, ll_no_search_results;
@@ -442,14 +442,18 @@ public class AdminCoursesActivity extends AppCompatActivity {
         if(filteredCoursesList.size()>0){
             courseRecyclerView.setVisibility(View.VISIBLE);
             ll_no_search_results.setVisibility(View.INVISIBLE);
+            search_not_results_counter = 0;
         }
         else {
             ll_no_search_results.setVisibility(View.VISIBLE);
             courseRecyclerView.setVisibility(View.INVISIBLE);
 
-            //Make animation of no search results layout
-            Animation animation = AnimationUtils.loadAnimation(AdminCoursesActivity.this, R.anim.anim_show_ll_no_search_results);
-            ll_no_search_results.startAnimation(animation);
+            if(search_not_results_counter == 0){
+                //Make animation of no search results layout
+                Animation animation = AnimationUtils.loadAnimation(AdminCoursesActivity.this, R.anim.anim_show_ll_no_search_results);
+                ll_no_search_results.startAnimation(animation);
+            }
+            search_not_results_counter++;
         }
     }
 }

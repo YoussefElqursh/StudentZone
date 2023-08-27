@@ -147,7 +147,7 @@
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Student Password"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:paddingLeft="13dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/gray"

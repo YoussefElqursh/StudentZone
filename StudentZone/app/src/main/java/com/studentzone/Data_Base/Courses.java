@@ -12,16 +12,6 @@ public class Courses {
     private int level;
     private int numberOfHours;
 
-
-    public Courses(int id, String code, String name, int preRequest, int department, int doctor) {
-        this.id = id;
-        this.code = code;
-        this.name = name;
-        this.preRequest = preRequest;
-        this.doctor = doctor;
-        this.department = department;
-    }
-
     public Courses(int id, String code, String name, int preRequest, int department, int doctor,int level,int numberOfHours) {
         this.id = id;
         this.code = code;

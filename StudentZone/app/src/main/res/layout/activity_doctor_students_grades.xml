@@ -143,7 +143,7 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="150dp"
                     app:srcCompat="@drawable/ic_no_search_results"
                     tools:srcCompat="@drawable/ic_no_search_results"/>
 
@@ -154,7 +154,7 @@
                     android:textAlignment="center"
                     android:textColor="#7a8593"
                     android:textStyle="bold"
-                    android:textSize="20dp"
+                    android:textSize="18dp"
                     android:layout_marginTop="20dp"/>
 
                 <TextView
@@ -164,7 +164,7 @@
                     android:text="Sorry, there are no results for this search. "
                     android:textAlignment="center"
                     android:textColor="#7a8593"
-                    android:textSize="14dp"
+                    android:textSize="12dp"
                     tools:ignore="TextSizeCheck" />
 
                 <TextView
@@ -173,7 +173,7 @@
                     android:text="Please try another phrase"
                     android:textAlignment="center"
                     android:textColor="#7a8593"
-                    android:textSize="14dp"
+                    android:textSize="12dp"
                     tools:ignore="TextSizeCheck" />
 
             </LinearLayout>

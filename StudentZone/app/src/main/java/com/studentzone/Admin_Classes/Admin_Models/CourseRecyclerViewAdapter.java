@@ -96,10 +96,6 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
         Courses course = coursesList.get(position);
 
         holder.bindCourseData(course);
-
-        Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), android.R.anim.slide_in_left);
-
-        holder.itemView.startAnimation(animation);
     }
 
     /**getItemCount()

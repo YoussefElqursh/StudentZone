@@ -42,18 +42,65 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/activity_student_subject_ll_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@drawable/custom_cv">
 
+        <!-- This Linear Layout will be enabled when there are not found courses yet -->
+        <LinearLayout
+            android:id="@+id/activity_student_subject_ll_no_subjects"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="invisible">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/ic_no_enrolled_courses"
+                tools:srcCompat="@drawable/ic_no_enrolled_courses"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No Subjects"
+                android:textAlignment="center"
+                android:textColor="#7a8593"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Go to the subjects enrolment page to"
+                android:textAlignment="center"
+                android:textColor="#7a8593"
+                android:textSize="12dp"
+                tools:ignore="TextSizeCheck" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="enroll in a new subjects."
+                android:textAlignment="center"
+                android:textColor="#7a8593"
+                android:textSize="12dp"
+                tools:ignore="TextSizeCheck" />
+
+        </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/student_subject_recycleview"
-            android:layout_marginTop="17dp"/>
+            android:layout_marginTop="17dp"
+            android:visibility="visible"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>

@@ -73,10 +73,6 @@ public class DoctorCoursesRecyclerViewAdapter extends RecyclerView.Adapter<Docto
         Courses course = coursesList.get(position);
 
         holder.bindCourseData(course);
-
-        Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), android.R.anim.slide_in_left);
-
-        holder.itemView.startAnimation(animation);
     }
 
 
@@ -148,6 +144,8 @@ public class DoctorCoursesRecyclerViewAdapter extends RecyclerView.Adapter<Docto
             EditText et_courseCode_info = bottomSheetDialogView.findViewById(R.id.fragment_doctor_subjects_info_et_code);
             EditText et_courseDepartment_info = bottomSheetDialogView.findViewById(R.id.fragment_doctor_subjects_info_et_department);
             EditText et_coursePreRequest_info = bottomSheetDialogView.findViewById(R.id.fragment_doctor_subjects_info_et_previous);
+            EditText et_courseLevel_info = bottomSheetDialogView.findViewById(R.id.fragment_doctor_subjects_info_et_level);
+            EditText et_courseHours_info = bottomSheetDialogView.findViewById(R.id.fragment_doctor_subjects_info_et_hours);
             EditText et_courseNumberOfStudents_info = bottomSheetDialogView.findViewById(R.id.fragment_doctor_subjects_info_et_num_of_students);
             Button btn_close_course_info = bottomSheetDialogView.findViewById(R.id.fragment_doctor_subjects_info_btn_close);
 
@@ -156,8 +154,10 @@ public class DoctorCoursesRecyclerViewAdapter extends RecyclerView.Adapter<Docto
             et_courseCode_info.setText(course.getCode());
             et_courseDepartment_info.setText(db.getDepartmentNameById(course.getDepartment()));
             et_coursePreRequest_info.setText(db.getPreRequestNameById(course.getPreRequest()));
+            et_courseLevel_info.setText(String.valueOf(course.getLevel()));
+            et_courseHours_info.setText(String.valueOf(course.getNumberOfHours()));
 
-            et_courseNumberOfStudents_info.setText(db.getEnrolledStudentCountByCourseId(course.getId())+"");
+            et_courseNumberOfStudents_info.setText(String.valueOf(db.getEnrolledStudentCountByCourseId(course.getId())));
 
             // Set a click listener on the close button to dismiss the dialog
             btn_close_course_info.setOnClickListener(v -> bottomSheetDialog.dismiss());

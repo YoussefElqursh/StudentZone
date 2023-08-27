@@ -252,19 +252,19 @@ public class StudentProfileActivity extends AppCompatActivity {
                 boolean isValidPhoneNumber = phoneNumber.matches("01[0125]\\d{8}");
 
 
-
                 // Handle error and helper messages
-                if (phoneNumber.length() < 11) {
-                    layout_phone_number.setError("Enter a valid phone number");
-                    layout_phone_number.setHelperText("");
+                if (phoneNumber.length() == 0) {
+                    layout_phone_number.setError("");
+                    layout_phone_number.setHelperText("Example: 01XXXXXXXXX");
                     phone_number_dialog_btn_save.setEnabled(false);
-                } else if (!isValidPhoneNumber) {
+                }
+                else if (!isValidPhoneNumber) {
                     layout_phone_number.setError("Enter a valid Egyptian phone number");
                     layout_phone_number.setHelperText("");
                     phone_number_dialog_btn_save.setEnabled(false);
-                } else {
+                }
+                else {
                     layout_phone_number.setError("");
-                    layout_phone_number.setHelperText("Example: 01XXXXXXXXX");
                     phone_number_dialog_btn_save.setEnabled(true);
                 }
 

@@ -80,9 +80,6 @@ public class DepartmentRecyclerViewAdapter extends RecyclerView.Adapter<Departme
         Departments department = departmentsList.get(position);
 
         holder.setDepartmentData(department);
-
-        Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), android.R.anim.slide_in_left);
-        holder.itemView.startAnimation(animation);
     }
 
     @Override

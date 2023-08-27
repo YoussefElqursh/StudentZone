@@ -94,14 +94,14 @@
                         android:src="@drawable/illust_subject_registration" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
                         android:gravity="center"
-                        android:text="Subjects Registration"
+                        android:text="Subjects Enrollment"
                         android:textColor="@color/home_cv_text_color"
                         android:textSize="14sp"
                         android:textStyle="bold|italic"/>
