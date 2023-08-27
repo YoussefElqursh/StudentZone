@@ -36,7 +36,7 @@ public class AdminSettingsActivity extends AppCompatActivity {
      **********************************************************************************************/
     public void setBackButtonAction(){
         btn_back = findViewById(R.id.activity_admin_settings_btn_back);
-        btn_back.setOnClickListener(v -> startActivity(new Intent(getBaseContext(),AdminHomeActivity.class)));
+        btn_back.setOnClickListener(v -> onBackPressed());
     }
 
     /** setUserNameAndImage()
