@@ -1,5 +1,7 @@
 package com.studentzone.Student_Classes.Student_Activities;
 
+import static java.sql.Types.NULL;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,16 +13,19 @@ import android.widget.Button;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
+import com.studentzone.Student_Classes.Student_Models.RegestrationModel.SubjectRegestrationModel;
 import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectAdapter;
 import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectModel;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class StudentSubjectActivity extends AppCompatActivity {
     Button btn_back;
     My_DB my_db=new My_DB( this);
+
     ArrayList<SubjectModel>arrayList =new ArrayList<>();
-    SubjectModel subjectModel;
+
 
     RecyclerView recyclerView;
 
@@ -30,9 +35,13 @@ public class StudentSubjectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_student_subject);
         initializeViews();
         buttonBackAction();
-        recyclerView=findViewById(R.id.student_subject_recycleview );//add item in recycler
-        my_db.deleteFailedSubjectsFromRegistedSubject();
-        arrayList=my_db.Get_all_courses_for_student_afterRegist();//Method to get all courses name and courses code
+        recyclerView = findViewById(R.id.student_subject_recycleview);//add item in recycler
+        arrayList = my_db.Get_all_courses_for_student_afterRegist();//Method to get all courses name and courses code
+        my_db.removeFailedSubjects();
+
+
+
+
 
         SubjectAdapter subjectAdapter=new SubjectAdapter(this,arrayList);
 

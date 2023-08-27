@@ -95,7 +95,6 @@ public class SubjectRegestrationAdapter extends RecyclerView.Adapter<SubjectRege
                         System.out.println("SubjectDuplicated");
                     } else if (my_db.subject_have_Prerequest(model.getSubjectName())) {
                         int pre_id = my_db.getPreRequestIdBy_Name(model.getSubjectName());
-                        System.out.println("prepre :"+pre_id);
                         if (my_db.pre_thereExist_inEnrollment_course_id(pre_id)) {
 
                             if (my_db.getSubjectDegree_Id(pre_id) != NULL) {
