@@ -5,11 +5,11 @@ import static com.studentzone.R.drawable.custom_profile_dialoge;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.material.textfield.TextInputLayout;
+import com.studentzone.Data_Base.Admins;
 import com.studentzone.Data_Base.My_DB;
 import com.studentzone.R;
 
@@ -34,9 +35,10 @@ public class AdminProfileActivity extends AppCompatActivity {
     private EditText et_phone_number, et_password, phone_number_dialog_et, password_dialog_et_old_password, password_dialog_et_new_password, password_dialog_et_confirm_password;
     private TextInputLayout layout_phone_number, layout_old_password, layout_new_password, layout_confirm_password;
     private Dialog dialog_edit_phone_number, dialog_edit_password;
-    private Button btn_edit_phone_number, btn_edit_password, btn_back, phone_number_dialog_btn_save, phone_number_dialog_btn_cancel, password_dialog_btn_save, password_dialog_btn_cancel;
+    private Button btn_edit_phone_number, btn_edit_password, btn_back, phone_number_dialog_btn_save, phone_number_dialog_btn_cancel, password_dialog_btn_save, password_dialog_btn_cancel,password_dialog_btn_done;
     private SharedPreferences preferences;
 
+    private String oldPassword, wrongOldPassword, newPass, wrongNewPass, wrongConfirmPass ,confirmPass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,8 +69,9 @@ public class AdminProfileActivity extends AppCompatActivity {
         // Set click listener for "Cancel" button in the edit password dialog
         setCancelEditedPasswordButtonAction();
 
-        // Set click listener for "Save" button in the edit password dialog
-        setSaveEditedPasswordButtonAction();
+//        // Set click listener for "Save" button in the edit password dialog
+//        setSaveNewPasswordButtonAction();
+
     }
 
     /**
@@ -121,7 +124,10 @@ public class AdminProfileActivity extends AppCompatActivity {
         preferences.edit().putString("image_uri",String.valueOf(imageUri)).apply();
 
         String email = preferences.getString("email", "");
-        db.updateAdminImage(email, String.valueOf(imageUri));
+
+            Admins admin = new Admins(email,null,null,null, String.valueOf(imageUri));
+            db.updateAdminData(admin); //update in data base
+
 
 
 
@@ -188,6 +194,8 @@ public class AdminProfileActivity extends AppCompatActivity {
 
         password_dialog_btn_save = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_btn_save);
         password_dialog_btn_cancel = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_btn_cansel);
+        password_dialog_btn_done = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_btn_done);
+
 
         password_dialog_et_old_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_et_old_password);
         password_dialog_et_new_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_et_new_password);
@@ -219,13 +227,12 @@ public class AdminProfileActivity extends AppCompatActivity {
      *  Set Edit Password Button Action
      **********************************************************************************************/
     public void setEditPasswordButtonAction(){
-        btn_edit_password.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog_edit_password.show();
-                isPasswordChanged();
+        btn_edit_password.setOnClickListener(v ->{
 
-            }
+            dialog_edit_password.show();
+
+            setDonePasswordButtonAction();
+
         });
     }
 
@@ -298,9 +305,11 @@ public class AdminProfileActivity extends AppCompatActivity {
         phone_number_dialog_btn_save.setOnClickListener(v -> {
 
             String newPhoneNumber = phone_number_dialog_et.getText().toString();
+            String email = tv_email.getText().toString();
 
 
-            db.updateAdminPhoneNumber(tv_email.getText().toString(),newPhoneNumber); //update in data base
+            Admins admin = new Admins(email,null,null,newPhoneNumber,null);
+            db.updateAdminData(admin); //update in data base
 
             preferences.edit().putString("phoneNumber",newPhoneNumber).apply(); //update in shared Preferences userInfo file
             et_phone_number.setText(newPhoneNumber); //update in editText profile
@@ -309,87 +318,7 @@ public class AdminProfileActivity extends AppCompatActivity {
 
         });
     }
-    /** isPasswordChanged()
-     *  This method monitors whether the password has changed and sets the save button accordingly.
-     **********************************************************************************************/
-    private void isPasswordChanged() {
-        String oldPassword = preferences.getString("password", "");
 
-        TextWatcher textWatcher = new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-                String newPassword = password_dialog_et_new_password.getText().toString();
-                String confirmPassword = password_dialog_et_confirm_password.getText().toString();
-
-                // Validate the password format
-                boolean isOldPasswordNotCorrect = !(password_dialog_et_old_password.getText().toString().equals(oldPassword));
-                boolean isNewMatchOld = newPassword.equals(oldPassword);
-                boolean isPasswordLengthMoreThanFif = newPassword.length() >= 6;
-                boolean isValidPassword = newPassword. matches("^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).*$");
-                boolean isMatchingPasswords = newPassword.equals(confirmPassword);
-
-                //set save button disabled if old,new,confirm any of them is empty
-                password_dialog_btn_save.setEnabled(!isOldPasswordNotCorrect && !isNewMatchOld && isPasswordLengthMoreThanFif && isValidPassword && isMatchingPasswords);
-
-                //This For Old Password
-                if(isOldPasswordNotCorrect && !password_dialog_et_old_password.hasFocus()){
-                    layout_old_password.setError("Wrong password! Please enter the correct old password.");
-                    layout_old_password.setHelperText("");
-                }
-                else if (!isOldPasswordNotCorrect && !password_dialog_et_old_password.hasFocus()){
-                    password_dialog_et_old_password.setEnabled(false);
-                }
-                else if (!isOldPasswordNotCorrect) {
-                    layout_old_password.setError("");
-                    layout_old_password.setHelperText("");
-                }
-
-                //This For New Password
-                if(isNewMatchOld) {
-                    layout_new_password.setError("Please choose a different password. New password cannot be the same as the old password.");
-                    layout_new_password.setHelperText("");
-                }
-                else if (!isPasswordLengthMoreThanFif && !password_dialog_et_new_password.hasFocus() && !password_dialog_et_old_password.hasFocus()) {
-                    layout_new_password.setError("Password must be at least 6 characters long.");
-                    layout_new_password.setHelperText("");
-                }
-                else if (!isValidPassword && !password_dialog_et_new_password.hasFocus() && !password_dialog_et_old_password.hasFocus()) {
-                    layout_new_password.setError("Password should contain at least one number, one letter, and one special character (!@#$%^&*)");
-                    layout_new_password.setHelperText("");
-                }
-                else {
-                    layout_new_password.setError("");
-                    layout_new_password.setHelperText("");
-                }
-
-                //This For Confirm Password
-                if(!isMatchingPasswords && !password_dialog_et_new_password.hasFocus()){
-                    layout_confirm_password.setError("Passwords don't Match!");
-                    layout_confirm_password.setHelperText("");
-                }
-                else {
-                    layout_confirm_password.setError("");
-                    layout_confirm_password.setHelperText("");
-                }
-
-
-
-            }
-        };
-
-        password_dialog_et_old_password.addTextChangedListener(textWatcher);
-        password_dialog_et_new_password.addTextChangedListener(textWatcher);
-        password_dialog_et_confirm_password.addTextChangedListener(textWatcher);
-    }
 
 
 
@@ -397,23 +326,200 @@ public class AdminProfileActivity extends AppCompatActivity {
      *  Set Cancel Edited Password  Button Action
      **********************************************************************************************/
     public void setCancelEditedPasswordButtonAction () {
-        password_dialog_btn_cancel.setOnClickListener(v ->
+        password_dialog_btn_cancel.setOnClickListener(v ->{
 
-                dialog_edit_password.cancel());
+                dialog_edit_password.cancel();
                 password_dialog_et_old_password.getText().clear();
                 password_dialog_et_new_password.getText().clear();
                 password_dialog_et_confirm_password.getText().clear();
 
+                password_dialog_et_old_password.setEnabled(true);
+
+                layout_old_password.setError(null);
+                layout_new_password.setError(null);
+                layout_confirm_password.setError(null);
+
+                layout_old_password.setHelperText(null);
+                layout_new_password.setHelperText(null);
+                layout_confirm_password.setHelperText(null);
+
+                password_dialog_btn_save.setEnabled(false);
+                password_dialog_btn_done.setEnabled(true);
+
+        });
     }
 
 
-    /** dialog_edit_password_btn_save()
+
+    /** setDoneEditedPasswordButtonAction()
+     *  This method to check if Old Password Is Correct or Not
+     **********************************************************************************************/
+    public void setDonePasswordButtonAction () {
+
+        if(password_dialog_et_old_password.getText().toString().isEmpty()){
+            layout_old_password.setHelperText("Enter Old Password.");
+            password_dialog_et_old_password.requestFocus();
+
+            int blueColor = getResources().getColor(R.color.blue); // Replace R.color.blue with the desired blue color resource
+            layout_old_password.setHelperTextColor(ColorStateList.valueOf(blueColor));
+
+        }
+
+        password_dialog_et_old_password.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if (s.toString().isEmpty()) {
+                        layout_old_password.setHelperText("Enter old password.");
+                }
+                else
+                {
+                    int grayColor = getResources().getColor(R.color.gray); // Replace R.color.blue with the desired blue color resource
+                    layout_old_password.setHelperTextColor(ColorStateList.valueOf(grayColor));
+
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                oldPassword = password_dialog_et_old_password.getText().toString();
+
+                if(!oldPassword.equals(wrongOldPassword)){
+                    layout_old_password.setHelperText("");//This to delete error message if user tray to writ again after he writ old password wrong
+                    layout_old_password.setError(null);
+                }
+
+            }
+        });
+
+        password_dialog_btn_done.setOnClickListener(v -> {
+
+
+             String correctPassword =  preferences.getString("password", "");
+
+                 if(password_dialog_et_old_password.getText().toString().equals(correctPassword)){
+                    layout_old_password.setHelperText("Correct Password.");
+                    password_dialog_et_old_password.setEnabled(false);
+                    password_dialog_et_new_password.setEnabled(true);
+                    password_dialog_et_confirm_password.setEnabled(true);
+                    password_dialog_btn_done.setEnabled(false);
+                    password_dialog_btn_save.setEnabled(true);
+
+                     password_dialog_et_new_password.requestFocus();
+
+                     setSaveNewPasswordButtonAction();
+
+                 }
+
+            else {
+                layout_old_password.setError("Wrong Password!");
+                layout_old_password.setHelperText("");
+                 wrongOldPassword = oldPassword;//this to notes if user change the wrong old password
+
+
+             }
+
+        });
+    }
+    /** setSaveNewPasswordButtonAction()
      *  Set Save Edited Password Button Action
      **********************************************************************************************/
-    public void setSaveEditedPasswordButtonAction () {
+    public void setSaveNewPasswordButtonAction() {
+
+        if(password_dialog_et_new_password.getText().toString().isEmpty()){
+            layout_new_password.setHelperText("Enter New Password.");
+            int blueColor = getResources().getColor(R.color.blue); // Replace R.color.blue with the desired blue color resource
+            layout_new_password.setHelperTextColor(ColorStateList.valueOf(blueColor));
+
+        }
+
+        TextWatcher textWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                String newPassword = password_dialog_et_new_password.getText().toString();
+                String confirmPassword = password_dialog_et_confirm_password.getText().toString();
+
+
+                if(newPassword.isEmpty())
+                    layout_new_password.setHelperText("Enter New Password.");
+                else if (newPassword.length() < 6)
+                    layout_new_password.setHelperText("Password Too Short.");
+                else
+                    layout_new_password.setHelperText("");
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                newPass = password_dialog_et_new_password.getText().toString();
+                confirmPass = password_dialog_et_confirm_password.getText().toString();
+
+                if(!newPass.equals(wrongNewPass)){
+                    //This to delete error message if user tray to writ again after he wrote new password wrong
+                    layout_new_password.setError(null);
+                    layout_confirm_password.setError(null);
+                }
+
+                if(!confirmPass.equals(wrongConfirmPass)){
+                    //This to delete error message if user tray to writ again after he wrote new password wrong
+                    layout_confirm_password.setError(null);
+                }
+            }
+        };
+        password_dialog_et_new_password.addTextChangedListener(textWatcher);
+        password_dialog_et_confirm_password.addTextChangedListener(textWatcher);
+
         password_dialog_btn_save.setOnClickListener(v -> {
 
+            String newPassword = password_dialog_et_new_password.getText().toString();
+            String confirmPassword = password_dialog_et_confirm_password.getText().toString();
 
+            wrongNewPass = newPass;
+            wrongConfirmPass = confirmPass;
+
+            // Validate the password format
+            boolean isOldPasswordNotCorrect = !(password_dialog_et_old_password.getText().toString().equals(oldPassword));
+            boolean isNewMatchOld = newPassword.equals(oldPassword);
+            boolean isPasswordLengthLessThanSix = newPassword.length() < 6;
+            boolean isValidPassword = newPassword. matches("^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).*$");
+            boolean isMatchingPasswords = newPassword.equals(confirmPassword);
+
+            if (isPasswordLengthLessThanSix) {
+                layout_new_password.setError("Password must be at least 6 characters long.");
+            }
+
+            else if (isNewMatchOld)
+                layout_new_password.setError("Please choose a different password. New password cannot be the same as the old password.");
+
+            else if (!isValidPassword)
+                layout_new_password.setError("Password should contain at least one number, one letter, and one special character (!@#$%^&*)");
+
+
+            if(!isMatchingPasswords)
+                layout_confirm_password.setError("Passwords don't Match!");
+
+
+
+            if(!isNewMatchOld && !isPasswordLengthLessThanSix && isValidPassword && isMatchingPasswords)
+            {
+                dialog_edit_password.cancel();
+                et_password.setText(newPassword);
+
+                Admins admin = new Admins(tv_email.getText().toString(),null,newPassword,null,null);
+                db.updateAdminData(admin); //update in data base
+            }
 
         });
     }

@@ -189,7 +189,7 @@ public class AdminDoctorsAccountsActivity extends AppCompatActivity {
 
     /** setDoctorGenderRadioGroupAction()
      *  to get gender of doctor
-     ******************************************************************************************/
+     **********************************************************************************************/
     public void setDoctorGenderRadioGroupAction(){
         rg_gender.setOnCheckedChangeListener((group, checkedId) -> {
 

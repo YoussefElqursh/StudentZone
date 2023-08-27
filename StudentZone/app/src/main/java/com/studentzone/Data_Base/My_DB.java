@@ -29,7 +29,7 @@ public class My_DB extends SQLiteOpenHelper {
      ***********************************************************************************************/
     public static final String DB_Name = "Education";
 
-    public static final int DB_Version = 48;
+    public static final int DB_Version = 49;
 
     private final Context context;
 
@@ -785,6 +785,37 @@ public class My_DB extends SQLiteOpenHelper {
 
 
 
+    /**updateAdminData()
+     * This method To update Admin data And save it in data base
+     * ********************************************************************************************/
+    public void updateAdminData(Admins admin){
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        if(admin.getName() != null)
+            values.put(Admin_col_name,admin.getName());
+
+        if(admin.getPassword() != null)
+            values.put(Admin_col_password,admin.getPassword());
+
+        if(admin.getPhoneNumber() != null)
+            values.put(Admin_col_phone,admin.getPhoneNumber());
+
+        if(admin.getImage_uri() != null)
+            values.put(Admin_col_image_uri,admin.getImage_uri());
+
+
+        String[] args = {admin.getEmail()};
+
+        int isUpdated =  db.update(Education_Table_Admins,values,""+Admin_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
+
+        if(isUpdated>0)
+            Toast.makeText(context, "Changes Saved.", Toast.LENGTH_SHORT).show();
+    }
+
+
     /**Add New Student()
      **********************************************************************************************/
     public boolean addNewStudent(Students student){
@@ -885,6 +916,42 @@ public class My_DB extends SQLiteOpenHelper {
         int result =  db.update(Education_Table_Students,values,""+Student_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
 
         return result > 0;
+    }
+
+
+    /**updateStudentImage()
+     * This method To update Admin In image And save image_uri in data base
+     * ********************************************************************************************/
+    public void updateStudentImage(String email, String image_uri){
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(Student_col_image_uri,image_uri);
+
+        String[] args = {email};
+
+        db.update(Education_Table_Students,values,""+Student_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
+
+    }
+    /**updateStudentPhoneNumber()
+     * This method To update Student Phone Number And save it in data base
+     * ********************************************************************************************/
+    public void updateStudentPhoneNumber(String email, String phoneNumber){
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(Student_col_phone,phoneNumber);
+
+        String[] args = {email};
+
+        int isUpdated =  db.update(Education_Table_Students,values,""+Student_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
+
+        if(isUpdated>0)
+            Toast.makeText(context, "Phone Number Changed.", Toast.LENGTH_SHORT).show();
     }
 
     /**deleteStudent()
@@ -997,6 +1064,45 @@ public class My_DB extends SQLiteOpenHelper {
         return result > 0;
     }
 
+    /**updateDoctorImage()
+     * This method To update Admin In image And save image_uri in data base
+     * ********************************************************************************************/
+    public void updateDoctorImage(String email, String image_uri){
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(Doctors_col_image_uri,image_uri);
+
+        String[] args = {email};
+
+        db.update(Education_Table_Doctors,values,""+Doctors_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
+
+    }
+
+
+    /**updateDoctorPhoneNumber()
+     * This method To update Doctor Phone Number And save it in data base
+     * ********************************************************************************************/
+    public void updateDoctorPhoneNumber(String email, String phoneNumber){
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(Doctors_col_phone,phoneNumber);
+
+        String[] args = {email};
+
+        int isUpdated =  db.update(Education_Table_Doctors,values,""+Doctors_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
+
+        if(isUpdated>0)
+            Toast.makeText(context, "Phone Number Changed.", Toast.LENGTH_SHORT).show();
+    }
+
+
+
     /**Delete Doctor()
      **********************************************************************************************/
     public boolean deleteDoctor(String email){
@@ -1011,7 +1117,8 @@ public class My_DB extends SQLiteOpenHelper {
         return numDeletedDoctor>0;
     }
 
-    /**getAllDoctorsNames()
+    /** getAllDoctorsNames()
+     *  To Display it in spinner to allow admin to assign doctor to course
      * ********************************************************************************************/
     @SuppressLint("Range")
     public ArrayList<String> getAllDoctorsNames(){
@@ -1148,7 +1255,8 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
 
-    /**getAllDepartmentsNames()
+    /** getAllDepartmentsNames()
+     *  To Display it in spinner to allow admin to assign department to (course or student)
      * ********************************************************************************************/
     @SuppressLint("Range")
     public ArrayList<String> getAllDepartmentsNames(){
@@ -1252,114 +1360,6 @@ public class My_DB extends SQLiteOpenHelper {
 
         return coursesList;
 
-    }
-
-    /**updateAdminImage()
-     * This method To update Admin In image And save image_uri in data base
-     * ********************************************************************************************/
-    public void updateAdminImage(String email, String image_uri){
-
-        SQLiteDatabase db = getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-
-        values.put(Admin_col_image_uri,image_uri);
-
-        String[] args = {email};
-
-        db.update(Education_Table_Admins,values,""+Admin_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
-
-        }
-
-    /**updateDoctorImage()
-     * This method To update Admin In image And save image_uri in data base
-     * ********************************************************************************************/
-    public void updateDoctorImage(String email, String image_uri){
-
-        SQLiteDatabase db = getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-
-        values.put(Doctors_col_image_uri,image_uri);
-
-        String[] args = {email};
-
-        db.update(Education_Table_Doctors,values,""+Doctors_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
-
-    }
-
-    /**updateStudentImage()
-     * This method To update Admin In image And save image_uri in data base
-     * ********************************************************************************************/
-    public void updateStudentImage(String email, String image_uri){
-
-        SQLiteDatabase db = getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-
-        values.put(Student_col_image_uri,image_uri);
-
-        String[] args = {email};
-
-        db.update(Education_Table_Students,values,""+Student_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
-
-    }
-
-    /**updateAdminPhoneNumber()
-     * This method To update Admin Phone Number And save it in data base
-     * ********************************************************************************************/
-    public void updateAdminPhoneNumber(String email, String phoneNumber){
-
-        SQLiteDatabase db = getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-
-        values.put(Admin_col_phone,phoneNumber);
-
-        String[] args = {email};
-
-       int isUpdated =  db.update(Education_Table_Admins,values,""+Admin_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
-
-        if(isUpdated>0)
-          Toast.makeText(context, "Phone Number Changed.", Toast.LENGTH_SHORT).show();
-    }
-
-    /**updateDoctorPhoneNumber()
-     * This method To update Doctor Phone Number And save it in data base
-     * ********************************************************************************************/
-    public void updateDoctorPhoneNumber(String email, String phoneNumber){
-
-        SQLiteDatabase db = getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-
-        values.put(Doctors_col_phone,phoneNumber);
-
-        String[] args = {email};
-
-       int isUpdated =  db.update(Education_Table_Doctors,values,""+Doctors_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
-
-        if(isUpdated>0)
-          Toast.makeText(context, "Phone Number Changed.", Toast.LENGTH_SHORT).show();
-    }
-
-    /**updateStudentPhoneNumber()
-     * This method To update Student Phone Number And save it in data base
-     * ********************************************************************************************/
-    public void updateStudentPhoneNumber(String email, String phoneNumber){
-
-        SQLiteDatabase db = getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-
-        values.put(Student_col_phone,phoneNumber);
-
-        String[] args = {email};
-
-       int isUpdated =  db.update(Education_Table_Students,values,""+Student_col_email+"=?",args); //return Number Of Rows Which Are Updated Or Return 0 If No Item Updated
-
-        if(isUpdated>0)
-          Toast.makeText(context, "Phone Number Changed.", Toast.LENGTH_SHORT).show();
     }
 
 

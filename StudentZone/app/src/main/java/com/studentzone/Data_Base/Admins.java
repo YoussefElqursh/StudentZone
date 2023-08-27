@@ -6,16 +6,18 @@ public class Admins {
     private String name;
     private String Email;
     private String Password ;
+    private String phoneNumber ;
     private String image_uri ;
 
 
-    public Admins(int id, String name, String email, String password) {
-        Id = id;
-        this.name = name;
-        Email = email;
-        Password = password;
-    }
+    public Admins(String email, String name,  String password, String phoneNumber, String image_uri) {
 
+        this.Email = email;
+        this.name = name;
+        this.Password = password;
+        this.phoneNumber = phoneNumber;
+        this.image_uri = image_uri;
+    }
     public int getId() {
         return Id;
     }
@@ -54,5 +56,9 @@ public class Admins {
 
     public String getImage_uri() {
         return image_uri;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 }
