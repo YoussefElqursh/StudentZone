@@ -127,10 +127,8 @@ public class AdminProfileActivity extends AppCompatActivity {
 
         String email = preferences.getString("email", "");
 
-            Admins admin = new Admins(email,null,null,null, String.valueOf(imageUri));
-            db.updateAdminData(admin); //update in data base
-
-
+        Admins admin = new Admins(email,null,null,null, String.valueOf(imageUri));
+        db.updateAdminData(admin); //update in data base
 
 
         // Set the result to send edited image to AdminHomeActivity & Sittings
@@ -359,6 +357,9 @@ public class AdminProfileActivity extends AppCompatActivity {
             password_dialog_et_new_password.setEnabled(false);
             password_dialog_et_confirm_password.setEnabled(false);
 
+            layout_old_password.setEnabled(true);
+            layout_confirm_password.setEnabled(true);
+
             layout_old_password.setError(null);
             layout_new_password.setError(null);
             layout_confirm_password.setError(null);
@@ -400,25 +401,22 @@ public class AdminProfileActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
                 if (s.toString().isEmpty()) {
-                        layout_old_password.setHelperText("Enter old password.");
+                    layout_old_password.setHelperText("Enter old password.");
+                    int blueColor = getResources().getColor(R.color.blue); // Replace R.color.blue with the desired blue color resource
+                    layout_old_password.setHelperTextColor(ColorStateList.valueOf(blueColor));
+                }
+                else  if(!s.equals(wrongOldPassword)){
+                    layout_old_password.setHelperText("");//This to delete error message if user tray to writ again after he writ old password wrong
+                    layout_old_password.setError(null);
                 }
                 else
-                {
-                    int grayColor = getResources().getColor(R.color.gray); // Replace R.color.blue with the desired blue color resource
-                    layout_old_password.setHelperTextColor(ColorStateList.valueOf(grayColor));
-
-                }
+                    layout_old_password.setHelperText("");
             }
 
             @Override
             public void afterTextChanged(Editable s) {
 
                 oldPassword = password_dialog_et_old_password.getText().toString();
-
-                if(!oldPassword.equals(wrongOldPassword)){
-                    layout_old_password.setHelperText("");//This to delete error message if user tray to writ again after he writ old password wrong
-                    layout_old_password.setError(null);
-                }
 
             }
         });
@@ -438,6 +436,10 @@ public class AdminProfileActivity extends AppCompatActivity {
 
                      password_dialog_et_new_password.requestFocus();
 
+
+                     int grayColor = getResources().getColor(R.color.gray); // Replace R.color.blue with the desired blue color resource
+                     layout_old_password.setHelperTextColor(ColorStateList.valueOf(grayColor));
+
                      setSaveNewPasswordButtonAction();
 
                  }
@@ -446,7 +448,6 @@ public class AdminProfileActivity extends AppCompatActivity {
                 layout_old_password.setError("Wrong Password!");
                 layout_old_password.setHelperText("");
                  wrongOldPassword = oldPassword;//this to notes if user change the wrong old password
-
 
              }
 
@@ -472,6 +473,7 @@ public class AdminProfileActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                layout_old_password.setHelperText("Correct Password.");
 
                 String newPassword = password_dialog_et_new_password.getText().toString();
 
@@ -492,14 +494,11 @@ public class AdminProfileActivity extends AppCompatActivity {
 
                 if(!newPass.equals(wrongNewPass)){
                     //This to delete error message if user tray to writ again after he wrote new password wrong
-                    layout_new_password.setError(null);
-                    layout_confirm_password.setError(null);
+                    layout_new_password.setError("");
+                    layout_confirm_password.setError("");
                 }
 
-                if(!confirmPass.equals(wrongConfirmPass)){
-                    //This to delete error message if user tray to writ again after he wrote new password wrong
-                    layout_confirm_password.setError(null);
-                }
+
             }
         };
         password_dialog_et_new_password.addTextChangedListener(textWatcher);
@@ -527,7 +526,7 @@ public class AdminProfileActivity extends AppCompatActivity {
                 layout_new_password.setError("Please choose a different password. New password cannot be the same as the old password.");
 
             else if (!isValidPassword)
-                layout_new_password.setError("Password should contain at least one number, one letter, and one special character (!@#$%^&*)");
+                layout_new_password.setError("Password must contain at least one number, one letter, and one special character (!@#$%^&*)");
 
 
             if(!isMatchingPasswords)
@@ -540,6 +539,9 @@ public class AdminProfileActivity extends AppCompatActivity {
 
                 Admins admin = new Admins(tv_email.getText().toString(),null,newPassword,null,null);
                 db.updateAdminData(admin); //update in data base
+
+                preferences.edit().putString("password",newPassword).apply(); //update in shared Preferences userInfo file
+
 
                 resetAllFields();
                 et_password.setText(newPassword);
