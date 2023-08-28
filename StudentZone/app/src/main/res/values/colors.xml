@@ -12,4 +12,6 @@
     <color name="light_orange">#fcf0d2</color>
     <color name="home_cv_text_color">#2f2e41</color>
     <color name="white_blue">#00608C</color>
+    <color name="green">#3d8038</color>
+    <color name="red">#f05a5c</color>
 </resources>

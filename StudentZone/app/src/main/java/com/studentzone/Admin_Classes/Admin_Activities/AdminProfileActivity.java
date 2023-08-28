@@ -1,5 +1,8 @@
 package com.studentzone.Admin_Classes.Admin_Activities;
 
+import static com.studentzone.R.drawable.custom_arc_4;
+import static com.studentzone.R.drawable.custom_et_edit_dialogs_error;
+import static com.studentzone.R.drawable.custom_et_profile_dialog;
 import static com.studentzone.R.drawable.custom_profile_dialoge;
 
 import android.app.Dialog;
@@ -10,9 +13,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -31,13 +38,13 @@ public class AdminProfileActivity extends AppCompatActivity {
 
     // Views
     private ImageView profileImage;
-    private TextView tv_edite_photo,tv_name, tv_email;
+    private TextView tv_edite_photo,tv_name, tv_email, tv_old_password, tv_new_password, tv_confirm_password;
     private EditText et_phone_number, et_password, phone_number_dialog_et, password_dialog_et_old_password, password_dialog_et_new_password, password_dialog_et_confirm_password;
     private TextInputLayout layout_phone_number, layout_old_password, layout_new_password, layout_confirm_password;
     private Dialog dialog_edit_phone_number, dialog_edit_password;
     private Button btn_edit_phone_number, btn_edit_password, btn_back, btn_settings, phone_number_dialog_btn_save, phone_number_dialog_btn_cancel, password_dialog_btn_save, password_dialog_btn_cancel,password_dialog_btn_done;
     private SharedPreferences preferences;
-
+    private LinearLayout ll_new_password;
     private String oldPassword, wrongOldPassword, newPass, wrongNewPass, wrongConfirmPass ,confirmPass, notValidPhoneNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +79,6 @@ public class AdminProfileActivity extends AppCompatActivity {
         // Set click listener for "Cancel" button in the edit password dialog
         setCancelEditedPasswordButtonAction();
 
-
     }
 
     /**
@@ -93,7 +99,6 @@ public class AdminProfileActivity extends AppCompatActivity {
         btn_edit_phone_number = findViewById(R.id.activity_admin_profile_btn_edit_phone_number);
         btn_edit_password = findViewById(R.id.activity_admin_profile_btn_edit_password);
         btn_settings = findViewById(R.id.activity_admin_profile_btn_sittings);
-
 
         initializeDialogEditPhoneNumber();
         initializeDialogEditPassword();
@@ -190,6 +195,7 @@ public class AdminProfileActivity extends AppCompatActivity {
 
         phone_number_dialog_btn_save = dialog_edit_phone_number.findViewById(R.id.fragment_edit_phone_number_dialog_btn_save);
         phone_number_dialog_btn_cancel = dialog_edit_phone_number.findViewById(R.id.fragment_edit_phone_number_dialog_btn_cansel);
+
     }
 
     /** initializeDialogEditPassword()
@@ -205,7 +211,6 @@ public class AdminProfileActivity extends AppCompatActivity {
         password_dialog_btn_cancel = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_btn_cansel);
         password_dialog_btn_done = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_btn_done);
 
-
         password_dialog_et_old_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_et_old_password);
         password_dialog_et_new_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_et_new_password);
         password_dialog_et_confirm_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_et_confirm_password);
@@ -213,6 +218,12 @@ public class AdminProfileActivity extends AppCompatActivity {
         layout_old_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_til_old_password);
         layout_new_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_til_new_password);
         layout_confirm_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_til_confirm_password);
+
+        ll_new_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_ll_new_password);
+
+        tv_old_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_tv_old_password);
+        tv_new_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_tv_new_password);
+        tv_confirm_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_tv_confirm_password);
 
     }
 
@@ -253,6 +264,7 @@ public class AdminProfileActivity extends AppCompatActivity {
 
             dialog_edit_phone_number.cancel();
             phone_number_dialog_et.getText().clear();
+
         });
     }
 
@@ -307,9 +319,7 @@ public class AdminProfileActivity extends AppCompatActivity {
             // Validate the phone number format
             String phoneNumber = phone_number_dialog_et.getText().toString();
 
-
             boolean isValidPhoneNumber = phoneNumber.matches("01[0125]\\d{8}");
-
 
             // Handle error and helper messages
             if (!isValidPhoneNumber){
@@ -320,7 +330,6 @@ public class AdminProfileActivity extends AppCompatActivity {
                 String newPhoneNumber = phone_number_dialog_et.getText().toString();
                 String email = tv_email.getText().toString();
 
-
                 Admins admin = new Admins(email,null,null,newPhoneNumber,null);
                 db.updateAdminData(admin); //update in data base
 
@@ -328,20 +337,24 @@ public class AdminProfileActivity extends AppCompatActivity {
                 et_phone_number.setText(newPhoneNumber); //update in editText profile
 
                 dialog_edit_phone_number.cancel(); // close dialog
+                ll_new_password.setVisibility(View.GONE); // hide new password layout
+
             }
 
 
         });
     }
 
-
-
-
     /** setCancelEditedPasswordButtonAction()
      *  Set Cancel Edited Password  Button Action
      **********************************************************************************************/
     public void setCancelEditedPasswordButtonAction () {
-        password_dialog_btn_cancel.setOnClickListener(v -> resetAllFields());
+        password_dialog_btn_cancel.setOnClickListener(v -> {
+            resetAllFields();
+
+            // hide new password layout
+            ll_new_password.setVisibility(View.GONE);
+        });
     }
 
     /** resetAllFields()
@@ -371,13 +384,10 @@ public class AdminProfileActivity extends AppCompatActivity {
 
     }
 
-
-
-
     /** setDoneEditedPasswordButtonAction()
      *  This method to check if Old Password Is Correct or Not
      **********************************************************************************************/
-    public void setDonePasswordButtonAction () {
+    public void setDonePasswordButtonAction() {
 
         if(password_dialog_et_old_password.getText().toString().isEmpty()){
             layout_old_password.setHelperText("Enter Old Password.");
@@ -401,13 +411,24 @@ public class AdminProfileActivity extends AppCompatActivity {
                     layout_old_password.setHelperText("Enter old password.");
                     int blueColor = getResources().getColor(R.color.blue); // Replace R.color.blue with the desired blue color resource
                     layout_old_password.setHelperTextColor(ColorStateList.valueOf(blueColor));
+                    layout_old_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.blue));
                 }
                 else  if(!s.equals(wrongOldPassword)){
                     layout_old_password.setHelperText("");//This to delete error message if user tray to writ again after he writ old password wrong
                     layout_old_password.setError(null);
+                    password_dialog_et_old_password.setBackground(getDrawable(custom_et_profile_dialog));
+                    password_dialog_et_old_password.setCompoundDrawableTintList(getColorStateList(R.color.blue));
+                    layout_old_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.gray));
+                    layout_old_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.blue));
                 }
-                else
+                else{
                     layout_old_password.setHelperText("");
+                    password_dialog_et_old_password.setBackground(getDrawable(custom_et_profile_dialog));
+                    password_dialog_et_old_password.setCompoundDrawableTintList(getColorStateList(R.color.blue));
+                    layout_old_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.gray));
+                    layout_old_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.blue));
+                }
+
             }
 
             @Override
@@ -420,7 +441,6 @@ public class AdminProfileActivity extends AppCompatActivity {
 
         password_dialog_btn_done.setOnClickListener(v -> {
 
-
              String correctPassword =  preferences.getString("password", "");
 
                  if(password_dialog_et_old_password.getText().toString().equals(correctPassword)){
@@ -431,29 +451,36 @@ public class AdminProfileActivity extends AppCompatActivity {
                     password_dialog_btn_done.setEnabled(false);
                     password_dialog_btn_save.setEnabled(true);
 
-
                     layout_new_password.setEnabled(true);
                     layout_confirm_password.setEnabled(true);
 
                     password_dialog_et_new_password.requestFocus();
 
+                    // Replace R.color.blue with the desired blue color resource
+                    int grayColor = getResources().getColor(R.color.green);
 
-                     int grayColor = getResources().getColor(R.color.gray); // Replace R.color.blue with the desired blue color resource
-                     layout_old_password.setHelperTextColor(ColorStateList.valueOf(grayColor));
+                    layout_old_password.setHelperTextColor(ColorStateList.valueOf(grayColor));
 
-                     setSaveNewPasswordButtonAction();
+                    setSaveNewPasswordButtonAction();
+
+                     // show new password layout
+                     ll_new_password.setVisibility(View.VISIBLE);
 
                  }
 
-            else {
-                layout_old_password.setError("Wrong Password!");
-                layout_old_password.setHelperText("");
-                 wrongOldPassword = oldPassword;//this to notes if user change the wrong old password
-
-             }
+                 else {
+                     layout_old_password.setHelperText("Wrong Password!");
+                     int redColor = getResources().getColor(R.color.red);
+                     layout_old_password.setHelperTextColor(ColorStateList.valueOf(redColor));
+                     layout_old_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.red));
+                     layout_old_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.blue));
+                     password_dialog_et_old_password.setCompoundDrawableTintList(getColorStateList(R.color.red));
+                     wrongOldPassword = oldPassword; //this to notes if user change the wrong old password
+                 }
 
         });
     }
+
     /** setSaveNewPasswordButtonAction()
      *  Set Save Edited Password Button Action
      **********************************************************************************************/
@@ -463,7 +490,6 @@ public class AdminProfileActivity extends AppCompatActivity {
             layout_new_password.setHelperText("Enter New Password.");
             int blueColor = getResources().getColor(R.color.blue); // Replace R.color.blue with the desired blue color resource
             layout_new_password.setHelperTextColor(ColorStateList.valueOf(blueColor));
-
         }
 
         TextWatcher textWatcher = new TextWatcher() {
@@ -477,13 +503,27 @@ public class AdminProfileActivity extends AppCompatActivity {
 
                 String newPassword = password_dialog_et_new_password.getText().toString();
 
-
-                if(newPassword.isEmpty())
+                if(newPassword.isEmpty()){
                     layout_new_password.setHelperText("Enter New Password.");
-                else if (newPassword.length() < 6)
+                    layout_new_password.setHelperTextColor(getColorStateList(R.color.blue));
+                    password_dialog_et_new_password.setBackground(getDrawable(custom_et_profile_dialog));
+                    layout_new_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.blue));
+                    layout_new_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.gray));
+                }
+                else if (newPassword.length() < 6){
                     layout_new_password.setHelperText("Password Too Short.");
-                else
+                    layout_new_password.setHelperTextColor(getColorStateList(R.color.blue));
+                    password_dialog_et_new_password.setBackground(getDrawable(custom_et_profile_dialog));
+                    layout_new_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.blue));
+                    layout_new_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.gray));
+                }
+                else{
                     layout_new_password.setHelperText("");
+                    password_dialog_et_new_password.setBackground(getDrawable(custom_et_profile_dialog));
+                    layout_new_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.blue));
+                    layout_new_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.gray));
+                }
+
             }
 
             @Override
@@ -497,7 +537,6 @@ public class AdminProfileActivity extends AppCompatActivity {
                     layout_new_password.setError("");
                     layout_confirm_password.setError("");
                 }
-
 
             }
         };
@@ -519,20 +558,38 @@ public class AdminProfileActivity extends AppCompatActivity {
             boolean isMatchingPasswords = newPassword.equals(confirmPassword);
 
             if (isPasswordLengthLessThanSix) {
-                layout_new_password.setError("Password must be at least 6 characters long.");
+                layout_new_password.setHelperText("Password must be at least 6 characters long.");
+                int redColor = getResources().getColor(R.color.red);
+                layout_new_password.setHelperTextColor(ColorStateList.valueOf(redColor));
+                layout_new_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.red));
+                layout_new_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.blue));
+                password_dialog_et_new_password.setCompoundDrawableTintList(getColorStateList(R.color.red));
+            }
+            else if (isNewMatchOld) {
+                layout_new_password.setHelperText("Please choose a different password. New password cannot be the same as the old password.");
+                int redColor = getResources().getColor(R.color.red);
+                layout_new_password.setHelperTextColor(ColorStateList.valueOf(redColor));
+                layout_new_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.red));
+                layout_new_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.blue));
+                password_dialog_et_new_password.setCompoundDrawableTintList(getColorStateList(R.color.red));
+            }
+            else if (!isValidPassword) {
+                layout_new_password.setHelperText("Password must contain at least one number, one letter, and one special character (!@#$%^&*)");
+                int redColor = getResources().getColor(R.color.red);
+                layout_new_password.setHelperTextColor(ColorStateList.valueOf(redColor));
+                layout_new_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.red));
+                layout_new_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.blue));
+                password_dialog_et_new_password.setCompoundDrawableTintList(getColorStateList(R.color.red));
             }
 
-            else if (isNewMatchOld)
-                layout_new_password.setError("Please choose a different password. New password cannot be the same as the old password.");
-
-            else if (!isValidPassword)
-                layout_new_password.setError("Password must contain at least one number, one letter, and one special character (!@#$%^&*)");
-
-
-            if(!isMatchingPasswords)
-                layout_confirm_password.setError("Passwords don't Match!");
-
-
+            if(!isMatchingPasswords){
+                layout_confirm_password.setHelperText("Passwords don't Match!");
+                int redColor = getResources().getColor(R.color.red);
+                layout_confirm_password.setHelperTextColor(ColorStateList.valueOf(redColor));
+                layout_confirm_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.red));
+                password_dialog_et_confirm_password.setBackground(getDrawable(custom_et_edit_dialogs_error));
+                password_dialog_et_confirm_password.setCompoundDrawableTintList(getColorStateList(R.color.red));
+            }
 
             if(!isNewMatchOld && !isPasswordLengthLessThanSix && isValidPassword && isMatchingPasswords)
             {
