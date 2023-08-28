@@ -432,7 +432,7 @@ public class AdminProfileActivity extends AppCompatActivity {
                     password_dialog_btn_save.setEnabled(true);
 
 
-                    layout_old_password.setEnabled(true);
+                    layout_new_password.setEnabled(true);
                     layout_confirm_password.setEnabled(true);
 
                     password_dialog_et_new_password.requestFocus();
