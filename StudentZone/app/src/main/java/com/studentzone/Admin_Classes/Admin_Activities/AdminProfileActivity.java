@@ -357,9 +357,6 @@ public class AdminProfileActivity extends AppCompatActivity {
             password_dialog_et_new_password.setEnabled(false);
             password_dialog_et_confirm_password.setEnabled(false);
 
-            layout_old_password.setEnabled(true);
-            layout_confirm_password.setEnabled(true);
-
             layout_old_password.setError(null);
             layout_new_password.setError(null);
             layout_confirm_password.setError(null);
@@ -434,7 +431,11 @@ public class AdminProfileActivity extends AppCompatActivity {
                     password_dialog_btn_done.setEnabled(false);
                     password_dialog_btn_save.setEnabled(true);
 
-                     password_dialog_et_new_password.requestFocus();
+
+                    layout_old_password.setEnabled(true);
+                    layout_confirm_password.setEnabled(true);
+
+                    password_dialog_et_new_password.requestFocus();
 
 
                      int grayColor = getResources().getColor(R.color.gray); // Replace R.color.blue with the desired blue color resource
@@ -473,7 +474,6 @@ public class AdminProfileActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                layout_old_password.setHelperText("Correct Password.");
 
                 String newPassword = password_dialog_et_new_password.getText().toString();
 
