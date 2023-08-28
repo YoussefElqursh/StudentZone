@@ -12,6 +12,15 @@ public class Doctors {
     private String image_uri ;
 
 
+    public Doctors(String FName, String email, String password, String gender, String phone, String image_uri)   {
+        this.FName = FName;
+        this.Email = email;
+        this.Password = password;
+        this.gender = gender;
+        this.Phone = phone;
+        this.image_uri = image_uri;
+    }
+
     public Doctors(String FName, String email, String password, String gender, String phone)   {
         this.FName = FName;
         this.Email = email;

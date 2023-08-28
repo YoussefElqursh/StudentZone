@@ -8,8 +8,6 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -372,7 +370,7 @@ public class   StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRe
                 student.setDept(db.getDepartmentIdByName(departmentSpinner.getSelectedItem().toString()));
                 student.setGender(gender);
 
-                db.updateStudent(student);
+                db.updateStudentData(student);
 
                 //this lines to change the student icon if user changed it
                 if (student.getGender() != null && student.getGender().equals("Male")) {

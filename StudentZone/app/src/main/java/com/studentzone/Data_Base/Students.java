@@ -42,6 +42,14 @@ public class Students  {
         this.dept = dept;
     }
 
+    public Students(String Email, String Password, String phone, String image_uri) {
+
+        this.Email = Email;
+        this.Password = Password;
+        this.Phone = phone;
+        this.image_uri = image_uri;
+    }
+
     public Students(String FName, String academic_Number, String Email, String Password, String gender, String phone,int dept) {
 
         this.FName = FName;

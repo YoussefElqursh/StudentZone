@@ -335,7 +335,7 @@ public class   DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecy
                     iv.setImageResource(R.drawable.ic_female_doctor);
                 }
 
-                db.updateDoctor(doctor);
+                db.updateDoctorData(doctor);
 
                 doctorsList.set(getAdapterPosition(), doctor);
                 notifyItemChanged(getAdapterPosition());

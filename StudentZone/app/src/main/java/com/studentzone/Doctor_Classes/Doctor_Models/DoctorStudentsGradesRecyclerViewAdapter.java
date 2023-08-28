@@ -272,7 +272,7 @@ public class DoctorStudentsGradesRecyclerViewAdapter extends RecyclerView.Adapte
                 Enrollments enrollments = new Enrollments(studentId, courseID, degree, grade);
 
                 // Add or update the grade in the database
-                boolean result = db.addOrUpdateGrade(enrollments);
+                boolean result = db.addOrUpdateStudentGradeAtSpecificCourse(enrollments);
 
                 if(result){
                     studentsList.set(getAdapterPosition(), students);
