@@ -50,7 +50,7 @@
                     android:text="Settings"
                     android:textAlignment="center"
                     android:textColor="@color/white_gray"
-                    android:textSize="24dp"/>
+                    android:textSize="20dp"/>
             </RelativeLayout>
 
         </LinearLayout>
@@ -75,7 +75,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp">
 
@@ -90,8 +90,8 @@
                         android:padding="2dp"
                         app:shapeAppearanceOverlay="@style/circular"
                         app:srcCompat="@drawable/ic_male_student"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
+                        app:strokeColor="@color/dark_blue"
+                        app:strokeWidth="1dp"
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                     <TextView
@@ -103,7 +103,7 @@
                         android:layout_toEndOf="@+id/profile_IV"
                         android:text="Youssef Ramadan"
                         android:textColor="@color/black"
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -114,7 +114,8 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="5dp"
                         android:layout_toEndOf="@+id/profile_IV"
-                        android:text="Edit personal details" />
+                        android:text="Edit personal details"
+                        android:textSize="12sp" />
 
                 </RelativeLayout>
 

@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
@@ -14,6 +15,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -36,18 +38,15 @@ public class StudentProfileActivity extends AppCompatActivity {
 
     // Views
     private ImageView profileImage;
-    private TextView tv_edite_photo;
-    private TextView tv_name;
-    private TextView tv_email;
+    private TextView tv_name, tv_email, tv_edite_photo, tv_dialog_phone_number, tv_dialog_old_password, tv_dialog_new_password, tv_dialog_confirm_password;
     private TextView tv_aid;
     private TextView tv_dept;
-
     private EditText et_phone_number, et_password, phone_number_dialog_et, password_dialog_et_old_password, password_dialog_et_new_password, password_dialog_et_confirm_password;
     private TextInputLayout layout_phone_number, layout_old_password, layout_new_password, layout_confirm_password;
     private Dialog dialog_edit_phone_number, dialog_edit_password;
     private Button btn_edit_phone_number, btn_edit_password, btn_back, btn_settings, phone_number_dialog_btn_save, phone_number_dialog_btn_cancel, password_dialog_btn_save, password_dialog_btn_cancel, password_dialog_btn_done;
     private SharedPreferences preferences;
-    private LinearLayout ll_new_password;
+    private LinearLayout ll_new_password, ll_old_password;
     private String oldPhoneNumber,oldPassword, wrongOldPassword, newPass, wrongNewPass, confirmPass, wrongConfirmPass, notValidPhoneNumber;
 
     @Override
@@ -218,6 +217,8 @@ public class StudentProfileActivity extends AppCompatActivity {
 
         phone_number_dialog_btn_save = dialog_edit_phone_number.findViewById(R.id.fragment_edit_phone_number_dialog_btn_save);
         phone_number_dialog_btn_cancel = dialog_edit_phone_number.findViewById(R.id.fragment_edit_phone_number_dialog_btn_cansel);
+
+        tv_dialog_phone_number = dialog_edit_phone_number.findViewById(R.id.fragment_edit_phone_number_dialog_tv_phone_number);
     }
 
     /**
@@ -243,6 +244,11 @@ public class StudentProfileActivity extends AppCompatActivity {
         layout_confirm_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_til_confirm_password);
 
         ll_new_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_ll_new_password);
+        ll_old_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_ll_old_password);
+
+        tv_dialog_old_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_tv_old_password);
+        tv_dialog_new_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_tv_new_password);
+        tv_dialog_confirm_password = dialog_edit_password.findViewById(R.id.fragment_edit_password_dialog_tv_confirm_password);
     }
 
 
@@ -256,6 +262,9 @@ public class StudentProfileActivity extends AppCompatActivity {
             phone_number_dialog_et.setText(preferences.getString("phoneNumber", ""));
             setSaveEditedPhoneNumberButtonAction();
 
+            tv_dialog_phone_number.setTextColor(getColor(R.color.blue));//--//
+
+            phone_number_dialog_et.requestFocus(v.getTextDirection());
         });
 
     }
@@ -268,7 +277,6 @@ public class StudentProfileActivity extends AppCompatActivity {
         btn_edit_password.setOnClickListener(v -> {
 
             dialog_edit_password.show();
-
             setDonePasswordButtonAction();
 
         });
@@ -283,6 +291,8 @@ public class StudentProfileActivity extends AppCompatActivity {
 
             dialog_edit_phone_number.cancel();
             phone_number_dialog_et.getText().clear();
+            tv_dialog_phone_number.setTextColor(getColor(R.color.gray));//--//
+
         });
     }
 
@@ -315,10 +325,20 @@ public class StudentProfileActivity extends AppCompatActivity {
 
                 phone_number_dialog_btn_save.setEnabled(isChanged);
 
-                if (s.toString().isEmpty())
-                    layout_phone_number.setHelperText("Example: 01XXXXXXXXX");
-                else
+                if(s.toString().isEmpty()){
+                    layout_phone_number.setHelperText("Example: 01xxxxxxxxx");
+                    layout_phone_number.setHelperTextColor(getColorStateList(R.color.blue));//---//
+                    phone_number_dialog_et.setCompoundDrawableTintList(getColorStateList(R.color.blue));//---//
+                    tv_dialog_phone_number.setTextColor(getColor(R.color.blue));//--//
+                    layout_phone_number.setCounterTextColor(getColorStateList(R.color.blue));
+                }
+                else{
                     layout_phone_number.setHelperText("");
+                    phone_number_dialog_et.setBackground(getDrawable(R.drawable.custom_et_profile_dialog));//---//
+                    phone_number_dialog_et.setCompoundDrawableTintList(getColorStateList(R.color.blue));//---//
+                    tv_dialog_phone_number.setTextColor(getColor(R.color.blue));//--//
+                    layout_phone_number.setCounterTextColor(getColorStateList(R.color.blue));
+                }
 
                 if (!s.toString().equals(notValidPhoneNumber))
                     layout_phone_number.setError("");
@@ -335,8 +355,13 @@ public class StudentProfileActivity extends AppCompatActivity {
 
             // Handle error and helper messages
             if (!isValidPhoneNumber) {
-                layout_phone_number.setError("Enter a valid phone number");
+                layout_phone_number.setHelperText("Enter a valid phone number");//---//
+                layout_phone_number.setHelperTextColor(getColorStateList(R.color.red));//---//
+                phone_number_dialog_et.setBackground(getDrawable(R.drawable.custom_et_edit_dialogs_error));//---//
+                phone_number_dialog_et.setCompoundDrawableTintList(getColorStateList(R.color.red));//---//
+                tv_dialog_phone_number.setTextColor(getColor(R.color.red));//--//
                 notValidPhoneNumber = phone_number_dialog_et.getText().toString();
+                layout_phone_number.setCounterTextColor(getColorStateList(R.color.red));
             } else {
                 String newPhoneNumber = phone_number_dialog_et.getText().toString();
                 String email = tv_email.getText().toString();
@@ -366,8 +391,12 @@ public class StudentProfileActivity extends AppCompatActivity {
         password_dialog_btn_cancel.setOnClickListener(v -> {
             resetAllFields();
 
-            // hide new password layout
             ll_new_password.setVisibility(View.GONE);
+            password_dialog_btn_done.setVisibility(View.VISIBLE);
+            ll_old_password.setVisibility(View.VISIBLE);
+            tv_dialog_old_password.setVisibility(View.VISIBLE);
+            password_dialog_btn_done.setVisibility(View.VISIBLE);
+            layout_old_password.setPasswordVisibilityToggleEnabled(true);
         });
     }
 
@@ -378,12 +407,8 @@ public class StudentProfileActivity extends AppCompatActivity {
     public void setDonePasswordButtonAction() {
 
         if (password_dialog_et_old_password.getText().toString().isEmpty()) {
-            layout_old_password.setHelperText("Enter Old Password.");
+            layout_old_password.setHelperText("");
             password_dialog_et_old_password.requestFocus();
-
-            int blueColor = getResources().getColor(R.color.blue); // Replace R.color.blue with the desired blue color resource
-            layout_old_password.setHelperTextColor(ColorStateList.valueOf(blueColor));
-
         }
 
         password_dialog_et_old_password.addTextChangedListener(new TextWatcher() {
@@ -396,13 +421,13 @@ public class StudentProfileActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
                 if (s.toString().isEmpty()) {
-                    layout_old_password.setHelperText("Enter old password.");
-
-                } else if (!s.equals(wrongOldPassword)) {
-                    layout_old_password.setHelperText("");//This to delete error message if user tray to writ again after he writ old password wrong
+                    layout_old_password.setHelperText("");
+                }
+                else if (!s.equals(wrongOldPassword)) {
+                    layout_old_password.setHelperText("");
                     layout_old_password.setError(null);
-
-                } else {
+                }
+                else {
                     layout_old_password.setHelperText("");
                 }
 
@@ -410,19 +435,24 @@ public class StudentProfileActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-
                 oldPassword = password_dialog_et_old_password.getText().toString();
-
+                password_dialog_et_old_password.setBackground(getDrawable(R.drawable.custom_et_profile_dialog));//---//
+                layout_old_password.setHelperTextColor(getColorStateList(R.color.blue));//---//
+                password_dialog_et_old_password.setCompoundDrawableTintList(getColorStateList(R.color.blue));//---//
+                tv_dialog_old_password.setTextColor(getColor(R.color.blue));//--//
+                layout_old_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.blue));
             }
         });
 
         password_dialog_btn_done.setOnClickListener(v -> {
 
-            String correctPassword = preferences.getString("password", "");
-            Toast.makeText(this, correctPassword, Toast.LENGTH_SHORT).show();
+            String correctPassword =  preferences.getString("password", "");
 
-            if (password_dialog_et_old_password.getText().toString().equals(correctPassword)) {
-                layout_old_password.setHelperText("Correct Password.");
+            if(password_dialog_et_old_password.getText().toString().equals(correctPassword)){
+                layout_old_password.setHelperText("");
+                password_dialog_et_old_password.setCompoundDrawableTintList(getColorStateList(R.color.gray));//---//
+                tv_dialog_old_password.setTextColor(getColor(R.color.gray));//--//
+                layout_old_password.setPasswordVisibilityToggleEnabled(false);
                 password_dialog_et_old_password.setEnabled(false);
                 password_dialog_et_new_password.setEnabled(true);
                 password_dialog_et_confirm_password.setEnabled(true);
@@ -432,43 +462,43 @@ public class StudentProfileActivity extends AppCompatActivity {
                 layout_new_password.setEnabled(true);
                 layout_confirm_password.setEnabled(true);
 
+                password_dialog_btn_done.setVisibility(View.GONE);
+                ll_old_password.setVisibility(View.GONE);
+                tv_dialog_old_password.setVisibility(View.GONE);
+
                 password_dialog_et_new_password.requestFocus();
-
-                // Replace R.color.blue with the desired blue color resource
-                int grayColor = getResources().getColor(R.color.green);
-
-                layout_old_password.setHelperTextColor(ColorStateList.valueOf(grayColor));
 
                 setSaveNewPasswordButtonAction();
 
                 // show new password layout
                 ll_new_password.setVisibility(View.VISIBLE);
 
-            } else {
+            }
+            else {
                 layout_old_password.setHelperText("Wrong Password!");
                 wrongOldPassword = password_dialog_et_old_password.getText().toString();
-
+                password_dialog_et_old_password.setBackground(getDrawable(R.drawable.custom_et_edit_dialogs_error));//---//
+                layout_old_password.setHelperTextColor(getColorStateList(R.color.red));//---//
+                password_dialog_et_old_password.setCompoundDrawableTintList(getColorStateList(R.color.red));//---//
+                tv_dialog_old_password.setTextColor(getColor(R.color.red));//--//
+                layout_old_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.red));
             }
 
         });
     }
 
-    /**
-     * setSaveNewPasswordButtonAction()
-     * Set Save Edited Password Button Action
+    /** setSaveNewPasswordButtonAction()
+     *  Set Save Edited Password Button Action
      **********************************************************************************************/
     public void setSaveNewPasswordButtonAction() {
 
-        if (password_dialog_et_new_password.getText().toString().isEmpty()) {
-            layout_new_password.setHelperText("Enter New Password.");
-            int blueColor = getResources().getColor(R.color.blue); // Replace R.color.blue with the desired blue color resource
-            layout_new_password.setHelperTextColor(ColorStateList.valueOf(blueColor));
+        if(password_dialog_et_new_password.getText().toString().isEmpty()){
+            layout_new_password.setHelperText("");
         }
 
         TextWatcher textWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
@@ -476,15 +506,37 @@ public class StudentProfileActivity extends AppCompatActivity {
 
                 String newPassword = password_dialog_et_new_password.getText().toString();
 
-                if (newPassword.isEmpty()) {
-                    layout_new_password.setHelperText("Enter New Password.");
-
-                } else if (newPassword.length() < 6) {
-                    layout_new_password.setHelperText("Password Too Short.");
-                } else {
+                if(newPassword.isEmpty()){
                     layout_new_password.setHelperText("");
                 }
+                else if (newPassword.length() < 6){
+                    layout_new_password.setHelperText("Password Too Short.");
+                    password_dialog_et_new_password.setBackground(getDrawable(R.drawable.custom_et_profile_dialog));//---//
+                    layout_new_password.setHelperTextColor(getColorStateList(R.color.blue));//---//
+                    password_dialog_et_new_password.setCompoundDrawableTintList(getColorStateList(R.color.blue));//---//
+                    tv_dialog_new_password.setTextColor(getColor(R.color.blue));//--//
+                    layout_new_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.blue));
 
+                    layout_confirm_password.setHelperText("");
+                    password_dialog_et_confirm_password.setBackground(getDrawable(R.drawable.custom_et_profile_dialog));//---//
+                    password_dialog_et_confirm_password.setCompoundDrawableTintList(getColorStateList(R.color.blue));//---//
+                    tv_dialog_confirm_password.setTextColor(getColor(R.color.blue));//--//
+                    layout_confirm_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.blue));
+                }
+                else{
+                    layout_new_password.setHelperText("");
+                    password_dialog_et_new_password.setBackground(getDrawable(R.drawable.custom_et_profile_dialog));//---//
+                    layout_new_password.setHelperTextColor(getColorStateList(R.color.blue));//---//
+                    password_dialog_et_new_password.setCompoundDrawableTintList(getColorStateList(R.color.blue));//---//
+                    tv_dialog_new_password.setTextColor(getColor(R.color.blue));//--//
+                    layout_new_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.blue));
+
+                    layout_confirm_password.setHelperText("");
+                    password_dialog_et_confirm_password.setBackground(getDrawable(R.drawable.custom_et_profile_dialog));//---//
+                    password_dialog_et_confirm_password.setCompoundDrawableTintList(getColorStateList(R.color.blue));//---//
+                    tv_dialog_confirm_password.setTextColor(getColor(R.color.blue));//--//
+                    layout_confirm_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.blue));
+                }
             }
 
             @Override
@@ -493,12 +545,11 @@ public class StudentProfileActivity extends AppCompatActivity {
                 newPass = password_dialog_et_new_password.getText().toString();
                 confirmPass = password_dialog_et_confirm_password.getText().toString();
 
-                if (!newPass.equals(wrongNewPass)) {
+                if(!newPass.equals(wrongNewPass)){
                     //This to delete error message if user tray to writ again after he wrote new password wrong
                     layout_new_password.setError("");
                     layout_confirm_password.setError("");
                 }
-
                 if (!confirmPass.equals(wrongConfirmPass)) {
                     //This to delete error message if user tray to writ again after he wrote new password wrong
                     layout_confirm_password.setError("");
@@ -517,35 +568,94 @@ public class StudentProfileActivity extends AppCompatActivity {
             wrongNewPass = newPass;
             wrongConfirmPass = confirmPassword;
 
-
             // Validate the password format
             boolean isNewMatchOld = newPassword.equals(oldPassword);
             boolean isPasswordLengthLessThanSix = newPassword.length() < 6;
-            boolean isValidPassword = newPassword.matches("^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).*$");
+            boolean isValidPassword = newPassword. matches("^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).*$");
             boolean isMatchingPasswords = newPassword.equals(confirmPassword);
 
             if (isPasswordLengthLessThanSix) {
                 layout_new_password.setHelperText("Password must be at least 6 characters long.");
-            } else if (isNewMatchOld) {
+                password_dialog_et_new_password.setBackground(getDrawable(R.drawable.custom_et_edit_dialogs_error));//---//
+                layout_new_password.setHelperTextColor(getColorStateList(R.color.red));//---//
+                password_dialog_et_new_password.setCompoundDrawableTintList(getColorStateList(R.color.red));//---//
+                tv_dialog_new_password.setTextColor(getColor(R.color.red));//--//
+                layout_new_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.red));
+            }
+            else if (isNewMatchOld) {
                 layout_new_password.setHelperText("Please choose a different password. New password cannot be the same as the old password.");
-            } else if (!isValidPassword) {
+                password_dialog_et_new_password.setBackground(getDrawable(R.drawable.custom_et_edit_dialogs_error));//---//
+                layout_new_password.setHelperTextColor(getColorStateList(R.color.red));//---//
+                password_dialog_et_new_password.setCompoundDrawableTintList(getColorStateList(R.color.red));//---//
+                tv_dialog_new_password.setTextColor(getColor(R.color.red));//--//
+                layout_new_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.red));
+            }
+            else if (!isValidPassword) {
                 layout_new_password.setHelperText("Password must contain at least one number, one letter, and one special character (!@#$%^&*)");
+                password_dialog_et_new_password.setBackground(getDrawable(R.drawable.custom_et_edit_dialogs_error));//---//
+                layout_new_password.setHelperTextColor(getColorStateList(R.color.red));//---//
+                password_dialog_et_new_password.setCompoundDrawableTintList(getColorStateList(R.color.red));//---//
+                tv_dialog_new_password.setTextColor(getColor(R.color.red));//--//
+                layout_new_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.red));
             }
 
-            if (!isMatchingPasswords) {
+            password_dialog_et_confirm_password.addTextChangedListener(new TextWatcher() {
+
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    layout_confirm_password.setHelperText("");
+                    password_dialog_et_confirm_password.setBackground(getDrawable(R.drawable.custom_et_profile_dialog));//---//
+                    password_dialog_et_confirm_password.setCompoundDrawableTintList(getColorStateList(R.color.blue));//---//
+                    tv_dialog_confirm_password.setTextColor(getColor(R.color.blue));//--//
+                    layout_confirm_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.blue));
+
+                    layout_new_password.setHelperText("");
+                    password_dialog_et_new_password.setBackground(getDrawable(R.drawable.custom_et_profile_dialog));//---//
+                    layout_new_password.setHelperTextColor(getColorStateList(R.color.blue));//---//
+                    password_dialog_et_new_password.setCompoundDrawableTintList(getColorStateList(R.color.blue));//---//
+                    tv_dialog_new_password.setTextColor(getColor(R.color.blue));//--//
+                    layout_new_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.blue));
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+
+            });
+
+
+            if(!isMatchingPasswords){
                 layout_confirm_password.setHelperText("Passwords don't Match!");
+                password_dialog_et_confirm_password.setBackground(getDrawable(R.drawable.custom_et_edit_dialogs_error));//---//
+                layout_confirm_password.setHelperTextColor(getColorStateList(R.color.red));//---//
+                password_dialog_et_confirm_password.setCompoundDrawableTintList(getColorStateList(R.color.red));//---//
+                tv_dialog_confirm_password.setTextColor(getColor(R.color.red));//--//
+                layout_confirm_password.setPasswordVisibilityToggleTintList(getColorStateList(R.color.red));
             }
 
-            if (!isNewMatchOld && !isPasswordLengthLessThanSix && isValidPassword && isMatchingPasswords) {
+            if(!isNewMatchOld && !isPasswordLengthLessThanSix && isValidPassword && isMatchingPasswords)
+            {
 
-                Students student = new Students(tv_email.getText().toString(), newPassword, null, null);
-                db.updateStudentData(student);//update in data base
+                Admins admin = new Admins(tv_email.getText().toString(),null,newPassword,null,null);
+                db.updateAdminData(admin); //update in data base
 
-                preferences.edit().putString("password", newPassword).apply(); //update in shared Preferences userInfo file
-
+                preferences.edit().putString("password",newPassword).apply(); //update in shared Preferences userInfo file
 
                 resetAllFields();
                 et_password.setText(newPassword);
+                ll_new_password.setVisibility(View.GONE);
+
+                layout_old_password.setPasswordVisibilityToggleEnabled(true);
+                password_dialog_btn_done.setVisibility(View.VISIBLE);
+                password_dialog_btn_done.setVisibility(View.VISIBLE);
+                ll_old_password.setVisibility(View.VISIBLE);
+                tv_dialog_old_password.setVisibility(View.VISIBLE);
 
             }
 
