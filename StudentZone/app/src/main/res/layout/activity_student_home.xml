@@ -40,7 +40,7 @@
                 app:shapeAppearanceOverlay="@style/circular"
                 app:srcCompat="@drawable/ic_male_student"
                 app:strokeColor="@color/white"
-                app:strokeWidth="2dp"
+                app:strokeWidth="1dp"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
         </androidx.appcompat.widget.Toolbar>

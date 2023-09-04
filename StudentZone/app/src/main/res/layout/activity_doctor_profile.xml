@@ -94,7 +94,7 @@
                     android:background="@color/white_gray"
                     app:srcCompat="@drawable/ic_male_student"
                     app:shapeAppearanceOverlay="@style/circular"
-                    app:strokeWidth="2dp"
+                    app:strokeWidth="1dp"
                     app:strokeColor="@color/white"
                     android:padding="2dp"
                     android:layout_marginTop="10dp"/>

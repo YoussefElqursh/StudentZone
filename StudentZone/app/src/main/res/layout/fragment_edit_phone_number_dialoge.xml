@@ -37,7 +37,13 @@
             android:layout_height="wrap_content"
             app:hintEnabled="false"
             app:hintTextColor="@color/blue"
-            app:helperTextTextAppearance="@style/CustomTextInputEditText">
+            app:helperTextTextAppearance="@style/CustomTextInputEditText"
+            app:counterMaxLength="11"
+            app:counterTextColor="@color/blue"
+            app:counterOverflowTextColor="@color/red"
+            app:counterTextAppearance="@style/CustomTextInputEditText"
+            app:counterOverflowTextAppearance="@style/CustomTextInputEditText"
+            app:counterEnabled="true">
 
             <EditText
                 android:id="@+id/fragment_edit_phone_number_dialog_et_phone_number"
@@ -55,8 +61,7 @@
                 android:paddingRight="10dp"
                 android:textColorHint="@color/gray"
                 android:textSize="14dp"
-                tools:ignore="SpeakableTextPresentCheck,TextSizeCheck,TouchTargetSizeCheck"
-                android:maxLength="11"/>
+                tools:ignore="SpeakableTextPresentCheck,TextSizeCheck,TouchTargetSizeCheck"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -72,7 +77,7 @@
         <Button
             android:id="@+id/fragment_edit_phone_number_dialog_btn_cansel"
             android:layout_width="65dp"
-            android:layout_height="40dp"
+            android:layout_height="37dp"
             android:background="@drawable/custom_btn_profile_dialog_cansel"
             android:text="Cansel"
             android:textAllCaps="false"
@@ -84,7 +89,7 @@
         <Button
             android:id="@+id/fragment_edit_phone_number_dialog_btn_save"
             android:layout_width="65dp"
-            android:layout_height="40dp"
+            android:layout_height="37dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="10dp"
             android:background="@drawable/custom_btn_profile_dialog_save"
