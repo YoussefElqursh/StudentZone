@@ -142,10 +142,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginRight="5dp"
                         android:gravity="center"
-                        android:text="Grades"
+                        android:text="Subjects   Grades"
                         android:textColor="@color/home_cv_text_color"
                         android:textSize="14sp"
                         android:textStyle="bold|italic"/>

@@ -31,17 +31,17 @@ public class SecondLevelFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_second_level, container, false);
         my_db=new My_DB(getActivity());
-        Hours=view.findViewById(R.id.Hrs);
-        Gpa_2=view.findViewById(R.id.GPA_2);
+//        Hours=view.findViewById(R.id.Hrs);
+//        Gpa_2=view.findViewById(R.id.GPA_2);
         String Total_Hours=String.valueOf(my_db.getSumOfSubjectHourslevel_2());
-        Hours.setText(Total_Hours);
+//        Hours.setText(Total_Hours);
         recyclerView=view.findViewById(R.id.student_grades_l2_recycleview);
         arrayList2 =my_db.getPassedCoursesForStudents_Level_2();
         StudentPassedSubjectsAdapter subjectAdapter=new StudentPassedSubjectsAdapter(getContext(), arrayList2);
-        float gpa = (float) calculateGPA(arrayList2);
+//        float gpa = (float) calculateGPA(arrayList2);
         DecimalFormat decimalFormat = new DecimalFormat("0.00");
-        String formattedGpa = decimalFormat.format(gpa);
-        Gpa_2.setText(formattedGpa);
+//        String formattedGpa = decimalFormat.format(gpa);
+//        Gpa_2.setText(formattedGpa);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(subjectAdapter);
         return view;    }

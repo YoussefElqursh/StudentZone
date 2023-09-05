@@ -5,14 +5,14 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_student_subject_model_container"
-    android:layout_marginBottom="20dp"
     android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:background="@drawable/custom_model_bg"
-        android:paddingLeft="10dp">
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -102,6 +102,33 @@
                 android:layout_toRightOf="@id/activity_student_passed_subject_tv_grad"
                 android:maxLength="2"
                 android:text="-"
+                android:textAlignment="center"
+                android:textColor="@color/dark_blue"
+                android:textSize="12dp"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/activity_student_passed_subject_tv_hours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="33dp"
+                android:layout_toRightOf="@id/activity_student_passed_subject_ibtn_grade"
+                android:text="Hours:"
+                android:textAlignment="center"
+                android:textColor="@color/dark_blue"
+                android:textSize="12dp"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/activity_student_passed_subject_ibtn_hours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="33dp"
+                android:layout_toRightOf="@id/activity_student_passed_subject_tv_hours"
+                android:maxLength="1"
+                android:text="3"
                 android:textAlignment="center"
                 android:textColor="@color/dark_blue"
                 android:textSize="12dp"

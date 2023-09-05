@@ -75,7 +75,7 @@
                     android:textColor="@color/dark_blue"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    android:maxEms="10"/>
+                    android:maxWidth="200dp"/>
 
                 <TextView
                     android:id="@+id/activity_student_registration_tv_sub_code"
