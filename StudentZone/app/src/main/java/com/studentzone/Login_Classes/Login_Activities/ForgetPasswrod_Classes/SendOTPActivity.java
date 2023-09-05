@@ -19,10 +19,11 @@ import com.studentzone.Login_Classes.Login_Activities.LoginActivity;
 import com.studentzone.R;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class SendOTPActivity extends AppCompatActivity {
 
-     String otp = "548247";
+     String otp;
      String phoneNumber , email;
      String message = "is your verification code.";
      Button buttonGetOTP;
@@ -42,6 +43,7 @@ public class SendOTPActivity extends AppCompatActivity {
 
         inputEmail = findViewById(R.id.input_Email);
 
+        randomOTP();
         get_code();
         setBackButtonAction();
     }
@@ -149,6 +151,21 @@ public class SendOTPActivity extends AppCompatActivity {
 
     }
 
+    public void randomOTP()
+    {
+        Random random = new Random();
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for(int i= 0; i< 6; i++)
+        {
+            int digit = random.nextInt(10);
+            stringBuilder.append(digit);
+        }
+
+        String randomNumber = stringBuilder.toString();
+
+        otp = randomNumber ;
+    }
 
     /** setBackButtonAction()
      *  Back To The Previous Activity

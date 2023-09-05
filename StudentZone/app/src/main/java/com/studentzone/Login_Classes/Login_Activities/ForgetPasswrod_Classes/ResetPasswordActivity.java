@@ -12,7 +12,7 @@ import com.studentzone.R;
 
 public class ResetPasswordActivity extends AppCompatActivity {
 
-    Button resetPassword ;
+    Button resetPassword ,btn_back;
     EditText newPassword , confirmationPassword ;
     String NewPassword , ConfirmationPassword ;
 
@@ -21,6 +21,8 @@ public class ResetPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reset_password);
 
+        btn_back = findViewById(R.id.activity_reset_password_btn_back);
+
         resetPassword = findViewById(R.id.btn_resetPassword);
 
         newPassword = findViewById(R.id.activity_reset_password_tf_new_password);
@@ -28,6 +30,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
         confirmationPassword = findViewById(R.id.activity_reset_password_tf_confirmation_password);
 
         ChangePassword();
+        setBackButtonAction();
     }
     public void ChangePassword()
     {
@@ -70,6 +73,13 @@ public class ResetPasswordActivity extends AppCompatActivity {
         {
             Toast.makeText(ResetPasswordActivity.this, "Two Passwords are not Same", Toast.LENGTH_LONG).show();
         }
+    }
+
+    /** setBackButtonAction()
+     *  Back To The Previous Activity
+     **********************************************************************************************/
+    public void setBackButtonAction(){
+        btn_back.setOnClickListener(v -> startActivity(new Intent(getBaseContext(), SendOTPActivity.class)));
     }
 
 }
