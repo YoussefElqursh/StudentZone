@@ -79,7 +79,8 @@
         android:id="@+id/activity_student_grades_viewpager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"/>
+        android:background="@color/white"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </LinearLayout>
 

@@ -33,18 +33,18 @@ public class ThirdLevelFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_third_level, container, false);
         my_db=new My_DB(getActivity());
-        Hours=view.findViewById(R.id.current_hours);
-        Gpa=view.findViewById(R.id.Current_Gpa);
+//        Hours=view.findViewById(R.id.current_hours);
+//        Gpa=view.findViewById(R.id.Current_Gpa);
         String Total_Hours=String.valueOf(my_db.getSumOfSubjectHourslevel_3());
-        Hours.setText(Total_Hours);
+//        Hours.setText(Total_Hours);
         recyclerView=view.findViewById(R.id.student_grades_l3_recycleview);
         arrayList3=my_db.getPassedCoursesForStudents_Level_3();
         StudentPassedSubjectsAdapter subjectAdapter=new StudentPassedSubjectsAdapter(getContext(),arrayList3);
-        float gpa = (float) calculateGPA(arrayList3);
+//        float gpa = (float) calculateGPA(arrayList3);
         DecimalFormat decimalFormat = new DecimalFormat("0.00");
-        String formattedGpa = decimalFormat.format(gpa);
+//        String formattedGpa = decimalFormat.format(gpa);
 
-        Gpa.setText(formattedGpa);
+//        Gpa.setText(formattedGpa);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(subjectAdapter);
         return view;

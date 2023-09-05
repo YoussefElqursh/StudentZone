@@ -33,10 +33,10 @@ public class FristLevelFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_frist_level, container, false);
         my_db=new My_DB(getActivity());
-        Hours=view.findViewById(R.id.Hours_Result);
-        Gpa=view.findViewById(R.id.GPA);
+//        Hours=view.findViewById(R.id.Hours_Result);
+//        Gpa=view.findViewById(R.id.GPA);
         String Total_Hours=String.valueOf(my_db.getSumOfSubjectHourslevel_1());
-        Hours.setText(Total_Hours);
+//        Hours.setText(Total_Hours);
         recyclerView=view.findViewById(R.id.student_grades_l1_recycleview);
         arrayList=my_db.getPassedCoursesForStudents_Level_1();
         StudentPassedSubjectsAdapter subjectAdapter=new StudentPassedSubjectsAdapter(getContext(),arrayList);
@@ -44,7 +44,7 @@ public class FristLevelFragment extends Fragment {
         DecimalFormat decimalFormat = new DecimalFormat("0.00");
         String formattedGpa = decimalFormat.format(gpa);
 
-        Gpa.setText(formattedGpa);
+//        Gpa.setText(formattedGpa);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(subjectAdapter);
         return view;

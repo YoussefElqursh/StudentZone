@@ -53,7 +53,8 @@
                 android:maxLines="1"
                 android:textColor="@color/dark_blue"
                 android:textSize="14sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:maxWidth="230dp"/>
 
             <TextView
                 android:id="@+id/activity_doctor_subject_tv_sub_code"
