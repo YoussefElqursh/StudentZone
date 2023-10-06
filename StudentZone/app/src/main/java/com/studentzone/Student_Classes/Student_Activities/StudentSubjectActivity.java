@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.studentzone.Data_Base.My_DB;
@@ -50,7 +52,7 @@ public class StudentSubjectActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(subjectAdapter); //add model to recycler view
 
-
+        updateNoCoursesVisibility();
 
 
 
@@ -65,9 +67,20 @@ public class StudentSubjectActivity extends AppCompatActivity {
         BottomSheetDialog addDepartmentBottomSheetDialog = new BottomSheetDialog(this, R.style.BottomSheetStyle);
 
 
-
     }
 
+    //this lines to show another activity to student if there is no courses to dis-enrolled
 
+    public void updateNoCoursesVisibility() {
+        LinearLayout ll_no_curses = findViewById(R.id.activity_student_subject_ll_no_subjects);
+        RecyclerView coursesRecyclerView = findViewById(R.id.student_subject_recycleview);
 
+        if (arrayList != null && arrayList.size() == 0) {
+            coursesRecyclerView.setVisibility(View.INVISIBLE);
+            ll_no_curses.setVisibility(View.VISIBLE);
+        } else {
+            ll_no_curses.setVisibility(View.INVISIBLE);
+            coursesRecyclerView.setVisibility(View.VISIBLE);
+        }
+    }
 }
