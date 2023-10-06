@@ -75,15 +75,30 @@ public class StudentHomeActivity extends AppCompatActivity implements Navigation
         preferences = getSharedPreferences("userInfo",MODE_PRIVATE);
         String name = preferences.getString("fName", "");
         String email = preferences.getString("email", "");
+        String gender = preferences.getString("gender","");
         String image_uri = preferences.getString("image_uri", "");
 
         String capitalizedStr = name.substring(0, 1).toUpperCase() + name.substring(1);
 
         profileName.setText(capitalizedStr);
         profileEmail.setText(email);
-        profileImage_drawer.setImageURI(Uri.parse(image_uri));
-        profileImage.setImageURI(Uri.parse(image_uri));
 
+        // Check if the image_uri is empty or null
+        if (!image_uri.isEmpty()) {
+            profileImage.setImageURI(Uri.parse(image_uri));
+            profileImage_drawer.setImageURI(Uri.parse(image_uri));
+        } else {
+            // Set the default image if no image_uri is available
+            if(gender.equals("Male")){
+                profileImage.setImageResource(R.drawable.ic_male_student);
+                profileImage_drawer.setImageResource(R.drawable.ic_male_student);
+            }
+            else {
+                profileImage.setImageResource(R.drawable.ic_female_student);
+                profileImage_drawer.setImageResource(R.drawable.ic_female_student);
+            }
+
+        }
     }
 
     /* this methode receive edited image from StudentProfileActivity ,

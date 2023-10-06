@@ -119,20 +119,22 @@ public class DoctorProfileActivity extends AppCompatActivity {
         // Retrieve the selected image URI
         Uri imageUri = data.getData();
 
-        // Update profile image view
-        profileImage.setImageURI(imageUri);
+        if(imageUri != null) {
+            // Update profile image view
+            profileImage.setImageURI(imageUri);
 
-        // Save image URI in SharedPreferences and database
-        preferences.edit().putString("image_uri",String.valueOf(imageUri)).apply();
-        String email = preferences.getString("email", "");
+            // Save image URI in SharedPreferences and database
+            preferences.edit().putString("image_uri", String.valueOf(imageUri)).apply();
+            String email = preferences.getString("email", "");
 
-        Doctors doctor = new Doctors(null,email,null,null,null, String.valueOf(imageUri));
-        db.updateDoctorData(doctor);
+            Doctors doctor = new Doctors(null, email, null, null, null, String.valueOf(imageUri));
+            db.updateDoctorData(doctor);
 
-        // Set the result to send edited image to DoctorHomeActivity
-        Intent resultIntent = new Intent();
-        resultIntent.putExtra("image_uri", String.valueOf(imageUri));
-        setResult(RESULT_OK, resultIntent);
+            // Set the result to send edited image to DoctorHomeActivity
+            Intent resultIntent = new Intent();
+            resultIntent.putExtra("image_uri", String.valueOf(imageUri));
+            setResult(RESULT_OK, resultIntent);
+        }
 
     }
 
@@ -147,6 +149,7 @@ public class DoctorProfileActivity extends AppCompatActivity {
         String name = preferences.getString("fName", "");
         String email = preferences.getString("email", "");
         String phoneNumber = preferences.getString("phoneNumber", "");
+        String gender = preferences.getString("gender", "");
         String image_uri = preferences.getString("image_uri", "");
         String password = preferences.getString("password", "");
 
@@ -155,8 +158,16 @@ public class DoctorProfileActivity extends AppCompatActivity {
         tv_email.setText(email);
         et_password.setText(password);
         et_phone_number.setText(phoneNumber);
-        profileImage.setImageURI(Uri.parse(image_uri));
-
+        // Check if the image_uri is empty or null
+        if (image_uri != null && !image_uri.isEmpty()) {
+            profileImage.setImageURI(Uri.parse(image_uri));
+        } else {
+            // Set the default image if no image_uri is available
+            if(gender.equals("Male"))
+                profileImage.setImageResource(R.drawable.ic_male_doctor);
+            else
+                profileImage.setImageResource(R.drawable.ic_female_doctor);
+        }
 
     }
 

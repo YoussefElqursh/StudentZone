@@ -1,6 +1,7 @@
 package com.studentzone.Admin_Classes.Admin_Models;
 
 import android.content.Context;
+import android.net.Uri;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -119,18 +120,19 @@ public class   StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRe
          * Sets the data for a student by populating the appropriate views with the student's information.
          * Additionally, it assigns an onClickListener to the itemView to display detailed student information when clicked.
          **********************************************************************************************/
-
         public void setStudentData(Students student) {
-
             tv_student_name.setText(student.getFName());
             tv_student_aid.setText(student.getAcademic_Number());
 
-            if(student.getGender() != null  && student.getGender().equals("Male"))
-                iv.setImageResource(R.drawable.ic_male_student);
-            else
-                iv.setImageResource(R.drawable.ic_female_student);
-
-            itemView.setOnClickListener(v -> displayStudentDetailsDialog(student));
+            if (student.getImage_uri() != null && !student.getImage_uri().isEmpty()) {
+                iv.setImageURI(Uri.parse(student.getImage_uri()));
+            } else {
+                if (student.getGender().equals("Male")) {
+                    iv.setImageResource(R.drawable.ic_male_student);
+                } else {
+                    iv.setImageResource(R.drawable.ic_female_student);
+                }
+            }
         }
 
         public void onClick(View v) {

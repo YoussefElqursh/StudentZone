@@ -1,6 +1,7 @@
 package com.studentzone.Admin_Classes.Admin_Models;
 
 import android.content.Context;
+import android.net.Uri;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -117,10 +118,14 @@ public class   DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorRecy
             tv_doctor_name.setText(doctor.getFName());
             tv_doctor_password.setText(doctor.getPassword());
 
-            if (doctor.getGender() != null && doctor.getGender().equals("Male")) {
-                iv.setImageResource(R.drawable.ic_male_doctor);
+            if (doctor.getImage_uri() != null && !doctor.getImage_uri().isEmpty()) {
+                iv.setImageURI(Uri.parse(doctor.getImage_uri()));
             } else {
-                iv.setImageResource(R.drawable.ic_female_doctor);
+                if (doctor.getGender() != null && doctor.getGender().equals("Male")) {
+                    iv.setImageResource(R.drawable.ic_male_doctor);
+                } else {
+                    iv.setImageResource(R.drawable.ic_female_doctor);
+                }
             }
             itemView.setOnClickListener(v -> displayDoctorDetailsDialog(doctor));
         }

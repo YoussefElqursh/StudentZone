@@ -134,6 +134,7 @@ public class StudentProfileActivity extends AppCompatActivity {
         // Retrieve the selected image URI
         Uri imageUri = data.getData();
 
+        if(imageUri != null ){
         // Update profile image view
         profileImage.setImageURI(imageUri);
 
@@ -151,6 +152,8 @@ public class StudentProfileActivity extends AppCompatActivity {
         Intent resultIntent = new Intent();
         resultIntent.putExtra("image_uri", String.valueOf(imageUri));
         setResult(RESULT_OK, resultIntent);
+
+      }
     }
 
     /**fillOutProfileWithUserData()
@@ -168,6 +171,7 @@ public class StudentProfileActivity extends AppCompatActivity {
         String password = preferences.getString("password", "");
         String aid = preferences.getString("aid", "");
         String dept = preferences.getString("department", "");
+        String gender = preferences.getString("gender", "");
         String phoneNumber = preferences.getString("phoneNumber", "");
         String image_uri = preferences.getString("image_uri", "");
 
@@ -178,8 +182,17 @@ public class StudentProfileActivity extends AppCompatActivity {
         tv_aid.setText(aid);
         tv_dept.setText(dept);
         et_phone_number.setText(phoneNumber);
-        profileImage.setImageURI(Uri.parse(image_uri));
 
+        // Check if the image_uri is empty or null
+        if (image_uri != null && !image_uri.isEmpty()) {
+            profileImage.setImageURI(Uri.parse(image_uri));
+        } else {
+            // Set the default image if no image_uri is available
+            if(gender.equals("Male"))
+                profileImage.setImageResource(R.drawable.ic_male_student);
+            else
+                profileImage.setImageResource(R.drawable.ic_female_student);
+        }
 
     }
 

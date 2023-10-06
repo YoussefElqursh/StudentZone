@@ -21,6 +21,7 @@ import com.studentzone.Student_Classes.Student_Models.SubjectModel.SubjectModel;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Objects;
 
 public class My_DB extends SQLiteOpenHelper {
 
@@ -449,6 +450,7 @@ public class My_DB extends SQLiteOpenHelper {
         String aid;
         int department;
         String image_uri;
+        String gender;
 
         switch (kindCheckedId) {
             case -1:
@@ -484,7 +486,7 @@ public class My_DB extends SQLiteOpenHelper {
                 adminCursor.close();
                 break;
             case 1:
-                Cursor doctorCursor = db.query("" + Education_Table_Doctors + "", new String[]{Doctors_col_first_name,Doctors_col_last_name,Doctors_col_email,Doctors_col_id,Doctors_col_phone,Doctors_col_image_uri,Doctors_col_password},
+                Cursor doctorCursor = db.query("" + Education_Table_Doctors + "", new String[]{Doctors_col_first_name,Doctors_col_last_name,Doctors_col_email,Doctors_col_id,Doctors_col_phone,Doctors_col_image_uri,Doctors_col_password,Doctors_col_gender},
                         "" + Doctors_col_email + "=? AND " + Doctors_col_password + "=?", new String[]{email, password},
                         null, null, null, null);
 
@@ -498,6 +500,7 @@ public class My_DB extends SQLiteOpenHelper {
                     int phoneColumnIndex = doctorCursor.getColumnIndex(Doctors_col_phone);
                     int imageColumnIndex = doctorCursor.getColumnIndex(Doctors_col_image_uri);
                     int passwordColumnIndex = doctorCursor.getColumnIndex(Doctors_col_password);
+                    int genderColumnIndex = doctorCursor.getColumnIndex(Doctors_col_gender);
 
                     if (firstNameColumnIndex >= 0 && lastNameColumnIndex >= 0 ) {
                         firstName = doctorCursor.getString(firstNameColumnIndex);
@@ -507,12 +510,14 @@ public class My_DB extends SQLiteOpenHelper {
                         phoneNumber  = doctorCursor.getString(phoneColumnIndex);
                         image_uri  = doctorCursor.getString(imageColumnIndex);
                         Password  = doctorCursor.getString(passwordColumnIndex);
+                        gender  = doctorCursor.getString(genderColumnIndex);
 
                         pref.edit().putString("fName",firstName).apply();
                         pref.edit().putString("lName",lastName).apply();
                         pref.edit().putString("email",Email).apply();
                         pref.edit().putString("password",Password).apply();
                         pref.edit().putString("id",id).apply();
+                        pref.edit().putString("gender",gender).apply();
                         pref.edit().putString("image_uri",image_uri).apply();
                         pref.edit().putString("phoneNumber",phoneNumber).apply();
 
@@ -522,7 +527,7 @@ public class My_DB extends SQLiteOpenHelper {
                 doctorCursor.close();
                 break;
             case 2:
-                Cursor studentCursor = db.query("" + Education_Table_Students + "", new String[]{Student_col_first_name,Student_col_last_name,Student_col_email,Student_col_password ,Student_col_id,Student_col_phone,Student_col_academic_number,Student_col_dept,Student_col_image_uri},
+                Cursor studentCursor = db.query("" + Education_Table_Students + "", new String[]{Student_col_first_name,Student_col_last_name,Student_col_email,Student_col_password ,Student_col_id,Student_col_phone,Student_col_academic_number,Student_col_dept,Student_col_image_uri,Student_col_gender},
                         "" + Student_col_email + "=? AND " + Student_col_password + "=?", new String[]{email, password},
                         null, null, null, null);
 
@@ -537,6 +542,7 @@ public class My_DB extends SQLiteOpenHelper {
                     int deptColumnIndex = studentCursor.getColumnIndex(Student_col_dept);
                     int imageColumnIndex = studentCursor.getColumnIndex(Student_col_image_uri);
                     int passwordColumnIndex = studentCursor.getColumnIndex(Student_col_password);
+                    int genderColumnIndex = studentCursor.getColumnIndex(Student_col_gender);
 
                     if (firstNameColumnIndex >= 0 && lastNameColumnIndex >= 0) {
                         firstName = studentCursor.getString(firstNameColumnIndex);
@@ -548,6 +554,7 @@ public class My_DB extends SQLiteOpenHelper {
                         aid  = studentCursor.getString(aidColumnIndex);
                         department  = studentCursor.getInt(deptColumnIndex);
                         image_uri  = studentCursor.getString(imageColumnIndex);
+                        gender  = studentCursor.getString(genderColumnIndex);
 
 
                         pref.edit().putString("fName",firstName).apply();
@@ -557,6 +564,7 @@ public class My_DB extends SQLiteOpenHelper {
                         pref.edit().putString("id",id).apply();
                         pref.edit().putString("phoneNumber",phoneNumber).apply();
                         pref.edit().putString("aid",aid).apply();
+                        pref.edit().putString("gender",gender).apply();
                         pref.edit().putString("image_uri",image_uri).apply();
                         pref.edit().putString("department",getDepartmentNameById(department)).apply();
 
@@ -667,8 +675,9 @@ public class My_DB extends SQLiteOpenHelper {
                 String password = cursor.getString(cursor.getColumnIndex(Student_col_password));
                 String gender = cursor.getString(cursor.getColumnIndex(Student_col_gender));
                 String phone = cursor.getString(cursor.getColumnIndex(Student_col_phone));
+                String image_uri = cursor.getString(cursor.getColumnIndex(Student_col_image_uri));
 
-                Students students = new Students(fName,aid,email,password,gender,phone,dept);
+                Students students = new Students(fName,aid,email,password,gender,phone,dept,image_uri);
 
                 studentsArrayList.add(students);
 
@@ -763,7 +772,7 @@ public class My_DB extends SQLiteOpenHelper {
     }
 
 
-    /**display  Doctors()
+    /**display Doctors()
      * this method for display and search at the same time
      * ********************************************************************************************/
     @SuppressLint("Range")
@@ -789,8 +798,9 @@ public class My_DB extends SQLiteOpenHelper {
                 String password = cursor.getString(cursor.getColumnIndex(Doctors_col_password));
                 String gender = cursor.getString(cursor.getColumnIndex(Doctors_col_gender));
                 String phone = cursor.getString(cursor.getColumnIndex(Doctors_col_phone));
+                String image_uri = cursor.getString(cursor.getColumnIndex(Doctors_col_image_uri));
 
-                Doctors doctors = new Doctors(fName,email,password,gender,phone);
+                Doctors doctors = new Doctors(fName,email,password,gender,phone,image_uri);
 
                 doctorsArrayList.add(doctors);
 

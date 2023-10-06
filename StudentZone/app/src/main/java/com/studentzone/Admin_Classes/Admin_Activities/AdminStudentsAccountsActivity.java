@@ -439,5 +439,4 @@ public class AdminStudentsAccountsActivity extends AppCompatActivity {
             search_not_results_counter++;
         }
     }
-
 }

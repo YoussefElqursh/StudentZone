@@ -50,7 +50,7 @@ public class Students  {
         this.image_uri = image_uri;
     }
 
-    public Students(String FName, String academic_Number, String Email, String Password, String gender, String phone,int dept) {
+    public Students(String FName, String academic_Number, String Email, String Password, String gender, String phone,int dept,String image_uri) {
 
         this.FName = FName;
         this.Academic_Number = academic_Number;
@@ -59,6 +59,7 @@ public class Students  {
         this.gender = gender;
         this.Phone = phone;
         this.dept = dept;
+        this.image_uri = image_uri;
     }
 
     public Students(String FName, String academic_Number) {

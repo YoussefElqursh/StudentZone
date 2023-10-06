@@ -44,6 +44,7 @@ public class DoctorSettingsActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("userInfo",MODE_PRIVATE);
         String name = preferences.getString("fName", "");
         String image_uri = preferences.getString("image_uri", "");
+        String gender = preferences.getString("gender", "");
 
 
         TextView tv_userName = findViewById(R.id.profileName_tv);
@@ -51,6 +52,17 @@ public class DoctorSettingsActivity extends AppCompatActivity {
 
         tv_userName.setText(name);
         userImage.setImageURI(Uri.parse(image_uri));
+
+        tv_userName.setText(name);
+        if(!image_uri.isEmpty())
+            userImage.setImageURI(Uri.parse(image_uri));
+        else {
+            // Set the default image if no image_uri is available
+            if(gender.equals("Female"))
+                userImage.setImageResource(R.drawable.ic_female_doctor);
+            else
+                userImage.setImageResource(R.drawable.ic_male_doctor);
+        }
 
     }
 

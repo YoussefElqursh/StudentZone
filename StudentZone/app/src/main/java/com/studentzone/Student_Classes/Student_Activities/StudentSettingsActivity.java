@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,9 +18,10 @@ import com.studentzone.R;
 
 public class StudentSettingsActivity extends AppCompatActivity {
 
-    Button btn_back;
+    private Button btn_back;
     private ImageView userImage;
     private static final int PROFILE_IMAGE_REQUEST_CODE = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,17 +43,26 @@ public class StudentSettingsActivity extends AppCompatActivity {
     /** setUserNameAndImage()
      **********************************************************************************************/
     public void setUserNameAndImage(){
-
         SharedPreferences preferences = getSharedPreferences("userInfo",MODE_PRIVATE);
         String name = preferences.getString("fName", "");
         String image_uri = preferences.getString("image_uri", "");
+        String gender = preferences.getString("gender", "");
+
 
 
         TextView tv_userName = findViewById(R.id.profileName_tv);
         userImage = findViewById(R.id.profile_IV);
 
         tv_userName.setText(name);
-        userImage.setImageURI(Uri.parse(image_uri));
+        if(!image_uri.isEmpty())
+          userImage.setImageURI(Uri.parse(image_uri));
+        else {
+            // Set the default image if no image_uri is available
+            if(gender.equals("Female"))
+                userImage.setImageResource(R.drawable.ic_female_student);
+            else
+                userImage.setImageResource(R.drawable.ic_male_student);
+        }
 
     }
 
@@ -82,8 +93,10 @@ public class StudentSettingsActivity extends AppCompatActivity {
             String updatedImageUri = data.getStringExtra("image_uri");
 
             // Update the image in StudentSettingsActivity using the received imageUri
-            userImage.setImageURI(Uri.parse(updatedImageUri));
-
+            // Check if the image_uri is empty or null
+            if (updatedImageUri != null && !updatedImageUri.isEmpty()) {
+                userImage.setImageURI(Uri.parse(updatedImageUri));
+            }
         }
     }
 }

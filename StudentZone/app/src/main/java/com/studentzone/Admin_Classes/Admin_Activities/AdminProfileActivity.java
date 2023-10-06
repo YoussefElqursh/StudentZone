@@ -119,22 +119,30 @@ public class AdminProfileActivity extends AppCompatActivity {
         // Retrieve the selected image URI
         Uri imageUri = data.getData();
 
-        // Update profile image view
-        profileImage.setImageURI(imageUri);
+        if(imageUri != null){
+            // Update profile image view
+            profileImage.setImageURI(imageUri);
 
-        // Save image URI in SharedPreferences and database
-        preferences.edit().putString("image_uri",String.valueOf(imageUri)).apply();
+            // Save image URI in SharedPreferences and database
+            preferences.edit().putString("image_uri",String.valueOf(imageUri)).apply();
 
-        String email = preferences.getString("email", "");
+            // Set the result to send edited image to AdminHomeActivity & Sittings
+            Intent resultIntent = new Intent();
+            resultIntent.putExtra("image_uri", String.valueOf(imageUri));
+            setResult(RESULT_OK, resultIntent);
 
-        Admins admin = new Admins(email,null,null,null, String.valueOf(imageUri));
-        db.updateAdminData(admin); //update in data base
+
+            String email = preferences.getString("email", "");
+
+            Admins admin = new Admins(email,null,null,null, String.valueOf(imageUri));
+            db.updateAdminData(admin); //update in data base
+        }
 
 
-        // Set the result to send edited image to AdminHomeActivity & Sittings
-        Intent resultIntent = new Intent();
-        resultIntent.putExtra("image_uri", String.valueOf(imageUri));
-        setResult(RESULT_OK, resultIntent);
+
+
+
+
     }
 
     /** fillOutProfileWithUserData()
